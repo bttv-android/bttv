@@ -14,10 +14,22 @@ echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH"
 DX=$BUILDTOOLS_PATH/dx
 OUTDIR=sourceout
 echo ${SOURCES/.java/.class}
-$JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/ChatMessageDeligateWrapper.java &&
+$JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/ChatMessageDeligateWrapper.java source/bttv/Data.java source/bttv/ChannelEmoteData.java source/bttv/Emote.java &&
 cd $OUTDIR &&
 $DX --dex --output bttv/ChatMessageDeligateWrapper.dex bttv/ChatMessageDeligateWrapper.class &&
+$DX --dex --output bttv/Data.dex bttv/Data.class &&
+$DX --dex --output bttv/Data\$1.dex bttv/Data\$1.class &&
+$DX --dex --output bttv/ChannelEmoteData.dex bttv/ChannelEmoteData.class &&
+$DX --dex --output bttv/Emote.dex bttv/Emote.class &&
 $JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv/ChatMessageDeligateWrapper.dex &&
+$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv/Data.dex &&
+$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv/Data\$1.dex &&
+$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv/ChannelEmoteData.dex &&
+$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv/Emote.dex &&
 mkdir -p ../extracted/smali_classes10/bttv &&
-cp bttv/ChatMessageDeligateWrapper.smali ../extracted/smali_classes10/bttv/ChatMessageDeligateWrapper.smali
+cp bttv/ChatMessageDeligateWrapper.smali ../extracted/smali_classes10/bttv/. &&
+cp bttv/Data.smali ../extracted/smali_classes10/bttv/. &&
+cp bttv/Data\$1.smali ../extracted/smali_classes10/bttv/. &&
+cp bttv/ChannelEmoteData.smali ../extracted/smali_classes10/bttv/. &&
+cp bttv/Emote.smali ../extracted/smali_classes10/bttv/.
 

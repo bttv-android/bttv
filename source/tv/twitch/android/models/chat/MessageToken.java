@@ -4,6 +4,26 @@
  */
 package tv.twitch.android.models.chat;
 
+interface Useless {}
+
 public class MessageToken {
-    
+
+    public MessageToken(Useless u) {
+    }
+
+    public static final class EmoticonToken extends MessageToken {
+        public EmoticonToken(String text, String id) {
+            super(null);
+        }
+    }
+
+    public static final class TextToken extends MessageToken {
+        public TextToken(String str, AutoModMessageFlags autoModMessageFlags) {
+            super(null);
+        }
+        public final String getText() {
+            return "";
+        }
+    }
+
 }
