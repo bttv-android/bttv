@@ -1,0 +1,12 @@
+#!/bin/bash
+[ -z "$JAVA_PATH" ] && JAVA_PATH=java
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
+[ -z "$APK_FILE" ] && APK_FILE=twitch.apk
+
+echo "JAVA_PATH: $JAVA_PATH"
+echo "APKTOOL_PATH: $APKTOOL_PATH"
+echo "APK_FILE: $APK_FILE"
+
+# Disassemble
+$JAVA_PATH -Xmx256m -jar $APKTOOL_PATH d $APK_FILE -o disass $APK_FILE
+

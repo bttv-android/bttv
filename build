@@ -1,0 +1,21 @@
+#!/bin/bash
+
+[ -z "$JAVA_PATH" ] && JAVA_PATH=java
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
+[ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
+
+echo "JAVA_PATH: $JAVA_PATH"
+echo "APKTOOL_PATH: $APKTOOL_PATH"
+echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
+
+cd extracted
+
+APK_PATH=./dist/twitch.apk
+UBER_OUT=./dist/twitch-aligned-debugSigned.apk
+
+$JAVA_PATH -Xmx256m -jar $APKTOOL_PATH b . --use-aapt2 &&
+$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -a $APK_PATH &&
+rm $APK_PATH &&
+mv $UBER_OUT $APK_PATH &&
+echo "Done: $APK_PATH"
+

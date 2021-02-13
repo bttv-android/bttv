@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# You don't need to run this, if you want to build from patches!
+#
+
+JADX_PATH=/opt/jadx/bin/jadx 
+
+$JADX_PATH -e --show-bad-code --no-imports --deobf -d decompiled ./twitch.apk &&
+sed -i "s/        jcenter()/        google()\n        jcenter()/; s/classpath 'com.android.tools.build:gradle:1.5.0'/classpath 'com.android.tools.build:gradle:4.0.2'/" ./decompiled/build.gradle &&
+sed -i "s/^    jcenter()/    google()\n    jcenter()/;" ./decompiled/build.gradle
+
