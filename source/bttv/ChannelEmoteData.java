@@ -1,6 +1,5 @@
 package bttv;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -23,17 +22,8 @@ public class ChannelEmoteData {
         JSONArray channelEmotes = reader.getJSONArray("channelEmotes");
         JSONArray sharedEmotes = reader.getJSONArray("sharedEmotes");
 
-        ArrayList<Emote> realChannelEmotes = new ArrayList<>(channelEmotes.length());
-        for (int i = 0; i < channelEmotes.length(); i++) {
-            JSONObject obj = channelEmotes.getJSONObject(i);
-            realChannelEmotes.add(Emote.fromJson(obj));
-        }
-
-        ArrayList<Emote> realSharedEmotes = new ArrayList<>(sharedEmotes.length());
-        for (int i = 0; i < sharedEmotes.length(); i++) {
-            JSONObject obj = sharedEmotes.getJSONObject(i);
-            realSharedEmotes.add(Emote.fromJson(obj));
-        }
+        List<Emote> realChannelEmotes = Emote.fromJSONArray(channelEmotes);
+        List<Emote> realSharedEmotes = Emote.fromJSONArray(sharedEmotes);
 
         return new ChannelEmoteData(id, realChannelEmotes, realSharedEmotes);
     }

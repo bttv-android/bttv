@@ -5,6 +5,10 @@
 package org.json;
 
 public class JSONArray {
+
+    public JSONArray(String s) {
+    }
+
     public int length() {
         return 0;
     }

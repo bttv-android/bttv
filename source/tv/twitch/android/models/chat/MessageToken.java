@@ -4,7 +4,8 @@
  */
 package tv.twitch.android.models.chat;
 
-interface Useless {}
+interface Useless {
+}
 
 public class MessageToken {
 
@@ -21,9 +22,15 @@ public class MessageToken {
         public TextToken(String str, AutoModMessageFlags autoModMessageFlags) {
             super(null);
         }
+
         public final String getText() {
             return "";
         }
+
+        public final AutoModMessageFlags getFlags() {
+            return null;
+        }
+
     }
 
 }
