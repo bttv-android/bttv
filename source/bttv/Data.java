@@ -38,6 +38,7 @@ public class Data {
 
         String url = "https://api.betterttv.net/3/cached/users/twitch/" + id;
         if (globalFirst) {
+            // fetch global emotes first
             url = "https://api.betterttv.net/3/cached/emotes/global";
         }
 
@@ -48,7 +49,7 @@ public class Data {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.i("BTTVDataFetchChannelEmotes", "Call failed", e);
+                Log.w("BTTVDataFetchChannelEmotes", "Call failed", e);
             }
 
             @Override
@@ -56,36 +57,50 @@ public class Data {
                 try (ResponseBody responseBody = response.body()) {
                     if (!response.isSuccessful())
                         throw new IOException("Unexpected code " + response);
-                    String res = responseBody.string();
-                    Log.d("BTTVDataFetchChannelEmotes", res);
+
+                    String json = responseBody.string();
+                    Log.d("BTTVDataFetchChannelEmotesResponse", json);
+
                     if (globalFirst) {
-                        Data.globalEmotes = Emote.fromJSONArray(res);
-                        for (Emote emote : Data.globalEmotes) {
-                            emoteMap.put(emote.code, emote);
-                        }
+                        setGlobal(Emote.fromJSONArray(json));
                         ensureChannelEmotes(id); // now fetch it for real
                     } else {
-                        ChannelEmoteData channelEmoteData = ChannelEmoteData.fromJson(res);
-                        Set<String> set = new HashSet<>();
-                        for (Emote emote : channelEmoteData.channelEmotes) {
-                            set.add(emote.code);
-                            emoteMap.put(emote.code, emote);
-                        }
-                        for (Emote emote : channelEmoteData.sharedEmotes) {
-                            set.add(emote.code);
-                            emoteMap.put(emote.code, emote);
-                        }
-                        for (Emote emote : Data.globalEmotes) {
-                            set.add(emote.code);
-                            emoteMap.put(emote.code, emote);
-                        }
-
-                        Data.availEmoteSetMap.put(id, set);
+                        addChannel(id, ChannelEmoteData.fromJson(json));
                     }
                 }
             }
         });
 
+    }
+
+    /**
+     * Adds Channel to SetMap by creating a Set with their channel- and shared-
+     * aswell as the global emotes. Also adds new emotes to emoteMap.
+     */
+    private static void addChannel(int id, ChannelEmoteData chEmData) {
+        Set<String> set = new HashSet<>();
+        for (Emote emote : chEmData.channelEmotes) {
+            set.add(emote.code);
+            emoteMap.put(emote.code, emote);
+        }
+        for (Emote emote : chEmData.sharedEmotes) {
+            set.add(emote.code);
+            emoteMap.put(emote.code, emote);
+        }
+        for (Emote emote : Data.globalEmotes) {
+            set.add(emote.code);
+            emoteMap.put(emote.code, emote);
+        }
+
+        Data.availEmoteSetMap.put(id, set);
+    }
+
+    /** Set global emote list and add them to emoteMap */
+    private static void setGlobal(List<Emote> emotes) {
+        Data.globalEmotes = emotes;
+        for (Emote emote : Data.globalEmotes) {
+            emoteMap.put(emote.code, emote);
+        }
     }
 
 }

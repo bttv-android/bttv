@@ -22,16 +22,19 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
     @Override
     public List<MessageToken> getTokens() {
         List<MessageToken> orig = super.getTokens();
+
+        // Don't add Emotes, when we dont have the chnnel's emotes (yet)
+        // (unintended side-effect: global emotes won't work either)
         if (!Data.availEmoteSetMap.containsKey(Data.currentBroadcasterId)) {
             return orig;
         }
         Set<String> enabledEmotes = Data.availEmoteSetMap.get(Data.currentBroadcasterId);
-        Log.d("BTTVChatMessageWrapper",
-                "getTokens(), channel: " + Data.currentBroadcasterId + " enabled: " + enabledEmotes.toString());
+        Log.d("BTTVChatMessageWrapperMessage", Data.currentBroadcasterId + " enabled: " + enabledEmotes.toString());
 
         ArrayList<MessageToken> newTokens = new ArrayList<>();
 
         for (MessageToken token : orig) {
+            // possible issue: emotes won't work in e.g. MentionToken or BitsToken
             if (!(token instanceof TextToken)) {
                 newTokens.add(token);
                 continue;
@@ -39,19 +42,18 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
 
             TextToken text = (TextToken) token;
             String[] words = text.getText().split(" ");
-            Log.d("BTTVChatMessageWrapper", Arrays.toString(words));
+            Log.d("BTTVChatMessageWrapperMessage", Arrays.toString(words));
 
-            int mergeUntil = 0;
+            int mergeStart = 0;
             for (int i = 0; i < words.length; i++) {
                 String word = words[i];
                 if (enabledEmotes.contains(word)) {
-                    Log.d("BTTVChatMessageWrapper", word);
-                    String merge = "";
-                    for (int j = mergeUntil; j < i; j++) {
-                        merge += (words[j] + " ");
-                    }
+
+                    Log.d("BTTVChatMessageWrapperMessage", "found " + word);
+
+                    String merge = mergePrevious(words, mergeStart, i);
                     newTokens.add(new TextToken(merge, text.getFlags()));
-                    mergeUntil = i + 1;
+                    mergeStart = i + 1;
 
                     Emote emote = Data.emoteMap.get(word);
                     if (emote == null) {
@@ -63,18 +65,21 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
                 }
             }
 
-            String merge = "";
-            for (int j = mergeUntil; j < words.length; j++) {
-                merge += (words[j] + " ");
-            }
+            String merge = mergePrevious(words, mergeStart, words.length);
             newTokens.add(new TextToken(merge, text.getFlags()));
-            Log.d("BTTVChatMessageWrapper", Arrays.toString(newTokens.toArray()));
-
         }
 
         Log.d("BTTVChatMessageWrapper", Arrays.toString(newTokens.toArray()));
 
         return newTokens;
+    }
+
+    private static String mergePrevious(String[] words, int start, int end) {
+        String merge = start != 0 ? " " : ""; // space when we added an emote before it
+        for (int j = start; j < end; j++) {
+            merge += (words[j] + " ");
+        }
+        return merge;
     }
 
 }
