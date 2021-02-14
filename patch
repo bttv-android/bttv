@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "usage: ./patch <filename>.patch" && exit 1
+
+cd disass
+git init
+git add .
+git apply --index ../$1

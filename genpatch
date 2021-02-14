@@ -1,0 +1,6 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "filename missing" && exit 1
+
+cd extracted
+git diff --binary base > ../$1

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -z "$1" ] && echo "usage: ./build <directory>" && echo "e.g. ./build disass" && exit 1
+
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
@@ -8,7 +10,7 @@ echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
-cd extracted
+cd $1
 
 APK_PATH=./dist/twitch.apk
 UBER_OUT=./dist/twitch-aligned-debugSigned.apk
