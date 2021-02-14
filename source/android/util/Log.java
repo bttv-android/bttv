@@ -24,4 +24,12 @@ public class Log {
     public static int w(String tag, String msg, Throwable e) {
         return 0;
     }
+
+    public static int e(String tag, String msg) {
+        return 0;
+    }
+
+    public static int e(String tag, String msg, Throwable e) {
+        return 0;
+    }
 }

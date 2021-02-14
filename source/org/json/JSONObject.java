@@ -12,6 +12,10 @@ public class JSONObject {
         return null;
     }
 
+    public JSONObject getJSONObject(String key) {
+        return null;
+    }
+
     public String getString(String key) {
         return null;
     }

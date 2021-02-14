@@ -5,7 +5,6 @@ import tv.twitch.chat.ChatMessageInfo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 import android.util.Log;
 import tv.twitch.android.models.chat.MessageToken;
@@ -24,12 +23,9 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
         List<MessageToken> orig = super.getTokens();
 
         // Don't add Emotes, when we dont have the chnnel's emotes (yet)
-        // (unintended side-effect: global emotes won't work either)
-        if (!Data.availEmoteSetMap.containsKey(Data.currentBroadcasterId)) {
+        if (!Data.channelHasEmotes(Data.currentBroadcasterId)) {
             return orig;
         }
-        Set<String> enabledEmotes = Data.availEmoteSetMap.get(Data.currentBroadcasterId);
-        Log.d("BTTVChatMessageWrapperMessage", Data.currentBroadcasterId + " enabled: " + enabledEmotes.toString());
 
         ArrayList<MessageToken> newTokens = new ArrayList<>();
 
@@ -42,12 +38,11 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
 
             TextToken text = (TextToken) token;
             String[] words = text.getText().split(" ");
-            Log.d("BTTVChatMessageWrapperMessage", Arrays.toString(words));
 
             int mergeStart = 0;
             for (int i = 0; i < words.length; i++) {
                 String word = words[i];
-                if (enabledEmotes.contains(word)) {
+                if (Data.isEmote(word, Data.currentBroadcasterId)) {
 
                     Log.d("BTTVChatMessageWrapperMessage", "found " + word);
 
@@ -55,7 +50,7 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
                     newTokens.add(new TextToken(merge, text.getFlags()));
                     mergeStart = i + 1;
 
-                    Emote emote = Data.emoteMap.get(word);
+                    Emote emote = Data.getEmote(word);
                     if (emote == null) {
                         newTokens.add(new TextToken(word, text.getFlags()));
 
