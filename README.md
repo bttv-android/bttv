@@ -1,4 +1,4 @@
-# BTTV-android
+# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square)
 
 A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
