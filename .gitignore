@@ -4,5 +4,3 @@ disass
 dist
 decompiled
 sourceout
-*.patch
-patchfiles

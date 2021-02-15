@@ -4,11 +4,12 @@
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
 [ -z "$BUILDTOOLS_PATH" ] && BUILDTOOLS_PATH=~/Android/Sdk/build-tools/30.0.3
 [ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
-
+[ -z "$TARGETDIR" ] && TARGETDIR=extracted
 
 echo "JAVA_PATH: $JAVA_PATH"
 echo "JAVAC_PATH: $JAVAC_PATH"
 echo "BAKSMALI_PATH: $BAKSMALI_PATH"
+echo "TARGETDIR: $TARGETDIR"
 echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH"
 
 DX=$BUILDTOOLS_PATH/dx
@@ -25,9 +26,9 @@ for file in bttv/*.dex; do
   $JAVA_PATH -jar $BAKSMALI_PATH d -o . $file
 done
 
-mkdir -p ../extracted/smali_classes10/bttv
+mkdir -p ../$TARGETDIR/smali_classes10/bttv
 
 for file in bttv/*.smali; do
   echo $file
-  cp $file ../extracted/smali_classes10/$file
+  cp $file ../$TARGETDIR/smali_classes10/$file
 done

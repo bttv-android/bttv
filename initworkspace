@@ -1,0 +1,74 @@
+#!/bin/bash
+
+STEPS=7
+
+[ -z "$JAVA_PATH" ] && JAVA_PATH=java
+[ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
+[ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
+[ -z "$BUILDTOOLS_PATH" ] && BUILDTOOLS_PATH=~/Android/Sdk/build-tools/30.0.3
+[ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
+
+echo "=== Verifing tools (1/$STEPS) ===" &&
+echo "If an errr occurs during this step make" &&
+echo "you have installed all of the needed tools" &&
+echo "and set the environment variables properly" &&
+echo "" &&
+echo "JAVA_PATH: $JAVA_PATH" &&
+echo "JAVAC_PATH: $JAVAC_PATH" &&
+echo "APKTOOL_PATH: $APKTOOL_PATH" &&
+echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH" &&
+echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH" &&
+echo "BAKSMALI_PATH: $BAKSMALI_PATH" &&
+echo "" && echo "java:" && echo "" &&
+$JAVA_PATH --version &&
+echo "" && echo "javac:" && echo "" &&
+$JAVAC_PATH --version &&
+echo "" && echo "apktool:" && echo "" &&
+$JAVA_PATH -jar $APKTOOL_PATH --version &&
+echo "" && echo "uber apk signer:" && echo "" &&
+$JAVA_PATH -jar $UBER_APK_SIGNER_PATH --version &&
+echo "" && echo "dx (android sdk build tools):" && echo "" &&
+$BUILDTOOLS_PATH/dx --version &&
+echo "" && echo "baksmali:" && echo "" &&
+$JAVA_PATH -jar $BAKSMALI_PATH --version &&
+echo "" &&
+echo "" &&
+echo " => Seems fine" &&
+echo "" &&
+echo "=== Disassemble twitch.apk (2/$STEPS) ===" &&
+./disassemble &&
+echo "" &&
+echo "=== Create reference for diffs (3/$STEPS) ===" &&
+cd disass &&
+git init &&
+git add . &&
+git commit --quiet -m "base" &&
+git tag base &&
+git branch javaonly &&
+git checkout javaonly &&
+cd .. &&
+echo "" &&
+echo "=== Build source (4/$STEPS) ===" &&
+TARGETDIR=disass ./buildsource &&
+echo "" &&
+echo "=== Create reference (5/$STEPS) ===" &&
+cd disass &&
+git add . &&
+git commit --quiet -m "new revision" &&
+cd .. &&
+./genmonke &&
+cd disass &&
+git merge javaonly -m "merge: new revision" &&
+cd .. &&
+echo "" &&
+echo "=== Apply monke.patch (6/$STEPS) ===" &&
+./patch monke.patch &&
+cd disass &&
+git commit -m "applied monke" &&
+cd .. &&
+echo "" &&
+echo "=== Build apk (7/$STEPS) ===" &&
+./build disass &&
+echo "" &&
+echo "done, new apk: ./disass/dist/twitch.apk"
