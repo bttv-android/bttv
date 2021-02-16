@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 import tv.twitch.android.core.adapters.HeaderConfig;
 import tv.twitch.android.core.adapters.SectionHeaderDisplayConfig;
 import tv.twitch.android.settings.base.BaseSettingsPresenter;
 import tv.twitch.android.settings.base.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
+import tv.twitch.android.shared.ui.menus.checkable.CheckableGroupModel;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
 import tv.twitch.android.shared.ui.menus.core.MenuSection;
@@ -58,5 +60,24 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
                                 0b1111111100, null);
                 menuSection.updateHeaderConfig(headerCfg);
                 binder.bindModels(getSettingModels(), getMSettingActionListener(), menuSection, null);
+        }
+
+        @Override
+        public SettingsPreferencesController getPrefController() {
+                return new SettingsPreferencesController() {
+
+                        @Override
+                        public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
+                                Log.d("BTTVSettingsPC", "updatePreferenceBooleanState() z: " + z + " toggleMenuModel: "
+                                                + toggleMenuModel.toString());
+                        }
+
+                        @Override
+                        public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
+                                Log.d("BTTVSettingsPC", "updatePreferenceCheckedState() checkableGroupModel: "
+                                                + checkableGroupModel.toString());
+                        }
+
+                };
         }
 }
