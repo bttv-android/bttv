@@ -1895,6 +1895,69 @@ index 8e6f024ef..5167b7277 100644
      <string name="zero">0</string>
 +    <string name="bttv_settings">BTTV</string>
  </resources>
+diff --git a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
+index 46cdaa88e..80bda4a8c 100644
+--- a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
++++ b/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
+@@ -87,2 +87,4 @@
+ 
++.field public static final enum BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
++
+ 
+@@ -92,3 +94,3 @@
+ 
+-    const/16 v0, 0x24
++    const/16 v0, 0x25
+ 
+@@ -544,2 +546,10 @@
+ 
++    new-instance v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
++    const-string v2, "BTTVEmotesEnabled"
++    const/16 v3, 0x24
++    invoke-direct {v1, v2, v3}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
++    const/16 v2, 0x24
++    aput-object v1, v0, v2
++
++
+     sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+index 05da4fc8e..a19823d39 100644
+--- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
++++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+@@ -740,2 +740,4 @@
+ 
++    invoke-static {p2}, Lbttv/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
++
+     .line 20148
+@@ -743,2 +745,4 @@
+ 
++    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
++
+     .line 20149
+@@ -1280,2 +1284,9 @@
+ 
++    # BTTV Settings
++    const-class v1, Lbttv/SettingsFragment;
++    invoke-static {}, Lbttv/SettingsFragmentProvider;->getInstance()Lbttv/SettingsFragmentProvider;
++    move-result-object v2
++    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
++    #
++
+     const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
+@@ -1900,2 +1911,4 @@
+ 
++    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
++
+     .line 20437
+diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
+index 2b3485afa..548dcc52c 100644
+--- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
++++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
+@@ -7272,2 +7272,4 @@
+ 
++    invoke-static {v4}, Lbttv/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
++
+     .line 4481
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 index df9936922..da6c74dcc 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
@@ -1959,7 +2022,7 @@ index de0cdee9e..ed0658ff5 100644
 +
  
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-index 4af5e656e..396faa0de 100644
+index 4af5e656e..5d3d0a10a 100644
 --- a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 +++ b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 @@ -49,2 +49,13 @@
@@ -1968,8 +2031,8 @@ index 4af5e656e..396faa0de 100644
 +    sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +    if-ne p1, p2, :not_bttv
 +
-+    new-instance p2, Ltv/twitch/android/settings/notifications/NotificationsSettingsFragment;
-+    invoke-direct {p2}, Ltv/twitch/android/settings/notifications/NotificationsSettingsFragment;-><init>()V
++    new-instance p2, Lbttv/SettingsFragment;
++    invoke-direct {p2}, Lbttv/SettingsFragment;-><init>()V
 +    
 +    goto :goto_0
 +
