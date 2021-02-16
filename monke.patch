@@ -1869,16 +1869,8 @@ index ff0b9e965..10655be88 100644
      <color name="youtube">#ffcd201f</color>
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
-diff --git a/res/values/public.xml b/res/values/public.xml
-index dc7a7b511..5bc061c36 100644
---- a/res/values/public.xml
-+++ b/res/values/public.xml
-@@ -10821,2 +10821,3 @@
-     <public type="string" name="zero" id="0x7f130c07" />
-+    <public type="string" name="bttv_settings" id="0x7f130c08" />
-     <public type="style" name="AccentLine" id="0x7f140000" />
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 8e6f024ef..5167b7277 100644
+index 8e6f024ef..95ec1153d 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -264,3 +264,3 @@ http://www.apache.org/licenses/LICENSE-2.0
@@ -1891,10 +1883,6 @@ index 8e6f024ef..5167b7277 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
-@@ -3218,2 +3218,3 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
-     <string name="zero">0</string>
-+    <string name="bttv_settings">BTTV</string>
- </resources>
 diff --git a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..80bda4a8c 100644
 --- a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
@@ -2021,15 +2009,6 @@ index 83ceb7602..20b363a32 100644
 +    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(I)V
 +
      return p1
-diff --git a/smali_classes7/tv/twitch/android/settings/R$string.smali b/smali_classes7/tv/twitch/android/settings/R$string.smali
-index de0cdee9e..ed0658ff5 100644
---- a/smali_classes7/tv/twitch/android/settings/R$string.smali
-+++ b/smali_classes7/tv/twitch/android/settings/R$string.smali
-@@ -5876,2 +5876,4 @@
- 
-+.field public static final bttv_settings:I = 0x7f130c08
-+
- 
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 index 4af5e656e..5d3d0a10a 100644
 --- a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
@@ -2053,10 +2032,10 @@ index 4af5e656e..5d3d0a10a 100644
 +    const/16 v0, 0x0
      invoke-virtual {v1, v2, p2, p1, v0}, Ltv/twitch/android/util/FragmentUtil$Companion;->addOrRecreateFragment(Landroidx/fragment/app/FragmentActivity;Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-index 6dd936f4a..05e823a47 100644
+index 6dd936f4a..0a1129c92 100644
 --- a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -609,2 +609,32 @@
+@@ -609,2 +609,24 @@
  
 +    # BTTV Settings
 +    invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
@@ -2069,15 +2048,7 @@ index 6dd936f4a..05e823a47 100644
 +
 +    move-result-object v1
 +
-+    sget v2, Ltv/twitch/android/settings/R$string;->bttv_settings:I
-+
-+    invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
-+
-+    move-result-object v2
-+
-+    const-string v1, "activity.getString(R.string.bttv_settings)"
-+
-+    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++    const-string v2, "BTTV"
 +
 +    sget-object v5, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +
