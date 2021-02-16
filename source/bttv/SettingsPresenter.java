@@ -41,8 +41,18 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
                 List<MenuModel> settingsModels = getSettingModels();
                 settingsModels.clear();
                 boolean enableBTTVEmoteDefaultValue = true; // TODO
+                boolean enableBTTVGGifEmoteDefaultValue = true; // TODO
+                boolean enableFFZEmoteDefaultValue = true; // TODO
                 settingsModels.add(new ToggleMenuModel("Enable BTTV Emotes", "Why would you disable this?", null,
                                 enableBTTVEmoteDefaultValue, false, null, null, false, null, null, null,
+                                SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null,
+                                0b1011111110100, null));
+                settingsModels.add(new ToggleMenuModel("Enable BTTV Gif Emotes", null, null,
+                                enableBTTVGGifEmoteDefaultValue, false, null, null, false, null, null, null,
+                                SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null,
+                                0b1011111110100, null));
+                settingsModels.add(new ToggleMenuModel("Enable FrankerFaceZ Emotes", null, null,
+                                enableFFZEmoteDefaultValue, false, null, null, false, null, null, null,
                                 SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null,
                                 0b1011111110100, null));
 
