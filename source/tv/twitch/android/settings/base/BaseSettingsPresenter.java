@@ -3,6 +3,7 @@ package tv.twitch.android.settings.base;
 import java.util.List;
 
 import androidx.fragment.app.FragmentActivity;
+import tv.twitch.android.shared.ui.menus.SettingActionListener;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
@@ -29,6 +30,22 @@ public class BaseSettingsPresenter {
     }
 
     public List<MenuModel> getSettingModels() {
+        return null;
+    }
+
+    public void bindSettings() {
+
+    }
+
+    public final MenuAdapterBinder getAdapterBinder() {
+        return null;
+    }
+
+    public final FragmentActivity getActivity() {
+        return null;
+    }
+
+    public final SettingActionListener getMSettingActionListener() {
         return null;
     }
 }

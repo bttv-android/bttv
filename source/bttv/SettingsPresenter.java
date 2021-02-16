@@ -5,11 +5,14 @@ import java.util.List;
 import javax.inject.Inject;
 
 import androidx.fragment.app.FragmentActivity;
+import tv.twitch.android.core.adapters.HeaderConfig;
+import tv.twitch.android.core.adapters.SectionHeaderDisplayConfig;
 import tv.twitch.android.settings.base.BaseSettingsPresenter;
 import tv.twitch.android.settings.base.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
+import tv.twitch.android.shared.ui.menus.core.MenuSection;
 import tv.twitch.android.shared.ui.menus.togglemenu.ToggleMenuModel;
 
 public final class SettingsPresenter extends BaseSettingsPresenter {
@@ -41,6 +44,19 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
                                 SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null,
                                 0b1011111110100, null));
 
-                // bindSettings();
+                bindSettings();
+        }
+
+        @Override
+        public void bindSettings() {
+                MenuAdapterBinder binder = getAdapterBinder();
+                binder.getAdapter().removeAllSections();
+
+                MenuSection menuSection = new MenuSection(getSettingModels(), null, null, 0b110, null);
+                HeaderConfig headerCfg = new HeaderConfig(SectionHeaderDisplayConfig.IF_CONTENT,
+                                "Fine tune your BTTV experience", null, 0, 0, null, null, false, null, null,
+                                0b1111111100, null);
+                menuSection.updateHeaderConfig(headerCfg);
+                binder.bindModels(getSettingModels(), getMSettingActionListener(), menuSection, null);
         }
 }
