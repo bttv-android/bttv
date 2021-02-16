@@ -1920,6 +1920,15 @@ index 46cdaa88e..80bda4a8c 100644
 +
 +
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
+index 1990cf7a7..56d133f53 100644
+--- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
++++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
+@@ -168,2 +168,4 @@
+ 
++    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
++
+     .line 87
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 index 05da4fc8e..a19823d39 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali

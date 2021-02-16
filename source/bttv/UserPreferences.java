@@ -8,7 +8,7 @@ public class UserPreferences {
     private static SharedPreferences prefs = null;
     private static SharedPreferences.Editor editor = null;
 
-    private static void ensureLoaded(Context ctx) {
+    public static void ensureLoaded(Context ctx) {
         if (prefs == null) {
             prefs = ctx.getSharedPreferences("BTTV", 0);
         }
