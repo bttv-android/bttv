@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import android.content.Context;
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 import tv.twitch.android.core.adapters.HeaderConfig;
@@ -18,6 +19,10 @@ import tv.twitch.android.shared.ui.menus.core.MenuSection;
 import tv.twitch.android.shared.ui.menus.togglemenu.ToggleMenuModel;
 
 public final class SettingsPresenter extends BaseSettingsPresenter {
+
+	private static final String EnableBTTVEmotesEventName = "enable_bttv_emotes";
+	private static final String EnableBTTVGifEmotesEventName = "enable_bttv_gif_emotes";
+	private static final String EnableFFZEmotesEventName = "enable_ffz_emotes";
 
 	@Inject
 	public SettingsPresenter(FragmentActivity fragmentActivity, MenuAdapterBinder menuAdapterBinder,
@@ -38,20 +43,20 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 
 	@Override
 	public void updateSettingModels() {
+		Context ctx = getActivity().getApplicationContext();
 		List<MenuModel> settingsModels = getSettingModels();
 		settingsModels.clear();
-		boolean enableBTTVEmoteDefaultValue = true; // TODO
-		boolean enableBTTVGGifEmoteDefaultValue = true; // TODO
-		boolean enableFFZEmoteDefaultValue = true; // TODO
+
 		settingsModels.add(new ToggleMenuModel("Enable BTTV Emotes", "Why would you disable this?", null,
-				enableBTTVEmoteDefaultValue, false, null, null, false, null, null, null,
-				SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011111110100, null));
-		settingsModels.add(new ToggleMenuModel("Enable BTTV Gif Emotes", null, null, enableBTTVGGifEmoteDefaultValue,
-				false, null, null, false, null, null, null,
-				SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011111110100, null));
-		settingsModels.add(new ToggleMenuModel("Enable FrankerFaceZ Emotes", null, null, enableFFZEmoteDefaultValue,
-				false, null, null, false, null, null, null,
-				SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011111110100, null));
+				UserPreferences.getBTTVEmotesEnabled(ctx), false, null, EnableBTTVEmotesEventName, false, null, null,
+				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
+		settingsModels.add(new ToggleMenuModel("Enable BTTV Gif Emotes", null, null,
+				UserPreferences.getBTTVGifEmotesEnabled(ctx), false, null, EnableBTTVGifEmotesEventName, false, null,
+				null, null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100,
+				null));
+		settingsModels.add(new ToggleMenuModel("Enable FrankerFaceZ Emotes", null, null,
+				UserPreferences.getFFZEmotesEnabled(ctx), false, null, EnableFFZEmotesEventName, false, null, null,
+				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
 
 		bindSettings();
 	}
@@ -68,22 +73,42 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		binder.bindModels(getSettingModels(), getMSettingActionListener(), menuSection, null);
 	}
 
+	class SettingsPreferencesControllerImpl implements SettingsPreferencesController {
+		Context ctx;
+
+		SettingsPreferencesControllerImpl(Context ctx) {
+			this.ctx = ctx;
+		}
+
+		@Override
+		public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
+
+			switch (toggleMenuModel.getEventName()) {
+				case EnableBTTVEmotesEventName:
+					UserPreferences.setBTTVEmotesEnabled(ctx, z);
+					break;
+				case EnableBTTVGifEmotesEventName:
+					UserPreferences.setBTTVGifEmotesEnabled(ctx, z);
+					break;
+				case EnableFFZEmotesEventName:
+					UserPreferences.setFFZEmotesEnabled(ctx, z);
+					break;
+				default:
+					Log.w("BTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
+					Log.w("BTTVSettingsPC", toggleMenuModel.getEventName());
+			}
+		}
+
+		@Override
+		public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
+			Log.d("BTTVSettingsPC",
+					"updatePreferenceCheckedState() checkableGroupModel: " + checkableGroupModel.toString());
+		}
+
+	}
+
 	@Override
 	public SettingsPreferencesController getPrefController() {
-		return new SettingsPreferencesController() {
-
-			@Override
-			public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
-				Log.d("BTTVSettingsPC",
-						"updatePreferenceBooleanState() z: " + z + " toggleMenuModel: " + toggleMenuModel.toString());
-			}
-
-			@Override
-			public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
-				Log.d("BTTVSettingsPC",
-						"updatePreferenceCheckedState() checkableGroupModel: " + checkableGroupModel.toString());
-			}
-
-		};
+		return new SettingsPreferencesControllerImpl(getActivity().getApplicationContext());
 	}
 }

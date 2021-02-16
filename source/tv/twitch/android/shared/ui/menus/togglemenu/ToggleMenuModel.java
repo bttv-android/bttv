@@ -14,4 +14,8 @@ public class ToggleMenuModel extends FormValueDelegate<Boolean> {
             View.OnClickListener titleClickListener, int i, DefaultConstructorMarker defaultConstructorMarker) {
     }
 
+    public final String getEventName() {
+        return null;
+    }
+
 }
