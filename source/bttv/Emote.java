@@ -14,27 +14,35 @@ public class Emote {
     String id;
     String code;
     String url;
+    String imageType;
+    int source;
 
-    public Emote(String id, String code, String url) {
+    public Emote(int source, String id, String code, String url, String imageType) {
         this.id = id;
         this.code = code;
         this.url = url;
+        this.imageType = imageType;
     }
 
     public static Emote fromJson(JSONObject jsonObject, int source) {
         String id = jsonObject.getString("id");
         String code = jsonObject.getString("code");
         String url;
+        String imageType = "";
+
         if (source == BTTV) {
             url = "https://cdn.betterttv.net/emote/" + id + "/1x";
+            imageType = jsonObject.getString("imageType");
         } else if (source == FFZ) {
             JSONObject images = jsonObject.getJSONObject("images");
             url = images.getString("1x");
+            imageType = "png";
         } else {
             Log.w("BTTVEmoteFromJson", "source unknown: " + source);
             url = "";
+            imageType = "";
         }
-        return new Emote(id, code, url);
+        return new Emote(source, id, code, url, imageType);
     }
 
     public static List<Emote> fromJSONArray(String json, int source) {
@@ -53,6 +61,6 @@ public class Emote {
 
     @Override
     public String toString() {
-        return "Emote(" + id + ", " + code + ", " + url + ")";
+        return "Emote(" + id + ", " + code + ", " + url + " imageType: " + imageType + ")";
     }
 }

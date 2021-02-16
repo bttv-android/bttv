@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import android.content.Context;
 import android.util.Log;
 
 public class Data {
     public static int currentBroadcasterId = -1;
+    private static Context ctx;
 
     private static ConcurrentHashMap<Integer, Set<String>> availBTTVEmoteSetMap = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Integer, Set<String>> availFFZEmoteSetMap = new ConcurrentHashMap<>();
@@ -26,29 +28,53 @@ public class Data {
         ensureChannelEmotes(id);
     }
 
+    public static void setContext(Context ctx) {
+        Data.ctx = ctx;
+        Log.i("BTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
+    }
+
     public static boolean channelHasEmotes(int id) {
-        boolean hasBTTVEmotes = availBTTVEmoteSetMap.containsKey(id);
-        boolean hasFFZEmotes = availFFZEmoteSetMap.containsKey(id);
-        boolean globalBTTVLoaded = !globalBTTVEmotes.isEmpty();
-        boolean globalFFZLoaded = !globalFFZEmotes.isEmpty();
+        boolean bttvEnabled = UserPreferences.getBTTVEmotesEnabled(ctx);
+        boolean ffzEnabled = UserPreferences.getFFZEmotesEnabled(ctx);
+
+        boolean hasBTTVEmotes = bttvEnabled && availBTTVEmoteSetMap.containsKey(id);
+        boolean hasFFZEmotes = ffzEnabled && availFFZEmoteSetMap.containsKey(id);
+        boolean globalBTTVLoaded = bttvEnabled && !globalBTTVEmotes.isEmpty();
+        boolean globalFFZLoaded = ffzEnabled && !globalFFZEmotes.isEmpty();
         return hasBTTVEmotes || hasFFZEmotes || globalBTTVLoaded || globalFFZLoaded;
     }
 
     public static boolean isEmote(String code, int channelId) {
-        if (globalFFZEmotes.containsKey(code)) {
-            return true;
+        boolean bttvEnabled = UserPreferences.getBTTVEmotesEnabled(ctx);
+        boolean bttvGifEnabled = UserPreferences.getBTTVGifEmotesEnabled(ctx);
+        boolean ffzEnabled = UserPreferences.getFFZEmotesEnabled(ctx);
+
+        if (ffzEnabled) {
+            if (globalFFZEmotes.containsKey(code)) {
+                return true;
+            }
+            Set<String> ffzSet = availFFZEmoteSetMap.get(channelId);
+            if (ffzSet != null && ffzSet.contains(code)) {
+                return true;
+            }
         }
-        if (globalBTTVEmotes.containsKey(code)) {
-            return true;
+
+        if (bttvEnabled) {
+            Emote emote = globalBTTVEmotes.get(code);
+            if (emote != null) {
+                if (!emote.imageType.equals("gif") || bttvGifEnabled) {
+                    return true;
+                }
+            }
+            Set<String> bttvSet = availBTTVEmoteSetMap.get(channelId);
+            if (bttvSet != null && bttvSet.contains(code)) {
+                emote = codeEmoteMap.get(code);
+                if (emote != null && (!emote.imageType.equals("gif") || bttvGifEnabled)) {
+                    return true;
+                }
+            }
         }
-        Set<String> bttvSet = availBTTVEmoteSetMap.get(channelId);
-        if (bttvSet != null && bttvSet.contains(code)) {
-            return true;
-        }
-        Set<String> ffzSet = availFFZEmoteSetMap.get(channelId);
-        if (ffzSet != null && ffzSet.contains(code)) {
-            return true;
-        }
+
         return false;
     }
 
