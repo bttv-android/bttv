@@ -56,9 +56,7 @@ echo "=== Create reference (5/$STEPS) ===" &&
 cd disass &&
 git add . &&
 git commit --quiet -m "new revision" &&
-cd .. &&
-./genmonke &&
-cd disass &&
+git checkout master &&
 git merge javaonly -m "merge: new revision" &&
 cd .. &&
 echo "" &&
