@@ -5,12 +5,33 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 > This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC or Dan Salvato LLC!
 > THE SOFTWARE IS PROVIDED "AS IS", **WITHOUT WARRANTY OF ANY KIND**!
 
-## Build it yourself
+# Build it yourself
 
 > This patch is meant to be applied to version **10.1.0** of the official twitch app
 > Make soure you use this version before you create an issue!
 
-## Prerequisites:
+## Easy way: Docker
+
+### Prerequisites:
+
+Docker
+
+### How to:
+
+> Note: The docker image is quite big (3 GB), I know. Feel free to submit a PR.
+
+1. Pull the builder `docker pull fosefx/bttv-android-builder`
+2. Get the Twitch App's apk file (e.g from [here][evozi]), drop it in this directory and call it "twitch.apk"
+   > Please make sure you get it from a non-shady source!
+3. Run the builder: `docker run --rm -ti -v path/to/twitch.apk:/usr/build/twitch.apk -v /path/to/dist:/usr/build/dist fosefx/bttv-android-builder`
+   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist fosefx/bttv-android-builder`
+4. The `dist` directory will contain the patched apk file!
+5. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
+6. Remove the builder again: `docker rmi fosefx/bttv-android-builder`
+
+## Hard way
+
+### Prerequisites:
 
 | Tool                                                                 | Env variable             | Default                                        |
 | -------------------------------------------------------------------- | ------------------------ | ---------------------------------------------- |
@@ -22,6 +43,8 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
 | [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
 
+### How to:
+
 > If you get stuck at any point, just remove the `disass` dir and try again
 
 0. Download and install prerequisites
@@ -32,9 +55,9 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
    > (Adb installed and device connected? Try the : `./install` script)
 
-## For contributers
+# For contributers
 
-> Read the patch it yourself part above aswell!
+> Read the patch it yourself part (the hard way) above aswell!
 
 Do the following once:
 
