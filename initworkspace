@@ -42,6 +42,10 @@ echo "" &&
 echo "=== Create reference for diffs (3/$STEPS) ===" &&
 cd disass &&
 git init &&
+echo ".gitignore" > .gitignore &&
+echo "build" >> .gitignore &&
+echo "dist" >> .gitignore &&
+echo "" >> .gitignore &&
 git add . &&
 git commit --quiet -m "base" &&
 git tag base &&
