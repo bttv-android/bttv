@@ -1,6 +1,0 @@
-#!/bin/bash
-
-cd extracted
-git checkout master
-git diff --binary -U1 javaonly > ../monke.patch
-echo "done"

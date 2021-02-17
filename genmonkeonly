@@ -1,0 +1,12 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "usage: ./genmonkeyonly <targetdir>" && echo "e.g.: ./genmonkeyonly extracted" && exit 1
+
+cd $1 &&
+if [ $(git status --short | wc -l) = "0" ]; then
+    echo "No changes in $1 found, no need to generate monke.patch"
+    exit 1
+fi
+git checkout master &&
+git diff --binary -U1 javaonly > ../monke.patch &&
+echo "done"

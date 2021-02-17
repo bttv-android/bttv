@@ -54,7 +54,7 @@ git checkout javaonly &&
 cd .. &&
 echo "" &&
 echo "=== Build source (4/$STEPS) ===" &&
-TARGETDIR=disass ./buildsource &&
+./buildsource disass &&
 echo "" &&
 echo "=== Create reference (5/$STEPS) ===" &&
 cd disass &&
