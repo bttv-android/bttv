@@ -1,4 +1,4 @@
-# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square)
+# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/fosefx/bttv-android-builder?label=bttv-android-builder&logo=docker&style=flat-square)
 
 A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
@@ -17,8 +17,6 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 Docker
 
 ### How to:
-
-> Note: The docker image is quite big (3 GB), I know. Feel free to submit a PR.
 
 1. Pull the builder `docker pull fosefx/bttv-android-builder`
 2. Get the Twitch App's apk file (e.g from [here][evozi]), drop it in this directory and call it "twitch.apk"
