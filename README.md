@@ -7,6 +7,8 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
 ## Build it yourself
 
+> This patch is meant to be applied to version **10.1.0** of the official twitch app
+
 ## Prerequisites:
 
 | Tool                                                                 | Env variable             | Default                                        |
