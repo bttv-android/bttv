@@ -8,6 +8,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 ## Build it yourself
 
 > This patch is meant to be applied to version **10.1.0** of the official twitch app
+> Make soure you use this version before you create an issue!
 
 ## Prerequisites:
 
@@ -40,7 +41,7 @@ Do the following once:
 1. Intialize the workspace as described above
 2. Rename `disass` to `extracted`
 
-3. Now you can build the java source code in (`source`) using `./buildsource`.
+3. Now you can build the java source code in (`source`) using `./buildsource extracted`.
    This will result in the creation of a directory called `sourceout`.
    It will also automaticly dex the class files and baksmali them.
    I recommend to scim through the script so you can set your environment variables.
@@ -90,28 +91,18 @@ You need to nothing else, you can commit your code and start a pull request!
 
 (i.e. changes to resources)
 
-Just run the `./genmonkey` script and commit it. Your PR should only contain changes in `monke.patch`.
+Just run the `./genmonkeyonly` script and commit it. Your PR should only contain changes in `monke.patch`.
 
 #### Both source and monkey patch changes
 
-Do the following:
+Run `./genmonkefull` script and commit it. Your PR will contain both changes to `source/` and `monke.patch`.
+If, for whatever reason, the script fails¹ you might need to `cd` into `extracted` run `git checkout master` and `git stash pop` to get your changes back.
 
-1. `cd` into `extraced`
-2. Stash your changes using `git stash`
-   > Your changes will appear as gone. Dont panic!
-   > You can get them back using `git stash pop`, like you will see later.
-3. Change the branch to `javaonly` using `git checkout javaonly`
-4. Go back to the main repo and run `./buildsources`
-5. Back in `extracted` create a commit like this: `git commit -m "new changes"`
-6. Go back to the master branch: `git checkout master`
-7. Get your changes back: `git stash pop`
-8. Run `./genmonke` form the main repo
-
-Your pull request will contain changes in `sources` and `monke.patch`!
+¹: If the script stops, because it detected no changes, you do not need to do that.
 
 # Best practices for contributers
 
-Everytime you get a new version of the code (e.g. using git pull) remove `extraced` and run `./initworkspace` again.
+Everytime you get a new version of the code (e.g. using git pull or git checkout) remove `extraced` and run `./initworkspace` again.
 
 [baksmali]: https://github.com/JesusFreke/smali
 [uber]: https://github.com/patrickfav/uber-apk-signer/releases/latest
