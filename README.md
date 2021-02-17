@@ -1,4 +1,4 @@
-# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square) ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/fosefx/bttv-android-builder?label=bttv-android-builder&logo=docker&style=flat-square)
+# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square)
 
 A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
@@ -18,14 +18,14 @@ Docker
 
 ### How to:
 
-1. Pull the builder `docker pull fosefx/bttv-android-builder`
+1. Pull the builder `docker pull ghcr.io/bttv-android/builder`
 2. Get the Twitch App's apk file (e.g from [here][evozi]), drop it in this directory and call it "twitch.apk"
    > Please make sure you get it from a non-shady source!
-3. Run the builder: `docker run --rm -ti -v path/to/twitch.apk:/usr/build/twitch.apk -v /path/to/dist:/usr/build/dist fosefx/bttv-android-builder`
-   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist fosefx/bttv-android-builder`
+3. Run the builder: `docker run --rm -ti -v path/to/twitch.apk:/usr/build/twitch.apk -v /path/to/dist:/usr/build/dist ghcr.io/bttv-android/builder`
+   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder`
 4. The `dist` directory will contain the patched apk file!
 5. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
-6. Remove the builder again: `docker rmi fosefx/bttv-android-builder`
+6. Remove the builder again: `docker rmi ghcr.io/bttv-android/builder`
 
 ## Hard way
 
