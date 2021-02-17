@@ -1,0 +1,29 @@
+#!/bin/bash
+
+[ -z "$1" ] && echo "usage: ./genmonkefull <targetdir>" && echo "e.g.: ./genmonkefull extracted" && exit 1
+
+cd $1
+if [ $(git status --short | wc -l) = "0" ]; then
+    echo "No changes in $1 found, no need to generate monke.patch"
+    exit 1
+fi
+git stash &&
+git checkout javaonly &&
+cd .. &&
+./buildsource $1 &&
+cd $1 &&
+if [ $(git status --short | wc -l) = "0" ]; then
+    echo ""
+    echo "== No changes caused by sources, please run ./genmokeonly instead! =="
+    echo ""
+    exit 1
+    git checkout master
+    git stash pop --quiet
+    exit 1
+fi
+git add . &&
+git commit -m "new sources" &&
+git checkout master &&
+git stash pop --quiet &&
+cd .. &&
+./genmonkeonly $1
