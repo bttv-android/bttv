@@ -1,0 +1,10 @@
+Dockerfile
+*.apk
+extracted
+disass
+dist
+decompiled
+sourceout
+.gitignore
+README.md
+

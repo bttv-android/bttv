@@ -14,6 +14,7 @@ echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH"
 
 DX=$BUILDTOOLS_PATH/dx
 OUTDIR=sourceout
+mkdir -p $OUTDIR
 $JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/*.java &&
 cd $OUTDIR
 
