@@ -21,9 +21,9 @@ echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH" &&
 echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH" &&
 echo "BAKSMALI_PATH: $BAKSMALI_PATH" &&
 echo "" && echo "java:" && echo "" &&
-$JAVA_PATH --version &&
+$JAVA_PATH -version &&
 echo "" && echo "javac:" && echo "" &&
-$JAVAC_PATH --version &&
+$JAVAC_PATH -version &&
 echo "" && echo "apktool:" && echo "" &&
 $JAVA_PATH -jar $APKTOOL_PATH --version &&
 echo "" && echo "uber apk signer:" && echo "" &&
@@ -73,4 +73,4 @@ echo "" &&
 echo "=== Build apk (7/$STEPS) ===" &&
 ./build disass &&
 echo "" &&
-echo "done, new apk: ./disass/dist/twitch.apk"
+[ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk
