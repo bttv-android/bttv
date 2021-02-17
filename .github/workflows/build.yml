@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: wget https://storage.evozi.com/apk/dl/16/09/11/tv.twitch.android.app_1001000.apk -O twitch.apk
-      - run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder
+      - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
+      - run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

@@ -13,11 +13,19 @@ echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 cd $1
 
 APK_PATH=./dist/twitch.apk
-UBER_OUT=./dist/twitch-aligned-debugSigned.apk
 
 $JAVA_PATH -Xmx256m -jar $APKTOOL_PATH b . --use-aapt2 &&
-$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -a $APK_PATH &&
-rm $APK_PATH &&
-mv $UBER_OUT $APK_PATH &&
+
+if [ -z "$KS" ]; then
+
+	$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -a $APK_PATH
+	rm $APK_PATH &&
+	mv ./dist/twitch-aligned-debugSigned.apk $APK_PATH
+else
+	$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -a $APK_PATH --ks $KS --ksAlias bttv-android --ksPass $KSPASS --ksKeyPass $KSPASS
+	rm $APK_PATH &&
+	mv ./dist/twitch-aligned-signed.apk $APK_PATH
+fi
+
 echo "Done: $APK_PATH"
 
