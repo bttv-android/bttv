@@ -12,6 +12,6 @@ jobs:
         uses: whoan/docker-build-with-cache-action@v5
         with:
           username: bttv-android
-          password: "${{ secrets.GITHUB_TOKEN }}"
+          password: "${{ secrets.BGITHUB_TOKEN }}"
           registry: ghcr.io
           image_name: builder
