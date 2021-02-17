@@ -1883,6 +1883,38 @@ index 926e0ed2d..4390fd697 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
+diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+similarity index 99%
+rename from smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+rename to smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+index 488095a6b..3c091ed97 100644
+--- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
++++ b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+@@ -770,2 +770,4 @@
+ 
++    invoke-static {p2}, Lbttv/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
++
+     .line 20385
+@@ -773,2 +775,4 @@
+ 
++    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
++
+     .line 20386
+@@ -1330,2 +1334,9 @@
+ 
++    # BTTV Settings
++    const-class v1, Lbttv/SettingsFragment;
++    invoke-static {}, Lbttv/SettingsFragmentProvider;->getInstance()Lbttv/SettingsFragmentProvider;
++    move-result-object v2
++    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
++    #
++
+     const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
+@@ -1985,2 +1996,4 @@
+ 
++    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
++
+     .line 20677
 diff --git a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..80bda4a8c 100644
 --- a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
@@ -1917,35 +1949,6 @@ index 8e91d3332..b17a01612 100644
 +    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
 +
      .line 87
-diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-index 488095a6b..3c091ed97 100644
---- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-+++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-@@ -770,2 +770,4 @@
- 
-+    invoke-static {p2}, Lbttv/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
-+
-     .line 20385
-@@ -773,2 +775,4 @@
- 
-+    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
-+
-     .line 20386
-@@ -1330,2 +1334,9 @@
- 
-+    # BTTV Settings
-+    const-class v1, Lbttv/SettingsFragment;
-+    invoke-static {}, Lbttv/SettingsFragmentProvider;->getInstance()Lbttv/SettingsFragmentProvider;
-+    move-result-object v2
-+    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
-+    #
-+
-     const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
-@@ -1985,2 +1996,4 @@
- 
-+    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
-+
-     .line 20677
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
 index 917a89b6c..0bac8a8af 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
