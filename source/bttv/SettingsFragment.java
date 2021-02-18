@@ -15,7 +15,7 @@ public class SettingsFragment extends BaseSettingsFragment {
         if (this.presenter != null) {
             return this.presenter;
         }
-        Log.e("BTTVSettingsFragment", "Presenter not initialized");
+        Log.e("LBTTVSettingsFragment", "Presenter not initialized");
         throw null;
     }
 }

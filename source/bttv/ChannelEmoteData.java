@@ -17,7 +17,7 @@ public class ChannelEmoteData {
     }
 
     public static ChannelEmoteData fromJson(String json) {
-        Log.i("BTTVChannelEmoteData", json);
+        Log.i("LBTTVChannelEmoteData", json);
         JSONObject reader = new JSONObject(json);
         JSONArray channelEmotes = reader.getJSONArray("channelEmotes");
         JSONArray sharedEmotes = reader.getJSONArray("sharedEmotes");

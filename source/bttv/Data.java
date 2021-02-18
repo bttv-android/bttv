@@ -10,8 +10,10 @@ import android.content.Context;
 import android.util.Log;
 
 public class Data {
+    public static final String bttvVersion = "v0.0.2-alpha";
+
     public static int currentBroadcasterId = -1;
-    private static Context ctx;
+    public static Context ctx;
 
     private static ConcurrentHashMap<Integer, Set<String>> availBTTVEmoteSetMap = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<Integer, Set<String>> availFFZEmoteSetMap = new ConcurrentHashMap<>();
@@ -23,14 +25,14 @@ public class Data {
     private static HashMap<String, Emote> globalFFZEmotes = new HashMap<>();
 
     public static void setCurrentBroadcasterId(int id) {
-        Log.i("BTTVDataSetCurrentBroadcasterId", currentBroadcasterId + " -> " + id);
+        Log.i("LBTTVDataSetCurrentBroadcasterId", currentBroadcasterId + " -> " + id);
         Data.currentBroadcasterId = id;
         ensureChannelEmotes(id);
     }
 
     public static void setContext(Context ctx) {
         Data.ctx = ctx;
-        Log.i("BTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
+        Log.i("LBTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
     }
 
     public static boolean channelHasEmotes(int id) {
@@ -111,7 +113,7 @@ public class Data {
         }
 
         Data.availFFZEmoteSetMap.put(id, set);
-        Log.d("BTTVData", "Channel FFZ: " + set.toString());
+        Log.d("LBTTVData", "Channel FFZ: " + set.toString());
     }
 
     // BTTV
@@ -129,7 +131,7 @@ public class Data {
         }
 
         Data.availBTTVEmoteSetMap.put(id, set);
-        Log.d("BTTVData", "Channel BTTV: " + set.toString());
+        Log.d("LBTTVData", "Channel BTTV: " + set.toString());
 
     }
 
@@ -142,10 +144,10 @@ public class Data {
         }
         if (source == Emote.BTTV) {
             Data.globalBTTVEmotes = map;
-            Log.d("BTTVData", "Global BTTV: " + map.keySet().toString());
+            Log.d("LBTTVData", "Global BTTV: " + map.keySet().toString());
         } else if (source == Emote.FFZ) {
             Data.globalFFZEmotes = map;
-            Log.d("BTTVData", "Global FFZ: " + map.keySet().toString());
+            Log.d("LBTTVData", "Global FFZ: " + map.keySet().toString());
         }
     }
 

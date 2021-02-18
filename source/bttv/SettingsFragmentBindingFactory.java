@@ -21,22 +21,22 @@ public class SettingsFragmentBindingFactory implements SettingsFragmentBinding.F
 
     public static void setFragmentActivityProvider(Provider<FragmentActivity> fragmentActivityProvider) {
         SettingsFragmentBindingFactory.fragmentActivityProvider = fragmentActivityProvider;
-        Log.d("BTTVDI", "got fragmentActivityProvider");
+        Log.d("LBTTVDI", "got fragmentActivityProvider");
     }
 
     public static void setActivityModule(ActivityModule activityModule) {
         SettingsFragmentBindingFactory.activityModule = activityModule;
-        Log.d("BTTVDI", "got activityModule");
+        Log.d("LBTTVDI", "got activityModule");
     }
 
     public static void setSettingsActivityModule(SettingsActivityModule activityModule) {
         SettingsFragmentBindingFactory.settingsActivityModule = activityModule;
-        Log.d("BTTVDI", "got settingsActivityModule");
+        Log.d("LBTTVDI", "got settingsActivityModule");
     }
 
     public static void setPageViewTrackerProvider(Provider<PageViewTracker> pageViewTrackerProvider) {
         SettingsFragmentBindingFactory.pageViewTrackerProvider = pageViewTrackerProvider;
-        Log.d("BTTVDI", "got pageViewTrackerProvider");
+        Log.d("LBTTVDI", "got pageViewTrackerProvider");
     }
 
     private static MenuAdapterBinder getMenuAdapterBinder() {
@@ -53,19 +53,19 @@ public class SettingsFragmentBindingFactory implements SettingsFragmentBinding.F
     @Override
     public SettingsFragmentBinding create(SettingsFragment fragment) {
         if (fragmentActivityProvider == null) {
-            Log.e("BTTVDI", "fragmentActivityProvider null");
+            Log.e("LBTTVDI", "fragmentActivityProvider null");
             return null;
         }
         if (activityModule == null) {
-            Log.e("BTTVDI", "activityModule null");
+            Log.e("LBTTVDI", "activityModule null");
             return null;
         }
         if (settingsActivityModule == null) {
-            Log.e("BTTVDI", "settingsActivityModule null");
+            Log.e("LBTTVDI", "settingsActivityModule null");
             return null;
         }
         if (pageViewTrackerProvider == null) {
-            Log.e("BTTVDI", "pageViewTrackerProvider null");
+            Log.e("LBTTVDI", "pageViewTrackerProvider null");
             return null;
         }
 

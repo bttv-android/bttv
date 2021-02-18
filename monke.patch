@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 471846e9e..bed8fbbfd 100644
+index 471846e9e..96efe6c3f 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
@@ -26,6 +26,10 @@ index 471846e9e..bed8fbbfd 100644
 -        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+@@ -207,2 +207,3 @@
+         <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
++        <activity android:name="bttv.UpdaterActivity" />
+     </application>
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
 --- a/res/drawable-v23/background_splash.xml
@@ -98,8 +102,61 @@ nbcXiRg3yUYW<;ZmtZv7kv)^Z!o#0g||L%IYdeh6DH_84BH!prw
 literal 0
 HcmV?d00001
 
+diff --git a/res/layout/bttv_updater_activity.xml b/res/layout/bttv_updater_activity.xml
+new file mode 100644
+index 000000000..631e667f1
+--- /dev/null
++++ b/res/layout/bttv_updater_activity.xml
+@@ -0,0 +1,47 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:id="@+id/bttv_updater_activity"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++
++    <TextView
++        android:id="@+id/bttv_updater_activity_title"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="20dp"
++        android:layout_marginLeft="20dp"
++        android:layout_marginTop="20dp"
++        android:layout_marginEnd="20dp"
++        android:layout_marginRight="20dp"
++        android:layout_marginBottom="5dp"
++        android:text="Downloading "
++        android:textSize="24sp"
++        android:textStyle="bold" />
++
++    <TextView
++        android:id="@+id/bttv_updater_activity_body"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_marginStart="20dp"
++        android:layout_marginLeft="20dp"
++        android:layout_marginEnd="20dp"
++        android:layout_marginRight="20dp"
++        android:layout_weight="1"
++        android:scrollbars="vertical"
++        android:text="TextView" />
++
++    <ProgressBar
++        android:id="@+id/bttv_updater_activity_pb"
++        style="?android:attr/progressBarStyleHorizontal"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="20dp"
++        android:layout_marginLeft="20dp"
++        android:layout_marginTop="10dp"
++        android:layout_marginEnd="20dp"
++        android:layout_marginRight="20dp"
++        android:layout_marginBottom="30dp" />
++</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..0605b7e80 100644
+index e5846b005..5c139c38c 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
@@ -1869,6 +1926,30 @@ index ff0b9e965..10655be88 100644
      <color name="youtube">#ffcd201f</color>
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
+diff --git a/res/values/ids.xml b/res/values/ids.xml
+index 20cdbeb5b..2d81a8a0d 100644
+--- a/res/values/ids.xml
++++ b/res/values/ids.xml
+@@ -2645,2 +2645,6 @@
+     <item type="id" name="zero_corner_chip" />
++    <item type="id" name="bttv_updater_activity" />
++    <item type="id" name="bttv_updater_activity_title" />
++    <item type="id" name="bttv_updater_activity_body" />
++    <item type="id" name="bttv_updater_activity_pb" />
+ </resources>
+diff --git a/res/values/public.xml b/res/values/public.xml
+index 75f8ef1fc..d04243807 100644
+--- a/res/values/public.xml
++++ b/res/values/public.xml
+@@ -11694,2 +11694,7 @@
+     <public type="xml" name="splits0" id="0x7f160009" />
++    <public type="id" name="bttv_updater_activity" id="0x7f0bfffa" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0bfffc" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0bfffd" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0efffa" />
+ </resources>
+\ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
 index 926e0ed2d..4390fd697 100644
 --- a/res/values/strings.xml
@@ -1958,6 +2039,15 @@ index 917a89b6c..0bac8a8af 100644
 +    invoke-static {v4}, Lbttv/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +
      .line 4512
+diff --git a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
+index af30ac1ea..7a31259f4 100644
+--- a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
++++ b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
+@@ -1388,2 +1388,4 @@
+ 
++    invoke-static {p0, p1}, Lbttv/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
++    
+     .line 339
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 index df9936922..da6c74dcc 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
