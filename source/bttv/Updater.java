@@ -74,8 +74,8 @@ public class Updater {
         return null;
     }
 
-    private static void askUser(final Activity activity, final PersistentBannerPresenter presenter, String newVersion,
-            String body, String apkUrl, String htmlUrl) {
+    private static void askUser(final Activity activity, final PersistentBannerPresenter presenter,
+            final String newVersion, final String body, final String apkUrl, final String htmlUrl) {
 
         presenter.setListener(new PersistentBannerPresenterListener() {
 
@@ -90,6 +90,9 @@ public class Updater {
                 presenter.setShouldShowUpdateBanner(false);
 
                 Intent intent = new Intent(activity, UpdaterActivity.class);
+                intent.putExtra("new_version", newVersion);
+                intent.putExtra("body", body);
+                intent.putExtra("url", apkUrl);
                 activity.startActivity(intent);
 
             }

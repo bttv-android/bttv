@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 471846e9e..96efe6c3f 100644
+index 471846e9e..82357013d 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
@@ -26,9 +26,16 @@ index 471846e9e..96efe6c3f 100644
 -        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-@@ -207,2 +207,3 @@
+@@ -207,2 +207,10 @@
          <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
 +        <activity android:name="bttv.UpdaterActivity" />
++        <provider 
++            android:name="androidx.core.content.FileProvider"
++            android:authorities="tv.twitch.bttv-android.app.provider"
++            android:exported="false"
++            android:grantUriPermissions="true" >
++            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"></meta-data>
++        </provider>
      </application>
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
@@ -1964,6 +1971,16 @@ index 926e0ed2d..4390fd697 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
+diff --git a/res/xml/provider_paths.xml b/res/xml/provider_paths.xml
+new file mode 100644
+index 000000000..ceb5472f0
+--- /dev/null
++++ b/res/xml/provider_paths.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<paths>
++    <cache-path name="internal_cache" path="" />
++</paths>
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 similarity index 99%
 rename from smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
