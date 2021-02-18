@@ -11,17 +11,11 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-// This class is OOP at it's finest :/
 public class Network {
 
-    private static final String HOST = "https://api.betterttv.net";
+    private static final String BTTV_API_HOST = "https://api.betterttv.net";
 
-    //
-    // Util
-    //
-
-    private static void get(String path, Callback cb) {
-        String url = HOST + path;
+    public static void get(String url, Callback cb) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(cb);
@@ -38,8 +32,8 @@ public class Network {
 
         @Override
         public final void onFailure(Call call, IOException e) {
-            Log.e("BTTVNetworkFail", "Call failed", e);
-            Log.e("BTTVNetworkFail", call.toString());
+            Log.e("LBTTVNetworkFail", "Call failed", e);
+            Log.e("LBTTVNetworkFail", call.toString());
         }
 
         @Override
@@ -49,7 +43,7 @@ public class Network {
                     throw new IOException("Unexpected code " + response);
 
                 String json = responseBody.string();
-                Log.d("BTTVNetworkJson", json);
+                Log.d("LBTTVNetworkJson", json);
 
                 if (channelId == -2) {
                     // Global
@@ -69,19 +63,20 @@ public class Network {
     }
 
     public static void getBTTVGlobalEmotes() {
-        get("/3/cached/emotes/global", new ResponseHandler(Emote.BTTV, -2));
+        get(BTTV_API_HOST + "/3/cached/emotes/global", new ResponseHandler(Emote.BTTV, -2));
     }
 
     public static void getFFZGlobalEmotes() {
-        get("/3/cached/frankerfacez/emotes/global", new ResponseHandler(Emote.FFZ, -2));
+        get(BTTV_API_HOST + "/3/cached/frankerfacez/emotes/global", new ResponseHandler(Emote.FFZ, -2));
     }
 
     public static void getBTTVChannelEmotes(int channelId) {
-        get("/3/cached/users/twitch/" + channelId, new ResponseHandler(Emote.BTTV, channelId));
+        get(BTTV_API_HOST + "/3/cached/users/twitch/" + channelId, new ResponseHandler(Emote.BTTV, channelId));
     }
 
     public static void getFFZChannelEmotes(int channelId) {
-        get("/3/cached/frankerfacez/users/twitch/" + channelId, new ResponseHandler(Emote.FFZ, channelId));
+        get(BTTV_API_HOST + "/3/cached/frankerfacez/users/twitch/" + channelId,
+                new ResponseHandler(Emote.FFZ, channelId));
     }
 
 }

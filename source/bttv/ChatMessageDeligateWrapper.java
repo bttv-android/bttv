@@ -44,7 +44,7 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
                 String word = words[i];
                 if (Data.isEmote(word, Data.currentBroadcasterId)) {
 
-                    Log.d("BTTVChatMessageWrapperMessage", "found " + word);
+                    Log.d("LBTTVChatMessageWrapperMessage", "found " + word);
 
                     String merge = mergePrevious(words, mergeStart, i);
                     newTokens.add(new TextToken(merge, text.getFlags()));
@@ -64,7 +64,7 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
             newTokens.add(new TextToken(merge, text.getFlags()));
         }
 
-        Log.d("BTTVChatMessageWrapper", Arrays.toString(newTokens.toArray()));
+        Log.d("LBTTVChatMessageWrapper", Arrays.toString(newTokens.toArray()));
 
         return newTokens;
     }

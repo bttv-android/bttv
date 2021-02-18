@@ -94,14 +94,14 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 					UserPreferences.setFFZEmotesEnabled(ctx, z);
 					break;
 				default:
-					Log.w("BTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
-					Log.w("BTTVSettingsPC", toggleMenuModel.getEventName());
+					Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
+					Log.w("LBTTVSettingsPC", toggleMenuModel.getEventName());
 			}
 		}
 
 		@Override
 		public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
-			Log.d("BTTVSettingsPC",
+			Log.d("LBTTVSettingsPC",
 					"updatePreferenceCheckedState() checkableGroupModel: " + checkableGroupModel.toString());
 		}
 

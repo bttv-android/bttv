@@ -38,7 +38,7 @@ public class Emote {
             url = images.getString("1x");
             imageType = "png";
         } else {
-            Log.w("BTTVEmoteFromJson", "source unknown: " + source);
+            Log.w("LBTTVEmoteFromJson", "source unknown: " + source);
             url = "";
             imageType = "";
         }

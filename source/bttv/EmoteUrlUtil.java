@@ -8,7 +8,7 @@ public class EmoteUrlUtil {
             String realId = id.split("BTTV-")[1];
             Emote emote = Data.getEmoteById(realId);
             if (emote == null) {
-                Log.w("BTTVEmoteUrlUtil", "emote is null, fall back to bttv url, id was " + id);
+                Log.w("LBTTVEmoteUrlUtil", "emote is null, fall back to bttv url, id was " + id);
                 return "https://cdn.betterttv.net/emote/" + realId + "/1x"; // gamble
             }
             return emote.url;

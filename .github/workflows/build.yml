@@ -18,9 +18,9 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: New Release
-          draft: true
-          prerelease: true
+          body: ${{ github.event.head_commit.message }}
+          draft: false
+          prerelease: false
       - run: echo "version_tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV 
       - name: Upload Release Apk
         id: upload-release-asset

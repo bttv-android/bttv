@@ -8,16 +8,30 @@ import java.io.IOException;
 
 public class Response implements java.io.Closeable {
 
+    public static class Builder {
+        public Builder body(ResponseBody responseBody) {
+            return null;
+        }
+
+        public Response build() {
+            return null;
+        }
+    }
+
     @Override
     public void close() throws IOException {
     }
 
     public ResponseBody body() {
-        return new ResponseBody();
+        return null;
     }
 
     public boolean isSuccessful() {
         return false;
+    }
+
+    public final Builder newBuilder() {
+        return null;
     }
 
 }
