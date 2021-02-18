@@ -80,8 +80,8 @@ public class UpdaterActivity extends AppCompatActivity {
                     sink.writeAll(response.body().source());
                     sink.close();
 
-                    Intent intent = new Intent("android.intent.action.VIEW");
-                    Uri uri = FileProvider.getUriForFile(UpdaterActivity.this, "tv.twitch.bttv-android.app.provider",
+                    Intent intent = new Intent("android.intent.action.INSTALL_PACKAGE");
+                    Uri uri = FileProvider.getUriForFile(UpdaterActivity.this, "tv.twitch.bttvandroid.app.provider",
                             downloadedFile);
                     intent.setDataAndType(uri, "application/vnd.android.package-archive");
                     intent.setFlags(0x10000001);

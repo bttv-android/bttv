@@ -10,7 +10,7 @@ import android.content.Context;
 import android.util.Log;
 
 public class Data {
-    public static final String bttvVersion = "v0.0.5-alpha";
+    public static final String bttvVersion = "v0.0.6-alpha";
 
     public static int currentBroadcasterId = -1;
     public static Context ctx;
