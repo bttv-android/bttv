@@ -1,9 +1,15 @@
-# BTTV-android ![GitHub](https://img.shields.io/github/license/bttv-android/bttv?style=flat-square) ![bttv version](https://img.shields.io/badge/current%20version-v0.0.6-blue?style=flat-square) ![build on](https://img.shields.io/badge/build%20on-v10.1.0-blueviolet?style=flat-square)
+# BTTV-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version]
 
 A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
 > This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC or Dan Salvato LLC!
 > THE SOFTWARE IS PROVIDED "AS IS", **WITHOUT WARRANTY OF ANY KIND**!
+
+# Install
+
+1. Scim through this [guide on how to enable third party app istallations][enable-guide]
+2. Go to the [latest release][latest-release] page and download the `.apk` file of the mod. It periodically checks for new releases so you only have to download it once from there.
+   [![How to download][howtodl]][latest-release]
 
 # Build it yourself
 
@@ -125,6 +131,13 @@ If, for whatever reason, the script fails¹ you might need to `cd` into `extract
 
 Everytime you get a new version of the code (e.g. using git pull or git checkout) remove `extraced` and run `./initworkspace` again.
 
+[license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
+[license-file]: ./LICENSE
+[bttv-version]: https://img.shields.io/badge/current%20version-v0.0.6-blue?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v10.1.0-blueviolet?style=flat-square
+[latest-release]: https://github.com/bttv-android/bttv/releases/latest
+[enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
+[howtodl]: ./.github/dltut.webp?raw=true
 [baksmali]: https://github.com/JesusFreke/smali
 [uber]: https://github.com/patrickfav/uber-apk-signer/releases/latest
 [apktool]: https://ibotpeaches.github.io/Apktool/
