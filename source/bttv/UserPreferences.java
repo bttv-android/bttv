@@ -1,7 +1,5 @@
 package bttv;
 
-import java.util.Date;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 
