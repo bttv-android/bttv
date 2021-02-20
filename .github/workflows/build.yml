@@ -7,9 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: wget https://storage.evozi.com/apk/dl/16/09/11/tv.twitch.android.app_1001000.apk -O twitch.apk
-      - run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
-      - run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
+      - name: download base from evozi
+        run: wget https://storage.evozi.com/apk/dl/16/09/11/tv.twitch.android.app_1001000.apk -O twitch.apk
+      - name: create keystore.kjs from secret
+        run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
+      - name: run build
+        run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -21,8 +24,8 @@ jobs:
           body: ${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
-      - run: echo "version_tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV 
-      - name: Upload Release Apk
+      - run: echo "version_tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      - name: upload Release Apk
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
@@ -32,3 +35,5 @@ jobs:
           asset_path: ./dist/twitch.apk
           asset_name: bttv-${{ env.version_tag }}.apk
           asset_content_type: application/vnd.android.package-archive
+      - name: print checksums
+        run: cp dist/twitch.apk bttv-${{ env.version_tag }}.apk && shasum *.apk
