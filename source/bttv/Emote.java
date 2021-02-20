@@ -11,11 +11,11 @@ import android.util.Log;
 public class Emote {
     public static final int BTTV = 1;
     public static final int FFZ = 2;
-    String id;
-    String code;
-    String url;
-    String imageType;
-    int source;
+    public String id;
+    public String code;
+    public String url;
+    public String imageType;
+    public int source;
 
     public Emote(int source, String id, String code, String url, String imageType) {
         this.id = id;

@@ -2186,6 +2186,42 @@ index 6dd936f4a..0a1129c92 100644
 +    #
 +
      .line 126
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes8/tv/twitch/android/shared/chat/api/EmoteApi.smali
+index d8430db3b..fac23e96b 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/api/EmoteApi.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/api/EmoteApi.smali
+@@ -59,2 +59,9 @@
+ 
++    invoke-static {p1}, Lbttv/EmoteCardUtil;->getEmoteResponseOrNull(Ljava/lang/String;)Lio/reactivex/Single;
++    move-result-object v0
++
++    if-eqz v0, :after_bttv
++    return-object v0
++    :after_bttv
++
+     const-string v0, "emoteId"
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+index f5d84483e..7bded80b2 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
+@@ -1508,2 +1508,12 @@
+ 
++    instance-of v1, p1, Lbttv/EmoteCardUtil$BTTVEmoteCardModel;
++
++    if-eqz v1, :after_bttv
++
++    const-string p1, "Emote added by bttv-android"
++
++    goto :goto_0
++
++    :after_bttv
++
+     .line 179
+@@ -2460,3 +2470,3 @@
+ 
+-    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
++    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
+ 
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 index 9163260eb..a146b2397 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
@@ -2203,3 +2239,11 @@ index 9163260eb..a146b2397 100644
 -    invoke-direct {v1, v0}, Ltv/twitch/android/shared/chat/ChatMessageDelegate;-><init>(Ltv/twitch/chat/ChatMessageInfo;)V
 +    invoke-direct {v1, v0}, Lbttv/ChatMessageDeligateWrapper;-><init>(Ltv/twitch/chat/ChatMessageInfo;)V
  
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali b/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
+index feebee060..f16f31b21 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
+@@ -1,2 +1,2 @@
+-.class public final Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
++.class public Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
+ .super Ltv/twitch/android/shared/chat/model/EmoteCardModel;
