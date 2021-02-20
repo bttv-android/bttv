@@ -133,7 +133,7 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
-[bttv-version]: https://img.shields.io/badge/current%20version-v0.0.6-blue?style=flat-square
+[bttv-version]: https://img.shields.io/badge/current%20version-v0.0.7-blue?style=flat-square
 [base-version]: https://img.shields.io/badge/build%20on-v10.1.0-blueviolet?style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
