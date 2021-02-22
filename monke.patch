@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 471846e9e..5bb1d0d4f 100644
+index 471846e9e..b5dd24280 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
@@ -33,7 +33,7 @@ index 471846e9e..5bb1d0d4f 100644
 @@ -207,2 +208,10 @@
          <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
 +        <activity android:name="bttv.UpdaterActivity" />
-+        <provider 
++        <provider
 +            android:name="androidx.core.content.FileProvider"
 +            android:authorities="tv.twitch.bttvandroid.app.provider"
 +            android:exported="false"
@@ -179,7 +179,7 @@ index 000000000..f74a60e25
 +        android:layout_marginBottom="30dp" />
 +</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..b14268886 100644
+index e5846b005..e110014b8 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
@@ -2073,16 +2073,16 @@ index 917a89b6c..0bac8a8af 100644
 +
      .line 4512
 diff --git a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
-index af30ac1ea..7a31259f4 100644
+index af30ac1ea..d4e204796 100644
 --- a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
 +++ b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
 @@ -1388,2 +1388,4 @@
  
 +    invoke-static {p0, p1}, Lbttv/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
-+    
++
      .line 339
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
-index df9936922..da6c74dcc 100644
+index df9936922..760e7fac8 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 @@ -104,2 +104,4 @@
@@ -2107,7 +2107,7 @@ index df9936922..da6c74dcc 100644
 +
 +    const/16 v1, 0x2c
  
-@@ -813,5 +827,16 @@
+@@ -813,5 +827,15 @@
  
 -    const/16 v2, 0x2a
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
@@ -2124,7 +2124,6 @@ index df9936922..da6c74dcc 100644
 +    aput-object v2, v1, v3
  
 -    aput-object v0, v1, v2
-+    
  
 diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController.smali b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 index 83ceb7602..20b363a32 100644
@@ -2136,7 +2135,7 @@ index 83ceb7602..20b363a32 100644
 +
      return p1
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-index 4af5e656e..5d3d0a10a 100644
+index 4af5e656e..d711e3f4f 100644
 --- a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 +++ b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 @@ -49,2 +49,13 @@
@@ -2147,7 +2146,7 @@ index 4af5e656e..5d3d0a10a 100644
 +
 +    new-instance p2, Lbttv/SettingsFragment;
 +    invoke-direct {p2}, Lbttv/SettingsFragment;-><init>()V
-+    
++
 +    goto :goto_0
 +
 +    :not_bttv
