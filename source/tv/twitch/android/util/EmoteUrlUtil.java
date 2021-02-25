@@ -4,8 +4,14 @@
  */
 package tv.twitch.android.util;
 
+import android.content.Context;
+
 public class EmoteUrlUtil {
     public static final String generateEmoteUrl(String id, float f) {
         return null;
+    }
+
+    public static final String getEmoteUrl(Context c, String id) {
+        return "";
     }
 }

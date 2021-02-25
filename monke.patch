@@ -1961,20 +1961,24 @@ index 20cdbeb5b..2d81a8a0d 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 75f8ef1fc..d04243807 100644
+index 75f8ef1fc..8c5ac1cbf 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -11694,2 +11694,7 @@
+@@ -11694,2 +11694,11 @@
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <public type="id" name="bttv_updater_activity" id="0x7f0bfffa" />
 +    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
 +    <public type="id" name="bttv_updater_activity_body" id="0x7f0bfffc" />
 +    <public type="id" name="bttv_updater_activity_pb" id="0x7f0bfffd" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0efffa" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f13fffb" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f13fffc" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f13fffd" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f13fffe" />
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 926e0ed2d..4390fd697 100644
+index 926e0ed2d..52a1bba07 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -263,3 +263,3 @@ http://www.apache.org/licenses/LICENSE-2.0
@@ -1987,6 +1991,13 @@ index 926e0ed2d..4390fd697 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
+@@ -3224,2 +3224,6 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
+     <string name="zero">0</string>
++    <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
++    <string name="bttv_emote_picker_channel_bttv">"Channel's BTTV Emotes"</string>
++    <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
++    <string name="bttv_emote_picker_channel_ffz">"Channel's FrankerFaceZ Emotes"</string>
+ </resources>
 diff --git a/res/xml/provider_paths.xml b/res/xml/provider_paths.xml
 new file mode 100644
 index 000000000..ceb5472f0
@@ -2246,3 +2257,21 @@ index feebee060..f16f31b21 100644
 -.class public final Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
 +.class public Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
  .super Ltv/twitch/android/shared/chat/model/EmoteCardModel;
+diff --git a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
+index 3f9e1191b..f61a98e8d 100644
+--- a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
++++ b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
+@@ -184,2 +184,4 @@
+ 
++    invoke-static {p1}, Lbttv/EmotePicker;->extendList(Ljava/util/List;)V
++
+     .line 187
+diff --git a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
+index 12f673f1d..7eaa1d32d 100644
+--- a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
++++ b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
+@@ -127,3 +127,3 @@
+ 
+-    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
++    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+ 

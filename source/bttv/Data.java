@@ -15,14 +15,14 @@ public class Data {
     public static int currentBroadcasterId = -1;
     public static Context ctx;
 
-    private static ConcurrentHashMap<Integer, Set<String>> availBTTVEmoteSetMap = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<Integer, Set<String>> availFFZEmoteSetMap = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<Integer, Set<String>> availBTTVEmoteSetMap = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<Integer, Set<String>> availFFZEmoteSetMap = new ConcurrentHashMap<>();
 
     // map code to emote
     private static ConcurrentHashMap<String, Emote> codeEmoteMap = new ConcurrentHashMap<>();
     private static ConcurrentHashMap<String, Emote> idEmoteMap = new ConcurrentHashMap<>();
-    private static HashMap<String, Emote> globalBTTVEmotes = new HashMap<>();
-    private static HashMap<String, Emote> globalFFZEmotes = new HashMap<>();
+    public static HashMap<String, Emote> globalBTTVEmotes = new HashMap<>();
+    public static HashMap<String, Emote> globalFFZEmotes = new HashMap<>();
 
     public static void setCurrentBroadcasterId(int id) {
         Log.i("LBTTVDataSetCurrentBroadcasterId", currentBroadcasterId + " -> " + id);
