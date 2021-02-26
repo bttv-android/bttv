@@ -1,5 +1,6 @@
 package bttv;
 
+import android.content.Context;
 import android.util.Log;
 
 public class EmoteUrlUtil {
@@ -14,6 +15,14 @@ public class EmoteUrlUtil {
             return emote.url;
         } else {
             return tv.twitch.android.util.EmoteUrlUtil.generateEmoteUrl(id, f);
+        }
+    }
+
+    public static final String getEmoteUrl(Context c, String id) {
+        if (id.startsWith("BTTV-")) {
+            return EmoteUrlUtil.generateEmoteUrl(id, 1.0f);
+        } else {
+            return tv.twitch.android.util.EmoteUrlUtil.getEmoteUrl(c, id);
         }
     }
 }
