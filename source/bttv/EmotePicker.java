@@ -20,44 +20,80 @@ public class EmotePicker {
     final static int CHANNEL_FFZ_STRING = 0x7f13fffe;
 
     public static void extendList(List<EmoteUiSet> original) {
-        if (Data.currentBroadcasterId == -1 || !Data.channelHasEmotes(Data.currentBroadcasterId)) {
+        int channel = Data.currentBroadcasterId;
+        if (channel == -1 || !Data.channelHasEmotes(channel)) {
             Log.w("LBTTVextendList", "will skip extendList");
             return;
         }
 
         try {
+            List<EmoteUiSet> preGlobalSets = new ArrayList<>(original.size());
+            List<EmoteUiSet> twitchGlobalSets = new ArrayList<>(original.size());
 
-            // BTTV Global
-            EmoteHeaderUiModel globalBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_BTTV_STRING,
-                    true, EmotePickerSection.ALL, false, 8, null);
-            EmoteUiSet globalBttvEmotes = new EmoteUiSet(globalBttvHeader, getGlobalBttvEmotes());
-            original.add(globalBttvEmotes);
+            for (EmoteUiSet set : original) {
+                EmoteHeaderUiModel header = set.getHeader();
 
-            // FFZ Global
-            EmoteHeaderUiModel globalFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_FFZ_STRING,
-                    true, EmotePickerSection.ALL, false, 8, null);
-            EmoteUiSet globalFFZEmotes = new EmoteUiSet(globalFFZHeader, getGlobalFFZEmotes());
-            original.add(globalFFZEmotes);
-
-            // BTTV Channel
-            if (Data.availBTTVEmoteSetMap.containsKey(Data.currentBroadcasterId)) {
-                EmoteHeaderUiModel chBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                        CHANNEL_BTTV_STRING, true, EmotePickerSection.ALL, false, 8, null);
-                EmoteUiSet channelBttvEmotes = new EmoteUiSet(chBttvHeader, getChannelBttvEmotes());
-                original.add(channelBttvEmotes);
+                // ALL is the last section
+                if (header.getEmotePickerSection() == EmotePickerSection.ALL) {
+                    twitchGlobalSets.add(set);
+                } else {
+                    preGlobalSets.add(set);
+                }
             }
 
-            // FFZ Channel
-            if (Data.availFFZEmoteSetMap.containsKey(Data.currentBroadcasterId)) {
-                EmoteHeaderUiModel chFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(CHANNEL_FFZ_STRING,
-                        true, EmotePickerSection.ALL, false, 8, null);
-                EmoteUiSet channelFFZEmotes = new EmoteUiSet(chFFZHeader, getChannelFFZEmotes());
-                original.add(channelFFZEmotes);
+            original.clear();
+            original.addAll(preGlobalSets);
+
+            if (Data.availBTTVEmoteSetMap.containsKey(channel)) {
+                EmoteUiSet set = getChannelBTTVUiSet();
+                if (!set.getEmotes().isEmpty()) {
+                    original.add(set);
+                }
             }
+
+            if (Data.availFFZEmoteSetMap.containsKey(channel)) {
+                EmoteUiSet set = getChannelFFZUiSet();
+                if (!set.getEmotes().isEmpty()) {
+                    original.add(set);
+                }
+            }
+
+            original.add(getGlobalBttvUiSet());
+            original.add(getGlobalFFZUiSet());
+
+            original.addAll(twitchGlobalSets);
 
         } catch (Exception e) {
             Log.e("LBTTVEmotePicker", "adding emotes to picker failed", e);
         }
+    }
+
+    private static EmoteUiSet getGlobalBttvUiSet() {
+        EmoteHeaderUiModel globalBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_BTTV_STRING,
+                true, EmotePickerSection.ALL, false, 8, null);
+        EmoteUiSet globalBttvEmotes = new EmoteUiSet(globalBttvHeader, getGlobalBttvEmotes());
+        return globalBttvEmotes;
+    }
+
+    private static EmoteUiSet getGlobalFFZUiSet() {
+        EmoteHeaderUiModel globalFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_FFZ_STRING, true,
+                EmotePickerSection.ALL, false, 8, null);
+        EmoteUiSet globalFFZEmotes = new EmoteUiSet(globalFFZHeader, getGlobalFFZEmotes());
+        return globalFFZEmotes;
+    }
+
+    private static EmoteUiSet getChannelBTTVUiSet() {
+        EmoteHeaderUiModel chBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(CHANNEL_BTTV_STRING, true,
+                EmotePickerSection.CHANNEL, false, 8, null);
+        EmoteUiSet channelBttvEmotes = new EmoteUiSet(chBttvHeader, getChannelBttvEmotes());
+        return channelBttvEmotes;
+    }
+
+    private static EmoteUiSet getChannelFFZUiSet() {
+        EmoteHeaderUiModel chFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(CHANNEL_FFZ_STRING, true,
+                EmotePickerSection.CHANNEL, false, 8, null);
+        EmoteUiSet channelFFZEmotes = new EmoteUiSet(chFFZHeader, getChannelFFZEmotes());
+        return channelFFZEmotes;
     }
 
     private static List<EmoteUiModel> getGlobalBttvEmotes() {
