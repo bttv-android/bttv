@@ -141,6 +141,6 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 [baksmali]: https://github.com/JesusFreke/smali
 [uber]: https://github.com/patrickfav/uber-apk-signer/releases/latest
 [apktool]: https://ibotpeaches.github.io/Apktool/
-[buildtools]: ttps://androidsdkmanager.azurewebsites.net/Buildtools
+[buildtools]: https://androidsdkmanager.azurewebsites.net/Buildtools
 [evozi]: https://apps.evozi.com/apk-downloader/?id=tv.twitch.android.app
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
