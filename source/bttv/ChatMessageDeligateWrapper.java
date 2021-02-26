@@ -3,10 +3,8 @@ package bttv;
 import tv.twitch.chat.ChatMessageInfo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import android.util.Log;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
