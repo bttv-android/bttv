@@ -40,19 +40,14 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
             int mergeStart = 0;
             for (int i = 0; i < words.length; i++) {
                 String word = words[i];
-                if (Data.isEmote(word, Data.currentBroadcasterId)) {
+                Emote emote = Data.getEmote(word, Data.currentBroadcasterId);
+                if (emote != null) {
 
                     String merge = mergePrevious(words, mergeStart, i);
                     newTokens.add(new TextToken(merge, text.getFlags()));
                     mergeStart = i + 1;
 
-                    Emote emote = Data.getEmote(word);
-                    if (emote == null) {
-                        newTokens.add(new TextToken(word, text.getFlags()));
-
-                    } else {
-                        newTokens.add(new EmoticonToken(word, "BTTV-" + emote.id));
-                    }
+                    newTokens.add(new EmoticonToken(word, "BTTV-" + emote.id));
                 }
             }
 
