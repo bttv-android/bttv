@@ -1,10 +1,10 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 471846e9e..b5dd24280 100644
+index 50d9c2988..d48b5e1b1 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
-+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="0081000010" android:versionName="0.0.8-alpha" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="0091000010" android:versionName="0.0.9-alpha" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
 @@ -9,2 +9,3 @@
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -179,12 +179,12 @@ index 000000000..f74a60e25
 +        android:layout_marginBottom="30dp" />
 +</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..e110014b8 100644
+index e5846b005..824d44cb2 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
      <ImageView android:layout_gravity="center_horizontal" android:id="@id/app_settings_icon" android:padding="@dimen/default_margin" android:layout_width="@dimen/settings_footer_logo_size" android:layout_height="@dimen/settings_footer_logo_size" android:src="@drawable/ic_twitch_glitch_uv" />
-+    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV v0.0.8" />
++    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV v0.0.9" />
      <TextView android:textColor="@color/text_alt" android:gravity="center" android:id="@id/app_settings_version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/version_label" />
 diff --git a/res/mipmap-anydpi-v26/ic_launcher.xml b/res/mipmap-anydpi-v26/ic_launcher.xml
 index 3b06a9d16..202eb42e8 100644
@@ -1681,7 +1681,7 @@ zPx-Ug*80hrm>w$$QmJ_5-n-Q)ACO<%0xCZ{J6hRWQ#(I|!Y=Gng%(Q&{&bw){FwM^
 mmx5=+=KuSjhA3b!u3*$Z5VOqR%_aN>M(vT-!%9W#=l=)h>aBAC
 
 diff --git a/res/values-bg/strings.xml b/res/values-bg/strings.xml
-index 7c0aad22b..27c122fb2 100644
+index fe137ab33..89b53da5a 100644
 --- a/res/values-bg/strings.xml
 +++ b/res/values-bg/strings.xml
 @@ -1245,3 +1245,3 @@
@@ -1690,7 +1690,7 @@ index 7c0aad22b..27c122fb2 100644
 +    <string name="login_landing_title">Добре дошли в\nBetter Twitch</string>
      <string name="login_live_body">Всичките ви любими стриймъри на едно място</string>
 diff --git a/res/values-cs/strings.xml b/res/values-cs/strings.xml
-index 1a9a09e2b..707bb7b90 100644
+index a702ba25d..7047d488d 100644
 --- a/res/values-cs/strings.xml
 +++ b/res/values-cs/strings.xml
 @@ -1243,3 +1243,3 @@ Získejte poklady ze hry sledováním oblíbených kanálů během kampaní Drop
@@ -1699,7 +1699,7 @@ index 1a9a09e2b..707bb7b90 100644
 +    <string name="login_landing_title">Vítá vás\nBetter Twitch</string>
      <string name="login_live_body">Všichni vaši oblíbení vysílající na jednom místě.</string>
 diff --git a/res/values-da/strings.xml b/res/values-da/strings.xml
-index bbfdeb445..c6b1ef925 100644
+index 971a03097..f2148a4ac 100644
 --- a/res/values-da/strings.xml
 +++ b/res/values-da/strings.xml
 @@ -1247,3 +1247,3 @@ Scor spilrov i spillet ved at se dine yndlingskanaler under rov-kampagner, og du
@@ -1708,7 +1708,7 @@ index bbfdeb445..c6b1ef925 100644
 +    <string name="login_landing_title">Velkommen til\nBetter Twitch</string>
      <string name="login_live_body">Alle dine yndlingsstreamere samlet på et sted</string>
 diff --git a/res/values-de/strings.xml b/res/values-de/strings.xml
-index ef9e887b1..55869c48b 100644
+index 4a20c70a7..31c69ca2c 100644
 --- a/res/values-de/strings.xml
 +++ b/res/values-de/strings.xml
 @@ -1249,3 +1249,3 @@ Verdiene dir das Ingame-Loot, indem du deine Lieblingskanäle während der Drop-
@@ -1717,7 +1717,7 @@ index ef9e887b1..55869c48b 100644
 +    <string name="login_landing_title">Willkommen bei\nBetter Twitch</string>
      <string name="login_live_body">All deine Lieblingsstreamer an einem Ort</string>
 diff --git a/res/values-el/strings.xml b/res/values-el/strings.xml
-index 9826be40d..fc0594747 100644
+index 786eeba89..e099df9eb 100644
 --- a/res/values-el/strings.xml
 +++ b/res/values-el/strings.xml
 @@ -1247,3 +1247,3 @@
@@ -1726,7 +1726,7 @@ index 9826be40d..fc0594747 100644
 +    <string name="login_landing_title">Καλώς όρισες στο\nBetter Twitch</string>
      <string name="login_live_body">Όλοι οι αγαπημένοι σου streamer σε ένα σημείο</string>
 diff --git a/res/values-es-rES/strings.xml b/res/values-es-rES/strings.xml
-index d331a5c44..f5d8ee46a 100644
+index 5916ddf5e..1b319b217 100644
 --- a/res/values-es-rES/strings.xml
 +++ b/res/values-es-rES/strings.xml
 @@ -1155,3 +1155,3 @@ Obtén botines dentro del juego viendo tus canales favoritos durante campañas d
@@ -1735,7 +1735,7 @@ index d331a5c44..f5d8ee46a 100644
 +    <string name="login_landing_title">¡Bienvenido a\nBetter Twitch!</string>
      <string name="login_live_body">Todos tus streamers preferidos en un mismo lugar</string>
 diff --git a/res/values-es-rMX/strings.xml b/res/values-es-rMX/strings.xml
-index 4a432c37d..ce4fe7a07 100644
+index 2e65301c5..8b1c83fe0 100644
 --- a/res/values-es-rMX/strings.xml
 +++ b/res/values-es-rMX/strings.xml
 @@ -1154,3 +1154,3 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
@@ -1744,7 +1744,7 @@ index 4a432c37d..ce4fe7a07 100644
 +    <string name="login_landing_title">Bienvenido a\nBetter Twitch</string>
      <string name="login_live_body">Todos tus streamers favoritos en un mismo lugar</string>
 diff --git a/res/values-es-rUS/strings.xml b/res/values-es-rUS/strings.xml
-index 3fdb21d19..82c599d15 100644
+index 412d53008..19b5cafc4 100644
 --- a/res/values-es-rUS/strings.xml
 +++ b/res/values-es-rUS/strings.xml
 @@ -1243,3 +1243,3 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
@@ -1753,7 +1753,7 @@ index 3fdb21d19..82c599d15 100644
 +    <string name="login_landing_title">Bienvenido a\nBetter Twitch</string>
      <string name="login_live_body">Todos tus streamers favoritos en un mismo lugar</string>
 diff --git a/res/values-fi/strings.xml b/res/values-fi/strings.xml
-index 5ec43b89c..13c1382b2 100644
+index 0b839eceb..0045edb1d 100644
 --- a/res/values-fi/strings.xml
 +++ b/res/values-fi/strings.xml
 @@ -1243,3 +1243,3 @@ Katsele suosikkikanaviasi droppikampanjoiden aikana, niin saat pelinsisäisiä k
@@ -1762,7 +1762,7 @@ index 5ec43b89c..13c1382b2 100644
 +    <string name="login_landing_title">Tervetuloa\nBetter Twitchiin</string>
      <string name="login_live_body">Kaikki suosikkilähettäjäsi samassa paikassa</string>
 diff --git a/res/values-fr/strings.xml b/res/values-fr/strings.xml
-index 2be877897..96537a45f 100644
+index a0389f9c1..f562d931a 100644
 --- a/res/values-fr/strings.xml
 +++ b/res/values-fr/strings.xml
 @@ -1245,3 +1245,3 @@ Gagnez du butin en jeu en regardant vos chaînes préférées pendant les campag
@@ -1771,7 +1771,7 @@ index 2be877897..96537a45f 100644
 +    <string name="login_landing_title">Bienvenue sur\nBetter Twitch</string>
      <string name="login_live_body">Tous vos streamers préférés au même endroit</string>
 diff --git a/res/values-hu/strings.xml b/res/values-hu/strings.xml
-index 07e69fe76..d73de5a85 100644
+index 8078da222..a786052bc 100644
 --- a/res/values-hu/strings.xml
 +++ b/res/values-hu/strings.xml
 @@ -1242,3 +1242,3 @@ Tegyél szert játékon belüli jutalmakra! Csupán annyi a dolgod, hogy nézed
@@ -1780,7 +1780,7 @@ index 07e69fe76..d73de5a85 100644
 +    <string name="login_landing_title">Üdvözöl a\nBetter Twitch!</string>
      <string name="login_live_body">Az összes kedvenc közvetítőd egy helyen</string>
 diff --git a/res/values-it/strings.xml b/res/values-it/strings.xml
-index fde22ba34..f65039e98 100644
+index 48e8f231a..7d5ebfb66 100644
 --- a/res/values-it/strings.xml
 +++ b/res/values-it/strings.xml
 @@ -1244,3 +1244,3 @@ Ottieni una ricompensa nel gioco guardando i tuoi canali preferiti durante le ca
@@ -1789,7 +1789,7 @@ index fde22ba34..f65039e98 100644
 +    <string name="login_landing_title">Benvenuto in\nBetter Twitch</string>
      <string name="login_live_body">Tutti i tuoi emittenti preferiti in un unico luogo</string>
 diff --git a/res/values-ja/strings.xml b/res/values-ja/strings.xml
-index a38dbefa1..117bb0fa1 100644
+index d41bee85b..08f583d5b 100644
 --- a/res/values-ja/strings.xml
 +++ b/res/values-ja/strings.xml
 @@ -1247,3 +1247,3 @@
@@ -1798,7 +1798,7 @@ index a38dbefa1..117bb0fa1 100644
 +    <string name="login_landing_title">Better Twitch\nへようこそ！</string>
      <string name="login_live_body">すべてのお気に入りストリーマーが一つの場所に</string>
 diff --git a/res/values-ko/strings.xml b/res/values-ko/strings.xml
-index 00d033030..65ed862be 100644
+index 619016d7c..80d6fc98d 100644
 --- a/res/values-ko/strings.xml
 +++ b/res/values-ko/strings.xml
 @@ -1246,3 +1246,3 @@
@@ -1807,7 +1807,7 @@ index 00d033030..65ed862be 100644
 +    <string name="login_landing_title">Better Twitch\n에 오신 것을 환영합니다.</string>
      <string name="login_live_body">좋아하는 모든 스트리머를 한곳에서 볼 수 있습니다.</string>
 diff --git a/res/values-nb/strings.xml b/res/values-nb/strings.xml
-index 8cddc5606..c75c2307f 100644
+index ae18534e2..93014db75 100644
 --- a/res/values-nb/strings.xml
 +++ b/res/values-nb/strings.xml
 @@ -1242,3 +1242,3 @@ Nivå %1$d fullført!"</string>
@@ -1816,7 +1816,7 @@ index 8cddc5606..c75c2307f 100644
 +    <string name="login_landing_title">Velkommen til\nBetter Twitch</string>
      <string name="login_live_body">Alle favorittstrømmerne dine på samme sted</string>
 diff --git a/res/values-nl/strings.xml b/res/values-nl/strings.xml
-index 5eeaa016d..850ea5980 100644
+index d0c21301c..689f8b534 100644
 --- a/res/values-nl/strings.xml
 +++ b/res/values-nl/strings.xml
 @@ -1243,3 +1243,3 @@ Loot die je hebt verdiend door naar je favoriete kanalen te kijken tijdens drops
@@ -1825,7 +1825,7 @@ index 5eeaa016d..850ea5980 100644
 +    <string name="login_landing_title">Welkom bij\nBetter Twitch</string>
      <string name="login_live_body">Al je favoriete streamers op één plek</string>
 diff --git a/res/values-pl/strings.xml b/res/values-pl/strings.xml
-index 395649a46..d9c3677f5 100644
+index 647c5df05..e0c850f5b 100644
 --- a/res/values-pl/strings.xml
 +++ b/res/values-pl/strings.xml
 @@ -1243,3 +1243,3 @@ Zdobywaj łupy w grze, oglądając ulubione kanały podczas kampanii z dropami.
@@ -1834,7 +1834,7 @@ index 395649a46..d9c3677f5 100644
 +    <string name="login_landing_title">Witaj na\nBetter Twitchu</string>
      <string name="login_live_body">Wszyscy twoi ulubieni streamerzy w jednym miejscu</string>
 diff --git a/res/values-pt-rBR/strings.xml b/res/values-pt-rBR/strings.xml
-index cbc59d41f..b8121e6d1 100644
+index 3e98e8d82..6337fd372 100644
 --- a/res/values-pt-rBR/strings.xml
 +++ b/res/values-pt-rBR/strings.xml
 @@ -1243,3 +1243,3 @@ Marque loot nos jogos ao assistir a seus canais favoritos durante as campanhas d
@@ -1843,7 +1843,7 @@ index cbc59d41f..b8121e6d1 100644
 +    <string name="login_landing_title">Boas-vindas à\nBetter Twitch</string>
      <string name="login_live_body">Todos os seus streamers favoritos em apenas um lugar</string>
 diff --git a/res/values-pt/strings.xml b/res/values-pt/strings.xml
-index 058714b8b..b0c601886 100644
+index a9aa557fe..088350c2e 100644
 --- a/res/values-pt/strings.xml
 +++ b/res/values-pt/strings.xml
 @@ -1183,3 +1183,3 @@ Ganha itens de jogo assistindo aos teus canais favoritos durante as campanhas de
@@ -1852,7 +1852,7 @@ index 058714b8b..b0c601886 100644
 +    <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
      <string name="login_live_body">Todos os teus streamers favoritos no mesmo local</string>
 diff --git a/res/values-ro/strings.xml b/res/values-ro/strings.xml
-index 513e6b89d..c1a5f9faf 100644
+index 6f4526075..b85bd5570 100644
 --- a/res/values-ro/strings.xml
 +++ b/res/values-ro/strings.xml
 @@ -1243,3 +1243,3 @@ Obține cadouri în joc urmărind canalele tale preferate în timpul campaniilor
@@ -1861,7 +1861,7 @@ index 513e6b89d..c1a5f9faf 100644
 +    <string name="login_landing_title">Bine ai venit pe\nBetter Twitch</string>
      <string name="login_live_body">Toți emițătorii tăi preferați într-un singur loc</string>
 diff --git a/res/values-ru/strings.xml b/res/values-ru/strings.xml
-index 28e6d0482..0762e3c73 100644
+index c16f3f1d8..ddce9e9e1 100644
 --- a/res/values-ru/strings.xml
 +++ b/res/values-ru/strings.xml
 @@ -1244,3 +1244,3 @@
@@ -1870,7 +1870,7 @@ index 28e6d0482..0762e3c73 100644
 +    <string name="login_landing_title">Добро пожаловать на\nBetter Twitch!</string>
      <string name="login_live_body">Все ваши любимые каналы в одном месте</string>
 diff --git a/res/values-sk/strings.xml b/res/values-sk/strings.xml
-index bd1ac5dc1..90e524ab0 100644
+index 8a10ae506..430fad718 100644
 --- a/res/values-sk/strings.xml
 +++ b/res/values-sk/strings.xml
 @@ -1245,3 +1245,3 @@ Získaj korisť v hre vďaka sledovaniu svojich obľúbených kanálov počas ka
@@ -1879,7 +1879,7 @@ index bd1ac5dc1..90e524ab0 100644
 +    <string name="login_landing_title">Vitaj v službe\nBetter Twitch</string>
      <string name="login_live_body">Všetci obľúbení vysielatelia na jednom mieste</string>
 diff --git a/res/values-sv/strings.xml b/res/values-sv/strings.xml
-index 357bb0272..1e4d8cecd 100644
+index 1831b7fe5..ebae9370f 100644
 --- a/res/values-sv/strings.xml
 +++ b/res/values-sv/strings.xml
 @@ -1241,3 +1241,3 @@ Nivå %1$d klar!"</string>
@@ -1888,7 +1888,7 @@ index 357bb0272..1e4d8cecd 100644
 +    <string name="login_landing_title">Välkommen till\nBetter Twitch</string>
      <string name="login_live_body">Alla dina favoritstreamare på ett och samma ställe</string>
 diff --git a/res/values-th/strings.xml b/res/values-th/strings.xml
-index b276b07a6..be10e0947 100644
+index a69a3034a..bdabba3d5 100644
 --- a/res/values-th/strings.xml
 +++ b/res/values-th/strings.xml
 @@ -1242,3 +1242,3 @@
@@ -1897,7 +1897,7 @@ index b276b07a6..be10e0947 100644
 +    <string name="login_landing_title">ยินดีต้อนรับสู่\nBetter Twitch</string>
      <string name="login_live_body">พบสตรีมเมอร์คนโปรดของคุณได้จากที่เดียว</string>
 diff --git a/res/values-tr/strings.xml b/res/values-tr/strings.xml
-index c20e020ae..bfad1f6b8 100644
+index e8775cb9a..ec5979ae1 100644
 --- a/res/values-tr/strings.xml
 +++ b/res/values-tr/strings.xml
 @@ -1240,3 +1240,3 @@ Drop kampanyaları esnasında en sevdiğiniz kanalları izleyerek oyun içi gani
@@ -1906,7 +1906,7 @@ index c20e020ae..bfad1f6b8 100644
 +    <string name="login_landing_title">"Better Twitch\n'e Hoş Geldiniz"</string>
      <string name="login_live_body">Tüm favori yayıncılarınız tek bir yerde</string>
 diff --git a/res/values-vi/strings.xml b/res/values-vi/strings.xml
-index 253c04c74..d19b6bbfe 100644
+index 642443a68..48578d186 100644
 --- a/res/values-vi/strings.xml
 +++ b/res/values-vi/strings.xml
 @@ -1241,3 +1241,3 @@ Ghi điểm với phần thưởng trong game bằng cách xem các kênh yêu t
@@ -1915,7 +1915,7 @@ index 253c04c74..d19b6bbfe 100644
 +    <string name="login_landing_title">Chào mừng bạn đến với\nBetter Twitch</string>
      <string name="login_live_body">Tất cả những người truyền phát bạn yêu thích đều ở một nơi</string>
 diff --git a/res/values-zh-rHK/strings.xml b/res/values-zh-rHK/strings.xml
-index fbcbce572..1e7ae2e53 100644
+index ba9c5fe7c..9bbfdb78f 100644
 --- a/res/values-zh-rHK/strings.xml
 +++ b/res/values-zh-rHK/strings.xml
 @@ -1245,3 +1245,3 @@
@@ -1924,7 +1924,7 @@ index fbcbce572..1e7ae2e53 100644
 +    <string name="login_landing_title">歡迎使用\nBetter Twitch</string>
      <string name="login_live_body">您最愛的實況主全都在這裡</string>
 diff --git a/res/values-zh-rTW/strings.xml b/res/values-zh-rTW/strings.xml
-index a89de0fef..b2c8855af 100644
+index 2f085ca70..1596de56d 100644
 --- a/res/values-zh-rTW/strings.xml
 +++ b/res/values-zh-rTW/strings.xml
 @@ -1245,3 +1245,3 @@
@@ -1933,7 +1933,7 @@ index a89de0fef..b2c8855af 100644
 +    <string name="login_landing_title">歡迎使用\nBetter Twitch</string>
      <string name="login_live_body">您最愛的實況主全都在這裡</string>
 diff --git a/res/values-zh/strings.xml b/res/values-zh/strings.xml
-index f4aa80286..e07bbd013 100644
+index 1cdf45846..7cb082549 100644
 --- a/res/values-zh/strings.xml
 +++ b/res/values-zh/strings.xml
 @@ -1161,3 +1161,3 @@
@@ -1950,10 +1950,10 @@ index ff0b9e965..10655be88 100644
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 20cdbeb5b..2d81a8a0d 100644
+index a2147323f..a6168863e 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -2645,2 +2645,6 @@
+@@ -2667,2 +2667,6 @@
      <item type="id" name="zero_corner_chip" />
 +    <item type="id" name="bttv_updater_activity" />
 +    <item type="id" name="bttv_updater_activity_title" />
@@ -1961,10 +1961,10 @@ index 20cdbeb5b..2d81a8a0d 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 75f8ef1fc..8c5ac1cbf 100644
+index b02412d5b..2b8ee4965 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -11694,2 +11694,11 @@
+@@ -11739,2 +11739,11 @@
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <public type="id" name="bttv_updater_activity" id="0x7f0bfffa" />
 +    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
@@ -1978,7 +1978,7 @@ index 75f8ef1fc..8c5ac1cbf 100644
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 926e0ed2d..52a1bba07 100644
+index 4e4fd0ef7..ab030ca89 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -263,3 +263,3 @@ http://www.apache.org/licenses/LICENSE-2.0
@@ -1991,7 +1991,7 @@ index 926e0ed2d..52a1bba07 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
-@@ -3224,2 +3224,6 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
+@@ -3234,2 +3234,6 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
      <string name="zero">0</string>
 +    <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
 +    <string name="bttv_emote_picker_channel_bttv">"Channel's BTTV Emotes"</string>
@@ -2012,20 +2012,20 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 similarity index 99%
 rename from smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 rename to smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-index 488095a6b..3c091ed97 100644
+index 2e7e52ee2..147632724 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 +++ b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-@@ -770,2 +770,4 @@
+@@ -728,2 +728,4 @@
  
 +    invoke-static {p2}, Lbttv/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
 +
-     .line 20385
-@@ -773,2 +775,4 @@
+     .line 20733
+@@ -731,2 +733,4 @@
  
 +    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
 +
-     .line 20386
-@@ -1330,2 +1334,9 @@
+     .line 20734
+@@ -1273,2 +1277,9 @@
  
 +    # BTTV Settings
 +    const-class v1, Lbttv/SettingsFragment;
@@ -2035,11 +2035,11 @@ index 488095a6b..3c091ed97 100644
 +    #
 +
      const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
-@@ -1985,2 +1996,4 @@
+@@ -1921,2 +1932,4 @@
  
 +    invoke-static {p3}, Lbttv/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
 +
-     .line 20677
+     .line 21019
 diff --git a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..80bda4a8c 100644
 --- a/smali_classes10/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
@@ -2066,7 +2066,7 @@ index 46cdaa88e..80bda4a8c 100644
 +
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-index 8e91d3332..b17a01612 100644
+index 8999c613c..008ea0396 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -168,2 +168,4 @@
@@ -2075,62 +2075,80 @@ index 8e91d3332..b17a01612 100644
 +
      .line 87
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-index 917a89b6c..0bac8a8af 100644
+index 911db110a..13fa52dd4 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-@@ -7311,2 +7311,4 @@
+@@ -7308,2 +7308,4 @@
  
 +    invoke-static {v4}, Lbttv/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +
-     .line 4512
+     .line 4533
 diff --git a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
-index af30ac1ea..d4e204796 100644
+index 506bcae09..102b35d7a 100644
 --- a/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
 +++ b/smali_classes4/tv/twitch/android/app/core/MainActivity.smali
-@@ -1388,2 +1388,4 @@
+@@ -1418,2 +1418,4 @@
  
 +    invoke-static {p0, p1}, Lbttv/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
 +
-     .line 339
+     .line 343
+diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
+index 3f9e1191b..f61a98e8d 100644
+--- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
+@@ -184,2 +184,4 @@
+ 
++    invoke-static {p1}, Lbttv/EmotePicker;->extendList(Ljava/util/List;)V
++
+     .line 187
+diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
+index 12f673f1d..7eaa1d32d 100644
+--- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
++++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
+@@ -127,3 +127,3 @@
+ 
+-    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
++    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+ 
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
-index df9936922..760e7fac8 100644
+index bf0eccbe5..202a6ac81 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -104,2 +104,4 @@
+@@ -102,2 +102,4 @@
  
 +.field public static final enum BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +
  
-@@ -582,3 +584,15 @@
+@@ -569,3 +571,15 @@
  
--    const/16 v1, 0x2b
+-    const/16 v1, 0x2a
 +    # BTTV
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    const-string v1, "BTTV"
 +
-+    const/16 v15, 0x2b
++    const/16 v15, 0x2a
 +
 +    invoke-direct {v0, v1, v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
 +
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +    #
 +
-+    const/16 v1, 0x2c
++    const/16 v1, 0x2b
  
-@@ -813,5 +827,15 @@
+@@ -794,5 +808,15 @@
  
--    const/16 v2, 0x2a
+-    const/16 v2, 0x29
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
 +
-+    const/16 v3, 0x2a
++    const/16 v3, 0x29
 +
 +    aput-object v2, v1, v3
 +
 +    # BTTV
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +
-+    const/16 v3, 0x2b
++    const/16 v3, 0x2a
 +
 +    aput-object v2, v1, v3
  
@@ -2211,7 +2229,7 @@ index d8430db3b..fac23e96b 100644
 +
      const-string v0, "emoteId"
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-index f5d84483e..7bded80b2 100644
+index 7c2879cea..6bbd15a7d 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 @@ -1508,2 +1508,12 @@
@@ -2226,14 +2244,14 @@ index f5d84483e..7bded80b2 100644
 +
 +    :after_bttv
 +
-     .line 179
-@@ -2460,3 +2470,3 @@
+     .line 181
+@@ -2475,3 +2485,3 @@
  
 -    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
 +    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
  
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-index 9163260eb..a146b2397 100644
+index 29f339c53..d8e1da8d0 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 @@ -1052,3 +1052,3 @@
@@ -2257,21 +2275,3 @@ index feebee060..f16f31b21 100644
 -.class public final Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
 +.class public Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
  .super Ltv/twitch/android/shared/chat/model/EmoteCardModel;
-diff --git a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-index 3f9e1191b..f61a98e8d 100644
---- a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-+++ b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-@@ -184,2 +184,4 @@
- 
-+    invoke-static {p1}, Lbttv/EmotePicker;->extendList(Ljava/util/List;)V
-+
-     .line 187
-diff --git a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
-index 12f673f1d..7eaa1d32d 100644
---- a/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
-+++ b/smali_classes8/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
-@@ -127,3 +127,3 @@
- 
--    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-+    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
- 
