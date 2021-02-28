@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: download base from evozi
-        run: wget https://storage.evozi.com/apk/dl/16/09/11/tv.twitch.android.app_1001000.apk -O twitch.apk
+        run: wget https://storage.evozi.com/apk/dl/16/09/11/tv.twitch.android.app_1002000.apk -O twitch.apk
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
       - name: run build
