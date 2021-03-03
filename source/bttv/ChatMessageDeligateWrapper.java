@@ -47,9 +47,10 @@ public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
                     currentText += word + " ";
                     continue;
                 }
+                // emote found
                 newTokens.add(new TextToken(currentText, text.getFlags()));
                 newTokens.add(new EmoticonToken(word, "BTTV-" + emote.id));
-                currentText = "";
+                currentText = " ";
             }
 
             if (currentText.length() > 0) {
