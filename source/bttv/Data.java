@@ -46,18 +46,19 @@ public class Data {
         return hasBTTVEmotes || hasFFZEmotes || globalBTTVLoaded || globalFFZLoaded;
     }
 
-    public static boolean isEmote(String code, int channelId) {
+    public static Emote getEmote(String code, int channelId) {
         boolean bttvEnabled = UserPreferences.getBTTVEmotesEnabled(ctx);
         boolean bttvGifEnabled = UserPreferences.getBTTVGifEmotesEnabled(ctx);
         boolean ffzEnabled = UserPreferences.getFFZEmotesEnabled(ctx);
 
         if (ffzEnabled) {
-            if (globalFFZEmotes.containsKey(code)) {
-                return true;
+            Emote emote = globalFFZEmotes.get(code);
+            if (emote != null) {
+                return emote;
             }
             Set<String> ffzSet = availFFZEmoteSetMap.get(channelId);
             if (ffzSet != null && ffzSet.contains(code)) {
-                return true;
+                return getEmote(code);
             }
         }
 
@@ -65,19 +66,19 @@ public class Data {
             Emote emote = globalBTTVEmotes.get(code);
             if (emote != null) {
                 if (!emote.imageType.equals("gif") || bttvGifEnabled) {
-                    return true;
+                    return emote;
                 }
             }
             Set<String> bttvSet = availBTTVEmoteSetMap.get(channelId);
             if (bttvSet != null && bttvSet.contains(code)) {
                 emote = codeEmoteMap.get(code);
                 if (emote != null && (!emote.imageType.equals("gif") || bttvGifEnabled)) {
-                    return true;
+                    return emote;
                 }
             }
         }
 
-        return false;
+        return null;
     }
 
     public static Emote getEmote(String code) {
