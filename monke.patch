@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 50d9c2988..d48b5e1b1 100644
+index 50d9c2988..d5635d6c0 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
@@ -179,7 +179,7 @@ index 000000000..f74a60e25
 +        android:layout_marginBottom="30dp" />
 +</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..824d44cb2 100644
+index e5846b005..2fe1c7a63 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
@@ -1708,7 +1708,7 @@ index 971a03097..f2148a4ac 100644
 +    <string name="login_landing_title">Velkommen til\nBetter Twitch</string>
      <string name="login_live_body">Alle dine yndlingsstreamere samlet på et sted</string>
 diff --git a/res/values-de/strings.xml b/res/values-de/strings.xml
-index 4a20c70a7..31c69ca2c 100644
+index 4a20c70a7..e0b3df056 100644
 --- a/res/values-de/strings.xml
 +++ b/res/values-de/strings.xml
 @@ -1249,3 +1249,3 @@ Verdiene dir das Ingame-Loot, indem du deine Lieblingskanäle während der Drop-
@@ -1716,6 +1716,11 @@ index 4a20c70a7..31c69ca2c 100644
 -    <string name="login_landing_title">Willkommen bei Twitch</string>
 +    <string name="login_landing_title">Willkommen bei\nBetter Twitch</string>
      <string name="login_live_body">All deine Lieblingsstreamer an einem Ort</string>
+@@ -2570,2 +2570,4 @@ Gib als zusätzliche Sicherheitsmaßnahme bitte den sechsstelligen Code ein, den
+     <string name="zero">0</string>
++    <string name="bttv_app_update_available">bttv-android: Ein neues Update wurde erkannt</string>
++    <string name="bttv_app_update_available_cta">Tippe hier, um das Update herunterzuladen und zu installieren.</string>
+ </resources>
 diff --git a/res/values-el/strings.xml b/res/values-el/strings.xml
 index 786eeba89..e099df9eb 100644
 --- a/res/values-el/strings.xml
@@ -1961,16 +1966,18 @@ index a2147323f..a6168863e 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index b02412d5b..2b8ee4965 100644
+index b02412d5b..c553a44be 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -11739,2 +11739,11 @@
+@@ -11739,2 +11739,13 @@
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <public type="id" name="bttv_updater_activity" id="0x7f0bfffa" />
 +    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
 +    <public type="id" name="bttv_updater_activity_body" id="0x7f0bfffc" />
 +    <public type="id" name="bttv_updater_activity_pb" id="0x7f0bfffd" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0efffa" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f13ffef" />
++    <public type="string" name="bttv_app_update_available" id="0x7f13fffa" />
 +    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f13fffb" />
 +    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f13fffc" />
 +    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f13fffd" />
@@ -1978,7 +1985,7 @@ index b02412d5b..2b8ee4965 100644
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 4e4fd0ef7..ab030ca89 100644
+index 4e4fd0ef7..8a114ed79 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -263,3 +263,3 @@ http://www.apache.org/licenses/LICENSE-2.0
@@ -1991,12 +1998,14 @@ index 4e4fd0ef7..ab030ca89 100644
 -    <string name="login_landing_title">Welcome to Twitch</string>
 +    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
      <string name="login_live_body">All your favorite streamers in one place</string>
-@@ -3234,2 +3234,6 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
+@@ -3234,2 +3234,8 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
      <string name="zero">0</string>
 +    <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
 +    <string name="bttv_emote_picker_channel_bttv">"Channel's BTTV Emotes"</string>
 +    <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
 +    <string name="bttv_emote_picker_channel_ffz">"Channel's FrankerFaceZ Emotes"</string>
++    <string name="bttv_app_update_available">bttv-android: New Update detected</string>
++    <string name="bttv_app_update_available_cta">Tap here to download and install the update.</string>
  </resources>
 diff --git a/res/xml/provider_paths.xml b/res/xml/provider_paths.xml
 new file mode 100644
@@ -2065,6 +2074,16 @@ index 46cdaa88e..80bda4a8c 100644
 +
 +
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+diff --git a/smali_classes4/tv/twitch/android/app/R$string.smali b/smali_classes4/tv/twitch/android/app/R$string.smali
+index ea6b1c836..5a83799fd 100644
+--- a/smali_classes4/tv/twitch/android/app/R$string.smali
++++ b/smali_classes4/tv/twitch/android/app/R$string.smali
+@@ -5898,2 +5898,5 @@
+ 
++.field public static final bttv_app_update_available_cta:I = 0x7f13ffef
++.field public static final bttv_app_update_available:I = 0x7f13fffa
++
+ 
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 index 8999c613c..008ea0396 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
@@ -2092,6 +2111,19 @@ index 506bcae09..102b35d7a 100644
 +    invoke-static {p0, p1}, Lbttv/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
 +
      .line 343
+diff --git a/smali_classes4/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes4/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
+index b003bbd1b..178705d1f 100644
+--- a/smali_classes4/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
++++ b/smali_classes4/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
+@@ -118,6 +118,6 @@
+     .line 66
+-    sget v6, Ltv/twitch/android/app/R$string;->app_update_available_cta:I
++    sget v6, Ltv/twitch/android/app/R$string;->bttv_app_update_available_cta:I
+ 
+     .line 67
+-    sget v7, Ltv/twitch/android/app/R$string;->app_update_available:I
++    sget v7, Ltv/twitch/android/app/R$string;->bttv_app_update_available:I
+ 
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 index 3f9e1191b..f61a98e8d 100644
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
