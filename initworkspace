@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STEPS=7
+STEPS=6
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
@@ -45,32 +45,23 @@ git init &&
 echo ".gitignore" > .gitignore &&
 echo "build" >> .gitignore &&
 echo "dist" >> .gitignore &&
+echo "smali_classes10/bttv" >> .gitignore &&
 echo "" >> .gitignore &&
 git add . &&
 git commit --quiet -m "base" &&
 git tag base &&
-git branch javaonly &&
-git checkout javaonly &&
 cd .. &&
 echo "" &&
 echo "=== Build source (4/$STEPS) ===" &&
 ./buildsource disass &&
 echo "" &&
-echo "=== Create reference (5/$STEPS) ===" &&
-cd disass &&
-git add . &&
-git commit --quiet -m "new revision" &&
-git checkout master &&
-git merge javaonly -m "merge: new revision" &&
-cd .. &&
-echo "" &&
-echo "=== Apply monke.patch (6/$STEPS) ===" &&
+echo "=== Apply monke.patch (5/$STEPS) ===" &&
 ./patch monke.patch &&
 cd disass &&
 git commit -m "applied monke" &&
 cd .. &&
 echo "" &&
-echo "=== Build apk (7/$STEPS) ===" &&
+echo "=== Build apk (6/$STEPS) ===" &&
 ./build disass &&
 echo "" &&
 [ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk

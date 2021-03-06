@@ -7,7 +7,6 @@ if [ $(git status --short | wc -l) = "0" ]; then
     echo "No changes in $1 found, no need to generate monke.patch"
     exit 1
 fi
-git checkout master &&
 git add . &&
-git diff --binary -U1 javaonly > ../monke.patch &&
+git diff --binary -U1 base > ../monke.patch &&
 echo "done"

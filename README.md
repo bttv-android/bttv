@@ -101,33 +101,22 @@ bttv/
 
 ```
 
-### genmonke and branches in extraced
+### genmonke
 
 During initialization the disass / extraced dir is initialized with an empty git repo.
 Right after the disassemblement the first commit is made and tagged "base".
 This is used to generate the patch file.
-In order to distinguish between patches made by compiling `source` and monkey patches made directly in `extraced`
-a branch named `javaonly` was created. Right after the first compilation this branch recieves a commit with only these changes.
-monke.patch is thus the result of a diff between master and javaonly.
+`monke.patch` is thus the result of a diff between master and base.
 
 #### Only source changes
 
 You need to nothing else, you can commit your code and start a pull request!
 
-#### Only monkey patch changes
+#### Monkey patch changes
 
-(i.e. changes to resources)
+Run `./genmonke <dir>` before you make a commit.
 
-Just run the `./genmonkeyonly` script and commit it. Your PR should only contain changes in `monke.patch`.
-
-#### Both source and monkey patch changes
-
-Run `./genmonkefull` script and commit it. Your PR will contain both changes to `source/` and `monke.patch`.
-If, for whatever reason, the script fails¹ you might need to `cd` into `extracted` run `git checkout master` and `git stash pop` to get your changes back.
-
-¹: If the script stops, because it detected no changes, you do not need to do that.
-
-# Best practices for contributers
+## Best practices for contributers
 
 Everytime you get a new version of the code (e.g. using git pull or git checkout) remove `extraced` and run `./initworkspace` again.
 
