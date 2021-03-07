@@ -5,5 +5,4 @@
 package tv.twitch.chat;
 
 public class ChatMessageInfo {
-    
 }

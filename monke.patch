@@ -2142,6 +2142,14 @@ index 12f673f1d..7eaa1d32d 100644
 -    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 +    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
  
+diff --git a/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali b/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
+index e5616d306..81aa870a3 100644
+--- a/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
++++ b/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
+@@ -747,2 +747,3 @@
+     iput-object p2, p0, Ltv/twitch/android/feature/theatre/chomments/ChommentsFetcher;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
++    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/channel/ChannelModel;)V
+ 
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 index bf0eccbe5..202a6ac81 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
@@ -2260,6 +2268,28 @@ index d8430db3b..fac23e96b 100644
 +    :after_bttv
 +
      const-string v0, "emoteId"
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+index 503a5f5d8..ee9e55ad3 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+@@ -233,3 +233,3 @@
+ 
+-    new-instance v1, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
++    new-instance v1, Lbttv/ChommentModelDelegateWrapper;
+ 
+@@ -239,3 +239,3 @@
+ 
+-    invoke-direct {v1, p1, v3, v2, v3}, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/shared/chat/ChatMessageParser;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct {v1, p1, v3, v2, v3}, Lbttv/ChommentModelDelegateWrapper;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/shared/chat/ChatMessageParser;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali b/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+index 98fc27225..0adec4d95 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+@@ -1,2 +1,2 @@
+-.class public final Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
++.class public Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
+ .super Ljava/lang/Object;
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 index 7c2879cea..6bbd15a7d 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
@@ -2283,7 +2313,7 @@ index 7c2879cea..6bbd15a7d 100644
 +    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
  
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-index 29f339c53..d8e1da8d0 100644
+index 29f339c53..c8f154615 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes8/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 @@ -1052,3 +1052,3 @@

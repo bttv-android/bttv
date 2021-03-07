@@ -11,8 +11,6 @@ import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.chat.ChatMessageInfo;
 
-/* renamed from: tv.twitch.android.shared.chat.ChatMessageDelegate */
-@SuppressWarnings("FieldMayBeFinal")
 public class ChatMessageDelegate implements ChatMessageInterface {
 
     public ChatMessageDelegate(ChatMessageInfo chatMessageInfo) {

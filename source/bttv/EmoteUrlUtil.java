@@ -5,6 +5,7 @@ import android.util.Log;
 
 public class EmoteUrlUtil {
     public static final String generateEmoteUrl(String id, float f) {
+        Log.w("LBTTVEmoteUrlUtil", "generateEmoteUrl()", new Exception());
         if (id.startsWith("BTTV-")) {
             String realId = id.split("BTTV-")[1];
             Emote emote = Data.getEmoteById(realId);
