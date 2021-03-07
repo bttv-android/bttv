@@ -2142,6 +2142,14 @@ index 12f673f1d..7eaa1d32d 100644
 -    invoke-static {v1, v2}, Ltv/twitch/android/util/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 +    invoke-static {v1, v2}, Lbttv/EmoteUrlUtil;->getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
  
+diff --git a/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali b/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
+index e5616d306..81aa870a3 100644
+--- a/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
++++ b/smali_classes7/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
+@@ -747,2 +747,3 @@
+     iput-object p2, p0, Ltv/twitch/android/feature/theatre/chomments/ChommentsFetcher;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
++    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/channel/ChannelModel;)V
+ 
 diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
 index bf0eccbe5..202a6ac81 100644
 --- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali

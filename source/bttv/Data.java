@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import android.content.Context;
 import android.util.Log;
+import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
     public static final String bttvVersion = "v0.0.9-alpha";
@@ -28,6 +29,10 @@ public class Data {
         Log.i("LBTTVDataSetCurrentBroadcasterId", currentBroadcasterId + " -> " + id);
         Data.currentBroadcasterId = id;
         ensureChannelEmotes(id);
+    }
+
+    public static void setCurrentBroadcasterId(ChannelModel channel) {
+        setCurrentBroadcasterId(channel.component1());
     }
 
     public static void setContext(Context ctx) {

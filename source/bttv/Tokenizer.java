@@ -1,10 +1,7 @@
 package bttv;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import android.util.Log;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
@@ -13,8 +10,6 @@ public class Tokenizer {
 
     public static List<MessageToken> tokenize(List<MessageToken> orig) {
         int channel = Data.currentBroadcasterId;
-        Log.w("LBTTVTokenizer",
-                "tokenize() currentBroadcaster: " + channel + "\ntoken: " + Arrays.toString(orig.toArray()));
 
         // Don't add Emotes, when we dont have the chnnel's emotes (yet)
         if (!Data.channelHasEmotes(channel)) {
