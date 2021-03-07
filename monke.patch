@@ -2294,10 +2294,10 @@ index 29f339c53..d8e1da8d0 100644
 @@ -2313,5 +2313,5 @@
      .line 523
 -    new-instance v1, Ltv/twitch/android/shared/chat/ChatMessageDelegate;
-+    new-instance v1, Lbttv/ChatMessageDeligateWrapper;
++    new-instance v1, Lbttv/ChatMessageDelegateWrapper;
  
 -    invoke-direct {v1, v0}, Ltv/twitch/android/shared/chat/ChatMessageDelegate;-><init>(Ltv/twitch/chat/ChatMessageInfo;)V
-+    invoke-direct {v1, v0}, Lbttv/ChatMessageDeligateWrapper;-><init>(Ltv/twitch/chat/ChatMessageInfo;)V
++    invoke-direct {v1, v0}, Lbttv/ChatMessageDelegateWrapper;-><init>(Ltv/twitch/chat/ChatMessageInfo;)V
  
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali b/smali_classes8/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
 index feebee060..f16f31b21 100644

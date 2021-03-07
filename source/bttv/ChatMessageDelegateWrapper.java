@@ -5,15 +5,14 @@ import tv.twitch.chat.ChatMessageInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.Log;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
 
-public class ChatMessageDeligateWrapper extends ChatMessageDelegate {
+public class ChatMessageDelegateWrapper extends ChatMessageDelegate {
 
-    public ChatMessageDeligateWrapper(ChatMessageInfo chatMessageInfo) {
+    public ChatMessageDelegateWrapper(ChatMessageInfo chatMessageInfo) {
         super(chatMessageInfo);
     }
 
