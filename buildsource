@@ -18,18 +18,15 @@ mkdir -p $OUTDIR
 $JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/*.java &&
 cd $OUTDIR
 
-for file in bttv/*.class; do
-  echo $file
-  $DX --dex --output ${file/.class/.dex} $file
-done
-for file in bttv/*.dex; do
-  echo $file
-  $JAVA_PATH -jar $BAKSMALI_PATH d -o . $file
-done
-
+rm -rf ../$TARGETDIR/smali_classes10/bttv
 mkdir -p ../$TARGETDIR/smali_classes10/bttv
 
-for file in bttv/*.smali; do
-  echo $file
-  cp $file ../$TARGETDIR/smali_classes10/$file
-done
+mkdir root
+mv bttv root/.
+
+$DX --dex --output bttv.dex root
+$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv.dex
+
+mv bttv/*.smali ../$TARGETDIR/smali_classes10/bttv
+cd ..
+rm $OUTDIR -rf
