@@ -18,8 +18,8 @@ mkdir -p $OUTDIR
 $JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/*.java &&
 cd $OUTDIR
 
-rm -rf ../$TARGETDIR/smali_classes10/bttv
-mkdir -p ../$TARGETDIR/smali_classes10/bttv
+rm -rf ../$TARGETDIR/smali_classes11/bttv
+mkdir -p ../$TARGETDIR/smali_classes11/bttv
 
 mkdir root
 mv bttv root/.
@@ -27,6 +27,6 @@ mv bttv root/.
 $DX --dex --output bttv.dex root
 $JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv.dex
 
-mv bttv/*.smali ../$TARGETDIR/smali_classes10/bttv
+mv bttv/*.smali ../$TARGETDIR/smali_classes11/bttv
 cd ..
 rm $OUTDIR -rf
