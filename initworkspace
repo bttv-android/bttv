@@ -45,7 +45,7 @@ git init &&
 echo ".gitignore" > .gitignore &&
 echo "build" >> .gitignore &&
 echo "dist" >> .gitignore &&
-echo "smali_classes10/bttv" >> .gitignore &&
+echo "smali_classes11/bttv" >> .gitignore &&
 echo "" >> .gitignore &&
 git add . &&
 git commit --quiet -m "base" &&

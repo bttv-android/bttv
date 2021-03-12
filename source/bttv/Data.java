@@ -11,7 +11,7 @@ import android.util.Log;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
-    public static final String bttvVersion = "v0.0.10-beta";
+    public static final String bttvVersion = "v0.0.11-beta";
 
     public static int currentBroadcasterId = -1;
     public static Context ctx;
