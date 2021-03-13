@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STEPS=6
+STEPS=7
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
@@ -36,10 +36,13 @@ echo "" &&
 echo "" &&
 echo " => Seems fine" &&
 echo "" &&
-echo "=== Disassemble twitch.apk (2/$STEPS) ===" &&
+echo "=== Print signatures (2/$STEPS) ===" &&
+$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -y -a twitch.apk &&
+echo "" &&
+echo "=== Disassemble twitch.apk (3/$STEPS) ===" &&
 ./disassemble &&
 echo "" &&
-echo "=== Create reference for diffs (3/$STEPS) ===" &&
+echo "=== Create reference for diffs (4/$STEPS) ===" &&
 cd disass &&
 git init &&
 echo ".gitignore" > .gitignore &&
@@ -52,16 +55,16 @@ git commit --quiet -m "base" &&
 git tag base &&
 cd .. &&
 echo "" &&
-echo "=== Build source (4/$STEPS) ===" &&
+echo "=== Build source (5/$STEPS) ===" &&
 ./buildsource disass &&
 echo "" &&
-echo "=== Apply monke.patch (5/$STEPS) ===" &&
+echo "=== Apply monke.patch (6/$STEPS) ===" &&
 ./patch monke.patch &&
 cd disass &&
 git commit -m "applied monke" &&
 cd .. &&
 echo "" &&
-echo "=== Build apk (6/$STEPS) ===" &&
+echo "=== Build apk (7/$STEPS) ===" &&
 ./build disass &&
 echo "" &&
 [ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk
