@@ -14,7 +14,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 # Build it yourself
 
 > This patch is meant to be applied to version **10.3.0** of the official twitch app
-> Make soure you use this version before you create an issue!
+> Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
 
