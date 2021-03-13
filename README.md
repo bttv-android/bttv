@@ -5,6 +5,8 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 > This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC or Dan Salvato LLC!
 > THE SOFTWARE IS PROVIDED "AS IS", **WITHOUT WARRANTY OF ANY KIND**!
 
+ [![Hero image][hero-img]][hero-img]
+
 # Install
 
 1. Scim through this [guide on how to enable third party app istallations][enable-guide]
@@ -127,6 +129,7 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
 [howtodl]: ./.github/dltut.webp?raw=true
+[hero-img]: ./.github/bttvog.jpg?raw=true
 [baksmali]: https://github.com/JesusFreke/smali
 [uber]: https://github.com/patrickfav/uber-apk-signer/releases/latest
 [apktool]: https://ibotpeaches.github.io/Apktool/
