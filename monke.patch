@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 49f1d412b..66f010712 100644
+index 49f1d412b..5c31dc8ba 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
@@ -174,7 +174,7 @@ index 000000000..f74a60e25
 +        android:layout_marginBottom="30dp" />
 +</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..7a6f352f0 100644
+index e5846b005..77b08cbed 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
@@ -2296,8 +2296,17 @@ index bf0eccbe5..202a6ac81 100644
  
 -    aput-object v0, v1, v2
  
+diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali b/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
+index 4290a53aa..836fc78fa 100644
+--- a/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
++++ b/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
+@@ -254,2 +254,4 @@
+ 
++    invoke-static {v3, p1}, Lbttv/AnonChat;->onSendMessage(ILjava/lang/String;)V
++
+     invoke-virtual {v0, v1, v3, p1}, Ltv/twitch/chat/ChatAPI;->sendMessage(IILjava/lang/String;)Ltv/twitch/ErrorCode;
 diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController.smali b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
-index 47f8206b1..d3cb395bb 100644
+index 47f8206b1..49da411ab 100644
 --- a/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 +++ b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 @@ -315,2 +315,4 @@
@@ -2305,6 +2314,42 @@ index 47f8206b1..d3cb395bb 100644
 +    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(I)V
 +
      return p1
+@@ -318,3 +320,3 @@
+ 
+-.method private _disconnect(II)Z
++.method public _disconnect(II)Z
+     .locals 3
+@@ -980,2 +982,14 @@
+ 
++    # bttv
++    invoke-static {p1, p2, p3}, Lbttv/AnonChat;->shouldAnonymize(IILjava/lang/String;)Z
++    move-result v0
++
++    if-eqz v0, :no_anon
++
++    const/16 p1, 0x0
++    const-string p3, "justinfan12345"
++
++    :no_anon
++    # /bttv
++
+     if-lez p2, :cond_0
+@@ -1060,3 +1074,3 @@
+ .method public disconnect(IILjava/lang/String;)V
+-    .locals 2
++    .locals 3
+ 
+@@ -1092,2 +1106,5 @@
+ 
++    const-string v2, "justinfan12345"
++    invoke-interface {v0, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
++
+     .line 1060
+@@ -1115,3 +1132,3 @@
+     :cond_0
+-    invoke-direct {p0, p1, p2}, Ltv/twitch/android/sdk/ChatController;->_disconnect(II)Z
++    invoke-static {p0, p1, p2}, Lbttv/AnonChat;->_disconnect(Ltv/twitch/android/sdk/ChatController;II)Z
+ 
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 index eaaa37c5a..e8da0a611 100644
 --- a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
@@ -2439,3 +2484,32 @@ index feebee060..f16f31b21 100644
 -.class public final Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
 +.class public Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
  .super Ltv/twitch/android/shared/chat/model/EmoteCardModel;
+diff --git a/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+index 3221a44fe..f4807d50a 100644
+--- a/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
++++ b/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+@@ -84,3 +84,3 @@
+ 
+-.field private final chatController:Ltv/twitch/android/sdk/ChatController;
++.field public final chatController:Ltv/twitch/android/sdk/ChatController;
+ 
+@@ -196,3 +196,3 @@
+ 
+-.field private final screenName:Ljava/lang/String;
++.field public final screenName:Ljava/lang/String;
+ 
+@@ -212,3 +212,3 @@
+ 
+-.field private viewerId:I
++.field public viewerId:I
+ 
+@@ -310,2 +310,4 @@
+ 
++    invoke-static {p0}, Lbttv/AnonChat;->setConnectionController(Ltv/twitch/android/shared/chat/observables/ChatConnectionController;)V
++
+     iput-object p1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->context:Landroid/content/Context;
+@@ -846,3 +848,3 @@
+ 
+-.method private final disconnect(I)V
++.method public final disconnect(I)V
+     .locals 3
