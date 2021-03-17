@@ -120,6 +120,8 @@ Run `./genmonke <dir>` before you make a commit.
 
 ## Best practices for contributers
 
+> Please also read the [architecture.md](./architecture.md) file!
+
 Everytime you get a new version of the code (e.g. using git pull or git checkout) remove `extraced` and run `./initworkspace` again.
 
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
