@@ -39,7 +39,7 @@ find .tmp/base | sed "s/.tmp\/base//" > .tmp/post.txt
 diff -u .tmp/pre.txt .tmp/post.txt | grep -E "^\+" > .tmp/additions.txt
 
 # fix public.xml
-$PUBLIC_FIXER .tmp/base/res/values/public.xml .tmp/disass/*/res/values/public.xml
+$PUBLIC_FIXER .tmp/base .tmp/disass/*/res/values/public.xml
 
 # Remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
