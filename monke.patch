@@ -1,10 +1,10 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 49f1d412b..66f010712 100644
+index 2b0f1c732..29ecc922e 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,2 +1,2 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
-+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="00111000010" android:versionName="0.0.11-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="0101000031" android:versionName="0.1.0-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
 @@ -9,2 +9,3 @@
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -25,8 +25,10 @@ index 49f1d412b..66f010712 100644
 -        <provider android:authorities="tv.twitch.android.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
-@@ -205,2 +206,10 @@
-         <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+@@ -204,3 +205,11 @@
+         <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+-        <meta-data android:name="com.android.vending.derived.apk.id" android:value="3"/>
++        <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
 +        <activity android:name="bttv.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"
@@ -36,6 +38,49 @@ index 49f1d412b..66f010712 100644
 +            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"></meta-data>
 +        </provider>
      </application>
+diff --git a/apktool.yml b/apktool.yml
+index 86541a8ae..f8ed9d946 100644
+--- a/apktool.yml
++++ b/apktool.yml
+@@ -63,2 +63,38 @@ doNotCompress:
+ - res/raw/test_video_data.data
++# manual
++- lib/armeabi-v7a/libAIVDash.so
++- lib/armeabi-v7a/libAIVHeuristics.so
++- lib/armeabi-v7a/libAIVMemoryAllocator.so
++- lib/armeabi-v7a/libAIVPlayReadyLicensing.so
++- lib/armeabi-v7a/libAIVSecureRenderer.so
++- lib/armeabi-v7a/libAIVVisualOnRenderer.so
++- lib/armeabi-v7a/libATVPlaybackSmoothStream.so
++- lib/armeabi-v7a/libInit.so
++- lib/armeabi-v7a/libRSSupport.so
++- lib/armeabi-v7a/libbroadcastcore.so
++- lib/armeabi-v7a/libc++_shared.so
++- lib/armeabi-v7a/libcomScore.so
++- lib/armeabi-v7a/libcrashlytics-common.so
++- lib/armeabi-v7a/libcrashlytics-handler.so
++- lib/armeabi-v7a/libcrashlytics-trampoline.so
++- lib/armeabi-v7a/libcrashlytics.so
++- lib/armeabi-v7a/libplayercore.so
++- lib/armeabi-v7a/librsjni.so
++- lib/armeabi-v7a/librsjni_androidx.so
++- lib/armeabi-v7a/libsyendk.so
++- lib/armeabi-v7a/libtwitchsdk.so
++- lib/armeabi-v7a/libvoAACDec_OSMP.so
++- lib/armeabi-v7a/libvoAndroidVR_S50_OSMP.so
++- lib/armeabi-v7a/libvoAndroidVR_S60_OSMP.so
++- lib/armeabi-v7a/libvoAudioSpeed_OSMP.so
++- lib/armeabi-v7a/libvoH264Dec_OSMP.so
++- lib/armeabi-v7a/libvoH265Dec_OSMP.so
++- lib/armeabi-v7a/libvoMMCCRRS_OSMP.so
++- lib/armeabi-v7a/libvoOSCEngine.so
++- lib/armeabi-v7a/libvoOSEng_OSMP.so
++- lib/armeabi-v7a/libvoVidDec_OSMP.so
++- lib/armeabi-v7a/libvodl.so
++- lib/armeabi-v7a/libvompEngn_OSMP.so
++- resources.arsc
++- gif
+ isFrameworkApk: false
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
 --- a/res/drawable-v23/background_splash.xml
@@ -174,12 +219,12 @@ index 000000000..f74a60e25
 +        android:layout_marginBottom="30dp" />
 +</LinearLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..7a6f352f0 100644
+index e5846b005..77b08cbed 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -4,2 +4,3 @@
      <ImageView android:layout_gravity="center_horizontal" android:id="@id/app_settings_icon" android:padding="@dimen/default_margin" android:layout_width="@dimen/settings_footer_logo_size" android:layout_height="@dimen/settings_footer_logo_size" android:src="@drawable/ic_twitch_glitch_uv" />
-+    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV v0.0.11" />
++    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV v0.1.0" />
      <TextView android:textColor="@color/text_alt" android:gravity="center" android:id="@id/app_settings_version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/version_label" />
 diff --git a/res/mipmap-anydpi-v26/ic_launcher.xml b/res/mipmap-anydpi-v26/ic_launcher.xml
 index 3b06a9d16..202eb42e8 100644
@@ -1961,7 +2006,7 @@ index 01e233a3e..f8b7c4b20 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 5e11945fe..2a077d46e 100644
+index ebfb202e3..4e6242b43 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -11842,2 +11842,13 @@
@@ -1980,7 +2025,7 @@ index 5e11945fe..2a077d46e 100644
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index fb9ace97e..3d0185e6e 100644
+index 438050505..c72569f80 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -263,3 +263,3 @@ http://www.apache.org/licenses/LICENSE-2.0
@@ -2188,7 +2233,7 @@ index 6bab621d0..64ac7593a 100644
 +
  
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-index da4d3a400..c7e9e9a52 100644
+index 1ae7b5b82..f32c33de7 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -168,2 +168,4 @@

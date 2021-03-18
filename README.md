@@ -15,7 +15,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
 
 # Build it yourself
 
-> This patch is meant to be applied to version **10.3.0** of the official twitch app
+> This patch is meant to be applied to version **10.3.1** of the official twitch app
 > Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
@@ -27,10 +27,10 @@ Docker
 ### How to:
 
 1. Pull the builder `docker pull ghcr.io/bttv-android/builder`
-2. Get the Twitch App's apk file (e.g from [here][evozi]), drop it in this directory and call it "twitch.apk"
+2. Get the Twitch App's apk files (e.g from [here][evozi]), drop them zipped in this directory and call it "twitch.zip"
    > Please make sure you get it from a non-shady source!
-3. Run the builder: `docker run --rm -ti -v path/to/twitch.apk:/usr/build/twitch.apk -v /path/to/dist:/usr/build/dist ghcr.io/bttv-android/builder`
-   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder`
+3. Run the builder: `docker run --rm -ti -v path/to/twitch.zip:/usr/build/twitch.zip -v /path/to/dist:/usr/build/dist ghcr.io/bttv-android/builder`
+   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.zip:/usr/build/twitch.zip -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder`
 4. The `dist` directory will contain the patched apk file!
 5. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
 6. Remove the builder again: `docker rmi ghcr.io/bttv-android/builder`
@@ -48,16 +48,17 @@ Docker
 | [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
 | [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
+| [public-fixer][public-fixer]                                         | PUBLIC_FIXER             | /opt/public-fixer                              |
 
 ### How to:
 
 > If you get stuck at any point, just remove the `disass` dir and try again
 
 0. Download and install prerequisites
-1. Get the Twitch App's apk file (e.g from [here][evozi]), drop it in this directory and call it "twitch.apk"
+1. Get the Twitch App's apk files (e.g from [here][evozi]), drop them zipped in this directory and call it "twitch.zip"
    > Please make sure you get it from a non-shady source!
    > If you have adb installed follow [this guide][adb-apk] (Method 3)
-2. The `./initworkspace` script will disassemble the apk, build the sources, apply monkey patches and build the new apk for you
+2. The `./initworkspace` script will disassemble the apks, build the sources, apply monkey patches and build the new apk for you
 3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
    > (Adb installed and device connected? Try the : `./install` script)
 
@@ -126,8 +127,8 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
-[bttv-version]: https://img.shields.io/badge/current%20version-v0.0.11-blue?style=flat-square
-[base-version]: https://img.shields.io/badge/build%20on-v10.3.0-blueviolet?style=flat-square
+[bttv-version]: https://img.shields.io/badge/current%20version-v0.1.0-blue?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v10.3.1-blueviolet?style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
 [howtodl]: ./.github/dltut.webp?raw=true
