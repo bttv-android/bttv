@@ -48,6 +48,7 @@ Docker
 | [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
 | [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
+| [public-fixer][public-fixer]                                         | PUBLIC_FIXER             | /opt/public-fixer                              |
 
 ### How to:
 
