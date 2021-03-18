@@ -40,7 +40,7 @@ RUN chmod +x public-fixer
 ENV PUBLIC_FIXER /opt/public-fixer
 
 # Cleanup
-RUN apt remove wget zip --yes
+RUN apt remove wget --yes
 RUN apt autoremove --yes
 RUN apt clean --yes
 
