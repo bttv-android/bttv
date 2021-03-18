@@ -48,4 +48,4 @@ sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
 mv .tmp/base disass
-# rm .tmp -rf
+rm .tmp -rf
