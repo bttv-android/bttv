@@ -139,3 +139,4 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 [buildtools]: https://androidsdkmanager.azurewebsites.net/Buildtools
 [evozi]: https://apps.evozi.com/apk-downloader/?id=tv.twitch.android.app
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
+[public-fixer]: https://github.com/bttv-android/public-fixer/releases/latest
