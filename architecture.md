@@ -27,7 +27,7 @@ touch on them for a litle bit:
 
 [![diagram][source-img]][source-img]
 
-In order to compile `javac` needs the call signature of every method we call in our code (`source/bttv`). So if we want to call methods which we have not written, like `Log.d()` in `android.util` we need to mock them. As the compiled references have to be the same as in the android application the source direcotry is spammed with packages that really only contain mocks.
+In order to compile `javac` needs the call signature of every method we call in our code (`source/bttv`). So if we want to call methods which we have not written, like `Log.d()` in `android.util` we need to mock them. As the compiled references have to be the same as in the android application the source directory is spammed with packages that really only contain mocks.
 
 
 
@@ -35,7 +35,7 @@ In order to compile `javac` needs the call signature of every method we call in 
 
 [![diagram][monke-img]][monke-img]
 
-As we can't publish the whole application (it's amazons IP after all) we just track all our changes using `git`. This is done by creating a new tag right after the dissemblance of the base apk file. Every modification can then be tracked using `git diff` the result of which is stored in the `monke.patch` file. `git apply` takes this file and appies the changes to a given commit. This way, given the same base code produced by apktool, the mod is reproducable.
+As we can't publish the whole application we simply track all our changes using `git`. This is done by creating a new tag right after the dissemblance of the base apk file. Every modification can then be tracked using `git diff` the result of which is stored in the `monke.patch` file. `git apply` takes this file and appies the changes to a given commit. This way, given the same base code produced by apktool, the mod is reproducable.
 
 `base + monke.patch (+ sources) = mod`
 
