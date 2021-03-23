@@ -8,6 +8,7 @@ First let's understand the build process.
 In order to build a the bttv-android mod we need three things:
 
 1. The official twitch application
+> Note: Before v10.3.1 it was possible to get a single `.apk` of the Twitch app through evozi. This is not possible anymore, instead evozi will hand out a zip archive which includes the App as multiple split apks. The toolchain now includes a step that merges these together to a single apk again. Just don't get confused when this document refers to a `twitch.apk`.
 2. New java classes and methods we can call
 3. Additional changes within existing classes in the apk (monkey patches)
 
