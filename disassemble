@@ -16,11 +16,29 @@ echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 rm -rf .tmp &&
 unzip $ZIP_FILE -d .tmp
 
+#
+# Verify integrity
+#
+
+# compare with https://twitch.tv/.well-known/assetlinks.json
+FMT_TWITCH_SHA="13:38:F9:B0:49:89:3C:C7:0B:78:43:2A:17:75:82:F9:0B:D4:BC:62:96:EA:4E:D3:5B:CC:7D:F5:96:87:AC:53"
+TWITCH_SHA=$(echo $FMT_TWITCH_SHA | sed 's/\://g') # remove all ':'
 
 echo "~~~ Print signatures ~~~" &&
-$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -y -a .tmp/*.apk
+$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -y --verifySha256 $TWITCH_SHA -a .tmp/*.apk
 
-# Disassemble apk files
+# exit if verification failed
+[ $? -eq 2 ] &&
+echo "ERROR: 
+ERROR: One or more apk files where not signed by twitch!
+ERROR: This most likely means you have downloaded a potentialy malicious zip archive!
+ERROR: " &&
+exit 1
+
+#
+# disassemble apk files
+#
+
 for file in .tmp/*.apk; do
   echo $file
   echo ====
@@ -30,7 +48,9 @@ done
 mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
 find .tmp/base | sed "s/.tmp\/base//" > .tmp/pre.txt
 
-# Copy all files to base (don't overwrite)
+#
+# copy all files to base (don't overwrite)
+#
 for dir in .tmp/disass/*; do
   cp -r -n $dir/* .tmp/base
 done
@@ -41,11 +61,14 @@ diff -u .tmp/pre.txt .tmp/post.txt | grep -E "^\+" > .tmp/additions.txt
 # fix public.xml
 $PUBLIC_FIXER .tmp/base .tmp/disass/*/res/values/public.xml
 
-# Remove android:isSplitRequired="true"
+# remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
 
-# Rename apk
+# rename apk
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
+#
+# clean up
+#
 mv .tmp/base disass
 rm .tmp -rf
