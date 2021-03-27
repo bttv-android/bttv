@@ -2,19 +2,26 @@
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
-[ -z "$ZIP_FILE" ] && ZIP_FILE=twitch.zip
 [ -z "$PUBLIC_FIXER" ] && PUBLIC_FIXER=/opt/public-fixer
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
 
+[[ -f "twitch.zip" ]] && FILE=twitch.zip
+[[ -f "twitch.apk" ]] && FILE=twitch.apk
+[ -z "$FILE" ] && echo "neither twitch.zip or twitch.apk where found" && exit 1
+
 echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
-echo "ZIP_FILE: $ZIP_FILE"
+echo "FILE: $FILE"
 echo "PUBLIC_FIXER: $PUBLIC_FIXER"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
-# Unzip to .tmp
-rm -rf .tmp &&
-unzip $ZIP_FILE -d .tmp
+rm -rf .tmp
+if [ "${FILE: -4}" = ".zip" ]; then
+  unzip $FILE -d .tmp
+else
+  mkdir .tmp
+  cp twitch.apk .tmp/tv.twitch.android.app.apk
+fi
 
 #
 # Verify integrity
@@ -46,20 +53,20 @@ for file in .tmp/*.apk; do
 done
 
 mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
-find .tmp/base | sed "s/.tmp\/base//" > .tmp/pre.txt
 
-#
-# copy all files to base (don't overwrite)
-#
-for dir in .tmp/disass/*; do
-  cp -r -n $dir/* .tmp/base
-done
 
-find .tmp/base | sed "s/.tmp\/base//" > .tmp/post.txt
-diff -u .tmp/pre.txt .tmp/post.txt | grep -E "^\+" > .tmp/additions.txt
+if [ $(find .tmp/disass | wc -l) != "1" ]; then
+  #
+  # copy all files to base (don't overwrite)
+  #
+  for dir in .tmp/disass/*; do
+    cp -r -n $dir/* .tmp/base
+  done
 
-# fix public.xml
-$PUBLIC_FIXER .tmp/base .tmp/disass/*/res/values/public.xml
+  # fix public.xml
+  $PUBLIC_FIXER .tmp/base .tmp/disass/*/res/values/public.xml
+
+fi
 
 # remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
