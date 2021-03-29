@@ -36,49 +36,6 @@ index 8e314a0a5..c65d50e62 100644
 +            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"></meta-data>
 +        </provider>
      </application>
-diff --git a/apktool.yml b/apktool.yml
-index c03c1d2c6..e9ff06429 100644
---- a/apktool.yml
-+++ b/apktool.yml
-@@ -67,2 +67,38 @@ doNotCompress:
- - res/raw/test_video_data.data
-+# manual
-+- lib/armeabi-v7a/libAIVDash.so
-+- lib/armeabi-v7a/libAIVHeuristics.so
-+- lib/armeabi-v7a/libAIVMemoryAllocator.so
-+- lib/armeabi-v7a/libAIVPlayReadyLicensing.so
-+- lib/armeabi-v7a/libAIVSecureRenderer.so
-+- lib/armeabi-v7a/libAIVVisualOnRenderer.so
-+- lib/armeabi-v7a/libATVPlaybackSmoothStream.so
-+- lib/armeabi-v7a/libInit.so
-+- lib/armeabi-v7a/libRSSupport.so
-+- lib/armeabi-v7a/libbroadcastcore.so
-+- lib/armeabi-v7a/libc++_shared.so
-+- lib/armeabi-v7a/libcomScore.so
-+- lib/armeabi-v7a/libcrashlytics-common.so
-+- lib/armeabi-v7a/libcrashlytics-handler.so
-+- lib/armeabi-v7a/libcrashlytics-trampoline.so
-+- lib/armeabi-v7a/libcrashlytics.so
-+- lib/armeabi-v7a/libplayercore.so
-+- lib/armeabi-v7a/librsjni.so
-+- lib/armeabi-v7a/librsjni_androidx.so
-+- lib/armeabi-v7a/libsyendk.so
-+- lib/armeabi-v7a/libtwitchsdk.so
-+- lib/armeabi-v7a/libvoAACDec_OSMP.so
-+- lib/armeabi-v7a/libvoAndroidVR_S50_OSMP.so
-+- lib/armeabi-v7a/libvoAndroidVR_S60_OSMP.so
-+- lib/armeabi-v7a/libvoAudioSpeed_OSMP.so
-+- lib/armeabi-v7a/libvoH264Dec_OSMP.so
-+- lib/armeabi-v7a/libvoH265Dec_OSMP.so
-+- lib/armeabi-v7a/libvoMMCCRRS_OSMP.so
-+- lib/armeabi-v7a/libvoOSCEngine.so
-+- lib/armeabi-v7a/libvoOSEng_OSMP.so
-+- lib/armeabi-v7a/libvoVidDec_OSMP.so
-+- lib/armeabi-v7a/libvodl.so
-+- lib/armeabi-v7a/libvompEngn_OSMP.so
-+- resources.arsc
-+- gif
- isFrameworkApk: false
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
 --- a/res/drawable-v23/background_splash.xml
