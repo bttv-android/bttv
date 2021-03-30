@@ -52,8 +52,10 @@ for file in .tmp/*.apk; do
   $JAVA_PATH -Xmx256m -jar $APKTOOL_PATH d $file -o .tmp/disass/${file/.tmp\//} $file
 done
 
-mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
-
+# move base
+[[ -d ".tmp/disass/tv.twitch.android.app.apk" ]] && echo "found tv.twitch.android.app.apk" && mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
+[[ -d ".tmp/disass/base.apk" ]] && echo "found base.apk" && mv .tmp/disass/base.apk .tmp/base 
+[[ -d ".tmp/base" ]] || (echo "could not identify base please file an issue!" && exit 1)
 
 if [ $(find .tmp/disass | wc -l) != "1" ]; then
   #
@@ -64,15 +66,20 @@ if [ $(find .tmp/disass | wc -l) != "1" ]; then
   done
 
   # fix public.xml
-  $PUBLIC_FIXER .tmp/base .tmp/disass/*/res/values/public.xml
-
+  $PUBLIC_FIXER fix .tmp/base .tmp/disass/*/res/values/public.xml
+  $PUBLIC_FIXER yml .tmp/base .tmp/disass/*/apktool.yml
 fi
 
 # remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
+sed -i 's/com.android.vending.derived.apk.id" android:value="."/com.android.vending.derived.apk.id" android:value="1"/' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.vending.splits.required"/d' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.vending.splits"/d' .tmp/base/AndroidManifest.xml
+
 
 # rename apk
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
+sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
 #
 # clean up
