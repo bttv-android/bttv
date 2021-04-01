@@ -27,8 +27,15 @@ Docker
 ### How to:
 
 1. Pull the builder `docker pull ghcr.io/bttv-android/builder`
-2. Get the Twitch App's apk files (e.g from [here][evozi]), drop them zipped in this directory and call it "twitch.zip"
+2. Get the Twitch App's apk files (e.g from [here][evozi], or [here][apkmirror])
    > Please make sure you get it from a non-shady source!
+  
+   > If you have downloaded a single `.apk` file, name it `twitch.apk`
+   
+   > If you have downloaded a bundle of `.apk` files put them in a `.zip` archive and name it `twitch.zip`
+   
+   > Note: Apkmirror publishes bundles as `.apkm` files, those are just `zip` files, so rename them to `twitch.apk`
+   
 3. Run the builder: `docker run --rm -ti -v path/to/twitch.zip:/usr/build/twitch.zip -v /path/to/dist:/usr/build/dist ghcr.io/bttv-android/builder`
    > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.zip:/usr/build/twitch.zip -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder`
 4. The `dist` directory will contain the patched apk file!
@@ -138,5 +145,6 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 [apktool]: https://ibotpeaches.github.io/Apktool/
 [buildtools]: https://androidsdkmanager.azurewebsites.net/Buildtools
 [evozi]: https://apps.evozi.com/apk-downloader/?id=tv.twitch.android.app
+[apkmirror]: https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
 [public-fixer]: https://github.com/bttv-android/public-fixer/releases/latest
