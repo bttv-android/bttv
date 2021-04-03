@@ -22,9 +22,9 @@ public class AnonChat {
         Context ctx = Data.ctx;
         boolean anonEnabled = UserPreferences.getAnonChatEnabled(ctx);
         boolean result = anonEnabled && !joinedAnyway;
+        Log.d("LBTTVShouldAnonymize", "joinedAnyway: " + joinedAnyway + " result: " + result);
         ableToChat = !result;
         joinedAnyway = false;
-        Log.d("LBTTVAnonChat", "result: " + result);
         if (result) {
             set.add(channelId);
         }
@@ -65,5 +65,9 @@ public class AnonChat {
                 connectionController.screenName);
         Log.d("LBTTVAnonChat", "connected");
 
+    }
+
+    public static boolean getJoinedAnyway() {
+        return joinedAnyway;
     }
 }
