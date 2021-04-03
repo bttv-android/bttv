@@ -1,12 +1,88 @@
 #!/bin/bash
+
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
-[ -z "$APK_FILE" ] && APK_FILE=twitch.apk
+[ -z "$PUBLIC_FIXER" ] && PUBLIC_FIXER=/opt/public-fixer
+[ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
+
+[[ -f "twitch.zip" ]] && FILE=twitch.zip
+[[ -f "twitch.apk" ]] && FILE=twitch.apk
+[ -z "$FILE" ] && echo "neither twitch.zip or twitch.apk where found" && exit 1
 
 echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
-echo "APK_FILE: $APK_FILE"
+echo "FILE: $FILE"
+echo "PUBLIC_FIXER: $PUBLIC_FIXER"
+echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
-# Disassemble
-$JAVA_PATH -Xmx256m -jar $APKTOOL_PATH d $APK_FILE -o disass $APK_FILE
+rm -rf .tmp
+if [ "${FILE: -4}" = ".zip" ]; then
+  unzip $FILE -d .tmp
+else
+  mkdir .tmp
+  cp twitch.apk .tmp/tv.twitch.android.app.apk
+fi
 
+#
+# Verify integrity
+#
+
+# compare with https://twitch.tv/.well-known/assetlinks.json
+FMT_TWITCH_SHA="13:38:F9:B0:49:89:3C:C7:0B:78:43:2A:17:75:82:F9:0B:D4:BC:62:96:EA:4E:D3:5B:CC:7D:F5:96:87:AC:53"
+TWITCH_SHA=$(echo $FMT_TWITCH_SHA | sed 's/\://g') # remove all ':'
+
+echo "~~~ Print signatures ~~~" &&
+$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -y --verifySha256 $TWITCH_SHA -a .tmp/*.apk
+
+# exit if verification failed
+[ $? -eq 2 ] &&
+echo "ERROR: 
+ERROR: One or more apk files where not signed by twitch!
+ERROR: This most likely means you have downloaded a potentialy malicious zip archive!
+ERROR: " &&
+exit 1
+
+#
+# disassemble apk files
+#
+
+for file in .tmp/*.apk; do
+  echo $file
+  echo ====
+  $JAVA_PATH -Xmx256m -jar $APKTOOL_PATH d $file -o .tmp/disass/${file/.tmp\//} $file
+done
+
+# move base
+[[ -d ".tmp/disass/tv.twitch.android.app.apk" ]] && echo "found tv.twitch.android.app.apk" && mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
+[[ -d ".tmp/disass/base.apk" ]] && echo "found base.apk" && mv .tmp/disass/base.apk .tmp/base 
+[[ -d ".tmp/base" ]] || (echo "could not identify base please file an issue!" && exit 1)
+
+if [ $(find .tmp/disass | wc -l) != "1" ]; then
+  #
+  # copy all files to base (don't overwrite)
+  #
+  for dir in .tmp/disass/*; do
+    cp -r -n $dir/* .tmp/base
+  done
+
+  # fix public.xml
+  $PUBLIC_FIXER fix .tmp/base .tmp/disass/*/res/values/public.xml
+  $PUBLIC_FIXER yml .tmp/base .tmp/disass/*/apktool.yml
+fi
+
+# remove android:isSplitRequired="true"
+sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
+sed -i 's/com.android.vending.derived.apk.id" android:value="."/com.android.vending.derived.apk.id" android:value="1"/' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.vending.splits.required"/d' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.vending.splits"/d' .tmp/base/AndroidManifest.xml
+
+
+# rename apk
+sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
+sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
+
+#
+# clean up
+#
+mv .tmp/base disass
+rm .tmp -rf

@@ -32,8 +32,15 @@ RUN wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
 
 ENV BAKSMALI_PATH /opt/baksmali-2.4.0.jar
 
+# public-fixer
+
+RUN wget https://github.com/bttv-android/public-fixer/releases/download/v3.0.0/public-fixer
+RUN shasum public-fixer
+RUN chmod +x public-fixer
+ENV PUBLIC_FIXER /opt/public-fixer
+
 # Cleanup
-RUN apt remove wget zip --yes
+RUN apt remove wget --yes
 RUN apt autoremove --yes
 RUN apt clean --yes
 
