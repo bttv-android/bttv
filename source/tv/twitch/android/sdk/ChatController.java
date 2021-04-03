@@ -8,6 +8,6 @@ public class ChatController {
     public void connect(int viewerId, int channelId, String screenName) {
     }
 
-    public void bttvDisconnect(int viewerId, int channelId, String screenName) {
+    public void disconnect(int viewerId, int channelId, String screenName) {
     }
 }

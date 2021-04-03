@@ -57,7 +57,7 @@ public class AnonChat {
             return;
         }
 
-        connectionController.chatController.bttvDisconnect(connectionController.viewerId, channelId,
+        connectionController.chatController.disconnect(connectionController.viewerId, channelId,
                 connectionController.screenName);
         Log.d("LBTTVAnonChat", "disconnected");
         joinedAnyway = true;

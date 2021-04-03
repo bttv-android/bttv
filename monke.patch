@@ -2485,7 +2485,7 @@ index feebee060..f16f31b21 100644
 +.class public Ltv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel;
  .super Ltv/twitch/android/shared/chat/model/EmoteCardModel;
 diff --git a/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-index 3221a44fe..3df9d322e 100644
+index 3221a44fe..21680d027 100644
 --- a/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 +++ b/smali_classes8/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 @@ -84,3 +84,3 @@
@@ -2508,12 +2508,3 @@ index 3221a44fe..3df9d322e 100644
 +    invoke-static {p0}, Lbttv/AnonChat;->setConnectionController(Ltv/twitch/android/shared/chat/observables/ChatConnectionController;)V
 +
      iput-object p1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->context:Landroid/content/Context;
-@@ -885,2 +887,8 @@
- 
-+.method public bttvDisconnect(I)V
-+    .locals 1
-+    invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->disconnect(I)V
-+    return-void
-+.end method
-+
- .method private final getChatConnectionInfo(I)Ltv/twitch/android/shared/chat/observables/ChatConnectionController$ChatConnectionInfo;
