@@ -23,6 +23,7 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 	private static final String EnableBTTVEmotesEventName = "enable_bttv_emotes";
 	private static final String EnableBTTVGifEmotesEventName = "enable_bttv_gif_emotes";
 	private static final String EnableFFZEmotesEventName = "enable_ffz_emotes";
+	private static final String EnableAnonChatEventName = "enable_anon_chat";
 
 	@Inject
 	public SettingsPresenter(FragmentActivity fragmentActivity, MenuAdapterBinder menuAdapterBinder,
@@ -57,6 +58,10 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		settingsModels.add(new ToggleMenuModel("FrankerFaceZ Emotes", null, null,
 				UserPreferences.getFFZEmotesEnabled(ctx), false, null, EnableFFZEmotesEventName, false, null, null,
 				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
+		settingsModels.add(new ToggleMenuModel("Anon Chat", "Joins chat anonymously without appearing in the userlist",
+				null, UserPreferences.getAnonChatEnabled(ctx), false, null, EnableAnonChatEventName, false, null,
+				null, null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100,
+				null));
 
 		bindSettings();
 	}
@@ -84,18 +89,21 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
 
 			switch (toggleMenuModel.getEventName()) {
-				case EnableBTTVEmotesEventName:
-					UserPreferences.setBTTVEmotesEnabled(ctx, z);
-					break;
-				case EnableBTTVGifEmotesEventName:
-					UserPreferences.setBTTVGifEmotesEnabled(ctx, z);
-					break;
-				case EnableFFZEmotesEventName:
-					UserPreferences.setFFZEmotesEnabled(ctx, z);
-					break;
-				default:
-					Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
-					Log.w("LBTTVSettingsPC", toggleMenuModel.getEventName());
+			case EnableBTTVEmotesEventName:
+				UserPreferences.setBTTVEmotesEnabled(ctx, z);
+				break;
+			case EnableBTTVGifEmotesEventName:
+				UserPreferences.setBTTVGifEmotesEnabled(ctx, z);
+				break;
+			case EnableFFZEmotesEventName:
+				UserPreferences.setFFZEmotesEnabled(ctx, z);
+				break;
+			case EnableAnonChatEventName:
+				UserPreferences.setAnonChatEnabled(ctx, z);
+				break;
+			default:
+				Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
+				Log.w("LBTTVSettingsPC", toggleMenuModel.getEventName());
 			}
 		}
 

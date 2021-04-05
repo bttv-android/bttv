@@ -49,4 +49,16 @@ public class UserPreferences {
         editor.putBoolean("enable_ffz_emotes", value);
         editor.apply();
     }
+
+    public static void setAnonChatEnabled(Context ctx, boolean value) {
+        ensureLoaded(ctx);
+        editor.putBoolean("enable_anon_chat", value);
+        editor.apply();
+    }
+
+    public static boolean getAnonChatEnabled(Context ctx) {
+        ensureLoaded(ctx);
+        return prefs.getBoolean("enable_anon_chat", false);
+    }
+
 }
