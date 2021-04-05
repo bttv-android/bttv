@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 import android.content.Context;
 import android.util.Log;
+import tv.twitch.android.models.channel.ChannelInfo;
+import tv.twitch.android.models.streams.StreamType;
 import tv.twitch.android.sdk.ChatController;
 import tv.twitch.android.shared.chat.observables.ChatConnectionController;
 
@@ -58,11 +60,12 @@ public class AnonChat {
         }
 
         joinedAnyway = true;
-        connectionController.chatController.disconnect(connectionController.viewerId, channelId,
-                connectionController.screenName);
+        connectionController.bttvDisconnect(channelId);
         Log.d("LBTTVAnonChat", "disconnected");
-        connectionController.chatController.connect(connectionController.viewerId, channelId,
-                connectionController.screenName);
+
+        ChannelInfo info = connectionController.broadcaster;
+        StreamType type = connectionController.streamType;
+        connectionController.setActiveChannel(info, type);
         Log.d("LBTTVAnonChat", "connected");
 
     }
