@@ -57,10 +57,10 @@ public class AnonChat {
             return;
         }
 
+        joinedAnyway = true;
         connectionController.chatController.disconnect(connectionController.viewerId, channelId,
                 connectionController.screenName);
         Log.d("LBTTVAnonChat", "disconnected");
-        joinedAnyway = true;
         connectionController.chatController.connect(connectionController.viewerId, channelId,
                 connectionController.screenName);
         Log.d("LBTTVAnonChat", "connected");

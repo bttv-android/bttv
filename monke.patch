@@ -2297,7 +2297,7 @@ index ddd0b5817..bc8f5ac5a 100644
 -    aput-object v0, v1, v2
  
 diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali b/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
-index 4290a53aa..836fc78fa 100644
+index 4290a53aa..711461557 100644
 --- a/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
 +++ b/smali_classes7/tv/twitch/android/sdk/ChatController$ChatChannelListener.smali
 @@ -254,2 +254,4 @@
@@ -2305,8 +2305,23 @@ index 4290a53aa..836fc78fa 100644
 +    invoke-static {v3, p1}, Lbttv/AnonChat;->onSendMessage(ILjava/lang/String;)V
 +
      invoke-virtual {v0, v1, v3, p1}, Ltv/twitch/chat/ChatAPI;->sendMessage(IILjava/lang/String;)Ltv/twitch/ErrorCode;
+@@ -2696,2 +2698,14 @@
+ 
++    # set m_DisconnectOutstanding to false, as we reconnect manualy
++    # v1 = !getJoinedAnyway
++    invoke-static {}, Lbttv/AnonChat;->getJoinedAnyway()Z
++    move-result v1
++    if-eqz v1, :false
++    const/4 v1, 0x0
++    goto :after_if
++    :false
++    const/4 v1, 0x1
++    :after_if
++    #
++
+     .line 306
 diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController.smali b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
-index 47f8206b1..b631aafa5 100644
+index 47f8206b1..44190e9c9 100644
 --- a/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 +++ b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 @@ -315,2 +315,4 @@
@@ -2350,19 +2365,6 @@ index 47f8206b1..b631aafa5 100644
      :cond_0
 -    invoke-direct {p0, p1, p2}, Ltv/twitch/android/sdk/ChatController;->_disconnect(II)Z
 +    invoke-static {p0, p1, p2}, Lbttv/AnonChat;->_disconnect(Ltv/twitch/android/sdk/ChatController;II)Z
- 
-@@ -1309,3 +1327,11 @@
- .method public getDisconnectOutstanding(I)Z
--    .locals 0
-+    .locals 1
-+
-+    invoke-static {}, Lbttv/AnonChat;->getJoinedAnyway()Z
-+    move-result v2
-+
-+    if-eqz v2, :after_bttv
-+    const/4 v2, 0x0
-+    return v2
-+    :after_bttv
  
 diff --git a/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes7/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 index 78d000843..c22296ef2 100644
