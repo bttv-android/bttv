@@ -8,5 +8,5 @@ if [ $(git status --short | wc -l) = "0" ]; then
     exit 1
 fi
 git add . &&
-git diff --binary -U1 base > ../monke.patch &&
+git diff --binary base > ../monke.patch &&
 echo "done"
