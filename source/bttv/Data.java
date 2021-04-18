@@ -119,7 +119,6 @@ public class Data {
         }
 
         Data.availFFZEmoteSetMap.put(id, set);
-        Log.d("LBTTVData", "Channel FFZ: " + set.toString());
     }
 
     // BTTV
@@ -137,8 +136,6 @@ public class Data {
         }
 
         Data.availBTTVEmoteSetMap.put(id, set);
-        Log.d("LBTTVData", "Channel BTTV: " + set.toString());
-
     }
 
     public static void setGlobal(List<Emote> emotes, int source) {
@@ -150,10 +147,8 @@ public class Data {
         }
         if (source == Emote.BTTV) {
             Data.globalBTTVEmotes = map;
-            Log.d("LBTTVData", "Global BTTV: " + map.keySet().toString());
         } else if (source == Emote.FFZ) {
             Data.globalFFZEmotes = map;
-            Log.d("LBTTVData", "Global FFZ: " + map.keySet().toString());
         }
     }
 

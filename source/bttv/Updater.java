@@ -35,7 +35,6 @@ public class Updater {
                         throw new IOException("Unexpected code " + response);
 
                     String str = responseBody.string();
-                    Log.d("LBTTVUpdate", str);
                     JSONObject json = new JSONObject(str);
                     String tagName = json.getString("tag_name");
                     if (tagName.equals(Data.bttvVersion)) {

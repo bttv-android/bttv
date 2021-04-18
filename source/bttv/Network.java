@@ -43,7 +43,6 @@ public class Network {
                     throw new IOException("Unexpected code " + response);
 
                 String json = responseBody.string();
-                Log.d("LBTTVNetworkJson", json);
 
                 if (channelId == -2) {
                     // Global

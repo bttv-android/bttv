@@ -109,11 +109,6 @@ public class UpdaterActivity extends AppCompatActivity {
 
                 if (firstUpdate) {
                     firstUpdate = false;
-                    if (contentLength == -1) {
-                        Log.d("LBTTVUpdaterActivity", "content-length: unknown");
-                    } else {
-                        Log.d("UpdaterActivity", "content-length: " + contentLength);
-                    }
                 }
 
                 if (contentLength != -1) {
