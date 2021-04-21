@@ -1,10 +1,10 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 2273c8bb2..b45c7a6d7 100644
+index 2273c8bb2..810e8cd76 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
-+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="01003000031" android:versionName="0.3.0-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="01003100031" android:versionName="0.3.1-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <uses-permission android:name="android.permission.CAMERA"/>
@@ -16,7 +16,7 @@ index 2273c8bb2..b45c7a6d7 100644
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -111,7 +112,7 @@
+@@ -111,10 +112,10 @@
              </intent-filter>
          </receiver>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -24,7 +24,11 @@ index 2273c8bb2..b45c7a6d7 100644
 +        <provider android:authorities="tv.twitch.bttvandroid.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
              <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
          </provider>
-         <provider android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.android.app" android:exported="true" android:name="tv.twitch.android.shared.map.sdk.MAPInfoProviderImpl" android:permission="com.amazon.identity.permission.CAN_CALL_MAP_INFORMATION_PROVIDER"/>
+-        <provider android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.android.app" android:exported="true" android:name="tv.twitch.android.shared.map.sdk.MAPInfoProviderImpl" android:permission="com.amazon.identity.permission.CAN_CALL_MAP_INFORMATION_PROVIDER"/>
++        <provider android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.bttvandroid.app" android:exported="true" android:name="tv.twitch.android.shared.map.sdk.MAPInfoProviderImpl" android:permission="com.amazon.identity.permission.CAN_CALL_MAP_INFORMATION_PROVIDER"/>
+         <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
+         <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
+         <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
 @@ -170,11 +171,11 @@
              </intent-filter>
          </receiver>
