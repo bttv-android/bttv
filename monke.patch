@@ -4,7 +4,7 @@ index 2273c8bb2..b45c7a6d7 100644
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
-+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="01001100031" android:versionName="0.1.1-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="01003000031" android:versionName="0.3.0-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <uses-permission android:name="android.permission.CAMERA"/>
