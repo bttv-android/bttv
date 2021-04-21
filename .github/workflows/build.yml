@@ -3,12 +3,14 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: download base
-        run: wget https://www.dropbox.com/s/55450ufjm3csvc6/twitch-10-5-0.apk\?\dl=1 -O twitch.apk
+        run: wget https://www.dropbox.com/s/36oa6aluunloq09/twitch-10-6-0.apk\?\dl=1 -O twitch.apk
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
       - name: run build
