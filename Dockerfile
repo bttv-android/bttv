@@ -62,7 +62,4 @@ COPY buildsource buildsource
 COPY patch patch
 COPY initworkspace initworkspace
 
-COPY source/ source/
-COPY monke.patch monke.patch
-
 ENTRYPOINT [ "/bin/bash", "initworkspace" ]
