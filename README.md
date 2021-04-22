@@ -26,7 +26,7 @@ Docker
 
 ### How to:
 
-1. Pull the builder `docker pull ghcr.io/bttv-android/builder`
+1. Clone this repo
 2. Get the Twitch App's apk files (e.g from [here][evozi], or [here][apkmirror])
    > Please make sure you get it from a non-shady source!
   
@@ -34,10 +34,26 @@ Docker
    
    > If you have downloaded a bundle of `.apk` files put them in a `.zip` archive and name it `twitch.zip`
    
-   > Note: Apkmirror publishes bundles as `.apkm` files, those are just `zip` files, so rename them to `twitch.apk`
-   
-3. Run the builder: `docker run --rm -ti -v path/to/twitch.zip:/usr/build/twitch.zip -v /path/to/dist:/usr/build/dist ghcr.io/bttv-android/builder`
-   > If you are in the same directory as the apk file you can copy and paste: `docker run --rm -ti -v $(pwd)/twitch.zip:/usr/build/twitch.zip -v $(pwd)/dist:/usr/build/dist ghcr.io/bttv-android/builder`
+   > Note: Apkmirror publishes bundles as `.apkm` files, those are just `zip` files, so rename them to `twitch.zip`
+
+3. Run the builder: 
+   ```
+   docker run --rm -ti \
+      -v path/to/twitch.apk:/usr/build/twitch.apk \
+      -v /path/to/dist:/usr/build/dist \
+      -v path/to/monke.patch:/usr/build/monke.patch \
+      -v /path/to/source:/usr/build/source \
+      ghcr.io/bttv-android/builder
+      ```
+   > If you are in the same directory as the apk file you can copy and paste: 
+      ```
+      docker run --rm -ti \
+         -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
+         -v $(pwd)/dist:/usr/build/dist \
+         -v $(pwd)/monke.patch:/usr/build/monke.patch \
+         -v $(pwd)/source:/usr/build/source \
+         ghcr.io/bttv-android/builder
+      ```
 4. The `dist` directory will contain the patched apk file!
 5. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
 6. Remove the builder again: `docker rmi ghcr.io/bttv-android/builder`

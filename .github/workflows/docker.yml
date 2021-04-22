@@ -3,6 +3,12 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+     - 'source/**'
+     - 'monke.patch'
+     - 'README.md'
+     - '.github/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
