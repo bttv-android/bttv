@@ -52,7 +52,10 @@ public class Updater {
                         return;
                     }
                     Log.d("LBTTVUpdater", "Update available " + Data.bttvVersion + " -> " + tagName);
-                    askUser(activity, presenter, tagName, body, apkUrl, json.getString("html_url"));
+                    if (activity != null && presenter != null) {
+                        askUser(activity, presenter, tagName, body, apkUrl, json.getString("html_url"));
+                        return;
+                    }
                 }
             }
 
