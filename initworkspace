@@ -6,8 +6,12 @@ STEPS=6
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
-[ -z "$BUILDTOOLS_PATH" ] && BUILDTOOLS_PATH=~/Android/Sdk/build-tools/30.0.3
+[ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
 [ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
+
+DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
+DX_FILES=( $DX_PATTERN )
+DX=${DX_FILES[0]}
 
 echo "=== Verifing tools (1/$STEPS) ===" &&
 echo "If an errr occurs during this step make" &&
@@ -29,7 +33,7 @@ $JAVA_PATH -jar $APKTOOL_PATH --version &&
 echo "" && echo "uber apk signer:" && echo "" &&
 $JAVA_PATH -jar $UBER_APK_SIGNER_PATH --version &&
 echo "" && echo "dx (android sdk build tools):" && echo "" &&
-$BUILDTOOLS_PATH/dx --version &&
+$DX --version &&
 echo "" && echo "baksmali:" && echo "" &&
 $JAVA_PATH -jar $BAKSMALI_PATH --version &&
 echo "" &&

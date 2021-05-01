@@ -7,11 +7,17 @@ RUN apt install openjdk-11-jdk-headless git wget zip --yes
 
 WORKDIR /opt
 
-RUN wget https://dl.google.com/android/repository/build-tools_r30.0.1-linux.zip
+RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
 
-RUN unzip build-tools_r30.0.1-linux.zip
-RUN rm build-tools_r30.0.1-linux.zip
-ENV BUILDTOOLS_PATH=/opt/android-11
+RUN unzip commandlinetools-linux-6858069_latest.zip
+RUN rm commandlinetools-linux-6858069_latest.zip
+
+ENV ANDROID_SDK_HOME /opt/android-sdk-linux
+ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV ANDROID_SDK /opt/android-sdk-linux
+
+RUN echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "build-tools;30.0.0"
 
 # apktool
 

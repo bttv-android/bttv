@@ -1,0 +1,3 @@
+include ':twitch'
+include ':app'
+rootProject.name = "BTTV"

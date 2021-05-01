@@ -2,6 +2,9 @@
 
 This file should help new contributors getting started.
 
+> Update: This was written before the `mod` directory was an Android Studio/Gradle project
+> to every time you see the directory `source/bttv` mentioned, `mod/app` is ment.
+
 ## Build process
 
 First let's understand the build process.
