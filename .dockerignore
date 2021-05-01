@@ -4,7 +4,6 @@ extracted
 disass
 dist
 decompiled
-sourceout
 .gitignore
 README.md
 monke.patch
