@@ -1,13 +1,14 @@
 package bttv;
 
+import android.content.Context;
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import android.content.Context;
-import android.util.Log;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
@@ -26,7 +27,7 @@ public class Data {
     public static HashMap<String, Emote> globalFFZEmotes = new HashMap<>();
 
     public static void setCurrentBroadcasterId(int id) {
-        Log.i("LBTTVDataSetCurrentBroadcasterId", currentBroadcasterId + " -> " + id);
+        Log.i("LBTTVSetBroadcasterId", currentBroadcasterId + " -> " + id);
         Data.currentBroadcasterId = id;
         ensureChannelEmotes(id);
     }

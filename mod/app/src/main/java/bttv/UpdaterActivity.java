@@ -1,7 +1,20 @@
 package bttv;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -16,17 +29,8 @@ import okio.Okio;
 import okio.Source;
 import tv.twitch.android.app.R;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 
 public class UpdaterActivity extends AppCompatActivity {
 
@@ -84,7 +88,7 @@ public class UpdaterActivity extends AppCompatActivity {
                     Uri uri = FileProvider.getUriForFile(UpdaterActivity.this, "tv.twitch.bttvandroid.app.provider",
                             downloadedFile);
                     intent.setDataAndType(uri, "application/vnd.android.package-archive");
-                    intent.setFlags(0x10000001);
+                    intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_GRANT_READ_URI_PERMISSION);
                     startActivity(intent);
 
                 } catch (Exception e) {
