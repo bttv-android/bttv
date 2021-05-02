@@ -13,6 +13,16 @@ DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
 DX_FILES=( $DX_PATTERN )
 DX=${DX_FILES[0]}
 
+
+create_gitignore() {
+    echo ".gitignore" > .gitignore &&
+    echo "build" >> .gitignore &&
+    echo "dist" >> .gitignore &&
+    echo "smali_classes11/bttv" >> .gitignore &&
+    find ../mod/app/src/main/res -type f | sed "s/..\/mod\/app\/src\/main\///" >> .gitignore &&
+    echo "" >> .gitignore
+}
+
 echo "=== Verifing tools (1/$STEPS) ===" &&
 echo "If an errr occurs during this step make" &&
 echo "you have installed all of the needed tools" &&
@@ -47,11 +57,7 @@ echo "" &&
 echo "=== Create reference for diffs (3/$STEPS) ===" &&
 cd disass &&
 git init &&
-echo ".gitignore" > .gitignore &&
-echo "build" >> .gitignore &&
-echo "dist" >> .gitignore &&
-echo "smali_classes11/bttv" >> .gitignore &&
-echo "" >> .gitignore &&
+create_gitignore &&
 git add . &&
 git commit --quiet -m "base" &&
 git tag base &&
