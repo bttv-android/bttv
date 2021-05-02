@@ -33,6 +33,8 @@ TMP_DIR=app/build/.bttv_tmp
 JAR_FILE="$TMP_DIR/classes.jar"
 DEX_FILE="$TMP_DIR/bttv.dex"
 FINAL_TARGET="../$TARGETDIR/smali_classes11/bttv"
+RES_DIR="app/src/main/res"
+RES_TARGET="../$TARGETDIR/."
 
 # extract classes from .aar
 unzip "$AAR_FILE" "classes.jar" -d "$TMP_DIR"
@@ -48,6 +50,10 @@ rm -rf "$FINAL_TARGET"
 
 # move to target
 mv "$TMP_DIR/bttv" "$FINAL_TARGET"
+
+
+# copy res
+cp -R "$RES_DIR" "$RES_TARGET"
 
 # remove temp dir
 rm -rf "$TMP_DIR"
