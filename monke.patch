@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 2273c8bb2..810e8cd76 100644
+index 2273c8bb2..1d229d938 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
@@ -84,9 +84,8 @@ index a18ffe84b..e50fa67bb 100644
      <item>
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
-
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..dbf1eac0e 100644
+index e5846b005..9232f58a0 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -110,7 +109,6 @@ index 3b06a9d16..202eb42e8 100644
      <foreground android:drawable="@mipmap/ic_launcher_foreground" />
  </adaptive-icon>
 \ No newline at end of file
-
 diff --git a/res/values-bg/strings.xml b/res/values-bg/strings.xml
 index b3546e004..0a94648e6 100644
 --- a/res/values-bg/strings.xml
