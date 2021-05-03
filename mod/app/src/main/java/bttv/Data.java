@@ -39,6 +39,7 @@ public class Data {
     public static void setContext(Context ctx) {
         Data.ctx = ctx;
         Log.i("LBTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
+        UpdaterJobService.schedule(ctx);
     }
 
     public static boolean channelHasEmotes(int id) {

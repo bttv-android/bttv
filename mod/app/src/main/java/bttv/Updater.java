@@ -1,14 +1,18 @@
 package bttv;
 
 import android.app.Activity;
+import android.app.job.JobService;
 import android.content.Intent;
 import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.concurrent.Callable;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -21,13 +25,24 @@ public class Updater {
     private static final String GH_API_HOST = "https://api.github.com";
 
     public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter) {
+        checkForUpdates(activity, presenter, null);
+    }
+
+    public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter, final UpdateCallbackListener listener) {
         Log.d("LBTTVUpdated", "Checking for updates...");
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
+
+            private void done(boolean ok) {
+                if (listener != null) {
+                    listener.onDone(ok);
+                }
+            }
 
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("LBTTVNetworkFail", "Update Call failed", e);
                 Log.e("LBTTVNetworkFail", call.toString());
+                done(false);
             }
 
             @Override
@@ -56,10 +71,13 @@ public class Updater {
                     Log.d("LBTTVUpdater", "Update available " + Data.bttvVersion + " -> " + tagName);
                     if (activity != null && presenter != null) {
                         askUser(activity, presenter, tagName, body, apkUrl, json.getString("html_url"));
-                        return;
                     }
+
+                    done(true);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    done(false);
                 }
             }
 
@@ -110,6 +128,10 @@ public class Updater {
 
         presenter.setShouldShowUpdateBanner(true);
 
+    }
+
+    public interface UpdateCallbackListener {
+        void onDone(boolean ok);
     }
 
 }
