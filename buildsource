@@ -2,7 +2,7 @@
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
-[ -z "$BUILDTOOLS_PATH" ] && BUILDTOOLS_PATH=~/Android/Sdk/build-tools/30.0.3
+[ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
 [ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
 [ -z "$1" ] && TARGETDIR=extracted || TARGETDIR=$1
 
@@ -10,23 +10,50 @@ echo "JAVA_PATH: $JAVA_PATH"
 echo "JAVAC_PATH: $JAVAC_PATH"
 echo "BAKSMALI_PATH: $BAKSMALI_PATH"
 echo "TARGETDIR: $TARGETDIR"
-echo "BUILDTOOLS_PATH: $BUILDTOOLS_PATH"
+echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
 
-DX=$BUILDTOOLS_PATH/dx
-OUTDIR=sourceout
-mkdir -p $OUTDIR
-$JAVAC_PATH -cp source -d $OUTDIR -source 1.7 -target 1.7 source/bttv/*.java &&
-cd $OUTDIR
+export ANDROID_SDK_ROOT
 
-rm -rf ../$TARGETDIR/smali_classes11/bttv
-mkdir -p ../$TARGETDIR/smali_classes11/bttv
+# find dx tool
+DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
+DX_FILES=( $DX_PATTERN )
+DX=${DX_FILES[0]}
+echo "$DX"
 
-mkdir root
-mv bttv root/.
+# build mod
+cd mod
+bash gradlew build
 
-$DX --dex --output bttv.dex root
-$JAVA_PATH -jar $BAKSMALI_PATH d -o . bttv.dex
+# fail if failed
+[ $? = 0 ] || exit 1
 
-mv bttv/*.smali ../$TARGETDIR/smali_classes11/bttv
-cd ..
-rm $OUTDIR -rf
+# contants
+AAR_FILE=app/build/outputs/aar/app-debug.aar
+TMP_DIR=app/build/.bttv_tmp
+JAR_FILE="$TMP_DIR/classes.jar"
+DEX_FILE="$TMP_DIR/bttv.dex"
+FINAL_TARGET="../$TARGETDIR/smali_classes11/bttv"
+RES_DIR="app/src/main/res"
+RES_TARGET="../$TARGETDIR/."
+
+# extract classes from .aar
+unzip "$AAR_FILE" "classes.jar" -d "$TMP_DIR"
+
+# dex classes.jar
+$DX --dex --output "$DEX_FILE" "$JAR_FILE"
+
+# baksmali .dex file
+$JAVA_PATH -jar $BAKSMALI_PATH d -o "$TMP_DIR" "$DEX_FILE"
+
+# remove dir if already exists
+rm -rf "$FINAL_TARGET"
+
+# move to target
+mv "$TMP_DIR/bttv" "$FINAL_TARGET"
+
+
+# copy res
+cp -R "$RES_DIR" "$RES_TARGET"
+
+# remove temp dir
+rm -rf "$TMP_DIR"

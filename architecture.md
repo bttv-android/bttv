@@ -2,6 +2,9 @@
 
 This file should help new contributors getting started.
 
+> Update: This was written before the `mod` directory was an Android Studio/Gradle project
+> to every time you see the directory `source/bttv` mentioned, `mod/app` is ment.
+
 ## Build process
 
 First let's understand the build process.
@@ -16,18 +19,18 @@ In order to build a the bttv-android mod we need three things:
 
 First we extract the `.apk` file and convert the `.dex` files in it into human readable (and editable) `.smali` code using `apktool`. Then we compile our own java classes and copy them into the bundle (they get converted to `.smali` as well). These classes by themselves are just dead code as they are never called. So the last step is to make changes to some existing `smali` files. These changes are stored in the form of a git patch file called `monke.patch`. We can use apktool again to build a new apk file (which gets signed afterwards using `uber apk signer`).
 
-## source/ and monke.patch
+## mod/ and monke.patch
 
-The two parts of this mod are stored in the `monke.patch` file and the sources directory. Let's 
+The two parts of this mod are stored in the `monke.patch` file and the mod directory. Let's 
 touch on them for a litle bit:
 
 [![diagram][inter-img]][inter-img]
 
-## source
+## mod
 
 [![diagram][source-img]][source-img]
 
-In order to compile `javac` needs the call signature of every method we call in our code (`source/bttv`). So if we want to call methods which we have not written, like `Log.d()` in `android.util` we need to mock them. As the compiled references have to be the same as in the android application the source directory is spammed with packages that really only contain mocks.
+In order to compile `javac` needs the call signature of every method we call in our code (`mod/app`). So if we want to call methods which we have not written, like `Log.d()` in `android.util` we need to mock them. As the compiled references have to be the same as in the android application the mod directory is spammed with packages that really only contain mocks.
 
 
 

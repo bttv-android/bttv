@@ -42,7 +42,7 @@ Docker
       -v path/to/twitch.apk:/usr/build/twitch.apk \
       -v /path/to/dist:/usr/build/dist \
       -v path/to/monke.patch:/usr/build/monke.patch \
-      -v /path/to/source:/usr/build/source \
+      -v /path/to/mod:/usr/build/mod \
       ghcr.io/bttv-android/builder
       ```
    > If you are in the same directory as the apk file you can copy and paste: 
@@ -51,7 +51,7 @@ Docker
          -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
          -v $(pwd)/dist:/usr/build/dist \
          -v $(pwd)/monke.patch:/usr/build/monke.patch \
-         -v $(pwd)/source:/usr/build/source \
+         -v $(pwd)/mod:/usr/build/mod \
          ghcr.io/bttv-android/builder
       ```
 4. The `dist` directory will contain the patched apk file!
@@ -67,7 +67,7 @@ Docker
 | Bash                                                                 | _Has to be in /bin_      |                                                |
 | Git                                                                  | _Has to be in PATH_      |                                                |
 | Java JDK                                                             | JAVA_PATH and JAVAC_PATH | java and javac (from PATH)                     |
-| [Android SKD Buildtools][buildtools] or install using Android Studio | BUILDTOOLS_PATH          | ~/Android/Sdk/build-tools/30.0.3               |
+| [Android SDK][sdk] or install using Android Studio | BUILDTOOLS_PATH | ~/Android/Sdk            |
 | [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
 | [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
@@ -95,8 +95,7 @@ Do the following once:
 2. Rename `disass` to `extracted`
 
 3. Now you can build the java source code in (`source`) using `./buildsource extracted`.
-   This will result in the creation of a directory called `sourceout`.
-   It will also automaticly dex the class files and baksmali them.
+   It will automaticly dex the class files and baksmali them.
    I recommend to scim through the script so you can set your environment variables.
 4. Build your new changes using the `./build extracted` script.
 5. Open an emulator and run `./install`
@@ -122,8 +121,9 @@ bttv/
 │  ├─ smali_classes0-10/ - contains disassembled app + bttv code
 │  ├─ dist/
 │  │  ├─ twitch.apk - the final app
-├─ source/ - java sources for patches
-│  ├─ bttv/ - the only relevant directory, rest are stubs
+├─ mod/        - java sources for patches
+│  ├─ app/     - sources for the mod
+|  ├─ twitch/  - stubs so we can call twitch's classes
 
 ```
 
@@ -159,7 +159,7 @@ Everytime you get a new version of the code (e.g. using git pull or git checkout
 [baksmali]: https://github.com/JesusFreke/smali
 [uber]: https://github.com/patrickfav/uber-apk-signer/releases/latest
 [apktool]: https://ibotpeaches.github.io/Apktool/
-[buildtools]: https://androidsdkmanager.azurewebsites.net/Buildtools
+[sdk]: https://developer.android.com/studio/#downloads
 [evozi]: https://apps.evozi.com/apk-downloader/?id=tv.twitch.android.app
 [apkmirror]: https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
