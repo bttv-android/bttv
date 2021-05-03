@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 2273c8bb2..1d229d938 100644
+index 2273c8bb2..b3bb52952 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
@@ -43,7 +43,7 @@ index 2273c8bb2..1d229d938 100644
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.0.0"/>
-@@ -228,5 +229,13 @@
+@@ -228,5 +229,18 @@
          <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
          <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
          <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
@@ -55,6 +55,11 @@ index 2273c8bb2..1d229d938 100644
 +            android:grantUriPermissions="true" >
 +            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"></meta-data>
 +        </provider>
++        <service
++            android:name="bttv.UpdaterJobService"
++            android:label="Periodically checks for updates"
++            android:permission="android.permission.BIND_JOB_SERVICE"
++        />
      </application>
  </manifest>
 \ No newline at end of file
