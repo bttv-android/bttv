@@ -8,6 +8,7 @@ on:
      - 'monke.patch'
      - 'README.md'
      - '.github/**'
+     - 'architecture.md'
 
 jobs:
   build:
