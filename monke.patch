@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 30f41fa75..7483cf88e 100644
+index 30f41fa75..90e9f367f 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
@@ -85,7 +85,7 @@ index a18ffe84b..e50fa67bb 100644
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..9232f58a0 100644
+index e5846b005..0f598d2e6 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -504,27 +504,25 @@ index 255991312..5b4f4741b 100644
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 652766fc8..f8a637159 100644
+index 652766fc8..2c263c8fe 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -2839,4 +2839,8 @@
+@@ -2839,4 +2839,7 @@
      <item type="id" name="year_published" />
      <item type="id" name="you_were_watching" />
      <item type="id" name="zero_corner_chip" />
-+    <item type="id" name="bttv_updater_activity" />
 +    <item type="id" name="bttv_updater_activity_title" />
 +    <item type="id" name="bttv_updater_activity_body" />
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index b79bf6502..534343e69 100644
+index b79bf6502..eeead3689 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12291,4 +12291,15 @@
+@@ -12291,4 +12291,14 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
-+    <public type="id" name="bttv_updater_activity" id="0x7f0bfffa" />
 +    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
 +    <public type="id" name="bttv_updater_activity_body" id="0x7f0bfffc" />
 +    <public type="id" name="bttv_updater_activity_pb" id="0x7f0bfffd" />
