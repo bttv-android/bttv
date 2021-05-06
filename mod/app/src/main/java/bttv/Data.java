@@ -13,14 +13,19 @@ import java.util.concurrent.ConcurrentHashMap;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
-    public static String getBttvVersion() {
-        if (ctx == null) {
-            Log.e("LBTTVData", "getVersion called, but ctx is null", new Exception());
-            return null;
+    public static String getBttvVersion(Context context) {
+        if (context == null) {
+            if (ctx != null) {
+                context = ctx;
+                Log.w("LBTTVData", "getBttvVersion: had to call back to ctx as context was null", new Exception());
+            } else {
+                Log.e("LBTTVData", "getVersion called, but context is null", new Exception());
+                return null;
+            }
         }
         String vN = null;
         try {
-            vN = "v" +ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName;
+            vN = "v" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

@@ -39,9 +39,9 @@ public class Updater {
                     String str = responseBody.string();
                     JSONObject json = new JSONObject(str);
                     String tagName = json.getString("tag_name");
-                    if (tagName.equals(Data.getBttvVersion())) {
+                    if (tagName.equals(Data.getBttvVersion(activity))) {
                         Log.d("LBTTVUpdate",
-                                "app up-to-date (version: , " + Data.getBttvVersion() + " gh: " + tagName + ")");
+                                "app up-to-date (version: , " + Data.getBttvVersion(activity) + " gh: " + tagName + ")");
                         return;
                     }
                     String body = json.getString("body");
@@ -53,7 +53,7 @@ public class Updater {
                         Log.w("LBTTVUpdate", "Update found, but no apk file attached, won't ask user");
                         return;
                     }
-                    Log.d("LBTTVUpdater", "Update available " + Data.getBttvVersion() + " -> " + tagName);
+                    Log.d("LBTTVUpdater", "Update available " + Data.getBttvVersion(activity) + " -> " + tagName);
                     askUser(activity, presenter, tagName, body, apkUrl, json.getString("html_url"));
                 } catch (JSONException e) {
                     e.printStackTrace();
