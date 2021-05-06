@@ -1,6 +1,7 @@
 package bttv;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,6 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-import tv.twitch.android.app.R;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
@@ -37,20 +37,27 @@ public class UpdaterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bttv_updater_activity);
+
+        Resources res = getResources();
+        int bttv_updater_activity = res.getIdentifier("bttv_updater_activity", "layout", getPackageName());
+        int bttv_updater_activity_title = res.getIdentifier("bttv_updater_activity_title", "id", getPackageName());
+        int bttv_updater_activity_body = res.getIdentifier("bttv_updater_activity_body", "id", getPackageName());
+        int bttv_updater_activity_pb = res.getIdentifier("bttv_updater_activity_pb", "id", getPackageName());
+
+        setContentView(bttv_updater_activity);
 
         Intent intent = getIntent();
         String newVersion = intent.getStringExtra("new_version");
         String body = intent.getStringExtra("body");
         String url = intent.getStringExtra("url");
 
-        TextView titleView = (TextView) findViewById(R.id.bttv_updater_activity_title);
+        TextView titleView = findViewById(bttv_updater_activity_title);
         titleView.setText("Downloading " + newVersion);
 
-        TextView bodyView = (TextView) findViewById(R.id.bttv_updater_activity_body);
+        TextView bodyView = findViewById(bttv_updater_activity_body);
         bodyView.setText(body);
 
-        ProgressBar bar = (ProgressBar) findViewById(R.id.bttv_updater_activity_pb);
+        ProgressBar bar = findViewById(bttv_updater_activity_pb);
 
         startDownload(url, bar);
 
