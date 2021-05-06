@@ -22,7 +22,7 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
     public boolean onStartJob(JobParameters jobParameters) {
         Log.d("LBTTVUpdaterJob", "onStartJob: " + jobParameters.toString());
         this.params = jobParameters;
-        Updater.checkForUpdates(null, null, this);
+        Updater.checkForUpdates(this, null, this);
         return true;
     }
 

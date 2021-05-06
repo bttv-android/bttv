@@ -2,6 +2,7 @@ package bttv;
 
 import android.app.Activity;
 import android.app.job.JobService;
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
@@ -28,7 +29,7 @@ public class Updater {
         checkForUpdates(activity, presenter, null);
     }
 
-    public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter, final UpdateCallbackListener listener) {
+    public static void checkForUpdates(final Context context, final PersistentBannerPresenter presenter, final UpdateCallbackListener listener) {
         Log.d("LBTTVUpdated", "Checking for updates...");
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
 
@@ -54,9 +55,9 @@ public class Updater {
                     String str = responseBody.string();
                     JSONObject json = new JSONObject(str);
                     String tagName = json.getString("tag_name");
-                    if (tagName.equals(Data.bttvVersion)) {
+                    if (tagName.equals(Data.getBttvVersion(context))) {
                         Log.d("LBTTVUpdate",
-                                "app up-to-date (version: , " + Data.bttvVersion + " gh: " + tagName + ")");
+                                "app up-to-date (version: , " + Data.getBttvVersion(context) + " gh: " + tagName + ")");
                         done(true, null);
                         return;
                     }
@@ -66,9 +67,12 @@ public class Updater {
                         Log.w("LBTTVUpdate", "Update found, but no apk file attached, won't ask user");
                         return;
                     }
-                    Log.d("LBTTVUpdater", "Update available " + Data.bttvVersion + " -> " + tagName);
-                    if (activity != null && presenter != null) {
-                        askUser(activity, presenter, tagName, body, apkUrl, json.getString("html_url"));
+
+                    Log.d("LBTTVUpdater", "Update available " + Data.getBttvVersion(context) + " -> " + tagName);
+
+
+                    if (context instanceof Activity && presenter != null) {
+                        askUser((Activity) context, presenter, tagName, body, apkUrl, json.getString("html_url"));
                     }
 
                     done(true, tagName);

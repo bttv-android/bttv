@@ -1,6 +1,7 @@
 package bttv;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -12,7 +13,24 @@ import java.util.concurrent.ConcurrentHashMap;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
-    public static final String bttvVersion = "v0.4.0-beta";
+    public static String getBttvVersion(Context context) {
+        if (context == null) {
+            if (ctx != null) {
+                context = ctx;
+                Log.w("LBTTVData", "getBttvVersion: had to call back to ctx as context was null", new Exception());
+            } else {
+                Log.e("LBTTVData", "getVersion called, but context is null", new Exception());
+                return null;
+            }
+        }
+        String vN = null;
+        try {
+            vN = "v" + context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return vN;
+    }
 
     public static int currentBroadcasterId = -1;
     public static Context ctx;
