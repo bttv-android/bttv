@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {
-    public static final String bttvVersion = "v0.3.1-beta";
+    public static final String bttvVersion = "v0.4.0-beta";
 
     public static int currentBroadcasterId = -1;
     public static Context ctx;

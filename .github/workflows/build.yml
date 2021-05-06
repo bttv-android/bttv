@@ -3,6 +3,10 @@ on:
   push:
     tags:
       - "v*"
+  pull_request:
+    paths-ignore:
+      - "README.md"
+      - "architecture.md"
   workflow_dispatch: {}
 
 jobs:
@@ -11,11 +15,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: download base
-        run: wget https://www.dropbox.com/s/36oa6aluunloq09/twitch-10-6-0.apk\?\dl=1 -O twitch.apk
+        run: wget https://www.dropbox.com/s/ijxqnoaxn88r4mm/twitch-10.7-0.apk\?\dl=1 -O twitch.apk
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
       - name: run build
-        run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/source:/usr/build/source -v $(pwd)/monke.patch:/usr/build/monke.patch -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
+        run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/mod:/usr/build/mod -v $(pwd)/monke.patch:/usr/build/monke.patch -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
+      - name: print checksums
+        run: cp dist/twitch.apk bttv.apk && shasum *.apk
+      - uses: actions/upload-artifact@v2
+        if: github.event_name == 'push'
+        with:
+          name: bttv-apk
+          path: bttv.apk
+          retention-days: 1
+  release:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: bttv-apk
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -38,5 +58,3 @@ jobs:
           asset_path: ./dist/twitch.apk
           asset_name: bttv-${{ env.version_tag }}.apk
           asset_content_type: application/vnd.android.package-archive
-      - name: print checksums
-        run: cp dist/twitch.apk bttv-${{ env.version_tag }}.apk && shasum *.apk
