@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 2273c8bb2..b3bb52952 100644
+index 30f41fa75..53ffc2e97 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
@@ -43,7 +43,7 @@ index 2273c8bb2..b3bb52952 100644
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.0.0"/>
-@@ -228,5 +229,18 @@
+@@ -284,5 +285,18 @@
          <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
          <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
          <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
@@ -90,7 +90,7 @@ index a18ffe84b..e50fa67bb 100644
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..9232f58a0 100644
+index e5846b005..0f598d2e6 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@

@@ -20,6 +20,7 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
+        Log.d("LBTTVUpdaterJob", "onStartJob: " + jobParameters.toString());
         this.params = jobParameters;
         Updater.checkForUpdates(null, null, this);
         return true;
@@ -54,20 +55,34 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
         }
         builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_NOT_ROAMING);
 
-        scheduler.schedule(builder.build());
+        JobInfo job = builder.build();
+        scheduler.schedule(job);
+        Log.d("LBTTVUpdateScheduler", "scheduled: " + job.toString());
     }
 
     @Override
-    public void onDone(boolean ok) {
-        if (ok) {
-            NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, "bttv-android updates")
-                    .setContentTitle("bttv-android update detected")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setAutoCancel(true);
+    public void onDone(boolean ok, String version) {
+        Log.d("LBTTVUpdateJob", "onDone: " + ok);
+        if (ok && version != null) {
+            try {
+                int icon = getResources().getIdentifier("ic_twitch_glitch_uv_alpha_only", "drawable", getPackageName());
 
-            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-            notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                Notifications.createChannels(this);
+
+                NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, "bttv_android_updates")
+                        .setSmallIcon(icon)
+                        .setContentTitle("bttv-android update detected")
+                        .setContentText(Data.bttvVersion + " -> " + version)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setAutoCancel(true);
+
+                notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
+            } catch (Throwable e) {
+                Log.e("LBTTVUpdateJub", "err creating notif ", e);
+            }
         }
+        Log.d("LBTTVUpdateJob", "finished");
         jobFinished(params, !ok);
     }
 }
