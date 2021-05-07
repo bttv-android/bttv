@@ -1,19 +1,17 @@
 package bttv;
 
 import android.app.Activity;
-import android.app.job.JobService;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import androidx.core.app.NotificationCompat;
+import androidx.annotation.NonNull;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.concurrent.Callable;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -26,28 +24,22 @@ public class Updater {
     private static final String GH_API_HOST = "https://api.github.com";
 
     public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter) {
-        checkForUpdates(activity, presenter, null);
+        checkForUpdates(activity, new UIListener(activity, presenter));
     }
 
-    public static void checkForUpdates(final Context context, final PersistentBannerPresenter presenter, final UpdateCallbackListener listener) {
+    public static void checkForUpdates(@NonNull final Context context, @NonNull final UpdateCallbackListener listener) {
         Log.d("LBTTVUpdated", "Checking for updates...");
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
 
-            private void done(boolean ok, String version) {
-                if (listener != null) {
-                    listener.onDone(ok, version);
-                }
-            }
-
             @Override
-            public void onFailure(Call call, IOException e) {
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 Log.e("LBTTVNetworkFail", "Update Call failed", e);
                 Log.e("LBTTVNetworkFail", call.toString());
-                done(false, null);
+                listener.onError(e);
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                 try (ResponseBody responseBody = response.body()) {
                     if (!response.isSuccessful())
                         throw new IOException("Unexpected code " + response);
@@ -58,7 +50,7 @@ public class Updater {
                     if (tagName.equals(Data.getBttvVersion(context))) {
                         Log.d("LBTTVUpdate",
                                 "app up-to-date (version: , " + Data.getBttvVersion(context) + " gh: " + tagName + ")");
-                        done(true, null);
+                        listener.onNoUpdate();
                         return;
                     }
                     String body = json.getString("body");
@@ -70,16 +62,11 @@ public class Updater {
 
                     Log.d("LBTTVUpdater", "Update available " + Data.getBttvVersion(context) + " -> " + tagName);
 
-
-                    if (context instanceof Activity && presenter != null) {
-                        askUser((Activity) context, presenter, tagName, body, apkUrl, json.getString("html_url"));
-                    }
-
-                    done(true, tagName);
+                    listener.onUpdate(tagName, body, apkUrl, json.getString("html_url"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    done(false, null);
+                    listener.onError(e);
                 }
             }
 
@@ -98,47 +85,69 @@ public class Updater {
         return null;
     }
 
-    private static void askUser(final Activity activity, final PersistentBannerPresenter presenter,
-            final String newVersion, final String body, final String apkUrl, final String htmlUrl) {
-
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                presenter.setListener(new PersistentBannerPresenterListener() {
-
-                    @Override
-                    public void installBannerShown() {
-                        Log.d("LBTTVUpdater", "Shown prompt");
-                    }
-
-                    @Override
-                    public void installUpdate() {
-                        Log.d("LBTTVUpdater", "user requested install");
-                        presenter.setShouldShowUpdateBanner(false);
-
-                        Intent intent = new Intent(activity, UpdaterActivity.class);
-                        intent.putExtra("new_version", newVersion);
-                        intent.putExtra("body", body);
-                        intent.putExtra("url", apkUrl);
-                        activity.startActivity(intent);
-
-                    }
-
-                    @Override
-                    public void updateDismissed() {
-                        Log.d("LBTTVUpdater", "user dismissed prompt");
-                    }
-
-                });
-
-                presenter.setShouldShowUpdateBanner(true);
-            }
-        });
-
+    public static Intent updateActivityIndent(@NonNull Context context, @NonNull String newVersion, @NonNull String body, @NonNull String apkUrl) {
+        Intent intent = new Intent(context, UpdaterActivity.class);
+        intent.putExtra("new_version", newVersion);
+        intent.putExtra("body", body);
+        intent.putExtra("url", apkUrl);
+        return intent;
     }
 
     public interface UpdateCallbackListener {
-        void onDone(boolean ok, String version);
+        void onNoUpdate();
+
+        void onUpdate(final String newVersion, final String body, final String apkUrl, final String htmlUrl);
+
+        void onError(final Throwable error);
+    }
+
+    private static class UIListener implements UpdateCallbackListener {
+        final Activity activity;
+        final PersistentBannerPresenter presenter;
+
+        public UIListener(final Activity activity, final PersistentBannerPresenter presenter) {
+            this.activity = activity;
+            this.presenter = presenter;
+        }
+
+        @Override
+        public void onNoUpdate() {
+        }
+
+        @Override
+        public void onUpdate(String newVersion, String body, String apkUrl, String htmlUrl) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    presenter.setListener(new PersistentBannerPresenterListener() {
+
+                        @Override
+                        public void installBannerShown() {
+                            Log.d("LBTTVUpdater", "Shown prompt");
+                        }
+
+                        @Override
+                        public void installUpdate() {
+                            Log.d("LBTTVUpdater", "user requested install");
+                            presenter.setShouldShowUpdateBanner(false);
+                            activity.startActivity(updateActivityIndent(activity, newVersion, body, apkUrl));
+                        }
+
+                        @Override
+                        public void updateDismissed() {
+                            Log.d("LBTTVUpdater", "user dismissed prompt");
+                        }
+
+                    });
+                    presenter.setShouldShowUpdateBanner(true);
+                }
+            });
+        }
+
+        @Override
+        public void onError(Throwable error) {
+            Log.e("LBTTVUpdaterUIListener", "an error has occurred while checking for updates", error);
+        }
     }
 
 }
