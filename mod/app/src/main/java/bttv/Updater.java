@@ -32,14 +32,14 @@ public class Updater {
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
 
             @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e("LBTTVNetworkFail", "Update Call failed", e);
                 Log.e("LBTTVNetworkFail", call.toString());
                 listener.onError(e);
             }
 
             @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 try (ResponseBody responseBody = response.body()) {
                     if (!response.isSuccessful())
                         throw new IOException("Unexpected code " + response);
