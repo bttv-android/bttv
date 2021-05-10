@@ -28,6 +28,7 @@ jobs:
           path: bttv.apk
           retention-days: 1
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -45,7 +46,7 @@ jobs:
         with:
           name: bttv-apk
   release:
-    needs: build
+    needs: test
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
