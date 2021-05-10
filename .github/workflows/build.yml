@@ -33,13 +33,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd tests && ./startDocker.sh
+      - run: mkdir -p disass/dist
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
-          path: ./twitch.apk
-      - run: npm ci
+          path: ./disass/dist/twitch.apk
+      - run: cd tests && npm ci
       - run: sleep 10 # TODO: improve this
-      - run: npm test
+      - run: cd tests && npm test
       - run: docker stop docker_android
       - uses: geekyeggo/delete-artifact@v1
         if: github.event_name != 'push'
