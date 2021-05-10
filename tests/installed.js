@@ -3,3 +3,4 @@ describe('Installed', () => {
         expect(await driver.isAppInstalled("tv.twitch.bttvandroid.app")).toEqual(true);
     });
 });
+
