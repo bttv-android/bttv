@@ -23,11 +23,27 @@ jobs:
       - name: print checksums
         run: cp dist/twitch.apk bttv.apk && shasum *.apk
       - uses: actions/upload-artifact@v2
-        if: github.event_name == 'push'
         with:
           name: bttv-apk
           path: bttv.apk
           retention-days: 1
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd tests && ./startDocker
+      - uses: actions/download-artifact@v2
+        with:
+          name: bttv-apk
+          path: ./twitch.apk
+      - run: npm ci
+      - run: sleep 10 # TODO: improve this
+      - run: npm test
+      - run: docker stop docker_android
+      - uses: geekyeggo/delete-artifact@v1
+        if: github.event_name != 'push'
+        with:
+          name: bttv-apk
   release:
     needs: build
     if: github.event_name == 'push'
@@ -36,6 +52,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
+          path: ./twitch.apk
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -55,6 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/twitch.apk
+          asset_path: ./twitch.apk
           asset_name: bttv-${{ env.version_tag }}.apk
           asset_content_type: application/vnd.android.package-archive

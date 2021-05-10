@@ -1,4 +1,5 @@
 docker run --rm \
+	-d \
 	-ti \
 	--privileged \
 	-p 6080:6080 \
@@ -8,4 +9,3 @@ docker run --rm \
 	-v $(pwd)/../disass/dist:/root/tmp \
 	--name docker_android \
 	budtmo/docker-android-x86-11.0
-

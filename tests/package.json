@@ -8,5 +8,8 @@
     "@wdio/mocha-framework": "^7.5.3",
     "@wdio/spec-reporter": "^7.5.7",
     "appium": "^1.21.0"
+  },
+  "scripts": {
+    "test": "wdio"
   }
 }
