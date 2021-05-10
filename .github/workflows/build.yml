@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd tests && ./startDocker
+      - run: cd tests && ./startDocker.sh
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
