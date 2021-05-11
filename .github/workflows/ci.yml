@@ -40,7 +40,7 @@ jobs:
           path: ./tests/dist
       - run: cd tests/dist && mv bttv.apk twitch.apk
       - run: cd tests && npm ci
-      - run: sleep 10 # TODO: improve this
+      - run: cd tests && ./wait.sh && sleep 10
       - run: cd tests && npm test || (docker logs docker_android && exit 1)
       - run: docker stop docker_android
       - uses: geekyeggo/delete-artifact@v1
