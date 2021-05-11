@@ -37,7 +37,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
-          path: ./disass/dist/twitch.apk
+          path: ./disass/dist
       - run: cd tests && npm ci
       - run: sleep 10 # TODO: improve this
       - run: cd tests && npm test
@@ -54,7 +54,6 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
-          path: ./twitch.apk
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
