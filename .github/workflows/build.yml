@@ -32,12 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd tests && ./startDocker.sh
-      - run: mkdir -p disass/dist
+      - run: mkdir tests/dist
+      - run: cd tests && ./startDocker.sh $PWD/dist
       - uses: actions/download-artifact@v2
         with:
           name: bttv-apk
-          path: ./disass/dist
+          path: ./tests/dist
+      - run: cd tests/dist && mv bttv.apk twitch.apk
       - run: cd tests && npm ci
       - run: sleep 10 # TODO: improve this
       - run: cd tests && npm test
@@ -73,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./twitch.apk
+          asset_path: ./bttv.apk
           asset_name: bttv-${{ env.version_tag }}.apk
           asset_content_type: application/vnd.android.package-archive
