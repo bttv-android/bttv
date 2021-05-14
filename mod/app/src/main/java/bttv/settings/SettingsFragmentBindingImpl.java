@@ -1,4 +1,4 @@
-package bttv;
+package bttv.settings;
 
 import androidx.fragment.app.FragmentActivity;
 import tv.twitch.android.settings.base.SettingsTracker;

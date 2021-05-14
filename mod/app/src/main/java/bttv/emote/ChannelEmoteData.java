@@ -1,4 +1,4 @@
-package bttv;
+package bttv.emote;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -7,8 +7,8 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class ChannelEmoteData {
-    final List<Emote> channelEmotes;
-    final List<Emote> sharedEmotes;
+    public final List<Emote> channelEmotes;
+    public final List<Emote> sharedEmotes;
 
     public ChannelEmoteData(List<Emote> channelEmotes, List<Emote> sharedEmotes) {
         this.channelEmotes = channelEmotes;

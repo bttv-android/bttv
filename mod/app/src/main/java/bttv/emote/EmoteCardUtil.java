@@ -1,5 +1,6 @@
-package bttv;
+package bttv.emote;
 
+import bttv.Data;
 import io.reactivex.Single;
 import tv.twitch.android.shared.chat.model.EmoteCardModel;
 import tv.twitch.android.shared.chat.parser.EmoteCardModelParser;

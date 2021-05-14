@@ -1,4 +1,4 @@
-package bttv;
+package bttv.updater;
 
 import android.content.Intent;
 import android.content.res.Resources;

@@ -7,6 +7,8 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.List;
 
+import bttv.emote.ChannelEmoteData;
+import bttv.emote.Emote;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

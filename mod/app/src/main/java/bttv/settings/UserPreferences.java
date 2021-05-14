@@ -1,4 +1,4 @@
-package bttv;
+package bttv.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,7 +1,9 @@
-package bttv;
+package bttv.emote;
 
 import android.content.Context;
 import android.util.Log;
+
+import bttv.Data;
 
 public class EmoteUrlUtil {
     public static final String generateEmoteUrl(String id, float f) {

@@ -2,6 +2,8 @@ package bttv;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import bttv.emote.Emote;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;

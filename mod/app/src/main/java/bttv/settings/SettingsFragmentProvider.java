@@ -1,4 +1,4 @@
-package bttv;
+package bttv.settings;
 
 public class SettingsFragmentProvider implements javax.inject.Provider<SettingsFragmentBinding.Factory> {
 

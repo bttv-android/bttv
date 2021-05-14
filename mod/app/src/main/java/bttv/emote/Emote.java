@@ -1,4 +1,4 @@
-package bttv;
+package bttv.emote;
 
 import android.util.Log;
 

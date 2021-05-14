@@ -10,6 +10,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import bttv.emote.ChannelEmoteData;
+import bttv.emote.Emote;
+import bttv.settings.UserPreferences;
+import bttv.updater.UpdaterJobService;
 import tv.twitch.android.models.channel.ChannelModel;
 
 public class Data {

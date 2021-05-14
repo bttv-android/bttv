@@ -1,10 +1,12 @@
-package bttv;
+package bttv.emote;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 import android.util.Log;
+
+import bttv.Data;
 import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;

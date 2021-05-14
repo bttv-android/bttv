@@ -1,4 +1,4 @@
-package bttv;
+package bttv.settings;
 
 import java.util.List;
 

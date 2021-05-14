@@ -1,4 +1,4 @@
-package bttv;
+package bttv.updater;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,6 +13,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import bttv.Data;
+import bttv.Network;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

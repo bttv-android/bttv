@@ -1,4 +1,4 @@
-package bttv;
+package bttv.updater;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
