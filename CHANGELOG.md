@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 # v0.4.1-beta
 - fix an issue that prevented both twitch and bttv-android to be installed
+- adds periodic update checks
 - recolor ic_launcher_round.png images
 - developer experience improvements
 
