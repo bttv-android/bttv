@@ -586,77 +586,108 @@ diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 similarity index 99%
 rename from smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 rename to smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-index f388dd371..2a69609ea 100644
+index f388dd371..baee88d36 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 +++ b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-@@ -810,9 +810,13 @@
+@@ -810,9 +810,23 @@
      .line 22644
      iput-object p2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->settingsActivityModule:Ltv/twitch/android/settings/dagger/SettingsActivityModule;
  
++    # BTTV
++    #  Set SettingsActivityModule
++    #     expects:
++    #       p2: tv.twitch.android.settings.dagger.SettingsActivityModule
 +    invoke-static {p2}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
++    # /BTTV
 +
      .line 22645
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->activityModule:Ltv/twitch/android/app/core/dagger/modules/ActivityModule;
  
++    # BTTV
++    #  Set ActivityModule
++    #     expects:
++    #       p3: tv.twitch.android.app.core.dagger.modules.ActivityModule
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
++    # /BTTV
 +
      .line 22646
      invoke-direct {p0, p2, p3, p4}, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->initialize(Ltv/twitch/android/settings/dagger/SettingsActivityModule;Ltv/twitch/android/app/core/dagger/modules/ActivityModule;Ltv/twitch/android/settings/SettingsActivity;)V
  
-@@ -1371,6 +1375,13 @@
+@@ -1371,6 +1385,20 @@
  
      invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
  
-+    # BTTV Settings
++    # BTTV
++    #  Add bttv's SettingsFragment to DI
++    #     expects:
++    #       v0: dagger.internal.MapBuilder
++    #     sets:
++    #       v1: bttv.settings.SettingsFragment
++    #       v2: bttv.settings.SettingsFragmentProvider
++    #
 +    const-class v1, Lbttv/settings/SettingsFragment;
 +    invoke-static {}, Lbttv/settings/SettingsFragmentProvider;->getInstance()Lbttv/settings/SettingsFragmentProvider;
 +    move-result-object v2
 +    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
-+    #
++    # /BTTV
 +
      const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
  
      iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->accountSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
-@@ -2102,6 +2113,8 @@
+@@ -2102,6 +2130,13 @@
  
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
  
++    # BTTV
++    #  Set FragmentActivity Provider for Settings Fragment
++    #     expects:
++    #       p3: javax.inject.Provider<androidx.fragment.app.FragmentActivity>
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
++    # /BTTV
 +
      .line 22973
      invoke-static {}, Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;->create()Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;
  
 diff --git a/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-index 46cdaa88e..80bda4a8c 100644
+index 46cdaa88e..f89941c92 100644
 --- a/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 +++ b/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-@@ -85,12 +85,14 @@
+@@ -85,12 +85,15 @@
  
  .field public static final enum ShowStatsHeader:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
++# BTTV
 +.field public static final enum BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
-+
++# /BTTV
  
  # direct methods
  .method static constructor <clinit>()V
      .locals 4
  
 -    const/16 v0, 0x24
-+    const/16 v0, 0x25
++    const/16 v0, 0x25 # length of values array
  
      new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
-@@ -542,6 +544,14 @@
+@@ -542,6 +545,22 @@
  
      aput-object v1, v0, v2
  
++    # BTTV
++    #     expects:
++    #       v0: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
++    #     sets:
++    #       v1: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
++    #       v2: java.lang.String
++    #       v2: I
++    #       v3: I
 +    new-instance v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
 +    const-string v2, "BTTVEmotesEnabled"
 +    const/16 v3, 0x24
 +    invoke-direct {v1, v2, v3}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
 +    const/16 v2, 0x24
 +    aput-object v1, v0, v2
-+
++    # /BTTV
 +
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
@@ -688,42 +719,57 @@ index c9490a9d5..fdab55521 100644
  # direct methods
  .method private constructor <init>()V
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-index b01b948fc..469631877 100644
+index b01b948fc..aa227f4af 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-@@ -177,6 +177,8 @@
+@@ -176,6 +176,13 @@
+ 
      .line 84
      invoke-super {p0}, Landroid/app/Application;->onCreate()V
- 
++    
++    # BTTV
++    #  Set Application Context
++    #     expects:
++    #       p0: android.content.Context
 +    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
-+
++    # /BTTV
+ 
      .line 87
      invoke-static {p0}, Lcom/google/firebase/FirebaseApp;->initializeApp(Landroid/content/Context;)Lcom/google/firebase/FirebaseApp;
- 
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-index cdfee59fb..be7635b59 100644
+index cdfee59fb..c4e0445d7 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-@@ -7372,6 +7372,7 @@
-     invoke-static/range {p1 .. p1}, Ltv/twitch/android/app/core/dagger/modules/AppModule_ProvidePageViewTrackerFactory;->create(Ltv/twitch/android/app/core/dagger/modules/AppModule;)Ltv/twitch/android/app/core/dagger/modules/AppModule_ProvidePageViewTrackerFactory;
+@@ -7373,6 +7373,13 @@
  
      move-result-object v3
-+    invoke-static {v3}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
  
++    # BTTV
++    #  Set PageViewTracker Provider
++    #     expects:
++    #       v3: javax.inject.Provider<tv.twitch.android.shared.analytics.PageViewTracker>
++    invoke-static {v3}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
++    # /BTTV
++
      invoke-static {v3}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
  
+     move-result-object v3
 diff --git a/smali_classes5/tv/twitch/android/app/core/MainActivity.smali b/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
-index 750763f87..334dc0948 100644
+index 750763f87..2364dd4e0 100644
 --- a/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
 +++ b/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
-@@ -1499,7 +1499,12 @@
+@@ -1499,7 +1499,16 @@
  
      invoke-virtual {p1, v0}, Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
  
 +    # BTTV
++    #  Check for Updates
++    #     expects:
++    #       p0: android.app.Activity
++    #       p1: tv/twitch/android/app/core/navigation/PersistentBannerPresenter
      .line 351
 +    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
-+    #
++    # /BTTV
 +
 +    .line 352
      iget-object p1, p0, Ltv/twitch/android/app/core/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
