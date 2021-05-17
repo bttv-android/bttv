@@ -93,8 +93,7 @@ Do the following once:
 
 1. Intialize the workspace as described above
 2. Rename `disass` to `extracted`
-
-3. Now you can build the java source code in (`source`) using `./buildsource extracted`.
+3. Now you can build the java source code in (`mod`) using `./buildsource extracted`.
    It will automaticly dex the class files and baksmali them.
    I recommend to scim through the script so you can set your environment variables.
 4. Build your new changes using the `./build extracted` script.
