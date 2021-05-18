@@ -69,7 +69,7 @@ public class SettingsFragmentBindingFactory implements SettingsFragmentBinding.F
             return null;
         }
 
-        FragmentActivity activity = (FragmentActivity) fragmentActivityProvider.get();
+        FragmentActivity activity = fragmentActivityProvider.get();
 
         return new SettingsFragmentBindingImpl(fragment, activity, getMenuAdapterBinder(), getTracker());
     }

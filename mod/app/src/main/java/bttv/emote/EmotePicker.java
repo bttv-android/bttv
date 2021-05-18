@@ -71,31 +71,51 @@ public class EmotePicker {
     }
 
     private static EmoteUiSet getGlobalBttvUiSet() {
-        EmoteHeaderUiModel globalBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_BTTV_STRING,
-                true, EmotePickerSection.ALL, false, 8, null);
-        EmoteUiSet globalBttvEmotes = new EmoteUiSet(globalBttvHeader, getGlobalBttvEmotes());
-        return globalBttvEmotes;
+        EmoteHeaderUiModel globalBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
+                GLOBAL_BTTV_STRING,
+                true,
+                EmotePickerSection.ALL,
+                false,
+                0b1000,
+                null
+        );
+        return new EmoteUiSet(globalBttvHeader, getGlobalBttvEmotes());
     }
 
     private static EmoteUiSet getGlobalFFZUiSet() {
-        EmoteHeaderUiModel globalFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(GLOBAL_FFZ_STRING, true,
-                EmotePickerSection.ALL, false, 8, null);
-        EmoteUiSet globalFFZEmotes = new EmoteUiSet(globalFFZHeader, getGlobalFFZEmotes());
-        return globalFFZEmotes;
+        EmoteHeaderUiModel globalFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
+                GLOBAL_FFZ_STRING,
+                true,
+                EmotePickerSection.ALL,
+                false,
+                0b1000,
+                null
+        );
+        return new EmoteUiSet(globalFFZHeader, getGlobalFFZEmotes());
     }
 
     private static EmoteUiSet getChannelBTTVUiSet() {
-        EmoteHeaderUiModel chBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(CHANNEL_BTTV_STRING, true,
-                EmotePickerSection.CHANNEL, false, 8, null);
-        EmoteUiSet channelBttvEmotes = new EmoteUiSet(chBttvHeader, getChannelBttvEmotes());
-        return channelBttvEmotes;
+        EmoteHeaderUiModel chBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
+                CHANNEL_BTTV_STRING,
+                true,
+                EmotePickerSection.CHANNEL,
+                false,
+                0b1000,
+                null
+        );
+        return new EmoteUiSet(chBttvHeader, getChannelBttvEmotes());
     }
 
     private static EmoteUiSet getChannelFFZUiSet() {
-        EmoteHeaderUiModel chFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(CHANNEL_FFZ_STRING, true,
-                EmotePickerSection.CHANNEL, false, 8, null);
-        EmoteUiSet channelFFZEmotes = new EmoteUiSet(chFFZHeader, getChannelFFZEmotes());
-        return channelFFZEmotes;
+        EmoteHeaderUiModel chFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
+                CHANNEL_FFZ_STRING,
+                true,
+                EmotePickerSection.CHANNEL,
+                false,
+                0b1000,
+                null
+        );
+        return new EmoteUiSet(chFFZHeader, getChannelFFZEmotes());
     }
 
     private static List<EmoteUiModel> getGlobalBttvEmotes() {

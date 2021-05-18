@@ -16,9 +16,8 @@ public class Emote {
     public String code;
     public String url;
     public String imageType;
-    public int source;
 
-    public Emote(int source, String id, String code, String url, String imageType) {
+    public Emote(String id, String code, String url, String imageType) {
         this.id = id;
         this.code = code;
         this.url = url;
@@ -43,7 +42,7 @@ public class Emote {
             url = "";
             imageType = "";
         }
-        return new Emote(source, id, code, url, imageType);
+        return new Emote(id, code, url, imageType);
     }
 
     public static List<Emote> fromJSONArray(String json, int source) throws JSONException {
