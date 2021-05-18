@@ -7,6 +7,7 @@ import java.util.Set;
 import android.util.Log;
 
 import bttv.Data;
+import bttv.Util;
 import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
@@ -16,15 +17,15 @@ import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
 import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
 
 public class EmotePicker {
-    final static int GLOBAL_BTTV_STRING = 0x7f13fffb;
-    final static int CHANNEL_BTTV_STRING = 0x7f13fffc;
-    final static int GLOBAL_FFZ_STRING = 0x7f13fffd;
-    final static int CHANNEL_FFZ_STRING = 0x7f13fffe;
 
     public static void extendList(List<EmoteUiSet> original) {
         int channel = Data.currentBroadcasterId;
         if (channel == -1 || !Data.channelHasEmotes(channel)) {
             Log.w("LBTTVextendList", "will skip extendList");
+            return;
+        }
+        if (Data.ctx == null) {
+            Log.e("LBTTVextendList", "Data.ctx is null, will skip extendList");
             return;
         }
 
@@ -72,7 +73,7 @@ public class EmotePicker {
 
     private static EmoteUiSet getGlobalBttvUiSet() {
         EmoteHeaderUiModel globalBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                GLOBAL_BTTV_STRING,
+                Util.getResourceId("bttv_emote_picker_global_bttv", "string"),
                 true,
                 EmotePickerSection.ALL,
                 false,
@@ -84,7 +85,7 @@ public class EmotePicker {
 
     private static EmoteUiSet getGlobalFFZUiSet() {
         EmoteHeaderUiModel globalFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                GLOBAL_FFZ_STRING,
+                Util.getResourceId("bttv_emote_picker_global_ffz", "string"),
                 true,
                 EmotePickerSection.ALL,
                 false,
@@ -96,7 +97,7 @@ public class EmotePicker {
 
     private static EmoteUiSet getChannelBTTVUiSet() {
         EmoteHeaderUiModel chBttvHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                CHANNEL_BTTV_STRING,
+                Util.getResourceId("bttv_emote_picker_channel_bttv", "string"),
                 true,
                 EmotePickerSection.CHANNEL,
                 false,
@@ -108,7 +109,7 @@ public class EmotePicker {
 
     private static EmoteUiSet getChannelFFZUiSet() {
         EmoteHeaderUiModel chFFZHeader = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                CHANNEL_FFZ_STRING,
+                Util.getResourceId("bttv_emote_picker_channel_ffz", "string"),
                 true,
                 EmotePickerSection.CHANNEL,
                 false,
@@ -154,7 +155,6 @@ public class EmotePicker {
             list.add(emoteToModel(emote));
         }
         return list;
-
     }
 
     private static EmoteUiModel emoteToModel(Emote emote) {
