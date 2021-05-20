@@ -530,23 +530,28 @@ index 652766fc8..2c263c8fe 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index b79bf6502..eeead3689 100644
+index b79bf6502..224dd4e1b 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12291,4 +12291,14 @@
+@@ -12291,4 +12291,19 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0bfffb" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0bfffc" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0bfffd" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0efffa" />
-+    <public type="string" name="bttv_app_update_available_cta" id="0x7f13ffef" />
-+    <public type="string" name="bttv_app_update_available" id="0x7f13fffa" />
-+    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f13fffb" />
-+    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f13fffc" />
-+    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f13fffd" />
-+    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f13fffe" />
++    <!-- BTTV -->
++    <!-- generate ids using `public-fixer ids <path/to/this/file>` -->
++    <!-- spacing must be exact, so just c&p a line and change name and type -->
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0c33" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0c34" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0c35" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e02ec" />
++    <public type="color" name="bttv_mega" id="0x7f060268" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f130cd8" />
++    <public type="string" name="bttv_app_update_available" id="0x7f130cd9" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130cda" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130cdb" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130cdc" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130cdd" />
++    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml

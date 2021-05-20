@@ -40,7 +40,7 @@ ENV BAKSMALI_PATH /opt/baksmali-2.4.0.jar
 
 # public-fixer
 
-RUN wget https://github.com/bttv-android/public-fixer/releases/download/v3.0.0/public-fixer
+RUN wget https://github.com/bttv-android/public-fixer/releases/download/v4.0.0/public-fixer
 RUN shasum public-fixer
 RUN chmod +x public-fixer
 ENV PUBLIC_FIXER /opt/public-fixer
