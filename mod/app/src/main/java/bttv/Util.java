@@ -18,4 +18,8 @@ public class Util {
 
         return res.getIdentifier(name, type, pkgName);
     }
+
+    public static int getStringId(@NonNull String name) {
+        return getResourceId(name, "string");
+    }
 }

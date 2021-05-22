@@ -697,32 +697,6 @@ index 46cdaa88e..f89941c92 100644
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
      return-void
-diff --git a/smali_classes4/dagger/android/DispatchingAndroidInjector.smali b/smali_classes4/dagger/android/DispatchingAndroidInjector.smali
-index a3eb50d22..8e1566962 100644
---- a/smali_classes4/dagger/android/DispatchingAndroidInjector.smali
-+++ b/smali_classes4/dagger/android/DispatchingAndroidInjector.smali
-@@ -388,6 +388,7 @@
- 
-     :catch_0
-     move-exception v3
-+    throw v3
- 
-     .line 116
-     new-instance v4, Ldagger/android/DispatchingAndroidInjector$InvalidInjectorBindingException;
-diff --git a/smali_classes4/tv/twitch/android/app/R$string.smali b/smali_classes4/tv/twitch/android/app/R$string.smali
-index c9490a9d5..fdab55521 100644
---- a/smali_classes4/tv/twitch/android/app/R$string.smali
-+++ b/smali_classes4/tv/twitch/android/app/R$string.smali
-@@ -6238,6 +6238,9 @@
- 
- .field public static final zero:I = 0x7f130cd7
- 
-+.field public static final bttv_app_update_available_cta:I = 0x7f13ffef
-+.field public static final bttv_app_update_available:I = 0x7f13fffa
-+
- 
- # direct methods
- .method private constructor <init>()V
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 index b01b948fc..aa227f4af 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
@@ -781,19 +755,33 @@ index 750763f87..2364dd4e0 100644
  
      invoke-virtual {p0, p1}, Ltv/twitch/android/core/activities/BaseActivity;->registerForLifecycleEvents(Ltv/twitch/android/core/mvp/presenter/BasePresenter;)V
 diff --git a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
-index cf6d5398b..bde44854f 100644
+index cf6d5398b..8ec5cf3eb 100644
 --- a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
 +++ b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
-@@ -136,10 +136,10 @@
+@@ -171,10 +171,24 @@
      new-instance v1, Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners;
  
-     .line 70
--    sget v6, Ltv/twitch/android/app/R$string;->verify_account_banner_description:I
-+    sget v6, Ltv/twitch/android/app/R$string;->bttv_app_update_available_cta:I
+     .line 74
+-    sget v6, Ltv/twitch/android/app/R$string;->app_update_available_cta:I
++    # BTTV
++    #   Replaces Update Banner's Content with custom string
++    #      sets:
++    #        v6: I
++    const-string v6, "bttv_app_update_available_cta"
++    invoke-static {v6}, Lbttv/Util;->getStringId(Ljava/lang/String;)I
++    move-result v6
++    # /BTTV
  
-     .line 71
--    sget v2, Ltv/twitch/android/app/R$string;->verify_account_banner_cta:I
-+    sget v2, Ltv/twitch/android/app/R$string;->bttv_app_update_available:I
+     .line 75
+-    sget v2, Ltv/twitch/android/app/R$string;->app_update_available:I
++    # BTTV
++    #   Replaces Update Banner's Title with custom string
++    #      sets:
++    #        v2: I
++    const-string v2, "bttv_app_update_available"
++    invoke-static {v2}, Lbttv/Util;->getStringId(Ljava/lang/String;)I
++    move-result v2
++    # /BTTV
  
      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
  
