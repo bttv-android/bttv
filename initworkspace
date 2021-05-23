@@ -18,7 +18,7 @@ create_gitignore() {
     echo ".gitignore" > .gitignore &&
     echo "build" >> .gitignore &&
     echo "dist" >> .gitignore &&
-    echo "smali_classes11/bttv" >> .gitignore &&
+    echo "smali_classes12/bttv" >> .gitignore &&
     find ../mod/app/src/main/res -type f | sed "s/..\/mod\/app\/src\/main\///" >> .gitignore &&
     echo "" >> .gitignore
 }
