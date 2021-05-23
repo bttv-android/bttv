@@ -3,6 +3,9 @@
 All notable changes to this project will be documented in this file.
 
 # master
+
+
+# v0.5.0-beta
 - update base to 10.8.0
 - resolve bug that caused heavily increased file size of mod's apk file (49% in total)
 - fixes bug that changed the email verify banners texts instead of the update banners texts
