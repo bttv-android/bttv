@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 30f41fa75..7714abbee 100644
+index 078cd2ae8..7bd7cd5fd 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,4 @@
@@ -51,7 +51,7 @@ index 30f41fa75..7714abbee 100644
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-         <meta-data android:name="com.google.android.play.billingclient.version" android:value="2.0.0"/>
+         <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
 @@ -284,5 +285,18 @@
          <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
          <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
@@ -124,10 +124,10 @@ index 3b06a9d16..202eb42e8 100644
  </adaptive-icon>
 \ No newline at end of file
 diff --git a/res/values-bg/strings.xml b/res/values-bg/strings.xml
-index 7ce48ce06..ee552c651 100644
+index 8b50c5370..26e62cc4a 100644
 --- a/res/values-bg/strings.xml
 +++ b/res/values-bg/strings.xml
-@@ -1346,7 +1346,7 @@
+@@ -1375,7 +1375,7 @@
      <string name="login_dialog_title">Необходимо е вписване</string>
      <string name="login_label">Влизане</string>
      <string name="login_landing_body">Вижте какво е ново</string>
@@ -137,10 +137,10 @@ index 7ce48ce06..ee552c651 100644
      <string name="login_live_title">На живо</string>
      <string name="logout_label">Излизане</string>
 diff --git a/res/values-cs/strings.xml b/res/values-cs/strings.xml
-index e6097370d..3e4a77630 100644
+index 203fd2a32..3e74b246e 100644
 --- a/res/values-cs/strings.xml
 +++ b/res/values-cs/strings.xml
-@@ -1342,7 +1342,7 @@ Získejte poklady ze hry sledováním oblíbených kanálů během kampaní Drop
+@@ -1371,7 +1371,7 @@ Získejte poklady ze hry sledováním oblíbených kanálů během kampaní Drop
      <string name="login_dialog_title">Vyžaduje přihlášení</string>
      <string name="login_label">Přihlásit se</string>
      <string name="login_landing_body">Podívejte se na novinky.</string>
@@ -150,10 +150,10 @@ index e6097370d..3e4a77630 100644
      <string name="login_live_title">Živé vysílání</string>
      <string name="logout_label">Odhlásit se</string>
 diff --git a/res/values-da/strings.xml b/res/values-da/strings.xml
-index f99381166..db2b58a6b 100644
+index 74e385e3d..a391cf817 100644
 --- a/res/values-da/strings.xml
 +++ b/res/values-da/strings.xml
-@@ -1348,7 +1348,7 @@ Scor spilrov i spillet ved at se dine yndlingskanaler under rov-kampagner, og du
+@@ -1377,7 +1377,7 @@ Scor spilrov i spillet ved at se dine yndlingskanaler under rov-kampagner, og du
      <string name="login_dialog_title">Login påkrævet</string>
      <string name="login_label">Log ind</string>
      <string name="login_landing_body">Se nyhederne</string>
@@ -163,10 +163,10 @@ index f99381166..db2b58a6b 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Log af</string>
 diff --git a/res/values-de/strings.xml b/res/values-de/strings.xml
-index 1fe4b7355..74457a0be 100644
+index d1aead00d..55947814e 100644
 --- a/res/values-de/strings.xml
 +++ b/res/values-de/strings.xml
-@@ -1350,7 +1350,7 @@ Verdiene dir das Ingame-Loot, indem du deine Lieblingskanäle während der Drop-
+@@ -1379,7 +1379,7 @@ Verdiene dir das Ingame-Loot, indem du deine Lieblingskanäle während der Drop-
      <string name="login_dialog_title">Anmeldung erforderlich.</string>
      <string name="login_label">Anmelden</string>
      <string name="login_landing_body">Neue Inhalte ansehen</string>
@@ -175,7 +175,7 @@ index 1fe4b7355..74457a0be 100644
      <string name="login_live_body">All deine Lieblingsstreamer an einem Ort</string>
      <string name="login_live_title">Live</string>
      <string name="logout_label">Abmelden</string>
-@@ -2721,4 +2721,6 @@ Gib als zusätzliche Sicherheitsmaßnahme bitte den sechsstelligen Code ein, den
+@@ -2767,4 +2767,6 @@ Gib als zusätzliche Sicherheitsmaßnahme bitte den sechsstelligen Code ein, den
      <string name="your_clip_mix">Dein Clip-Mix</string>
      <string name="your_subscription_will_auto_renew_on">Dein Abonnement verlängert sich am %1$s automatisch.</string>
      <string name="zero">0</string>
@@ -183,10 +183,10 @@ index 1fe4b7355..74457a0be 100644
 +    <string name="bttv_app_update_available_cta">Tippe hier, um das Update herunterzuladen und zu installieren.</string>
  </resources>
 diff --git a/res/values-el/strings.xml b/res/values-el/strings.xml
-index 9c865a926..5475324ab 100644
+index 1016dcf36..5a53d2a6f 100644
 --- a/res/values-el/strings.xml
 +++ b/res/values-el/strings.xml
-@@ -1346,7 +1346,7 @@
+@@ -1375,7 +1375,7 @@
      <string name="login_dialog_title">Απαιτείται σύνδεση</string>
      <string name="login_label">Σύνδεση</string>
      <string name="login_landing_body">Δες τι νέο υπάρχει</string>
@@ -196,10 +196,10 @@ index 9c865a926..5475324ab 100644
      <string name="login_live_title">Ζωντανά</string>
      <string name="logout_label">Αποσύνδεση</string>
 diff --git a/res/values-es-rES/strings.xml b/res/values-es-rES/strings.xml
-index cb83bbeb0..242fc175f 100644
+index 338cd9227..a0cdea1a2 100644
 --- a/res/values-es-rES/strings.xml
 +++ b/res/values-es-rES/strings.xml
-@@ -1256,7 +1256,7 @@ Obtén botines dentro del juego viendo tus canales favoritos durante campañas d
+@@ -1285,7 +1285,7 @@ Obtén botines dentro del juego viendo tus canales favoritos durante campañas d
      <string name="login_dialog_title">Es necesario iniciar sesión</string>
      <string name="login_label">Iniciar sesión</string>
      <string name="login_landing_body">Echa un vistazo a las novedades</string>
@@ -209,10 +209,10 @@ index cb83bbeb0..242fc175f 100644
      <string name="login_live_title">En directo</string>
      <string name="logout_label">Cerrar sesión</string>
 diff --git a/res/values-es-rMX/strings.xml b/res/values-es-rMX/strings.xml
-index cb0d619c5..43488a621 100644
+index 5b04772a6..b1ba5a551 100644
 --- a/res/values-es-rMX/strings.xml
 +++ b/res/values-es-rMX/strings.xml
-@@ -1255,7 +1255,7 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
+@@ -1284,7 +1284,7 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
      <string name="login_dialog_title">Debes iniciar sesión</string>
      <string name="login_label">Iniciar sesión</string>
      <string name="login_landing_body">Echar un vistazo a las novedades</string>
@@ -222,10 +222,10 @@ index cb0d619c5..43488a621 100644
      <string name="login_live_title">En vivo</string>
      <string name="logout_label">Cerrar sesión</string>
 diff --git a/res/values-es-rUS/strings.xml b/res/values-es-rUS/strings.xml
-index ade624844..77ec00238 100644
+index 50560e1e1..517c8643c 100644
 --- a/res/values-es-rUS/strings.xml
 +++ b/res/values-es-rUS/strings.xml
-@@ -1344,7 +1344,7 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
+@@ -1373,7 +1373,7 @@ Consigue loot dentro del juego viendo tus canales favoritos durante campañas de
      <string name="login_dialog_title">Debes iniciar sesión</string>
      <string name="login_label">Iniciar sesión</string>
      <string name="login_landing_body">Echar un vistazo a las novedades</string>
@@ -235,10 +235,10 @@ index ade624844..77ec00238 100644
      <string name="login_live_title">En vivo</string>
      <string name="logout_label">Cerrar sesión</string>
 diff --git a/res/values-fi/strings.xml b/res/values-fi/strings.xml
-index a6f5a0b53..203e57bb4 100644
+index 643b73827..c1db0cf43 100644
 --- a/res/values-fi/strings.xml
 +++ b/res/values-fi/strings.xml
-@@ -1344,7 +1344,7 @@ Katsele suosikkikanaviasi droppikampanjoiden aikana, niin saat pelinsisäisiä k
+@@ -1373,7 +1373,7 @@ Katsele suosikkikanaviasi droppikampanjoiden aikana, niin saat pelinsisäisiä k
      <string name="login_dialog_title">Sinun on kirjauduttava sisään</string>
      <string name="login_label">Kirjaudu sisään</string>
      <string name="login_landing_body">Tsekkaa uutuudet</string>
@@ -248,10 +248,10 @@ index a6f5a0b53..203e57bb4 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Kirjaudu ulos</string>
 diff --git a/res/values-fr/strings.xml b/res/values-fr/strings.xml
-index a3ac1957b..7c8566518 100644
+index 181a8a263..490f59d3b 100644
 --- a/res/values-fr/strings.xml
 +++ b/res/values-fr/strings.xml
-@@ -1346,7 +1346,7 @@ Gagnez du butin en jeu en regardant vos chaînes préférées pendant les campag
+@@ -1375,7 +1375,7 @@ Gagnez du butin en jeu en regardant vos chaînes préférées pendant les campag
      <string name="login_dialog_title">Connexion requise</string>
      <string name="login_label">Connexion</string>
      <string name="login_landing_body">Découvrez les nouveautés</string>
@@ -261,10 +261,10 @@ index a3ac1957b..7c8566518 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Déconnexion</string>
 diff --git a/res/values-hu/strings.xml b/res/values-hu/strings.xml
-index 27765fabb..0319c9a5a 100644
+index 4a1cc3095..fa33725f0 100644
 --- a/res/values-hu/strings.xml
 +++ b/res/values-hu/strings.xml
-@@ -1343,7 +1343,7 @@ Tegyél szert játékon belüli jutalmakra! Csupán annyi a dolgod, hogy nézed
+@@ -1372,7 +1372,7 @@ Tegyél szert játékon belüli jutalmakra! Csupán annyi a dolgod, hogy nézed
      <string name="login_dialog_title">Bejelentkezés szükséges</string>
      <string name="login_label">Bejelentkezés</string>
      <string name="login_landing_body">Nézd meg az újdonságokat</string>
@@ -274,10 +274,10 @@ index 27765fabb..0319c9a5a 100644
      <string name="login_live_title">Élő</string>
      <string name="logout_label">Kijelentkezés</string>
 diff --git a/res/values-it/strings.xml b/res/values-it/strings.xml
-index 21edc79cd..c7c35bc74 100644
+index 0a2f8f8ef..26e161dac 100644
 --- a/res/values-it/strings.xml
 +++ b/res/values-it/strings.xml
-@@ -1345,7 +1345,7 @@ Ottieni una ricompensa nel gioco guardando i tuoi canali preferiti durante le ca
+@@ -1374,7 +1374,7 @@ Ottieni una ricompensa nel gioco guardando i tuoi canali preferiti durante le ca
      <string name="login_dialog_title">Accesso richiesto</string>
      <string name="login_label">Accedi</string>
      <string name="login_landing_body">"Dai un'occhiata alle novità"</string>
@@ -287,10 +287,10 @@ index 21edc79cd..c7c35bc74 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Disconnettiti</string>
 diff --git a/res/values-ja/strings.xml b/res/values-ja/strings.xml
-index 184b3acba..86f0180d7 100644
+index 8a68caa4a..3290551f9 100644
 --- a/res/values-ja/strings.xml
 +++ b/res/values-ja/strings.xml
-@@ -1346,7 +1346,7 @@
+@@ -1375,7 +1375,7 @@
      <string name="login_dialog_title">ログインする必要があります</string>
      <string name="login_label">ログイン</string>
      <string name="login_landing_body">新着情報を確認</string>
@@ -300,10 +300,10 @@ index 184b3acba..86f0180d7 100644
      <string name="login_live_title">ライブ</string>
      <string name="logout_label">ログアウト</string>
 diff --git a/res/values-ko/strings.xml b/res/values-ko/strings.xml
-index 62d99a64b..e0ce42e7f 100644
+index 42bde9ab9..720880cf9 100644
 --- a/res/values-ko/strings.xml
 +++ b/res/values-ko/strings.xml
-@@ -1347,7 +1347,7 @@
+@@ -1376,7 +1376,7 @@
      <string name="login_dialog_title">로그인 필요</string>
      <string name="login_label">로그인</string>
      <string name="login_landing_body">새로운 기능 확인</string>
@@ -313,10 +313,10 @@ index 62d99a64b..e0ce42e7f 100644
      <string name="login_live_title">생방송</string>
      <string name="logout_label">로그아웃</string>
 diff --git a/res/values-nb/strings.xml b/res/values-nb/strings.xml
-index e72ac907c..433872ede 100644
+index c15713c03..c52aa482a 100644
 --- a/res/values-nb/strings.xml
 +++ b/res/values-nb/strings.xml
-@@ -1343,7 +1343,7 @@ Nivå %1$d fullført!"</string>
+@@ -1372,7 +1372,7 @@ Nivå %1$d fullført!"</string>
      <string name="login_dialog_title">Pålogging påkrevd</string>
      <string name="login_label">Logg inn</string>
      <string name="login_landing_body">Sjekk ut hva som er nytt</string>
@@ -326,10 +326,10 @@ index e72ac907c..433872ede 100644
      <string name="login_live_title">Direkte</string>
      <string name="logout_label">Logg av</string>
 diff --git a/res/values-nl/strings.xml b/res/values-nl/strings.xml
-index 9013b71b6..716af48e2 100644
+index 7858a28f6..91e6b6094 100644
 --- a/res/values-nl/strings.xml
 +++ b/res/values-nl/strings.xml
-@@ -1342,7 +1342,7 @@ Loot die je hebt verdiend door naar je favoriete kanalen te kijken tijdens drops
+@@ -1371,7 +1371,7 @@ Loot die je hebt verdiend door naar je favoriete kanalen te kijken tijdens drops
      <string name="login_dialog_title">Inloggen vereist</string>
      <string name="login_label">Inloggen</string>
      <string name="login_landing_body">Bekijk wat er nieuw is</string>
@@ -339,10 +339,10 @@ index 9013b71b6..716af48e2 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Uitloggen</string>
 diff --git a/res/values-pl/strings.xml b/res/values-pl/strings.xml
-index 355769195..21942e3e8 100644
+index e9014b38d..bb32daf08 100644
 --- a/res/values-pl/strings.xml
 +++ b/res/values-pl/strings.xml
-@@ -1344,7 +1344,7 @@ Zdobywaj łupy w grze, oglądając ulubione kanały podczas kampanii z dropami.
+@@ -1373,7 +1373,7 @@ Zdobywaj łupy w grze, oglądając ulubione kanały podczas kampanii z dropami.
      <string name="login_dialog_title">Wymagane zalogowanie</string>
      <string name="login_label">Zaloguj się</string>
      <string name="login_landing_body">Zobacz, co nowego</string>
@@ -352,10 +352,10 @@ index 355769195..21942e3e8 100644
      <string name="login_live_title">Na żywo</string>
      <string name="logout_label">Wyloguj się</string>
 diff --git a/res/values-pt-rBR/strings.xml b/res/values-pt-rBR/strings.xml
-index dbfba31e6..e288f9a11 100644
+index 740998286..1cb6be203 100644
 --- a/res/values-pt-rBR/strings.xml
 +++ b/res/values-pt-rBR/strings.xml
-@@ -1344,7 +1344,7 @@ Marque loot nos jogos ao assistir a seus canais favoritos durante as campanhas d
+@@ -1373,7 +1373,7 @@ Marque loot nos jogos ao assistir a seus canais favoritos durante as campanhas d
      <string name="login_dialog_title">Login obrigatório</string>
      <string name="login_label">Entrar</string>
      <string name="login_landing_body">Confira o que há de novo</string>
@@ -365,10 +365,10 @@ index dbfba31e6..e288f9a11 100644
      <string name="login_live_title">Ao vivo</string>
      <string name="logout_label">Sair</string>
 diff --git a/res/values-pt/strings.xml b/res/values-pt/strings.xml
-index 802432311..54f665375 100644
+index 48fcd8e63..e7f90ded9 100644
 --- a/res/values-pt/strings.xml
 +++ b/res/values-pt/strings.xml
-@@ -1284,7 +1284,7 @@ Ganha itens de jogo assistindo aos teus canais favoritos durante as campanhas de
+@@ -1313,7 +1313,7 @@ Ganha itens de jogo assistindo aos teus canais favoritos durante as campanhas de
      <string name="login_dialog_title">É necessário iniciar a sessão</string>
      <string name="login_label">Iniciar sessão</string>
      <string name="login_landing_body">Ver as novidades</string>
@@ -378,10 +378,10 @@ index 802432311..54f665375 100644
      <string name="login_live_title">Em direto</string>
      <string name="logout_label">Terminar sessão</string>
 diff --git a/res/values-ro/strings.xml b/res/values-ro/strings.xml
-index 3eca06f3d..0c818edcc 100644
+index 28c56200a..337e25726 100644
 --- a/res/values-ro/strings.xml
 +++ b/res/values-ro/strings.xml
-@@ -1342,7 +1342,7 @@ Obține cadouri în joc urmărind canalele tale preferate în timpul campaniilor
+@@ -1371,7 +1371,7 @@ Obține cadouri în joc urmărind canalele tale preferate în timpul campaniilor
      <string name="login_dialog_title">Conectare necesară</string>
      <string name="login_label">Conectează-te</string>
      <string name="login_landing_body">Vezi ce e nou</string>
@@ -391,10 +391,10 @@ index 3eca06f3d..0c818edcc 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Deconectare</string>
 diff --git a/res/values-ru/strings.xml b/res/values-ru/strings.xml
-index 463143c64..f3616fd59 100644
+index 9c8912a89..4eda3acd8 100644
 --- a/res/values-ru/strings.xml
 +++ b/res/values-ru/strings.xml
-@@ -1345,7 +1345,7 @@
+@@ -1374,7 +1374,7 @@
      <string name="login_dialog_title">Необходимо войти в систему</string>
      <string name="login_label">Войти</string>
      <string name="login_landing_body">Узнать, что нового было добавлено</string>
@@ -404,10 +404,10 @@ index 463143c64..f3616fd59 100644
      <string name="login_live_title">В эфире</string>
      <string name="logout_label">Выйти</string>
 diff --git a/res/values-sk/strings.xml b/res/values-sk/strings.xml
-index c6a5f8081..111d79e57 100644
+index fea61ca23..27b3b66fe 100644
 --- a/res/values-sk/strings.xml
 +++ b/res/values-sk/strings.xml
-@@ -1342,7 +1342,7 @@ Získaj korisť v hre vďaka sledovaniu svojich obľúbených kanálov počas ka
+@@ -1371,7 +1371,7 @@ Získaj korisť v hre vďaka sledovaniu svojich obľúbených kanálov počas ka
      <string name="login_dialog_title">Vyžaduje sa prihlásenie</string>
      <string name="login_label">Prihlásiť sa</string>
      <string name="login_landing_body">Pozri si, čo je nové</string>
@@ -417,10 +417,10 @@ index c6a5f8081..111d79e57 100644
      <string name="login_live_title">Naživo</string>
      <string name="logout_label">Odhlásiť sa</string>
 diff --git a/res/values-sv/strings.xml b/res/values-sv/strings.xml
-index c382cda0d..7a148e1d9 100644
+index 41be28c2f..a16387fc8 100644
 --- a/res/values-sv/strings.xml
 +++ b/res/values-sv/strings.xml
-@@ -1340,7 +1340,7 @@ Nivå %1$d klar!"</string>
+@@ -1369,7 +1369,7 @@ Nivå %1$d klar!"</string>
      <string name="login_dialog_title">Inloggning krävs</string>
      <string name="login_label">Logga in</string>
      <string name="login_landing_body">Se det senaste</string>
@@ -430,10 +430,10 @@ index c382cda0d..7a148e1d9 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Logga ut</string>
 diff --git a/res/values-th/strings.xml b/res/values-th/strings.xml
-index f1fa4689a..5efbf4317 100644
+index f7f95f504..e9bcf054e 100644
 --- a/res/values-th/strings.xml
 +++ b/res/values-th/strings.xml
-@@ -1343,7 +1343,7 @@
+@@ -1372,7 +1372,7 @@
      <string name="login_dialog_title">ต้องล็อกอิน</string>
      <string name="login_label">ล็อกอิน</string>
      <string name="login_landing_body">ดูซิว่ามีอะไรใหม่</string>
@@ -443,10 +443,10 @@ index f1fa4689a..5efbf4317 100644
      <string name="login_live_title">ถ่ายทอดสด</string>
      <string name="logout_label">ล็อกเอาต์</string>
 diff --git a/res/values-tr/strings.xml b/res/values-tr/strings.xml
-index 8b399b675..8347fe55f 100644
+index e94488c95..77fa18aeb 100644
 --- a/res/values-tr/strings.xml
 +++ b/res/values-tr/strings.xml
-@@ -1341,7 +1341,7 @@ Drop kampanyaları esnasında en sevdiğiniz kanalları izleyerek oyun içi gani
+@@ -1370,7 +1370,7 @@ Drop kampanyaları esnasında en sevdiğiniz kanalları izleyerek oyun içi gani
      <string name="login_dialog_title">Oturum Açma Gerekli</string>
      <string name="login_label">Oturum Açın</string>
      <string name="login_landing_body">Yeniliklere göz atın</string>
@@ -456,10 +456,10 @@ index 8b399b675..8347fe55f 100644
      <string name="login_live_title">Canlı</string>
      <string name="logout_label">Oturumu Kapat</string>
 diff --git a/res/values-vi/strings.xml b/res/values-vi/strings.xml
-index dbc0ca1b9..311c1c2d3 100644
+index 76a93c641..9fe9d8598 100644
 --- a/res/values-vi/strings.xml
 +++ b/res/values-vi/strings.xml
-@@ -1342,7 +1342,7 @@ Ghi điểm với phần thưởng trong game bằng cách xem các kênh yêu t
+@@ -1371,7 +1371,7 @@ Ghi điểm với phần thưởng trong game bằng cách xem các kênh yêu t
      <string name="login_dialog_title">Bạn phải đăng nhập</string>
      <string name="login_label">Đăng nhập</string>
      <string name="login_landing_body">Xem nội dung mới</string>
@@ -469,10 +469,10 @@ index dbc0ca1b9..311c1c2d3 100644
      <string name="login_live_title">Trực tiếp</string>
      <string name="logout_label">Đăng xuất</string>
 diff --git a/res/values-zh-rHK/strings.xml b/res/values-zh-rHK/strings.xml
-index 50b80bcd3..176d7cca2 100644
+index 733d20191..66311ab28 100644
 --- a/res/values-zh-rHK/strings.xml
 +++ b/res/values-zh-rHK/strings.xml
-@@ -1346,7 +1346,7 @@
+@@ -1375,7 +1375,7 @@
      <string name="login_dialog_title">需要登入</string>
      <string name="login_label">登入</string>
      <string name="login_landing_body">看看有哪些新影片</string>
@@ -482,10 +482,10 @@ index 50b80bcd3..176d7cca2 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">登出</string>
 diff --git a/res/values-zh-rTW/strings.xml b/res/values-zh-rTW/strings.xml
-index 20f13ee9e..a85f6a3ab 100644
+index be7f70121..3d6dd7b28 100644
 --- a/res/values-zh-rTW/strings.xml
 +++ b/res/values-zh-rTW/strings.xml
-@@ -1346,7 +1346,7 @@
+@@ -1375,7 +1375,7 @@
      <string name="login_dialog_title">需要登入</string>
      <string name="login_label">登入</string>
      <string name="login_landing_body">看看有哪些新影片</string>
@@ -495,10 +495,10 @@ index 20f13ee9e..a85f6a3ab 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">登出</string>
 diff --git a/res/values-zh/strings.xml b/res/values-zh/strings.xml
-index 9833fb134..05df00f4b 100644
+index c17c48edc..896f03b1e 100644
 --- a/res/values-zh/strings.xml
 +++ b/res/values-zh/strings.xml
-@@ -1256,7 +1256,7 @@
+@@ -1285,7 +1285,7 @@
      <string name="login_dialog_title">需要登录</string>
      <string name="login_label">登录</string>
      <string name="login_landing_body">查看最新消息</string>
@@ -508,20 +508,20 @@ index 9833fb134..05df00f4b 100644
      <string name="login_live_title">直播</string>
      <string name="logout_label">退出</string>
 diff --git a/res/values/colors.xml b/res/values/colors.xml
-index 255991312..5b4f4741b 100644
+index 7f6c5bbbf..67093ce00 100644
 --- a/res/values/colors.xml
 +++ b/res/values/colors.xml
-@@ -504,4 +504,5 @@
+@@ -505,4 +505,5 @@
      <color name="yellow_8">#ff60600b</color>
      <color name="yellow_9">#ff7a7a00</color>
      <color name="youtube">#ffcd201f</color>
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 652766fc8..2c263c8fe 100644
+index 3f65811d2..d9615cf08 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -2839,4 +2839,7 @@
+@@ -2891,4 +2891,7 @@
      <item type="id" name="year_published" />
      <item type="id" name="you_were_watching" />
      <item type="id" name="zero_corner_chip" />
@@ -530,35 +530,35 @@ index 652766fc8..2c263c8fe 100644
 +    <item type="id" name="bttv_updater_activity_pb" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index b79bf6502..224dd4e1b 100644
+index e986d3576..3a1ab4e62 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12291,4 +12291,19 @@
+@@ -12437,4 +12437,19 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <!-- BTTV -->
 +    <!-- generate ids using `public-fixer ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0c33" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0c34" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0c35" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e02ec" />
-+    <public type="color" name="bttv_mega" id="0x7f060268" />
-+    <public type="string" name="bttv_app_update_available_cta" id="0x7f130cd8" />
-+    <public type="string" name="bttv_app_update_available" id="0x7f130cd9" />
-+    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130cda" />
-+    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130cdb" />
-+    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130cdc" />
-+    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130cdd" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0c67" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0c68" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0c69" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e02f8" />
++    <public type="color" name="bttv_mega" id="0x7f06026a" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d05" />
++    <public type="string" name="bttv_app_update_available" id="0x7f130d06" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d07" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d08" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d09" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d0a" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index f04237335..2b0d9dc6d 100644
+index 2c463b4cb..b93bb1b27 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -265,7 +265,7 @@ Licensed under the Apache License, Version 2.0 (the License); you may not use th
+@@ -266,7 +266,7 @@ Licensed under the Apache License, Version 2.0 (the License); you may not use th
  http://www.apache.org/licenses/LICENSE-2.0
  
  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."</string>
@@ -567,7 +567,7 @@ index f04237335..2b0d9dc6d 100644
      <string name="app_settings_auto_popout">Automatically Pop-out Player</string>
      <string name="app_settings_background_audio">Continue playing audio in the background</string>
      <string name="app_settings_background_audio_headphones">Headphones / Speaker</string>
-@@ -1760,7 +1760,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
+@@ -1789,7 +1789,7 @@ THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
      <string name="login_dialog_title">Login Required</string>
      <string name="login_label">Log In</string>
      <string name="login_landing_body">"Check out what's new"</string>
@@ -576,7 +576,7 @@ index f04237335..2b0d9dc6d 100644
      <string name="login_live_body">All your favorite streamers in one place</string>
      <string name="login_live_title">Live</string>
      <string name="login_presenter_request_sms_passport_error">LoginPresenter: Request SMS @ Passport Error</string>
-@@ -3431,4 +3431,10 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
+@@ -3477,4 +3477,10 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
      <string name="your_clip_mix">Your Clip Mix</string>
      <string name="your_subscription_will_auto_renew_on">Your subscription will auto-renew on %s</string>
      <string name="zero">0</string>
@@ -587,15 +587,11 @@ index f04237335..2b0d9dc6d 100644
 +    <string name="bttv_app_update_available">bttv-android: New Update detected</string>
 +    <string name="bttv_app_update_available_cta">Tap here to download and install the update.</string>
  </resources>
-diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-similarity index 99%
-rename from smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-rename to smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-index f388dd371..baee88d36 100644
+index d19b9489b..b425ecd59 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-+++ b/smali_classes10/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-@@ -810,9 +810,23 @@
-     .line 22644
++++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+@@ -820,9 +820,23 @@
+     .line 23840
      iput-object p2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->settingsActivityModule:Ltv/twitch/android/settings/dagger/SettingsActivityModule;
  
 +    # BTTV
@@ -605,7 +601,7 @@ index f388dd371..baee88d36 100644
 +    invoke-static {p2}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
 +    # /BTTV
 +
-     .line 22645
+     .line 23841
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->activityModule:Ltv/twitch/android/app/core/dagger/modules/ActivityModule;
  
 +    # BTTV
@@ -615,13 +611,28 @@ index f388dd371..baee88d36 100644
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
 +    # /BTTV
 +
-     .line 22646
+     .line 23842
      invoke-direct {p0, p2, p3, p4}, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->initialize(Ltv/twitch/android/settings/dagger/SettingsActivityModule;Ltv/twitch/android/app/core/dagger/modules/ActivityModule;Ltv/twitch/android/settings/SettingsActivity;)V
  
-@@ -1371,6 +1385,20 @@
+@@ -1463,7 +1477,12 @@
+     move-result-object p3
+ 
+     iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
+-
++    # BTTV
++    #  Set FragmentActivity Provider for Settings Fragment
++    #     expects:
++    #       p3: javax.inject.Provider<androidx.fragment.app.FragmentActivity>
++    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
++    # /BTTV
+     .line 24227
+     invoke-static {}, Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;->create()Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;
+ 
+@@ -2155,7 +2174,19 @@
+     iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->connectionsSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
  
      invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
- 
+-
 +    # BTTV
 +    #  Add bttv's SettingsFragment to DI
 +    #     expects:
@@ -635,24 +646,9 @@ index f388dd371..baee88d36 100644
 +    move-result-object v2
 +    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
 +    # /BTTV
-+
      const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
  
      iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->accountSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
-@@ -2102,6 +2130,13 @@
- 
-     iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
- 
-+    # BTTV
-+    #  Set FragmentActivity Provider for Settings Fragment
-+    #     expects:
-+    #       p3: javax.inject.Provider<androidx.fragment.app.FragmentActivity>
-+    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
-+    # /BTTV
-+
-     .line 22973
-     invoke-static {}, Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;->create()Ltv/twitch/android/app/core/PlayerVisibilitySubject_Factory;
- 
 diff --git a/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..f89941c92 100644
 --- a/smali_classes11/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
@@ -698,12 +694,12 @@ index 46cdaa88e..f89941c92 100644
  
      return-void
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-index b01b948fc..aa227f4af 100644
+index b737e5e93..71972838b 100644
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-@@ -176,6 +176,13 @@
+@@ -193,6 +193,13 @@
  
-     .line 84
+     .line 85
      invoke-super {p0}, Landroid/app/Application;->onCreate()V
 +    
 +    # BTTV
@@ -713,31 +709,30 @@ index b01b948fc..aa227f4af 100644
 +    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
 +    # /BTTV
  
-     .line 87
+     .line 88
      invoke-static {p0}, Lcom/google/firebase/FirebaseApp;->initializeApp(Landroid/content/Context;)Lcom/google/firebase/FirebaseApp;
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-index cdfee59fb..c4e0445d7 100644
+index 961ae0418..28c8ecdca 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-@@ -7373,6 +7373,13 @@
+@@ -6825,6 +6825,12 @@
+     invoke-static/range {p1 .. p1}, Ltv/twitch/android/app/core/dagger/modules/AppModule_ProvidePageViewTrackerFactory;->create(Ltv/twitch/android/app/core/dagger/modules/AppModule;)Ltv/twitch/android/app/core/dagger/modules/AppModule_ProvidePageViewTrackerFactory;
  
      move-result-object v3
- 
 +    # BTTV
 +    #  Set PageViewTracker Provider
 +    #     expects:
 +    #       v3: javax.inject.Provider<tv.twitch.android.shared.analytics.PageViewTracker>
 +    invoke-static {v3}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
-+
+ 
      invoke-static {v3}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
  
-     move-result-object v3
 diff --git a/smali_classes5/tv/twitch/android/app/core/MainActivity.smali b/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
-index 750763f87..2364dd4e0 100644
+index 1828fbd68..98afb3cc8 100644
 --- a/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
 +++ b/smali_classes5/tv/twitch/android/app/core/MainActivity.smali
-@@ -1499,7 +1499,16 @@
+@@ -1499,6 +1499,14 @@
  
      invoke-virtual {p1, v0}, Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
  
@@ -746,14 +741,12 @@ index 750763f87..2364dd4e0 100644
 +    #     expects:
 +    #       p0: android.app.Activity
 +    #       p1: tv/twitch/android/app/core/navigation/PersistentBannerPresenter
-     .line 351
 +    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
 +    # /BTTV
 +
-+    .line 352
+     .line 350
      iget-object p1, p0, Ltv/twitch/android/app/core/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
  
-     invoke-virtual {p0, p1}, Ltv/twitch/android/core/activities/BaseActivity;->registerForLifecycleEvents(Ltv/twitch/android/core/mvp/presenter/BasePresenter;)V
 diff --git a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
 index cf6d5398b..8ec5cf3eb 100644
 --- a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
@@ -797,11 +790,11 @@ index e5616d306..81aa870a3 100644
  
      .line 57
      sget-object v0, Ltv/twitch/android/util/RandomUtil;->INSTANCE:Ltv/twitch/android/util/RandomUtil;
-diff --git a/smali_classes8/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes8/tv/twitch/android/models/settings/SettingsDestination.smali
-index ff65c1ced..3ac84676b 100644
---- a/smali_classes8/tv/twitch/android/models/settings/SettingsDestination.smali
-+++ b/smali_classes8/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -105,6 +105,8 @@
+diff --git a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
+index f9162b8c0..37ce3171a 100644
+--- a/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
++++ b/smali_classes7/tv/twitch/android/models/settings/SettingsDestination.smali
+@@ -107,6 +107,8 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
@@ -810,53 +803,52 @@ index ff65c1ced..3ac84676b 100644
  
  # direct methods
  .method static constructor <clinit>()V
-@@ -583,7 +585,19 @@
+@@ -596,7 +598,19 @@
  
      sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
--    const/16 v1, 0x2b
+-    const/16 v1, 0x2c
 +    # BTTV
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
 +
 +    const-string v1, "BTTV"
 +
-+    const/16 v15, 0x2b
++    const/16 v15, 0x2c
 +
 +    invoke-direct {v0, v1, v15}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
 +
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +    #
 +
-+    const/16 v1, 0x2c
++    const/16 v1, 0x2d
  
      new-array v1, v1, [Ltv/twitch/android/models/settings/SettingsDestination;
  
-@@ -814,9 +828,19 @@
+@@ -832,11 +846,17 @@
+     const/16 v3, 0x2a
  
      aput-object v2, v1, v3
- 
--    const/16 v2, 0x2a
++    
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
-+
-+    const/16 v3, 0x2a
-+
-+    aput-object v2, v1, v3
  
+-    const/16 v2, 0x2b
+-
 -    aput-object v0, v1, v2
++    const/16 v3, 0x2b
+ 
++    aput-object v2, v1, v3
 +    # BTTV
 +    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
-+
-+    const/16 v3, 0x2b
-+
++    const/16 v3, 0x2c
 +    aput-object v2, v1, v3
-+    #
- 
++    # /BTTV
      sput-object v1, Ltv/twitch/android/models/settings/SettingsDestination;->$VALUES:[Ltv/twitch/android/models/settings/SettingsDestination;
  
-diff --git a/smali_classes8/tv/twitch/android/sdk/ChatController.smali b/smali_classes8/tv/twitch/android/sdk/ChatController.smali
+     return-void
+diff --git a/smali_classes7/tv/twitch/android/sdk/ChatController.smali b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 index 9bf125c28..13ce04b27 100644
---- a/smali_classes8/tv/twitch/android/sdk/ChatController.smali
-+++ b/smali_classes8/tv/twitch/android/sdk/ChatController.smali
+--- a/smali_classes7/tv/twitch/android/sdk/ChatController.smali
++++ b/smali_classes7/tv/twitch/android/sdk/ChatController.smali
 @@ -286,6 +286,8 @@
  
      move-result p1
@@ -867,7 +859,7 @@ index 9bf125c28..13ce04b27 100644
  .end method
  
 diff --git a/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-index 1d2506296..c69c1e8e7 100644
+index 9d760a27a..0b5ed1c91 100644
 --- a/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 +++ b/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 @@ -47,6 +47,17 @@
@@ -885,22 +877,22 @@ index 1d2506296..c69c1e8e7 100644
 +
 +    :not_bttv
 +
-     .line 69
+     .line 73
      sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
  
 @@ -228,6 +239,7 @@
      move-result-object p1
  
-     .line 98
+     .line 102
 +    const/16 v0, 0x0
      invoke-virtual {v1, v2, p2, p1, v0}, Ltv/twitch/android/util/FragmentUtil$Companion;->addOrRecreateFragment(Landroidx/fragment/app/FragmentActivity;Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
  
      :cond_2
 diff --git a/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-index 0813984ba..4dcd17b13 100644
+index b616b2812..80eb7ecb2 100644
 --- a/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes8/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -604,6 +604,28 @@
+@@ -651,6 +651,28 @@
  
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
@@ -926,7 +918,7 @@ index 0813984ba..4dcd17b13 100644
 +    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 +    #
 +
-     .line 124
+     .line 129
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
  
 diff --git a/smali_classes9/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes9/tv/twitch/android/shared/chat/api/EmoteApi.smali
@@ -948,7 +940,7 @@ index d8430db3b..1b516dcf6 100644
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 diff --git a/smali_classes9/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes9/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-index 503a5f5d8..ee9e55ad3 100644
+index 9e8ea4a0a..96f56c1fd 100644
 --- a/smali_classes9/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 +++ b/smali_classes9/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 @@ -231,13 +231,13 @@
@@ -1008,7 +1000,7 @@ index 7c2879cea..0289829e1 100644
      move-result-object v5
  
 diff --git a/smali_classes9/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes9/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-index 3779c2030..90d383ecd 100644
+index b00f6f947..667e037b8 100644
 --- a/smali_classes9/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes9/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 @@ -1052,7 +1052,7 @@
