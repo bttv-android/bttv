@@ -13,18 +13,31 @@ public class MessageToken {
     }
 
     public static final class EmoticonToken extends MessageToken {
+        private final String text;
+        private final String id;
         public EmoticonToken(String text, String id) {
             super(null);
+            this.text = text;
+            this.id = id;
+        }
+
+        public final String component1() {
+            return this.text;
+        }
+        public final String component2() {
+            return this.id;
         }
     }
 
     public static final class TextToken extends MessageToken {
+        private final String txt;
         public TextToken(String str, AutoModMessageFlags autoModMessageFlags) {
             super(null);
+            this.txt = str;
         }
 
         public final String getText() {
-            return "";
+            return txt;
         }
 
         public final AutoModMessageFlags getFlags() {

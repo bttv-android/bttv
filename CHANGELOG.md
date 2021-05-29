@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
-
+- improve performance for livestreams
 
 # v0.5.0-beta
 - update base to 10.8.0

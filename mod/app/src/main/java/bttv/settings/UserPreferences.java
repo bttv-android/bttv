@@ -2,6 +2,7 @@ package bttv.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class UserPreferences {
 
@@ -9,6 +10,10 @@ public class UserPreferences {
     private static SharedPreferences.Editor editor = null;
 
     public static void ensureLoaded(Context ctx) {
+        if(ctx == null) {
+            Log.e("LBTTVUserPReferences", "ensureLoaded: ctx is null, can't set editor field, this will cause problems!", new Exception());
+            return;
+        }
         if (prefs == null) {
             prefs = ctx.getSharedPreferences("BTTV", 0);
         }

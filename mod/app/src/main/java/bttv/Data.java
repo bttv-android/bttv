@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 import bttv.emote.ChannelEmoteData;
 import bttv.emote.Emote;
@@ -39,12 +38,12 @@ public class Data {
     public static int currentBroadcasterId = -1;
     public static Context ctx;
 
-    public static ConcurrentHashMap<Integer, Set<String>> availBTTVEmoteSetMap = new ConcurrentHashMap<>();
-    public static ConcurrentHashMap<Integer, Set<String>> availFFZEmoteSetMap = new ConcurrentHashMap<>();
+    public static HashMap<Integer, Set<String>> availBTTVEmoteSetMap = new HashMap<>();
+    public static HashMap<Integer, Set<String>> availFFZEmoteSetMap = new HashMap<>();
 
     // map code to emote
-    private static ConcurrentHashMap<String, Emote> codeEmoteMap = new ConcurrentHashMap<>();
-    private static ConcurrentHashMap<String, Emote> idEmoteMap = new ConcurrentHashMap<>();
+    private static final HashMap<String, Emote> codeEmoteMap = new HashMap<>();
+    private static final HashMap<String, Emote> idEmoteMap = new HashMap<>();
     public static HashMap<String, Emote> globalBTTVEmotes = new HashMap<>();
     public static HashMap<String, Emote> globalFFZEmotes = new HashMap<>();
 
