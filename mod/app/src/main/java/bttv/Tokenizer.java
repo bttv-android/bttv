@@ -33,11 +33,10 @@ public class Tokenizer {
             }
 
             TextToken text = (TextToken) token;
-            StringTokenizer tokens = new StringTokenizer(text.getText(), " ");
+            String[] tokens = text.getText().split(" ");
 
             StringBuilder currentText = new StringBuilder();
-            while (tokens.hasMoreTokens()) {
-                String word = tokens.nextToken();
+            for (String word : tokens) {
                 Emote emote = Data.getEmote(word, channel);
                 if (emote == null) {
                     currentText.append(word).append(" ");
@@ -76,11 +75,10 @@ public class Tokenizer {
             ChatTextToken textToken = (ChatTextToken) token;
             String text = textToken.text;
 
-            StringTokenizer tokens = new StringTokenizer(text, " ");
+            String[] tokens = text.split(" ");
 
             StringBuilder currentText = new StringBuilder();
-            while (tokens.hasMoreTokens()) {
-                String word = tokens.nextToken();
+            for(String word : tokens) {
                 Emote emote = Data.getEmote(word, channel);
                 if (emote == null) {
                     currentText.append(word).append(" ");
