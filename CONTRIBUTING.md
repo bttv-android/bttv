@@ -1,5 +1,17 @@
 # CONTRIBUTING
 
+# Issues
+
+Issues are used for tracking new features, bugs or other tasks. If you have a question don't hesitate and open a [new discussion][new-discussion]!
+Please make sure that your issue contains all nesessary information to avoid waiting times. All communication, including issues, should be written in understandable english.
+
+# PRs
+
+Most PRs have an associated issue, if you PR is one of those make sure to reference the issue. Your PR will be reviewed and commented please prepare yourself for that, we do not want to end up in stale PRs. It's ok (and encouraged) to open an PR even when you are not finished. Please mark those PRs as drafts. If you have any questions feel free to tag @bttv-android/developers and somebody will help you out :)
+
+
+# Setup
+
 > Read the build it yourself part (the hard way) in the README aswell!
 
 Do the following once:
@@ -59,3 +71,7 @@ Run `./genmonke <dir>` before you make a commit.
 > Please also read the [architecture.md](./architecture.md) file!
 
 Everytime you get a new version of the code (e.g. using git pull or git checkout) remove `extraced` and run `./initworkspace` again.
+
+
+
+[new-discussion]: https://github.com/bttv-android/bttv/discussions/new
