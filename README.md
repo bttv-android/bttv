@@ -85,6 +85,8 @@ Docker
 3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
    > (Adb installed and device connected? Try the : `./install` script)
 
+Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT License.
+
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
