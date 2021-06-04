@@ -32,7 +32,7 @@ AAR_FILE=app/build/outputs/aar/app-debug.aar
 TMP_DIR=app/build/.bttv_tmp
 JAR_FILE="$TMP_DIR/classes.jar"
 DEX_FILE="$TMP_DIR/bttv.dex"
-FINAL_TARGET="../$TARGETDIR/smali_classes12/bttv"
+FINAL_TARGET="../$TARGETDIR/smali_classes7/bttv"
 RES_DIR="app/src/main/res"
 RES_TARGET="../$TARGETDIR/."
 
