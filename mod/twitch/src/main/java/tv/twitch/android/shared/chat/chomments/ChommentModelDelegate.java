@@ -10,13 +10,17 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
+import tv.twitch.android.sdk.SDKServicesController;
 import tv.twitch.android.shared.chat.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 
 public class ChommentModelDelegate implements ChatMessageInterface {
 
-    public ChommentModelDelegate(ChommentModel chommentModel, ChatMessageParser chatMessageParser, int i,
-            DefaultConstructorMarker defaultConstructorMarker) {
+    public ChommentModelDelegate(ChommentModel chommentModel,
+                                 SDKServicesController sdkServicesController,
+                                 ChatMessageParser chatMessageParser,
+                                 int i,
+                                 DefaultConstructorMarker defaultConstructorMarker) {
     }
 
     @Override
