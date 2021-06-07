@@ -90,7 +90,7 @@ index a18ffe84b..e50fa67bb 100644
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
 diff --git a/res/layout/bottom_player_overlay_controls.xml b/res/layout/bottom_player_overlay_controls.xml
-index 1e6ce475b..a3fe8ba43 100644
+index 1e6ce475b..3cb3e925a 100644
 --- a/res/layout/bottom_player_overlay_controls.xml
 +++ b/res/layout/bottom_player_overlay_controls.xml
 @@ -4,7 +4,23 @@
@@ -108,7 +108,7 @@ index 1e6ce475b..a3fe8ba43 100644
 +      android:layout_height="wrap_content"
 +      android:layout_marginLeft="@dimen/default_margin_half"
 +      android:layout_marginRight="@dimen/default_margin_half" 
-+      android:src="@drawable/ic_fullscreen_enter"
++      android:src="@drawable/bttv_ic_bedtime"
 +      android:scaleType="fitCenter"
 +      android:contentDescription="@string/fullscreen_talkback"
 +      app:layout_constraintBottom_toBottomOf="parent"
@@ -551,10 +551,10 @@ index 070b520b5..63ebf0025 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 4ef37ae79..f4a423314 100644
+index 4ef37ae79..6cc71d31b 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12560,4 +12560,20 @@
+@@ -12560,4 +12560,21 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -573,6 +573,7 @@ index 4ef37ae79..f4a423314 100644
 +    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d2b" />
 +    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d2c" />
 +    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d2d" />
++    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080503" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
