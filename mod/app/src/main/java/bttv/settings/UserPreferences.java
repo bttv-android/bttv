@@ -10,7 +10,7 @@ public class UserPreferences {
     private static SharedPreferences.Editor editor = null;
 
     public static void ensureLoaded(Context ctx) {
-        if(ctx == null && prefs == null && editor == null) {
+        if(ctx == null && (prefs == null || editor == null)) {
             Log.e("LBTTVUserPReferences", "ensureLoaded: ctx is null, can't set editor field, this will cause problems!", new Exception());
             return;
         }
