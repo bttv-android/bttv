@@ -89,6 +89,35 @@ index a18ffe84b..e50fa67bb 100644
      <item>
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
+diff --git a/res/layout/bottom_player_overlay_controls.xml b/res/layout/bottom_player_overlay_controls.xml
+index 1e6ce475b..a3fe8ba43 100644
+--- a/res/layout/bottom_player_overlay_controls.xml
++++ b/res/layout/bottom_player_overlay_controls.xml
+@@ -4,7 +4,23 @@
+     <ImageView android:id="@id/stream_type_indicator" android:padding="@dimen/default_margin_half" android:layout_width="16.0dip" android:layout_height="16.0dip" android:src="@drawable/live_indicator" android:scaleType="centerInside" android:contentDescription="@null" android:layout_marginStart="@dimen/default_margin_large" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+     <TextView android:id="@id/stream_type_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:includeFontPadding="false" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/stream_type_indicator" app:layout_constraintTop_toTopOf="parent" style="@style/LiveIndicatorText" />
+     <TextView android:id="@id/stream_stats_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:includeFontPadding="false" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/stream_type_label" app:layout_constraintTop_toTopOf="parent" app:layout_goneMarginStart="@dimen/default_margin_quarter" style="@style/LiveIndicatorText" />
+-    <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/show_chat_overlay_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
++    <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/bttv_sleep_timer_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
++    <ImageView 
++      android:id="@id/bttv_sleep_timer_button"
++      android:background="?selectableItemBackgroundBorderless"
++      android:padding="@dimen/default_margin"
++      android:visibility="visible"
++      android:layout_width="wrap_content"
++      android:layout_height="wrap_content"
++      android:layout_marginLeft="@dimen/default_margin_half"
++      android:layout_marginRight="@dimen/default_margin_half" 
++      android:src="@drawable/ic_fullscreen_enter"
++      android:scaleType="fitCenter"
++      android:contentDescription="@string/fullscreen_talkback"
++      app:layout_constraintBottom_toBottomOf="parent"
++      app:layout_constraintEnd_toStartOf="@id/show_chat_overlay_button"
++      app:layout_constraintTop_toTopOf="parent"
++      app:tint="@color/white" />
+     <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/rotate_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
+     <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
+     <TextView android:ellipsize="end" android:gravity="end" android:id="@id/progress_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:maxLines="1" app:layout_constraintBottom_toBottomOf="@id/fullscreen_button" app:layout_constraintEnd_toStartOf="@id/fullscreen_button" app:layout_constraintHorizontal_bias="1.0" app:layout_constraintStart_toEndOf="@id/stream_stats_text" app:layout_constraintTop_toTopOf="@id/fullscreen_button" style="@style/LiveIndicatorText" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
 index e5846b005..930e53975 100644
 --- a/res/layout/settings_logout_footer.xml
@@ -509,22 +538,23 @@ index 2cc31a978..550b59226 100644
 +    <color name="bttv_mega">#ff00fafa</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 070b520b5..1a736c971 100644
+index 070b520b5..63ebf0025 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -2939,4 +2939,7 @@
+@@ -2939,4 +2939,8 @@
      <item type="id" name="year_published" />
      <item type="id" name="you_were_watching" />
      <item type="id" name="zero_corner_chip" />
 +    <item type="id" name="bttv_updater_activity_title" />
 +    <item type="id" name="bttv_updater_activity_body" />
 +    <item type="id" name="bttv_updater_activity_pb" />
++    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 4ef37ae79..f6b163702 100644
+index 4ef37ae79..f4a423314 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12560,4 +12560,19 @@
+@@ -12560,4 +12560,20 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -534,6 +564,7 @@ index 4ef37ae79..f6b163702 100644
 +    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0c97" />
 +    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0c98" />
 +    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0c99" />
++    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0c9a" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e0304" />
 +    <public type="color" name="bttv_mega" id="0x7f060272" />
 +    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d28" />

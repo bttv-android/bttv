@@ -24,6 +24,7 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 	private static final String EnableBTTVGifEmotesEventName = "enable_bttv_gif_emotes";
 	private static final String EnableFFZEmotesEventName = "enable_ffz_emotes";
 	private static final String EnableAutoRedeemChannelPoints = "enable_auto_redeem_channel_points";
+	private static final String EnableSleepTimer = "enable_sleep_timer";
 
 	@Inject
 	public SettingsPresenter(FragmentActivity fragmentActivity, MenuAdapterBinder menuAdapterBinder,
@@ -60,6 +61,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
 		settingsModels.add(new ToggleMenuModel("Auto-Redeem Channel Points", null, null,
 				UserPreferences.getAutoRedeemChannelPointsEnabled(ctx), false, null, EnableAutoRedeemChannelPoints, false, null, null,
+				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
+		settingsModels.add(new ToggleMenuModel("Show Sleep Timer", null, null,
+				UserPreferences.getShouldShowSleepTimer(ctx), false, null, EnableSleepTimer, false, null, null,
 				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
 
 		bindSettings();
@@ -99,6 +103,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 					break;
 				case EnableAutoRedeemChannelPoints:
 					UserPreferences.setAutoRedeemChannelPointsEnabled(ctx, z);
+					break;
+				case EnableSleepTimer:
+					UserPreferences.setShouldShowSleepTimer(ctx, z);
 					break;
 				default:
 					Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
