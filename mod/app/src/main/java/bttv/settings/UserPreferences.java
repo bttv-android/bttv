@@ -10,7 +10,7 @@ public class UserPreferences {
     private static SharedPreferences.Editor editor = null;
 
     public static void ensureLoaded(Context ctx) {
-        if(ctx == null) {
+        if(ctx == null && (prefs == null || editor == null)) {
             Log.e("LBTTVUserPReferences", "ensureLoaded: ctx is null, can't set editor field, this will cause problems!", new Exception());
             return;
         }
@@ -54,4 +54,16 @@ public class UserPreferences {
         editor.putBoolean("enable_ffz_emotes", value);
         editor.apply();
     }
+
+    public static boolean getAutoRedeemChannelPointsEnabled(Context ctx) {
+        ensureLoaded(ctx);
+        return prefs.getBoolean("enable_auto_redeem_channel_points", true);
+    }
+
+    public static void setAutoRedeemChannelPointsEnabled(Context ctx, boolean value) {
+        ensureLoaded(ctx);
+        editor.putBoolean("enable_auto_redeem_channel_points", value);
+        editor.apply();
+    }
+
 }
