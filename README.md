@@ -85,6 +85,8 @@ Docker
 3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
    > (Adb installed and device connected? Try the : `./install` script)
 
+This repos is mirrored on [Gitlab][mirror-gitlab].
+
 Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT License.
 
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
@@ -103,3 +105,5 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [apkmirror]: https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
 [public-fixer]: https://github.com/bttv-android/public-fixer/releases/latest
+[mirror-gitlab]: https://gitlab.com/fosefx/bttv
+
