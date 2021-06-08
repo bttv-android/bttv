@@ -90,7 +90,7 @@ index a18ffe84b..e50fa67bb 100644
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
 diff --git a/res/layout-v22/bottom_player_control_overlay_widget.xml b/res/layout-v22/bottom_player_control_overlay_widget.xml
-index 697c674de..3d0d926f5 100644
+index 697c674de..616a36526 100644
 --- a/res/layout-v22/bottom_player_control_overlay_widget.xml
 +++ b/res/layout-v22/bottom_player_control_overlay_widget.xml
 @@ -10,6 +10,18 @@
@@ -101,7 +101,7 @@ index 697c674de..3d0d926f5 100644
 +            android:id="@id/bttv_sleep_timer_button"
 +            android:background="?selectableItemBackgroundBorderless"
 +            android:padding="@dimen/default_margin"
-+            android:visibility="visible"
++            android:visibility="gone"
 +            android:layout_width="wrap_content"
 +            android:layout_height="wrap_content"
 +            android:layout_marginLeft="@dimen/default_margin"
@@ -113,7 +113,7 @@ index 697c674de..3d0d926f5 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" android:layout_marginHorizontal="@dimen/default_margin" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/bottom_player_control_overlay_widget.xml b/res/layout/bottom_player_control_overlay_widget.xml
-index 6a4faa33f..bf484eedc 100644
+index 6a4faa33f..47fa0f090 100644
 --- a/res/layout/bottom_player_control_overlay_widget.xml
 +++ b/res/layout/bottom_player_control_overlay_widget.xml
 @@ -10,6 +10,18 @@
@@ -124,7 +124,7 @@ index 6a4faa33f..bf484eedc 100644
 +            android:id="@id/bttv_sleep_timer_button" 
 +            android:background="?selectableItemBackgroundBorderless"
 +            android:padding="@dimen/default_margin"
-+            android:visibility="visible"
++            android:visibility="gone"
 +            android:layout_width="wrap_content"
 +            android:layout_height="wrap_content"
 +            android:layout_marginLeft="@dimen/default_margin"
@@ -2296,6 +2296,23 @@ index 12f673f1d..b03cd4f3a 100644
  
      move-result-object v1
  
+diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+index 0ba6c9ef3..d258eaa46 100644
+--- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+@@ -50,6 +50,12 @@
+     .line 66
+     invoke-direct {p0, p1, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;)V
+ 
++    # BTTV
++    #     expects:
++    #     - p1: android.content.Context
++    #     - p2: android.view.View
++    invoke-static {p1, p2}, Lbttv/SleepTimer;->onInit(Landroid/content/Context;Landroid/view/View;)V
++    # /BTTV
+     const/4 v0, 0x1
+ 
+     .line 45
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..f89941c92 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
