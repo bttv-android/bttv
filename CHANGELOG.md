@@ -3,7 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 # master
-- adds auto-redeem channel points feature
+- add auto-redeem channel points feature
+- add sleep timer
 
 # v0.6.1-beta
 - fix crashes at startup
