@@ -66,4 +66,15 @@ public class UserPreferences {
         editor.apply();
     }
 
+    public static boolean getShouldShowSleepTimer(Context ctx) {
+        ensureLoaded(ctx);
+        return prefs.getBoolean("enable_sleep_timer", true);
+    }
+
+    public static void setShouldShowSleepTimer(Context ctx, boolean value) {
+        ensureLoaded(ctx);
+        editor.putBoolean("enable_sleep_timer", value);
+        editor.apply();
+    }
+
 }
