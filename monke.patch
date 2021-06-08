@@ -89,35 +89,52 @@ index a18ffe84b..e50fa67bb 100644
      <item>
          <bitmap android:gravity="center" android:src="@drawable/ic_twitch_glitch_uv_api_21" />
      </item>
-diff --git a/res/layout/bottom_player_overlay_controls.xml b/res/layout/bottom_player_overlay_controls.xml
-index 1e6ce475b..3cb3e925a 100644
---- a/res/layout/bottom_player_overlay_controls.xml
-+++ b/res/layout/bottom_player_overlay_controls.xml
-@@ -4,7 +4,23 @@
-     <ImageView android:id="@id/stream_type_indicator" android:padding="@dimen/default_margin_half" android:layout_width="16.0dip" android:layout_height="16.0dip" android:src="@drawable/live_indicator" android:scaleType="centerInside" android:contentDescription="@null" android:layout_marginStart="@dimen/default_margin_large" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
-     <TextView android:id="@id/stream_type_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:includeFontPadding="false" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/stream_type_indicator" app:layout_constraintTop_toTopOf="parent" style="@style/LiveIndicatorText" />
-     <TextView android:id="@id/stream_stats_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:includeFontPadding="false" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/stream_type_label" app:layout_constraintTop_toTopOf="parent" app:layout_goneMarginStart="@dimen/default_margin_quarter" style="@style/LiveIndicatorText" />
--    <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/show_chat_overlay_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
-+    <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/bttv_sleep_timer_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
-+    <ImageView 
-+      android:id="@id/bttv_sleep_timer_button"
-+      android:background="?selectableItemBackgroundBorderless"
-+      android:padding="@dimen/default_margin"
-+      android:visibility="visible"
-+      android:layout_width="wrap_content"
-+      android:layout_height="wrap_content"
-+      android:layout_marginLeft="@dimen/default_margin_half"
-+      android:layout_marginRight="@dimen/default_margin_half" 
-+      android:src="@drawable/bttv_ic_bedtime"
-+      android:scaleType="fitCenter"
-+      android:contentDescription="@string/fullscreen_talkback"
-+      app:layout_constraintBottom_toBottomOf="parent"
-+      app:layout_constraintEnd_toStartOf="@id/show_chat_overlay_button"
-+      app:layout_constraintTop_toTopOf="parent"
-+      app:tint="@color/white" />
-     <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/rotate_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
-     <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
-     <TextView android:ellipsize="end" android:gravity="end" android:id="@id/progress_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:maxLines="1" app:layout_constraintBottom_toBottomOf="@id/fullscreen_button" app:layout_constraintEnd_toStartOf="@id/fullscreen_button" app:layout_constraintHorizontal_bias="1.0" app:layout_constraintStart_toEndOf="@id/stream_stats_text" app:layout_constraintTop_toTopOf="@id/fullscreen_button" style="@style/LiveIndicatorText" />
+diff --git a/res/layout-v22/bottom_player_control_overlay_widget.xml b/res/layout-v22/bottom_player_control_overlay_widget.xml
+index 697c674de..3d0d926f5 100644
+--- a/res/layout-v22/bottom_player_control_overlay_widget.xml
++++ b/res/layout-v22/bottom_player_control_overlay_widget.xml
+@@ -10,6 +10,18 @@
+         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_audio_only" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" twitch:theme="@style/SettingsSwitch" />
+         <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_info" android:scaleType="fitCenter" twitch:tint="@color/white" />
+         <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" twitch:tint="@color/white" />
++        <ImageView
++            android:id="@id/bttv_sleep_timer_button"
++            android:background="?selectableItemBackgroundBorderless"
++            android:padding="@dimen/default_margin"
++            android:visibility="visible"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/default_margin"
++            android:src="@drawable/bttv_ic_bedtime"
++            android:scaleType="fitCenter"
++            android:contentDescription="@string/bttv_sleep_timer_button_descr"
++            twitch:tint="@color/white" />
+         <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" twitch:tint="@color/white" />
+         <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" android:layout_marginHorizontal="@dimen/default_margin" />
+         <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
+diff --git a/res/layout/bottom_player_control_overlay_widget.xml b/res/layout/bottom_player_control_overlay_widget.xml
+index 6a4faa33f..bf484eedc 100644
+--- a/res/layout/bottom_player_control_overlay_widget.xml
++++ b/res/layout/bottom_player_control_overlay_widget.xml
+@@ -10,6 +10,18 @@
+         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_audio_only" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" twitch:theme="@style/SettingsSwitch" />
+         <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_info" android:scaleType="fitCenter" twitch:tint="@color/white" />
+         <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" twitch:tint="@color/white" />
++        <ImageView
++            android:id="@id/bttv_sleep_timer_button" 
++            android:background="?selectableItemBackgroundBorderless"
++            android:padding="@dimen/default_margin"
++            android:visibility="visible"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/default_margin"
++            android:src="@drawable/bttv_ic_bedtime"
++            android:scaleType="fitCenter"
++            android:contentDescription="@string/bttv_sleep_timer_button_descr"
++            twitch:tint="@color/white" />
+         <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" twitch:tint="@color/white" />
+         <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
+         <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
 index e5846b005..930e53975 100644
 --- a/res/layout/settings_logout_footer.xml
@@ -183,7 +200,7 @@ index 911e7310b..75e4c429c 100644
      <string name="login_live_title">Live</string>
      <string name="logout_label">Log af</string>
 diff --git a/res/values-de/strings.xml b/res/values-de/strings.xml
-index 94e1bd76a..7d943963e 100644
+index 94e1bd76a..f11a8eeac 100644
 --- a/res/values-de/strings.xml
 +++ b/res/values-de/strings.xml
 @@ -1394,7 +1394,7 @@ Verdiene dir das Ingame-Loot, indem du deine Lieblingskanäle während der Drop-
@@ -195,12 +212,13 @@ index 94e1bd76a..7d943963e 100644
      <string name="login_live_body">All deine Lieblingsstreamer an einem Ort</string>
      <string name="login_live_title">Live</string>
      <string name="logout_label">Abmelden</string>
-@@ -2800,4 +2800,6 @@ Gib als zusätzliche Sicherheitsmaßnahme bitte den sechsstelligen Code ein, den
+@@ -2800,4 +2800,7 @@ Gib als zusätzliche Sicherheitsmaßnahme bitte den sechsstelligen Code ein, den
      <string name="your_clip_mix">Dein Clip-Mix</string>
      <string name="your_subscription_will_auto_renew_on">Dein Abonnement verlängert sich am %1$s automatisch.</string>
      <string name="zero">0</string>
 +    <string name="bttv_app_update_available">bttv-android: Ein neues Update wurde erkannt</string>
 +    <string name="bttv_app_update_available_cta">Tippe hier, um das Update herunterzuladen und zu installieren.</string>
++    <string name="bttv_sleep_timer_button_descr">Sleep-Timer Dialog öffnen</string>
  </resources>
 diff --git a/res/values-el/strings.xml b/res/values-el/strings.xml
 index 35adcbf8e..6f0d729d7 100644
@@ -551,10 +569,10 @@ index 070b520b5..63ebf0025 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 4ef37ae79..6cc71d31b 100644
+index 4ef37ae79..2de537939 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12560,4 +12560,21 @@
+@@ -12560,4 +12560,22 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -573,12 +591,13 @@ index 4ef37ae79..6cc71d31b 100644
 +    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d2b" />
 +    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d2c" />
 +    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d2d" />
++    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d2e" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080503" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index bdd81f39e..7f840e0f1 100644
+index bdd81f39e..de4af1f80 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -266,7 +266,7 @@ Licensed under the Apache License, Version 2.0 (the License); you may not use th
@@ -599,7 +618,7 @@ index bdd81f39e..7f840e0f1 100644
      <string name="login_live_body">All your favorite streamers in one place</string>
      <string name="login_live_title">Live</string>
      <string name="login_presenter_request_sms_passport_error">LoginPresenter: Request SMS @ Passport Error</string>
-@@ -3511,4 +3511,10 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
+@@ -3511,4 +3511,11 @@ As an added security measure, please enter the 6-digit code we sent to %1$s."</s
      <string name="your_clip_mix">Your Clip Mix</string>
      <string name="your_subscription_will_auto_renew_on">Your subscription will auto-renew on %s</string>
      <string name="zero">0</string>
@@ -609,6 +628,7 @@ index bdd81f39e..7f840e0f1 100644
 +    <string name="bttv_emote_picker_channel_ffz">"Channel's FrankerFaceZ Emotes"</string>
 +    <string name="bttv_app_update_available">bttv-android: New Update detected</string>
 +    <string name="bttv_app_update_available_cta">Tap here to download and install the update.</string>
++    <string name="bttv_sleep_timer_button_descr">Open Sleep-Timer Dialog</string>
  </resources>
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 index ccb3c45cc..a45ec3b0a 100644
