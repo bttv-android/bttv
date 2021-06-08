@@ -70,7 +70,7 @@ public class SleepTimer {
         int[] minutes = new int[]{ 5, 10, 15, 30, 45, 60 };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Sleep Timer");
+        builder.setTitle(Util.getResourceId(context, "bttv_sleep_timer_select_dialog_title", "string"));
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int index) {
@@ -81,17 +81,21 @@ public class SleepTimer {
             }
         });
 
-        builder.setCancelable(true).setNegativeButton("Cancel", null);
+        builder
+                .setCancelable(true)
+                .setNegativeButton(Util.getResourceId(context, "cancel", "string"), null);
 
         builder.create().show();
     }
 
     private static void openCancelDialog(@NonNull Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Cancel Sleep Timer").setMessage("You already have a Sleep Timer running. Do you want to cancel it?");
+        builder
+                .setTitle(Util.getResourceId(context, "bttv_sleep_timer_cancel_dialog_title", "string"))
+                .setMessage(Util.getResourceId(context, "bttv_sleep_timer_cancel_dialog_message", "string"));
 
-        builder.setCancelable(true).setNegativeButton("no", null);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setCancelable(true).setNegativeButton(Util.getResourceId(context, "no_prompt", "string"), null);
+        builder.setPositiveButton(Util.getResourceId(context, "yes_prompt", "string"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 abortSchedule();
