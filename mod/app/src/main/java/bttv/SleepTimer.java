@@ -101,7 +101,6 @@ public class SleepTimer {
     }
 
     private static void scheduleStop(int minutes) {
-        Log.i("LBTTVDEBUG", "scheduleStop: " + minutes + "minutes");
         abortSchedule();
         timer = new Timer();
         timer.schedule(new TimerTask() {
