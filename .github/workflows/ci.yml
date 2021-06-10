@@ -23,6 +23,7 @@ jobs:
       - name: print checksums
         run: cp dist/twitch.apk bttv.apk && shasum *.apk
       - uses: actions/upload-artifact@v2
+        if: ${{ github.event_name == 'push' }}
         with:
           name: bttv-apk
           path: bttv.apk
