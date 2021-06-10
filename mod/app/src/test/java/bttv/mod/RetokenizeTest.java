@@ -13,13 +13,11 @@ import org.mockito.junit.MockitoRule;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import bttv.Data;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
-import tv.twitch.android.models.chat.AutoModMessageFlags;
-import tv.twitch.android.models.chat.MessageToken;
+import bttv.emote.Emotes;
 import tv.twitch.chat.ChatEmoticonToken;
 import tv.twitch.chat.ChatMessageInfo;
 import tv.twitch.chat.ChatMessageToken;
@@ -203,7 +201,7 @@ public class RetokenizeTest {
         when(mockPrefs.getBoolean("enable_ffz_emotes", true)).thenReturn(true);
         Data.setContext(mockContext);
         Data.setCurrentBroadcasterId(10);
-        Data.addChannel(10,
+        Emotes.addChannelFFZ(10,
                 Arrays.asList(
                     new Emote("5ea831f074046462f768097a", "KEKW", null, "png"),
                     new Emote("5ff827395ef7d10c7912c106", "Pog", null, "png"))

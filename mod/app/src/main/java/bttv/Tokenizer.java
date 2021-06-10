@@ -1,10 +1,13 @@
 package bttv;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
 import bttv.emote.Emote;
+import bttv.emote.Emotes;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
@@ -17,9 +20,11 @@ import tv.twitch.chat.ChatTextToken;
 public class Tokenizer {
 
     public static List<MessageToken> tokenize(List<MessageToken> orig) {
+        Context ctx = Data.ctx;
         int channel = Data.currentBroadcasterId;
+
         // Don't add Emotes, when we don't have the channel's emotes (yet)
-        if (!Data.channelHasEmotes(channel)) {
+        if (!Emotes.channelHasEmotes(ctx, channel)) {
             return orig;
         }
 
@@ -37,7 +42,7 @@ public class Tokenizer {
 
             StringBuilder currentText = new StringBuilder();
             for (String word : tokens) {
-                Emote emote = Data.getEmote(word, channel);
+                Emote emote = Emotes.getEmote(ctx, word, channel);
                 if (emote == null) {
                     currentText.append(word).append(" ");
                     continue;
@@ -63,6 +68,7 @@ public class Tokenizer {
     }
 
     public static void retokenizeLiveChatMessage(ChatMessageInfo info) {
+        Context ctx = Data.ctx;
         int channel = Data.currentBroadcasterId;
 
         ArrayList<ChatMessageToken> newTokens = new ArrayList<>(info.tokens.length + 10);
@@ -79,7 +85,7 @@ public class Tokenizer {
 
             StringBuilder currentText = new StringBuilder();
             for(String word : tokens) {
-                Emote emote = Data.getEmote(word, channel);
+                Emote emote = Emotes.getEmote(ctx, word, channel);
                 if (emote == null) {
                     currentText.append(word).append(" ");
                     continue;

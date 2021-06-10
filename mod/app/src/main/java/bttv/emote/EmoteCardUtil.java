@@ -18,7 +18,7 @@ public class EmoteCardUtil {
             return null;
         }
         String realId = emoteId.split("BTTV-")[1];
-        Emote emote = Data.getEmoteById(realId);
+        Emote emote = Emotes.getEmoteById(realId);
         if (emote == null) { // triggers error dialog
             return null;
         }

@@ -55,6 +55,17 @@ public class UserPreferences {
         editor.apply();
     }
 
+    public static boolean get7TVEmotesEnabled(Context ctx) {
+        ensureLoaded(ctx);
+        return prefs.getBoolean("enable_7tv_emotes", true);
+    }
+
+    public static void set7TVEmotesEnabled(Context ctx, boolean value) {
+        ensureLoaded(ctx);
+        editor.putBoolean("enable_7tv_emotes", value);
+        editor.apply();
+    }
+
     public static boolean getAutoRedeemChannelPointsEnabled(Context ctx) {
         ensureLoaded(ctx);
         return prefs.getBoolean("enable_auto_redeem_channel_points", true);
