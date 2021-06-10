@@ -2,7 +2,8 @@
 
 All notable changes to this project will be documented in this file.
 
-# master
+# v0.7.0-beta
+- update base to 10.9.1
 - add auto-redeem channel points feature
 - add sleep timer
 
