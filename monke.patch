@@ -45,7 +45,7 @@ index bf71de9cb..8adbe5a1e 100644
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
 @@ -282,5 +283,18 @@
          <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
-         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
          <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
