@@ -2194,6 +2194,10 @@ index f4f5297e3..787ed32b5 100644
  .super Ljava/lang/Object;
  .source "SourceFile"
  
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/chatheader/ChatHeaderMode.smali b/smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderMode.smali
+similarity index 100%
+rename from smali_classes5/tv/twitch/android/shared/chat/chatheader/ChatHeaderMode.smali
+rename to smali_classes6/tv/twitch/android/shared/chat/chatheader/ChatHeaderMode.smali
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 index 2304254db..744d86136 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
