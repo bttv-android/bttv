@@ -26,7 +26,10 @@ public class Network {
 
     public static void get(String url, Callback cb) {
         OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(url).build();
+        Request request = new Request.Builder()
+                .url(url)
+                .addHeader("User-Agent", "bttv-android")
+                .build();
         client.newCall(request).enqueue(cb);
     }
 
