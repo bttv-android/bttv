@@ -11,12 +11,14 @@ import java.util.List;
 
 public class Emote {
     public String id;
+    public Emotes.Source source;
     public String code;
     public String url;
     public String imageType;
 
-    public Emote(String id, String code, String url, String imageType) {
+    public Emote(String id, Emotes.Source source, String code, String url, String imageType) {
         this.id = id;
+        this.source = source;
         this.code = code;
         this.url = url;
         this.imageType = imageType;
@@ -59,7 +61,7 @@ public class Emote {
                 imageType = "";
         }
 
-        return new Emote(id, code, url, imageType);
+        return new Emote(id, source, code, url, imageType);
     }
 
     public static List<Emote> fromJSONArray(String json, Emotes.Source source) throws JSONException {

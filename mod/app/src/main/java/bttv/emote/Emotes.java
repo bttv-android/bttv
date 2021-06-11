@@ -19,7 +19,19 @@ public class Emotes {
     public enum Source {
         BTTV,
         FFZ,
-        STV
+        STV;
+        public int getPriority() {
+            if (this.equals(Source.BTTV)) {
+                return 3;
+            } else if (this.equals(Source.FFZ)) {
+                return 2;
+            } else if (this.equals(Source.STV)){
+                return 1;
+            } else {
+                Log.w("LBTTVEmotesSource", "getPriority: unknown priority!");
+                return 0;
+            }
+        }
     }
 
     public static Map<String, Emote> globalEmotesBTTV = new HashMap<>();
@@ -146,7 +158,7 @@ public class Emotes {
         HashMap<String, Emote> map = new HashMap<>();
         for (Emote emote : emotes) {
             map.put(emote.code, emote);
-            codeEmoteMap.put(emote.code, emote);
+            addToCodeEmoteMap(emote);
             idEmoteMap.put(emote.id, emote);
         }
         switch (source) {
@@ -169,7 +181,7 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : emotes) {
             set.add(emote.code);
-            codeEmoteMap.put(emote.code, emote);
+            addToCodeEmoteMap(emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -181,12 +193,12 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : chEmData.channelEmotes) {
             set.add(emote.code);
-            codeEmoteMap.put(emote.code, emote);
+            addToCodeEmoteMap(emote);
             idEmoteMap.put(emote.id, emote);
         }
         for (Emote emote : chEmData.sharedEmotes) {
             set.add(emote.code);
-            codeEmoteMap.put(emote.code, emote);
+            addToCodeEmoteMap(emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -200,7 +212,7 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : emotes) {
             set.add(emote.code);
-            codeEmoteMap.put(emote.code, emote);
+            addToCodeEmoteMap(emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -208,5 +220,13 @@ public class Emotes {
         Log.i("LBTTVDEBUG", channelEmotes7TV.toString());
     }
 
+
+    private static void addToCodeEmoteMap(Emote emote) {
+        String code = emote.code;
+        Emote existing = codeEmoteMap.get(code);
+        if (existing == null || existing.source.getPriority() <= emote.source.getPriority()) {
+            codeEmoteMap.put(code, emote);
+        }
+    }
 
 }
