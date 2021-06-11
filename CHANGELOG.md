@@ -2,6 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
+# master
+- add 7TV support
+
 # v0.7.0-beta
 - update base to 10.9.1
 - add auto-redeem channel points feature
