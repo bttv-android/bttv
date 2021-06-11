@@ -7,6 +7,8 @@ on:
     paths-ignore:
       - "README.md"
       - "architecture.md"
+      - 'CHANGELOG.md'
+      - 'CONTRIBUTING.md'
   workflow_dispatch: {}
 
 jobs:
