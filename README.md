@@ -1,8 +1,8 @@
 # bttv-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version]
 
-A mod of the Twitch Android Mobile App adding BetterTTV and FrankerFaceZ emotes
+A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV emotes
 
-> This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC or Dan Salvato LLC!
+> This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC, Dan Salvato LLC or the SevenTV project!
 > THE SOFTWARE IS PROVIDED "AS IS", **WITHOUT WARRANTY OF ANY KIND**!
 
  [![Hero image][hero-img]][hero-img]

@@ -23,6 +23,7 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 	private static final String EnableBTTVEmotesEventName = "enable_bttv_emotes";
 	private static final String EnableBTTVGifEmotesEventName = "enable_bttv_gif_emotes";
 	private static final String EnableFFZEmotesEventName = "enable_ffz_emotes";
+	private static final String Enable7TVEmotesEventName = "enable_7tv_emotes";
 	private static final String EnableAutoRedeemChannelPoints = "enable_auto_redeem_channel_points";
 	private static final String EnableSleepTimer = "enable_sleep_timer";
 
@@ -58,6 +59,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 				null));
 		settingsModels.add(new ToggleMenuModel("FrankerFaceZ Emotes", null, null,
 				UserPreferences.getFFZEmotesEnabled(ctx), false, null, EnableFFZEmotesEventName, false, null, null,
+				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
+		settingsModels.add(new ToggleMenuModel("7TV Emotes", null, null,
+				UserPreferences.get7TVEmotesEnabled(ctx), false, null, Enable7TVEmotesEventName, false, null, null,
 				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
 		settingsModels.add(new ToggleMenuModel("Auto-Redeem Channel Points", null, null,
 				UserPreferences.getAutoRedeemChannelPointsEnabled(ctx), false, null, EnableAutoRedeemChannelPoints, false, null, null,
@@ -100,6 +104,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 					break;
 				case EnableFFZEmotesEventName:
 					UserPreferences.setFFZEmotesEnabled(ctx, z);
+					break;
+				case Enable7TVEmotesEventName:
+					UserPreferences.set7TVEmotesEnabled(ctx, z);
 					break;
 				case EnableAutoRedeemChannelPoints:
 					UserPreferences.setAutoRedeemChannelPointsEnabled(ctx, z);

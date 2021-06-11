@@ -20,8 +20,8 @@ public class ChannelEmoteData {
         JSONArray channelEmotes = reader.getJSONArray("channelEmotes");
         JSONArray sharedEmotes = reader.getJSONArray("sharedEmotes");
 
-        List<Emote> realChannelEmotes = Emote.fromJSONArray(channelEmotes, Emote.BTTV);
-        List<Emote> realSharedEmotes = Emote.fromJSONArray(sharedEmotes, Emote.BTTV);
+        List<Emote> realChannelEmotes = Emote.fromJSONArray(channelEmotes, Emotes.Source.BTTV);
+        List<Emote> realSharedEmotes = Emote.fromJSONArray(sharedEmotes, Emotes.Source.BTTV);
 
         return new ChannelEmoteData(realChannelEmotes, realSharedEmotes);
     }
