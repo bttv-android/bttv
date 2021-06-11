@@ -85,7 +85,7 @@ Docker
 3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
    > (Adb installed and device connected? Try the : `./install` script)
 
-This repos is mirrored on [Gitlab][mirror-gitlab].
+This repo is mirrored on [Gitlab][mirror-gitlab].
 
 Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT License.
 
