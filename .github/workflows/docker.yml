@@ -9,6 +9,8 @@ on:
      - 'README.md'
      - '.github/**'
      - 'architecture.md'
+     - 'CHANGELOG.md'
+     - 'CONTRIBUTING.md'
 
 jobs:
   build:
