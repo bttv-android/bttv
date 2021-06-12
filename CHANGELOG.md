@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 # master
+
+# v0.7.1-beta
 - add 7TV support
 - reduce amount of update notifications
 
