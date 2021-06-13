@@ -38,12 +38,12 @@ RUN wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
 
 ENV BAKSMALI_PATH /opt/baksmali-2.4.0.jar
 
-# public-fixer
+# build-companion
 
-RUN wget https://github.com/bttv-android/public-fixer/releases/download/v4.0.0/public-fixer
-RUN shasum public-fixer
-RUN chmod +x public-fixer
-ENV PUBLIC_FIXER /opt/public-fixer
+RUN wget https://github.com/bttv-android/build-companion/releases/download/v5.0.0/build-companion
+RUN shasum build-companion
+RUN chmod +x build-companion
+ENV BUILD_COMPANION /opt/build-companion
 
 # Cleanup
 RUN apt remove wget --yes

@@ -2,7 +2,7 @@
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
-[ -z "$PUBLIC_FIXER" ] && PUBLIC_FIXER=/opt/public-fixer
+[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
 
 [[ -f "twitch.zip" ]] && FILE=twitch.zip
@@ -12,7 +12,7 @@
 echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
 echo "FILE: $FILE"
-echo "PUBLIC_FIXER: $PUBLIC_FIXER"
+echo "BUILD_COMPANION: $BUILD_COMPANION"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
 rm -rf .tmp
@@ -66,8 +66,8 @@ if [ $(find .tmp/disass | wc -l) != "1" ]; then
   done
 
   # fix public.xml
-  $PUBLIC_FIXER fix .tmp/base .tmp/disass/*/res/values/public.xml
-  $PUBLIC_FIXER yml .tmp/base .tmp/disass/*/apktool.yml
+  $BUILD_COMPANION fix .tmp/base .tmp/disass/*/res/values/public.xml
+  $BUILD_COMPANION yml .tmp/base .tmp/disass/*/apktool.yml
 fi
 
 # remove android:isSplitRequired="true"

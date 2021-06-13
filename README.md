@@ -71,7 +71,7 @@ Docker
 | [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
 | [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
-| [public-fixer][public-fixer]                                         | PUBLIC_FIXER             | /opt/public-fixer                              |
+| [build-companion][build-companion]                                   | BUILD_COMPANION          | /opt/build-companion                           |
 
 ### How to:
 
@@ -104,6 +104,6 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [evozi]: https://apps.evozi.com/apk-downloader/?id=tv.twitch.android.app
 [apkmirror]: https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/
 [adb-apk]: https://beebom.com/how-extract-apk-android-app/
-[public-fixer]: https://github.com/bttv-android/public-fixer/releases/latest
+[build-companion]: https://github.com/bttv-android/build-companion/releases/latest
 [mirror-gitlab]: https://gitlab.com/fosefx/bttv
 
