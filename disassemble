@@ -72,10 +72,16 @@ fi
 
 # remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
+
+# remove vending data
 sed -i 's/com.android.vending.derived.apk.id" android:value="."/com.android.vending.derived.apk.id" android:value="1"/' .tmp/base/AndroidManifest.xml
 sed -i '/android:name="com.android.vending.splits.required"/d' .tmp/base/AndroidManifest.xml
 sed -i '/android:name="com.android.vending.splits"/d' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.vending.derived.apk.id"/d' .tmp/base/AndroidManifest.xml
 
+# remove stamp data
+sed -i '/android:name="com.android.stamp.source"/d' .tmp/base/AndroidManifest.xml
+sed -i '/android:name="com.android.stamp.type"/d' .tmp/base/AndroidManifest.xml
 
 # rename apk
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml

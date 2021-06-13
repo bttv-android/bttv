@@ -44,9 +44,9 @@ index ab754073d..c580ad6ae 100644
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
 @@ -283,5 +284,18 @@
-         <meta-data android:name="com.android.stamp.source" android:value="https://play.google.com/store"/>
-         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_STANDALONE_APK"/>
-         <meta-data android:name="com.android.vending.derived.apk.id" android:value="1"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
+         <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"
@@ -121,7 +121,7 @@ index 6a4faa33f..47fa0f090 100644
          <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_info" android:scaleType="fitCenter" twitch:tint="@color/white" />
          <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" twitch:tint="@color/white" />
 +        <ImageView
-+            android:id="@id/bttv_sleep_timer_button" 
++            android:id="@id/bttv_sleep_timer_button"
 +            android:background="?selectableItemBackgroundBorderless"
 +            android:padding="@dimen/default_margin"
 +            android:visibility="gone"
