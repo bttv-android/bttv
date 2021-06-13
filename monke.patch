@@ -1,14 +1,25 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ab754073d..c580ad6ae 100644
+index 110fda4a6..7722f401f 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -1,4 +1,4 @@
+@@ -1,4 +1,15 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
-+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"  android:versionCode="01007100031" android:versionName="0.7.1-beta" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.bttvandroid.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?>
++<manifest
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:versionCode="01007100031"
++    android:versionName="0.7.1-beta"
++    android:compileSdkVersion="29"
++    android:compileSdkVersionCodename="10"
++    android:installLocation="auto"
++    package="tv.twitch.bttvandroid.app"
++    platformBuildVersionCode="29"
++    platformBuildVersionName="10">
++
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <uses-permission android:name="android.permission.CAMERA"/>
-@@ -7,6 +7,7 @@
+@@ -7,6 +18,7 @@
      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -16,7 +27,7 @@ index ab754073d..c580ad6ae 100644
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -122,10 +123,10 @@
+@@ -122,10 +134,10 @@
              </intent-filter>
          </receiver>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -29,7 +40,7 @@ index ab754073d..c580ad6ae 100644
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -225,11 +226,11 @@
+@@ -225,11 +237,11 @@
              </intent-filter>
          </receiver>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -43,7 +54,7 @@ index ab754073d..c580ad6ae 100644
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
-@@ -283,5 +284,18 @@
+@@ -280,5 +292,18 @@
          <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
          <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
@@ -113,7 +124,7 @@ index 697c674de..616a36526 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" android:layout_marginHorizontal="@dimen/default_margin" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/bottom_player_control_overlay_widget.xml b/res/layout/bottom_player_control_overlay_widget.xml
-index 6a4faa33f..47fa0f090 100644
+index 6a4faa33f..e133b675c 100644
 --- a/res/layout/bottom_player_control_overlay_widget.xml
 +++ b/res/layout/bottom_player_control_overlay_widget.xml
 @@ -10,6 +10,18 @@
@@ -136,7 +147,7 @@ index 6a4faa33f..47fa0f090 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..93dae5691 100644
+index e5846b005..0f6eb151d 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -793,17 +804,23 @@ index 5bf37c13c..54ee10288 100644
      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
  
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali b/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
-index e5616d306..81aa870a3 100644
+index e5616d306..7be7aafe1 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/chomments/ChommentsFetcher.smali
-@@ -745,6 +745,7 @@
+@@ -745,7 +745,12 @@
  
      .line 56
      iput-object p2, p0, Ltv/twitch/android/feature/theatre/chomments/ChommentsFetcher;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
+-
++    # BTTV
++    #  hook when broadcaster changes in VOD
++    #     expects:
++    #     - p2: tv.twitch.android.models.channel.ChannelModel
 +    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/channel/ChannelModel;)V
- 
++    # /BTTV
      .line 57
      sget-object v0, Ltv/twitch/android/util/RandomUtil;->INSTANCE:Ltv/twitch/android/util/RandomUtil;
+ 
 diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 index f49d74b15..60ff13847 100644
 --- a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
@@ -2071,27 +2088,37 @@ index f49d74b15..60ff13847 100644
  
      invoke-virtual {v0}, [Ltv/twitch/android/models/settings/SettingsDestination;->clone()Ljava/lang/Object;
 diff --git a/smali_classes5/tv/twitch/android/sdk/ChatController.smali b/smali_classes5/tv/twitch/android/sdk/ChatController.smali
-index d3b829a48..3e5ca0c5e 100644
+index d3b829a48..f45868268 100644
 --- a/smali_classes5/tv/twitch/android/sdk/ChatController.smali
 +++ b/smali_classes5/tv/twitch/android/sdk/ChatController.smali
-@@ -286,6 +286,8 @@
+@@ -286,6 +286,13 @@
  
      move-result p1
  
++    # BTTV
++    #  hook when live broadcaster changes
++    #     expects:
++    #     - p2: I
 +    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(I)V
++    # /BTTV
 +
      return p1
  .end method
  
 diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-index fbe4610bb..a6039e4dc 100644
+index fbe4610bb..fb9955e6e 100644
 --- a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 +++ b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-@@ -47,6 +47,17 @@
+@@ -47,6 +47,23 @@
  
      invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
 +    # BTTV
++    #  open bttv settings fragment when bttv settings destination
++    #     expects:
++    #     - p1: tv.twitch.android.models.settings.SettingsDestination
++    #     sets:
++    #     - p2: tv.twitch.android.models.settings.SettingsDestination.BTTV will be overwritten
 +    sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +    if-ne p1, p2, :not_bttv
 +
@@ -2101,15 +2128,22 @@ index fbe4610bb..a6039e4dc 100644
 +    goto :goto_0
 +
 +    :not_bttv
++    # /BTTV
 +
      .line 74
      sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
  
-@@ -228,6 +239,7 @@
+@@ -228,6 +245,13 @@
      move-result-object p1
  
      .line 103
++    # BTTV
++    #  v0 may not be initialized, so we set it to null
++    #  it's ok as it is null anyway
++    #     sets:
++    #     - v0: null
 +    const/16 v0, 0x0
++    # /BTTV
      invoke-virtual {v1, v2, p2, p1, v0}, Ltv/twitch/android/util/FragmentUtil$Companion;->addOrRecreateFragment(Landroidx/fragment/app/FragmentActivity;Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
  
      :cond_2
@@ -2147,19 +2181,27 @@ index b75c2bbe2..02624191b 100644
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
  
 diff --git a/smali_classes5/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes5/tv/twitch/android/shared/chat/api/EmoteApi.smali
-index 0cceab331..61c08f3d6 100644
+index 0cceab331..754203998 100644
 --- a/smali_classes5/tv/twitch/android/shared/chat/api/EmoteApi.smali
 +++ b/smali_classes5/tv/twitch/android/shared/chat/api/EmoteApi.smali
-@@ -57,6 +57,13 @@
+@@ -57,6 +57,21 @@
          }
      .end annotation
  
++    # BTTV
++    #  returns custom emote response if bttv emote
++    #     expects:
++    #     - p1: java.lang.String
++    #     sets:
++    #     - v0: io.reactivex.Single<tv.twitch.android.shared.chat.parser.EmoteCardModelParser$EmoteCardModelResponse>
++    #     returns io.reactivex.Single<tv.twitch.android.shared.chat.parser.EmoteCardModelParser$EmoteCardModelResponse>
 +    invoke-static {p1}, Lbttv/emote/EmoteCardUtil;->getEmoteResponseOrNull(Ljava/lang/String;)Lio/reactivex/Single;
 +    move-result-object v0
 +
 +    if-eqz v0, :after_bttv
 +    return-object v0
 +    :after_bttv
++    # /BTTV
 +
      const-string v0, "emoteId"
  
@@ -2287,14 +2329,17 @@ index 338ed2b67..f862db3a5 100644
      .line 134
      iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-index 55962d6eb..6d9e3fb29 100644
+index 55962d6eb..27e5eb376 100644
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-@@ -182,6 +182,8 @@
+@@ -182,6 +182,11 @@
  
      move-result-object p1
  
++    # BTTV
++    #  add bttv emotes to emote picker
 +    invoke-static {p1}, Lbttv/emote/EmotePicker;->extendList(Ljava/util/List;)V
++    # /BTTV
 +
      .line 186
      invoke-virtual {p2}, Ltv/twitch/android/util/Optional;->isPresent()Z
