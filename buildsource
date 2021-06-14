@@ -5,12 +5,15 @@
 [ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
 [ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
 [ -z "$1" ] && TARGETDIR=extracted || TARGETDIR=$1
+[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
+
 
 echo "JAVA_PATH: $JAVA_PATH"
 echo "JAVAC_PATH: $JAVAC_PATH"
 echo "BAKSMALI_PATH: $BAKSMALI_PATH"
 echo "TARGETDIR: $TARGETDIR"
 echo "ANDROID_SDK_ROOT: $ANDROID_SDK_ROOT"
+echo "BUILD_COMPANION: $BUILD_COMPANION"
 
 export ANDROID_SDK_ROOT
 
@@ -34,7 +37,7 @@ JAR_FILE="$TMP_DIR/classes.jar"
 DEX_FILE="$TMP_DIR/bttv.dex"
 FINAL_TARGET="../$TARGETDIR/smali_classes7/bttv"
 RES_DIR="app/src/main/res"
-RES_TARGET="../$TARGETDIR/."
+RES_TARGET="../$TARGETDIR/res"
 
 # extract classes from .aar
 unzip "$AAR_FILE" "classes.jar" -d "$TMP_DIR"
@@ -54,7 +57,10 @@ mv "$TMP_DIR/bttv" "$FINAL_TARGET"
 
 
 # copy res
-cp -R "$RES_DIR" "$RES_TARGET"
+ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
+
+# add strings
+$BUILD_COMPANION strings "$RES_DIR" "$RES_TARGET"
 
 # remove temp dir
 rm -rf "$TMP_DIR"
