@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
+    <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
     <string name="bttv_emote_picker_channel_bttv">Channel\'s BTTV Emotes</string>
     <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
