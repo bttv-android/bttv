@@ -10,7 +10,7 @@ on:
       - 'CHANGELOG.md'
       - 'CONTRIBUTING.md'
     branches-ignore:
-    - 'l10n_master'
+    - 'bttv/l10n_master'
   workflow_dispatch: {}
 
 jobs:
