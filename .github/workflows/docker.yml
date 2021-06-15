@@ -11,6 +11,8 @@ on:
      - 'architecture.md'
      - 'CHANGELOG.md'
      - 'CONTRIBUTING.md'
+    branches-ignore:
+     - 'l10n_master'
 
 jobs:
   build:
