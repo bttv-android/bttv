@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Witaj na\nBetter Twitchu</string>
+    <string name="login_landing_title">Welcome to\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Channel\'s BTTV Emotes</string>
+    <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Channel\'s FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_global_7tv">Global 7TV Emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Channel\'s 7TV Emotes</string>
+    <string name="bttv_app_update_available">bttv-android: New Update detected</string>
+    <string name="bttv_app_update_available_cta">Tap here to download and install the update.</string>
+    <string name="bttv_sleep_timer_button_descr">Open Sleep-Timer Dialog</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Sleep-Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Cancel Sleep-Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">You already have a Sleep Timer running. Do you want to cancel it?</string>
 </resources>
