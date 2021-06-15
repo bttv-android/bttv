@@ -2,8 +2,11 @@
 <resources>
     <string name="login_landing_title">Willkommen bei\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Globale BTTV Emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanal BTTV Emotes</string>
     <string name="bttv_emote_picker_global_ffz">Globale FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanal FrankerFaceZ Emotes</string>
     <string name="bttv_emote_picker_global_7tv">Globale 7TV Emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanal 7TV Emotes</string>
     <string name="bttv_app_update_available">bttv-android: Ein neues Update wurde erkannt</string>
     <string name="bttv_app_update_available_cta">Tippe hier, um das Update herunterzuladen und zu installieren.</string>
     <string name="bttv_sleep_timer_button_descr">Sleep-Timer Dialog öffnen</string>
