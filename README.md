@@ -1,4 +1,4 @@
-# bttv-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version]
+# bttv-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android)
 
 A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV emotes
 
