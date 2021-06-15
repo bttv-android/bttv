@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "FoseFx",
+      "name": "Max Baumann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22842759?v=4",
+      "profile": "https://www.fosefx.com/",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "bttv",
+  "projectOwner": "bttv-android",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
