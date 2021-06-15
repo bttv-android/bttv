@@ -196,7 +196,7 @@ index d5e15b24a..ba4d05894 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index e4f7342fa..202fbd4dd 100644
+index e4f7342fa..0d43af757 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -12690,4 +12690,27 @@
@@ -206,25 +206,25 @@ index e4f7342fa..202fbd4dd 100644
 +    <!-- BTTV -->
 +    <!-- generate ids using `build-companion ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0c97" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0c98" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0c99" />
-+    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0c9a" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e0304" />
-+    <public type="color" name="bttv_mega" id="0x7f060272" />
-+    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d28" />
-+    <public type="string" name="bttv_app_update_available" id="0x7f130d29" />
-+    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d2a" />
-+    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d2b" />
-+    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d2c" />
-+    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d2d" />
-+    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d2e" />
-+    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d2f" />
-+    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d30" />
-+    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d31" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d32" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d33" />
-+    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080503" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0cc4" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0cc5" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0cc6" />
++    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0cc7" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e030d" />
++    <public type="color" name="bttv_mega" id="0x7f060278" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d4f" />
++    <public type="string" name="bttv_app_update_available" id="0x7f130d50" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d51" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d52" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d53" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d54" />
++    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d55" />
++    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d56" />
++    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d57" />
++    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d58" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d59" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d5a" />
++    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080510" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
