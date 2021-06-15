@@ -5,10 +5,7 @@ on:
       - "v*"
   pull_request:
     paths-ignore:
-      - "README.md"
-      - "architecture.md"
-      - 'CHANGELOG.md'
-      - 'CONTRIBUTING.md'
+      - "**/*.md"
     branches-ignore:
     - 'bttv/l10n_master'
   workflow_dispatch: {}
