@@ -4,4 +4,4 @@ pull_request_rules:
     - author=allcontributors[bot]
     actions:
       merge:
-        method: merge
+        method: squash
