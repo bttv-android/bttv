@@ -10,6 +10,12 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 ## We need you
 **You can help this project by contributing translations on [crowdin][crowdin]**.
 
+## Features
+ - BTTV, FFZ and 7TV Emotes
+ - Auto-Claim Bonus Channel Points
+ - Auto Updater
+ - Sleep Timer
+
 # Install
 
 1. Scim through this [guide on how to enable third party app istallations][enable-guide]
