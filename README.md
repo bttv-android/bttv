@@ -7,6 +7,9 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 
  [![Hero image][hero-img]][hero-img]
 
+## We need you
+**You can help this project by contributing translations on [crowdin][crowdin]**.
+
 # Install
 
 1. Scim through this [guide on how to enable third party app istallations][enable-guide]
@@ -94,6 +97,7 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
 [base-version]: https://img.shields.io/badge/build%20on-v10.9.1-blueviolet?style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
+[crowdin]: https://crowdin.com/project/bttv-android
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
 [howtodl]: ./.github/dltut.webp?raw=true
 [hero-img]: ./.github/bttvog.jpg?raw=true
