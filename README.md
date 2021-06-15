@@ -123,6 +123,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://www.fosefx.com/"><img src="https://avatars.githubusercontent.com/u/22842759?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Max Baumann</b></sub></a><br /><a href="#maintenance-FoseFx" title="Maintenance">🚧</a></td>
     <td align="center"><a href="http://squiz.gg/faq"><img src="https://avatars.githubusercontent.com/u/70129787?v=4?s=100" width="100px;" alt=""/><br /><sub><b>LEMIBANDDEXARI</b></sub></a><br /><a href="#translation-LEMIBANDDEXARI" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/Epicnicity322"><img src="https://avatars.githubusercontent.com/u/13574419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christiano Rangel</b></sub></a><br /><a href="#ideas-Epicnicity322" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
