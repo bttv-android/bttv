@@ -1,0 +1,7 @@
+pull_request_rules:
+  - name: automatic merge all-contributors PR
+    conditions:
+    - author=allcontributors[bot]
+    actions:
+      merge:
+        method: merge
