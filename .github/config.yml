@@ -1,0 +1,23 @@
+# Configuration for welcome - https://github.com/behaviorbot/welcome
+
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thank you for opening this issue ♥️
+  A maintainer should be by to give feedback soon.
+  
+  ![peepoArrive](https://cdn.betterttv.net/emote/5d922afbc0652668c9e52ead/3x)
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Thank you for opening this pull request ♥️ A maintainer should be by to give feedback soon.
+  
+  ![modCheck](https://cdn.betterttv.net/emote/5d7eefb7c0652668c9e4d394/3x)
+
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >
+  Thanks for your contribution to bttv-android! :tada:
+  
+  ![PepoDance](https://cdn.betterttv.net/emote/5a6edb51f730010d194bdd46/3x)
