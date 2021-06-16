@@ -16,4 +16,6 @@
     <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Pourquoi désactiver cela ?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Gif BTTV</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
 </resources>
