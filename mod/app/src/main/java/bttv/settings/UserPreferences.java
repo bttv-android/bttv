@@ -4,7 +4,75 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UserPreferences {
+
+    public static abstract class Entry {
+        public interface Value {
+            Object get();
+        }
+        public static class BoolValue implements Value {
+            Boolean b;
+            public BoolValue(Boolean b) {
+                this.b = b;
+            }
+            public Boolean get() {
+                return b;
+            }
+        }
+
+        public final String key;
+        public final String primaryTextResourceName;
+        public final String secondaryTextResourceName;
+        public final String auxiliaryTextResourceName;
+        public final Value defaultValue;
+
+        Entry(String key, Value defaultValue, String primaryTextRes, String secondaryTextRes, String auxiliaryTextRes) {
+            this.key = key;
+            this.defaultValue = defaultValue;
+            this.primaryTextResourceName = primaryTextRes;
+            this.secondaryTextResourceName = secondaryTextRes;
+            this.auxiliaryTextResourceName = auxiliaryTextRes;
+        }
+
+        public abstract Value get(Context ctx);
+        public abstract void set(Context ctx, Value value);
+
+        @Override
+        public String toString() {
+            return "Entry(key: " + key + ", defaultValue: " + defaultValue + ")";
+        }
+
+        public static class BoolEntry extends Entry {
+            BoolEntry(String key, BoolValue defaultValue, String primaryTextRes, String secondaryTextRes, String auxiliaryTextRes) {
+                super(key, defaultValue, primaryTextRes, secondaryTextRes, auxiliaryTextRes);
+            }
+
+            @Override
+            public BoolValue get(Context ctx) {
+                boolean b = ((BoolValue) this.defaultValue).get();
+                return new BoolValue(UserPreferences.getBoolean(ctx, this.key, b));
+            }
+
+            @Override
+            public void set(Context ctx, Value value) {
+                if (!(value instanceof BoolValue)) {
+                    IllegalStateException e = new IllegalStateException("Value is not a BoolValue " + this.toString());
+                    Log.e("LBTTVBoolEntry", "Value is not a BoolValue", e);
+                    throw e;
+                }
+                boolean b = ((BoolValue) value).get();
+                UserPreferences.setBoolean(ctx, this.key, b);
+            }
+
+            @Override
+            public String toString() {
+                return "BoolEntry(key: " + key + ", defaultValue: " + defaultValue + ")";
+            }
+        }
+    }
 
     private static SharedPreferences prefs = null;
     private static SharedPreferences.Editor editor = null;
@@ -22,69 +90,14 @@ public class UserPreferences {
         }
     }
 
-    public static boolean getBTTVEmotesEnabled(Context ctx) {
+    public static boolean getBoolean(Context ctx, String key, boolean defaultValue) {
         ensureLoaded(ctx);
-        return prefs.getBoolean("enable_bttv_emotes", true);
+        return prefs.getBoolean(key, defaultValue);
     }
 
-    public static void setBTTVEmotesEnabled(Context ctx, boolean value) {
+    public static void setBoolean(Context ctx, String key, boolean value) {
         ensureLoaded(ctx);
-        editor.putBoolean("enable_bttv_emotes", value);
-        editor.apply();
-    }
-
-    public static boolean getBTTVGifEmotesEnabled(Context ctx) {
-        ensureLoaded(ctx);
-        return prefs.getBoolean("enable_bttv_gif_emotes", true);
-    }
-
-    public static void setBTTVGifEmotesEnabled(Context ctx, boolean value) {
-        ensureLoaded(ctx);
-        editor.putBoolean("enable_bttv_gif_emotes", value);
-        editor.apply();
-    }
-
-    public static boolean getFFZEmotesEnabled(Context ctx) {
-        ensureLoaded(ctx);
-        return prefs.getBoolean("enable_ffz_emotes", true);
-    }
-
-    public static void setFFZEmotesEnabled(Context ctx, boolean value) {
-        ensureLoaded(ctx);
-        editor.putBoolean("enable_ffz_emotes", value);
-        editor.apply();
-    }
-
-    public static boolean get7TVEmotesEnabled(Context ctx) {
-        ensureLoaded(ctx);
-        return prefs.getBoolean("enable_7tv_emotes", true);
-    }
-
-    public static void set7TVEmotesEnabled(Context ctx, boolean value) {
-        ensureLoaded(ctx);
-        editor.putBoolean("enable_7tv_emotes", value);
-        editor.apply();
-    }
-
-    public static boolean getAutoRedeemChannelPointsEnabled(Context ctx) {
-        ensureLoaded(ctx);
-        return prefs.getBoolean("enable_auto_redeem_channel_points", true);
-    }
-
-    public static void setAutoRedeemChannelPointsEnabled(Context ctx, boolean value) {
-        ensureLoaded(ctx);
-        editor.putBoolean("enable_auto_redeem_channel_points", value);
-        editor.apply();
-    }
-
-    public static boolean getShouldShowSleepTimer(Context ctx) {
-        ensureLoaded(ctx);
-        return prefs.getBoolean("enable_sleep_timer", true);
-    }
-
-    public static void setShouldShowSleepTimer(Context ctx, boolean value) {
-        ensureLoaded(ctx);
-        editor.putBoolean("enable_sleep_timer", value);
+        editor.putBoolean(key, value);
         editor.apply();
     }
 
