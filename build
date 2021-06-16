@@ -2,6 +2,11 @@
 
 [ -z "$1" ] && echo "usage: ./build <directory>" && echo "e.g. ./build disass" && exit 1
 
+if [ -f .env ]
+then
+  export $(cat .env | sed 's/#.*//g' | xargs)
+fi
+
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
