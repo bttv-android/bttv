@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Welkom bij\nBetter Twitch</string>
+    <string name="bttv_app_update_available">bttv-android: Nieuwe update gedetecteerd</string>
+    <string name="bttv_app_update_available_cta">Tik hier om de update te downloaden en te installeren.</string>
 </resources>
