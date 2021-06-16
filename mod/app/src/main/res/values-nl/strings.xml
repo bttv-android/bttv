@@ -3,4 +3,8 @@
     <string name="login_landing_title">Welkom bij\nBetter Twitch</string>
     <string name="bttv_app_update_available">bttv-android: Nieuwe update gedetecteerd</string>
     <string name="bttv_app_update_available_cta">Tik hier om de update te downloaden en te installeren.</string>
+    <string name="bttv_sleep_timer_button_descr">Open Slaap Timer Dialoog</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Slaap Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Slaap Timer annuleren</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">U heeft al een slaaptimer lopen. Wilt u deze annuleren?</string>
 </resources>
