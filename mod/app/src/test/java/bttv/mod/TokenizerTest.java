@@ -20,8 +20,6 @@ import bttv.Data;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
-import bttv.settings.Settings;
-import bttv.settings.UserPreferences;
 import tv.twitch.android.models.chat.AutoModMessageFlags;
 import tv.twitch.android.models.chat.MessageToken;
 
