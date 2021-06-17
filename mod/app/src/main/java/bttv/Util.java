@@ -8,10 +8,18 @@ import androidx.annotation.NonNull;
 
 public class Util {
 
+    public static int getResourceId(@NonNull Context context, @NonNull Res.strings res) {
+        return getResourceId(context, res.name(), "string");
+    }
+
     public static int getResourceId(@NonNull Context context, @NonNull String name, @NonNull String type) {
         Resources res = context.getResources();
         String pkgName = context.getPackageName();
         return res.getIdentifier(name, type, pkgName);
+    }
+
+    public static int getResourceId(@NonNull Res.strings res) {
+        return getResourceId(res.name(), "string");
     }
 
     public static int getResourceId(@NonNull String name, @NonNull String type) {
@@ -38,5 +46,12 @@ public class Util {
         }
         Resources res = context.getResources();
         return res.getString(id);
+    }
+
+    public static String getLocaleString(@NonNull Context context, Res.strings key) {
+        if(key == null) {
+            return null;
+        }
+        return getLocaleString(context, key.name());
     }
 }

@@ -8,6 +8,7 @@ import android.content.Context;
 import android.util.Log;
 
 import bttv.Data;
+import bttv.Res;
 import bttv.Util;
 import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
@@ -52,29 +53,29 @@ public class EmotePicker {
             original.addAll(preGlobalSets);
 
             if (Emotes.channelEmotesBTTV.containsKey(channel)) {
-                EmoteUiSet set = getUiSet("bttv_emote_picker_channel_bttv", EmotePickerSection.CHANNEL, getChannelBttvEmotes());
+                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_bttv, EmotePickerSection.CHANNEL, getChannelBttvEmotes());
                 if (!set.getEmotes().isEmpty()) {
                     original.add(set);
                 }
             }
 
             if (Emotes.channelEmotesFFZ.containsKey(channel)) {
-                EmoteUiSet set = getUiSet("bttv_emote_picker_channel_ffz", EmotePickerSection.CHANNEL, getChannelFFZEmotes());
+                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_ffz, EmotePickerSection.CHANNEL, getChannelFFZEmotes());
                 if (!set.getEmotes().isEmpty()) {
                     original.add(set);
                 }
             }
 
             if (Emotes.channelEmotes7TV.containsKey(channel)) {
-                EmoteUiSet set = getUiSet("bttv_emote_picker_channel_7tv", EmotePickerSection.CHANNEL, getChannel7TVEmotes());
+                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_7tv, EmotePickerSection.CHANNEL, getChannel7TVEmotes());
                 if (!set.getEmotes().isEmpty()) {
                     original.add(set);
                 }
             }
 
-            original.add(getUiSet("bttv_emote_picker_global_bttv", EmotePickerSection.ALL, getGlobalBttvEmotes()));
-            original.add(getUiSet("bttv_emote_picker_global_ffz", EmotePickerSection.ALL, getGlobalFFZEmotes()));
-            original.add(getUiSet("bttv_emote_picker_global_7tv", EmotePickerSection.ALL, getGlobal7TVEmotes()));
+            original.add(getUiSet(Res.strings.bttv_emote_picker_global_bttv, EmotePickerSection.ALL, getGlobalBttvEmotes()));
+            original.add(getUiSet(Res.strings.bttv_emote_picker_global_ffz, EmotePickerSection.ALL, getGlobalFFZEmotes()));
+            original.add(getUiSet(Res.strings.bttv_emote_picker_global_7tv, EmotePickerSection.ALL, getGlobal7TVEmotes()));
 
             original.addAll(twitchGlobalSets);
 
@@ -140,9 +141,9 @@ public class EmotePicker {
         return list;
     }
 
-    private static EmoteUiSet getUiSet(String headerResName, EmotePickerSection section, List<EmoteUiModel> emotes) {
+    private static EmoteUiSet getUiSet(Res.strings headerRes, EmotePickerSection section, List<EmoteUiModel> emotes) {
         EmoteHeaderUiModel header = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                Util.getResourceId(headerResName, "string"),
+                Util.getResourceId(headerRes),
                 true,
                 section,
                 false,

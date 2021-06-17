@@ -3,6 +3,7 @@ package bttv.settings;
 import java.util.HashMap;
 import java.util.Map;
 
+import bttv.Res;
 import bttv.settings.UserPreferences.Entry;
 
 public enum Settings {
@@ -10,8 +11,8 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_bttv_emotes",
                 new Entry.BoolValue(true),
-                "bttv_settings_enable_bttv_emotes_primary",
-                "bttv_settings_enable_bttv_emotes_secondary",
+                Res.strings.bttv_settings_enable_bttv_emotes_primary,
+                Res.strings.bttv_settings_enable_bttv_emotes_secondary,
                 null
             )
     ),
@@ -19,7 +20,7 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_bttv_gif_emotes",
                 new Entry.BoolValue(true),
-                "bttv_settings_enable_gif_emotes_primary",
+                Res.strings.bttv_settings_enable_gif_emotes_primary,
                 null,
                 null
             )
@@ -28,7 +29,7 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_ffz_emotes",
                 new Entry.BoolValue(true),
-                "bttv_settings_enable_ffz_emotes_primary",
+                Res.strings.bttv_settings_enable_ffz_emotes_primary,
                 null,
                 null
             )
@@ -37,7 +38,7 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_7tv_emotes",
                 new Entry.BoolValue(true),
-                "bttv_settings_enable_7tv_emotes_primary",
+                Res.strings.bttv_settings_enable_7tv_emotes_primary,
                 null,
                 null
             )
@@ -46,7 +47,7 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_auto_redeem_channel_points",
                 new Entry.BoolValue(true),
-                "bttv_settings_enable_auto_redeem_points_primary",
+                Res.strings.bttv_settings_enable_auto_redeem_points_primary,
                 null,
                 null
             )
@@ -55,7 +56,7 @@ public enum Settings {
             new Entry.BoolEntry(
                 "enable_sleep_timer",
                 new Entry.BoolValue(true),
-                "bttv_settings_show_sleep_timer_primary",
+                Res.strings.bttv_settings_show_sleep_timer_primary,
                 null,
                 null
             )

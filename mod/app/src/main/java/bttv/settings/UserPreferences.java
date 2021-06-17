@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import java.util.HashMap;
-import java.util.Map;
+import bttv.Res;
 
 public class UserPreferences {
 
@@ -24,17 +23,17 @@ public class UserPreferences {
         }
 
         public final String key;
-        public final String primaryTextResourceName;
-        public final String secondaryTextResourceName;
-        public final String auxiliaryTextResourceName;
+        public final Res.strings primaryTextResource;
+        public final Res.strings secondaryTextResource;
+        public final Res.strings auxiliaryTextResource;
         public final Value defaultValue;
 
-        Entry(String key, Value defaultValue, String primaryTextRes, String secondaryTextRes, String auxiliaryTextRes) {
+        Entry(String key, Value defaultValue, Res.strings primaryTextRes, Res.strings secondaryTextRes, Res.strings auxiliaryTextRes) {
             this.key = key;
             this.defaultValue = defaultValue;
-            this.primaryTextResourceName = primaryTextRes;
-            this.secondaryTextResourceName = secondaryTextRes;
-            this.auxiliaryTextResourceName = auxiliaryTextRes;
+            this.primaryTextResource = primaryTextRes;
+            this.secondaryTextResource = secondaryTextRes;
+            this.auxiliaryTextResource = auxiliaryTextRes;
         }
 
         public abstract Value get(Context ctx);
@@ -46,7 +45,7 @@ public class UserPreferences {
         }
 
         public static class BoolEntry extends Entry {
-            BoolEntry(String key, BoolValue defaultValue, String primaryTextRes, String secondaryTextRes, String auxiliaryTextRes) {
+            BoolEntry(String key, BoolValue defaultValue, Res.strings primaryTextRes, Res.strings secondaryTextRes, Res.strings auxiliaryTextRes) {
                 super(key, defaultValue, primaryTextRes, secondaryTextRes, auxiliaryTextRes);
             }
 

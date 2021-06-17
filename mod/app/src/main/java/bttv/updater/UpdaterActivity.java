@@ -16,6 +16,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import bttv.Res;
+import bttv.Util;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -52,7 +54,9 @@ public class UpdaterActivity extends AppCompatActivity {
         String url = intent.getStringExtra("url");
 
         TextView titleView = findViewById(bttv_updater_activity_title);
-        titleView.setText("Downloading " + newVersion);
+
+        String titleTemplate = Util.getLocaleString(this, Res.strings.bttv_updater_downloading_version);
+        titleView.setText(String.format(titleTemplate, newVersion));
 
         TextView bodyView = findViewById(bttv_updater_activity_body);
         bodyView.setText(body);

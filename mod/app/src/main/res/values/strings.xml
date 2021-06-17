@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- When adding a string also add it to:
+        - mod:      bttv.Res.strings enum
+        - monke:    res/values/public.xml
+     -->
     <string name="app_name" translatable="false">BTTV</string>
     <string name="login_landing_title">Welcome to\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
@@ -21,4 +25,8 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Auto-Redeem Channel Points</string>
     <string name="bttv_settings_show_sleep_timer_primary">Show Sleep Timer</string>
+    <string name="bttv_emote_added_by_bttv">Emote added by bttv-android</string>
+    <string name="bttv_updater_downloading">Downloading</string>
+    <string name="bttv_updater_downloading_version">Downloading %s</string>
+    <string name="bttv_updater_notice">If this is the first time you use the updater, allow installations from this source when the wizard asks you for it.</string>
 </resources>

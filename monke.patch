@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index c165f0b29..85909404f 100644
+index c165f0b29..095862458 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -147,7 +147,7 @@ index 6a4faa33f..e133b675c 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..0f6eb151d 100644
+index e5846b005..9a64f13e5 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -195,10 +195,10 @@ index d5e15b24a..ba4d05894 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index d47cf5592..90f763c5f 100644
+index d47cf5592..c38880ed1 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12690,4 +12690,27 @@
+@@ -12690,4 +12690,31 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -223,6 +223,10 @@ index d47cf5592..90f763c5f 100644
 +    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d58" />
 +    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d59" />
 +    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d5a" />
++    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130d5b" />
++    <public type="string" name="bttv_updater_downloading" id="0x7f130d5c" />
++    <public type="string" name="bttv_updater_downloading_version" id="0x7f130d5d" />
++    <public type="string" name="bttv_updater_notice" id="0x7f130d5e" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080510" />
 +    <!-- /BTTV -->
  </resources>
@@ -232,7 +236,7 @@ index 4a62e29d0..faae6aae2 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
-
+ 
      .line 95
      invoke-super {p0}, Landroid/app/Application;->onCreate()V
 +    
@@ -1815,10 +1819,10 @@ index cb362b134..81e398db2 100644
  .source "SourceFile"
  
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-index e120ea0f7..d3638a9bb 100644
+index e120ea0f7..c4d4bb279 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-@@ -1496,6 +1496,16 @@
+@@ -1496,6 +1496,17 @@
      .line 180
      iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->emoteDesc:Landroid/widget/TextView;
  
@@ -1826,7 +1830,8 @@ index e120ea0f7..d3638a9bb 100644
 +
 +    if-eqz v1, :after_bttv
 +
-+    const-string p1, "Emote added by bttv-android"
++    invoke-static {p0}, Lbttv/api/Strings;->getEmoteAddedByBttvString(Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;)Ljava/lang/String;
++    move-result-object p1
 +
 +    goto :goto_0
 +
@@ -1835,7 +1840,7 @@ index e120ea0f7..d3638a9bb 100644
      .line 181
      instance-of v1, p1, Ltv/twitch/android/shared/chat/model/EmoteCardModel$ChannelPointsEmoteCardModel;
  
-@@ -2432,7 +2442,7 @@
+@@ -2432,7 +2443,7 @@
  
      const/high16 v2, 0x40400000    # 3.0f
  

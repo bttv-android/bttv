@@ -12,7 +12,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import bttv.settings.Settings;
-import bttv.settings.UserPreferences;
 
 @SuppressWarnings("unused")
 public class SleepTimer {
@@ -71,7 +70,7 @@ public class SleepTimer {
         int[] minutes = new int[]{ 5, 10, 15, 30, 45, 60 };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(Util.getResourceId(context, "bttv_sleep_timer_select_dialog_title", "string"));
+        builder.setTitle(Util.getResourceId(context, Res.strings.bttv_sleep_timer_select_dialog_title));
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int index) {
@@ -92,8 +91,8 @@ public class SleepTimer {
     private static void openCancelDialog(@NonNull Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder
-                .setTitle(Util.getResourceId(context, "bttv_sleep_timer_cancel_dialog_title", "string"))
-                .setMessage(Util.getResourceId(context, "bttv_sleep_timer_cancel_dialog_message", "string"));
+                .setTitle(Util.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_title))
+                .setMessage(Util.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_message));
 
         builder.setCancelable(true).setNegativeButton(Util.getResourceId(context, "no_prompt", "string"), null);
         builder.setPositiveButton(Util.getResourceId(context, "yes_prompt", "string"), new DialogInterface.OnClickListener() {

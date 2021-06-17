@@ -16,7 +16,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="5dp"
-        android:text="Downloading "
+        android:text="@string/bttv_updater_downloading"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -29,7 +29,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="5dp"
-        android:text="If this is the first time you use the updater, allow  installations from this source when the wizard asks you for it."
+        android:text="@string/bttv_updater_notice"
         android:textStyle="italic" />
 
     <TextView
