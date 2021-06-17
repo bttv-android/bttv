@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Boas-vindas à\nBetter Twitch</string>
+    <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Emotes Globais do BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">Emotes BTTV do Canal</string>
+    <string name="bttv_emote_picker_global_ffz">Emotes Globais FrankerFaceZ</string>
+    <string name="bttv_emote_picker_channel_ffz">Emotes FrankerFaceZ do Canal</string>
+    <string name="bttv_emote_picker_global_7tv">Emotes 7TV Globais</string>
+    <string name="bttv_emote_picker_channel_7tv">Emotes 7TV do Canal</string>
+    <string name="bttv_app_update_available">bttv-android: Nova Atualização Disponível</string>
+    <string name="bttv_app_update_available_cta">Clique aqui para Baixar e Instalar a Atualização.</string>
+    <string name="bttv_sleep_timer_button_descr">Abrir Opções do Timer</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Timer-Descanso</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Cancelar Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Você já possui um Timer no momento. Deseja Cancela-lo?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Porquê você deseja Desabilitar isto?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">Emotes Animados BTTV</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Coletar Automaticamente os Pontos do Canal</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Mostrar Timer de Descanso</string>
+    <string name="bttv_emote_added_by_bttv">Emotes adicionado pelo bttv-android</string>
+    <string name="bttv_updater_downloading">Baixando</string>
+    <string name="bttv_updater_downloading_version">Baixando %s</string>
+    <string name="bttv_updater_notice">Se essa é a sua primeira vez usando o Updater, permita instalações a partir desta fonte quando solicitado.</string>
 </resources>

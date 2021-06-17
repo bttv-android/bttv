@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="login_landing_title">Better Twitch-ə\nXoş Gəldiniz</string>
+    <string name="bttv_emote_picker_global_bttv">Qlobal BTTV İfadələri</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanalın BTTV İfadələri</string>
+    <string name="bttv_emote_picker_global_ffz">Qlobal FrankerFaceZ İfadələri</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanalın FrankerFaceZ İfadələri</string>
+</resources>
