@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: download base
-        run: wget https://www.dropbox.com/s/5r7qwm1f96u1cai/twitch-10.9.1.apk\?\dl=1 -O twitch.apk
+        run: wget https://www.dropbox.com/s/4afhhkxrduttn9c/twitch-11.0.0.apk\?\dl=1 -O twitch.apk
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
       - name: run build
