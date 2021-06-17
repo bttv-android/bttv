@@ -22,4 +22,6 @@
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Gif BTTV</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
+    <string name="bttv_emote_added_by_bttv">Emote ajoutée par bttv-android</string>
+    <string name="bttv_updater_notice">Si c\'est la première fois que vous utilisez le programme de mise à jour, autorisez les installations à partir de cette source lorsque l\'assistant vous le demande.</string>
 </resources>
