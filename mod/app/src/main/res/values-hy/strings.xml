@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- When adding a string also add it to:
-        - mod:      bttv.Res.strings enum
-        - monke:    res/values/public.xml
-     -->
-</resources>
+<resources></resources>
