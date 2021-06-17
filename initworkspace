@@ -75,7 +75,8 @@ cd disass &&
 git commit -m "applied monke" &&
 cd .. &&
 echo "" &&
+[ -z "$NOBUILD" ] &&
 echo "=== Build apk (6/$STEPS) ===" &&
 ./build disass &&
 echo "" &&
-[ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk
+([ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk)

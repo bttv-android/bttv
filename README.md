@@ -24,7 +24,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 
 # Build it yourself
 
-> This patch is meant to be applied to version **10.9.1** of the official twitch app
+> This patch is meant to be applied to version **11.0.0** of the official twitch app
 > Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
@@ -101,7 +101,7 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
-[base-version]: https://img.shields.io/badge/build%20on-v10.9.1-blueviolet?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v11.0.0-blueviolet?style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [crowdin]: https://crowdin.com/project/bttv-android
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/

@@ -1,7 +1,7 @@
 rm disass -rf
 rm old -rf
 mv old.apk twitch.apk
-./initworkspace
+NOBUILD=true ./initworkspace
 mv disass old
 cd old
 git checkout -b new base
