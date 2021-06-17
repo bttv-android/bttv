@@ -24,4 +24,8 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Kanal Punkte automatisch erhalten</string>
     <string name="bttv_settings_show_sleep_timer_primary">Sleep Timer anzeigen</string>
+    <string name="bttv_emote_added_by_bttv">Von bttv-android hinzugefügtes Emote</string>
+    <string name="bttv_updater_downloading">Lade herunter</string>
+    <string name="bttv_updater_downloading_version">Lade %s herunter</string>
+    <string name="bttv_updater_notice">Sollte es das erste Mal sein, dass du den Updater benutzt, must du Installationen aus dieser Quelle zulassen, wenn das System dich dazu auffordert.</string>
 </resources>
