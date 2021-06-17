@@ -1,6 +1,10 @@
 package bttv;
 
 public class Res {
+    public enum colors {
+        bttv_mega,
+        bttv_sonic
+    }
     public enum strings {
         app_name,
         login_landing_title,

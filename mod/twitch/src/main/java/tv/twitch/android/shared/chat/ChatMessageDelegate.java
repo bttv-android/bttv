@@ -12,6 +12,7 @@ import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.chat.ChatMessageInfo;
 
 public class ChatMessageDelegate implements ChatMessageInterface {
+    public ChatMessageInfo mChatMessage;
 
     public ChatMessageDelegate(ChatMessageInfo chatMessageInfo) {
     }

@@ -172,14 +172,15 @@ index 3b06a9d16..202eb42e8 100644
  </adaptive-icon>
 \ No newline at end of file
 diff --git a/res/values/colors.xml b/res/values/colors.xml
-index fb917dd46..a7cfc53e6 100644
+index fb917dd46..0ef56efab 100644
 --- a/res/values/colors.xml
 +++ b/res/values/colors.xml
-@@ -518,4 +518,5 @@
+@@ -518,4 +518,6 @@
      <color name="yellow_8">#ff60600b</color>
      <color name="yellow_9">#ff7a7a00</color>
      <color name="youtube">#ffcd201f</color>
 +    <color name="bttv_mega">#ff00fafa</color>
++    <color name="bttv_sonic">#ff0014a5</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 index d5e15b24a..ba4d05894 100644
@@ -195,10 +196,10 @@ index d5e15b24a..ba4d05894 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index d47cf5592..c38880ed1 100644
+index d47cf5592..b5f884b34 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12690,4 +12690,31 @@
+@@ -12690,4 +12690,32 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -211,6 +212,7 @@ index d47cf5592..c38880ed1 100644
 +    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0cc7" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e030d" />
 +    <public type="color" name="bttv_mega" id="0x7f060278" />
++    <public type="color" name="bttv_sonic" id="0x7f060279" />
 +    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d4f" />
 +    <public type="string" name="bttv_app_update_available" id="0x7f130d50" />
 +    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d51" />
@@ -1758,6 +1760,19 @@ index b75c2bbe2..02624191b 100644
      .line 130
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
  
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
+index 56eea4a66..ab2eaad52 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
+@@ -7,7 +7,7 @@
+ 
+ 
+ # instance fields
+-.field private mChatMessage:Ltv/twitch/chat/ChatMessageInfo;
++.field public mChatMessage:Ltv/twitch/chat/ChatMessageInfo;
+ 
+ .field private mChatMessageParser:Ltv/twitch/android/shared/chat/ChatMessageParser;
+ 
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
 index 3e19d1849..6159c0e21 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
@@ -1850,10 +1865,23 @@ index e120ea0f7..c4d4bb279 100644
      move-result-object v5
  
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-index ca1dee5a6..d9a0dd6c6 100644
+index ca1dee5a6..9fc53c7ae 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-@@ -1121,7 +1121,14 @@
+@@ -568,6 +568,12 @@
+     goto :goto_2
+ 
+     :cond_3
++
++    # BTTV
++    invoke-static/range {p1 .. p12}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/shared/chat/ChatMessageInterface;ZZIILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
++    move-result-object p12
++    # /BTTV
++
+     if-eqz p12, :cond_4
+ 
+     .line 661
+@@ -1121,7 +1127,14 @@
  
      const/high16 v3, 0x40000000    # 2.0f
  
@@ -1869,7 +1897,7 @@ index ca1dee5a6..d9a0dd6c6 100644
  
      move-result-object v1
  
-@@ -2377,6 +2384,13 @@
+@@ -2377,6 +2390,13 @@
  
      move-object/from16 v0, p1
  

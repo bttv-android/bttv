@@ -22,6 +22,10 @@ public class Util {
         return getResourceId(res.name(), "string");
     }
 
+    public static int getResourceId(@NonNull Res.colors res) {
+        return getResourceId(res.name(), "color");
+    }
+
     public static int getResourceId(@NonNull String name, @NonNull String type) {
         Context context = Data.ctx;
         if (context == null) {

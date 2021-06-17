@@ -116,5 +116,6 @@ public class Tokenizer {
         }
 
         info.tokens = newTokens.toArray(new ChatMessageToken[0]);
+        info.messageType = "highlighted-message";
     }
 }
