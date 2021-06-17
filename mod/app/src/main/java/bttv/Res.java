@@ -30,6 +30,8 @@ public class Res {
         bttv_emote_added_by_bttv,
         bttv_updater_downloading,
         bttv_updater_downloading_version,
-        bttv_updater_notice
+        bttv_updater_notice,
+        bttv_settings_open_highlights_dia_primary,
+        bttv_settings_open_highlights_dia_secondary
     }
 }

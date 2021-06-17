@@ -8,7 +8,9 @@ import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
 
-public class BaseSettingsPresenter {
+public abstract class BaseSettingsPresenter {
+
+    public abstract SettingsNavigationController getNavController();
 
     public BaseSettingsPresenter(FragmentActivity fragmentActivity, MenuAdapterBinder menuAdapterBinder,
             SettingsTracker settingsTracker) {

@@ -5,13 +5,18 @@ import java.util.List;
 import javax.inject.Inject;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 
+import bttv.highlight.Highlight;
+import bttv.settings.abstractions.Link;
 import bttv.settings.abstractions.Switch;
 import tv.twitch.android.core.adapters.HeaderConfig;
 import tv.twitch.android.core.adapters.SectionHeaderDisplayConfig;
+import tv.twitch.android.models.settings.SettingsDestination;
 import tv.twitch.android.settings.base.BaseSettingsPresenter;
+import tv.twitch.android.settings.base.SettingsNavigationController;
 import tv.twitch.android.settings.base.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.checkable.CheckableGroupModel;
@@ -46,7 +51,11 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		settingsModels.clear();
 
 		for (Settings setting : Settings.values()) {
-			settingsModels.add(Switch.fromEntry(ctx, setting.entry));
+			if (setting.entry instanceof UserPreferences.Entry.BoolEntry) {
+				settingsModels.add(Switch.fromEntry(ctx, (UserPreferences.Entry.BoolEntry) setting.entry));
+			} else if (setting.entry instanceof UserPreferences.Entry.LinkEntry) {
+				settingsModels.add(Link.fromEntry(ctx, (UserPreferences.Entry.LinkEntry) setting.entry));
+			}
 		}
 
 		bindSettings();
@@ -63,6 +72,21 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		menuSection.updateHeaderConfig(headerCfg);
 		binder.bindModels(getSettingModels(), getMSettingActionListener(), menuSection, null);
 	}
+
+
+	@Override
+	public SettingsNavigationController getNavController() {
+		return new SettingsNavigationController() {
+			@Override
+			public void navigateToSettingFragment(SettingsDestination settingsDestination, Bundle bundle) {
+				Log.i("LBTTVDEBUG", "navigateToSettingFragment: " + settingsDestination);
+				if (settingsDestination.equals(SettingsDestination.BTTV_HIGHLIGHTS)) {
+					Highlight.openDialog();
+				}
+			}
+		};
+	}
+
 
 	static class SettingsPreferencesControllerImpl implements SettingsPreferencesController {
 		Context ctx;

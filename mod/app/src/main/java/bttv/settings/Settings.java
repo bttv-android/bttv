@@ -5,6 +5,7 @@ import java.util.Map;
 
 import bttv.Res;
 import bttv.settings.UserPreferences.Entry;
+import tv.twitch.android.models.settings.SettingsDestination;
 
 public enum Settings {
     BTTVEmotesEnabled(
@@ -60,10 +61,18 @@ public enum Settings {
                 null,
                 null
             )
+    ),
+    OpenHighlightedWordsButton(
+            new Entry.LinkEntry(
+                Res.strings.bttv_settings_open_highlights_dia_primary,
+                Res.strings.bttv_settings_open_highlights_dia_secondary,
+                null,
+                SettingsDestination.BTTV_HIGHLIGHTS
+            )
     );
 
-    public final Entry.BoolEntry entry;
-    Settings(Entry.BoolEntry entry) {
+    public final Entry entry;
+    Settings(Entry entry) {
         this.entry = entry;
     }
 
