@@ -13,6 +13,34 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "LEMIBANDDEXARI",
+      "name": "LEMIBANDDEXARI",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70129787?v=4",
+      "profile": "https://github.com/LEMIBANDDEXARI",
+      "contributions": [
+        "translation",
+        "ideas"
+      ]
+    },
+    {
+      "login": "StephanBruh",
+      "name": "Stephan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19285400?v=4",
+      "profile": "https://github.com/StephanBruh",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "zeykafx",
+      "name": "Corentin Detry",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37271973?v=4",
+      "profile": "https://github.com/zeykafx",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

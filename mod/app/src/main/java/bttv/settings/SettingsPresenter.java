@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import android.content.Context;
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
+
+import bttv.settings.abstractions.Switch;
 import tv.twitch.android.core.adapters.HeaderConfig;
 import tv.twitch.android.core.adapters.SectionHeaderDisplayConfig;
 import tv.twitch.android.settings.base.BaseSettingsPresenter;
@@ -19,13 +21,6 @@ import tv.twitch.android.shared.ui.menus.core.MenuSection;
 import tv.twitch.android.shared.ui.menus.togglemenu.ToggleMenuModel;
 
 public final class SettingsPresenter extends BaseSettingsPresenter {
-
-	private static final String EnableBTTVEmotesEventName = "enable_bttv_emotes";
-	private static final String EnableBTTVGifEmotesEventName = "enable_bttv_gif_emotes";
-	private static final String EnableFFZEmotesEventName = "enable_ffz_emotes";
-	private static final String Enable7TVEmotesEventName = "enable_7tv_emotes";
-	private static final String EnableAutoRedeemChannelPoints = "enable_auto_redeem_channel_points";
-	private static final String EnableSleepTimer = "enable_sleep_timer";
 
 	@Inject
 	public SettingsPresenter(FragmentActivity fragmentActivity, MenuAdapterBinder menuAdapterBinder,
@@ -50,25 +45,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		List<MenuModel> settingsModels = getSettingModels();
 		settingsModels.clear();
 
-		settingsModels.add(new ToggleMenuModel("BTTV Emotes", "Why would you disable this?", null,
-				UserPreferences.getBTTVEmotesEnabled(ctx), false, null, EnableBTTVEmotesEventName, false, null, null,
-				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
-		settingsModels.add(new ToggleMenuModel("BTTV Gif Emotes", null, null,
-				UserPreferences.getBTTVGifEmotesEnabled(ctx), false, null, EnableBTTVGifEmotesEventName, false, null,
-				null, null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100,
-				null));
-		settingsModels.add(new ToggleMenuModel("FrankerFaceZ Emotes", null, null,
-				UserPreferences.getFFZEmotesEnabled(ctx), false, null, EnableFFZEmotesEventName, false, null, null,
-				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
-		settingsModels.add(new ToggleMenuModel("7TV Emotes", null, null,
-				UserPreferences.get7TVEmotesEnabled(ctx), false, null, Enable7TVEmotesEventName, false, null, null,
-				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
-		settingsModels.add(new ToggleMenuModel("Auto-Redeem Channel Points", null, null,
-				UserPreferences.getAutoRedeemChannelPointsEnabled(ctx), false, null, EnableAutoRedeemChannelPoints, false, null, null,
-				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
-		settingsModels.add(new ToggleMenuModel("Show Sleep Timer", null, null,
-				UserPreferences.getShouldShowSleepTimer(ctx), false, null, EnableSleepTimer, false, null, null,
-				null, SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled, null, 0b1011110110100, null));
+		for (Settings setting : Settings.values()) {
+			settingsModels.add(Switch.fromEntry(ctx, setting.entry));
+		}
 
 		bindSettings();
 	}
@@ -94,30 +73,20 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 
 		@Override
 		public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
+			String key = toggleMenuModel.getEventName();
+			Settings setting = Settings.get(key);
 
-			switch (toggleMenuModel.getEventName()) {
-				case EnableBTTVEmotesEventName:
-					UserPreferences.setBTTVEmotesEnabled(ctx, z);
-					break;
-				case EnableBTTVGifEmotesEventName:
-					UserPreferences.setBTTVGifEmotesEnabled(ctx, z);
-					break;
-				case EnableFFZEmotesEventName:
-					UserPreferences.setFFZEmotesEnabled(ctx, z);
-					break;
-				case Enable7TVEmotesEventName:
-					UserPreferences.set7TVEmotesEnabled(ctx, z);
-					break;
-				case EnableAutoRedeemChannelPoints:
-					UserPreferences.setAutoRedeemChannelPointsEnabled(ctx, z);
-					break;
-				case EnableSleepTimer:
-					UserPreferences.setShouldShowSleepTimer(ctx, z);
-					break;
-				default:
-					Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown EventType");
-					Log.w("LBTTVSettingsPC", toggleMenuModel.getEventName());
+			if (setting == null) {
+				Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() Unknown key");
+				Log.w("LBTTVSettingsPC", toggleMenuModel.getEventName());
+				return;
 			}
+			if (!(setting.entry instanceof UserPreferences.Entry.BoolEntry)) {
+				Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() not a BoolEntry");
+				Log.w("LBTTVSettingsPC", setting.toString());
+			}
+
+			setting.entry.set(ctx, new UserPreferences.Entry.BoolValue(z));
 		}
 
 		@Override

@@ -26,4 +26,17 @@ public class Util {
     public static int getStringId(@NonNull String name) {
         return getResourceId(name, "string");
     }
+
+    public static String getLocaleString(@NonNull Context context, String key) {
+        if(key == null) {
+            return null;
+        }
+        int id = getResourceId(context, key, "string");
+        if (id == 0) {
+            Log.e("LBTTVUtil", "String " + key + " not found", new Exception());
+            throw new IllegalStateException("String " + key + " not found");
+        }
+        Resources res = context.getResources();
+        return res.getString(id);
+    }
 }

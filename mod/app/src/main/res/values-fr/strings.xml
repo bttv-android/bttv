@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Bienvenue sur\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Global BTTV Emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Émojis BTTV de la chaîne</string>
+    <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Émojis FrankerFaceZ de la chaîne</string>
+    <string name="bttv_emote_picker_global_7tv">Global 7TV Emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Émojis 7TV de la chaîne</string>
+    <string name="bttv_app_update_available">bttv-android : Nouvelle mise à jour détectée</string>
+    <string name="bttv_app_update_available_cta">Appuyez ici pour télécharger et installer la mise à jour.</string>
+    <string name="bttv_sleep_timer_button_descr">Ouvrir la page de la minuterie de sommeil</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Minuterie de sommeil</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Arrêter minuterie</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Vous avez déjà une minuterie activé, voulez vous l’arrêter?</string>
 </resources>

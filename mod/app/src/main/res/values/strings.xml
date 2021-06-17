@@ -14,4 +14,11 @@
     <string name="bttv_sleep_timer_select_dialog_title">Sleep-Timer</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Cancel Sleep-Timer</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">You already have a Sleep Timer running. Do you want to cancel it?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotes</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Why would you disable this?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif Emotes</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emotes</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Auto-Redeem Channel Points</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Show Sleep Timer</string>
 </resources>
