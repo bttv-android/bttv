@@ -232,7 +232,7 @@ index 4a62e29d0..faae6aae2 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
- 
+
      .line 95
      invoke-super {p0}, Landroid/app/Application;->onCreate()V
 +    
