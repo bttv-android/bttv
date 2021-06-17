@@ -131,6 +131,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/LEMIBANDDEXARI"><img src="https://avatars.githubusercontent.com/u/70129787?v=4?s=100" width="100px;" alt=""/><br /><sub><b>LEMIBANDDEXARI</b></sub></a><br /><a href="#translation-LEMIBANDDEXARI" title="Translation">🌍</a> <a href="#ideas-LEMIBANDDEXARI" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/StephanBruh"><img src="https://avatars.githubusercontent.com/u/19285400?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephan</b></sub></a><br /><a href="#ideas-StephanBruh" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/zeykafx"><img src="https://avatars.githubusercontent.com/u/37271973?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Corentin Detry</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Azeykafx" title="Bug reports">🐛</a> <a href="#translation-zeykafx" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://dioneb.me"><img src="https://avatars.githubusercontent.com/u/15141090?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dione Batista</b></sub></a><br /><a href="#translation-Santagain" title="Translation">🌍</a></td>
   </tr>
 </table>
 
