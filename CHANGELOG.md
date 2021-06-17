@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 # master
 
+# v0.8.0-beta
+- update base to 11.0.0
+- adds translations (FR, NL)
+
 # v0.7.1-beta
 - add 7TV support
 - reduce amount of update notifications
