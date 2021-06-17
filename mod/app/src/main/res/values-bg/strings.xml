@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- When adding a string also add it to:
+        - mod:      bttv.Res.strings enum
+        - monke:    res/values/public.xml
+     -->
     <string name="login_landing_title">Добре дошли в\nBetter Twitch</string>
 </resources>
