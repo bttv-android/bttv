@@ -49,7 +49,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           body: ${{ github.event.head_commit.message }}
-          draft: false
+          draft: true
           prerelease: false
       - run: echo "version_tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
       - name: upload Release Apk
