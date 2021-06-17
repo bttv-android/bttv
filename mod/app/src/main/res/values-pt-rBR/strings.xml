@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- When adding a string also add it to:
-        - mod:      bttv.Res.strings enum
-        - monke:    res/values/public.xml
-     -->
     <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Emotes Globais do BTTV</string>
     <string name="bttv_emote_picker_channel_bttv">Emotes BTTV do Canal</string>
