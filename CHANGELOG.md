@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 # master
 - adds highlight keywords feature
 - fix issue related to formatting of strings
+- reduce amount of update notifications (again)
 
 # v0.8.0-beta
 - update base to 11.0.0
