@@ -24,4 +24,8 @@
     <string name="bttv_updater_downloading">Baixando</string>
     <string name="bttv_updater_downloading_version">Baixando %s</string>
     <string name="bttv_updater_notice">Se essa é a sua primeira vez usando o Updater, permita instalações a partir desta fonte quando solicitado.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Definir palavras-chave destacadas</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Opções de Palavras-chave Realçadas</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Digite uma nova Palavra</string>
+    <string name="bttv_settings_highlights_dia_title">Gerenciar Palavras-chaves Destacadas</string>
 </resources>
