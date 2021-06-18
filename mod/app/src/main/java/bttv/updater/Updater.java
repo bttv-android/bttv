@@ -59,6 +59,7 @@ public class Updater {
                     String apkUrl = extractApkUrl(json);
                     if (apkUrl == null) {
                         Log.w("LBTTVUpdate", "Update found, but no apk file attached, won't ask user");
+                        listener.onNoUpdate();
                         return;
                     }
 

@@ -98,8 +98,10 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
                     .setAutoCancel(true);
 
             notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
+            jobFinished(params, false);
         } catch (Throwable e) {
             Log.e("LBTTVUpdaterJob", "err creating notif ", e);
+            jobFinished(params, true);
         }
     }
 }
