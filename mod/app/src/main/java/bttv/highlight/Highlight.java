@@ -1,6 +1,14 @@
 package bttv.highlight;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -33,6 +41,24 @@ public class Highlight {
         // TODO load from shared prefs
         highlightSet = new HashSet<>();
         highlightSet.add("hi");
+        highlightSet.add("hello");
+        highlightSet.add("lamo");
+        highlightSet.add("test");
+        highlightSet.add("xDDD");
+        highlightSet.add("spam");
+        highlightSet.add("is");
+        highlightSet.add("good");
+        highlightSet.add("and");
+        highlightSet.add("it");
+        highlightSet.add("gets");
+        highlightSet.add("not");
+        highlightSet.add("better");
+        highlightSet.add("every");
+        highlightSet.add("word");
+    }
+
+    public static void remove(String word) {
+        highlightSet.remove(word);
     }
 
     public static boolean shouldHighlight(String word) {
@@ -40,9 +66,26 @@ public class Highlight {
         return highlightSet.contains(word);
     }
 
-    public static void openDialog() {
-        // TODO
-        Log.i("LBTTVDEBUG", "openDialog()");
+    public static void openDialog(Activity activity) {
+        loadSet();
+        AlertDialog.Builder b = new AlertDialog.Builder(activity);
+        View v = activity.getLayoutInflater().inflate(Util.getResourceId(Res.layouts.bttv_highlight_dialog), null);
+        b.setView(v);
+        b.setCancelable(true);
+        ListView list = v.findViewById(Util.getResourceId(activity, Res.ids.bttv_highlight_dia_list));
 
+        String[] asArr = highlightSet.toArray(new String[0]);
+
+        HighlightAdapter adapter = new HighlightAdapter(
+                activity,
+                Util.getResourceId(activity, Res.layouts.bttv_highlight_list_view),
+                asArr
+        );
+        list.setAdapter(adapter);
+
+        b.setPositiveButton(Util.getStringId("close"), null);
+
+        AlertDialog dialog = b.create();
+        dialog.show();
     }
 }

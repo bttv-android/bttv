@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,12 +77,13 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 
 	@Override
 	public SettingsNavigationController getNavController() {
+		final Activity context = getActivity();
 		return new SettingsNavigationController() {
 			@Override
 			public void navigateToSettingFragment(SettingsDestination settingsDestination, Bundle bundle) {
 				Log.i("LBTTVDEBUG", "navigateToSettingFragment: " + settingsDestination);
 				if (settingsDestination.equals(SettingsDestination.BTTV_HIGHLIGHTS)) {
-					Highlight.openDialog();
+					Highlight.openDialog(context);
 				}
 			}
 		};

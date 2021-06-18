@@ -146,6 +146,96 @@ index 6a4faa33f..e133b675c 100644
          <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" twitch:tint="@color/white" />
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
+diff --git a/res/layout/bttv_highlight_dialog.xml b/res/layout/bttv_highlight_dialog.xml
+new file mode 100644
+index 000000000..dfe82c002
+--- /dev/null
++++ b/res/layout/bttv_highlight_dialog.xml
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:theme="@android:style/Theme.Holo.Dialog">
++
++    <TextView
++        android:id="@+id/bttv_highlight_dia_title"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_margin="10dp"
++        android:layout_marginLeft="16dp"
++        android:layout_marginTop="16dp"
++        android:text="@string/bttv_settings_highlights_dia_title"
++        android:textSize="17sp"
++        app:layout_constraintTop_toTopOf="parent" />
++
++    <ListView
++        android:id="@+id/bttv_highlight_dia_list"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="10dp"
++        android:layout_marginBottom="7dp"
++        app:layout_constraintBottom_toTopOf="@id/bttv_highlight_dia_input"
++        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_title"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent" />
++
++
++    <EditText
++        android:id="@+id/bttv_highlight_dia_input"
++        android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:layout_margin="10dp"
++        android:layout_marginBottom="0dp"
++        android:backgroundTint="#ff9146ff"
++        android:hint="@string/bttv_settings_highlights_dia_input_hint"
++        android:inputType="text"
++        android:textSize="15sp"
++        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_list"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toRightOf="parent" />
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+diff --git a/res/layout/bttv_highlight_list_view.xml b/res/layout/bttv_highlight_list_view.xml
+new file mode 100644
+index 000000000..9b0211a66
+--- /dev/null
++++ b/res/layout/bttv_highlight_list_view.xml
+@@ -0,0 +1,32 @@
++<?xml version="1.0" encoding="utf-8"?>
++
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="fill_parent"
++    android:layout_height="fill_parent"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:orientation="horizontal">
++
++    <TextView
++        android:id="@+id/bttv_highlight_dia_list_text"
++        android:layout_width="0dp"
++        android:layout_height="fill_parent"
++        android:padding="10dp"
++        android:paddingStart="20dp"
++        android:paddingEnd="20dp"
++        android:textSize="16sp"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintLeft_toLeftOf="parent"
++        app:layout_constraintRight_toLeftOf="@id/bttv_highlight_dia_list_btn">
++    </TextView>
++
++    <Button
++        android:id="@+id/bttv_highlight_dia_list_btn"
++        style="@style/Widget.AppCompat.Button.Borderless"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="-"
++        android:layout_marginEnd="10dp"
++        app:layout_constraintLeft_toRightOf="@id/bttv_highlight_dia_list_text"
++        app:layout_constraintRight_toRightOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
++</androidx.constraintlayout.widget.ConstraintLayout>
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
 index e5846b005..9a64f13e5 100644
 --- a/res/layout/settings_logout_footer.xml
@@ -196,10 +286,10 @@ index d5e15b24a..ba4d05894 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index d47cf5592..47beefd78 100644
+index d47cf5592..1b2ad2d94 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12690,4 +12690,37 @@
+@@ -12690,4 +12690,43 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -212,7 +302,12 @@ index d47cf5592..47beefd78 100644
 +    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0cc7" />
 +    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0cc8" />
 +    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0cc9" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e030d" />
++    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0cca" />
++    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0ccb" />
++    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0ccc" />
++    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e030d" />
++    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e030e" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e030f" />
 +    <public type="color" name="bttv_mega" id="0x7f060278" />
 +    <public type="color" name="bttv_sonic" id="0x7f060279" />
 +    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d4f" />
@@ -234,6 +329,7 @@ index d47cf5592..47beefd78 100644
 +    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130d5f" />
 +    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130d60" />
 +    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130d61" />
++    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130d62" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080510" />
 +    <!-- /BTTV -->
  </resources>

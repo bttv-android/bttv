@@ -15,6 +15,14 @@ public class Util {
         return getResourceId(context, res.name(), "string");
     }
 
+    public static int getResourceId(@NonNull Context context, @NonNull Res.ids res) {
+        return getResourceId(context, res.name(), "id");
+    }
+
+    public static int getResourceId(@NonNull Context context, @NonNull Res.layouts res) {
+        return getResourceId(context, res.name(), "layout");
+    }
+
     public static int getResourceId(@NonNull Context context, @NonNull String name, @NonNull String type) {
         Resources res = context.getResources();
         String pkgName = context.getPackageName();
@@ -23,6 +31,10 @@ public class Util {
 
     public static int getResourceId(@NonNull Res.strings res) {
         return getResourceId(res.name(), "string");
+    }
+
+    public static int getResourceId(@NonNull Res.layouts res) {
+        return getResourceId(res.name(), "layout");
     }
 
     public static int getResourceId(@NonNull Res.colors res) {

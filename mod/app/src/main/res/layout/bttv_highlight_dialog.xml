@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:theme="@android:style/Theme.Holo.Dialog">
+
+    <TextView
+        android:id="@+id/bttv_highlight_dia_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/bttv_settings_highlights_dia_title"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/bttv_highlight_dia_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@id/bttv_highlight_dia_input"
+        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
     <EditText
         android:id="@+id/bttv_highlight_dia_input"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_width="match_parent"
         android:layout_margin="10dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#ff9146ff"
         android:hint="@string/bttv_settings_highlights_dia_input_hint"
+        android:inputType="text"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_list"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
