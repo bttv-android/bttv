@@ -6,6 +6,9 @@ import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import bttv.Res;
 import tv.twitch.android.models.settings.SettingsDestination;
 
@@ -127,6 +130,18 @@ public class UserPreferences {
         ensureLoaded(ctx);
         editor.putBoolean(key, value);
         editor.apply();
+    }
+
+    public static void setStringSet(Context ctx, String key, Set<String> stringSet) {
+        ensureLoaded(ctx);
+        Set<String> s = new HashSet<>(stringSet); // copy cuz bug
+        editor.putStringSet(key, s);
+        editor.apply();
+    }
+
+    public static Set<String> getStringSet(Context ctx, String key) {
+        ensureLoaded(ctx);
+        return new HashSet<>(prefs.getStringSet(key, new HashSet<>()));  // copy cuz bug
     }
 
 }

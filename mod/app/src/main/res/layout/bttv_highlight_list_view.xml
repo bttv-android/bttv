@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/bttv_highlight_dia_list_text"
+        android:textColor="@color/text_alt"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
         android:padding="10dp"
@@ -19,12 +20,12 @@
         app:layout_constraintRight_toLeftOf="@id/bttv_highlight_dia_list_btn">
     </TextView>
 
-    <Button
+    <ImageButton
         android:id="@+id/bttv_highlight_dia_list_btn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:src="@drawable/bttv_ic_trashbin"
         android:layout_marginEnd="10dp"
         app:layout_constraintLeft_toRightOf="@id/bttv_highlight_dia_list_text"
         app:layout_constraintRight_toRightOf="parent"
