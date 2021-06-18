@@ -40,7 +40,7 @@ ENV BAKSMALI_PATH /opt/baksmali-2.4.0.jar
 
 # build-companion
 
-RUN wget https://github.com/bttv-android/build-companion/releases/download/v5.1.1/build-companion
+RUN wget https://github.com/bttv-android/build-companion/releases/download/v5.2.0/build-companion
 RUN shasum build-companion
 RUN chmod +x build-companion
 ENV BUILD_COMPANION /opt/build-companion
