@@ -51,6 +51,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Spkz",
+      "name": "Erős Dániel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19599808?v=4",
+      "profile": "https://github.com/Spkz",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
