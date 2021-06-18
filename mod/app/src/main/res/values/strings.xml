@@ -31,4 +31,5 @@
     <string name="bttv_updater_notice">If this is the first time you use the updater, allow installations from this source when the wizard asks you for it.</string>
     <string name="bttv_settings_open_highlights_dia_primary">Set Highlight Keywords</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Opens Highlight Dialog</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Enter new Keyword</string>
 </resources>
