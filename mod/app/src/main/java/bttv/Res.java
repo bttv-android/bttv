@@ -1,6 +1,26 @@
 package bttv;
 
 public class Res {
+    public enum colors {
+        bttv_mega,
+        bttv_sonic
+    }
+    public enum ids {
+        bttv_updater_activity_title,
+        bttv_updater_activity_body,
+        bttv_updater_activity_pb,
+        bttv_sleep_timer_button,
+        bttv_highlight_dia_list,
+        bttv_highlight_dia_input,
+        bttv_highlight_dia_title,
+        bttv_highlight_dia_list_text,
+        bttv_highlight_dia_list_btn
+    }
+    public enum layouts {
+        bttv_highlight_dialog,
+        bttv_updater_activity,
+        bttv_highlight_list_view
+    }
     public enum strings {
         app_name,
         login_landing_title,
@@ -26,6 +46,10 @@ public class Res {
         bttv_emote_added_by_bttv,
         bttv_updater_downloading,
         bttv_updater_downloading_version,
-        bttv_updater_notice
+        bttv_updater_notice,
+        bttv_settings_open_highlights_dia_primary,
+        bttv_settings_open_highlights_dia_secondary,
+        bttv_settings_highlights_dia_input_hint,
+        bttv_settings_highlights_dia_title
     }
 }

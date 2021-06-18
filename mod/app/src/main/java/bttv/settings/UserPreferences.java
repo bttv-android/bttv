@@ -4,7 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import bttv.Res;
+import tv.twitch.android.models.settings.SettingsDestination;
 
 public class UserPreferences {
 
@@ -39,6 +45,7 @@ public class UserPreferences {
         public abstract Value get(Context ctx);
         public abstract void set(Context ctx, Value value);
 
+        @NotNull
         @Override
         public String toString() {
             return "Entry(key: " + key + ", defaultValue: " + defaultValue + ")";
@@ -66,9 +73,34 @@ public class UserPreferences {
                 UserPreferences.setBoolean(ctx, this.key, b);
             }
 
+            @NotNull
             @Override
             public String toString() {
                 return "BoolEntry(key: " + key + ", defaultValue: " + defaultValue + ")";
+            }
+        }
+
+        public static class LinkEntry extends Entry {
+            public final SettingsDestination destination;
+            LinkEntry(Res.strings primaryTextRes, Res.strings secondaryTextRes, Res.strings auxiliaryTextRes, SettingsDestination destination) {
+                super(null, null, primaryTextRes, secondaryTextRes, auxiliaryTextRes);
+                this.destination = destination;
+            }
+
+            @Override
+            public Value get(Context ctx) {
+                return null;
+            }
+
+            @Override
+            public void set(Context ctx, Value value) {
+
+            }
+
+            @NotNull
+            @Override
+            public String toString() {
+                return "LinkEntry()";
             }
         }
     }
@@ -98,6 +130,18 @@ public class UserPreferences {
         ensureLoaded(ctx);
         editor.putBoolean(key, value);
         editor.apply();
+    }
+
+    public static void setStringSet(Context ctx, String key, Set<String> stringSet) {
+        ensureLoaded(ctx);
+        Set<String> s = new HashSet<>(stringSet); // copy cuz bug
+        editor.putStringSet(key, s);
+        editor.apply();
+    }
+
+    public static Set<String> getStringSet(Context ctx, String key) {
+        ensureLoaded(ctx);
+        return new HashSet<>(prefs.getStringSet(key, new HashSet<>()));  // copy cuz bug
     }
 
 }

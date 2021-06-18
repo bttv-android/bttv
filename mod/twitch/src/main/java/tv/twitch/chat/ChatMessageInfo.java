@@ -6,4 +6,5 @@ package tv.twitch.chat;
 
 public class ChatMessageInfo {
     public ChatMessageToken[] tokens;
+    public String messageType;
 }

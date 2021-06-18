@@ -31,7 +31,7 @@ public class SleepTimer {
             int timerButtonId = Util.getResourceId(context, "bttv_sleep_timer_button", "id");
             ImageView timerButtonView = view.findViewById(timerButtonId);
 
-            if (!Settings.ShouldShowSleepTimer.entry.get(context).get()) {
+            if (!Util.getBooleanFromSettings(Settings.ShouldShowSleepTimer)) {
                 // User does not want to see button, make sure it's gone
                 timerButtonView.setVisibility(View.GONE);
                 return;

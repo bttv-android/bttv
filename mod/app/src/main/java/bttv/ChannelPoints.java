@@ -7,7 +7,7 @@ import bttv.settings.UserPreferences;
 
 public class ChannelPoints {
     public static void autoRedeem(OnClickListener onClickListener) {
-        if (Settings.AutoRedeemChannelPointsEnabled.entry.get(Data.ctx).get()) {
+        if (Util.getBooleanFromSettings(Settings.AutoRedeemChannelPointsEnabled)) {
             onClickListener.onClick(null);
         }
     }

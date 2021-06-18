@@ -6,10 +6,21 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import bttv.settings.Settings;
+import bttv.settings.UserPreferences;
+
 public class Util {
 
     public static int getResourceId(@NonNull Context context, @NonNull Res.strings res) {
         return getResourceId(context, res.name(), "string");
+    }
+
+    public static int getResourceId(@NonNull Context context, @NonNull Res.ids res) {
+        return getResourceId(context, res.name(), "id");
+    }
+
+    public static int getResourceId(@NonNull Context context, @NonNull Res.layouts res) {
+        return getResourceId(context, res.name(), "layout");
     }
 
     public static int getResourceId(@NonNull Context context, @NonNull String name, @NonNull String type) {
@@ -20,6 +31,14 @@ public class Util {
 
     public static int getResourceId(@NonNull Res.strings res) {
         return getResourceId(res.name(), "string");
+    }
+
+    public static int getResourceId(@NonNull Res.layouts res) {
+        return getResourceId(res.name(), "layout");
+    }
+
+    public static int getResourceId(@NonNull Res.colors res) {
+        return getResourceId(res.name(), "color");
     }
 
     public static int getResourceId(@NonNull String name, @NonNull String type) {
@@ -53,5 +72,13 @@ public class Util {
             return null;
         }
         return getLocaleString(context, key.name());
+    }
+
+    public static boolean getBooleanFromSettings(@NonNull Settings settings) {
+        if (!(settings.entry instanceof UserPreferences.Entry.BoolEntry)) {
+            Log.e("LBTTVUtil", "getBooleanFromSettings: not a BoolEntry: " + settings.entry);
+            return false;
+        }
+        return ((UserPreferences.Entry.BoolEntry) settings.entry).get(Data.ctx).get();
     }
 }

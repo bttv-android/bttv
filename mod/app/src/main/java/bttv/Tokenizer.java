@@ -7,6 +7,7 @@ import java.util.List;
 
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
+import bttv.highlight.Highlight;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
@@ -72,6 +73,8 @@ public class Tokenizer {
 
         ArrayList<ChatMessageToken> newTokens = new ArrayList<>(info.tokens.length + 10);
 
+        boolean shouldHighlight = false;
+
         for (ChatMessageToken token : info.tokens) {
             if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
                 newTokens.add(token);
@@ -84,6 +87,9 @@ public class Tokenizer {
 
             StringBuilder currentText = new StringBuilder();
             for(String word : tokens) {
+                if (Highlight.shouldHighlight(word)) {
+                    shouldHighlight = true;
+                }
                 Emote emote = Emotes.getEmote(ctx, word, channel);
                 if (emote == null) {
                     currentText.append(word).append(" ");
@@ -116,5 +122,9 @@ public class Tokenizer {
         }
 
         info.tokens = newTokens.toArray(new ChatMessageToken[0]);
+
+        if (shouldHighlight) {
+            info.messageType = "bttv-highlighted-message";
+        }
     }
 }
