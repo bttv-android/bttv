@@ -1,4 +1,4 @@
-# bttv-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android)
+# bttv-android [![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] ![GitHub release (latest by date)][downloads-latest] ![GitHub all releases][downloads-total] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android)
 
 A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV emotes
 
@@ -102,6 +102,8 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
 [base-version]: https://img.shields.io/badge/build%20on-v11.0.0-blueviolet?style=flat-square
+[downloads-latest]: https://img.shields.io/github/downloads/bttv-android/bttv/latest/total?color=yellow&style=flat-square
+[downloads-total]: https://img.shields.io/github/downloads/bttv-android/bttv/total?color=yellowgreen&label=downloads%20total&style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [crowdin]: https://crowdin.com/project/bttv-android
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
