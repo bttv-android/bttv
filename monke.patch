@@ -2017,7 +2017,7 @@ index 0ba6c9ef3..d258eaa46 100644
  
      .line 45
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
-index f2c300298..967e304d9 100644
+index f2c300298..ca26f459b 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 @@ -18,7 +18,7 @@
@@ -2038,12 +2038,13 @@ index f2c300298..967e304d9 100644
  
      const/high16 v0, 0x3f800000    # 1.0f
  
-@@ -109,6 +109,14 @@
+@@ -109,6 +109,15 @@
  
      move-result p3
  
 +    # BTTV
 +    #  fix wide emotes
++    invoke-static {p0}, Lbttv/api/GlideChatImageTarget;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;)Z
 +    move-result v3
 +    if-eqz v3, :not_bttv
 +    move p3, v0
