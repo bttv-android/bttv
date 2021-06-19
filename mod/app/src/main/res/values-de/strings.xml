@@ -24,4 +24,8 @@
     <string name="bttv_updater_downloading">Lade herunter</string>
     <string name="bttv_updater_downloading_version">Lade %s herunter</string>
     <string name="bttv_updater_notice">Sollte es das erste Mal sein, dass du den Updater benutzt, must du Installationen aus dieser Quelle zulassen, wenn das System dich dazu auffordert.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Hervorgehobene Keywords auswählen</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Öffnet Highlight Dialog</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Neues Keyword eingeben</string>
+    <string name="bttv_settings_highlights_dia_title">Hervorgehobene Keywords verwalten</string>
 </resources>
