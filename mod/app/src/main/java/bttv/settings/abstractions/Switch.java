@@ -2,9 +2,8 @@ package bttv.settings.abstractions;
 
 import android.content.Context;
 
-import bttv.Util;
+import bttv.ResUtil;
 import bttv.settings.UserPreferences;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.togglemenu.ToggleMenuModel;
 
@@ -32,9 +31,9 @@ public class Switch {
     public static ToggleMenuModel fromEntry(Context ctx, UserPreferences.Entry.BoolEntry entry) {
         return Switch.simple(
                 ctx,
-                Util.getLocaleString(ctx, entry.primaryTextResource),
-                Util.getLocaleString(ctx, entry.secondaryTextResource),
-                Util.getLocaleString(ctx, entry.auxiliaryTextResource),
+                ResUtil.getLocaleString(ctx, entry.primaryTextResource),
+                ResUtil.getLocaleString(ctx, entry.secondaryTextResource),
+                ResUtil.getLocaleString(ctx, entry.auxiliaryTextResource),
                 entry.key,
                 ((UserPreferences.Entry.BoolValue) entry.defaultValue).get()
         );

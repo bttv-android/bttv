@@ -11,12 +11,15 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import bttv.Res;
+import bttv.ResUtil;
 import bttv.Util;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
@@ -55,7 +58,7 @@ public class UpdaterActivity extends AppCompatActivity {
 
         TextView titleView = findViewById(bttv_updater_activity_title);
 
-        String titleTemplate = Util.getLocaleString(this, Res.strings.bttv_updater_downloading_version);
+        String titleTemplate = ResUtil.getLocaleString(this, Res.strings.bttv_updater_downloading_version);
         titleView.setText(String.format(titleTemplate, newVersion));
 
         TextView bodyView = findViewById(bttv_updater_activity_body);
@@ -103,7 +106,13 @@ public class UpdaterActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } catch (Exception e) {
-                    Log.e("LBBTVUpdaterActivity", "Update failed", e);
+                    Log.e("LBTTVUpdaterActivity", "Update failed", e);
+                    UpdaterActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Util.showError(UpdaterActivity.this, e);
+                        }
+                    });
                 }
 
             }
@@ -136,10 +145,11 @@ public class UpdaterActivity extends AppCompatActivity {
     }
 
     private OkHttpClient getClient(final ProgressListener progressListener) {
-        return new OkHttpClient.Builder().connectTimeout(60, TimeUnit.MILLISECONDS).readTimeout(60, TimeUnit.SECONDS)
+        return new OkHttpClient.Builder().connectTimeout(60, TimeUnit.MILLISECONDS).readTimeout(30, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new Interceptor() {
+                    @NotNull
                     @Override
-                    public Response intercept(Chain chain) throws IOException {
+                    public Response intercept(@NotNull Chain chain) throws IOException {
                         Response originalResponse = chain.proceed(chain.request());
                         return originalResponse.newBuilder()
                                 .body(new ProgressResponseBody(originalResponse.body(), progressListener)).build();
@@ -166,6 +176,7 @@ public class UpdaterActivity extends AppCompatActivity {
             return responseBody.contentLength();
         }
 
+        @NotNull
         @Override
         public BufferedSource source() {
             if (bufferedSource == null) {
@@ -179,7 +190,7 @@ public class UpdaterActivity extends AppCompatActivity {
                 long totalBytesRead = 0L;
 
                 @Override
-                public long read(Buffer sink, long byteCount) throws IOException {
+                public long read(@NotNull Buffer sink, long byteCount) throws IOException {
                     long bytesRead = super.read(sink, byteCount);
                     totalBytesRead += bytesRead != -1 ? bytesRead : 0;
                     progressListener.update(totalBytesRead, responseBody.contentLength(), bytesRead == -1);

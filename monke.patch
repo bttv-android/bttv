@@ -361,7 +361,7 @@ index a521e160c..3c0eb6e33 100644
      iget-object p1, p0, Ltv/twitch/android/app/core/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
  
 diff --git a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
-index 5bf37c13c..54ee10288 100644
+index 5bf37c13c..4999ac936 100644
 --- a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
 +++ b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
 @@ -168,11 +168,25 @@
@@ -376,7 +376,7 @@ index 5bf37c13c..54ee10288 100644
 +    #      sets:
 +    #        v6: I
 +    const-string v6, "bttv_app_update_available_cta"
-+    invoke-static {v6}, Lbttv/Util;->getStringId(Ljava/lang/String;)I
++    invoke-static {v6}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
 +    move-result v6
 +    # /BTTV
  
@@ -388,7 +388,7 @@ index 5bf37c13c..54ee10288 100644
 +    #      sets:
 +    #        v2: I
 +    const-string v2, "bttv_app_update_available"
-+    invoke-static {v2}, Lbttv/Util;->getStringId(Ljava/lang/String;)I
++    invoke-static {v2}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
 +    move-result v2
 +    # /BTTV
  

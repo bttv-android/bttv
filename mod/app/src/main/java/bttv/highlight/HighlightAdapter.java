@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import bttv.Res;
-import bttv.Util;
+import bttv.ResUtil;
 
 public class HighlightAdapter extends ArrayAdapter<String> {
     public static final String TAG = "LBTTVHighlAdapter";
@@ -38,10 +38,10 @@ public class HighlightAdapter extends ArrayAdapter<String> {
             view0 = LayoutInflater.from(getContext()).inflate(res, parent, false);
         }
         final View view = view0;
-        TextView tv = view.findViewById(Util.getResourceId(context, Res.ids.bttv_highlight_dia_list_text));
+        TextView tv = view.findViewById(ResUtil.getResourceId(context, Res.ids.bttv_highlight_dia_list_text));
         tv.setText(getItem(position));
 
-        ImageButton btn = view.findViewById(Util.getResourceId(context, Res.ids.bttv_highlight_dia_list_btn));
+        ImageButton btn = view.findViewById(ResUtil.getResourceId(context, Res.ids.bttv_highlight_dia_list_btn));
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

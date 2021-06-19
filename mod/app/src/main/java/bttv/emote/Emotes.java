@@ -10,11 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import bttv.Data;
 import bttv.Network;
-import bttv.Util;
+import bttv.ResUtil;
 import bttv.settings.Settings;
-import bttv.settings.UserPreferences;
 
 public class Emotes {
 
@@ -54,17 +52,17 @@ public class Emotes {
     public static boolean channelHasEmotes(Context context, int channelId) {
 
         // BTTV
-        boolean bttvEnabled = Util.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
+        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
         boolean hasBTTVEmotes = bttvEnabled && channelEmotesBTTV.containsKey(channelId);
         boolean globalBTTVLoaded = bttvEnabled && !globalEmotesBTTV.isEmpty();
 
         // FFZ
-        boolean ffzEnabled = Util.getBooleanFromSettings(Settings.FFZEmotesEnabled);
+        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
         boolean hasFFZEmotes = ffzEnabled && channelEmotesFFZ.containsKey(channelId);
         boolean globalFFZLoaded = ffzEnabled && !globalEmotes7TV.isEmpty();
 
         // 7TV
-        boolean stvEnabled = Util.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
         boolean has7TVEmotes = stvEnabled && channelEmotes7TV.containsKey(channelId);
         boolean global7TVLoaded = stvEnabled && !globalEmotes7TV.isEmpty();
 
@@ -77,10 +75,10 @@ public class Emotes {
     }
 
     public static Emote getEmote(Context ctx, String code, int channelId) {
-        boolean bttvEnabled = Util.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
-        boolean bttvGifEnabled = Util.getBooleanFromSettings(Settings.BTTVGifEmotesEnabled);
-        boolean ffzEnabled = Util.getBooleanFromSettings(Settings.FFZEmotesEnabled);
-        boolean stvEnabled = Util.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
+        boolean bttvGifEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVGifEmotesEnabled);
+        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
+        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
 
         if (ffzEnabled) {
             Emote emote = globalEmotesFFZ.get(code);
@@ -132,9 +130,9 @@ public class Emotes {
     }
 
     public static void ensureChannelEmotes(Context context, int id) {
-        boolean bttvEnabled = Util.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
-        boolean ffzEnabled = Util.getBooleanFromSettings(Settings.FFZEmotesEnabled);
-        boolean stvEnabled = Util.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
+        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
+        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
 
         if (bttvEnabled && globalEmotesBTTV.isEmpty()) {
             Network.getBTTVGlobalEmotes();

@@ -9,7 +9,7 @@ import android.util.Log;
 
 import bttv.Data;
 import bttv.Res;
-import bttv.Util;
+import bttv.ResUtil;
 import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
@@ -143,7 +143,7 @@ public class EmotePicker {
 
     private static EmoteUiSet getUiSet(Res.strings headerRes, EmotePickerSection section, List<EmoteUiModel> emotes) {
         EmoteHeaderUiModel header = new EmoteHeaderUiModel.EmoteHeaderStringResUiModel(
-                Util.getResourceId(headerRes),
+                ResUtil.getResourceId(headerRes),
                 true,
                 section,
                 false,

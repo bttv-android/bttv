@@ -28,10 +28,10 @@ public class SleepTimer {
                 Log.e("LBTTVSleepTimer", "onInit(): view is null");
                 return;
             }
-            int timerButtonId = Util.getResourceId(context, "bttv_sleep_timer_button", "id");
+            int timerButtonId = ResUtil.getResourceId(context, "bttv_sleep_timer_button", "id");
             ImageView timerButtonView = view.findViewById(timerButtonId);
 
-            if (!Util.getBooleanFromSettings(Settings.ShouldShowSleepTimer)) {
+            if (!ResUtil.getBooleanFromSettings(Settings.ShouldShowSleepTimer)) {
                 // User does not want to see button, make sure it's gone
                 timerButtonView.setVisibility(View.GONE);
                 return;
@@ -70,7 +70,7 @@ public class SleepTimer {
         int[] minutes = new int[]{ 5, 10, 15, 30, 45, 60 };
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(Util.getResourceId(context, Res.strings.bttv_sleep_timer_select_dialog_title));
+        builder.setTitle(ResUtil.getResourceId(context, Res.strings.bttv_sleep_timer_select_dialog_title));
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int index) {
@@ -83,7 +83,7 @@ public class SleepTimer {
 
         builder
                 .setCancelable(true)
-                .setNegativeButton(Util.getResourceId(context, "cancel", "string"), null);
+                .setNegativeButton(ResUtil.getResourceId(context, "cancel", "string"), null);
 
         builder.create().show();
     }
@@ -91,11 +91,11 @@ public class SleepTimer {
     private static void openCancelDialog(@NonNull Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder
-                .setTitle(Util.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_title))
-                .setMessage(Util.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_message));
+                .setTitle(ResUtil.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_title))
+                .setMessage(ResUtil.getResourceId(context, Res.strings.bttv_sleep_timer_cancel_dialog_message));
 
-        builder.setCancelable(true).setNegativeButton(Util.getResourceId(context, "no_prompt", "string"), null);
-        builder.setPositiveButton(Util.getResourceId(context, "yes_prompt", "string"), new DialogInterface.OnClickListener() {
+        builder.setCancelable(true).setNegativeButton(ResUtil.getResourceId(context, "no_prompt", "string"), null);
+        builder.setPositiveButton(ResUtil.getResourceId(context, "yes_prompt", "string"), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 abortSchedule();
