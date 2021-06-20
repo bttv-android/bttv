@@ -17,6 +17,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
  - Auto-Claim Bonus Channel Points
  - Auto Updater
  - Sleep Timer
+ - Highlight Keywords
 
 # Install
 
