@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Witaj na\nBetter Twitchu</string>
+    <string name="bttv_emote_picker_global_bttv">Globalne Emotki BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">Emotki BTTV Kanału</string>
+    <string name="bttv_emote_picker_global_ffz">Globalne Emotki FrankerFaceZ</string>
+    <string name="bttv_emote_picker_channel_ffz">Emotki FrankerFaceZ Kanału</string>
+    <string name="bttv_emote_picker_global_7tv">Globalne Emotki 7TV</string>
+    <string name="bttv_emote_picker_channel_7tv">Emotki 7TV Kanału</string>
+    <string name="bttv_app_update_available">bttv-android: Nowa Aktualizacja Dostępna</string>
+    <string name="bttv_app_update_available_cta">Kliknij tutaj aby pobrać i zainstalować aktualizację.</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">Emotki BTTV</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Dlaczego miał(a)byś to wyłączać?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">Emotki Gif BTTV</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Emotki FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Emotki 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Automatycznie Zbieraj Punkty Kanału</string>
+    <string name="bttv_emote_added_by_bttv">Emotka dodana przez bttv-android</string>
+    <string name="bttv_updater_downloading">Pobieranie</string>
+    <string name="bttv_updater_downloading_version">Pobieranie %s</string>
 </resources>
