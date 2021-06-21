@@ -1,4 +1,4 @@
-[![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] ![GitHub release (latest by date)][downloads-latest] ![GitHub all releases][downloads-total] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android)
+[![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] ![GitHub release (latest by date)][downloads-latest] ![GitHub all releases][downloads-total] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android) [![Discord][discord-badge]][discord-invite]
 # bttv-android
 
 
@@ -109,6 +109,8 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [downloads-total]: https://img.shields.io/github/downloads/bttv-android/bttv/total?color=yellowgreen&label=downloads%20total&style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
 [crowdin]: https://crowdin.com/project/bttv-android
+[discord-badge]: https://img.shields.io/discord/856518013292249089?color=blue&label=discord&logo=discord&logoColor=white&style=flat-square
+[discord-invite]: https://discord.gg/7jgDGdXXqN
 [enable-guide]: https://www.howtogeek.com/696504/how-to-install-third-party-app-stores-on-android/
 [howtodl]: ./.github/dltut.webp?raw=true
 [hero-img]: ./.github/bttvog.jpg?raw=true
