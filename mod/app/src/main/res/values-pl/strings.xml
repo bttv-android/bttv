@@ -9,13 +9,23 @@
     <string name="bttv_emote_picker_channel_7tv">Emotki 7TV Kanału</string>
     <string name="bttv_app_update_available">bttv-android: Nowa Aktualizacja Dostępna</string>
     <string name="bttv_app_update_available_cta">Kliknij tutaj aby pobrać i zainstalować aktualizację.</string>
+    <string name="bttv_sleep_timer_button_descr">Otwórz Licznik Snu</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Licznik Snu</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Anuluj Licznik Snu</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Posiadasz już ustawiony Licznik Snu. Chcesz go przerwać?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">Emotki BTTV</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Dlaczego miał(a)byś to wyłączać?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">Emotki Gif BTTV</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">Emotki FrankerFaceZ</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotki 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automatycznie Zbieraj Punkty Kanału</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Pokaż Licznik Snu</string>
     <string name="bttv_emote_added_by_bttv">Emotka dodana przez bttv-android</string>
     <string name="bttv_updater_downloading">Pobieranie</string>
     <string name="bttv_updater_downloading_version">Pobieranie %s</string>
+    <string name="bttv_updater_notice">Jeżeli jest to pierwszy raz kiedy używasz tego instalatora, zezwól na pobieranie z tego źródła przy wyświetleniu komunikatu.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Ustaw Wyróżnione Słowa Kluczowe</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Otwiera Wyróżnienia</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Wprowadź Nowe Słowo Kluczowe</string>
+    <string name="bttv_settings_highlights_dia_title">Zarządaj Wyróznionymi Słowami Kluczowymi</string>
 </resources>
