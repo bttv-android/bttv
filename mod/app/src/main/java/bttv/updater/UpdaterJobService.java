@@ -31,7 +31,7 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
 
         ComponentName serviceComponent = new ComponentName(context, UpdaterJobService.class);
         JobInfo.Builder builder = new JobInfo.Builder(UpdaterJobService.JOB_ID, serviceComponent);
-        builder.setPeriodic(24 * 60 * 60 * 1000); // 1 day in ms
+        builder.setPeriodic(2 * 24 * 60 * 60 * 1000); // 2 days in ms
 
         // battery saving features
         if (Build.VERSION.SDK_INT >= 26) {
