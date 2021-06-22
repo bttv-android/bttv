@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 # master
 - adds highlight keywords feature
 - fix issue related to formatting of strings
-- wide emotes are wide now (still a bit buggy)
+- wide emotes are wide now
 - reduce amount of update notifications (again)
 
 # v0.8.0-beta
