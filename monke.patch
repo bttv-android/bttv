@@ -2016,6 +2016,72 @@ index 0ba6c9ef3..d258eaa46 100644
      const/4 v0, 0x1
  
      .line 45
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+index 6aeb7db07..3aa8411de 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+@@ -397,6 +397,10 @@
+ 
+     invoke-direct {v3, p0, v1, v4}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
+ 
++    # BTTV
++    invoke-static {v3, p2}, Lbttv/api/GlideChatImageTarget;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
++    # /BTTV
++
+     .line 70
+     invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
+ 
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
+index f2c300298..14f2d0831 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
+@@ -18,8 +18,9 @@
+ 
+ .field private mMaxSideDimenPixel:I
+ 
+-.field private mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
++.field public mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
+ 
++.field public bttvView:Landroid/widget/TextView; # BTTV
+ 
+ # direct methods
+ .method public constructor <init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
+@@ -81,7 +82,7 @@
+ .end method
+ 
+ .method private scaleSquared(FFF)Landroid/graphics/Point;
+-    .locals 3
++    .locals 4
+ 
+     const/high16 v0, 0x3f800000    # 1.0f
+ 
+@@ -109,6 +110,15 @@
+ 
+     move-result p3
+ 
++    # BTTV
++    #  fix wide emotes
++    invoke-static {p0}, Lbttv/api/GlideChatImageTarget;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;)Z
++    move-result v3
++    if-eqz v3, :not_bttv
++    move p3, v0
++    :not_bttv
++    # /BTTV
++
+     mul-float p1, p1, p3
+ 
+     float-to-int p1, p1
+@@ -230,6 +240,10 @@
+ 
+     invoke-virtual {p2, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
+ 
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/GlideChatImageTarget;->invalidateView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/graphics/drawable/Drawable;)V
++    # /BTTV
++
+     return-void
+ .end method
+ 
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..f89941c92 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
