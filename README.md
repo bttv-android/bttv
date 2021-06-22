@@ -140,6 +140,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/zeykafx"><img src="https://avatars.githubusercontent.com/u/37271973?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Corentin Detry</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Azeykafx" title="Bug reports">🐛</a> <a href="#translation-zeykafx" title="Translation">🌍</a></td>
     <td align="center"><a href="http://dioneb.me"><img src="https://avatars.githubusercontent.com/u/15141090?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dione Batista</b></sub></a><br /><a href="#translation-Santagain" title="Translation">🌍</a> <a href="https://github.com/bttv-android/bttv/issues?q=author%3ASantagain" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Spkz"><img src="https://avatars.githubusercontent.com/u/19599808?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Erős Dániel</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ASpkz" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/Xslash58"><img src="https://avatars.githubusercontent.com/u/75801324?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xslash</b></sub></a><br /><a href="#translation-Xslash58" title="Translation">🌍</a></td>
   </tr>
 </table>
 
