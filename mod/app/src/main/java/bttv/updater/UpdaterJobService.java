@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -19,15 +20,21 @@ import bttv.Data;
 
 public class UpdaterJobService extends JobService implements Updater.UpdateCallbackListener {
 
-    final static int JOB_ID = 1873912;
+    final static int JOB_ID = 1873913;
     private JobParameters params = null;
 
     public static void schedule(Context context) {
         if (Build.VERSION.SDK_INT < 24) {
-            Log.w("LBTTVUpdaterJobSvc", "schedule: API Level is " + Build.VERSION.SDK_INT + " < 24, wont schedule job");
+            Log.w("LBTTVUpdateScheduler", "schedule: API Level is " + Build.VERSION.SDK_INT + " < 24, wont schedule job");
             return;
         }
         JobScheduler scheduler = context.getSystemService(JobScheduler.class);
+        cancelOld(scheduler);
+
+        if (isJobScheduled(scheduler)) {
+            Log.d("LBTTVUpdateScheduler", "already scheduled");
+            return;
+        }
 
         ComponentName serviceComponent = new ComponentName(context, UpdaterJobService.class);
         JobInfo.Builder builder = new JobInfo.Builder(UpdaterJobService.JOB_ID, serviceComponent);
@@ -45,6 +52,16 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
         JobInfo job = builder.build();
         scheduler.schedule(job);
         Log.d("LBTTVUpdateScheduler", "scheduled: " + job.toString());
+    }
+
+    public static void cancelOld(JobScheduler jobScheduler) {
+        jobScheduler.cancel(1873912);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static boolean isJobScheduled(JobScheduler jobScheduler) {
+        JobInfo info = jobScheduler.getPendingJob(JOB_ID);
+        return info != null;
     }
 
     @Override

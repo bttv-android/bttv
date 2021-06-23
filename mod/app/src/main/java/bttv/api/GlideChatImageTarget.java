@@ -16,7 +16,6 @@ public class GlideChatImageTarget {
             return false;
         }
         String url = urlDrawable.getUrl();
-        Log.i("LBTTVDEBUG", "getIsBttvEmote: " + url);
         return url.contains("betterttv.net") || url.contains("7tv.app"); // TODO: find better way of determining this
     }
 
