@@ -70,6 +70,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "GogaFroga",
+      "name": "Artur",
+      "avatar_url": "https://avatars.githubusercontent.com/u/80777820?v=4",
+      "profile": "https://github.com/GogaFroga",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
