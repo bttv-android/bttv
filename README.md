@@ -142,6 +142,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Spkz"><img src="https://avatars.githubusercontent.com/u/19599808?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Erős Dániel</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ASpkz" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Xslash58"><img src="https://avatars.githubusercontent.com/u/75801324?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Xslash</b></sub></a><br /><a href="#translation-Xslash58" title="Translation">🌍</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/GogaFroga"><img src="https://avatars.githubusercontent.com/u/80777820?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Artur</b></sub></a><br /><a href="#translation-GogaFroga" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
