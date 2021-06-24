@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Добро пожаловать на\nBetter Twitch!</string>
+    <string name="bttv_emote_picker_global_bttv">Глобальные BTTV эмоции</string>
+    <string name="bttv_emote_picker_channel_bttv">Эмоции BTTV на канале</string>
 </resources>
