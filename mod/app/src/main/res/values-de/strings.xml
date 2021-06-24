@@ -12,7 +12,7 @@
     <string name="bttv_sleep_timer_button_descr">Sleep-Timer Dialog öffnen</string>
     <string name="bttv_sleep_timer_select_dialog_title">Sleep-Timer</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Sleep-Timer stoppen</string>
-    <string name="bttv_sleep_timer_cancel_dialog_message">Ein Sleep Timer läuft bereits. Möchtest du ihr abbrechen?</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Ein Sleep Timer läuft bereits. Möchtest du ihn abbrechen?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotes</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Weshalb würdest du das ausschalten?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif Emotes</string>

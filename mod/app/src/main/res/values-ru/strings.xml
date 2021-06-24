@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Добро пожаловать на\nBetter Twitch!</string>
+    <string name="login_landing_title">Добро пожаловать на\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Глобальные BTTV эмоции</string>
+    <string name="bttv_emote_picker_channel_bttv">Эмоции BTTV на канале</string>
+    <string name="bttv_emote_picker_global_ffz">Глобальные FrankerFaceZ эмоции</string>
+    <string name="bttv_emote_picker_channel_ffz">Эмоции FrankerFaceZ канала</string>
+    <string name="bttv_emote_picker_global_7tv">Глобальные 7TV эмоции</string>
+    <string name="bttv_emote_picker_channel_7tv">Эмоции 7TV канала</string>
+    <string name="bttv_app_update_available">bttv-android: Найдено новое обновление</string>
+    <string name="bttv_app_update_available_cta">Нажмите здесь, чтобы скачать и установить обновление.</string>
+    <string name="bttv_sleep_timer_button_descr">Открыть таймер-сна</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Таймер сна</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Отменить таймер сна</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Таймер сна уже запущен. Вы хотите выключить его?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Эмоции</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Зачем вам выключать это?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif эмоции</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ эмоции</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Эмоции</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-получение Баллов канала</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Показать таймер сна</string>
+    <string name="bttv_emote_added_by_bttv">Эмоции добавленые bttv-android</string>
+    <string name="bttv_updater_downloading">Скачивание</string>
+    <string name="bttv_updater_downloading_version">Скачивание %s</string>
+    <string name="bttv_updater_notice">Если это первый раз, когда вы используете обновления приложения, разрешите установку из этого источника.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Установить подсвечиваемые слова</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Открыть выделенный диалог</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Введите новое ключевое слово</string>
+    <string name="bttv_settings_highlights_dia_title">Настроить подсвечиваемые слова</string>
 </resources>
