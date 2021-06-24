@@ -44,19 +44,19 @@ public class Highlight {
     }
 
     public static void remove(String word) {
-        highlightSet.remove(word);
+        highlightSet.remove(word.toLowerCase());
         UserPreferences.setStringSet(Data.ctx, "bttv_highlight_set", highlightSet);
     }
 
     public static boolean add(String word) {
-        boolean val = highlightSet.add(word);
+        boolean val = highlightSet.add(word.toLowerCase());
         UserPreferences.setStringSet(Data.ctx, "bttv_highlight_set", highlightSet);
         return val;
     }
 
     public static boolean shouldHighlight(String word) {
         loadSet();
-        return highlightSet.contains(word);
+        return highlightSet.contains(word.toLowerCase());
     }
 
     public static void openDialog(Activity activity) {
