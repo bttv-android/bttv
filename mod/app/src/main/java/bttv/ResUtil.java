@@ -6,6 +6,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import java.util.Set;
+
 import bttv.settings.Settings;
 import bttv.settings.UserPreferences;
 
@@ -80,5 +82,13 @@ public class ResUtil {
             return false;
         }
         return ((UserPreferences.Entry.BoolEntry) settings.entry).get(Data.ctx).get();
+    }
+
+    public static Set<String> getStringSetFromSettings(@NonNull Settings settings) {
+        if (!(settings.entry instanceof UserPreferences.Entry.StringSetEntry)) {
+            Log.e("LBTTVUtil", "getStringSetFromSettings: not a StringSetEntry: " + settings.entry);
+            return null;
+        }
+        return ((UserPreferences.Entry.StringSetEntry) settings.entry).get(Data.ctx).get();
     }
 }

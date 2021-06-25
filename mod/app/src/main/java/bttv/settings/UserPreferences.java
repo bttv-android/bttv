@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
+import bttv.Data;
 import bttv.Res;
 import tv.twitch.android.models.settings.SettingsDestination;
 
@@ -27,9 +28,19 @@ public class UserPreferences {
                 return b;
             }
         }
+        public static class StringSetValue implements Value {
+            Set<String> stringSet;
+            public StringSetValue(Set<String> set) {
+                this.stringSet = set;
+            }
+            @Override
+            public Set<String> get() {
+                return stringSet;
+            }
+        }
 
         public final String key;
-        public final Res.strings primaryTextResource;
+        public final Res.strings primaryTextResource; // when null, the Entry is not displayed on the settings page
         public final Res.strings secondaryTextResource;
         public final Res.strings auxiliaryTextResource;
         public final Value defaultValue;
@@ -103,6 +114,34 @@ public class UserPreferences {
                 return "LinkEntry()";
             }
         }
+
+        public static class StringSetEntry extends Entry {
+            StringSetEntry(String key, Set<String> defaultValue, Res.strings primaryTextRes, Res.strings secondaryTextRes, Res.strings auxiliaryTextRes) {
+                super(key, new StringSetValue(defaultValue), primaryTextRes, secondaryTextRes, auxiliaryTextRes);
+            }
+
+            @Override
+            public StringSetValue get(Context ctx) {
+                return new StringSetValue(UserPreferences.getStringSet(ctx, this.key, (Set<String>) this.defaultValue.get()));
+            }
+
+            @Override
+            public void set(Context ctx, Value value) {
+                if (!(value instanceof StringSetValue)) {
+                    IllegalStateException e = new IllegalStateException("Value is not a StringSetValue " + this.toString());
+                    Log.e("LBTTVStringSetEntry", "Value is not a StringSetValue", e);
+                    throw e;
+                }
+                StringSetValue ssV = (StringSetValue) value;
+                UserPreferences.setStringSet(ctx, this.key, ssV.get());
+            }
+
+            @NotNull
+            @Override
+            public String toString() {
+                return "StringSetEntry(key: " + this.key + " defaultValue: " + this.defaultValue + ")";
+            }
+        }
     }
 
     private static SharedPreferences prefs = null;
@@ -139,9 +178,9 @@ public class UserPreferences {
         editor.apply();
     }
 
-    public static Set<String> getStringSet(Context ctx, String key) {
+    public static Set<String> getStringSet(Context ctx, String key, Set<String> defaultValue) {
         ensureLoaded(ctx);
-        return new HashSet<>(prefs.getStringSet(key, new HashSet<>()));  // copy cuz bug
+        return new HashSet<>(prefs.getStringSet(key, defaultValue));  // copy cuz bug
     }
 
 }

@@ -52,6 +52,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		settingsModels.clear();
 
 		for (Settings setting : Settings.values()) {
+			if (setting.entry.primaryTextResource == null) {
+				continue;
+			}
 			if (setting.entry instanceof UserPreferences.Entry.BoolEntry) {
 				settingsModels.add(Switch.fromEntry(ctx, (UserPreferences.Entry.BoolEntry) setting.entry));
 			} else if (setting.entry instanceof UserPreferences.Entry.LinkEntry) {
