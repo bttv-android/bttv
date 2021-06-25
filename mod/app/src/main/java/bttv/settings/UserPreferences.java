@@ -6,12 +6,16 @@ import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 import bttv.Data;
 import bttv.Res;
+import tv.twitch.android.core.adapters.TwitchArrayAdapterModel;
 import tv.twitch.android.models.settings.SettingsDestination;
+import tv.twitch.android.shared.ui.menus.dropdown.DropDownMenuModel;
 
 public class UserPreferences {
 
@@ -36,6 +40,34 @@ public class UserPreferences {
             @Override
             public Set<String> get() {
                 return stringSet;
+            }
+        }
+
+        public static class DropDownValue implements Value {
+            private final ArrayList<Res.strings> list;
+            private final Res.strings selected;
+
+            public DropDownValue(ArrayList<Res.strings> list, Res.strings selected) {
+                this.list = list;
+                this.selected = selected;
+            }
+
+            @Override
+            public ArrayList<Res.strings> get() {
+                return this.list;
+            }
+
+            public Res.strings getSelected() {
+                return this.selected;
+            }
+
+            @NotNull
+            public String toString() {
+                return "DropDownValue(list: " + Arrays.toString(list.toArray()) + ", selected: " + selected + " )";
+            }
+
+            public DropDownValue newWithSelected(Res.strings newSelected) {
+                return new DropDownValue(this.list, newSelected);
             }
         }
 
@@ -142,6 +174,32 @@ public class UserPreferences {
                 return "StringSetEntry(key: " + this.key + " defaultValue: " + this.defaultValue + ")";
             }
         }
+
+        public static class DropDownEntry extends Entry {
+            DropDownEntry(String key, DropDownValue defaultValue, Res.strings primaryTextRes, Res.strings secondaryTextRes, Res.strings auxiliaryTextRes) {
+                super(key, defaultValue, primaryTextRes, secondaryTextRes, auxiliaryTextRes);
+            }
+
+            @Override
+            public DropDownValue get(Context ctx) {
+                DropDownValue defValue = (DropDownValue) defaultValue;
+                String selected = UserPreferences.getString(ctx, key, defValue.getSelected().name());
+                Res.strings actual = Res.strings.valueOf(selected);
+                return defValue.newWithSelected(actual);
+            }
+
+            @Override
+            public void set(Context ctx, Value value) {
+                if (!(value instanceof DropDownValue)) {
+                    IllegalStateException e = new IllegalStateException("Value is not a DropDownValue " + this.toString());
+                    Log.e("LBTTVDropDownEntry", "Value is not a DropDownValue", e);
+                    throw e;
+                }
+                DropDownValue ddV = (DropDownValue) value;
+                String selected = ddV.getSelected().name();
+                UserPreferences.setString(ctx, key, selected);
+            }
+        }
     }
 
     private static SharedPreferences prefs = null;
@@ -181,6 +239,17 @@ public class UserPreferences {
     public static Set<String> getStringSet(Context ctx, String key, Set<String> defaultValue) {
         ensureLoaded(ctx);
         return new HashSet<>(prefs.getStringSet(key, defaultValue));  // copy cuz bug
+    }
+
+    public static void setString(Context ctx, String key, String string) {
+        ensureLoaded(ctx);
+        editor.putString(key, string);
+        editor.apply();
+    }
+
+    public static String getString(Context ctx, String key, String defaultString) {
+        ensureLoaded(ctx);
+        return prefs.getString(key, defaultString);
     }
 
 }

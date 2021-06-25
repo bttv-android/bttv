@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 
 import bttv.highlight.Highlight;
+import bttv.settings.abstractions.Dropdown;
 import bttv.settings.abstractions.Link;
 import bttv.settings.abstractions.Switch;
 import tv.twitch.android.core.adapters.HeaderConfig;
@@ -47,7 +48,7 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 
 	@Override
 	public void updateSettingModels() {
-		Context ctx = getActivity().getApplicationContext();
+		Context ctx = getActivity();
 		List<MenuModel> settingsModels = getSettingModels();
 		settingsModels.clear();
 
@@ -59,6 +60,8 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 				settingsModels.add(Switch.fromEntry(ctx, (UserPreferences.Entry.BoolEntry) setting.entry));
 			} else if (setting.entry instanceof UserPreferences.Entry.LinkEntry) {
 				settingsModels.add(Link.fromEntry(ctx, (UserPreferences.Entry.LinkEntry) setting.entry));
+			} else if (setting.entry instanceof UserPreferences.Entry.DropDownEntry) {
+				settingsModels.add(Dropdown.fromEntry(ctx, (UserPreferences.Entry.DropDownEntry) setting.entry));
 			}
 		}
 
