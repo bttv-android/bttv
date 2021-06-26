@@ -196,7 +196,7 @@ index 3e2ce666e..236844e1b 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index f0d7412e9..a728659ef 100644
+index f0d7412e9..2d2365942 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -12705,4 +12705,43 @@
@@ -206,41 +206,41 @@ index f0d7412e9..a728659ef 100644
 +    <!-- BTTV -->
 +    <!-- generate ids using `build-companion ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0cc4" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0cc5" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0cc6" />
-+    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0cc7" />
-+    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0cc8" />
-+    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0cc9" />
-+    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0cca" />
-+    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0ccb" />
-+    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0ccc" />
-+    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e030d" />
-+    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e030e" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e030f" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0ccd" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0cce" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0ccf" />
++    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0cd0" />
++    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0cd1" />
++    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0cd2" />
++    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0cd3" />
++    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0cd4" />
++    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0cd5" />
++    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e030e" />
++    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e030f" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e0310" />
 +    <public type="color" name="bttv_mega" id="0x7f060278" />
 +    <public type="color" name="bttv_sonic" id="0x7f060279" />
-+    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d4f" />
-+    <public type="string" name="bttv_app_update_available" id="0x7f130d50" />
-+    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d51" />
-+    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d52" />
-+    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d53" />
-+    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d54" />
-+    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d55" />
-+    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d56" />
-+    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d57" />
-+    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d58" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d59" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d5a" />
-+    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130d5b" />
-+    <public type="string" name="bttv_updater_downloading" id="0x7f130d5c" />
-+    <public type="string" name="bttv_updater_downloading_version" id="0x7f130d5d" />
-+    <public type="string" name="bttv_updater_notice" id="0x7f130d5e" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130d5f" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130d60" />
-+    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130d61" />
-+    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130d62" />
-+    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080510" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d50" />
++    <public type="string" name="bttv_app_update_available" id="0x7f130d51" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d52" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d53" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d54" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d55" />
++    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d56" />
++    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d57" />
++    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d58" />
++    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d59" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d5a" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d5b" />
++    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130d5c" />
++    <public type="string" name="bttv_updater_downloading" id="0x7f130d5d" />
++    <public type="string" name="bttv_updater_downloading_version" id="0x7f130d5e" />
++    <public type="string" name="bttv_updater_notice" id="0x7f130d5f" />
++    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130d60" />
++    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130d61" />
++    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130d62" />
++    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130d63" />
++    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080514" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
