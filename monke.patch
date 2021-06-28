@@ -2000,7 +2000,7 @@ index f2a7c3301..d1dc71c66 100644
      move-result-object v1
  
 diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-index 0ba6c9ef3..d258eaa46 100644
+index 0ba6c9ef3..8020b5e2c 100644
 --- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 @@ -50,6 +50,12 @@
@@ -2011,7 +2011,7 @@ index 0ba6c9ef3..d258eaa46 100644
 +    #     expects:
 +    #     - p1: android.content.Context
 +    #     - p2: android.view.View
-+    invoke-static {p1, p2}, Lbttv/SleepTimer;->onInit(Landroid/content/Context;Landroid/view/View;)V
++    invoke-static {p1, p2}, Lbttv/api/SleepTimer;->onInit(Landroid/content/Context;Landroid/view/View;)V
 +    # /BTTV
      const/4 v0, 0x1
  
