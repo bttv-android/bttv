@@ -4,10 +4,10 @@
  */
 package tv.twitch.android.shared.emotes.emotepicker.models;
 
-import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
+import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter;
 
 public class EmoteUiModel {
-    public EmoteUiModel(String id, boolean isLockIconVisible, boolean isLongClickIconVisible,
-            ClickedEmote clickedEmote) {
+    public EmoteUiModel(String id, boolean isLockIconVisible, boolean isLonClickIconVisible,
+                        EmotePickerPresenter.ClickedEmote clickedEmote, boolean isAnimationIconVisible) {
     }
 }

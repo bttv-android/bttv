@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index a0ec2c459..8a310ef56 100644
+index 1a900ef0c..514f08889 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -1965,7 +1965,7 @@ index 338ed2b67..f862db3a5 100644
      .line 134
      iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-index 68436e045..ef0c4cd56 100644
+index 68436e045..81404c622 100644
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 @@ -182,6 +182,11 @@
@@ -1974,7 +1974,7 @@ index 68436e045..ef0c4cd56 100644
  
 +    # BTTV
 +    #  add bttv emotes to emote picker
-+    invoke-static {p1}, Lbttv/emote/EmotePicker;->extendList(Ljava/util/List;)V
++    invoke-static {p1}, Lbttv/api/EmotePicker;->extendList(Ljava/util/List;)V
 +    # /BTTV
 +
      .line 188
