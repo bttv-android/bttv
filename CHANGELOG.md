@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 # master
+
+# v0.8.1-beta
 - adds highlight keywords feature
 - fix issue related to formatting of strings
 - wide emotes are wide now
