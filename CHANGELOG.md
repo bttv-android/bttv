@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
+- update base to 11.1.0
 
 # v0.8.1-beta
 - adds highlight keywords feature
