@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
+- fix crash when opening friends page
 - fix broken strings
 
 # v0.8.1-beta
