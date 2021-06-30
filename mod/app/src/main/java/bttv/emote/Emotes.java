@@ -3,6 +3,8 @@ package bttv.emote;
 import android.content.Context;
 import android.util.Log;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -11,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import bttv.Network;
+import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
 
@@ -76,45 +79,34 @@ public class Emotes {
 
     public static Emote getEmote(Context ctx, String code, int channelId) {
         boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
-        boolean bttvGifEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVGifEmotesEnabled);
+        boolean gifEnabled = !ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_disabled);
         boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
         boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
 
-        if (ffzEnabled) {
-            Emote emote = globalEmotesFFZ.get(code);
-            if (emote != null) {
+        ArrayList<Map<String, Emote>> globals = new ArrayList<>(Arrays.asList(globalEmotesFFZ, globalEmotesBTTV, globalEmotes7TV));
+        ArrayList<Map<Integer, Set<String>>> channels = new ArrayList<>(Arrays.asList(channelEmotesFFZ, channelEmotesBTTV, channelEmotes7TV));
+        ArrayList<Boolean> enabled = new ArrayList<>(Arrays.asList(ffzEnabled, bttvEnabled, stvEnabled));
+
+        for (int i = 0; i < globals.size(); i++) {
+            boolean isEnabled = enabled.get(i);
+            if (!isEnabled) {
+                continue;
+            }
+
+            Map<String, Emote> global = globals.get(i);
+
+            Emote emote = global.get(code);
+            if (emote != null && (!emote.imageType.equals("gif") || gifEnabled)) {
                 return emote;
             }
-            Set<String> ffzSet = channelEmotesFFZ.get(channelId);
-            if (ffzSet != null && ffzSet.contains(code)) {
-                return codeEmoteMap.get(code);
-            }
-        }
 
-        if (bttvEnabled) {
-            Emote emote = globalEmotesBTTV.get(code);
-            if (emote != null) {
-                if (!emote.imageType.equals("gif") || bttvGifEnabled) {
-                    return emote;
-                }
-            }
-            Set<String> bttvSet = channelEmotesBTTV.get(channelId);
-            if (bttvSet != null && bttvSet.contains(code)) {
+            Map<Integer, Set<String>> channel = channels.get(i);
+            Set<String> set = channel.get(channelId);
+            if (set != null && set.contains(code)) {
                 emote = codeEmoteMap.get(code);
-                if (emote != null && (!emote.imageType.equals("gif") || bttvGifEnabled)) {
+                if (emote != null && (!emote.imageType.equals("gif") || gifEnabled)) {
                     return emote;
                 }
-            }
-        }
-
-        if (stvEnabled) {
-            Emote emote = globalEmotes7TV.get(code);
-            if (emote != null) {
-                return emote;
-            }
-            Set<String> stvSet = channelEmotes7TV.get(channelId);
-            if (stvSet != null && stvSet.contains(code)) {
-                return codeEmoteMap.get(code);
             }
         }
 

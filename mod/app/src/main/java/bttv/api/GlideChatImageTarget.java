@@ -5,18 +5,32 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.TextView;
 
+import bttv.Res;
+import bttv.ResUtil;
+import bttv.settings.Settings;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class GlideChatImageTarget {
 
     public static boolean getIsBttvEmote(tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget target) {
         UrlDrawable urlDrawable = target.mUrlDrawable;
+        return getIsBttvEmote(urlDrawable);
+    }
+
+    public static boolean getIsBttvEmote(tv.twitch.android.shared.ui.elements.span.UrlDrawable urlDrawable) {
         if (urlDrawable == null) {
-            Log.i("LBTTVDEBUG", "getIsBttvEmote: urlDrawable) is null");
+            Log.i("LBTTVChatImageTarget", "getIsBttvEmote: urlDrawable) is null");
             return false;
         }
         String url = urlDrawable.getUrl();
         return url.contains("betterttv.net") || url.contains("7tv.app"); // TODO: find better way of determining this
+    }
+
+    public static boolean shouldAnimateEmotes(tv.twitch.android.shared.ui.elements.span.UrlDrawable urlDrawable) {
+        if (!getIsBttvEmote(urlDrawable)) {
+            return true;
+        }
+        return ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate);
     }
 
     public static void setRenderingView(tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget target, TextView view) {

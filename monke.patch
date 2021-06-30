@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index c165f0b29..095862458 100644
+index c165f0b29..ab987dff6 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -147,7 +147,7 @@ index 6a4faa33f..e133b675c 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..9a64f13e5 100644
+index e5846b005..2bcba8469 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -196,10 +196,10 @@ index d5e15b24a..ba4d05894 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index d47cf5592..1b2ad2d94 100644
+index d47cf5592..250632c8e 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12690,4 +12690,43 @@
+@@ -12690,4 +12690,47 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -240,6 +240,10 @@ index d47cf5592..1b2ad2d94 100644
 +    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130d60" />
 +    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130d61" />
 +    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130d62" />
++    <public type="string" name="bttv_settings_gif_render_mode_title" id="0x7f130d63" />
++    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130d64" />
++    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130d65" />
++    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130d66" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080510" />
 +    <!-- /BTTV -->
  </resources>
@@ -2082,6 +2086,33 @@ index f2c300298..14f2d0831 100644
      return-void
  .end method
  
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
+index a98a5e577..9fb94c2bc 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
+@@ -71,7 +71,7 @@
+ 
+ # virtual methods
+ .method public draw(Landroid/graphics/Canvas;)V
+-    .locals 1
++    .locals 2 # BTTV 1 -> 2
+ 
+     const-string v0, "canvas"
+ 
+@@ -93,6 +93,13 @@
+     .line 34
+     check-cast v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
+ 
++    # BTTV
++    #     don't start gif if disabled
++    invoke-static {p0}, Lbttv/api/GlideChatImageTarget;->shouldAnimateEmotes(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;)Z
++    move-result v1
++    if-eqz v1, :cond_0
++    # /BTTV
++
+     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->start()V
+ 
+     :cond_0
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 index 46cdaa88e..f89941c92 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali

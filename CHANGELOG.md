@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
+- add static versions of Gif Emotes
 - fix crash when opening friends page
 - fix broken strings
 
