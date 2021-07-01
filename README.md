@@ -146,6 +146,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/GogaFroga"><img src="https://avatars.githubusercontent.com/u/80777820?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Artur</b></sub></a><br /><a href="#translation-GogaFroga" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/YOEL-44"><img src="https://avatars.githubusercontent.com/u/7842997?v=4?s=100" width="100px;" alt=""/><br /><sub><b>YOEL_44</b></sub></a><br /><a href="#translation-YOEL-44" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/albertopasqualetto"><img src="https://avatars.githubusercontent.com/u/39854348?v=4?s=100" width="100px;" alt=""/><br /><sub><b>albertopasqualetto</b></sub></a><br /><a href="#translation-albertopasqualetto" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/kendricktsoi"><img src="https://avatars.githubusercontent.com/u/53035976?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kendricktsoi</b></sub></a><br /><a href="#translation-kendricktsoi" title="Translation">🌍</a></td>
   </tr>
 </table>
 
