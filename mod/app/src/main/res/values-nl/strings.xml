@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Welkom bij\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Globale BTTV Emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanaal BTTV Emotes</string>
+    <string name="bttv_emote_picker_global_ffz">Globale FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanaal FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_global_7tv">Globale 7TV Emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanaal 7TV Emotes</string>
     <string name="bttv_app_update_available">bttv-android: Nieuwe update gedetecteerd</string>
     <string name="bttv_app_update_available_cta">Tik hier om de update te downloaden en te installeren.</string>
     <string name="bttv_sleep_timer_button_descr">Open Slaap Timer Dialoog</string>
     <string name="bttv_sleep_timer_select_dialog_title">Slaap Timer</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Slaap Timer annuleren</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">U heeft al een slaaptimer lopen. Wilt u deze annuleren?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotes</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Waarom zou je dit uitschakelen?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF Emotes</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emotes</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Automatisch ophalen Kanaal Punten</string>
 </resources>
