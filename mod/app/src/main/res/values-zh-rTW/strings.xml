@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">歡迎使用\nBetter Twitch</string>
+    <string name="bttv_app_update_available_cta">按此下載並安裝更新</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">你已經有一個睡眠計時器正在執行, 你要取消它嗎?</string>
 </resources>
