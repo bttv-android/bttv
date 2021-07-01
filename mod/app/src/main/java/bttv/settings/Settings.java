@@ -20,13 +20,20 @@ public enum Settings {
                 null
             )
     ),
-    BTTVGifEmotesEnabled(
-            new Entry.BoolEntry(
-                "enable_bttv_gif_emotes",
-                new Entry.BoolValue(true),
-                Res.strings.bttv_settings_enable_gif_emotes_primary,
-                null,
-                null
+    GifRenderMode(
+            new Entry.DropDownEntry(
+                    "bttv_gif_render_mode",
+                    new Entry.DropDownValue(
+                            new ArrayList<>(Arrays.asList(
+                                    Res.strings.bttv_settings_gif_render_mode_animate,
+                                    Res.strings.bttv_settings_gif_render_mode_static,
+                                    Res.strings.bttv_settings_gif_render_mode_disabled
+                            )),
+                            Res.strings.bttv_settings_gif_render_mode_animate
+                    ),
+                    Res.strings.bttv_settings_gif_render_mode_title,
+                    null,
+                    null
             )
     ),
     FFZEmotesEnabled(

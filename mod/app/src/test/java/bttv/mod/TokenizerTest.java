@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 
 import bttv.Data;
+import bttv.Res;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
@@ -135,6 +136,8 @@ public class TokenizerTest {
         when(mockContext.getSharedPreferences("BTTV", 0))
                 .thenReturn(mockPrefs);
         when(mockPrefs.getBoolean("enable_ffz_emotes", true)).thenReturn(true);
+        when(mockPrefs.getString("bttv_gif_render_mode", Res.strings.bttv_settings_gif_render_mode_animate.name()))
+                .thenReturn(Res.strings.bttv_settings_gif_render_mode_animate.name());
         Data.setContext(mockContext);
         Data.setCurrentBroadcasterId(10);
         Emotes.addChannelFFZ(10,

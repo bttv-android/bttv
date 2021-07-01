@@ -70,6 +70,9 @@ if [ $(find .tmp/disass | wc -l) != "1" ]; then
   $BUILD_COMPANION yml .tmp/base .tmp/disass/*/apktool.yml
 fi
 
+# fix apktool's &ltannotation bug
+sed -i 's/&lt;annotation/<annotation/g; s/&lt;\/annotation/<\/annotation/g' .tmp/base/res/values*/plurals.xml
+
 # remove android:isSplitRequired="true"
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
 

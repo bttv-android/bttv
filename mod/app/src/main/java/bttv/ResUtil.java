@@ -91,4 +91,16 @@ public class ResUtil {
         }
         return ((UserPreferences.Entry.StringSetEntry) settings.entry).get(Data.ctx).get();
     }
+
+    public static Res.strings getSelectedDropdownFromSettings(@NonNull Settings settings) {
+        if (!(settings.entry instanceof UserPreferences.Entry.DropDownEntry)) {
+            Log.e("LBTTVUtil", "getSelectedDropdownFromSettings: not a DropDownEntry: " + settings.entry);
+            return null;
+        }
+        return ((UserPreferences.Entry.DropDownEntry) settings.entry).get(Data.ctx).getSelected();
+    }
+
+    public static boolean selectedDropdownFromSettingsIs(@NonNull Settings settings, Res.strings cmp) {
+        return getSelectedDropdownFromSettings(settings) == cmp;
+    }
 }

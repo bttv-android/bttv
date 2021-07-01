@@ -26,11 +26,24 @@ public class Highlight {
     private static Set<String> highlightSet = null;
 
     public static Integer replaceNum(ChatMessageInterface chatMessageInterface, Integer num) {
+        if (chatMessageInterface == null) {
+            Log.w(TAG, "replaceNum: chatMessageInterface is null", new Exception());
+            return num;
+        }
         if (!(chatMessageInterface instanceof ChatMessageDelegate)) {
             Log.i(TAG, "replaceNum: " + chatMessageInterface + " is not a ChatMessageDelegate");
             return num;
         }
         ChatMessageDelegate delegate = (ChatMessageDelegate) chatMessageInterface;
+        if (delegate.mChatMessage == null) {
+            Log.w(TAG, "replaceNum: delegate.mChatMessage is null " + delegate, new Exception());
+            return num;
+        }
+        if (delegate.mChatMessage.messageType == null) {
+            Log.w(TAG, "replaceNum: delegate.mChatMessage.messageType is null " + delegate.mChatMessage, new Exception());
+            return num;
+        }
+
         if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")) {
             num = ResUtil.getResourceId(Res.colors.bttv_sonic);
         }
