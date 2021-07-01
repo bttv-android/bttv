@@ -55,9 +55,9 @@ index c165f0b29..ab987dff6 100644
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
 @@ -280,5 +292,18 @@
+         <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
-         <meta-data android:name="com.android.dynamic.apk.fused.modules" android:value="base"/>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"
