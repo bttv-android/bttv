@@ -77,6 +77,7 @@ sed -i 's/&lt;annotation/<annotation/g; s/&lt;\/annotation/<\/annotation/g' .tmp
 sed -i 's/android:isSplitRequired="true"//' .tmp/base/AndroidManifest.xml
 
 # remove vending data
+sed -i '/android:name="com.android.dynamic.apk.fused.modules"/d' .tmp/base/AndroidManifest.xml
 sed -i 's/com.android.vending.derived.apk.id" android:value="."/com.android.vending.derived.apk.id" android:value="1"/' .tmp/base/AndroidManifest.xml
 sed -i '/android:name="com.android.vending.splits.required"/d' .tmp/base/AndroidManifest.xml
 sed -i '/android:name="com.android.vending.splits"/d' .tmp/base/AndroidManifest.xml
