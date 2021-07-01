@@ -13,38 +13,36 @@ import java.util.TimerTask;
 
 import bttv.settings.Settings;
 
-@SuppressWarnings("unused")
 public class SleepTimer {
     private static Timer timer = null;
 
-    @SuppressWarnings("unused")
     public static void onInit(final Context context, final View view) {
-        try {
-            if (context == null) {
-                Log.e("LBTTVSleepTimer", "onInit(): context is null");
-                return;
-            }
-            if (view == null) {
-                Log.e("LBTTVSleepTimer", "onInit(): view is null");
-                return;
-            }
-            int timerButtonId = ResUtil.getResourceId(context, "bttv_sleep_timer_button", "id");
-            ImageView timerButtonView = view.findViewById(timerButtonId);
-
-            if (!ResUtil.getBooleanFromSettings(Settings.ShouldShowSleepTimer)) {
-                // User does not want to see button, make sure it's gone
-                timerButtonView.setVisibility(View.GONE);
-                return;
-            }
-
-            timerButtonView.setVisibility(View.VISIBLE);
-            timerButtonView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) { openDialog(context); }
-            });
-        } catch(Throwable t) {
-            Log.e("LBTTVSleepTimer", "onInit error: ", t);
+        if (context == null) {
+            Log.e("LBTTVSleepTimer", "onInit(): context is null");
+            return;
         }
+        if (view == null) {
+            Log.e("LBTTVSleepTimer", "onInit(): view is null");
+            return;
+        }
+        int timerButtonId = ResUtil.getResourceId(context, "bttv_sleep_timer_button", "id");
+        ImageView timerButtonView = view.findViewById(timerButtonId);
+        if (timerButtonView == null) {
+            Log.e("LBTTVSleepTimer", "timerButtonView is null");
+            return;
+        }
+
+        if (!ResUtil.getBooleanFromSettings(Settings.ShouldShowSleepTimer)) {
+            // User does not want to see button, make sure it's gone
+            timerButtonView.setVisibility(View.GONE);
+            return;
+        }
+
+        timerButtonView.setVisibility(View.VISIBLE);
+        timerButtonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { openDialog(context); }
+        });
     }
 
     private static void openDialog(@NonNull Context context) {

@@ -11,8 +11,7 @@ public class EmoteUiSet {
     }
 
     public final EmoteHeaderUiModel getHeader() {
-        return null;
-
+        throw new IllegalStateException("EmoteUiSet.getHeader() was called");
     }
 
     public final List<EmoteUiModel> getEmotes() {
