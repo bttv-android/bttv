@@ -28,4 +28,8 @@
     <string name="bttv_settings_open_highlights_dia_secondary">Otwiera Wyróżnienia</string>
     <string name="bttv_settings_highlights_dia_input_hint">Wprowadź Nowe Słowo Kluczowe</string>
     <string name="bttv_settings_highlights_dia_title">Zarządaj Wyróznionymi Słowami Kluczowymi</string>
+    <string name="bttv_settings_gif_render_mode_title">Emotki Gif</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animowane</string>
+    <string name="bttv_settings_gif_render_mode_static">Statyczne</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Wyłączone</string>
 </resources>
