@@ -145,7 +145,7 @@ public class UpdaterActivity extends AppCompatActivity {
     }
 
     private OkHttpClient getClient(final ProgressListener progressListener) {
-        return new OkHttpClient.Builder().connectTimeout(60, TimeUnit.MILLISECONDS).readTimeout(30, TimeUnit.SECONDS)
+        return new OkHttpClient.Builder().connectTimeout(30, TimeUnit.SECONDS).readTimeout(30, TimeUnit.SECONDS)
                 .addNetworkInterceptor(new Interceptor() {
                     @NotNull
                     @Override
