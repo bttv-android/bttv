@@ -54,7 +54,7 @@ rm -rf "$FINAL_TARGET"
 
 # move to target
 mv "$TMP_DIR/bttv" "$FINAL_TARGET"
-
+mv "$TMP_DIR/com" "$FINAL_TARGET/../com"
 
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
