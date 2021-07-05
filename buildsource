@@ -35,7 +35,7 @@ AAR_FILE=app/build/outputs/aar/app-debug.aar
 TMP_DIR=app/build/.bttv_tmp
 JAR_FILE="$TMP_DIR/classes.jar"
 DEX_FILE="$TMP_DIR/bttv.dex"
-FINAL_TARGET="../$TARGETDIR/smali_classes7/bttv"
+FINAL_TARGET="../$TARGETDIR/smali_classes7"
 RES_DIR="app/src/main/res"
 RES_TARGET="../$TARGETDIR/res"
 
@@ -49,12 +49,13 @@ $DX --dex --output "$DEX_FILE" "$JAR_FILE"
 $JAVA_PATH -jar $BAKSMALI_PATH d -o "$TMP_DIR" "$DEX_FILE"
 
 # remove dir if already exists
-mkdir -p "$FINAL_TARGET"
-rm -rf "$FINAL_TARGET"
+mkdir -p "$FINAL_TARGET/bttv"
+rm -rf "$FINAL_TARGET/bttv"
+rm -rf "$FINAL_TARGET/com"
 
 # move to target
-mv "$TMP_DIR/bttv" "$FINAL_TARGET"
-mv "$TMP_DIR/com" "$FINAL_TARGET/../com"
+mv "$TMP_DIR/bttv" "$FINAL_TARGET/."
+mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"

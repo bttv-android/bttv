@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index c165f0b29..ab987dff6 100644
+index 0564e0493..530612b4e 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -54,7 +54,7 @@ index c165f0b29..ab987dff6 100644
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
-@@ -280,5 +292,18 @@
+@@ -279,5 +291,18 @@
          <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
@@ -147,7 +147,7 @@ index 6a4faa33f..e133b675c 100644
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/stream_settings_talkback" />
          <ImageView android:id="@id/rotate_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_rotate" android:scaleType="fitCenter" android:contentDescription="@string/rotate_device" twitch:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..2bcba8469 100644
+index e5846b005..668172a2c 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -248,6 +248,21 @@ index d47cf5592..250632c8e 100644
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
+diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+index 41fd2e870..f283b65e6 100644
+--- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
++++ b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+@@ -110,6 +110,10 @@
+ 
+     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/integration/okhttp3/OkHttpLibraryGlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
+ 
++    # BTTV
++    invoke-static {p1, p2, p3}, Lbttv/api/Webp;->registerWebpDecoder(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
++    # /BTTV
++
+     .line 35
+     iget-object v0, p0, Lcom/bumptech/glide/GeneratedAppGlideModuleImpl;->appGlideModule:Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;
+ 
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 index 4a62e29d0..faae6aae2 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
