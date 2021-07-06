@@ -38,9 +38,11 @@ DEX_FILE="$TMP_DIR/bttv.dex"
 FINAL_TARGET="../$TARGETDIR/smali_classes7"
 RES_DIR="app/src/main/res"
 RES_TARGET="../$TARGETDIR/res"
+LIB_DIR="$TMP_DIR/jni"
+LIB_TARGET="../$TARGETDIR/lib"
 
 # extract classes from .aar
-unzip "$AAR_FILE" "classes.jar" -d "$TMP_DIR"
+unzip -o "$AAR_FILE" "classes.jar" "jni/**/*" -d "$TMP_DIR"
 
 # dex classes.jar
 $DX --dex --output "$DEX_FILE" "$JAR_FILE"
@@ -59,6 +61,7 @@ mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
+ls "$LIB_DIR" -1 | xargs -i cp -r "$LIB_DIR/{}" "$LIB_TARGET"
 
 # add strings
 $BUILD_COMPANION strings "$RES_DIR" "$RES_TARGET"
