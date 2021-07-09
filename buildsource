@@ -50,6 +50,9 @@ $DX --dex --output "$DEX_FILE" "$JAR_FILE"
 # baksmali .dex file
 $JAVA_PATH -jar $BAKSMALI_PATH d -o "$TMP_DIR" "$DEX_FILE"
 
+# replace BTTVDefaultConstructorMarker with DefaultConstructorMarker
+find "$TMP_DIR" -type f -exec sed -i -e 's/BTTVDefaultConstructorMarker/DefaultConstructorMarker/g' {} \;
+
 # remove dir if already exists
 mkdir -p "$FINAL_TARGET/bttv"
 rm -rf "$FINAL_TARGET/bttv"

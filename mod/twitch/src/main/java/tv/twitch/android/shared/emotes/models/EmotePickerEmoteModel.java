@@ -4,7 +4,7 @@
  */
 package tv.twitch.android.shared.emotes.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 
 public abstract class EmotePickerEmoteModel {
     public abstract String getId();
@@ -14,7 +14,7 @@ public abstract class EmotePickerEmoteModel {
     private EmotePickerEmoteModel() {
     }
 
-    public EmotePickerEmoteModel(DefaultConstructorMarker defaultConstructorMarker) {
+    public EmotePickerEmoteModel(BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
         this();
     }
 

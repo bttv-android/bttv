@@ -2,7 +2,7 @@ package bttv;
 
 import java.util.List;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
 import tv.twitch.android.sdk.SDKServicesController;
@@ -15,8 +15,8 @@ public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
                                         SDKServicesController sdkServicesController,
                                         ChatMessageParser chatMessageParser,
                                         int i,
-                                        DefaultConstructorMarker defaultConstructorMarker) {
-        super(chommentModel, sdkServicesController, chatMessageParser, i, defaultConstructorMarker);
+                                        BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
+        super(chommentModel, sdkServicesController, chatMessageParser, i, BTTVDefaultConstructorMarker);
     }
 
     @Override

@@ -6,7 +6,7 @@ package tv.twitch.android.shared.emotes.emotepicker;
 
 import java.util.List;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
 import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
 
@@ -17,7 +17,7 @@ public final class EmotePickerPresenter {
 
         }
 
-        public ClickedEmote(DefaultConstructorMarker defaultConstructorMarker) {
+        public ClickedEmote(BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
             this();
         }
 
@@ -38,7 +38,7 @@ public final class EmotePickerPresenter {
             public Unlocked(EmotePickerEmoteModel emote, EmoteMessageInput emoteMessageInput,
                     EmotePickerTrackingMetadata emotePickerTrackingMetadata,
                     List<EmotePickerPresenter.ClickedEmote.Unlocked> list, int i,
-                    DefaultConstructorMarker defaultConstructorMarker) {
+                    BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
                 this(emote, emoteMessageInput, emotePickerTrackingMetadata, list);
             }
 
