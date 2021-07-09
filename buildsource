@@ -31,6 +31,10 @@ bash gradlew build
 [ $? = 0 ] || exit 1
 
 # contants
+CONSUMER_APK=consumer/build/outputs/apk/release/consumer-release-unsigned.apk
+CONSUMER_TMP=consumer/build/.bttv_tmp
+CONSUMER_DEX="$CONSUMER_TMP/classes.dex"
+
 AAR_FILE=app/build/outputs/aar/app-debug.aar
 TMP_DIR=app/build/.bttv_tmp
 JAR_FILE="$TMP_DIR/classes.jar"
@@ -41,17 +45,19 @@ RES_TARGET="../$TARGETDIR/res"
 LIB_DIR="$TMP_DIR/jni"
 LIB_TARGET="../$TARGETDIR/lib"
 
-# extract classes from .aar
+# extract classes
 unzip -o "$AAR_FILE" "classes.jar" "jni/**/*" -d "$TMP_DIR"
+unzip -o "$CONSUMER_APK" "classes.dex" -d "$CONSUMER_TMP"
 
 # dex classes.jar
 $DX --dex --output "$DEX_FILE" "$JAR_FILE"
 
 # baksmali .dex file
 $JAVA_PATH -jar $BAKSMALI_PATH d -o "$TMP_DIR" "$DEX_FILE"
+$JAVA_PATH -jar $BAKSMALI_PATH d -o "$CONSUMER_TMP" "$CONSUMER_DEX"
 
 # replace BTTVDefaultConstructorMarker with DefaultConstructorMarker
-find "$TMP_DIR" -type f -exec sed -i -e 's/BTTVDefaultConstructorMarker/DefaultConstructorMarker/g' {} \;
+find "$TMP_DIR/bttv" -type f -exec sed -i -e 's/BTTVDefaultConstructorMarker/DefaultConstructorMarker/g' {} \;
 
 # remove dir if already exists
 mkdir -p "$FINAL_TARGET/bttv"
@@ -62,6 +68,8 @@ rm -rf "$FINAL_TARGET/com"
 mv "$TMP_DIR/bttv" "$FINAL_TARGET/."
 mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
+rsync -arv --ignore-existing "$CONSUMER_TMP/androidx/" "../$TARGETDIR/smali_classes8/androidx/"
+
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
 ls "$LIB_DIR" -1 | xargs -i cp -r "$LIB_DIR/{}" "$LIB_TARGET"
@@ -70,4 +78,5 @@ ls "$LIB_DIR" -1 | xargs -i cp -r "$LIB_DIR/{}" "$LIB_TARGET"
 $BUILD_COMPANION strings "$RES_DIR" "$RES_TARGET"
 
 # remove temp dir
-rm -rf "$TMP_DIR"
+rm -rf "$TMP_DIR" # "$CONSUMER_TMP"
+
