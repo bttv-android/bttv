@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Добро пожаловать на\nBetter Twitch</string>
+    <string name="login_landing_title">Добро пожаловать в \nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Глобальные BTTV эмоции</string>
     <string name="bttv_emote_picker_channel_bttv">Эмоции BTTV на канале</string>
     <string name="bttv_emote_picker_global_ffz">Глобальные FrankerFaceZ эмоции</string>
@@ -28,4 +28,8 @@
     <string name="bttv_settings_open_highlights_dia_secondary">Открыть выделенный диалог</string>
     <string name="bttv_settings_highlights_dia_input_hint">Введите новое ключевое слово</string>
     <string name="bttv_settings_highlights_dia_title">Настроить подсвечиваемые слова</string>
+    <string name="bttv_settings_gif_render_mode_title">Анимированные смайлы</string>
+    <string name="bttv_settings_gif_render_mode_animate">Анимированный</string>
+    <string name="bttv_settings_gif_render_mode_static">Статичный</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Отключено</string>
 </resources>
