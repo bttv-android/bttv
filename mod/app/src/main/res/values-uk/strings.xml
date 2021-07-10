@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="login_landing_title">Ласкаво просимо на\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Глобальні емоції BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">Емоції BTTV каналу</string>
+    <string name="bttv_settings_gif_render_mode_title">Анімовані емоції</string>
+    <string name="bttv_settings_gif_render_mode_animate">Анімовані</string>
+    <string name="bttv_settings_gif_render_mode_static">Статичний</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Виключено</string>
+</resources>
