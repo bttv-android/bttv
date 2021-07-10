@@ -3,6 +3,11 @@
     <string name="login_landing_title">Ласкаво просимо на\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Глобальні емоції BTTV</string>
     <string name="bttv_emote_picker_channel_bttv">Емоції BTTV каналу</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Показати таймер сну</string>
+    <string name="bttv_updater_downloading">Завантаження</string>
+    <string name="bttv_updater_downloading_version">Завантаження %s</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Введіть нове ключове слово</string>
+    <string name="bttv_settings_highlights_dia_title">Управління виділеними ключовими словами</string>
     <string name="bttv_settings_gif_render_mode_title">Анімовані емоції</string>
     <string name="bttv_settings_gif_render_mode_animate">Анімовані</string>
     <string name="bttv_settings_gif_render_mode_static">Статичний</string>
