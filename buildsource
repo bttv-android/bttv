@@ -68,7 +68,7 @@ rm -rf "$FINAL_TARGET/com"
 mv "$TMP_DIR/bttv" "$FINAL_TARGET/."
 mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
-rsync -arv --ignore-existing "$CONSUMER_TMP/androidx/" "../$TARGETDIR/smali_classes8/androidx/"
+rsync -ar --ignore-existing "$CONSUMER_TMP/androidx/" "../$TARGETDIR/smali_classes8/androidx/"
 
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
