@@ -149,6 +149,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/kendricktsoi"><img src="https://avatars.githubusercontent.com/u/53035976?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kendricktsoi</b></sub></a><br /><a href="#translation-kendricktsoi" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/ashamefuldog"><img src="https://avatars.githubusercontent.com/u/52229049?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ashamefuldog</b></sub></a><br /><a href="#ideas-ashamefuldog" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/Zeuxis29"><img src="https://avatars.githubusercontent.com/u/84096340?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Zeuxis29</b></sub></a><br /><a href="#translation-Zeuxis29" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/xplod62"><img src="https://avatars.githubusercontent.com/u/87228564?v=4?s=100" width="100px;" alt=""/><br /><sub><b>xplod62</b></sub></a><br /><a href="#ideas-xplod62" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
