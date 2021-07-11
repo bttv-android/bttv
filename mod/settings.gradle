@@ -1,3 +1,4 @@
 include ':twitch'
 include ':app'
 rootProject.name = "BTTV"
+include ':consumer'

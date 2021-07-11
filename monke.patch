@@ -248,6 +248,252 @@ index d47cf5592..250632c8e 100644
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
+diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+index 41fd2e870..f283b65e6 100644
+--- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
++++ b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+@@ -110,6 +110,10 @@
+ 
+     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/integration/okhttp3/OkHttpLibraryGlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
+ 
++    # BTTV
++    invoke-static {p1, p2, p3}, Lbttv/api/Webp;->registerWebpDecoder(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
++    # /BTTV
++
+     .line 35
+     iget-object v0, p0, Lcom/bumptech/glide/GeneratedAppGlideModuleImpl;->appGlideModule:Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;
+ 
+diff --git a/smali_classes3/com/bumptech/glide/Registry.smali b/smali_classes3/com/bumptech/glide/Registry.smali
+index 22f5cf244..5e58bea3c 100644
+--- a/smali_classes3/com/bumptech/glide/Registry.smali
++++ b/smali_classes3/com/bumptech/glide/Registry.smali
+@@ -265,6 +265,93 @@
+     return-object v0
+ .end method
+ 
++# BTTV
++
++.field public static final BUCKET_BITMAP:Ljava/lang/String; = "Bitmap"
++
++.field public static final BUCKET_BITMAP_DRAWABLE:Ljava/lang/String; = "BitmapDrawable"
++
++.field public static final BUCKET_GIF:Ljava/lang/String; = "Gif"
++
++
++.method public prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceEncoder<",
++            "TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    .line 335
++    iget-object v0, p0, Lcom/bumptech/glide/Registry;->resourceEncoderRegistry:Lcom/bumptech/glide/provider/ResourceEncoderRegistry;
++
++    invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/provider/ResourceEncoderRegistry;->prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++
++    return-object p0
++.end method
++
++.method public prepend(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Data:",
++            "Ljava/lang/Object;",
++            "TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TData;>;",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceDecoder<",
++            "TData;TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    const-string v0, "legacy_prepend_all"
++
++    .line 210
++    invoke-virtual {p0, v0, p1, p2, p3}, Lcom/bumptech/glide/Registry;->prepend(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++
++    return-object p0
++.end method
++
++.method public prepend(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Data:",
++            "Ljava/lang/Object;",
++            "TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/String;",
++            "Ljava/lang/Class<",
++            "TData;>;",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceDecoder<",
++            "TData;TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    .line 240
++    iget-object v0, p0, Lcom/bumptech/glide/Registry;->decoderRegistry:Lcom/bumptech/glide/provider/ResourceDecoderRegistry;
++
++    invoke-virtual {v0, p1, p4, p2, p3}, Lcom/bumptech/glide/provider/ResourceDecoderRegistry;->prepend(Ljava/lang/String;Lcom/bumptech/glide/load/ResourceDecoder;Ljava/lang/Class;Ljava/lang/Class;)V
++
++    return-object p0
++.end method
++# /BTTV
+ 
+ # virtual methods
+ .method public append(Ljava/lang/Class;Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/Registry;
+diff --git a/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali b/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
+index cc114db8a..6119e950a 100644
+--- a/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
++++ b/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
+@@ -81,7 +81,10 @@
+     goto :goto_0
+ 
+     :cond_1
+-    const/4 p1, 0x0
++    # BTTV
++    invoke-static {p1}, Lbttv/api/Glide;->getFirstFrame(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
++    move-result-object p1
++    # /BTTV
+ 
+     :goto_0
+     if-eqz v1, :cond_2
+diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
+index 621f5eb49..99f843cfa 100644
+--- a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
++++ b/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
+@@ -127,6 +127,57 @@
+     throw p1
+ .end method
+ 
++# BTTV
++.method public declared-synchronized prepend(Ljava/lang/String;Lcom/bumptech/glide/load/ResourceDecoder;Ljava/lang/Class;Ljava/lang/Class;)V
++    .locals 2
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<T:",
++            "Ljava/lang/Object;",
++            "R:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/String;",
++            "Lcom/bumptech/glide/load/ResourceDecoder<",
++            "TT;TR;>;",
++            "Ljava/lang/Class<",
++            "TT;>;",
++            "Ljava/lang/Class<",
++            "TR;>;)V"
++        }
++    .end annotation
++
++    monitor-enter p0
++
++    .line 91
++    :try_start_0
++    invoke-direct {p0, p1}, Lcom/bumptech/glide/provider/ResourceDecoderRegistry;->getOrAddEntryList(Ljava/lang/String;)Ljava/util/List;
++
++    move-result-object p1
++
++    const/4 v0, 0x0
++
++    new-instance v1, Lcom/bumptech/glide/provider/ResourceDecoderRegistry$Entry;
++
++    invoke-direct {v1, p3, p4, p2}, Lcom/bumptech/glide/provider/ResourceDecoderRegistry$Entry;-><init>(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)V
++
++    invoke-interface {p1, v0, v1}, Ljava/util/List;->add(ILjava/lang/Object;)V
++    :try_end_0
++    .catchall {:try_start_0 .. :try_end_0} :catchall_0
++
++    .line 92
++    monitor-exit p0
++
++    return-void
++
++    :catchall_0
++    move-exception p1
++
++    monitor-exit p0
++
++    throw p1
++.end method
++# /BTTV
+ 
+ # virtual methods
+ .method public declared-synchronized append(Ljava/lang/String;Lcom/bumptech/glide/load/ResourceDecoder;Ljava/lang/Class;Ljava/lang/Class;)V
+diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+index f0a19db4f..eacd0c1b9 100644
+--- a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
++++ b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+@@ -40,6 +40,50 @@
+     return-void
+ .end method
+ 
++# BTTV
++.method public declared-synchronized prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++    .locals 3
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Z:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TZ;>;",
++            "Lcom/bumptech/glide/load/ResourceEncoder<",
++            "TZ;>;)V"
++        }
++    .end annotation
++
++    monitor-enter p0
++
++    .line 25
++    :try_start_0
++    iget-object v0, p0, Lcom/bumptech/glide/provider/ResourceEncoderRegistry;->encoders:Ljava/util/List;
++
++    const/4 v1, 0x0
++
++    new-instance v2, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;
++
++    invoke-direct {v2, p1, p2}, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;-><init>(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++
++    invoke-interface {v0, v1, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
++    :try_end_0
++    .catchall {:try_start_0 .. :try_end_0} :catchall_0
++
++    .line 26
++    monitor-exit p0
++
++    return-void
++
++    :catchall_0
++    move-exception p1
++
++    monitor-exit p0
++
++    throw p1
++.end method
++# /BTTV
+ 
+ # virtual methods
+ .method public declared-synchronized append(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 index 4a62e29d0..faae6aae2 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
@@ -782,8 +1028,29 @@ index 0ba6c9ef3..d258eaa46 100644
      const/4 v0, 0x1
  
      .line 45
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+index 39febfb8b..b8e54241d 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+@@ -81,6 +81,16 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    #  starts animation when WebpDrawable
++    #     expects:
++    #       p1: android.graphics.drawable.Drawable
++    #       p0: this
++    #
++    iget-object p2, p0, Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1;->$drawableCallback:Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$drawableCallback$1;
++    invoke-static {p1, p2}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
++    # /BTTV
++
+     .line 104
+     instance-of p2, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
+ 
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-index 6aeb7db07..3aa8411de 100644
+index 6aeb7db07..5f12938d6 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 @@ -397,6 +397,10 @@
@@ -791,14 +1058,14 @@ index 6aeb7db07..3aa8411de 100644
      invoke-direct {v3, p0, v1, v4}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
  
 +    # BTTV
-+    invoke-static {v3, p2}, Lbttv/api/GlideChatImageTarget;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
++    invoke-static {v3, p2}, Lbttv/api/Glide;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
 +    # /BTTV
 +
      .line 70
      invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
  
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
-index f2c300298..14f2d0831 100644
+index f2c300298..8a62dce93 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 @@ -18,8 +18,9 @@
@@ -827,7 +1094,7 @@ index f2c300298..14f2d0831 100644
  
 +    # BTTV
 +    #  fix wide emotes
-+    invoke-static {p0}, Lbttv/api/GlideChatImageTarget;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;)Z
++    invoke-static {p0}, Lbttv/api/Glide;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;)Z
 +    move-result v3
 +    if-eqz v3, :not_bttv
 +    move p3, v0
@@ -842,14 +1109,14 @@ index f2c300298..14f2d0831 100644
      invoke-virtual {p2, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
  
 +    # BTTV
-+    invoke-static {p0, p1}, Lbttv/api/GlideChatImageTarget;->invalidateView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/graphics/drawable/Drawable;)V
++    invoke-static {p0, p1}, Lbttv/api/Glide;->invalidateView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/graphics/drawable/Drawable;)V
 +    # /BTTV
 +
      return-void
  .end method
  
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
-index a98a5e577..9fb94c2bc 100644
+index a98a5e577..9435263e5 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 @@ -71,7 +71,7 @@
@@ -867,7 +1134,7 @@ index a98a5e577..9fb94c2bc 100644
  
 +    # BTTV
 +    #     don't start gif if disabled
-+    invoke-static {p0}, Lbttv/api/GlideChatImageTarget;->shouldAnimateEmotes(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;)Z
++    invoke-static {p0}, Lbttv/api/Glide;->shouldAnimateEmotes(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;)Z
 +    move-result v1
 +    if-eqz v1, :cond_0
 +    # /BTTV

@@ -91,6 +91,10 @@ sed -i '/android:name="com.android.stamp.type"/d' .tmp/base/AndroidManifest.xml
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
+# move androidx
+mkdir .tmp/base/smali_classes8
+mv .tmp/base/smali/androidx .tmp/base/smali_classes8/.
+
 #
 # clean up
 #
