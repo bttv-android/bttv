@@ -1,13 +1,12 @@
 package bttv.api;
 
-import android.graphics.Rect;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.TextView;
 
-import bttv.Res;
-import bttv.ResUtil;
-import bttv.settings.Settings;
+import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
+
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
@@ -63,5 +62,12 @@ public class Glide {
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "startWebpDrawable: ", t);
         }
+    }
+
+    public static Bitmap getFirstFrame(Drawable drawable) {
+        if (drawable instanceof WebpDrawable) {
+            return ((WebpDrawable) drawable).getFirstFrame();
+        }
+        return null;
     }
 }

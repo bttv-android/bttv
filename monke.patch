@@ -361,6 +361,22 @@ index 22f5cf244..5e58bea3c 100644
  
  # virtual methods
  .method public append(Ljava/lang/Class;Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/Registry;
+diff --git a/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali b/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
+index cc114db8a..6119e950a 100644
+--- a/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
++++ b/smali_classes3/com/bumptech/glide/load/resource/bitmap/DrawableToBitmapConverter.smali
+@@ -81,7 +81,10 @@
+     goto :goto_0
+ 
+     :cond_1
+-    const/4 p1, 0x0
++    # BTTV
++    invoke-static {p1}, Lbttv/api/Glide;->getFirstFrame(Landroid/graphics/drawable/Drawable;)Landroid/graphics/Bitmap;
++    move-result-object p1
++    # /BTTV
+ 
+     :goto_0
+     if-eqz v1, :cond_2
 diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
 index 621f5eb49..99f843cfa 100644
 --- a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
