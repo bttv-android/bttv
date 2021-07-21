@@ -248,6 +248,63 @@ index d47cf5592..250632c8e 100644
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
+diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+index 4c42b30a8..408d20ff8 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+@@ -91,6 +91,11 @@
+ .method static doDecode(Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+     .locals 3
+ 
++    # BTTV
++    #  hard code old package name so auth works
++    const-string p0, "tv.twitch.android.app"
++    # /BTTV
++
+     .line 90
+     sget-object v0, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->LOG_TAG:Ljava/lang/String;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/AbstractAppIdentifier.smali b/smali_classes3/com/amazon/identity/auth/device/appid/AbstractAppIdentifier.smali
+index f0cd6a7c0..bebe6f316 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/appid/AbstractAppIdentifier.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/appid/AbstractAppIdentifier.smali
+@@ -59,6 +59,8 @@
+ .method public getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+     .locals 2
+ 
++    const-string p1, "tv.twitch.android.app"
++
+     .line 76
+     sget-object v0, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->LOG_TAG:Ljava/lang/String;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
+index 4b4fc0695..48f3dd2ec 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
+@@ -630,6 +630,8 @@
+         }
+     .end annotation
+ 
++    const-string p1, "tv.twitch.android.app"
++
+     .line 170
+     invoke-static {p0, p8}, Lcom/amazon/identity/auth/device/env/LWAEnvironment;->getEndpointDomainBuilder(Landroid/content/Context;Lcom/amazon/identity/auth/device/dataobject/AppInfo;)Lcom/amazon/identity/auth/device/env/AbstractEndpointDomainBuilder;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
+index 9ed229ace..2254759fb 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
+@@ -49,9 +49,7 @@
+     .line 57
+     sget-object v0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager;->appIdentifier:Lcom/amazon/identity/auth/device/appid/ThirdPartyAppIdentifier;
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     invoke-virtual {v0, v1, p1}, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+ 
 diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
 index 41fd2e870..f283b65e6 100644
 --- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali

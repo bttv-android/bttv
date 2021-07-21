@@ -56,7 +56,6 @@ public class Glide {
     }
 
     public static void startWebpDrawable(Drawable drawable, Drawable.Callback callback) {
-        Log.d("LBTTVGlide", "startWebpDrawable called ");
         try {
             bttv.emote.Glide.startWebpDrawable(drawable, callback);
         } catch (Throwable t) {
