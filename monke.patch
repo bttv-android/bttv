@@ -248,6 +248,58 @@ index d47cf5592..250632c8e 100644
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
+diff --git a/smali_classes3/com/amazon/identity/auth/device/api/authorization/AuthorizationManager.smali b/smali_classes3/com/amazon/identity/auth/device/api/authorization/AuthorizationManager.smali
+index 8e2a0e899..117315d97 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/api/authorization/AuthorizationManager.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/api/authorization/AuthorizationManager.smali
+@@ -40,9 +40,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v3
++    const-string v3, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -445,9 +443,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -685,9 +681,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/api/authorization/User.smali b/smali_classes3/com/amazon/identity/auth/device/api/authorization/User.smali
+index 55509a037..5db1496e9 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/api/authorization/User.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/api/authorization/User.smali
+@@ -176,9 +176,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
 diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
 index 4c42b30a8..408d20ff8 100644
 --- a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
@@ -290,8 +342,83 @@ index 4b4fc0695..48f3dd2ec 100644
      .line 170
      invoke-static {p0, p8}, Lcom/amazon/identity/auth/device/env/LWAEnvironment;->getEndpointDomainBuilder(Landroid/content/Context;Lcom/amazon/identity/auth/device/dataobject/AppInfo;)Lcom/amazon/identity/auth/device/env/AbstractEndpointDomainBuilder;
  
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationRequest.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationRequest.smali
+index 02d336904..3ed0e29c2 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationRequest.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationRequest.smali
+@@ -64,9 +64,7 @@
+ 
+     .line 41
+     :try_start_0
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/authorization/AuthorizationRequest;->clientId:Ljava/lang/String;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationResponseProcessor.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationResponseProcessor.smali
+index 28c067bf8..ec2328e7a 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationResponseProcessor.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationResponseProcessor.smali
+@@ -172,9 +172,7 @@
+     move-result-object v5
+ 
+     .line 44
+-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v4
++    const-string v4, "tv.twitch.android.app"
+ 
+     const/4 v7, 0x0
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
+index 7d4be9fea..b5fae341f 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
+@@ -140,9 +140,7 @@
+ 
+     iget-object v4, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$1;->val$context:Landroid/content/Context;
+ 
+-    invoke-virtual {v4}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v5
++    const-string v5, "tv.twitch.android.app"
+ 
+     iget-object v0, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$1;->this$0:Lcom/amazon/identity/auth/device/authorization/InternalAuthManager;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$2.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$2.smali
+index f17efcc08..d70440876 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$2.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$2.smali
+@@ -99,9 +99,7 @@
+     .line 115
+     iget-object v1, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$2;->val$context:Landroid/content/Context;
+ 
+-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     iget-object v0, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$2;->this$0:Lcom/amazon/identity/auth/device/authorization/InternalAuthManager;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$3.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$3.smali
+index a9d76e7cb..fc00f178d 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$3.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$3.smali
+@@ -122,9 +122,7 @@
+     :cond_2
+     iget-object v1, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$3;->val$context:Landroid/content/Context;
+ 
+-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     new-instance v3, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$3$1;
+ 
 diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
-index 9ed229ace..2254759fb 100644
+index 9ed229ace..a21259a32 100644
 --- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
 +++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager.smali
 @@ -49,9 +49,7 @@
@@ -304,6 +431,247 @@ index 9ed229ace..2254759fb 100644
 +    const-string v1, "tv.twitch.android.app"
  
      invoke-virtual {v0, v1, p1}, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+ 
+@@ -269,9 +267,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -355,9 +351,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -414,9 +408,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -521,9 +513,7 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1.smali
+index f15d2eae9..e5452094c 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1.smali
+@@ -111,9 +111,7 @@
+ 
+     iget-object v3, p0, Lcom/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1;->val$context:Landroid/content/Context;
+ 
+-    invoke-virtual {v3}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v4
++    const-string v4, "tv.twitch.android.app"
+ 
+     iget-object v5, p0, Lcom/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper$1;->val$clientId:Ljava/lang/String;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper.smali
+index 8fae0b814..d65bf37a5 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyAuthorizationHelper.smali
+@@ -162,9 +162,7 @@
+     .end annotation
+ 
+     .line 212
+-    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v0
++    const-string v0, "tv.twitch.android.app"
+ 
+     invoke-interface {p2, p3, v0, p1}, Lcom/amazon/identity/auth/device/authorization/AmazonAuthorizationServiceInterface;->authorize(Landroid/os/Bundle;Ljava/lang/String;[Ljava/lang/String;)Landroid/os/Bundle;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+index fb6fcfae7..e74866731 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+@@ -350,9 +350,7 @@
+ 
+     move-result-object p2
+ 
+-    invoke-virtual {p2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object p2
++    const-string p2, "tv.twitch.android.app"
+ 
+     goto :goto_0
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager.smali
+index ffe7c126c..beabf4bbd 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager.smali
+@@ -72,9 +72,7 @@
+     :cond_0
+     sget-object v0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->appIdentifier:Lcom/amazon/identity/auth/device/appid/ThirdPartyAppIdentifier;
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     invoke-virtual {v0, v1, p1}, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+ 
+@@ -254,9 +252,7 @@
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -278,9 +274,7 @@
+     .line 220
+     iget-object v1, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+@@ -339,9 +333,7 @@
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+@@ -363,9 +355,7 @@
+     .line 245
+     iget-object v1, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+-    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/authorization/api/AmazonAuthorizationManager;->mContext:Landroid/content/Context;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/bootstrapSSO/BootstrapSSOService.smali b/smali_classes3/com/amazon/identity/auth/device/bootstrapSSO/BootstrapSSOService.smali
+index 44670f514..88529927a 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/bootstrapSSO/BootstrapSSOService.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/bootstrapSSO/BootstrapSSOService.smali
+@@ -256,9 +256,7 @@
+     move-result-object v6
+ 
+     .line 67
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     invoke-static {p1, v1}, Lcom/amazon/identity/auth/device/bj;->c(Landroid/content/Context;Ljava/lang/String;)Ljava/util/Set;
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/dataobject/AppInfo.smali b/smali_classes3/com/amazon/identity/auth/device/dataobject/AppInfo.smali
+index 4ec2fec23..85fbfee7f 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/dataobject/AppInfo.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/dataobject/AppInfo.smali
+@@ -381,9 +381,7 @@
+     iget-object v0, p0, Lcom/amazon/identity/auth/device/dataobject/AppInfo;->packageName:Ljava/lang/String;
+ 
+     .line 200
+-    invoke-virtual {p1}, Lcom/amazon/identity/auth/device/dataobject/AppInfo;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v2
++    const-string v2, "tv.twitch.android.app"
+ 
+     invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/workflow/AmazonWorkflow.smali b/smali_classes3/com/amazon/identity/auth/device/workflow/AmazonWorkflow.smali
+index 9a74a3115..31aea84f8 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/workflow/AmazonWorkflow.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/workflow/AmazonWorkflow.smali
+@@ -167,9 +167,7 @@
+ 
+     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     invoke-virtual {p2, p1}, Lcom/amazon/identity/auth/device/workflow/WorkflowRequest;->getUrl(Landroid/content/Context;)Ljava/lang/String;
+ 
+@@ -404,9 +402,7 @@
+ 
+     const/4 v1, 0x0
+ 
+-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v3
++    const-string v3, "tv.twitch.android.app"
+ 
+     aput-object v3, v0, v1
+ 
+diff --git a/smali_classes3/com/amazon/identity/auth/device/workflow/WorkflowRequest.smali b/smali_classes3/com/amazon/identity/auth/device/workflow/WorkflowRequest.smali
+index 05b7ec4b3..38493273a 100644
+--- a/smali_classes3/com/amazon/identity/auth/device/workflow/WorkflowRequest.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/workflow/WorkflowRequest.smali
+@@ -87,9 +87,7 @@
+     .line 114
+     iget-object v0, p0, Lcom/amazon/identity/auth/device/workflow/WorkflowRequest;->appIdentifier:Lcom/amazon/identity/auth/device/appid/ThirdPartyAppIdentifier;
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     invoke-virtual {v0, v1, p1}, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
+ 
+@@ -122,9 +120,7 @@
+     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+ 
+     .line 100
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v1
++    const-string v1, "tv.twitch.android.app"
+ 
+     iget-object v2, p0, Lcom/amazon/identity/auth/device/workflow/WorkflowRequest;->workflowToken:Lcom/amazon/identity/auth/device/workflow/WorkflowToken;
+ 
+@@ -134,9 +130,7 @@
+ 
+     iget-object v3, p0, Lcom/amazon/identity/auth/device/workflow/WorkflowRequest;->appIdentifier:Lcom/amazon/identity/auth/device/appid/ThirdPartyAppIdentifier;
+ 
+-    invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+-
+-    move-result-object v4
++    const-string v4, "tv.twitch.android.app"
+ 
+     invoke-virtual {v3, v4, p1}, Lcom/amazon/identity/auth/device/appid/AbstractAppIdentifier;->getAppInfo(Ljava/lang/String;Landroid/content/Context;)Lcom/amazon/identity/auth/device/dataobject/AppInfo;
  
 diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
 index 41fd2e870..f283b65e6 100644
