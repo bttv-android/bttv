@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import bttv.Network;
 import bttv.Res;
@@ -47,7 +48,7 @@ public class Emotes {
     public static Map<Integer, Set<String>> channelEmotes7TV = new HashMap<>();
 
     // map emote to their code
-    private static final Map<String, Emote> codeEmoteMap = new HashMap<>();
+    private static final Map<String, Map<Integer, Emote>> codeEmoteMap = new HashMap<>();
 
     // map emote to their id
     private static final Map<String, Emote> idEmoteMap = new HashMap<>();
@@ -103,9 +104,12 @@ public class Emotes {
             Map<Integer, Set<String>> channel = channels.get(i);
             Set<String> set = channel.get(channelId);
             if (set != null && set.contains(code)) {
-                emote = codeEmoteMap.get(code);
-                if (emote != null && (!emote.imageType.equals("gif") || gifEnabled)) {
-                    return emote;
+                Map<Integer, Emote > channelEmoteMap = codeEmoteMap.get(code);
+                if (channelEmoteMap != null) {
+                    emote = channelEmoteMap.get(channelId);
+                    if (emote != null && (!emote.imageType.equals("gif") || gifEnabled)) {
+                        return emote;
+                    }
                 }
             }
         }
@@ -113,8 +117,14 @@ public class Emotes {
         return null;
     }
 
-    public static Emote getEmote(String code) {
-        return codeEmoteMap.get(code);
+    public static Emote getEmote(int channelId, String code) {
+        Map<Integer, Emote> channelEmoteMap = codeEmoteMap.get(code);
+        if (channelEmoteMap == null)
+            return null;
+        Emote emote = channelEmoteMap.get(channelId);
+        if (emote != null)
+            return emote;
+        return channelEmoteMap.get(0); // global
     }
 
     public static Emote getEmoteById(String id) {
@@ -150,7 +160,7 @@ public class Emotes {
         HashMap<String, Emote> map = new HashMap<>();
         for (Emote emote : emotes) {
             map.put(emote.code, emote);
-            addToCodeEmoteMap(emote);
+            addToCodeEmoteMap(0, emote);
             idEmoteMap.put(emote.id, emote);
         }
         switch (source) {
@@ -173,7 +183,7 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : emotes) {
             set.add(emote.code);
-            addToCodeEmoteMap(emote);
+            addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -185,12 +195,12 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : chEmData.channelEmotes) {
             set.add(emote.code);
-            addToCodeEmoteMap(emote);
+            addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
         }
         for (Emote emote : chEmData.sharedEmotes) {
             set.add(emote.code);
-            addToCodeEmoteMap(emote);
+            addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -204,7 +214,7 @@ public class Emotes {
         Set<String> set = new HashSet<>();
         for (Emote emote : emotes) {
             set.add(emote.code);
-            addToCodeEmoteMap(emote);
+            addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
         }
 
@@ -213,11 +223,18 @@ public class Emotes {
     }
 
 
-    private static void addToCodeEmoteMap(Emote emote) {
+    private static void addToCodeEmoteMap(int channelId, Emote emote) {
         String code = emote.code;
-        Emote existing = codeEmoteMap.get(code);
-        if (existing == null || existing.source.getPriority() <= emote.source.getPriority()) {
-            codeEmoteMap.put(code, emote);
+        Map<Integer, Emote> channelEmoteMap = codeEmoteMap.get(code); // get map channel -> Emote for code
+        if (channelEmoteMap == null) { // if code is not in map (for no channel) create it
+            Map<Integer, Emote> map = new TreeMap<>();
+            map.put(channelId, emote);
+            codeEmoteMap.put(code, map);
+        } else { // if exists for any channel, check if it does for this
+            Emote existing = channelEmoteMap.get(channelId);
+            if (existing == null || existing.source.getPriority() <= emote.source.getPriority()) { // replace if more important
+                channelEmoteMap.put(channelId, emote);
+            }
         }
     }
 
