@@ -3,23 +3,25 @@ package bttv.emote;
 import android.content.Context;
 import android.util.Log;
 
+import tv.twitch.android.shared.chat.emotecard.EmoteCardState;
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil;
 
 public class EmoteUrlUtil {
 
-    public static String generateEmoteUrl(String id, float f) {
-        return generateEmoteUrl(null, null, id, f);
+    public static String generateEmoteUrl(EmoteCardState.Loaded loaded) {
+        String id = loaded.emoteCardModel.emoteId;
+        String realId = extractBTTVId(id);
+        if (realId != null) {
+            return realIdToUrl(realId);
+        } else {
+            return loaded.emoteUrl;
+        }
     }
 
     public static String generateEmoteUrl(AnimatedEmotesUrlUtil util, Context context, String id, float f) {
-        if (id.startsWith("BTTV-")) {
-            String realId = id.split("BTTV-")[1];
-            Emote emote = Emotes.getEmoteById(realId);
-            if (emote == null) {
-                Log.w("LBTTVEmoteUrlUtil", "emote is null, fall back to bttv url, id was " + id);
-                return "https://cdn.betterttv.net/emote/" + realId + "/1x"; // gamble
-            }
-            return emote.url;
+        String realId = extractBTTVId(id);
+        if (realId != null) {
+            return realIdToUrl(realId);
         } else if (util != null) {
             return util.generateEmoteUrl(context, id, f);
         } else {
@@ -33,5 +35,21 @@ public class EmoteUrlUtil {
         } else {
             return util.getEmoteUrl(c, id);
         }
+    }
+
+    private static String extractBTTVId(String id) {
+        if (!id.startsWith("BTTV-")) {
+            return null;
+        }
+        return id.split("BTTV-")[1];
+    }
+
+    private static String realIdToUrl(String realId) {
+        Emote emote = Emotes.getEmoteById(realId);
+        if (emote == null) {
+            Log.w("LBTTVEmoteUrlUtil", "emote is null, fall back to bttv url, realId was " + realId);
+            return "https://cdn.betterttv.net/emote/" + realId + "/1x"; // gamble
+        }
+        return emote.url;
     }
 }
