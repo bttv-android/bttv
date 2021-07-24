@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 
 # master
 - support for animated webp emotes (7TV)
+- fix bug that prevented channels from overwriting each other's emotes
 
 # v0.8.2-beta
 - add static versions of Gif Emotes

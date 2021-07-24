@@ -97,7 +97,7 @@ public class EmotePicker {
         ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
 
         for (String code : set) {
-            Emote emote = Emotes.getEmote(code);
+            Emote emote = Emotes.getEmote(Data.currentBroadcasterId, code);
             list.add(emoteToModel(emote));
         }
         return list;
@@ -116,7 +116,7 @@ public class EmotePicker {
         ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
 
         for (String code : set) {
-            Emote emote = Emotes.getEmote(code);
+            Emote emote = Emotes.getEmote(Data.currentBroadcasterId, code);
             list.add(emoteToModel(emote));
         }
         return list;
@@ -135,7 +135,7 @@ public class EmotePicker {
         ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
 
         for (String code : set) {
-            Emote emote = Emotes.getEmote(code);
+            Emote emote = Emotes.getEmote(Data.currentBroadcasterId, code);
             list.add(emoteToModel(emote));
         }
         return list;
