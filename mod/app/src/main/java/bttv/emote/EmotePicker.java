@@ -141,7 +141,7 @@ public class EmotePicker {
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);
-        return new EmoteUiModel(id, false, false, clickedEmote, false);
+        return new EmoteUiModel(id, false, false, clickedEmote, false, EmoteModelAssetType.STATIC);
     }
 
 }
