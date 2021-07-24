@@ -28,4 +28,8 @@
     <string name="bttv_settings_open_highlights_dia_secondary">Abre el diálogo de destacados</string>
     <string name="bttv_settings_highlights_dia_input_hint">Introducir nueva palabra clave</string>
     <string name="bttv_settings_highlights_dia_title">Gestionar palabras clave destacadas</string>
+    <string name="bttv_settings_gif_render_mode_title">Emotes Gif</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animar</string>
+    <string name="bttv_settings_gif_render_mode_static">Estático</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Desactivado</string>
 </resources>

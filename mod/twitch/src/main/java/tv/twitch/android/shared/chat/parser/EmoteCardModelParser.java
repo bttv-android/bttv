@@ -1,5 +1,6 @@
 package tv.twitch.android.shared.chat.parser;
 
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.shared.chat.model.EmoteCardModel;
 
 public class EmoteCardModelParser {
@@ -18,7 +19,7 @@ public class EmoteCardModelParser {
         private EmoteCardModelResponse() {
         }
 
-        public EmoteCardModelResponse(kotlin.jvm.internal.DefaultConstructorMarker defaultConstructorMarker) {
+        public EmoteCardModelResponse(BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
             this();
         }
 

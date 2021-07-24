@@ -4,7 +4,7 @@
  */
 package tv.twitch.android.shared.emotes.emotepicker.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 
 public abstract class EmoteHeaderUiModel {
 
@@ -17,7 +17,7 @@ public abstract class EmoteHeaderUiModel {
     private EmoteHeaderUiModel() {
     }
 
-    public EmoteHeaderUiModel(DefaultConstructorMarker defaultConstructorMarker) {
+    public EmoteHeaderUiModel(BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
         this();
     }
 
@@ -38,7 +38,7 @@ public abstract class EmoteHeaderUiModel {
         }
 
         public EmoteHeaderStringResUiModel(int title, boolean isTopBorderVisible, EmotePickerSection emotePickerSection,
-                boolean isProfileUrlVisible, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+                boolean isProfileUrlVisible, int i2, BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
             this(title, isTopBorderVisible, emotePickerSection, isProfileUrlVisible);
         }
 

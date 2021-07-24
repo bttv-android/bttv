@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Benvenuto in\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Emote BTTV Globali</string>
+    <string name="bttv_emote_picker_channel_bttv">Emotes BTTV del Canale</string>
+    <string name="bttv_emote_picker_global_ffz">Emotes Globali FrankerFaceZ</string>
+    <string name="bttv_emote_picker_channel_ffz">Emotes FrankerFaceZ del Canale</string>
+    <string name="bttv_emote_picker_global_7tv">Emotes Globali 7TV</string>
+    <string name="bttv_emote_picker_channel_7tv">Emotes 7TV del Canale</string>
+    <string name="bttv_app_update_available">bttv-android: Rilevato nuovo aggiornamento</string>
+    <string name="bttv_app_update_available_cta">Tocca qui per scaricare e installare l\'aggiornamento.</string>
+    <string name="bttv_sleep_timer_button_descr">Apri la finestra del Timer spegnimento</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Timer spegnimento</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Cancella Timer spegnimento</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Hai già un Timer spegnimento in esecuzione. Vuoi cancellarlo?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Perché vuoi disattivarlo?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">Emotes GIF BTTV</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Riscatta automaticamente Punti Canale</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Mostra Timer spegnimento</string>
+    <string name="bttv_emote_added_by_bttv">Emote aggiunta da bttv-android</string>
+    <string name="bttv_updater_downloading">Download in corso</string>
+    <string name="bttv_updater_downloading_version">Download in corso: %s</string>
+    <string name="bttv_updater_notice">Se questa è la prima volta che usi l\'updater, consenti l\'installazione da questa fonte quando ti viene richiesto.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Evidenzia parole chiave</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Apre la finestra delle evidenziazioni</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Inserisci una parola chiave</string>
+    <string name="bttv_settings_highlights_dia_title">Gestisci parole chiave</string>
+    <string name="bttv_settings_gif_render_mode_title">Emotes Gif</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animato</string>
+    <string name="bttv_settings_gif_render_mode_static">Statico</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Disabilitato</string>
 </resources>

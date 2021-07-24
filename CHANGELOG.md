@@ -3,7 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 # master
-- update base to 11.1.0
+- support for animated webp emotes (7TV)
+- fix bug that prevented channels from overwriting each other's emotes
+
+# v0.8.2-beta
 - add static versions of Gif Emotes
 - fix crash when opening friends page
 - fix broken strings

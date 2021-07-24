@@ -6,7 +6,7 @@ package tv.twitch.android.shared.chat.chomments;
 
 import java.util.List;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
@@ -20,7 +20,7 @@ public class ChommentModelDelegate implements ChatMessageInterface {
                                  SDKServicesController sdkServicesController,
                                  ChatMessageParser chatMessageParser,
                                  int i,
-                                 DefaultConstructorMarker defaultConstructorMarker) {
+                                 BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
     }
 
     @Override
