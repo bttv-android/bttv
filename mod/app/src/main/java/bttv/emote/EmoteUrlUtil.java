@@ -7,6 +7,7 @@ import tv.twitch.android.shared.chat.emotecard.EmoteCardState;
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil;
 
 public class EmoteUrlUtil {
+    private static final String TAG = "LBTTVEMoteurlUtil";
 
     public static String generateEmoteUrl(EmoteCardState.Loaded loaded) {
         String id = loaded.emoteCardModel.emoteId;

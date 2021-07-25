@@ -854,6 +854,20 @@ index cb362b134..81e398db2 100644
  .super Ljava/lang/Object;
  .source "SourceFile"
  
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
+index a54ca9d58..e566291f8 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
+@@ -159,7 +159,8 @@
+     .locals 1
+ 
+     .line 41
+-    iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded;->emoteUrl:Ljava/lang/String;
++    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->generateEmoteUrl(Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded;)Ljava/lang/String;
++    move-result-object v0
+ 
+     return-object v0
+ .end method
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali
 index 79d4a1fd6..f4958c054 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali
