@@ -27,15 +27,6 @@ index 4d89846ac..d2a4fe1bc 100644
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -22,7 +34,7 @@
-     </queries>
-     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
--    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher"  android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
-+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher"  android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
-         <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
-         <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
-         <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
 @@ -122,10 +134,10 @@
              </intent-filter>
          </receiver>
@@ -84,22 +75,6 @@ index 4d89846ac..d2a4fe1bc 100644
 -</manifest>
 \ No newline at end of file
 +</manifest>
-diff --git a/apktool.yml b/apktool.yml
-index 1c01b9d20..1f7d578b7 100644
---- a/apktool.yml
-+++ b/apktool.yml
-@@ -120,6 +120,11 @@ doNotCompress:
- - lib/x86/librsjni_androidx.so
- - lib/x86/libsyendk.so
- - lib/x86/libtwitchsdk.so
-+- lib/arm64-v8a/libglide-webp.so
-+- lib/armeabi/libglide-webp.so
-+- lib/armeabi-v7a/libglide-webp.so
-+- lib/x86/libglide-webp.so
-+- lib/x86_64/libglide-webp.so
- - png
- - res/raw/test_video_data.data
- - resources.arsc
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
 --- a/res/drawable-v23/background_splash.xml
