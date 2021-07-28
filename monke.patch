@@ -1277,10 +1277,26 @@ index 6ad1470d4..2b35855b2 100644
  
      return-void
 diff --git a/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
-index 1925b7e8f..849c92b89 100644
+index 1925b7e8f..72dd1fc27 100644
 --- a/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
 +++ b/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
-@@ -756,7 +756,8 @@
+@@ -653,6 +653,15 @@
+ .method public static final generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
+     .locals 2
+ 
++    # BTTV
++    #  return our url if bttv emote
++    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :after_bttv
++    return-object v0
++    :after_bttv
++    # /BTTV
++
+     const-string v0, "id"
+ 
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+@@ -756,7 +765,8 @@
      goto :goto_0
  
      :cond_0
