@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
-- update to base v11.2.0
+- update to base v11.2.1
 - support for animated webp emotes (7TV)
 - fix bug that prevented channels from overwriting each other's emotes
 
