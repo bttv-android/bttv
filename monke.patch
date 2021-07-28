@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 4d89846ac..795f8782a 100644
+index 4d89846ac..d2a4fe1bc 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -27,6 +27,15 @@ index 4d89846ac..795f8782a 100644
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
+@@ -22,7 +34,7 @@
+     </queries>
+     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+-    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher"  android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
++    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:extractNativeLibs="false" android:icon="@mipmap/ic_launcher"  android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
+         <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
+         <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
+         <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
 @@ -122,10 +134,10 @@
              </intent-filter>
          </receiver>
@@ -72,8 +81,25 @@ index 4d89846ac..795f8782a 100644
 +            android:permission="android.permission.BIND_JOB_SERVICE"
 +        />
      </application>
- </manifest>
+-</manifest>
 \ No newline at end of file
++</manifest>
+diff --git a/apktool.yml b/apktool.yml
+index 1c01b9d20..1f7d578b7 100644
+--- a/apktool.yml
++++ b/apktool.yml
+@@ -120,6 +120,11 @@ doNotCompress:
+ - lib/x86/librsjni_androidx.so
+ - lib/x86/libsyendk.so
+ - lib/x86/libtwitchsdk.so
++- lib/arm64-v8a/libglide-webp.so
++- lib/armeabi/libglide-webp.so
++- lib/armeabi-v7a/libglide-webp.so
++- lib/x86/libglide-webp.so
++- lib/x86_64/libglide-webp.so
+ - png
+ - res/raw/test_video_data.data
+ - resources.arsc
 diff --git a/res/drawable-v23/background_splash.xml b/res/drawable-v23/background_splash.xml
 index 80b85907f..bb48b5a86 100644
 --- a/res/drawable-v23/background_splash.xml
@@ -965,6 +991,23 @@ index 6fbf366ee..d4f3f94ef 100644
      const-string v1, "chatMessageInfo"
  
      invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali b/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+index 4652cc2fa..851c59237 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+@@ -78,6 +78,12 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    #     expects:
++    #     - p1: List<tv.twitch.android.shared.emotes.models.EmoteSet>
++    invoke-static {p1}, Lbttv/api/Autocomplete;->addOurEmotes(Ljava/util/List;)V
++    # /BTTV
++
+     const-string v0, "it"
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali b/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
 index 916ed5c1a..11b6c4a70 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel$GlobalEmoteCardModel.smali
@@ -1233,3 +1276,33 @@ index 6ad1470d4..2b35855b2 100644
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
      return-void
+diff --git a/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
+index 1925b7e8f..72dd1fc27 100644
+--- a/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
++++ b/smali_classes6/tv/twitch/android/util/EmoteUrlUtil.smali
+@@ -653,6 +653,15 @@
+ .method public static final generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
+     .locals 2
+ 
++    # BTTV
++    #  return our url if bttv emote
++    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :after_bttv
++    return-object v0
++    :after_bttv
++    # /BTTV
++
+     const-string v0, "id"
+ 
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+@@ -756,7 +765,8 @@
+     goto :goto_0
+ 
+     :cond_0
+-    const/4 p0, 0x0
++    invoke-static {p1}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object p0
+ 
+     :goto_0
+     return-object p0

@@ -3,7 +3,6 @@ package bttv.emote;
 import android.content.Context;
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -236,6 +235,23 @@ public class Emotes {
                 channelEmoteMap.put(channelId, emote);
             }
         }
+    }
+
+    public static ArrayList<String> getAllEmotes(int channelId) {
+        ArrayList<String> keys = new ArrayList<>();
+
+        keys.addAll(globalEmotesFFZ.keySet());
+        keys.addAll(globalEmotesBTTV.keySet());
+        keys.addAll(globalEmotes7TV.keySet());
+
+        Set<String> set;
+        if ((set = channelEmotesFFZ.get(channelId)) != null)
+            keys.addAll(set);
+        if ((set = channelEmotesBTTV.get(channelId)) != null)
+            keys.addAll(set);
+        if ((set = channelEmotes7TV.get(channelId)) != null)
+            keys.addAll(set);
+        return keys;
     }
 
 }

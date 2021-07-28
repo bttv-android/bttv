@@ -38,6 +38,14 @@ public class EmoteUrlUtil {
         }
     }
 
+    public static String getEmoteUrl(String id) {
+        String realId = extractBTTVId(id);
+        if (realId == null) {
+            return null;
+        }
+        return realIdToUrl(realId);
+    }
+
     private static String extractBTTVId(String id) {
         if (!id.startsWith("BTTV-")) {
             return null;
