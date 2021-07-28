@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 # master
 
+# v0.9.1-beta
+- fix installation issue on some ABIs
+
 # v0.9.0-beta
 - update to base v11.2.1
 - support for animated webp emotes (7TV)
