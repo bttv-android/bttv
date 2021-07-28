@@ -3,12 +3,13 @@ package bttv.emote;
 import io.reactivex.Single;
 import tv.twitch.android.shared.chat.model.EmoteCardModel;
 import tv.twitch.android.shared.chat.parser.EmoteCardModelParser;
+import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
 
 public class EmoteCardUtil {
 
     public static class BTTVEmoteCardModel extends EmoteCardModel.GlobalEmoteCardModel {
         public BTTVEmoteCardModel(String emoteId, String token) {
-            super(emoteId, token);
+            super(emoteId, token, EmoteModelAssetType.STATIC);
         }
     }
 

@@ -2,6 +2,7 @@ package bttv.emote;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import android.content.Context;
@@ -16,11 +17,11 @@ import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet;
 import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
+import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
 import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
 
 public class EmotePicker {
 
-    @SuppressWarnings("unused")
     public static void extendList(List<EmoteUiSet> original) {
         int channel = Data.currentBroadcasterId;
         Context context = Data.ctx;
@@ -34,104 +35,85 @@ public class EmotePicker {
             return;
         }
 
-        try {
-            List<EmoteUiSet> preGlobalSets = new ArrayList<>(original.size());
-            List<EmoteUiSet> twitchGlobalSets = new ArrayList<>(original.size());
+        List<EmoteUiSet> preGlobalSets = new ArrayList<>(original.size());
+        List<EmoteUiSet> twitchGlobalSets = new ArrayList<>(original.size());
 
-            for (EmoteUiSet set : original) {
-                EmoteHeaderUiModel header = set.getHeader();
+        for (EmoteUiSet set : original) {
+            EmoteHeaderUiModel header = set.getHeader();
 
-                // ALL is the last section
-                if (header.getEmotePickerSection() == EmotePickerSection.ALL) {
-                    twitchGlobalSets.add(set);
-                } else {
-                    preGlobalSets.add(set);
-                }
+            // ALL is the last section
+            if (header.getEmotePickerSection() == EmotePickerSection.ALL) {
+                twitchGlobalSets.add(set);
+            } else {
+                preGlobalSets.add(set);
             }
-
-            original.clear();
-            original.addAll(preGlobalSets);
-
-            if (Emotes.channelEmotesBTTV.containsKey(channel)) {
-                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_bttv, EmotePickerSection.CHANNEL, getChannelBttvEmotes());
-                if (!set.getEmotes().isEmpty()) {
-                    original.add(set);
-                }
-            }
-
-            if (Emotes.channelEmotesFFZ.containsKey(channel)) {
-                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_ffz, EmotePickerSection.CHANNEL, getChannelFFZEmotes());
-                if (!set.getEmotes().isEmpty()) {
-                    original.add(set);
-                }
-            }
-
-            if (Emotes.channelEmotes7TV.containsKey(channel)) {
-                EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_7tv, EmotePickerSection.CHANNEL, getChannel7TVEmotes());
-                if (!set.getEmotes().isEmpty()) {
-                    original.add(set);
-                }
-            }
-
-            original.add(getUiSet(Res.strings.bttv_emote_picker_global_bttv, EmotePickerSection.ALL, getGlobalBttvEmotes()));
-            original.add(getUiSet(Res.strings.bttv_emote_picker_global_ffz, EmotePickerSection.ALL, getGlobalFFZEmotes()));
-            original.add(getUiSet(Res.strings.bttv_emote_picker_global_7tv, EmotePickerSection.ALL, getGlobal7TVEmotes()));
-
-            original.addAll(twitchGlobalSets);
-
-        } catch (Exception e) {
-            Log.e("LBTTVEmotePicker", "adding emotes to picker failed", e);
         }
+
+        original.clear();
+        original.addAll(preGlobalSets);
+
+        if (Emotes.channelEmotesBTTV.containsKey(channel)) {
+            EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_bttv, EmotePickerSection.CHANNEL, getChannelBttvEmotes());
+            if (!set.getEmotes().isEmpty()) {
+                original.add(set);
+            }
+        }
+
+        if (Emotes.channelEmotesFFZ.containsKey(channel)) {
+            EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_ffz, EmotePickerSection.CHANNEL, getChannelFFZEmotes());
+            if (!set.getEmotes().isEmpty()) {
+                original.add(set);
+            }
+        }
+
+        if (Emotes.channelEmotes7TV.containsKey(channel)) {
+            EmoteUiSet set = getUiSet(Res.strings.bttv_emote_picker_channel_7tv, EmotePickerSection.CHANNEL, getChannel7TVEmotes());
+            if (!set.getEmotes().isEmpty()) {
+                original.add(set);
+            }
+        }
+
+        original.add(getUiSet(Res.strings.bttv_emote_picker_global_bttv, EmotePickerSection.ALL, getGlobalBttvEmotes()));
+        original.add(getUiSet(Res.strings.bttv_emote_picker_global_ffz, EmotePickerSection.ALL, getGlobalFFZEmotes()));
+        original.add(getUiSet(Res.strings.bttv_emote_picker_global_7tv, EmotePickerSection.ALL, getGlobal7TVEmotes()));
+
+        original.addAll(twitchGlobalSets);
     }
 
     private static List<EmoteUiModel> getGlobalBttvEmotes() {
-        ArrayList<EmoteUiModel> list = new ArrayList<>(Emotes.globalEmotesBTTV.size());
-        for (Emote emote : Emotes.globalEmotesBTTV.values()) {
-            list.add(emoteToModel(emote));
-        }
-        return list;
+        return getGlobalEmotes(Emotes.globalEmotesBTTV);
     }
 
     private static List<EmoteUiModel> getChannelBttvEmotes() {
-        Set<String> set = Emotes.channelEmotesBTTV.get(Data.currentBroadcasterId);
-        ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
-
-        for (String code : set) {
-            Emote emote = Emotes.getEmote(Data.currentBroadcasterId, code);
-            list.add(emoteToModel(emote));
-        }
-        return list;
+        return getChannelEmotes(Emotes.channelEmotesBTTV);
     }
 
     private static List<EmoteUiModel> getGlobalFFZEmotes() {
-        ArrayList<EmoteUiModel> list = new ArrayList<>(Emotes.globalEmotesFFZ.size());
-        for (Emote emote : Emotes.globalEmotesFFZ.values()) {
-            list.add(emoteToModel(emote));
-        }
-        return list;
+        return getGlobalEmotes(Emotes.globalEmotesFFZ);
     }
 
     private static List<EmoteUiModel> getChannelFFZEmotes() {
-        Set<String> set = Emotes.channelEmotesFFZ.get(Data.currentBroadcasterId);
-        ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
-
-        for (String code : set) {
-            Emote emote = Emotes.getEmote(Data.currentBroadcasterId, code);
-            list.add(emoteToModel(emote));
-        }
-        return list;
+        return getChannelEmotes(Emotes.channelEmotesFFZ);
     }
 
     private static List<EmoteUiModel> getGlobal7TVEmotes() {
-        ArrayList<EmoteUiModel> list = new ArrayList<>(Emotes.globalEmotes7TV.size());
-        for (Emote emote : Emotes.globalEmotes7TV.values()) {
+        return getGlobalEmotes(Emotes.globalEmotes7TV);
+    }
+
+    private static List<EmoteUiModel> getChannel7TVEmotes() {
+        return getChannelEmotes(Emotes.channelEmotes7TV);
+    }
+
+    private static List<EmoteUiModel> getGlobalEmotes(Map<String, Emote> emoteMap) {
+        ArrayList<EmoteUiModel> list = new ArrayList<>(emoteMap.size());
+        for (Emote emote : emoteMap.values()) {
             list.add(emoteToModel(emote));
         }
         return list;
     }
 
-    private static List<EmoteUiModel> getChannel7TVEmotes() {
-        Set<String> set = Emotes.channelEmotes7TV.get(Data.currentBroadcasterId);
+    private static List<EmoteUiModel> getChannelEmotes(Map<Integer, Set<String>> emoteSetMap) {
+        Set<String> set = emoteSetMap.get(Data.currentBroadcasterId);
         ArrayList<EmoteUiModel> list = new ArrayList<>(set.size());
 
         for (String code : set) {
@@ -155,11 +137,11 @@ public class EmotePicker {
 
     private static EmoteUiModel emoteToModel(Emote emote) {
         String id = "BTTV-" + emote.id;
-        EmotePickerEmoteModel model = new EmotePickerEmoteModel.Generic(id, emote.code);
+        EmotePickerEmoteModel model = new EmotePickerEmoteModel.Generic(id, emote.code, EmoteModelAssetType.STATIC);
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);
-        return new EmoteUiModel(id, false, false, clickedEmote);
+        return new EmoteUiModel(id, false, false, clickedEmote, false, EmoteModelAssetType.STATIC);
     }
 
 }

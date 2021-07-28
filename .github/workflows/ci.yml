@@ -19,13 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: download base
-        run: wget https://www.dropbox.com/s/4afhhkxrduttn9c/twitch-11.0.0.apk\?\dl=1 -O twitch.apk
+        run: wget https://www.dropbox.com/s/2pc77f39z747b6y/twitch-11.2.1.zip\?\dl=1 -O twitch.zip
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
       - name: run build
-        run: docker run --rm -v $(pwd)/twitch.apk:/usr/build/twitch.apk -v $(pwd)/dist:/usr/build/dist -v $(pwd)/mod:/usr/build/mod -v $(pwd)/monke.patch:/usr/build/monke.patch -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
+        run: docker run --rm -v $(pwd)/twitch.zip:/usr/build/twitch.zip -v $(pwd)/dist:/usr/build/dist -v $(pwd)/mod:/usr/build/mod -v $(pwd)/monke.patch:/usr/build/monke.patch -v $(pwd)/keystore.jks:/usr/build/keystore.jks -e KS=/usr/build/keystore.jks -e KSPASS=${{ secrets.KSPASS }} ghcr.io/bttv-android/builder
       - name: print checksums
-        run: cp dist/twitch.apk bttv.apk && shasum *.apk
+        run: cp dist/twitch.apk bttv.apk && shasum *.apk *.zip
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'push' }}
         with:
