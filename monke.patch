@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ad5f0327a..738781b49 100644
+index 4d89846ac..795f8782a 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -495,7 +495,7 @@ index f0a19db4f..eacd0c1b9 100644
  # virtual methods
  .method public declared-synchronized append(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-index 1c94f0589..dbb8654c0 100644
+index 051dfb296..3912c99d0 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
