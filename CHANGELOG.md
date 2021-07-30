@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 
 # master
 
+# v0.9.2-beta
+- rebase to universal apk
+
 # v0.9.1-beta
 - fix installation issue on some ABIs
 
