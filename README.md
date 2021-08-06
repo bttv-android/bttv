@@ -153,6 +153,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/colahobi"><img src="https://avatars.githubusercontent.com/u/73035288?v=4?s=100" width="100px;" alt=""/><br /><sub><b>colahobi</b></sub></a><br /><a href="#ideas-colahobi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Epicnicity322"><img src="https://avatars.githubusercontent.com/u/13574419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Christiano Rangel</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3AEpicnicity322" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
