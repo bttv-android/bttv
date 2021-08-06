@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
+- subscription message are now parsed
 
 # v0.9.2-beta
 - rebase to universal apk
