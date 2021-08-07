@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Better Twitch\n\'e Hoş Geldiniz</string>
+    <string name="bttv_emote_picker_global_bttv">Genel BTTV Emojileri</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanalın BTTV Emojileri</string>
+    <string name="bttv_emote_picker_global_ffz">Genel FrankerFaceZ Emojileri</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanalın FrankerFaceZ Emojileri</string>
 </resources>
