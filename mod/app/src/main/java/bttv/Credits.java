@@ -10,6 +10,7 @@ import android.text.Annotation;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannedString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class Credits {
 
         TextView intoTv = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_credits_into_tv));
         intoTv.setText(linkify(activity, Res.strings.bttv_credits_intro));
+        intoTv.setMovementMethod(LinkMovementMethod.getInstance());
 
         try {
             addContributors(v, activity);
@@ -87,6 +89,7 @@ public class Credits {
                 );
                 TextView tv = new TextView(activity);
                 tv.setText(spannableString);
+                tv.setMovementMethod(LinkMovementMethod.getInstance());
                 v.addView(tv);
             }
         }
@@ -162,14 +165,7 @@ public class Credits {
         @Override
         public void onClick(@NonNull View widget) {
             Log.d(TAG, "CLICKED " + link_to);
-
-            Uri uri = Uri.parse(link_to);
-            String packageName = "com.android.browser";
-            String className = "com.android.browser.BrowserActivity";
-            Intent internetIntent = new Intent(Intent.ACTION_VIEW, uri);
-            internetIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-            internetIntent.setClassName(packageName, className);
-            activity.startActivity(internetIntent);
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link_to)));
         }
     }
 
