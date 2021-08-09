@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:theme="@android:style/Theme.Holo.Dialog">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/bttv_credits_title"
+        android:textColor="@color/text_base"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/bttv_credits_into_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/bttv_credits_intro"
+        android:textColor="@color/text_base"
+        android:textSize="15sp" />
+
+</LinearLayout>

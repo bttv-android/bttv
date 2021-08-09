@@ -14,12 +14,14 @@ public class Res {
         bttv_highlight_dia_input,
         bttv_highlight_dia_title,
         bttv_highlight_dia_list_text,
-        bttv_highlight_dia_list_btn
+        bttv_highlight_dia_list_btn,
+        bttv_credits_into_tv
     }
     public enum layouts {
         bttv_highlight_dialog,
         bttv_updater_activity,
-        bttv_highlight_list_view
+        bttv_highlight_list_view,
+        bttv_credits_dialog
     }
     public enum strings {
         app_name,
@@ -54,6 +56,12 @@ public class Res {
         bttv_settings_gif_render_mode_title,
         bttv_settings_gif_render_mode_animate,
         bttv_settings_gif_render_mode_static,
-        bttv_settings_gif_render_mode_disabled
+        bttv_settings_gif_render_mode_disabled,
+        bttv_settings_open_credits_button_title,
+        bttv_credits_title,
+        bttv_credits_intro,
+        bttv_credits_bugs,
+        bttv_credits_ideas,
+        bttv_credits_translations
     }
 }

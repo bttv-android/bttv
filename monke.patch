@@ -197,10 +197,10 @@ index df3aceb3d..4901b02d3 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 5f8a9bb43..75ae8ceb0 100644
+index 5f8a9bb43..e6b656fbb 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12809,4 +12809,47 @@
+@@ -12809,4 +12809,55 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -216,9 +216,11 @@ index 5f8a9bb43..75ae8ceb0 100644
 +    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0d0d" />
 +    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0d0e" />
 +    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0d0f" />
++    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0d10" />
 +    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e0319" />
 +    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e031a" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e031b" />
++    <public type="layout" name="bttv_credits_dialog" id="0x7f0e031c" />
 +    <public type="color" name="bttv_mega" id="0x7f060279" />
 +    <public type="color" name="bttv_sonic" id="0x7f06027a" />
 +    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d6f" />
@@ -245,6 +247,12 @@ index 5f8a9bb43..75ae8ceb0 100644
 +    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130d84" />
 +    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130d85" />
 +    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130d86" />
++    <public type="string" name="bttv_settings_open_credits_button_title" id="0x7f130d87" />
++    <public type="string" name="bttv_credits_title" id="0x7f130d88" />
++    <public type="string" name="bttv_credits_intro" id="0x7f130d89" />
++    <public type="string" name="bttv_credits_bugs" id="0x7f130d8a" />
++    <public type="string" name="bttv_credits_ideas" id="0x7f130d8b" />
++    <public type="string" name="bttv_credits_translations" id="0x7f130d8c" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080516" />
 +    <!-- /BTTV -->
  </resources>
@@ -647,16 +655,17 @@ index 5c700957a..45203ab38 100644
      iget-object p1, p0, Ltv/twitch/android/feature/viewer/main/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
  
 diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
-index f49d74b15..079ee31a3 100644
+index f49d74b15..3d314a533 100644
 --- a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -111,11 +111,29 @@
+@@ -111,11 +111,36 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
 +# BTTV
 +.field public static final enum BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +.field public static final enum BTTV_HIGHLIGHTS:Ltv/twitch/android/models/settings/SettingsDestination;
++.field public static final enum BTTV_CREDITS:Ltv/twitch/android/models/settings/SettingsDestination;
 +# /BTTV
  
  # direct methods
@@ -675,12 +684,18 @@ index f49d74b15..079ee31a3 100644
 +    const/16 v2, 0x2f
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV_HIGHLIGHTS:Ltv/twitch/android/models/settings/SettingsDestination;
++
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    const-string v1, "BTTV_CREDITS"
++    const/16 v2, 0x30
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV_CREDITS:Ltv/twitch/android/models/settings/SettingsDestination;
 +    # /BTTV
 +
      .line 9
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-@@ -686,6 +704,8 @@
+@@ -686,6 +711,8 @@
  
      sput-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
