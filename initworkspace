@@ -17,13 +17,15 @@ DX=${DX_FILES[0]}
 
 
 create_gitignore() {
-    echo ".gitignore" > .gitignore &&
-    echo "build" >> .gitignore &&
-    echo "dist" >> .gitignore &&
-    echo "lib" >> .gitignore &&
-    echo "smali*/androidx" >> .gitignore &&
-    echo "smali_classes7/bttv" >> .gitignore &&
-    echo "smali_classes7/com" >> .gitignore &&
+    cat << EOF > .gitignore &&
+.gitignore
+build
+dist
+lib
+smali*/androidx
+smali_classes7/bttv
+smali_classes7/com
+EOF
     find ../mod/app/src/main/res -type f | sed "s/..\/mod\/app\/src\/main\///" >> .gitignore &&
     echo "" >> .gitignore
 }
