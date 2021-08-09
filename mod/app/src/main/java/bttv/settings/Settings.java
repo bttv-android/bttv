@@ -88,6 +88,14 @@ public enum Settings {
                     null,
                     null
             )
+    ),
+    OpenCreditsButton(
+            new Entry.LinkEntry(
+                    Res.strings.bttv_settings_open_credits_button_title,
+                    null,
+                    null,
+                    SettingsDestination.BTTV_CREDITS
+            )
     );
 
     public final Entry entry;

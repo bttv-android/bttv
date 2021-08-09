@@ -60,6 +60,10 @@ rsync -ar --ignore-existing "$TMP_DIR/androidx/" "../$TARGETDIR/smali_classes8/a
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
 ls "$LIB_DIR" -1 | xargs -i cp -r "$LIB_DIR/{}" "$LIB_TARGET"
 
+# copy contributors
+rm -f "../$TARGETDIR/assets/bttv_contributors.json"
+cp "../.all-contributorsrc" "../$TARGETDIR/assets/bttv_contributors.json"
+
 # add strings
 $BUILD_COMPANION strings "$RES_DIR" "$RES_TARGET"
 
