@@ -32,4 +32,10 @@
     <string name="bttv_settings_gif_render_mode_animate">Animowane</string>
     <string name="bttv_settings_gif_render_mode_static">Statyczne</string>
     <string name="bttv_settings_gif_render_mode_disabled">Wyłączone</string>
+    <string name="bttv_settings_open_credits_button_title">Autorzy</string>
+    <string name="bttv_credits_title">Autorzy</string>
+    <string name="bttv_credits_intro">bttv-android został stworzony przez <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> z pomocą tych miłych ludzi:</string>
+    <string name="bttv_credits_bugs">Zgłaszanie Błędów</string>
+    <string name="bttv_credits_ideas">Pomysły</string>
+    <string name="bttv_credits_translations">Tłumaczenia</string>
 </resources>
