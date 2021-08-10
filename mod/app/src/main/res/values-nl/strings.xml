@@ -32,4 +32,10 @@
     <string name="bttv_settings_gif_render_mode_animate">Geanimeerd</string>
     <string name="bttv_settings_gif_render_mode_static">Stil</string>
     <string name="bttv_settings_gif_render_mode_disabled">Uitgeschakeld</string>
+    <string name="bttv_settings_open_credits_button_title">Met dank aan</string>
+    <string name="bttv_credits_title">Met dank aan</string>
+    <string name="bttv_credits_intro">bttv-android is gemaakt door <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> met behulp van deze lieve vertalers:</string>
+    <string name="bttv_credits_bugs">Foutmeldingen</string>
+    <string name="bttv_credits_ideas">Ideeën</string>
+    <string name="bttv_credits_translations">Vertalingen</string>
 </resources>
