@@ -3,6 +3,7 @@
 All notable changes to this project will be documented in this file.
 
 # master
+- bump base to 11.3.0
 - subscription message are now parsed
 
 # v0.9.2-beta
