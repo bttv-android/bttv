@@ -1,6 +1,9 @@
 # Changelog
 
-## master
+## v0.10.1-beta
+- minor changes
+
+## v0.10.0-beta
 - bump base to 11.3.0
 - subscription message are now parsed
 
