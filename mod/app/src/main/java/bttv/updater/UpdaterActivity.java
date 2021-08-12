@@ -33,6 +33,8 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
+import ru.noties.markwon.Markwon;
+import ru.noties.markwon.SpannableConfiguration;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
@@ -62,7 +64,7 @@ public class UpdaterActivity extends AppCompatActivity {
         titleView.setText(String.format(titleTemplate, newVersion));
 
         TextView bodyView = findViewById(bttv_updater_activity_body);
-        bodyView.setText(body);
+        bodyView.setText(Markwon.markdown(SpannableConfiguration.create(this), body));
 
         ProgressBar bar = findViewById(bttv_updater_activity_pb);
 
