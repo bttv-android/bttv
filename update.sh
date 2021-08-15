@@ -14,6 +14,7 @@ cp old/.git disass/. -r
 cd disass
 git add .
 git commit -m "new"
+git tag update
 git merge master
 git merge --abort
 
