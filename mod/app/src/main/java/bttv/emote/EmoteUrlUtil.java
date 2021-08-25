@@ -19,12 +19,12 @@ public class EmoteUrlUtil {
         }
     }
 
-    public static String generateEmoteUrl(AnimatedEmotesUrlUtil util, Context context, String id, float f) {
+    public static String generateEmoteUrl(AnimatedEmotesUrlUtil util, Context context, String id, float f, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting emoteUrlAnimationSetting) {
         String realId = extractBTTVId(id);
         if (realId != null) {
             return realIdToUrl(realId);
         } else if (util != null) {
-            return util.generateEmoteUrl(context, id, f);
+            return util.generateEmoteUrl(context, id, f, emoteUrlAnimationSetting);
         } else {
             return tv.twitch.android.util.EmoteUrlUtil.generateEmoteUrl(id, f);
         }
@@ -32,7 +32,7 @@ public class EmoteUrlUtil {
 
     public static String getEmoteUrl(AnimatedEmotesUrlUtil util, Context c, String id) {
         if (id.startsWith("BTTV-")) {
-            return EmoteUrlUtil.generateEmoteUrl(util, c, id, 1.0f);
+            return EmoteUrlUtil.generateEmoteUrl(util, c, id, 1.0f, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting.DEFAULT);
         } else {
             return util.getEmoteUrl(c, id);
         }
