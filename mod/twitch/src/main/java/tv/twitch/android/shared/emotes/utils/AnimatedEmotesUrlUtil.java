@@ -4,7 +4,7 @@ import android.content.Context;
 
 public class AnimatedEmotesUrlUtil {
 
-    public final String generateEmoteUrl(Context context, String emoticonId, float f, EmoteUrlAnimationSetting emoteUrlAnimationSetting) {
+    public final EmoteUrlDetails generateEmoteUrl(Context context, String emoticonId, float f, EmoteUrlAnimationSetting emoteUrlAnimationSetting) {
         throw new IllegalStateException("AnimatedEmotesUrlUtil.generateEmoteUrl() called");
     }
 
@@ -15,5 +15,12 @@ public class AnimatedEmotesUrlUtil {
     public enum EmoteUrlAnimationSetting {
         DEFAULT("default");
         EmoteUrlAnimationSetting(String s){};
+    }
+
+    public static class EmoteUrlDetails {
+        public EmoteUrlDetails(String emoteUrl, EmoteUrlAnimationSetting emoteUrlAnimationSetting) {}
+        public final String getEmoteUrl() {
+            return "";
+        }
     }
 }
