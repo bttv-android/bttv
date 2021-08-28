@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ad5f0327a..b25d52669 100644
+index ce6452f57..8ea043a50 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -197,7 +197,7 @@ index 81978a8c8..708fe13be 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 417972714..af221396d 100644
+index 9e1869781..45ff53f95 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -12867,4 +12867,55 @@
@@ -559,7 +559,7 @@ index 842c437dc..9b1c22570 100644
      invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
  
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-index 8bb13de8b..6a23d4955 100644
+index 515315b5f..bc0efdb09 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
@@ -686,6 +686,48 @@ index 1a29310a1..039ac3577 100644
 +    # /BTTV
  
      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+ 
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
+index ce27dff0b..609e5ca8a 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
+@@ -89,6 +89,11 @@
+ 
+     const/4 v6, 0x0
+ 
++    # BTTV
++    invoke-static {v1, p1}, Lbttv/api/SubscribeRedirect;->subscribe(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked;)V
++    goto :goto_0
++    # /BTTV
++
+     invoke-static/range {v1 .. v6}, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;->onSubscribeButtonClicked$feature_theatre_release$default(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/models/subscriptions/SubscriptionScreen;ILjava/lang/Object;)V
+ 
+     goto :goto_0
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
+index 8fe9d0fd3..95fff39d7 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
+@@ -23,7 +23,7 @@
+ 
+ 
+ # instance fields
+-.field private final activity:Landroidx/fragment/app/FragmentActivity;
++.field public final activity:Landroidx/fragment/app/FragmentActivity;
+ 
+ .field private final adMetadataPresenter:Ltv/twitch/android/feature/theatre/metadata/AdMetadataPresenter;
+ 
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
+index 7216cea34..441e60ce1 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
+@@ -15,7 +15,7 @@
+ 
+ 
+ # instance fields
+-.field private final channelModel:Ltv/twitch/android/models/channel/ChannelModel;
++.field public final channelModel:Ltv/twitch/android/models/channel/ChannelModel;
+ 
+ .field private final pageType:Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;
  
 diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 index f49d74b15..3d314a533 100644
