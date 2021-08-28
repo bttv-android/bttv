@@ -2,6 +2,7 @@
 
 ## v0.11.0-beta
 - update to base v11.4.0
+- "Subscribe"-Buttons now open web page
 
 ## v0.10.1-beta
 - minor changes
