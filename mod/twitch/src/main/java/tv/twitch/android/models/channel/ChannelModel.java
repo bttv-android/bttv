@@ -8,5 +8,8 @@ public class ChannelModel {
     /** returns id */
     public final int component1() {
         return 0;
-    }
+    } // getId()
+    public final String component2() {
+        return "";
+    } // getName()
 }
