@@ -1,10 +1,9 @@
 package tv.twitch.android.shared.chat.emotecard;
 
-import tv.twitch.android.shared.chat.model.EmoteCardModel;
+import tv.twitch.android.shared.chat.emotecard.EmoteCardUiModel;
 
 public abstract class EmoteCardState {
     public static class Loaded {
-        public String emoteUrl;
-        public EmoteCardModel emoteCardModel;
+        public EmoteCardUiModel getEmoteCardUiModel(){ throw new IllegalStateException(); }
     }
 }
