@@ -13,6 +13,7 @@ import bttv.Res;
 import bttv.ResUtil;
 import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
+import tv.twitch.android.shared.emotes.emotepicker.models.EmoteImageDescriptor;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet;
@@ -141,7 +142,7 @@ public class EmotePicker {
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);
-        return new EmoteUiModel(id, false, false, clickedEmote, false, EmoteModelAssetType.STATIC);
+        return new EmoteUiModel(id, clickedEmote, EmoteModelAssetType.STATIC, EmoteImageDescriptor.NONE);
     }
 
 }
