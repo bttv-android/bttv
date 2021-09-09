@@ -39,4 +39,5 @@
     <string name="bttv_credits_bugs">Bug Reports</string>
     <string name="bttv_credits_ideas">Ideas</string>
     <string name="bttv_credits_translations">Translations</string>
+    <string name="bttv_copied_to_clipboard">Username copied to clipboard</string>
 </resources>
