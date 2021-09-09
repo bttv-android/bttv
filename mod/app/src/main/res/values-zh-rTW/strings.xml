@@ -20,4 +20,8 @@
     <string name="bttv_settings_gif_render_mode_animate">動畫</string>
     <string name="bttv_settings_gif_render_mode_static">靜態</string>
     <string name="bttv_settings_gif_render_mode_disabled">已停用</string>
+    <string name="bttv_credits_bugs">程式錯誤報告</string>
+    <string name="bttv_credits_ideas">想法</string>
+    <string name="bttv_credits_translations">翻譯</string>
+    <string name="bttv_copied_to_clipboard">使用者名稱已複製到剪貼簿</string>
 </resources>
