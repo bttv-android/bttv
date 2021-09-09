@@ -197,10 +197,10 @@ index 81978a8c8..708fe13be 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 9e1869781..45ff53f95 100644
+index 9e1869781..575dcc6e2 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12867,4 +12867,55 @@
+@@ -12867,4 +12867,56 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -253,6 +253,7 @@ index 9e1869781..45ff53f95 100644
 +    <public type="string" name="bttv_credits_bugs" id="0x7f130d9f" />
 +    <public type="string" name="bttv_credits_ideas" id="0x7f130da0" />
 +    <public type="string" name="bttv_credits_translations" id="0x7f130da1" />
++    <public type="string" name="bttv_copied_to_clipboard" id="0x7f130da2" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080517" />
 +    <!-- /BTTV -->
  </resources>
@@ -716,6 +717,21 @@ index 8fe9d0fd3..95fff39d7 100644
  
  .field private final adMetadataPresenter:Ltv/twitch/android/feature/theatre/metadata/AdMetadataPresenter;
  
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+index 5312ed935..218c6db5a 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+@@ -369,6 +369,10 @@
+ 
+     move-result-object v1
+ 
++    # BTTV
++    invoke-static {v1}, Lbttv/Data;->setCurrentBroadcasterName(Ljava/lang/CharSequence;)V
++    # /BTTV
++
+     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+     .line 199
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
 index 7216cea34..441e60ce1 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
