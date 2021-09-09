@@ -1,5 +1,8 @@
 # Changelog
 
+## master
+- gift subs now redirect to sub web page
+
 ## v0.11.0-beta
 - update to base v11.4.0
 - "Subscribe"-Buttons now open web page
