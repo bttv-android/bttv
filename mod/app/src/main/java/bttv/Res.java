@@ -62,6 +62,7 @@ public class Res {
         bttv_credits_intro,
         bttv_credits_bugs,
         bttv_credits_ideas,
-        bttv_credits_translations
+        bttv_credits_translations,
+        bttv_copied_to_clipboard,
     }
 }

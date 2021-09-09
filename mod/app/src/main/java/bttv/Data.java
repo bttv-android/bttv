@@ -4,15 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import bttv.emote.ChannelEmoteData;
-import bttv.emote.Emote;
 import bttv.emote.Emotes;
-import bttv.settings.UserPreferences;
 import bttv.updater.UpdaterJobService;
 import tv.twitch.android.models.channel.ChannelModel;
 
@@ -20,6 +12,7 @@ public class Data {
     public static int currentBroadcasterId = -1;
     public static Context ctx;
 
+    public static String currentBroadcasterName = null;
 
     public static String getBttvVersion(Context context) {
         if (context == null) {
@@ -44,6 +37,11 @@ public class Data {
         Log.i("LBTTVSetBroadcasterId", currentBroadcasterId + " -> " + id);
         Data.currentBroadcasterId = id;
         Emotes.ensureChannelEmotes(ctx, id);
+    }
+
+    public static void setCurrentBroadcasterName(CharSequence name) {
+        Log.i("LBTTVSetBroadcasterName", currentBroadcasterName + " -> " + name);
+        Data.currentBroadcasterName = name.toString();
     }
 
     public static void setCurrentBroadcasterId(ChannelModel channel) {

@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ce6452f57..8ea043a50 100644
+index ce6452f57..f3de90a69 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -148,7 +148,7 @@ index f2b85353e..92d0ebd81 100644
          <ImageView android:id="@id/write_message_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_compose" android:contentDescription="@string/write_message_talkback" app:tint="@color/white" />
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/chat_settings_talkback" app:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..211d465ce 100644
+index e5846b005..3b20d0688 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -197,10 +197,10 @@ index 81978a8c8..708fe13be 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 9e1869781..45ff53f95 100644
+index 9e1869781..575dcc6e2 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12867,4 +12867,55 @@
+@@ -12867,4 +12867,56 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -253,6 +253,7 @@ index 9e1869781..45ff53f95 100644
 +    <public type="string" name="bttv_credits_bugs" id="0x7f130d9f" />
 +    <public type="string" name="bttv_credits_ideas" id="0x7f130da0" />
 +    <public type="string" name="bttv_credits_translations" id="0x7f130da1" />
++    <public type="string" name="bttv_copied_to_clipboard" id="0x7f130da2" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080517" />
 +    <!-- /BTTV -->
  </resources>
@@ -716,6 +717,21 @@ index 8fe9d0fd3..95fff39d7 100644
  
  .field private final adMetadataPresenter:Ltv/twitch/android/feature/theatre/metadata/AdMetadataPresenter;
  
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+index 5312ed935..218c6db5a 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+@@ -369,6 +369,10 @@
+ 
+     move-result-object v1
+ 
++    # BTTV
++    invoke-static {v1}, Lbttv/Data;->setCurrentBroadcasterName(Ljava/lang/CharSequence;)V
++    # /BTTV
++
+     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+     .line 199
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
 index 7216cea34..441e60ce1 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
@@ -779,6 +795,19 @@ index f49d74b15..3d314a533 100644
      const/16 v4, 0x2e
  
      new-array v4, v4, [Ltv/twitch/android/models/settings/SettingsDestination;
+diff --git a/smali_classes6/tv/twitch/android/models/social/ChatUser.smali b/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
+index 3965193a7..13392b364 100644
+--- a/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
++++ b/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
+@@ -26,7 +26,7 @@
+ 
+ .field private final userId:I
+ 
+-.field private final username:Ljava/lang/String;
++.field public final username:Ljava/lang/String;
+ 
+ 
+ # direct methods
 diff --git a/smali_classes6/tv/twitch/android/sdk/ChatController.smali b/smali_classes6/tv/twitch/android/sdk/ChatController.smali
 index 08f7a9179..8c820c86d 100644
 --- a/smali_classes6/tv/twitch/android/sdk/ChatController.smali
@@ -911,6 +940,40 @@ index 3e19d1849..6159c0e21 100644
      const-string v0, "emoteId"
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
+index 3e578bd85..2d6d7da84 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
+@@ -4,7 +4,7 @@
+ 
+ 
+ # instance fields
+-.field private final activity:Landroidx/fragment/app/FragmentActivity;
++.field public final activity:Landroidx/fragment/app/FragmentActivity;
+ 
+ .field private final blockedUsersManager:Ltv/twitch/android/shared/blocking/BlockedUsersManager;
+ 
+@@ -22,7 +22,7 @@
+ 
+ .field private final giftSubUserAction:Ltv/twitch/android/shared/chat/chatuserdialog/StandardGiftSubscriptionUserAction;
+ 
+-.field private final info:Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogInfo;
++.field public final info:Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogInfo;
+ 
+ .field private listeners:Ljava/util/Set;
+     .annotation system Ldalvik/annotation/Signature;
+@@ -598,6 +598,11 @@
+ 
+     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$setupClickHandlers$2;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
+ 
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SubscribeRedirect;->giftSubscriptionListener(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)Landroid/view/View$OnClickListener;
++    move-result-object v1
++    # /BTTV
++
+     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
+     .line 156
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 index f826730f4..88fd21f1b 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
