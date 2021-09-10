@@ -184,10 +184,10 @@ index 6aa15b3a2..dda11a886 100644
 +    <color name="bttv_sonic">#ff0014a5</color>
  </resources>
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 81978a8c8..708fe13be 100644
+index d6ab64515..1e4c38237 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -3076,4 +3076,8 @@
+@@ -3142,4 +3142,8 @@
      <item type="id" name="year_published" />
      <item type="id" name="you_were_watching" />
      <item type="id" name="zero_corner_chip" />
@@ -197,86 +197,110 @@ index 81978a8c8..708fe13be 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 9e1869781..575dcc6e2 100644
+index 593d6dce1..240131fb8 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -12867,4 +12867,56 @@
+@@ -12974,4 +12974,55 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <!-- BTTV -->
 +    <!-- generate ids using `build-companion ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0d20" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0d21" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0d22" />
-+    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0d23" />
-+    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0d24" />
-+    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0d25" />
-+    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0d26" />
-+    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0d27" />
-+    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0d28" />
-+    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0d29" />
-+    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e031e" />
-+    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e031f" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e0320" />
-+    <public type="layout" name="bttv_credits_dialog" id="0x7f0e0321" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0d62" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0d63" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0d64" />
++    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0d65" />
++    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0d66" />
++    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0d67" />
++    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0d68" />
++    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0d69" />
++    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0d6a" />
++    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0d6b" />
++    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e0322" />
++    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e0323" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e0324" />
++    <public type="layout" name="bttv_credits_dialog" id="0x7f0e0325" />
 +    <public type="color" name="bttv_mega" id="0x7f06027c" />
 +    <public type="color" name="bttv_sonic" id="0x7f06027d" />
-+    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d84" />
-+    <public type="string" name="bttv_app_update_available" id="0x7f130d85" />
-+    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d86" />
-+    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d87" />
-+    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d88" />
-+    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d89" />
-+    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d8a" />
-+    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d8b" />
-+    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d8c" />
-+    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d8d" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d8e" />
-+    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d8f" />
-+    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130d90" />
-+    <public type="string" name="bttv_updater_downloading" id="0x7f130d91" />
-+    <public type="string" name="bttv_updater_downloading_version" id="0x7f130d92" />
-+    <public type="string" name="bttv_updater_notice" id="0x7f130d93" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130d94" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130d95" />
-+    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130d96" />
-+    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130d97" />
-+    <public type="string" name="bttv_settings_gif_render_mode_title" id="0x7f130d98" />
-+    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130d99" />
-+    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130d9a" />
-+    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130d9b" />
-+    <public type="string" name="bttv_settings_open_credits_button_title" id="0x7f130d9c" />
-+    <public type="string" name="bttv_credits_title" id="0x7f130d9d" />
-+    <public type="string" name="bttv_credits_intro" id="0x7f130d9e" />
-+    <public type="string" name="bttv_credits_bugs" id="0x7f130d9f" />
-+    <public type="string" name="bttv_credits_ideas" id="0x7f130da0" />
-+    <public type="string" name="bttv_credits_translations" id="0x7f130da1" />
-+    <public type="string" name="bttv_copied_to_clipboard" id="0x7f130da2" />
-+    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080517" />
++    <public type="string" name="bttv_app_update_available_cta" id="0x7f130d92" />
++    <public type="string" name="bttv_app_update_available" id="0x7f130d93" />
++    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130d94" />
++    <public type="string" name="bttv_emote_picker_channel_bttv" id="0x7f130d95" />
++    <public type="string" name="bttv_emote_picker_global_ffz" id="0x7f130d96" />
++    <public type="string" name="bttv_emote_picker_channel_ffz" id="0x7f130d97" />
++    <public type="string" name="bttv_emote_picker_global_7tv" id="0x7f130d98" />
++    <public type="string" name="bttv_emote_picker_channel_7tv" id="0x7f130d99" />
++    <public type="string" name="bttv_sleep_timer_button_descr" id="0x7f130d9a" />
++    <public type="string" name="bttv_sleep_timer_select_dialog_title" id="0x7f130d9b" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130d9c" />
++    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130d9d" />
++    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130d9e" />
++    <public type="string" name="bttv_updater_downloading" id="0x7f130d9f" />
++    <public type="string" name="bttv_updater_downloading_version" id="0x7f130da0" />
++    <public type="string" name="bttv_updater_notice" id="0x7f130da1" />
++    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130da2" />
++    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130da3" />
++    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130da4" />
++    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130da5" />
++    <public type="string" name="bttv_settings_gif_render_mode_title" id="0x7f130da6" />
++    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130da7" />
++    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130da8" />
++    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130da9" />
++    <public type="string" name="bttv_settings_open_credits_button_title" id="0x7f130daa" />
++    <public type="string" name="bttv_credits_title" id="0x7f130dab" />
++    <public type="string" name="bttv_credits_intro" id="0x7f130dac" />
++    <public type="string" name="bttv_credits_bugs" id="0x7f130dad" />
++    <public type="string" name="bttv_credits_ideas" id="0x7f130dae" />
++    <public type="string" name="bttv_credits_translations" id="0x7f130daf" />
++    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08051e" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
-diff --git a/smali_classes2/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes2/tv/twitch/android/feature/viewer/main/MainActivity.smali
-index b0feae98d..f4de1a17e 100644
---- a/smali_classes2/tv/twitch/android/feature/viewer/main/MainActivity.smali
-+++ b/smali_classes2/tv/twitch/android/feature/viewer/main/MainActivity.smali
-@@ -1502,6 +1502,14 @@
+diff --git a/smali/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
+index 6ad1470d4..2b35855b2 100644
+--- a/smali/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
++++ b/smali/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
+@@ -97,12 +97,15 @@
  
-     invoke-virtual {p1, v0}, Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
+ .field public static final enum SmartFeed:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+ 
++# BTTV
++.field public static final enum BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
++# /BTTV
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+     .locals 4
+ 
+-    const/16 v0, 0x24
++    const/16 v0, 0x25 # length of values array
+ 
+     new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+ 
+@@ -566,6 +569,22 @@
+ 
+     aput-object v1, v0, v2
  
 +    # BTTV
-+    #  Check for Updates
 +    #     expects:
-+    #       p0: android.app.Activity
-+    #       p1: tv/twitch/android/app/core/navigation/PersistentBannerPresenter
-+    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
++    #       v0: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
++    #     sets:
++    #       v1: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
++    #       v2: java.lang.String
++    #       v2: I
++    #       v3: I
++    new-instance v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
++    const-string v2, "BTTVEmotesEnabled"
++    const/16 v3, 0x24
++    invoke-direct {v1, v2, v3}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
++    const/16 v2, 0x24
++    aput-object v1, v0, v2
 +    # /BTTV
 +
-     .line 361
-     iget-object p1, p0, Ltv/twitch/android/feature/viewer/main/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
+     sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
+     return-void
 diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
 index 41fd2e870..f283b65e6 100644
 --- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
@@ -523,44 +547,8 @@ index f0a19db4f..eacd0c1b9 100644
  
  # virtual methods
  .method public declared-synchronized append(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
-diff --git a/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
-index 4807202e6..41f3b6da0 100644
---- a/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
-+++ b/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
-@@ -81,6 +81,16 @@
-         }
-     .end annotation
- 
-+    # BTTV
-+    #  starts animation when WebpDrawable
-+    #     expects:
-+    #       p1: android.graphics.drawable.Drawable
-+    #       p0: this
-+    #
-+    iget-object p2, p0, Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1;->$drawableCallback:Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$drawableCallback$1;
-+    invoke-static {p1, p2}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
-+    # /BTTV
-+
-     .line 122
-     instance-of p2, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
- 
-diff --git a/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-index 842c437dc..9b1c22570 100644
---- a/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-+++ b/smali_classes3/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-@@ -377,6 +377,10 @@
- 
-     invoke-direct {v0, p0, p1, v1}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
- 
-+    # BTTV
-+    invoke-static {v0, p2}, Lbttv/api/Glide;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
-+    # /BTTV
-+
-     .line 90
-     invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
- 
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-index 515315b5f..bc0efdb09 100644
+index 491cd9c64..72a1aa69f 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
@@ -578,11 +566,11 @@ index 515315b5f..bc0efdb09 100644
      .line 98
      invoke-static {p0}, Lcom/google/firebase/FirebaseApp;->initializeApp(Landroid/content/Context;)Lcom/google/firebase/FirebaseApp;
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-index d671f93ef..2fac6a8c8 100644
+index 9c6b3c6a5..5562df11b 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 @@ -884,9 +884,23 @@
-     .line 6805
+     .line 6844
      iput-object p2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->settingsActivityModule:Ltv/twitch/android/settings/dagger/SettingsActivityModule;
  
 +    # BTTV
@@ -592,7 +580,7 @@ index d671f93ef..2fac6a8c8 100644
 +    invoke-static {p2}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
 +    # /BTTV
 +
-     .line 6806
+     .line 6845
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->activityModule:Ltv/twitch/android/app/core/dagger/modules/ActivityModule;
  
 +    # BTTV
@@ -602,7 +590,7 @@ index d671f93ef..2fac6a8c8 100644
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
 +    # /BTTV
 +
-     .line 6807
+     .line 6846
      invoke-direct {p0, p2, p3, p4}, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->initialize(Ltv/twitch/android/settings/dagger/SettingsActivityModule;Ltv/twitch/android/app/core/dagger/modules/ActivityModule;Ltv/twitch/android/settings/SettingsActivity;)V
  
 @@ -1494,6 +1508,12 @@
@@ -616,7 +604,7 @@ index d671f93ef..2fac6a8c8 100644
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
  
-     .line 7199
+     .line 7238
      invoke-static {}, Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;->create()Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;
 @@ -2260,7 +2280,19 @@
      iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->connectionsSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
@@ -640,10 +628,10 @@ index d671f93ef..2fac6a8c8 100644
  
      iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->accountSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-index b4acbc5c2..63b728355 100644
+index 0c66e3671..d55bb993a 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent.smali
-@@ -9926,6 +9926,13 @@
+@@ -9976,6 +9976,13 @@
  
      iput-object v2, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent;->pageViewTrackerProvider:Ljavax/inject/Provider;
  
@@ -654,7 +642,7 @@ index b4acbc5c2..63b728355 100644
 +    invoke-static {v2}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
 +
-     .line 5961
+     .line 5997
      iget-object v3, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent;->provideTwitchAccountManagerProvider:Ljavax/inject/Provider;
  
 diff --git a/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBanners.smali
@@ -689,7 +677,7 @@ index 1a29310a1..039ac3577 100644
      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
  
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
-index ce27dff0b..609e5ca8a 100644
+index a439d56c3..ed9adca4c 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 @@ -89,6 +89,11 @@
@@ -705,7 +693,7 @@ index ce27dff0b..609e5ca8a 100644
  
      goto :goto_0
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
-index 8fe9d0fd3..95fff39d7 100644
+index 1e453b0d6..d08115e00 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
 @@ -23,7 +23,7 @@
@@ -744,6 +732,25 @@ index 7216cea34..441e60ce1 100644
 +.field public final channelModel:Ltv/twitch/android/models/channel/ChannelModel;
  
  .field private final pageType:Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;
+ 
+diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
+index b0feae98d..f4de1a17e 100644
+--- a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
++++ b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
+@@ -1502,6 +1502,14 @@
+ 
+     invoke-virtual {p1, v0}, Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
+ 
++    # BTTV
++    #  Check for Updates
++    #     expects:
++    #       p0: android.app.Activity
++    #       p1: tv/twitch/android/app/core/navigation/PersistentBannerPresenter
++    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
++    # /BTTV
++
+     .line 361
+     iget-object p1, p0, Ltv/twitch/android/feature/viewer/main/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
  
 diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 index f49d74b15..3d314a533 100644
@@ -1008,54 +1015,39 @@ index cb362b134..81e398db2 100644
  .super Ljava/lang/Object;
  .source "SourceFile"
  
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
-index a54ca9d58..e566291f8 100644
---- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded.smali
-@@ -159,7 +159,8 @@
-     .locals 1
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.smali
+index cebe734c1..94f45d852 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.smali
+@@ -26,7 +26,7 @@
  
-     .line 41
--    iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded$GenericEmoteCardLoaded;->emoteUrl:Ljava/lang/String;
-+    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->generateEmoteUrl(Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded;)Ljava/lang/String;
+ # direct methods
+ .method private constructor <init>(Ltv/twitch/android/shared/chat/model/EmoteCardModel;ZLjava/lang/String;)V
+-    .locals 0
++    .locals 1
+ 
+     .line 13
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+@@ -35,7 +35,12 @@
+ 
+     iput-boolean p2, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;->isEmoteAnimationIconVisible:Z
+ 
+-    iput-object p3, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;->emoteUrl:Ljava/lang/String;
++    # BTTV
++    invoke-static {p1, p3}, Lbttv/emote/EmoteCardUtil;->maybeReplaceEmoteCardUiModelEmoteUrl(Ltv/twitch/android/shared/chat/model/EmoteCardModel;Ljava/lang/String;)Ljava/lang/String;
 +    move-result-object v0
++    # /BTTV
++
++    iput-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;->emoteUrl:Ljava/lang/String;
  
-     return-object v0
- .end method
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali
-index 79d4a1fd6..f4958c054 100644
---- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded.smali
-@@ -26,11 +26,11 @@
- 
- 
- # instance fields
--.field private final emoteCardModel:Ltv/twitch/android/shared/chat/model/EmoteCardModel;
-+.field public final emoteCardModel:Ltv/twitch/android/shared/chat/model/EmoteCardModel;
- 
- .field private final emoteCardTrackingMetadata:Ltv/twitch/android/models/emotecard/EmoteCardTrackingMetadata;
- 
--.field private final emoteUrl:Ljava/lang/String;
-+.field public final emoteUrl:Ljava/lang/String;
- 
- .field private final isEmoteAnimationIconVisible:Z
- 
-@@ -88,7 +88,8 @@
-     .locals 1
- 
-     .line 24
--    iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded;->emoteUrl:Ljava/lang/String;
-+    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->generateEmoteUrl(Ltv/twitch/android/shared/chat/emotecard/EmoteCardState$Loaded;)Ljava/lang/String;
-+    move-result-object v0
- 
-     return-object v0
+     return-void
  .end method
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-index 48c9906c8..a82507e0e 100644
+index 5e32897bc..2c7db33ed 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 @@ -1509,6 +1509,17 @@
-     .line 180
+     .line 186
      iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->emoteDesc:Landroid/widget/TextView;
  
 +    instance-of v1, p1, Lbttv/emote/EmoteCardUtil$BTTVEmoteCardModel;
@@ -1069,14 +1061,14 @@ index 48c9906c8..a82507e0e 100644
 +
 +    :after_bttv
 +
-     .line 181
+     .line 187
      instance-of v1, p1, Ltv/twitch/android/shared/chat/model/EmoteCardModel$ChannelPointsEmoteCardModel;
  
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-index cdf7badcb..1dec08e8e 100644
+index 83c076037..d03231154 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-@@ -580,6 +580,12 @@
+@@ -620,6 +620,12 @@
      goto :goto_2
  
      :cond_3
@@ -1088,25 +1080,25 @@ index cdf7badcb..1dec08e8e 100644
 +
      if-eqz p12, :cond_4
  
-     .line 673
-@@ -1252,7 +1258,15 @@
+     .line 672
+@@ -1297,7 +1303,15 @@
  
-     const/high16 v5, 0x40000000    # 2.0f
+     sget-object v6, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;->STATIC:Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;
  
--    invoke-virtual {v0, v2, v4, v5, v3}, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil;->generateEmoteUrl(Landroid/content/Context;Ljava/lang/String;FLtv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;
+-    invoke-virtual {v0, v3, v4, v5, v6}, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil;->generateEmoteUrl(Landroid/content/Context;Ljava/lang/String;FLtv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;
 +    # BTTV
 +    #     expects:
 +    #     - v0: tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil
-+    #     - v2: android.content.Context
++    #     - v3: android.content.Context
 +    #     - v4: java.lang.String
 +    #     - v5: F
-+    #     - v3: AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting
-+    invoke-static {v0, v2, v4, v5, v3}, Lbttv/emote/EmoteUrlUtil;->generateEmoteUrl(Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil;Landroid/content/Context;Ljava/lang/String;FLtv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)Ljava/lang/String;
++    #     - v6: AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting
++    invoke-static {v0, v3, v4, v5, v6}, Lbttv/emote/EmoteUrlUtil;->generateEmoteUrl(Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil;Landroid/content/Context;Ljava/lang/String;FLtv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;
 +    # /BTTV
  
      move-result-object v0
  
-@@ -2615,6 +2629,13 @@
+@@ -2699,6 +2713,13 @@
  
      move-object/from16 v0, p1
  
@@ -1120,8 +1112,8 @@ index cdf7badcb..1dec08e8e 100644
      const-string v1, "chatMessageInfo"
  
      invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-@@ -3917,6 +3938,13 @@
-     .line 306
+@@ -4001,6 +4022,13 @@
+     .line 305
      iget-object v13, v0, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
  
 +    # BTTV
@@ -1210,7 +1202,7 @@ index 338ed2b67..f862db3a5 100644
      .line 134
      iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-index 931dcf216..dd83b99a4 100644
+index dfcd86f6c..a0a8e4ff6 100644
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 @@ -182,6 +182,11 @@
@@ -1222,14 +1214,14 @@ index 931dcf216..dd83b99a4 100644
 +    invoke-static {p1}, Lbttv/api/EmotePicker;->extendList(Ljava/util/List;)V
 +    # /BTTV
 +
-     .line 229
+     .line 237
      invoke-virtual {p2}, Ltv/twitch/android/util/Optional;->isPresent()Z
  
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
-index f2a7c3301..d1dc71c66 100644
+index ee78921c6..83cd44107 100644
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/adapter/EmoteAdapterItem.smali
-@@ -137,7 +137,13 @@
+@@ -369,7 +369,13 @@
  
      move-result-object v3
  
@@ -1261,6 +1253,42 @@ index f10050821..69a07e11b 100644
      const/4 v0, 0x1
  
      .line 49
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+index 4807202e6..41f3b6da0 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+@@ -81,6 +81,16 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    #  starts animation when WebpDrawable
++    #     expects:
++    #       p1: android.graphics.drawable.Drawable
++    #       p0: this
++    #
++    iget-object p2, p0, Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1;->$drawableCallback:Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$drawableCallback$1;
++    invoke-static {p1, p2}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
++    # /BTTV
++
+     .line 122
+     instance-of p2, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
+ 
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+index 842c437dc..9b1c22570 100644
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+@@ -377,6 +377,10 @@
+ 
+     invoke-direct {v0, p0, p1, v1}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
+ 
++    # BTTV
++    invoke-static {v0, p2}, Lbttv/api/Glide;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
++    # /BTTV
++
+     .line 90
+     invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
+ 
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 index f2c300298..8a62dce93 100644
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
@@ -1339,50 +1367,6 @@ index 8de681b56..f82b9a1f3 100644
      .line 56
      invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->start()V
  
-diff --git a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-index 6ad1470d4..2b35855b2 100644
---- a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-+++ b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-@@ -97,12 +97,15 @@
- 
- .field public static final enum SmartFeed:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
- 
-+# BTTV
-+.field public static final enum BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
-+# /BTTV
- 
- # direct methods
- .method static constructor <clinit>()V
-     .locals 4
- 
--    const/16 v0, 0x24
-+    const/16 v0, 0x25 # length of values array
- 
-     new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
- 
-@@ -566,6 +569,22 @@
- 
-     aput-object v1, v0, v2
- 
-+    # BTTV
-+    #     expects:
-+    #       v0: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
-+    #     sets:
-+    #       v1: tv.twitch.android.shared.ui.menus.SettingsPreferencesController.SettingsPreference
-+    #       v2: java.lang.String
-+    #       v2: I
-+    #       v3: I
-+    new-instance v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
-+    const-string v2, "BTTVEmotesEnabled"
-+    const/16 v3, 0x24
-+    invoke-direct {v1, v2, v3}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
-+    const/16 v2, 0x24
-+    aput-object v1, v0, v2
-+    # /BTTV
-+
-     sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->$VALUES:[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
- 
-     return-void
 diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
 index 06cd96f7f..1c86b2453 100644
 --- a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali

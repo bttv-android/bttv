@@ -95,8 +95,6 @@ sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 mkdir .tmp/base/smali_classes8
 mv .tmp/base/smali/androidx .tmp/base/smali_classes8/.
 
-mv .tmp/base/smali_classes5/kotlinx .tmp/base/smali_classes7/.
-
 #
 # clean up
 #
