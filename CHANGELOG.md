@@ -1,6 +1,6 @@
 # Changelog
 
-## master
+## v0.12.0-beta
 - gift subs now redirect to sub web page
 - update to base v11.5.0
 
