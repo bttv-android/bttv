@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ad5f0327a..d24f59e48 100644
+index ce6452f57..f3de90a69 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -197,7 +197,7 @@ index d6ab64515..1e4c38237 100644
 +    <item type="id" name="bttv_sleep_timer_button" />
  </resources>
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 6f5c630b5..a2b0b5000 100644
+index 593d6dce1..240131fb8 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -12974,4 +12974,55 @@
@@ -548,7 +548,7 @@ index f0a19db4f..eacd0c1b9 100644
  # virtual methods
  .method public declared-synchronized append(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-index 19cda9473..70d691308 100644
+index 491cd9c64..72a1aa69f 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -180,6 +180,13 @@
