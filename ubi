@@ -1,3 +1,3 @@
 #!/bin/bash
-RUST_LOG=info ../ubi/target/release/ubi --no-diff /opt/baksmali/baksmali-2.4.0.jar ~/Android/Sdk/build-tools/30.0.3/dx ./mod ./disass
+RUST_LOG=info ../ubi/target/release/ubi --ignore-default-constructors --no-diff /opt/baksmali/baksmali-2.4.0.jar ~/Android/Sdk/build-tools/30.0.3/dx ./mod ./disass
 

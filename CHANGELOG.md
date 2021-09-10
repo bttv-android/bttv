@@ -2,6 +2,7 @@
 
 ## master
 - gift subs now redirect to sub web page
+- update to base v11.5.0
 
 ## v0.11.0-beta
 - update to base v11.4.0
