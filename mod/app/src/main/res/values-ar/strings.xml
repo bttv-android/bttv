@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="login_landing_title">مرحبا بكم في \nبيتر تويتش</string>
+    <string name="bttv_emote_picker_global_bttv">ايموتات بيتر تي في العالميه</string>
+    <string name="bttv_emote_picker_channel_bttv">ايموتات بيتر تي في للقناة</string>
+    <string name="bttv_emote_picker_global_ffz">ايموتات فرانكيرفايسيز العالميه</string>
+    <string name="bttv_emote_picker_channel_ffz">ايموتات فرانكيرفيسيز للقناة</string>
+    <string name="bttv_emote_picker_global_7tv">ايموتات سفن تي في العالميه</string>
+    <string name="bttv_emote_picker_channel_7tv">ايموتات سفن تي في للقناة</string>
+    <string name="bttv_app_update_available">bttv-android: تم اكتشاف تحديث جديد</string>
+    <string name="bttv_app_update_available_cta">انقر هنا لتنزيل وتثبيت التحديث.</string>
+</resources>
