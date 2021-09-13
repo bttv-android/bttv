@@ -2,10 +2,12 @@ package bttv.api;
 
 import android.util.Log;
 
+import io.reactivex.Single;
+
 public class Util {
     final static String TAG = "LBTTVUtil";
 
-    public static void printSubscribe() {
-        Log.i(TAG, "User attempts to subscribe");
+    public static Single<Boolean> getTrueSingle() {
+        return Single.just(true);
     }
 }

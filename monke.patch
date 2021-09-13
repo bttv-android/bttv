@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ce6452f57..f3de90a69 100644
+index ce6452f57..7711f1f32 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -148,7 +148,7 @@ index f2b85353e..92d0ebd81 100644
          <ImageView android:id="@id/write_message_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_compose" android:contentDescription="@string/write_message_talkback" app:tint="@color/white" />
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/chat_settings_talkback" app:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..3b20d0688 100644
+index e5846b005..c36385e97 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -907,6 +907,48 @@ index 62473eeb0..a8385f48f 100644
 +
      .line 130
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
+ 
+diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
+index 2ac1bee57..ee6b2e89e 100644
+--- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
+@@ -63,6 +63,13 @@
+ .method public final invoke()V
+     .locals 9
+ 
++    # BTTV
++    iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1;
++    iget-object v0, v0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
++    invoke-static {v0}, Lbttv/api/Bits;->onBuyBitsButtonClick(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)V
++    goto :goto_0
++    # /BTTV
++
+     .line 480
+     iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->$productForAmount:Ltv/twitch/android/models/bits/IapBundleModel;
+ 
+diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+index 6e5c52eba..28a11d4ac 100644
+--- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+@@ -18,7 +18,7 @@
+ 
+ 
+ # instance fields
+-.field private final activity:Landroidx/fragment/app/FragmentActivity;
++.field public final activity:Landroidx/fragment/app/FragmentActivity;
+ 
+ .field private balanceModel:Ltv/twitch/android/models/bits/BitsBalanceModel;
+ 
+@@ -774,7 +774,9 @@
+ 
+     const/4 v2, 0x1
+ 
+-    invoke-virtual {v0, v1, v2}, Ltv/twitch/android/shared/bits/billing/BitsIAPManager;->isPurchasingAvailable(Landroidx/fragment/app/FragmentActivity;Z)Lio/reactivex/Single;
++    # BTTV
++    invoke-static {}, Lbttv/api/Util;->getTrueSingle()Lio/reactivex/Single;
++    # /BTTV
+ 
+     move-result-object v4
  
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
 index 8aa90871d..6f243ed5d 100644

@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add "Get Bits" Button with redirect
+
 ## v0.12.0-beta
 - gift subs now redirect to sub web page
 - update to base v11.5.0
