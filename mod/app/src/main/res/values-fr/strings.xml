@@ -18,11 +18,14 @@
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Gif BTTV</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Récupération automatique des points de chaine</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Afficher minuterie de sommeil</string>
     <string name="bttv_emote_added_by_bttv">Emote ajoutée par bttv-android</string>
     <string name="bttv_updater_downloading">Téléchargement</string>
     <string name="bttv_updater_downloading_version">Téléchargement %s</string>
     <string name="bttv_updater_notice">Si c\'est la première fois que vous utilisez le programme de mise à jour, autorisez les installations à partir de cette source lorsque l\'assistant vous le demande.</string>
     <string name="bttv_settings_open_highlights_dia_primary">Définir les mots-clés en surbrillance</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Ouvre la fenêtre de surlignement</string>
     <string name="bttv_settings_highlights_dia_input_hint">Entrez un nouveau mot-clé</string>
     <string name="bttv_settings_highlights_dia_title">Gérer les mots clés en surbrillance</string>
     <string name="bttv_settings_gif_render_mode_title">Emotes Gif</string>
