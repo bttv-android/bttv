@@ -1,6 +1,7 @@
 package bttv;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +9,11 @@ import java.util.List;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import bttv.highlight.Highlight;
+import tv.twitch.android.models.chat.AutoModMessageFlags;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
+import tv.twitch.chat.AutoModFlags;
 import tv.twitch.chat.ChatEmoticonToken;
 import tv.twitch.chat.ChatMessageInfo;
 import tv.twitch.chat.ChatMessageToken;
@@ -33,6 +36,11 @@ public class Tokenizer {
         for (MessageToken token : orig) {
             // possible issue: emotes won't work in e.g. MentionToken or BitsToken
             if (!(token instanceof TextToken)) {
+                if (token instanceof EmoticonToken && newTokens.size() > 0) {
+                    if (newTokens.get(newTokens.size() - 1) instanceof EmoticonToken) {
+                        newTokens.add(new TextToken(" ", new AutoModMessageFlags()));
+                    }
+                }
                 newTokens.add(token);
                 continue;
             }
@@ -49,7 +57,7 @@ public class Tokenizer {
                 }
                 // emote found
                 String before = currentText.toString();
-                if (!before.trim().isEmpty()) {
+                if (!before.isEmpty()) {
                     newTokens.add(new TextToken(currentText.toString(), text.getFlags())); // add everything before Emote as TextToken
                 }
                 newTokens.add(new EmoticonToken(word, "BTTV-" + emote.id)); // add Emote
@@ -77,6 +85,15 @@ public class Tokenizer {
 
         for (ChatMessageToken token : info.tokens) {
             if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
+                if (token.type.getValue() == ChatMessageTokenType.Emoticon.getValue() && newTokens.size() > 0) {
+                    ChatMessageToken prevToken = newTokens.get(newTokens.size() - 1);
+                    if (prevToken != null && prevToken.type.getValue() == ChatMessageTokenType.Emoticon.getValue()) {
+                        ChatTextToken spaceToken = new ChatTextToken();
+                        spaceToken.text = " ";
+                        spaceToken.autoModFlags = new AutoModFlags();
+                        newTokens.add(spaceToken);
+                    }
+                }
                 newTokens.add(token);
                 continue;
             }
@@ -97,9 +114,9 @@ public class Tokenizer {
                 }
                 // emote found
                 String before = currentText.toString();
-                if (!before.trim().isEmpty()) {
+                if (!before.isEmpty()) {
                     ChatTextToken everythingBeforeEmote = new ChatTextToken();
-                    everythingBeforeEmote.text = currentText.toString();
+                    everythingBeforeEmote.text = before;
                     everythingBeforeEmote.autoModFlags = textToken.autoModFlags;
                     newTokens.add(everythingBeforeEmote);
                 }
