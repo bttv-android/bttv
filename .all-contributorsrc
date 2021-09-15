@@ -163,6 +163,15 @@
         "ideas",
         "bug"
       ]
+    },
+    {
+      "login": "nelswad90",
+      "name": "Dennis Magee",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2206347?v=4",
+      "profile": "https://github.com/nelswad90",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
