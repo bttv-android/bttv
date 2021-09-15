@@ -54,6 +54,7 @@ public class TokenizerTest {
                 // Expected Output
                 Arrays.asList(
                         new MessageToken.EmoticonToken("KEKW", "BTTV-5ea831f074046462f768097a"),
+                        new MessageToken.TextToken(" ", flags),
                         new MessageToken.EmoticonToken("Pog", "BTTV-5ff827395ef7d10c7912c106"),
                         new MessageToken.TextToken(" and ", flags),
                         new MessageToken.EmoticonToken("LUL", "123"),

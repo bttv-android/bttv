@@ -2,6 +2,7 @@
 
 # master
 - add "Get Bits" Button with redirect
+- adding spaces between emotes back
 
 ## v0.12.0-beta
 - gift subs now redirect to sub web page

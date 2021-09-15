@@ -76,21 +76,24 @@ public class RetokenizeTest {
             e1.emoticonText = "KEKW";
             e1.emoticonId = "BTTV-5ea831f074046462f768097a";
 
-            ChatEmoticonToken e2 = new ChatEmoticonToken();
-            e2.emoticonText = "Pog";
-            e2.emoticonId = "BTTV-5ff827395ef7d10c7912c106";
+            ChatTextToken e2 = new ChatTextToken();
+            e2.text = " ";
 
-            ChatTextToken e3 = new ChatTextToken();
-            e3.text = " and ";
+            ChatEmoticonToken e3 = new ChatEmoticonToken();
+            e3.emoticonText = "Pog";
+            e3.emoticonId = "BTTV-5ff827395ef7d10c7912c106";
 
             ChatTextToken e4 = new ChatTextToken();
-            e4.text = "Haha ";
+            e4.text = " and ";
+
+            ChatTextToken e5 = new ChatTextToken();
+            e5.text = "Haha ";
 
             ChatMessageInfo input = new ChatMessageInfo();
             input.tokens = new ChatMessageToken[]{t1, t2, t3};
 
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{e1, e2, e3, t2, e4};
+            expected.tokens = new ChatMessageToken[]{e1, e2, e3, e4, t2, e5};
 
             FoundInBeginning = new Object[]{input, expected};
         }
