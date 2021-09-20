@@ -34,7 +34,7 @@
     <string name="bttv_settings_gif_render_mode_disabled">Etkin değil</string>
     <string name="bttv_settings_open_credits_button_title">Emeği geçenler</string>
     <string name="bttv_credits_title">Emeği geçenler</string>
-    <string name="bttv_credits_intro">bttv-android <annotation link_to="https://github.com/FoseFx">FoserFx</annotation> tarafından yapılmıştır. Bu topluluğun sayesinde:</string>
+    <string name="bttv_credits_intro">bttv-android <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> tarafından yapılmıştır. Bu topluluğun sayesinde:</string>
     <string name="bttv_credits_bugs">Hata Bildirenler</string>
     <string name="bttv_credits_ideas">Fikir Bildirenler</string>
     <string name="bttv_credits_translations">Çevirmenler</string>
