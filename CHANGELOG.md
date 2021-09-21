@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- rebase to v11.6.0
 - add "Get Bits" Button with redirect
 - adding spaces between emotes back
 
