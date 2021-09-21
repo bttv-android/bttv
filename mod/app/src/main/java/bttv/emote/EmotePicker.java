@@ -18,8 +18,8 @@ import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet;
 import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
-import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
-import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
+import tv.twitch.android.models.emotes.EmoteModelAssetType;
+import tv.twitch.android.models.emotes.EmoteModel;
 
 public class EmotePicker {
 
@@ -138,7 +138,7 @@ public class EmotePicker {
 
     private static EmoteUiModel emoteToModel(Emote emote) {
         String id = "BTTV-" + emote.id;
-        EmotePickerEmoteModel model = new EmotePickerEmoteModel.Generic(id, emote.code, EmoteModelAssetType.STATIC);
+        EmoteModel model = new EmoteModel.Generic(id, emote.code, EmoteModelAssetType.STATIC);
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);

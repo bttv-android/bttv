@@ -11,11 +11,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import bttv.Data;
 import bttv.Res;
-import tv.twitch.android.core.adapters.TwitchArrayAdapterModel;
 import tv.twitch.android.models.settings.SettingsDestination;
-import tv.twitch.android.shared.ui.menus.dropdown.DropDownMenuModel;
 
 public class UserPreferences {
 

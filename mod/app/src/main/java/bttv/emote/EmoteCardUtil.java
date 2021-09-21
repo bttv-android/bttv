@@ -3,7 +3,7 @@ package bttv.emote;
 import io.reactivex.Single;
 import tv.twitch.android.shared.chat.model.EmoteCardModel;
 import tv.twitch.android.shared.chat.parser.EmoteCardModelParser;
-import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
+import tv.twitch.android.models.emotes.EmoteModelAssetType;
 
 
 public class EmoteCardUtil {

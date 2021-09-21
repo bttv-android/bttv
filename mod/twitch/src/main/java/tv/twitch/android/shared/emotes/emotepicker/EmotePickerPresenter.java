@@ -8,7 +8,7 @@ import java.util.List;
 
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
-import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
+import tv.twitch.android.models.emotes.EmoteModel;
 
 public final class EmotePickerPresenter {
     public static abstract class ClickedEmote {
@@ -23,7 +23,7 @@ public final class EmotePickerPresenter {
 
         public static final class Unlocked extends EmotePickerPresenter.ClickedEmote {
 
-            public final EmotePickerEmoteModel getEmote() {
+            public final EmoteModel getEmote() {
                 return null;
             }
 
@@ -35,10 +35,10 @@ public final class EmotePickerPresenter {
                 return null;
             }
 
-            public Unlocked(EmotePickerEmoteModel emote, EmoteMessageInput emoteMessageInput,
-                    EmotePickerTrackingMetadata emotePickerTrackingMetadata,
-                    List<EmotePickerPresenter.ClickedEmote.Unlocked> list, int i,
-                    BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
+            public Unlocked(EmoteModel emote, EmoteMessageInput emoteMessageInput,
+                            EmotePickerTrackingMetadata emotePickerTrackingMetadata,
+                            List<EmotePickerPresenter.ClickedEmote.Unlocked> list, int i,
+                            BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
                 this(emote, emoteMessageInput, emotePickerTrackingMetadata, list);
             }
 
@@ -46,9 +46,9 @@ public final class EmotePickerPresenter {
                 return null;
             }
 
-            public Unlocked(EmotePickerEmoteModel emote, EmoteMessageInput emoteMessageInput,
-                    EmotePickerTrackingMetadata emotePickerTrackingMetadata,
-                    List<EmotePickerPresenter.ClickedEmote.Unlocked> list) {
+            public Unlocked(EmoteModel emote, EmoteMessageInput emoteMessageInput,
+                            EmotePickerTrackingMetadata emotePickerTrackingMetadata,
+                            List<EmotePickerPresenter.ClickedEmote.Unlocked> list) {
                 super(null);
             }
         }
