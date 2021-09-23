@@ -5,6 +5,20 @@
 Issues are used for tracking new features, bugs or other tasks. If you have a question don't hesitate and open a [new discussion][new-discussion]!
 Please make sure that your issue contains all nesessary information to avoid waiting times. All communication, including issues, should be written in understandable english.
 
+## Scope of the Project
+
+Before you submit a new issue please make sure it is in scope of this project:
+- bugs in bttv-android
+- features that exist in BTTV
+- features that enhance quality of life (e.g. improving integration with existing Twitch behavior)
+
+### Not in scope:
+- bugs not caused by the mod
+- features that are unrelated to BTTV (e.g. a new theme)
+
+This way the mod does not become bloated and is thus more stable and maintainable.
+
+
 # PRs
 
 Most PRs have an associated issue, if you PR is one of those make sure to reference the issue. Your PR will be reviewed and commented please prepare yourself for that, we do not want to end up in stale PRs. It's ok (and encouraged) to open an PR even when you are not finished. Please mark those PRs as drafts. If you have any questions feel free to tag @bttv-android/developers and somebody will help you out :)
