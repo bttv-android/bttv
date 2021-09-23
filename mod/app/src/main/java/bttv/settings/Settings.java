@@ -56,11 +56,20 @@ public enum Settings {
     ),
     AutoRedeemChannelPointsEnabled(
             new Entry.BoolEntry(
-                "enable_auto_redeem_channel_points",
-                new Entry.BoolValue(true),
-                Res.strings.bttv_settings_enable_auto_redeem_points_primary,
-                null,
-                null
+                    "enable_auto_redeem_channel_points",
+                    new Entry.BoolValue(true),
+                    Res.strings.bttv_settings_enable_auto_redeem_points_primary,
+                    null,
+                    null
+            )
+    ),
+    ShowDeletedMessagesEnabled(
+            new Entry.BoolEntry(
+                    "enable_show_deleted_messages",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_enable_show_deleted_messages,
+                    null,
+                    null
             )
     ),
     ShouldShowSleepTimer(
