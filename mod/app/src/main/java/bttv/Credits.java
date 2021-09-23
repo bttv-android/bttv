@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.text.Annotation;
 import android.text.Spannable;
@@ -12,10 +11,10 @@ import android.text.SpannableString;
 import android.text.SpannedString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,26 +29,27 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class Credits {
     private static final String TAG = "LBTTVCredits";
 
     public static void openDialog(Activity activity) {
         AlertDialog.Builder b = new AlertDialog.Builder(activity);
-        LinearLayout v = (LinearLayout) activity.getLayoutInflater().inflate(ResUtil.getResourceId(Res.layouts.bttv_credits_dialog), null);
+        ScrollView scrollView = (ScrollView) activity.getLayoutInflater().inflate(ResUtil.getResourceId(Res.layouts.bttv_credits_dialog), null);
 
-        TextView intoTv = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_credits_into_tv));
+        LinearLayout linearLayout = (LinearLayout) scrollView.getChildAt(0);
+
+        TextView intoTv = scrollView.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_credits_into_tv));
         intoTv.setText(linkify(activity, Res.strings.bttv_credits_intro));
         intoTv.setMovementMethod(LinkMovementMethod.getInstance());
 
         try {
-            addContributors(v, activity);
+            addContributors(linearLayout, activity);
         } catch (Throwable t) {
             t.printStackTrace();
         }
 
-        b.setView(v);
+        b.setView(scrollView);
         b.setCancelable(true);
         b.setPositiveButton(ResUtil.getStringId("close"), null);
         AlertDialog dialog = b.create();
@@ -76,6 +76,7 @@ public class Credits {
                 continue;
             TextView kindTitle = new TextView(activity);
             kindTitle.setTextSize(20.0f);
+            kindTitle.setPadding(0, 5, 0, 0);
             kindTitle.setText(kindToString(activity, kind));
             v.addView(kindTitle);
             for (Contributor contributor : map.get(kind)) {
