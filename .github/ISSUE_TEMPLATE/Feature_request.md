@@ -3,6 +3,23 @@ name: 🚀 Feature Request
 about: I have a suggestion!
 ---
 
+<!--
+
+Before you submit a new issue please make sure it is in scope of this project:
+- bugs in bttv-android
+- features that exist in BTTV
+- features that enhance quality of life (e.g. improving integration with existing Twitch behavior)
+
+Not in scope:
+- bugs not caused by the mod
+- features that are unrelated to BTTV (e.g. a new theme)
+
+This way the mod does not become bloated and is thus more stable and maintainable.
+
+Thank you!
+
+-->
+
 ## Feature Request
 
 **Is your feature request related to a problem? Please describe.**
