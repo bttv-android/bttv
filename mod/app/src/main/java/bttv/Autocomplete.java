@@ -6,8 +6,8 @@ import java.util.List;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import tv.twitch.android.shared.emotes.models.EmoteSet;
-import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
-import tv.twitch.android.shared.emotes.models.EmotePickerEmoteModel;
+import tv.twitch.android.models.emotes.EmoteModelAssetType;
+import tv.twitch.android.models.emotes.EmoteModel;
 
 public class Autocomplete {
 
@@ -22,13 +22,13 @@ public class Autocomplete {
             return;
         }
         ArrayList<String> codes = Emotes.getAllEmotes(channelId);
-        List<EmotePickerEmoteModel.Generic> generics = new ArrayList<>(codes.size());
+        List<EmoteModel.Generic> generics = new ArrayList<>(codes.size());
 
         for (String code : codes) {
             Emote e = Emotes.getEmote(channelId, code);
             if (e == null)
                 continue; // should not happen
-            generics.add(new EmotePickerEmoteModel.Generic("BTTV-" + e.id, e.code, EmoteModelAssetType.STATIC));
+            generics.add(new EmoteModel.Generic("BTTV-" + e.id, e.code, EmoteModelAssetType.STATIC));
         }
         EmoteSet set = new EmoteSet.GenericEmoteSet("bttv_emote_set_id", generics);
         list.add(set);

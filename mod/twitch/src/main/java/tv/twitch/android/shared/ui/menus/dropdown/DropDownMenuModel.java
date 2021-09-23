@@ -5,7 +5,7 @@ import android.widget.ArrayAdapter;
 
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
 
-public class DropDownMenuModel<T> extends MenuModel.SingleItemMenu {
+public class DropDownMenuModel<T> extends MenuModel.SingleItemModel {
     public DropDownMenuModel(
             ArrayAdapter<T> arrayAdapter,
             int selectedOption,

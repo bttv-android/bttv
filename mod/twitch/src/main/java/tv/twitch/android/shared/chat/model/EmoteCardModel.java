@@ -1,6 +1,6 @@
 package tv.twitch.android.shared.chat.model;
 
-import tv.twitch.android.shared.emotes.models.EmoteModelAssetType;
+import tv.twitch.android.models.emotes.EmoteModelAssetType;
 
 public abstract class EmoteCardModel {
     public String emoteId;

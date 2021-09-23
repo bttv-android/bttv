@@ -2,14 +2,14 @@
  * This file is a stub, so javac does not throw errors,
  * it is not used in the patches.
  */
-package tv.twitch.android.shared.emotes.models;
+package tv.twitch.android.models.emotes;
 
-public abstract class EmotePickerEmoteModel {
+public abstract class EmoteModel {
     public abstract String getId();
 
     public abstract String getToken();
 
-    public static final class Generic extends EmotePickerEmoteModel {
+    public static final class Generic extends EmoteModel {
 
         @Override
         public String getId() {

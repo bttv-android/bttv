@@ -1,4 +1,4 @@
-package tv.twitch.android.shared.emotes.models;
+package tv.twitch.android.models.emotes;
 
 public enum EmoteModelAssetType {
     ANIMATED,

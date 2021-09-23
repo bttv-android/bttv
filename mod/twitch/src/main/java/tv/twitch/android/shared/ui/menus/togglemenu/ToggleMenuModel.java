@@ -9,9 +9,9 @@ import tv.twitch.android.shared.ui.menus.formvalue.FormValueDelegate;
 public class ToggleMenuModel extends FormValueDelegate<Boolean> {
 
     public ToggleMenuModel(String primaryText, String secondaryText, String auxiliaryText, boolean z, boolean z2,
-            Drawable icon, String eventName, boolean includeBackground, String pillText, Integer pillColor,
-            Integer pillTextColor, SettingsPreferencesController.SettingsPreference settingsPreference,
-            View.OnClickListener titleClickListener, int i, BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
+                           Drawable icon, String eventName, boolean includeBackground, String pillText, Integer pillColor,
+                           Integer pillTextColor, SettingsPreferencesController.SettingsPreference settingsPreference,
+                           View.OnClickListener titleClickListener, int i, BTTVDefaultConstructorMarker BTTVDefaultConstructorMarker) {
     }
 
     public final String getEventName() {
