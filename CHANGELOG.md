@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add "show deleted messages" feature
+
 # v0.13.0-beta
 - rebase to v11.6.0
 - add "Get Bits" Button with redirect
