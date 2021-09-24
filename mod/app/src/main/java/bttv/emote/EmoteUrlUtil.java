@@ -6,26 +6,7 @@ import android.util.Log;
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil;
 
 public class EmoteUrlUtil {
-    private static final String TAG = "LBTTVEMoteurlUtil";
-
-    public static AnimatedEmotesUrlUtil.EmoteUrlDetails generateEmoteUrl(AnimatedEmotesUrlUtil util, Context context, String id, float f, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting emoteUrlAnimationSetting) {
-        String realId = extractBTTVId(id);
-        if (realId != null) {
-            return wrapInDetails(realIdToUrl(realId));
-        } else if (util != null) {
-            return util.generateEmoteUrl(context, id, f, emoteUrlAnimationSetting);
-        } else {
-            return wrapInDetails(tv.twitch.android.util.EmoteUrlUtil.generateEmoteUrl(id, f));
-        }
-    }
-
-    public static String getEmoteUrl(AnimatedEmotesUrlUtil util, Context c, String id) {
-        if (id.startsWith("BTTV-")) {
-            return EmoteUrlUtil.generateEmoteUrl(util, c, id, 1.0f, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting.DEFAULT).getEmoteUrl();
-        } else {
-            return util.getEmoteUrl(c, id);
-        }
-    }
+    private static final String TAG = "LBTTVEmoteurlUtil";
 
     public static String getEmoteUrl(String id) {
         String realId = extractBTTVId(id);
@@ -51,7 +32,4 @@ public class EmoteUrlUtil {
         return emote.url;
     }
 
-    private static AnimatedEmotesUrlUtil.EmoteUrlDetails wrapInDetails(String s) {
-        return new AnimatedEmotesUrlUtil.EmoteUrlDetails(s, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting.DEFAULT);
-    }
 }

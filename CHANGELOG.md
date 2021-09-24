@@ -2,6 +2,7 @@
 
 # master
 - add "show deleted messages" feature
+- fix some bugs related to missing emotes
 
 # v0.13.0-beta
 - rebase to v11.6.0
