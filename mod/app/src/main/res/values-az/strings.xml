@@ -24,4 +24,20 @@
     <string name="bttv_updater_downloading">Endirilir</string>
     <string name="bttv_updater_downloading_version">%s endirilir</string>
     <string name="bttv_updater_notice">Yeniləyicini ilk dəfədir istifadə edirsinizsə, sehrbaz sizdən soruşanda bu mənbədən quraşdırmalara icazə verin.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Vurğulanan açar sözləri tənzimlə</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Vurğulanan dialoqu açır</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Yeni açar söz daxil et</string>
+    <string name="bttv_settings_highlights_dia_title">Vurğulanan açar sözləri idarə et</string>
+    <string name="bttv_settings_gif_render_mode_title">GIF ifadələri</string>
+    <string name="bttv_settings_gif_render_mode_animate">Hərəkətli</string>
+    <string name="bttv_settings_gif_render_mode_static">Statik</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Sıradan çıxarıldı</string>
+    <string name="bttv_settings_open_credits_button_title">Yaradıcılar</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Silinən mesajları göstər</string>
+    <string name="bttv_credits_title">Yaradıcılar</string>
+    <string name="bttv_credits_intro">bttv-android <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> tərəfindən hazırlanıb. Bu cəmiyyətin köməyi ilə:</string>
+    <string name="bttv_credits_bugs">Xəta Hesabatları</string>
+    <string name="bttv_credits_ideas">İdeyalar</string>
+    <string name="bttv_credits_translations">Tərcümələr</string>
+    <string name="bttv_copied_to_clipboard">İstifadəçi adı lövhəyə kopyalandı</string>
 </resources>
