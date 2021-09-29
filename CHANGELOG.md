@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add split chat feature
+
 # v0.13.1-beta
 - add "show deleted messages" feature
 - fix some bugs related to missing emotes
