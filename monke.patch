@@ -1,5 +1,5 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ce6452f57..a8bc7afa2 100644
+index ce6452f57..33301c2d5 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
@@ -148,7 +148,7 @@ index f2b85353e..92d0ebd81 100644
          <ImageView android:id="@id/write_message_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_compose" android:contentDescription="@string/write_message_talkback" app:tint="@color/white" />
          <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/chat_settings_talkback" app:tint="@color/white" />
 diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_footer.xml
-index e5846b005..aae416862 100644
+index e5846b005..9854ee5bd 100644
 --- a/res/layout/settings_logout_footer.xml
 +++ b/res/layout/settings_logout_footer.xml
 @@ -2,6 +2,7 @@
@@ -540,6 +540,29 @@ index 842c437dc..9b1c22570 100644
      .line 90
      invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
  
+diff --git a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
+index 8e83a1896..7dc08a1f3 100644
+--- a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
++++ b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
+@@ -73,6 +73,7 @@
+ 
+ .field private textSizePx:F
+ 
++.field public index:J # BTTV
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -425,6 +426,10 @@
+ 
+     if-eqz p1, :cond_4
+ 
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->setBackgroundColor(Ltv/twitch/android/adapters/social/MessageRecyclerItem;Ltv/twitch/android/adapters/social/MessageRecyclerItem$ChatMessageViewHolder;)V
++    # /BTTV
++
+     .line 93
+     sget-object v0, Ltv/twitch/android/shared/chat/util/ChatUtil;->Companion:Ltv/twitch/android/shared/chat/util/ChatUtil$Companion;
+ 
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 index 8a4ec64eb..e6d98d826 100644
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
@@ -669,6 +692,19 @@ index 1a29310a1..039ac3577 100644
  
      invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
  
+diff --git a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
+index f16e87b3d..07a4b11a0 100644
+--- a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
++++ b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
+@@ -353,7 +353,7 @@
+     return p1
+ .end method
+ 
+-.method protected final getItems()Ljava/util/List;
++.method public final getItems()Ljava/util/List;
+     .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 index a79f09cbf..bb9620a64 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
@@ -957,6 +993,30 @@ index 8aa90871d..6f243ed5d 100644
  
  .field private mChatMessageParser:Ltv/twitch/android/shared/chat/ChatMessageParser;
  
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+index f6ff95b0d..b4cbbd337 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+@@ -347,6 +347,9 @@
+ 
+     .line 203
+     :cond_2
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->addIndices(Ltv/twitch/android/shared/chat/adapter/ChannelChatAdapter;Ljava/util/List;)V
++    # /BTTV
+     invoke-super {p0, p1}, Ltv/twitch/android/core/adapters/TwitchAdapter;->addItems(Ljava/util/List;)V
+ 
+     .line 204
+@@ -378,6 +381,9 @@
+ 
+     .line 206
+     :cond_3
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->addIndices(Ltv/twitch/android/shared/chat/adapter/ChannelChatAdapter;Ljava/util/List;)V
++    # /BTTV
+     invoke-super {p0, p1}, Ltv/twitch/android/core/adapters/TwitchAdapter;->addItems(Ljava/util/List;)V
+ 
+     :cond_4
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
 index 3e19d1849..6159c0e21 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
