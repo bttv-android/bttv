@@ -1,0 +1,62 @@
+diff --git a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+index a35b8d175..c3be2aa1e 100644
+--- a/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
++++ b/smali_classes5/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
+@@ -860,9 +860,23 @@
+     .line 6943
+     iput-object p2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->settingsActivityModule:Ltv/twitch/android/settings/dagger/SettingsActivityModule;
+ 
++    # BTTV
++    #  Set SettingsActivityModule
++    #     expects:
++    #       p2: tv.twitch.android.settings.dagger.SettingsActivityModule
++    invoke-static {p2}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
++    # /BTTV
++
+     .line 6944
+     iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->activityModule:Ltv/twitch/android/app/core/dagger/modules/ActivityModule;
+ 
++    # BTTV
++    #  Set ActivityModule
++    #     expects:
++    #       p3: tv.twitch.android.app.core.dagger.modules.ActivityModule
++    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
++    # /BTTV
++
+     .line 6945
+     invoke-direct {p0, p2, p3, p4}, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->initialize(Ltv/twitch/android/settings/dagger/SettingsActivityModule;Ltv/twitch/android/app/core/dagger/modules/ActivityModule;Ltv/twitch/android/settings/SettingsActivity;)V
+ 
+@@ -1456,6 +1470,12 @@
+     move-result-object p3
+ 
+     iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
++    # BTTV
++    #  Set FragmentActivity Provider for Settings Fragment
++    #     expects:
++    #       p3: javax.inject.Provider<androidx.fragment.app.FragmentActivity>
++    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
++    # /BTTV
+ 
+     .line 7323
+     invoke-static {}, Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;->create()Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;
+@@ -2222,7 +2242,19 @@
+     iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->connectionsSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;
+ 
+     invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
+-
++    # BTTV
++    #  Add bttv's SettingsFragment to DI
++    #     expects:
++    #       v0: dagger.internal.MapBuilder
++    #     sets:
++    #       v1: bttv.settings.SettingsFragment
++    #       v2: bttv.settings.SettingsFragmentProvider
++    #
++    const-class v1, Lbttv/settings/SettingsFragment;
++    invoke-static {}, Lbttv/settings/SettingsFragmentProvider;->getInstance()Lbttv/settings/SettingsFragmentProvider;
++    move-result-object v2
++    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
++    # /BTTV
+     const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
+ 
+     iget-object v2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->accountSettingsFragmentSubcomponentFactoryProvider:Ljavax/inject/Provider;

@@ -1,0 +1,15 @@
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+index 5312ed935..218c6db5a 100644
+--- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+@@ -369,6 +369,10 @@
+ 
+     move-result-object v1
+ 
++    # BTTV
++    invoke-static {v1}, Lbttv/Data;->setCurrentBroadcasterName(Ljava/lang/CharSequence;)V
++    # /BTTV
++
+     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+ 
+     .line 199

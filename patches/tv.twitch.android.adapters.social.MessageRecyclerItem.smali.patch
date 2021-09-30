@@ -1,0 +1,23 @@
+diff --git a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
+index 8e83a1896..7dc08a1f3 100644
+--- a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
++++ b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
+@@ -73,6 +73,7 @@
+ 
+ .field private textSizePx:F
+ 
++.field public index:J # BTTV
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -425,6 +426,10 @@
+ 
+     if-eqz p1, :cond_4
+ 
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->setBackgroundColor(Ltv/twitch/android/adapters/social/MessageRecyclerItem;Ltv/twitch/android/adapters/social/MessageRecyclerItem$ChatMessageViewHolder;)V
++    # /BTTV
++
+     .line 93
+     sget-object v0, Ltv/twitch/android/shared/chat/util/ChatUtil;->Companion:Ltv/twitch/android/shared/chat/util/ChatUtil$Companion;
+ 

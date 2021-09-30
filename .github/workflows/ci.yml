@@ -28,7 +28,7 @@ jobs:
             -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
             -v $(pwd)/dist:/usr/build/dist \
             -v $(pwd)/mod:/usr/build/mod \
-            -v $(pwd)/monke.patch:/usr/build/monke.patch \
+            -v $(pwd)/patches:/usr/build/patches \
             -v $(pwd)/.all-contributorsrc:/usr/build/.all-contributorsrc \
             -v $(pwd)/keystore.jks:/usr/build/keystore.jks \
             -e KS=/usr/build/keystore.jks \

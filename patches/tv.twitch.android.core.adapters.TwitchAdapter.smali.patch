@@ -1,0 +1,13 @@
+diff --git a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
+index f16e87b3d..07a4b11a0 100644
+--- a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
++++ b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
+@@ -353,7 +353,7 @@
+     return p1
+ .end method
+ 
+-.method protected final getItems()Ljava/util/List;
++.method public final getItems()Ljava/util/List;
+     .locals 1
+     .annotation system Ldalvik/annotation/Signature;
+         value = {

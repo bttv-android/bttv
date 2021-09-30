@@ -5,7 +5,7 @@ on:
       - master
     paths-ignore:
      - 'mod/**'
-     - 'monke.patch'
+     - 'patches/**'
      - 'README.md'
      - '.github/**'
      - 'architecture.md'

@@ -1,0 +1,24 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+index f6ff95b0d..b4cbbd337 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+@@ -347,6 +347,9 @@
+ 
+     .line 203
+     :cond_2
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->addIndices(Ltv/twitch/android/shared/chat/adapter/ChannelChatAdapter;Ljava/util/List;)V
++    # /BTTV
+     invoke-super {p0, p1}, Ltv/twitch/android/core/adapters/TwitchAdapter;->addItems(Ljava/util/List;)V
+ 
+     .line 204
+@@ -378,6 +381,9 @@
+ 
+     .line 206
+     :cond_3
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/SplitChat;->addIndices(Ltv/twitch/android/shared/chat/adapter/ChannelChatAdapter;Ljava/util/List;)V
++    # /BTTV
+     invoke-super {p0, p1}, Ltv/twitch/android/core/adapters/TwitchAdapter;->addItems(Ljava/util/List;)V
+ 
+     :cond_4

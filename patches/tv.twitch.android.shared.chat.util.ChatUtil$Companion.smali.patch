@@ -1,0 +1,20 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
+index e62b7104e..1374784e2 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
+@@ -180,6 +180,15 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    invoke-static {p1}, Lbttv/api/DeletedMessages;->reSpan(Landroid/text/Spanned;)Landroid/text/Spanned;
++    move-result-object v0
++    if-eqz v0, :bttv_skip
++    move-object p1, v0
++    goto :cond_1
++    :bttv_skip
++    # /BTTV
++
+     const-string v0, "span"
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

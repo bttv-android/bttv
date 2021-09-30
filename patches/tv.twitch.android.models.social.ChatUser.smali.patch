@@ -1,0 +1,13 @@
+diff --git a/smali_classes6/tv/twitch/android/models/social/ChatUser.smali b/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
+index 3965193a7..13392b364 100644
+--- a/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
++++ b/smali_classes6/tv/twitch/android/models/social/ChatUser.smali
+@@ -26,7 +26,7 @@
+ 
+ .field private final userId:I
+ 
+-.field private final username:Ljava/lang/String;
++.field public final username:Ljava/lang/String;
+ 
+ 
+ # direct methods

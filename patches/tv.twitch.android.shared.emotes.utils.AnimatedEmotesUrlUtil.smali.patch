@@ -1,0 +1,30 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
+index c20456261..9776d5d9d 100644
+--- a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
++++ b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
+@@ -126,6 +126,16 @@
+     :goto_2
+     new-instance p4, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;
+ 
++    # BTTV
++    #  use our url if bttv emote
++    invoke-static {p2}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v1
++    if-eqz v1, :after_bttv
++    move-object p1, v1
++    goto :after_url_built
++    :after_bttv
++    # /BTTV
++
+     .line 115
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
+@@ -159,6 +169,8 @@
+ 
+     move-result-object p1
+ 
++    :after_url_built
++
+     .line 114
+     invoke-direct {p4, p1, p3}, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)V
+ 

@@ -53,7 +53,7 @@ Docker
    docker run --rm -ti \
       -v path/to/twitch.apk:/usr/build/twitch.apk \
       -v /path/to/dist:/usr/build/dist \
-      -v path/to/monke.patch:/usr/build/monke.patch \
+      -v path/to/patches:/usr/build/patches \
       -v /path/to/mod:/usr/build/mod \
       ghcr.io/bttv-android/builder
       ```
@@ -62,7 +62,7 @@ Docker
       docker run --rm -ti \
          -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
          -v $(pwd)/dist:/usr/build/dist \
-         -v $(pwd)/monke.patch:/usr/build/monke.patch \
+         -v $(pwd)/patches:/usr/build/patches \
          -v $(pwd)/mod:/usr/build/mod \
          ghcr.io/bttv-android/builder
       ```

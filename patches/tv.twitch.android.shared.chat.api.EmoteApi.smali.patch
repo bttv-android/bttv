@@ -1,0 +1,26 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
+index 3e19d1849..6159c0e21 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
+@@ -57,6 +57,21 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    #  returns custom emote response if bttv emote
++    #     expects:
++    #     - p1: java.lang.String
++    #     sets:
++    #     - v0: io.reactivex.Single<tv.twitch.android.shared.chat.parser.EmoteCardModelParser$EmoteCardModelResponse>
++    #     returns io.reactivex.Single<tv.twitch.android.shared.chat.parser.EmoteCardModelParser$EmoteCardModelResponse>
++    invoke-static {p1}, Lbttv/emote/EmoteCardUtil;->getEmoteResponseOrNull(Ljava/lang/String;)Lio/reactivex/Single;
++    move-result-object v0
++
++    if-eqz v0, :after_bttv
++    return-object v0
++    :after_bttv
++    # /BTTV
++
+     const-string v0, "emoteId"
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

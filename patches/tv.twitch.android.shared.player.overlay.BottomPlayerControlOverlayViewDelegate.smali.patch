@@ -1,0 +1,17 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+index 3d2ad62a6..fa1538124 100644
+--- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+@@ -54,6 +54,12 @@
+     .line 72
+     invoke-direct {p0, p1, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;)V
+ 
++    # BTTV
++    #     expects:
++    #     - p1: android.content.Context
++    #     - p2: android.view.View
++    invoke-static {p1, p2}, Lbttv/api/SleepTimer;->onInit(Landroid/content/Context;Landroid/view/View;)V
++    # /BTTV
+     const/4 v0, 0x1
+ 
+     .line 49

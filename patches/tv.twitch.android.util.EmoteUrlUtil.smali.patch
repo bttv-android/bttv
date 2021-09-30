@@ -1,0 +1,44 @@
+diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
+index 06cd96f7f..1c86b2453 100644
+--- a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
++++ b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
+@@ -628,6 +628,15 @@
+ .method public static final generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
+     .locals 2
+ 
++    # BTTV
++    #  return our url if bttv emote
++    invoke-static {p0}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :after_bttv
++    return-object v0
++    :after_bttv
++    # /BTTV
++
+     const-string v0, "id"
+ 
+     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+@@ -704,7 +713,7 @@
+ .end method
+ 
+ .method public static final getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+-    .locals 1
++    .locals 2
+ 
+     const-string v0, "context"
+ 
+@@ -714,6 +723,14 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    # BTTV
++    invoke-static {p1}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v1
++    if-eqz v1, :dont_return
++    return-object v1
++    :dont_return
++    # /BTTV
++
+     .line 73
+     sget-object v0, Ltv/twitch/android/util/EmoteUrlUtil;->INSTANCE:Ltv/twitch/android/util/EmoteUrlUtil;
+ 
