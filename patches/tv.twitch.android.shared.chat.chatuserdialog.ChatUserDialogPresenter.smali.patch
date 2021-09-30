@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
-index 3e578bd85..2d6d7da84 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
 @@ -4,7 +4,7 @@

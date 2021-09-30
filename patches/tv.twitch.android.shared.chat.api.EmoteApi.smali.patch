@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
-index 3e19d1849..6159c0e21 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
 @@ -57,6 +57,21 @@

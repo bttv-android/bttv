@@ -1,5 +1,4 @@
 diff --git a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-index 842c437dc..9b1c22570 100644
 --- a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 +++ b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 @@ -377,6 +377,10 @@

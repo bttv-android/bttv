@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-index f826730f4..88fd21f1b 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 @@ -213,7 +213,9 @@

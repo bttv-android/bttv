@@ -1,5 +1,4 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
-index 7216cea34..441e60ce1 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked.smali
 @@ -15,7 +15,7 @@

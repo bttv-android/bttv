@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
-index ae70440a9..149989806 100644
 --- a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
 @@ -106,11 +106,36 @@

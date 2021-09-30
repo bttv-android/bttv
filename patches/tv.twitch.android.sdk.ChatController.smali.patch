@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/sdk/ChatController.smali b/smali_classes6/tv/twitch/android/sdk/ChatController.smali
-index 08f7a9179..8c820c86d 100644
 --- a/smali_classes6/tv/twitch/android/sdk/ChatController.smali
 +++ b/smali_classes6/tv/twitch/android/sdk/ChatController.smali
 @@ -241,6 +241,13 @@

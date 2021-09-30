@@ -1,5 +1,4 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-index 6ad1470d4..2b35855b2 100644
 --- a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 @@ -97,12 +97,15 @@

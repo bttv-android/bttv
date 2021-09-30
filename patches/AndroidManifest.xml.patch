@@ -1,5 +1,4 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index ce6452f57..33301c2d5 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@

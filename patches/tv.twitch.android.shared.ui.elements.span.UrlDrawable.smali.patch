@@ -1,5 +1,4 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
-index 8de681b56..f82b9a1f3 100644
 --- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 @@ -126,7 +126,7 @@

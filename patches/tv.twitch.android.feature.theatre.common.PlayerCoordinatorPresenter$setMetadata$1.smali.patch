@@ -1,5 +1,4 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
-index a79f09cbf..bb9620a64 100644
 --- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 @@ -89,6 +89,11 @@

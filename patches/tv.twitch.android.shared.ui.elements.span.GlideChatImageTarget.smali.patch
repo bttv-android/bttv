@@ -1,5 +1,4 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
-index f2c300298..8a62dce93 100644
 --- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 @@ -18,8 +18,9 @@

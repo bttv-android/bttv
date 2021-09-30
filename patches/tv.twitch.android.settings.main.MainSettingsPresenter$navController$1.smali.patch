@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-index fe4058fdb..102e6254e 100644
 --- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 +++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 @@ -47,6 +47,23 @@

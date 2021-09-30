@@ -1,5 +1,4 @@
 diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
-index 06cd96f7f..1c86b2453 100644
 --- a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
 +++ b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
 @@ -628,6 +628,15 @@

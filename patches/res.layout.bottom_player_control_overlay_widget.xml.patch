@@ -1,5 +1,4 @@
 diff --git a/res/layout/bottom_player_control_overlay_widget.xml b/res/layout/bottom_player_control_overlay_widget.xml
-index f2b85353e..92d0ebd81 100644
 --- a/res/layout/bottom_player_control_overlay_widget.xml
 +++ b/res/layout/bottom_player_control_overlay_widget.xml
 @@ -10,6 +10,18 @@
