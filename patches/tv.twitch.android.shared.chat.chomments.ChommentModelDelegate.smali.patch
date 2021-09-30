@@ -1,0 +1,10 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+index cb362b134..81e398db2 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+@@ -1,4 +1,4 @@
+-.class public final Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
++.class public Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
+ .super Ljava/lang/Object;
+ .source "SourceFile"
+ 

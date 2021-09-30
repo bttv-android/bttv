@@ -1,12 +1,19 @@
 #!/bin/bash
 
-[ -z "$1" ] && echo "usage: ./genmonkeyonly <targetdir>" && echo "e.g.: ./genmonkeyonly extracted" && exit 1
+[ -z "$1" ] && echo "usage: ./genmonke <targetdir>" && echo "e.g.: ./genmonke disass" && exit 1
 
-cd $1 &&
-if [ $(git status --short | wc -l) = "0" ]; then
-    echo "No changes in $1 found, no need to generate monke.patch"
+if ! cd $1; then
     exit 1
 fi
-git add . &&
-git diff --binary base > ../monke.patch &&
-echo "done"
+
+Files=$(git diff base --name-only)
+
+rm -rf ../patches
+mkdir ../patches
+
+for File in $Files
+do
+    Path=../patches/$(echo $File | sed 's/\//./g;s/smali_classes[0-9]\.//; s/smali\.//').patch
+    echo $File
+    git diff --minimal base $File > $Path
+done

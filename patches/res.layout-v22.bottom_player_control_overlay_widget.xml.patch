@@ -1,0 +1,23 @@
+diff --git a/res/layout-v22/bottom_player_control_overlay_widget.xml b/res/layout-v22/bottom_player_control_overlay_widget.xml
+index db4d69d0d..e29100ddb 100644
+--- a/res/layout-v22/bottom_player_control_overlay_widget.xml
++++ b/res/layout-v22/bottom_player_control_overlay_widget.xml
+@@ -10,6 +10,18 @@
+         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_audio_only" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" app:theme="@style/SettingsSwitch" />
+         <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_info" android:scaleType="fitCenter" app:tint="@color/white" />
+         <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:tint="@color/white" />
++        <ImageView
++            android:id="@id/bttv_sleep_timer_button"
++            android:background="?selectableItemBackgroundBorderless"
++            android:padding="@dimen/default_margin"
++            android:visibility="gone"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/default_margin"
++            android:src="@drawable/bttv_ic_bedtime"
++            android:scaleType="fitCenter"
++            android:contentDescription="@string/bttv_sleep_timer_button_descr"
++            app:tint="@color/white" />
+         <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" app:tint="@color/white" />
+         <ImageView android:id="@id/write_message_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_compose" android:contentDescription="@string/write_message_talkback" android:layout_marginHorizontal="@dimen/default_margin" app:tint="@color/white" />
+         <ImageView android:id="@id/chat_settings_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:layout_marginRight="@dimen/default_margin" android:src="@drawable/ic_chat_display_setting" android:contentDescription="@string/chat_settings_talkback" android:layout_marginHorizontal="@dimen/default_margin" app:tint="@color/white" />

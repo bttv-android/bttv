@@ -1,0 +1,98 @@
+diff --git a/smali_classes3/com/bumptech/glide/Registry.smali b/smali_classes3/com/bumptech/glide/Registry.smali
+index 22f5cf244..5e58bea3c 100644
+--- a/smali_classes3/com/bumptech/glide/Registry.smali
++++ b/smali_classes3/com/bumptech/glide/Registry.smali
+@@ -265,6 +265,93 @@
+     return-object v0
+ .end method
+ 
++# BTTV
++
++.field public static final BUCKET_BITMAP:Ljava/lang/String; = "Bitmap"
++
++.field public static final BUCKET_BITMAP_DRAWABLE:Ljava/lang/String; = "BitmapDrawable"
++
++.field public static final BUCKET_GIF:Ljava/lang/String; = "Gif"
++
++
++.method public prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceEncoder<",
++            "TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    .line 335
++    iget-object v0, p0, Lcom/bumptech/glide/Registry;->resourceEncoderRegistry:Lcom/bumptech/glide/provider/ResourceEncoderRegistry;
++
++    invoke-virtual {v0, p1, p2}, Lcom/bumptech/glide/provider/ResourceEncoderRegistry;->prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++
++    return-object p0
++.end method
++
++.method public prepend(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Data:",
++            "Ljava/lang/Object;",
++            "TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TData;>;",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceDecoder<",
++            "TData;TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    const-string v0, "legacy_prepend_all"
++
++    .line 210
++    invoke-virtual {p0, v0, p1, p2, p3}, Lcom/bumptech/glide/Registry;->prepend(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++
++    return-object p0
++.end method
++
++.method public prepend(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/Registry;
++    .locals 1
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Data:",
++            "Ljava/lang/Object;",
++            "TResource:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/String;",
++            "Ljava/lang/Class<",
++            "TData;>;",
++            "Ljava/lang/Class<",
++            "TTResource;>;",
++            "Lcom/bumptech/glide/load/ResourceDecoder<",
++            "TData;TTResource;>;)",
++            "Lcom/bumptech/glide/Registry;"
++        }
++    .end annotation
++
++    .line 240
++    iget-object v0, p0, Lcom/bumptech/glide/Registry;->decoderRegistry:Lcom/bumptech/glide/provider/ResourceDecoderRegistry;
++
++    invoke-virtual {v0, p1, p4, p2, p3}, Lcom/bumptech/glide/provider/ResourceDecoderRegistry;->prepend(Ljava/lang/String;Lcom/bumptech/glide/load/ResourceDecoder;Ljava/lang/Class;Ljava/lang/Class;)V
++
++    return-object p0
++.end method
++# /BTTV
+ 
+ # virtual methods
+ .method public append(Ljava/lang/Class;Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/Registry;

@@ -1,0 +1,42 @@
+diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+index fe4058fdb..102e6254e 100644
+--- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
++++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+@@ -47,6 +47,23 @@
+ 
+     invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    # BTTV
++    #  open bttv settings fragment when bttv settings destination
++    #     expects:
++    #     - p1: tv.twitch.android.models.settings.SettingsDestination
++    #     sets:
++    #     - p2: tv.twitch.android.models.settings.SettingsDestination.BTTV will be overwritten
++    sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
++    if-ne p1, p2, :not_bttv
++
++    new-instance p2, Lbttv/settings/SettingsFragment;
++    invoke-direct {p2}, Lbttv/settings/SettingsFragment;-><init>()V
++
++    goto :goto_0
++
++    :not_bttv
++    # /BTTV
++
+     .line 74
+     sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
+ 
+@@ -240,6 +257,13 @@
+     move-result-object p1
+ 
+     .line 103
++    # BTTV
++    #  v0 may not be initialized, so we set it to null
++    #  it's ok as it is null anyway
++    #     sets:
++    #     - v0: null
++    const/16 v0, 0x0
++    # /BTTV
+     invoke-virtual {v1, v2, p2, p1, v0}, Ltv/twitch/android/util/FragmentUtil$Companion;->addOrRecreateFragment(Landroidx/fragment/app/FragmentActivity;Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
+ 
+     :cond_2

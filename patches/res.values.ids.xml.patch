@@ -1,0 +1,13 @@
+diff --git a/res/values/ids.xml b/res/values/ids.xml
+index 631798340..24787f135 100644
+--- a/res/values/ids.xml
++++ b/res/values/ids.xml
+@@ -3170,4 +3170,8 @@
+     <item type="id" name="year_published" />
+     <item type="id" name="you_were_watching" />
+     <item type="id" name="zero_corner_chip" />
++    <item type="id" name="bttv_updater_activity_title" />
++    <item type="id" name="bttv_updater_activity_body" />
++    <item type="id" name="bttv_updater_activity_pb" />
++    <item type="id" name="bttv_sleep_timer_button" />
+ </resources>

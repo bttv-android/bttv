@@ -17,11 +17,11 @@ In order to build a the bttv-android mod we need three things:
 
 [![Build process diagram][build-img]][build-img]
 
-First we extract the `.apk` file and convert the `.dex` files in it into human readable (and editable) `.smali` code using `apktool`. Then we compile our own java classes and copy them into the bundle (they get converted to `.smali` as well). These classes by themselves are just dead code as they are never called. So the last step is to make changes to some existing `smali` files. These changes are stored in the form of a git patch file called `monke.patch`. We can use apktool again to build a new apk file (which gets signed afterwards using `uber apk signer`).
+First we extract the `.apk` file and convert the `.dex` files in it into human readable (and editable) `.smali` code using `apktool`. Then we compile our own java classes and copy them into the bundle (they get converted to `.smali` as well). These classes by themselves are just dead code as they are never called. So the last step is to make changes to some existing `smali` files. These changes are stored in the form of git `.patch` files in the `patches` directory. We can use apktool again to build a new apk file (which gets signed afterwards using `uber apk signer`).
 
-## mod/ and monke.patch
+## mod/ and patches
 
-The two parts of this mod are stored in the `monke.patch` file and the mod directory. Let's 
+The two parts of this mod are stored in the `patches` and the `mod` directory. Let's 
 touch on them for a litle bit:
 
 [![diagram][inter-img]][inter-img]
@@ -34,13 +34,13 @@ In order to compile `javac` needs the call signature of every method we call in 
 
 
 
-## monke.patch
+## patches
 
 [![diagram][monke-img]][monke-img]
 
-As we can't publish the whole application we simply track all our changes using `git`. This is done by creating a new tag right after the dissemblance of the base apk file. Every modification can then be tracked using `git diff` the result of which is stored in the `monke.patch` file. `git apply` takes this file and appies the changes to a given commit. This way, given the same base code produced by apktool, the mod is reproducable.
+As we can't publish the whole application we simply track all our changes using `git`. This is done by creating a new tag right after the dissemblance of the base apk file. Every modification can then be tracked using `git diff` the result of which is stored in the `patches` directory. `git apply` takes these files and appies the changes to a given commit. This way, given the same base code produced by apktool, the mod is reproducable.
 
-`base + monke.patch (+ sources) = mod`
+`base + patches (+ sources) = mod`
 
 If anything is left unclear feel free to [create a new discussion][new-disc] here on github.
 

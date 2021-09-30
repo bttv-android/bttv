@@ -1,0 +1,55 @@
+diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+index f0a19db4f..eacd0c1b9 100644
+--- a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
++++ b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+@@ -40,6 +40,50 @@
+     return-void
+ .end method
+ 
++# BTTV
++.method public declared-synchronized prepend(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++    .locals 3
++    .annotation system Ldalvik/annotation/Signature;
++        value = {
++            "<Z:",
++            "Ljava/lang/Object;",
++            ">(",
++            "Ljava/lang/Class<",
++            "TZ;>;",
++            "Lcom/bumptech/glide/load/ResourceEncoder<",
++            "TZ;>;)V"
++        }
++    .end annotation
++
++    monitor-enter p0
++
++    .line 25
++    :try_start_0
++    iget-object v0, p0, Lcom/bumptech/glide/provider/ResourceEncoderRegistry;->encoders:Ljava/util/List;
++
++    const/4 v1, 0x0
++
++    new-instance v2, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;
++
++    invoke-direct {v2, p1, p2}, Lcom/bumptech/glide/provider/ResourceEncoderRegistry$Entry;-><init>(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V
++
++    invoke-interface {v0, v1, v2}, Ljava/util/List;->add(ILjava/lang/Object;)V
++    :try_end_0
++    .catchall {:try_start_0 .. :try_end_0} :catchall_0
++
++    .line 26
++    monitor-exit p0
++
++    return-void
++
++    :catchall_0
++    move-exception p1
++
++    monitor-exit p0
++
++    throw p1
++.end method
++# /BTTV
+ 
+ # virtual methods
+ .method public declared-synchronized append(Ljava/lang/Class;Lcom/bumptech/glide/load/ResourceEncoder;)V

@@ -1,0 +1,77 @@
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index ce6452f57..33301c2d5 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -1,4 +1,15 @@
+-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
++<?xml version="1.0" encoding="utf-8" standalone="no"?>
++<manifest
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:versionCode="01106001301"
++    android:versionName="0.13.1-beta"
++    android:compileSdkVersion="29"
++    android:compileSdkVersionCodename="10"
++    android:installLocation="auto"
++    package="tv.twitch.bttvandroid.app"
++    platformBuildVersionCode="29"
++    platformBuildVersionName="10">
++
+     <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
+     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+     <uses-permission android:name="android.permission.CAMERA"/>
+@@ -7,6 +18,7 @@
+     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
++    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
+     <uses-feature android:name="android.hardware.camera" android:required="false"/>
+@@ -122,10 +134,10 @@
+             </intent-filter>
+         </receiver>
+         <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+-        <provider android:authorities="tv.twitch.android.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
++        <provider android:authorities="tv.twitch.bttvandroid.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+         </provider>
+-        <provider android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.android.app" android:exported="true" android:name="tv.twitch.android.shared.map.sdk.MAPInfoProviderImpl" android:permission="com.amazon.identity.permission.CAN_CALL_MAP_INFORMATION_PROVIDER"/>
++        <provider android:authorities="com.amazon.identity.auth.device.MapInfoProvider.tv.twitch.bttvandroid.app" android:exported="true" android:name="tv.twitch.android.shared.map.sdk.MAPInfoProviderImpl" android:permission="com.amazon.identity.permission.CAN_CALL_MAP_INFORMATION_PROVIDER"/>
+         <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
+         <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
+         <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
+@@ -225,11 +237,11 @@
+             </intent-filter>
+         </receiver>
+         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+-        <provider android:authorities="tv.twitch.android.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
++        <provider android:authorities="tv.twitch.bttvandroid.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+         <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+-        <provider android:authorities="tv.twitch.android.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
++        <provider android:authorities="tv.twitch.bttvandroid.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
+         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+         <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+@@ -279,5 +291,18 @@
+         <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
++        <activity android:name="bttv.updater.UpdaterActivity" />
++        <provider
++            android:name="androidx.core.content.FileProvider"
++            android:authorities="tv.twitch.bttvandroid.app.provider"
++            android:exported="false"
++            android:grantUriPermissions="true" >
++            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"></meta-data>
++        </provider>
++        <service
++            android:name="bttv.updater.UpdaterJobService"
++            android:label="Periodically checks for updates"
++            android:permission="android.permission.BIND_JOB_SERVICE"
++        />
+     </application>
+-</manifest>
+\ No newline at end of file
++</manifest>

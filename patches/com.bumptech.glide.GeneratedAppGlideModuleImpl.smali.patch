@@ -1,0 +1,15 @@
+diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+index 41fd2e870..f283b65e6 100644
+--- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
++++ b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+@@ -110,6 +110,10 @@
+ 
+     invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/integration/okhttp3/OkHttpLibraryGlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
+ 
++    # BTTV
++    invoke-static {p1, p2, p3}, Lbttv/api/Webp;->registerWebpDecoder(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
++    # /BTTV
++
+     .line 35
+     iget-object v0, p0, Lcom/bumptech/glide/GeneratedAppGlideModuleImpl;->appGlideModule:Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;
+ 

@@ -1,8 +1,20 @@
 #!/bin/bash
 
-[ -z "$1" ] && echo "usage: ./patch <filename>.patch" && exit 1
+if ! cd disass; then
+    exit 1
+fi
 
-cd disass
 git init
 git add .
-git apply --index ../$1
+
+if ! cd ../patches; then
+    exit 1
+fi
+
+for File in *.patch
+do
+    cd ../disass
+    echo $File
+    git apply --index ../patches/$File
+done
+

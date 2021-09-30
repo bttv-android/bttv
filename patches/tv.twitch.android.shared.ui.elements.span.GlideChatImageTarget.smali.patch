@@ -1,0 +1,51 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
+index f2c300298..8a62dce93 100644
+--- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
++++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
+@@ -18,8 +18,9 @@
+ 
+ .field private mMaxSideDimenPixel:I
+ 
+-.field private mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
++.field public mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
+ 
++.field public bttvView:Landroid/widget/TextView; # BTTV
+ 
+ # direct methods
+ .method public constructor <init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
+@@ -81,7 +82,7 @@
+ .end method
+ 
+ .method private scaleSquared(FFF)Landroid/graphics/Point;
+-    .locals 3
++    .locals 4
+ 
+     const/high16 v0, 0x3f800000    # 1.0f
+ 
+@@ -109,6 +110,15 @@
+ 
+     move-result p3
+ 
++    # BTTV
++    #  fix wide emotes
++    invoke-static {p0}, Lbttv/api/Glide;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;)Z
++    move-result v3
++    if-eqz v3, :not_bttv
++    move p3, v0
++    :not_bttv
++    # /BTTV
++
+     mul-float p1, p1, p3
+ 
+     float-to-int p1, p1
+@@ -230,6 +240,10 @@
+ 
+     invoke-virtual {p2, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
+ 
++    # BTTV
++    invoke-static {p0, p1}, Lbttv/api/Glide;->invalidateView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/graphics/drawable/Drawable;)V
++    # /BTTV
++
+     return-void
+ .end method
+ 

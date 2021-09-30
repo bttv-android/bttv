@@ -1,0 +1,24 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+index f826730f4..88fd21f1b 100644
+--- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+@@ -213,7 +213,9 @@
+     :cond_2
+     iget-object p2, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->chatMessageFactory:Ltv/twitch/android/shared/chat/messagefactory/ChatMessageFactory;
+ 
+-    new-instance v7, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
++    # BTTV
++    new-instance v7, Lbttv/ChommentModelDelegateWrapper;
++    # /BTTV
+ 
+     iget-object v3, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->sdkServicesController:Ltv/twitch/android/sdk/SDKServicesController;
+ 
+@@ -227,7 +229,7 @@
+ 
+     move-object v2, p1
+ 
+-    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/sdk/SDKServicesController;Ltv/twitch/android/shared/chat/ChatMessageParser;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
++    invoke-direct/range {v1 .. v6}, Lbttv/ChommentModelDelegateWrapper;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/sdk/SDKServicesController;Ltv/twitch/android/shared/chat/ChatMessageParser;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+ 
+     invoke-virtual {p1}, Ltv/twitch/android/models/chomments/ChommentModel;->getChannelId()Ljava/lang/String;
+ 

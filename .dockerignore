@@ -6,5 +6,5 @@ dist
 decompiled
 .gitignore
 README.md
-monke.patch
+patches
 mod

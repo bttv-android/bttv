@@ -1,0 +1,18 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+index 0cad48f74..b14a3bd82 100644
+--- a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
++++ b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+@@ -778,6 +778,13 @@
+     .line 57
+     iput-object p2, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
+ 
++    # BTTV
++    #  hook when broadcaster changes in VOD
++    #     expects:
++    #     - p2: tv.twitch.android.models.channel.ChannelModel
++    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/channel/ChannelModel;)V
++    # /BTTV
++
+     .line 58
+     invoke-static {}, Ltv/twitch/android/util/RandomUtil;->generateRandomHexadecimal32Characters()Ljava/lang/String;
+ 

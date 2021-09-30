@@ -1,0 +1,11 @@
+diff --git a/res/values/colors.xml b/res/values/colors.xml
+index 6aa15b3a2..dda11a886 100644
+--- a/res/values/colors.xml
++++ b/res/values/colors.xml
+@@ -522,4 +522,6 @@
+     <color name="yellow_8">#ff60600b</color>
+     <color name="yellow_9">#ff7a7a00</color>
+     <color name="youtube">#ffcd201f</color>
++    <color name="bttv_mega">#ff00fafa</color>
++    <color name="bttv_sonic">#ff0014a5</color>
+ </resources>

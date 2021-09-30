@@ -53,12 +53,12 @@ Do the following once:
 bttv/
 ├─ initworkspace - used to set up everything
 ├─ buildsource - used to build the java sources
-├─ build - re-assembles the 'extracted' dir
+├─ build - re-assembles the 'disass' dir
 ├─ decompile - you need JADX to use this
 ├─ install - install the result of build on a device (using adb)
-├─ monke.patch - contains monkey patches
-├─ genmonke - script that generates the monke.patch based on extracted (more below)
-├─ extracted/ - renamed from disass
+├─ patches - contains monkey patches
+├─ genmonke - script that generates the patches based on disass (more below)
+├─ disass/ - renamed from disass
 │  ├─ AndroidManifest.xml
 │  ├─ res/
 │  ├─ smali_classes0-10/ - contains disassembled app + bttv code
@@ -72,10 +72,10 @@ bttv/
 
 ### genmonke
 
-During initialization the disass / extraced dir is initialized with an empty git repo.
+During initialization the disass dir is initialized with an empty git repo.
 Right after the disassemblement the first commit is made and tagged "base".
 This is used to generate the patch file.
-`monke.patch` is thus the result of a diff between master and base.
+`patches` is thus the result of a diff between master and base.
 
 #### Only source changes
 

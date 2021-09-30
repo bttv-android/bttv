@@ -1,0 +1,15 @@
+diff --git a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+index 842c437dc..9b1c22570 100644
+--- a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
++++ b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper.smali
+@@ -377,6 +377,10 @@
+ 
+     invoke-direct {v0, p0, p1, v1}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
+ 
++    # BTTV
++    invoke-static {v0, p2}, Lbttv/api/Glide;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
++    # /BTTV
++
+     .line 90
+     invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
+ 

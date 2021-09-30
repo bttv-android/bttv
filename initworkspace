@@ -75,10 +75,10 @@ echo "" &&
 echo "=== Build source (4/$STEPS) ===" &&
 ./buildsource disass &&
 echo "" &&
-echo "=== Apply monke.patch (5/$STEPS) ===" &&
-./patch monke.patch &&
+echo "=== Apply patches (5/$STEPS) ===" &&
+./patch &&
 cd disass &&
-git commit -m "applied monke" &&
+git commit -m "applied patches" &&
 cd .. &&
 echo "" &&
 [ -z "$NOBUILD" ] &&
