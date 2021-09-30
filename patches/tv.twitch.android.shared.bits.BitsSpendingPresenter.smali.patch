@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
-index 8af3af5a7..eaca43211 100644
 --- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
 @@ -18,7 +18,7 @@

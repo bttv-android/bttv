@@ -1,5 +1,4 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
-index 489d65a51..0fc3c4b1d 100644
 --- a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
 +++ b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
 @@ -1495,6 +1495,14 @@

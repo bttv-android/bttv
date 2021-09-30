@@ -1,5 +1,4 @@
 diff --git a/smali_classes3/com/bumptech/glide/Registry.smali b/smali_classes3/com/bumptech/glide/Registry.smali
-index 22f5cf244..5e58bea3c 100644
 --- a/smali_classes3/com/bumptech/glide/Registry.smali
 +++ b/smali_classes3/com/bumptech/glide/Registry.smali
 @@ -265,6 +265,93 @@

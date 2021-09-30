@@ -1,5 +1,4 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
-index 3569c1ed5..d3bdc6758 100644
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
 @@ -13041,4 +13041,58 @@

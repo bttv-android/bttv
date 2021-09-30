@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
-index 8aa90871d..6f243ed5d 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
 @@ -7,7 +7,7 @@

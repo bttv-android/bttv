@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel.smali b/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel.smali
-index cdd0c056d..69b3c1720 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/model/EmoteCardModel.smali
 @@ -23,7 +23,7 @@

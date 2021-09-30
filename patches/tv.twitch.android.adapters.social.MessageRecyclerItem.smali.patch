@@ -1,5 +1,4 @@
 diff --git a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
-index 8e83a1896..7dc08a1f3 100644
 --- a/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
 +++ b/smali_classes5/tv/twitch/android/adapters/social/MessageRecyclerItem.smali
 @@ -73,6 +73,7 @@

@@ -1,5 +1,4 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
-index 631798340..24787f135 100644
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
 @@ -3170,4 +3170,8 @@

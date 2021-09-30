@@ -1,5 +1,4 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali b/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
-index ed512dec2..8bca7a593 100644
 --- a/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messageinput/autocomplete/EmoteAutoCompleteMapProvider$1.smali
 @@ -78,6 +78,12 @@
