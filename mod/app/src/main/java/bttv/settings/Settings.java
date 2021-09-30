@@ -72,6 +72,15 @@ public enum Settings {
                     null
             )
     ),
+    SplitChatEnabled(
+            new Entry.BoolEntry(
+                    "enable_split_chat",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_enable_split_chat,
+                    Res.strings.bttv_settings_enable_split_chat_descr,
+                    null
+            )
+    ),
     ShouldShowSleepTimer(
             new Entry.BoolEntry(
                 "enable_sleep_timer",

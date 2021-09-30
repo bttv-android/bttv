@@ -52,6 +52,11 @@ public class ResUtil {
         return getResourceId(context, name, type);
     }
 
+    public static int getColorValue(@NonNull String colorName) {
+        int id = getResourceId(colorName, "color");
+        return Data.ctx.getResources().getColor(id);
+    }
+
     public static int getStringId(@NonNull String name) {
         return getResourceId(name, "string");
     }
