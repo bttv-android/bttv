@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- rebase to v11.7.0
 - add split chat feature
 
 # v0.13.1-beta
