@@ -1,6 +1,6 @@
-diff --git a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
---- a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
-+++ b/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+--- a/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
++++ b/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
 @@ -81,6 +81,16 @@
          }
      .end annotation
@@ -15,6 +15,6 @@ diff --git a/smali_classes4/tv/twitch/android/shared/ui/elements/GlideHelper$gen
 +    invoke-static {p1, p2}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
 +    # /BTTV
 +
-     .line 122
+     .line 176
      instance-of p2, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
  

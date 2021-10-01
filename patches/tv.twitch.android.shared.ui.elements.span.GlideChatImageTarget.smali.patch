@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 --- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageTarget.smali
-@@ -18,8 +18,9 @@
+@@ -21,8 +21,9 @@
  
  .field private mMaxSideDimenPixel:I
  
@@ -12,7 +12,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatI
  
  # direct methods
  .method public constructor <init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
-@@ -81,7 +82,7 @@
+@@ -84,7 +85,7 @@
  .end method
  
  .method private scaleSquared(FFF)Landroid/graphics/Point;
@@ -21,7 +21,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatI
  
      const/high16 v0, 0x3f800000    # 1.0f
  
-@@ -109,6 +110,15 @@
+@@ -112,6 +113,15 @@
  
      move-result p3
  
@@ -37,7 +37,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatI
      mul-float p1, p1, p3
  
      float-to-int p1, p1
-@@ -230,6 +240,10 @@
+@@ -233,6 +243,10 @@
  
      invoke-virtual {p2, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
  

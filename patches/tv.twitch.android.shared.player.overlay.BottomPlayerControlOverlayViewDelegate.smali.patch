@@ -1,8 +1,8 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-@@ -54,6 +54,12 @@
-     .line 72
+@@ -54,6 +54,13 @@
+     .line 70
      invoke-direct {p0, p1, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;)V
  
 +    # BTTV
@@ -11,6 +11,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayer
 +    #     - p2: android.view.View
 +    invoke-static {p1, p2}, Lbttv/api/SleepTimer;->onInit(Landroid/content/Context;Landroid/view/View;)V
 +    # /BTTV
-     const/4 v0, 0x1
++
+     const/4 p1, 0x1
  
-     .line 49
+     .line 47

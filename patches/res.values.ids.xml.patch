@@ -1,7 +1,7 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -3170,4 +3170,8 @@
+@@ -3207,4 +3207,8 @@
      <item type="id" name="year_published" />
      <item type="id" name="you_were_watching" />
      <item type="id" name="zero_corner_chip" />

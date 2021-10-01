@@ -13,6 +13,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$
 +    goto :goto_0
 +    # /BTTV
 +
-     .line 481
+     .line 489
      iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->$productForAmount:Ltv/twitch/android/models/bits/IapBundleModel;
  

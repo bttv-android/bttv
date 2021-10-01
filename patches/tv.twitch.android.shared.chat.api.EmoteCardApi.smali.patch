@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteApi.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteCardApi.smali b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteCardApi.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/api/EmoteCardApi.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/api/EmoteCardApi.smali
 @@ -57,6 +57,21 @@
          }
      .end annotation
