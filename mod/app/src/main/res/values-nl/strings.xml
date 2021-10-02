@@ -7,7 +7,7 @@
     <string name="bttv_emote_picker_channel_ffz">Kanaal FrankerFaceZ Emotes</string>
     <string name="bttv_emote_picker_global_7tv">Globale 7TV Emotes</string>
     <string name="bttv_emote_picker_channel_7tv">Kanaal 7TV Emotes</string>
-    <string name="bttv_app_update_available">bttv-android: Nieuwe update gedetecteerd</string>
+    <string name="bttv_app_update_available">bttv-android: Nieuwe Update gedetecteerd</string>
     <string name="bttv_app_update_available_cta">Tik hier om de update te downloaden en te installeren.</string>
     <string name="bttv_sleep_timer_button_descr">Open Slaap Timer Dialoog</string>
     <string name="bttv_sleep_timer_select_dialog_title">Slaap Timer</string>
@@ -33,9 +33,13 @@
     <string name="bttv_settings_gif_render_mode_static">Stil</string>
     <string name="bttv_settings_gif_render_mode_disabled">Uitgeschakeld</string>
     <string name="bttv_settings_open_credits_button_title">Met dank aan</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Toon verwijderde berichten</string>
     <string name="bttv_credits_title">Met dank aan</string>
     <string name="bttv_credits_intro">bttv-android is gemaakt door <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> met behulp van deze lieve vertalers:</string>
     <string name="bttv_credits_bugs">Foutmeldingen</string>
     <string name="bttv_credits_ideas">Ideeën</string>
     <string name="bttv_credits_translations">Vertalingen</string>
+    <string name="bttv_copied_to_clipboard">Gebruikersnaam gekopieerd naar het klembord</string>
+    <string name="bttv_settings_enable_split_chat">Chat splitsen</string>
+    <string name="bttv_settings_enable_split_chat_descr">Tint de achtergrond van elk tweede chat bericht</string>
 </resources>
