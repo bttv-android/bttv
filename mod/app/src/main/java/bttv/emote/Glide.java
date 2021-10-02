@@ -70,7 +70,7 @@ public class Glide {
             return;
         }
         WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        if (ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate))
+        if (!webpDrawable.isRunning())
             webpDrawable.start();
     }
 }
