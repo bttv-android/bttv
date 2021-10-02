@@ -33,6 +33,9 @@ public class Glide {
         if (!getIsBttvEmote(urlDrawable)) {
             return true;
         }
+        if (urlDrawable.getUrl().endsWith("?static=true") && !ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate_forever)) {
+            return false;
+        }
         return ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate);
     }
 

@@ -1,12 +1,22 @@
 package bttv.emote;
 
-import android.content.Context;
 import android.util.Log;
 
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil;
 
 public class EmoteUrlUtil {
     private static final String TAG = "LBTTVEmoteurlUtil";
+
+    public static String getEmoteUrl(String id, AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting setting) {
+        String url = getEmoteUrl(id);
+        if (url == null) {
+            return null;
+        }
+        if (setting == AnimatedEmotesUrlUtil.EmoteUrlAnimationSetting.STATIC) {
+            return url + "?static=true";
+        }
+        return url;
+    }
 
     public static String getEmoteUrl(String id) {
         String realId = extractBTTVId(id);
