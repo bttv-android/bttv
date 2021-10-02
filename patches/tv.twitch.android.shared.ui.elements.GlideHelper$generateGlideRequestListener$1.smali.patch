@@ -6,13 +6,13 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$gen
      .end annotation
  
 +    # BTTV
-+    #  starts animation when WebpDrawable
++    #  set callback when WebpDrawable
 +    #     expects:
 +    #       p1: android.graphics.drawable.Drawable
 +    #       p0: this
 +    #
 +    iget-object p2, p0, Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1;->$drawableCallback:Ltv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$drawableCallback$1;
-+    invoke-static {p1, p2}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
++    invoke-static {p1, p2}, Lbttv/api/Glide;->setWebpCallback(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable$Callback;)V
 +    # /BTTV
 +
      .line 176

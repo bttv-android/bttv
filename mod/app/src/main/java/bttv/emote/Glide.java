@@ -57,12 +57,19 @@ public class Glide {
         target.bttvView = null; // drop ref idk how it could impact GC, and onResourceReady is only called once anyway (I hope)
     }
 
-    public static void startWebpDrawable(Drawable drawable, Drawable.Callback callback) {
+    public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
         if (!(drawable instanceof WebpDrawable)) {
             return;
         }
         WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        webpDrawable.setCallback(callback);
+        webpDrawable.setCallback(cb);
+    }
+
+    public static void startWebpDrawable(Drawable drawable) {
+        if (!(drawable instanceof WebpDrawable)) {
+            return;
+        }
+        WebpDrawable webpDrawable = (WebpDrawable) drawable;
         if (ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate))
             webpDrawable.start();
     }
