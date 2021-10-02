@@ -40,4 +40,6 @@
     <string name="bttv_credits_ideas">Idées</string>
     <string name="bttv_credits_translations">Traductions</string>
     <string name="bttv_copied_to_clipboard">Nom d\'utilisateur copié dans le presse-papiers</string>
+    <string name="bttv_settings_enable_split_chat">Diviser le chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Teindre l\'arrière plan en alternant un message sur deux</string>
 </resources>
