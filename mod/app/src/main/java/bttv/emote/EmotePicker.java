@@ -138,11 +138,11 @@ public class EmotePicker {
 
     private static EmoteUiModel emoteToModel(Emote emote) {
         String id = "BTTV-" + emote.id;
-        EmoteModel model = new EmoteModel.Generic(id, emote.code, EmoteModelAssetType.STATIC);
+        EmoteModel model = new EmoteModel.Generic(id, emote.code, emote.getAssetType());
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);
-        return new EmoteUiModel(id, clickedEmote, EmoteModelAssetType.STATIC, EmoteImageDescriptor.NONE);
+        return new EmoteUiModel(id, clickedEmote, emote.getAssetType(), EmoteImageDescriptor.NONE);
     }
 
 }

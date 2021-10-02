@@ -10,7 +10,7 @@ public class EmoteCardUtil {
 
     public static class BTTVEmoteCardModel extends EmoteCardModel.GlobalEmoteCardModel {
         public BTTVEmoteCardModel(String emoteId, String token) {
-            super(emoteId, token, EmoteModelAssetType.STATIC);
+            super(emoteId, token, EmoteModelAssetType.ANIMATED);
         }
     }
 
