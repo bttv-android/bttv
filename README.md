@@ -157,6 +157,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/GauravM512"><img src="https://avatars.githubusercontent.com/u/37218716?v=4?s=100" width="100px;" alt=""/><br /><sub><b>GauravM512</b></sub></a><br /><a href="#ideas-GauravM512" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/bttv-android/bttv/issues?q=author%3AGauravM512" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/nelswad90"><img src="https://avatars.githubusercontent.com/u/2206347?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dennis Magee</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Anelswad90" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/Senpai206"><img src="https://avatars.githubusercontent.com/u/68463773?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Senpai206</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ASenpai206" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/ReggX"><img src="https://avatars.githubusercontent.com/u/1953510?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ReggX</b></sub></a><br /><a href="#ideas-ReggX" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
