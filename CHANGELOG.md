@@ -3,6 +3,7 @@
 # master
 - rebase to v11.7.0
 - add split chat feature
+- Emotes now behave like animated sub emotes, you disable this in the settings
 
 # v0.13.1-beta
 - add "show deleted messages" feature
