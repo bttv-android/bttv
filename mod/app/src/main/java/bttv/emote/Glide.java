@@ -73,4 +73,14 @@ public class Glide {
         if (!webpDrawable.isRunning())
             webpDrawable.start();
     }
+
+    public static void stopWebpDrawable(Drawable drawable) {
+        if (!(drawable instanceof WebpDrawable)) {
+            return;
+        }
+        WebpDrawable webpDrawable = (WebpDrawable) drawable;
+        if (webpDrawable.isRunning()) {
+            webpDrawable.stop();
+        }
+    }
 }
