@@ -7,7 +7,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotes
  
 +    # BTTV
 +    #  use our url if bttv emote
-+    invoke-static {p2}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;)Ljava/lang/String;
++    invoke-static {p2, p3}, Lbttv/emote/EmoteUrlUtil;->getEmoteUrl(Ljava/lang/String;Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlAnimationSetting;)Ljava/lang/String;
 +    move-result-object v1
 +    if-eqz v1, :after_bttv
 +    move-object p1, v1

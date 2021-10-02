@@ -13,7 +13,8 @@ public class AnimatedEmotesUrlUtil {
     }
 
     public enum EmoteUrlAnimationSetting {
-        DEFAULT("default");
+        DEFAULT("default"),
+        STATIC("static");
         EmoteUrlAnimationSetting(String s){};
     }
 
