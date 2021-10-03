@@ -19,7 +19,7 @@ cd $1
 
 APK_PATH=./dist/twitch.apk
 
-$JAVA_PATH -Xmx256m -jar $APKTOOL_PATH b . --use-aapt2 &&
+$JAVA_PATH -Xmx6g -jar $APKTOOL_PATH b . --use-aapt2 &&
 
 if [ -z "$KS" ]; then
 
