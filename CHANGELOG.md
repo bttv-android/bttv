@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# v0.14.0-beta
 - rebase to v11.7.0
 - add split chat feature
 - Emotes now behave like animated sub emotes, you disable this in the settings
