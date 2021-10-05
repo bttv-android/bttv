@@ -28,7 +28,7 @@ public class Autocomplete {
             Emote e = Emotes.getEmote(channelId, code);
             if (e == null)
                 continue; // should not happen
-            generics.add(new EmoteModel.Generic("BTTV-" + e.id, e.code, EmoteModelAssetType.STATIC));
+            generics.add(new EmoteModel.Generic("BTTV-" + e.id, e.code, e.getAssetType()));
         }
         EmoteSet set = new EmoteSet.GenericEmoteSet("bttv_emote_set_id", generics);
         list.add(set);

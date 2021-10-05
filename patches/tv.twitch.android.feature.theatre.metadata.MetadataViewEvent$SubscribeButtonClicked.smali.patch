@@ -8,5 +8,5 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/MetadataV
 -.field private final channelModel:Ltv/twitch/android/models/channel/ChannelModel;
 +.field public final channelModel:Ltv/twitch/android/models/channel/ChannelModel;
  
- .field private final pageType:Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;
+ .field private final pageType:Ltv/twitch/android/shared/subscriptions/pub/button/SubscriptionPageType;
  

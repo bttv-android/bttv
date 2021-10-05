@@ -25,6 +25,7 @@ public enum Settings {
                     "bttv_gif_render_mode",
                     new Entry.DropDownValue(
                             new ArrayList<>(Arrays.asList(
+                                    Res.strings.bttv_settings_gif_render_mode_animate_forever,
                                     Res.strings.bttv_settings_gif_render_mode_animate,
                                     Res.strings.bttv_settings_gif_render_mode_static,
                                     Res.strings.bttv_settings_gif_render_mode_disabled
@@ -32,7 +33,7 @@ public enum Settings {
                             Res.strings.bttv_settings_gif_render_mode_animate
                     ),
                     Res.strings.bttv_settings_gif_render_mode_title,
-                    null,
+                    Res.strings.bttv_settings_gif_render_mode_descr,
                     null
             )
     ),

@@ -55,6 +55,8 @@ public class Res {
         bttv_settings_highlights_dia_title,
         bttv_settings_gif_render_mode_title,
         bttv_settings_gif_render_mode_animate,
+        bttv_settings_gif_render_mode_animate_forever,
+        bttv_settings_gif_render_mode_descr,
         bttv_settings_gif_render_mode_static,
         bttv_settings_gif_render_mode_disabled,
         bttv_settings_open_credits_button_title,

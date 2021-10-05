@@ -33,7 +33,11 @@ public class Glide {
         if (!getIsBttvEmote(urlDrawable)) {
             return true;
         }
-        return ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate);
+        if (urlDrawable.getUrl().endsWith("?static=true") && !ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate_forever)) {
+            return false;
+        }
+        return ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate)
+                || ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate_forever);
     }
 
     public static void setRenderingView(GlideChatImageTarget target, TextView view) {
@@ -57,13 +61,30 @@ public class Glide {
         target.bttvView = null; // drop ref idk how it could impact GC, and onResourceReady is only called once anyway (I hope)
     }
 
-    public static void startWebpDrawable(Drawable drawable, Drawable.Callback callback) {
+    public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
         if (!(drawable instanceof WebpDrawable)) {
             return;
         }
         WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        webpDrawable.setCallback(callback);
-        if (ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_animate))
+        webpDrawable.setCallback(cb);
+    }
+
+    public static void startWebpDrawable(Drawable drawable) {
+        if (!(drawable instanceof WebpDrawable)) {
+            return;
+        }
+        WebpDrawable webpDrawable = (WebpDrawable) drawable;
+        if (!webpDrawable.isRunning())
             webpDrawable.start();
+    }
+
+    public static void stopWebpDrawable(Drawable drawable) {
+        if (!(drawable instanceof WebpDrawable)) {
+            return;
+        }
+        WebpDrawable webpDrawable = (WebpDrawable) drawable;
+        if (webpDrawable.isRunning()) {
+            webpDrawable.stop();
+        }
     }
 }

@@ -55,11 +55,27 @@ public class Glide {
         }
     }
 
-    public static void startWebpDrawable(Drawable drawable, Drawable.Callback callback) {
+    public static void startWebpDrawable(Drawable drawable) {
         try {
-            bttv.emote.Glide.startWebpDrawable(drawable, callback);
+            bttv.emote.Glide.startWebpDrawable(drawable);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "startWebpDrawable: ", t);
+        }
+    }
+
+    public static void stopWebpDrawable(Drawable drawable) {
+        try {
+            bttv.emote.Glide.stopWebpDrawable(drawable);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "stopWebpDrawable: ", t);
+        }
+    }
+
+    public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
+        try {
+            bttv.emote.Glide.setWebpCallback(drawable, cb);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "setWebpCallback: ", t);
         }
     }
 

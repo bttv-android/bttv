@@ -1,7 +1,19 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 --- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
-@@ -126,7 +126,7 @@
+@@ -114,6 +114,11 @@
+     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stop()V
+ 
+     :cond_0
++
++    # BTTV
++    invoke-static {v0}, Lbttv/api/Glide;->stopWebpDrawable(Landroid/graphics/drawable/Drawable;)V
++    # /BTTV
++
+     const/4 v0, 0x0
+ 
+     .line 77
+@@ -126,7 +131,7 @@
  .end method
  
  .method public draw(Landroid/graphics/Canvas;)V
@@ -10,7 +22,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  
      const-string v0, "canvas"
  
-@@ -153,6 +153,13 @@
+@@ -153,10 +158,24 @@
  
      if-nez p1, :cond_0
  
@@ -18,9 +30,20 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    #     don't start gif if disabled
 +    invoke-static {p0}, Lbttv/api/Glide;->shouldAnimateEmotes(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;)Z
 +    move-result v1
-+    if-eqz v1, :cond_0
++    if-eqz v1, :dont_animate
 +    # /BTTV
 +
      .line 56
      invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->start()V
+ 
+     :cond_0
++
++    # BTTV
++    #  start drawable if WebpDrawable
++    invoke-static {v0}, Lbttv/api/Glide;->startWebpDrawable(Landroid/graphics/drawable/Drawable;)V
++    # /BTTV
++
++    :dont_animate
+     return-void
+ .end method
  

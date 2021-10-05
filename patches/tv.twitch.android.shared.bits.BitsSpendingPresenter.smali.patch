@@ -8,9 +8,9 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.
 -.field private final activity:Landroidx/fragment/app/FragmentActivity;
 +.field public final activity:Landroidx/fragment/app/FragmentActivity;
  
- .field private balanceModel:Ltv/twitch/android/models/bits/BitsBalanceModel;
+ .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availbility/AvailabilityTracker;
  
-@@ -774,7 +774,9 @@
+@@ -796,7 +796,9 @@
  
      const/4 v2, 0x1
  

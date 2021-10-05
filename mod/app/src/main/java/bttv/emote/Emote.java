@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import tv.twitch.android.models.emotes.EmoteModelAssetType;
+
 public class Emote {
     public String id;
     public Emotes.Source source;
@@ -81,5 +83,17 @@ public class Emote {
     @Override
     public String toString() {
         return "Emote(" + id + ", " + code + ", " + url + " imageType: " + imageType + ")";
+    }
+
+    public boolean isAnimated() {
+        if (this.source != Emotes.Source.STV) {
+            return this.imageType.equals("gif");
+        } else {
+            return true;
+        }
+    }
+
+    public EmoteModelAssetType getAssetType() {
+        return this.isAnimated() ? EmoteModelAssetType.ANIMATED : EmoteModelAssetType.STATIC;
     }
 }

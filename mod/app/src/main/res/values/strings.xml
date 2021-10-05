@@ -43,4 +43,6 @@
     <string name="bttv_copied_to_clipboard">Username copied to clipboard</string>
     <string name="bttv_settings_enable_split_chat">Split Chat</string>
     <string name="bttv_settings_enable_split_chat_descr">Tint the background of every second chat message</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animate forever</string>
+    <string name="bttv_settings_gif_render_mode_descr">Note: "Animate forever" might drain your battery really fast</string>
 </resources>
