@@ -40,4 +40,6 @@
     <string name="bttv_credits_ideas">İdeyalar</string>
     <string name="bttv_credits_translations">Tərcümələr</string>
     <string name="bttv_copied_to_clipboard">İstifadəçi adı lövhəyə kopyalandı</string>
+    <string name="bttv_settings_enable_split_chat">Bölünmüş söhbət</string>
+    <string name="bttv_settings_enable_split_chat_descr">Hər ikinci söhbət mesajının arxaplanını rəngləndirin</string>
 </resources>
