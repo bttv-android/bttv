@@ -32,4 +32,16 @@
     <string name="bttv_settings_gif_render_mode_animate">Animato</string>
     <string name="bttv_settings_gif_render_mode_static">Statico</string>
     <string name="bttv_settings_gif_render_mode_disabled">Disabilitato</string>
+    <string name="bttv_settings_open_credits_button_title">Riconoscimenti</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Mostra I Messaggi Cancellati</string>
+    <string name="bttv_credits_title">Riconoscimenti</string>
+    <string name="bttv_credits_intro">bttv-android è stato realizzato da <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> con l\'aiuto di questa gente:</string>
+    <string name="bttv_credits_bugs">Segnalazione errori</string>
+    <string name="bttv_credits_ideas">Suggerimenti</string>
+    <string name="bttv_credits_translations">Traduzioni</string>
+    <string name="bttv_copied_to_clipboard">Username copiato negli appunti</string>
+    <string name="bttv_settings_enable_split_chat">Dividi Chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Colore lo sfondo di ogni messaggio in maniera alternata</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animare continuamente</string>
+    <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animare continuamente\" potrebbe scaricare la batteria molto velocemente</string>
 </resources>
