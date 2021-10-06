@@ -42,4 +42,6 @@
     <string name="bttv_copied_to_clipboard">İstifadəçi adı lövhəyə kopyalandı</string>
     <string name="bttv_settings_enable_split_chat">Bölünmüş söhbət</string>
     <string name="bttv_settings_enable_split_chat_descr">Hər ikinci söhbət mesajının arxaplanını rəngləndirin</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Həmişəlik canlandır</string>
+    <string name="bttv_settings_gif_render_mode_descr">Qeyd: \"Həmişəlik canlandır\" batereyanızın daha tez bitirə bilər</string>
 </resources>
