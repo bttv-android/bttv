@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automatisch ophalen Kanaal Punten</string>
     <string name="bttv_settings_show_sleep_timer_primary">Toon slaaptimer</string>
     <string name="bttv_emote_added_by_bttv">Emote toegevoegd door bttv-android</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Downloaden ...</string>
     <string name="bttv_updater_downloading_version">Downloaden %s</string>
     <string name="bttv_updater_notice">Als dit de 1ste keer is dat je de updater gebruikt, sta installaties vanuit de app toe als het popup daar om vraagt.</string>
