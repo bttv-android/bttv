@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardVie
 +
 +    if-eqz v1, :after_bttv
 +
-+    invoke-static {p0}, Lbttv/api/Strings;->getEmoteAddedByBttvString(Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;)Ljava/lang/String;
++    invoke-virtual {p1}, Lbttv/emote/EmoteCardUtil$BTTVEmoteCardModel;->getEmoteDesc()Ljava/lang/String;
 +    move-result-object p1
 +
 +    goto :goto_0

@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13126,4 +13126,60 @@
+@@ -13126,4 +13126,62 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -37,28 +37,30 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_sleep_timer_cancel_dialog_title" id="0x7f130dc3" />
 +    <public type="string" name="bttv_sleep_timer_cancel_dialog_message" id="0x7f130dc4" />
 +    <public type="string" name="bttv_emote_added_by_bttv" id="0x7f130dc5" />
-+    <public type="string" name="bttv_updater_downloading" id="0x7f130dc6" />
-+    <public type="string" name="bttv_updater_downloading_version" id="0x7f130dc7" />
-+    <public type="string" name="bttv_updater_notice" id="0x7f130dc8" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130dc9" />
-+    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130dca" />
-+    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130dcb" />
-+    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130dcc" />
-+    <public type="string" name="bttv_settings_gif_render_mode_title" id="0x7f130dcd" />
-+    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130dce" />
-+    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130dcf" />
-+    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130dd0" />
-+    <public type="string" name="bttv_settings_open_credits_button_title" id="0x7f130dd1" />
-+    <public type="string" name="bttv_settings_enable_show_deleted_messages" id="0x7f130dd2" />
-+    <public type="string" name="bttv_credits_title" id="0x7f130dd3" />
-+    <public type="string" name="bttv_credits_intro" id="0x7f130dd4" />
-+    <public type="string" name="bttv_credits_bugs" id="0x7f130dd5" />
-+    <public type="string" name="bttv_credits_ideas" id="0x7f130dd6" />
-+    <public type="string" name="bttv_credits_translations" id="0x7f130dd7" />
-+    <public type="string" name="bttv_settings_enable_split_chat" id="0x7f130dd8" />
-+    <public type="string" name="bttv_settings_enable_split_chat_descr" id="0x7f130dd9" />
-+    <public type="string" name="bttv_settings_gif_render_mode_animate_forever" id="0x7f130dda" />
-+    <public type="string" name="bttv_settings_gif_render_mode_descr" id="0x7f130ddb" />
++    <public type="string" name="bttv_emote_added_by_bttv_ffz" id="0x7f130dc6" />
++    <public type="string" name="bttv_emote_added_by_bttv_stv" id="0x7f130dc7" />
++    <public type="string" name="bttv_updater_downloading" id="0x7f130dc8" />
++    <public type="string" name="bttv_updater_downloading_version" id="0x7f130dc9" />
++    <public type="string" name="bttv_updater_notice" id="0x7f130dca" />
++    <public type="string" name="bttv_settings_open_highlights_dia_primary" id="0x7f130dcb" />
++    <public type="string" name="bttv_settings_open_highlights_dia_secondary" id="0x7f130dcc" />
++    <public type="string" name="bttv_settings_highlights_dia_input_hint" id="0x7f130dcd" />
++    <public type="string" name="bttv_settings_highlights_dia_title" id="0x7f130dce" />
++    <public type="string" name="bttv_settings_gif_render_mode_title" id="0x7f130dcf" />
++    <public type="string" name="bttv_settings_gif_render_mode_animate" id="0x7f130dd0" />
++    <public type="string" name="bttv_settings_gif_render_mode_static" id="0x7f130dd1" />
++    <public type="string" name="bttv_settings_gif_render_mode_disabled" id="0x7f130dd2" />
++    <public type="string" name="bttv_settings_gif_render_mode_animate_forever" id="0x7f130dd3" />
++    <public type="string" name="bttv_settings_gif_render_mode_descr" id="0x7f130dd4" />
++    <public type="string" name="bttv_settings_open_credits_button_title" id="0x7f130dd5" />
++    <public type="string" name="bttv_settings_enable_show_deleted_messages" id="0x7f130dd6" />
++    <public type="string" name="bttv_settings_enable_split_chat" id="0x7f130dd7" />
++    <public type="string" name="bttv_settings_enable_split_chat_descr" id="0x7f130dd8" />
++    <public type="string" name="bttv_credits_title" id="0x7f130dd9" />
++    <public type="string" name="bttv_credits_intro" id="0x7f130dda" />
++    <public type="string" name="bttv_credits_bugs" id="0x7f130ddb" />
++    <public type="string" name="bttv_credits_ideas" id="0x7f130ddc" />
++    <public type="string" name="bttv_credits_translations" id="0x7f130ddd" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08052c" />
 +    <!-- /BTTV -->
  </resources>
