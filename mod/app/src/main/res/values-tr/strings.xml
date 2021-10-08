@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Kanal puanlarını otomatik topla</string>
     <string name="bttv_settings_show_sleep_timer_primary">Uyku Zamanlayıcısını göster</string>
     <string name="bttv_emote_added_by_bttv">Emoji bttv-android tarafından eklendi</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">İndiriliyor</string>
     <string name="bttv_updater_downloading_version">%s İndiriliyor</string>
     <string name="bttv_updater_notice">Eğer güncelleyiciyi ilk defa kullanıyorsanız, bu kaynaktan indirme yapılmasına izin verin.</string>
