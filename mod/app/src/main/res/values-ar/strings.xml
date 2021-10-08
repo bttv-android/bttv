@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">احصل على نقاط القناة بشكل تلقائي</string>
     <string name="bttv_settings_show_sleep_timer_primary">إظهار مؤقت النوم</string>
     <string name="bttv_emote_added_by_bttv">ايموتات تمت اضافتها من بيتر تي في اندرويد</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">جارى التحميل</string>
     <string name="bttv_updater_downloading_version">جارٍ التحميل %s</string>
     <string name="bttv_updater_notice">إذا كانت هذه هي المرة الأولى التي تحدث بها، فيجب عليك ان تسمح بالتثبيت من هذا المصدر عندما يطلب منك Wizard ذلك.</string>
