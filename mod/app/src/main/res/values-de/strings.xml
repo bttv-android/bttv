@@ -21,6 +21,10 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Kanal Punkte automatisch erhalten</string>
     <string name="bttv_settings_show_sleep_timer_primary">Sleep Timer anzeigen</string>
     <string name="bttv_emote_added_by_bttv">Von bttv-android hinzugefügtes Emote</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote von %s hinzugefügt</string>
+    <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emote von %s hinzugefügt</string>
     <string name="bttv_updater_downloading">Lade herunter</string>
     <string name="bttv_updater_downloading_version">Lade %s herunter</string>
     <string name="bttv_updater_notice">Sollte es das erste Mal sein, dass du den Updater benutzt, must du Installationen aus dieser Quelle zulassen, wenn das System dich dazu auffordert.</string>
@@ -40,4 +44,8 @@
     <string name="bttv_credits_ideas">Ideen</string>
     <string name="bttv_credits_translations">Übersetzungen</string>
     <string name="bttv_copied_to_clipboard">Nutzername wurde in die Zwischenablage kopiert</string>
+    <string name="bttv_settings_enable_split_chat">Chat teilen</string>
+    <string name="bttv_settings_enable_split_chat_descr">Färbe den Hintergrund jeder zweiten Chat-Nachricht ein</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Ewig animieren</string>
+    <string name="bttv_settings_gif_render_mode_descr">Hinweis: \"Ewig animieren\" kann deinen Akku stark belasten</string>
 </resources>

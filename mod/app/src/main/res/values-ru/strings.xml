@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-получение Баллов канала</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показать таймер сна</string>
     <string name="bttv_emote_added_by_bttv">Эмоции добавленые bttv-android</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Скачивание</string>
     <string name="bttv_updater_downloading_version">Скачивание %s</string>
     <string name="bttv_updater_notice">Если это первый раз, когда вы используете обновления приложения, разрешите установку из этого источника.</string>

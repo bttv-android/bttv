@@ -4,6 +4,8 @@
     <string name="bttv_emote_picker_global_bttv">Глобальні емоції BTTV</string>
     <string name="bttv_emote_picker_channel_bttv">Емоції BTTV каналу</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показати таймер сну</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Завантаження</string>
     <string name="bttv_updater_downloading_version">Завантаження %s</string>
     <string name="bttv_settings_highlights_dia_input_hint">Введіть нове ключове слово</string>
