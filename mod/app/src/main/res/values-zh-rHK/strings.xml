@@ -6,5 +6,7 @@
     <string name="bttv_sleep_timer_cancel_dialog_message">你現在已有一個休眠計時器正在執行中，你希望取消它嗎？</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">自動領取頻道點數</string>
     <string name="bttv_settings_show_sleep_timer_primary">顯示休眠計時器</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_notice">如果你是第一次看到此更新程式，當通知顯示時，請允許安裝至此來源。</string>
 </resources>
