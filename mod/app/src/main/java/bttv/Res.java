@@ -46,6 +46,8 @@ public class Res {
         bttv_settings_enable_auto_redeem_points_primary,
         bttv_settings_show_sleep_timer_primary,
         bttv_emote_added_by_bttv,
+        bttv_emote_added_by_bttv_ffz,
+        bttv_emote_added_by_bttv_stv,
         bttv_updater_downloading,
         bttv_updater_downloading_version,
         bttv_updater_notice,

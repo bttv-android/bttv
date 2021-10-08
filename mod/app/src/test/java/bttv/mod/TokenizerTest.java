@@ -143,8 +143,8 @@ public class TokenizerTest {
         Data.setCurrentBroadcasterId(10);
         Emotes.addChannelFFZ(10,
                 Arrays.asList(
-                    new Emote("5ea831f074046462f768097a", Emotes.Source.FFZ, "KEKW", null, "png"),
-                    new Emote("5ff827395ef7d10c7912c106", Emotes.Source.FFZ,"Pog", null, "png"))
+                    new Emote("5ea831f074046462f768097a", Emotes.Source.FFZ, "KEKW", null, "png", "FoseFx"),
+                    new Emote("5ff827395ef7d10c7912c106", Emotes.Source.FFZ,"Pog", null, "png", "FoseFx"))
         );
 
         // test
