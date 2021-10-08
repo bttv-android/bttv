@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automatycznie Zbieraj Punkty Kanału</string>
     <string name="bttv_settings_show_sleep_timer_primary">Pokaż Licznik Snu</string>
     <string name="bttv_emote_added_by_bttv">Emotka dodana przez bttv-android</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Pobieranie</string>
     <string name="bttv_updater_downloading_version">Pobieranie %s</string>
     <string name="bttv_updater_notice">Jeżeli jest to pierwszy raz kiedy używasz tego instalatora, zezwól na pobieranie z tego źródła przy wyświetleniu komunikatu.</string>
