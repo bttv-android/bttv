@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automaticky odkliknout věrnostní body kanálu</string>
     <string name="bttv_settings_show_sleep_timer_primary">Zobrazit časovač spánku</string>
     <string name="bttv_emote_added_by_bttv">Emotikon přidán od bttv-android</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Stahování</string>
     <string name="bttv_updater_downloading_version">Stahování %s</string>
     <string name="bttv_updater_notice">Pokud je toto první použití aktualizace, povolte instalace z této aplikace, když vás průvodce požádá.</string>
