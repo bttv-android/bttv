@@ -21,6 +21,8 @@
     <string name="bttv_settings_enable_auto_redeem_points_primary">Riscatta automaticamente Punti Canale</string>
     <string name="bttv_settings_show_sleep_timer_primary">Mostra Timer spegnimento</string>
     <string name="bttv_emote_added_by_bttv">Emote aggiunta da bttv-android</string>
+    <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_downloading">Download in corso</string>
     <string name="bttv_updater_downloading_version">Download in corso: %s</string>
     <string name="bttv_updater_notice">Se questa è la prima volta che usi l\'updater, consenti l\'installazione da questa fonte quando ti viene richiesto.</string>
