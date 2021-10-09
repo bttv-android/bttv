@@ -22,7 +22,9 @@
     <string name="bttv_settings_show_sleep_timer_primary">Yuxu Vaxtölçənini Göstər</string>
     <string name="bttv_emote_added_by_bttv">bttv-android ifadəni əlavə etdi</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ ifadəsi %s tərəfindən əlavə edildi</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV ifadəsi %s tərəfindən əlavə edildi</string>
     <string name="bttv_updater_downloading">Endirilir</string>
     <string name="bttv_updater_downloading_version">%s endirilir</string>
     <string name="bttv_updater_notice">Yeniləyicini ilk dəfədir istifadə edirsinizsə, sehrbaz sizdən soruşanda bu mənbədən quraşdırmalara icazə verin.</string>
