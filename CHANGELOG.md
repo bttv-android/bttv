@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- fix webp animations (again)
+
 # v0.14.0-beta
 - rebase to v11.7.0
 - add split chat feature
