@@ -55,6 +55,7 @@ Docker
       -v /path/to/dist:/usr/build/dist \
       -v path/to/patches:/usr/build/patches \
       -v /path/to/mod:/usr/build/mod \
+      -v /path/to/.all-contributorsrc:/usr/build/.all-contributorsrc \
       ghcr.io/bttv-android/builder
       ```
    > If you are in the same directory as the apk file you can copy and paste: 
@@ -64,6 +65,7 @@ Docker
          -v $(pwd)/dist:/usr/build/dist \
          -v $(pwd)/patches:/usr/build/patches \
          -v $(pwd)/mod:/usr/build/mod \
+         -v $(pwd)/.all-contributorsrc:/usr/build/.all-contributorsrc \
          ghcr.io/bttv-android/builder
       ```
 4. The `dist` directory will contain the patched apk file!
