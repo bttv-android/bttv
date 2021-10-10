@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt update
-RUN apt install openjdk-11-jdk-headless git wget zip --yes
+RUN apt install openjdk-11-jdk-headless git wget zip rsync --yes
 
 # build tools
 
