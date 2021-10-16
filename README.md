@@ -162,6 +162,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ReggX"><img src="https://avatars.githubusercontent.com/u/1953510?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ReggX</b></sub></a><br /><a href="#ideas-ReggX" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/ZerolCamb"><img src="https://avatars.githubusercontent.com/u/64336142?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ZerolCamb</b></sub></a><br /><a href="#translation-ZerolCamb" title="Translation">🌍</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/metezd"><img src="https://avatars.githubusercontent.com/u/37701679?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mete</b></sub></a><br /><a href="#translation-metezd" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
