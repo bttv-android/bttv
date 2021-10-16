@@ -22,7 +22,9 @@
     <string name="bttv_settings_show_sleep_timer_primary">Uyku Zamanlayıcısını göster</string>
     <string name="bttv_emote_added_by_bttv">Emoji bttv-android tarafından eklendi</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emojisi %s tarafından eklendi</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emojisi %s tarafından eklendi</string>
     <string name="bttv_updater_downloading">İndiriliyor</string>
     <string name="bttv_updater_downloading_version">%s İndiriliyor</string>
     <string name="bttv_updater_notice">Eğer güncelleyiciyi ilk defa kullanıyorsanız, bu kaynaktan indirme yapılmasına izin verin.</string>
@@ -35,10 +37,15 @@
     <string name="bttv_settings_gif_render_mode_static">Statik</string>
     <string name="bttv_settings_gif_render_mode_disabled">Etkin değil</string>
     <string name="bttv_settings_open_credits_button_title">Emeği geçenler</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Silinen mesajları göster</string>
     <string name="bttv_credits_title">Emeği geçenler</string>
     <string name="bttv_credits_intro">bttv-android <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> tarafından yapılmıştır. Bu topluluğun sayesinde:</string>
     <string name="bttv_credits_bugs">Hata Bildirenler</string>
     <string name="bttv_credits_ideas">Fikir Bildirenler</string>
     <string name="bttv_credits_translations">Çevirmenler</string>
     <string name="bttv_copied_to_clipboard">Kullanıcı adı panoya kopyalandı</string>
+    <string name="bttv_settings_enable_split_chat">Bölünmüş Sohbet</string>
+    <string name="bttv_settings_enable_split_chat_descr">Sohbette her ikinci mesajın arka planını hafifçe renklendir</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Sonsuza kadar canlandır</string>
+    <string name="bttv_settings_gif_render_mode_descr">Not: \"Sonsuza kadar canlandır\" pilinizi çok hızlı tüketebilir</string>
 </resources>

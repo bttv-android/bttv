@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">Velkomin til\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Alheims BTTV Emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Rásar BTTV Emotes</string>
+    <string name="bttv_emote_picker_global_ffz">Alheims FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Rásar FrankerFaceZ Emotes</string>
+    <string name="bttv_emote_picker_global_7tv">Alheims 7TV Emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Rásar 7TV Emotes</string>
+    <string name="bttv_app_update_available">bttv-android: Ný Uppfærsla Fundin</string>
+    <string name="bttv_app_update_available_cta">Ýttu hér til að hlaða og setja upp uppfærsluna.</string>
+    <string name="bttv_sleep_timer_button_descr">Opna Svefn-Tímamæli Valmynd</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Svefn- Tímamælir</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Hætta við Svefn-Tímamælir</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
 </resources>
