@@ -20,7 +20,7 @@ public class SplitChat {
         if (textView == null) {
             return;
         }
-        int color = isDarkThemeEnabled() ? ResUtil.getColorValue("twitch_purple_5") : ResUtil.getColorValue("twitch_purple_12");
+        int color = isDarkThemeEnabled() ? ResUtil.getColorValue("material_grey_900") : ResUtil.getColorValue("material_grey_300");
 
         boolean doChange = position % 2 == 1;
 
