@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# v0.14.1-beta
 - fix webp animations (again)
 - adjust split chat colors
 
