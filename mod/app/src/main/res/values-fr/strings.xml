@@ -22,7 +22,9 @@
     <string name="bttv_settings_show_sleep_timer_primary">Afficher minuterie de sommeil</string>
     <string name="bttv_emote_added_by_bttv">Emote ajoutée par bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ ajoutée par %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">Emote 7TV ajoutée par %s</string>
     <string name="bttv_updater_downloading">Téléchargement</string>
     <string name="bttv_updater_downloading_version">Téléchargement %s</string>
     <string name="bttv_updater_notice">Si c\'est la première fois que vous utilisez le programme de mise à jour, autorisez les installations à partir de cette source lorsque l\'assistant vous le demande.</string>
