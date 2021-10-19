@@ -22,5 +22,6 @@
     <string name="bttv_settings_show_sleep_timer_primary">Sýna Svefn Tímamæli</string>
     <string name="bttv_emote_added_by_bttv">Emote bætt við af bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote bætt af %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
 </resources>
