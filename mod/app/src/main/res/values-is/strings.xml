@@ -24,4 +24,9 @@
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote bætt af %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emote bætt af %s</string>
+    <string name="bttv_updater_downloading">Halar niður</string>
+    <string name="bttv_updater_downloading_version">Halar niður %s</string>
+    <string name="bttv_updater_notice">Ef þetta er í fyrsta skipti sem þú notar uppfærsluna skaltu leyfa uppsetningar frá þessum uppruna þegar wizard biður þig um það.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Setja Hápunkt Leitarorð</string>
 </resources>
