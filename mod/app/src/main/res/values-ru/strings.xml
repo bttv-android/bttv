@@ -34,4 +34,9 @@
     <string name="bttv_settings_gif_render_mode_animate">Анимированный</string>
     <string name="bttv_settings_gif_render_mode_static">Статичный</string>
     <string name="bttv_settings_gif_render_mode_disabled">Отключено</string>
+    <string name="bttv_settings_open_credits_button_title">Кредиты</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Показать удаленные сообщения</string>
+    <string name="bttv_credits_title">Кредиты</string>
+    <string name="bttv_credits_ideas">Идеи</string>
+    <string name="bttv_credits_translations">Переводы</string>
 </resources>

@@ -3,6 +3,7 @@
     <string name="login_landing_title">Ласкаво просимо на\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Глобальні емоції BTTV</string>
     <string name="bttv_emote_picker_channel_bttv">Емоції BTTV каналу</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Таймер сну</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показати таймер сну</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
@@ -14,4 +15,9 @@
     <string name="bttv_settings_gif_render_mode_animate">Анімовані</string>
     <string name="bttv_settings_gif_render_mode_static">Статичний</string>
     <string name="bttv_settings_gif_render_mode_disabled">Виключено</string>
+    <string name="bttv_settings_open_credits_button_title">Кредити</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Показати видалені повідомлення</string>
+    <string name="bttv_credits_title">Кредити</string>
+    <string name="bttv_credits_ideas">Ідеї</string>
+    <string name="bttv_credits_translations">Переклади</string>
 </resources>

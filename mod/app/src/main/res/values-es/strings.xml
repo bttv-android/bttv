@@ -22,7 +22,9 @@
     <string name="bttv_settings_show_sleep_timer_primary">Mostrar temporizador de sueño</string>
     <string name="bttv_emote_added_by_bttv">Emote añadido por bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ añadido por %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">Emote 7TV añadido por %s</string>
     <string name="bttv_updater_downloading">Descargando</string>
     <string name="bttv_updater_downloading_version">Descargando %s</string>
     <string name="bttv_updater_notice">Si esta es la primera vez que utiliza el actualizador, permita las instalaciones desde esta fuente cuando se le solicite.</string>
@@ -44,4 +46,6 @@
     <string name="bttv_copied_to_clipboard">Nombre de usuario copiado al portapapeles</string>
     <string name="bttv_settings_enable_split_chat">Chat dividido</string>
     <string name="bttv_settings_enable_split_chat_descr">Tintar el fondo de cada mensaje par</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animar constantemente</string>
+    <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar constantemente\" puede consumir mucha batería</string>
 </resources>
