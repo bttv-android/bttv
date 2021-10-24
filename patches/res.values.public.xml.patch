@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13126,4 +13126,62 @@
+@@ -13126,4 +13126,66 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -14,10 +14,13 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0da6" />
 +    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0da7" />
 +    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0da8" />
-+    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0da9" />
-+    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0daa" />
-+    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0dab" />
-+    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0dac" />
++    <public type="id" name="bttv_highlight_dia_input_wrap" id="0x7f0b0da9" />
++    <public type="id" name="bttv_highlight_submit_btn" id="0x7f0b0daa" />
++    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0dab" />
++    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0dac" />
++    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0dad" />
++    <public type="id" name="bttv_highlight_dia_list_empty" id="0x7f0b0dae" />
++    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0daf" />
 +    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e0336" />
 +    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e0337" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e0338" />
@@ -61,6 +64,7 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_credits_bugs" id="0x7f130ddb" />
 +    <public type="string" name="bttv_credits_ideas" id="0x7f130ddc" />
 +    <public type="string" name="bttv_credits_translations" id="0x7f130ddd" />
++    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f130dde" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08052c" />
 +    <!-- /BTTV -->
  </resources>

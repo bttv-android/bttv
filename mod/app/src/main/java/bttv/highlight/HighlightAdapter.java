@@ -18,7 +18,13 @@ import bttv.Res;
 import bttv.ResUtil;
 
 public class HighlightAdapter extends ArrayAdapter<String> {
+    public interface AfterRemoved {
+        void onAfterRemoved();
+    }
+
     public static final String TAG = "LBTTVHighlAdapter";
+
+    public AfterRemoved afterRemovedListener;
     private final Context context;
     private final int res;
     private final List<String> words;
@@ -50,6 +56,9 @@ public class HighlightAdapter extends ArrayAdapter<String> {
                 words.remove(position);
                 notifyDataSetChanged();
                 Log.i(TAG, "onClick: " + word);
+                if (afterRemovedListener != null) {
+                    afterRemovedListener.onAfterRemoved();
+                }
             }
         });
         return view;

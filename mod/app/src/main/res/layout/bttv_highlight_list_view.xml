@@ -3,6 +3,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
@@ -11,9 +13,8 @@
         android:textColor="@color/text_alt"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
-        android:padding="10dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:textSize="16sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,11 +24,13 @@
     <ImageButton
         android:id="@+id/bttv_highlight_dia_list_btn"
         style="@style/Widget.AppCompat.Button.Borderless"
+        android:minWidth="0dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/bttv_ic_trashbin"
         android:layout_marginEnd="10dp"
         app:layout_constraintLeft_toRightOf="@id/bttv_highlight_dia_list_text"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/remove" />
 </androidx.constraintlayout.widget.ConstraintLayout>
