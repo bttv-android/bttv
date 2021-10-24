@@ -17,26 +17,40 @@
         android:textSize="17sp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ListView
-        android:id="@+id/bttv_highlight_dia_list"
+    <LinearLayout
+        android:id="@+id/bttv_highlight_dia_list_wrapper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintHeight_max="215dp"
         app:layout_constraintBottom_toTopOf="@id/bttv_highlight_dia_input_wrap"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_title" >
+        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_title"
+        app:layout_constraintHeight_max="215dp">
 
-    </ListView>
+        <TextView
+            android:id="@+id/bttv_highlight_dia_list_empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bttv_highlight_dia_list_empty"
+            android:textColor="@color/text_base"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:visibility="gone" />
 
+        <ListView
+            android:id="@+id/bttv_highlight_dia_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </ListView>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bttv_highlight_dia_input_wrap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_list"
+        app:layout_constraintTop_toBottomOf="@id/bttv_highlight_dia_list_wrapper"
         android:orientation="horizontal">
 
         <EditText

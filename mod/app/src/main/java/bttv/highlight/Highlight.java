@@ -83,6 +83,7 @@ public class Highlight {
         b.setView(v);
         b.setCancelable(true);
         ListView list = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_highlight_dia_list));
+        TextView emptyTV = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_highlight_dia_list_empty));
 
         // load data
         String[] asArr = highlightSet.toArray(new String[0]);
@@ -93,6 +94,12 @@ public class Highlight {
             ResUtil.getResourceId(activity, Res.layouts.bttv_highlight_list_view),
             asList
         );
+        adapter.afterRemovedListener = new HighlightAdapter.AfterRemoved() {
+            @Override
+            public void onAfterRemoved() {
+                maybeShowEmptyMessage(asList, list, emptyTV);
+            }
+        };
         list.setAdapter(adapter);
 
         // close button
@@ -103,7 +110,7 @@ public class Highlight {
         eT.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                return dialogOnAdd(v, adapter, asList);
+                return dialogOnAdd(v, adapter, asList, list, emptyTV);
             }
         });
 
@@ -112,16 +119,17 @@ public class Highlight {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogOnAdd(eT, adapter, asList);
+                dialogOnAdd(eT, adapter, asList, list, emptyTV);
             }
         });
 
+        maybeShowEmptyMessage(asList, list, emptyTV);
 
         AlertDialog dialog = b.create();
         dialog.show();
     }
 
-    public static boolean dialogOnAdd(TextView v, HighlightAdapter adapter, ArrayList<String> asList) {
+    public static boolean dialogOnAdd(TextView v, HighlightAdapter adapter, ArrayList<String> asList, ListView list, TextView emptyTV) {
         for (String w: v.getText().toString().split(" ")) {
             String word = w.toLowerCase();
             if (word.trim().isEmpty()) {
@@ -129,10 +137,17 @@ public class Highlight {
             }
             if (Highlight.add(word)) {
                 asList.add(word);
+                maybeShowEmptyMessage(asList, list, emptyTV);
             }
         }
         adapter.notifyDataSetChanged();
         v.setText("");
         return true;
+    }
+
+    public static void maybeShowEmptyMessage(ArrayList<String> asList, ListView list, TextView emptyTV) {
+        boolean showEmpty = asList.isEmpty();
+        list.setVisibility(showEmpty ? View.GONE : View.VISIBLE);
+        emptyTV.setVisibility(showEmpty ? View.VISIBLE : View.GONE);
     }
 }

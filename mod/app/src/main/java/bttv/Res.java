@@ -17,6 +17,7 @@ public class Res {
         bttv_highlight_dia_title,
         bttv_highlight_dia_list_text,
         bttv_highlight_dia_list_btn,
+        bttv_highlight_dia_list_empty,
         bttv_credits_into_tv
     }
     public enum layouts {
@@ -73,5 +74,6 @@ public class Res {
         bttv_copied_to_clipboard,
         bttv_settings_enable_split_chat,
         bttv_settings_enable_split_chat_descr,
+        bttv_highlight_dia_list_empty,
     }
 }
