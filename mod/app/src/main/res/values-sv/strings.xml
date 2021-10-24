@@ -4,4 +4,5 @@
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_credits_translations">Översättningar</string>
+    <string name="bttv_highlight_dia_list_empty">Det finns ingenting här</string>
 </resources>
