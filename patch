@@ -15,6 +15,5 @@ for File in *.patch
 do
     cd ../disass
     echo $File
-    git apply --index ../patches/$File
+    git apply --index ../patches/$File || exit 1
 done
-

@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_send.xml" value="0.37552083333333336" />
         <entry key="app/src/main/res/layout/bttv_credits_dialog.xml" value="0.17477203647416414" />
+        <entry key="twitch/src/main/res/drawable/ic_send.xml" value="0.37552083333333336" />
       </map>
     </option>
   </component>

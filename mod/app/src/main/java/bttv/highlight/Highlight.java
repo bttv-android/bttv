@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -75,43 +76,63 @@ public class Highlight {
 
     public static void openDialog(Activity activity) {
         loadSet();
+
+        // load layouts
         AlertDialog.Builder b = new AlertDialog.Builder(activity);
         View v = activity.getLayoutInflater().inflate(ResUtil.getResourceId(Res.layouts.bttv_highlight_dialog), null);
         b.setView(v);
         b.setCancelable(true);
         ListView list = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_highlight_dia_list));
 
+        // load data
         String[] asArr = highlightSet.toArray(new String[0]);
         ArrayList<String> asList = new ArrayList<>(Arrays.asList(asArr));
 
         HighlightAdapter adapter = new HighlightAdapter(
-                activity,
-                ResUtil.getResourceId(activity, Res.layouts.bttv_highlight_list_view),
-                asList
+            activity,
+            ResUtil.getResourceId(activity, Res.layouts.bttv_highlight_list_view),
+            asList
         );
         list.setAdapter(adapter);
 
+        // close button
         b.setPositiveButton(ResUtil.getStringId("close"), null);
 
+        // on Enter handler
         EditText eT = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_highlight_dia_input));
         eT.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                for (String word: v.getText().toString().split(" ")) {
-                    if (word.trim().isEmpty()) {
-                        continue;
-                    }
-                    if (Highlight.add(word)) {
-                        asList.add(word);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-                v.setText("");
-                return true;
+                return dialogOnAdd(v, adapter, asList);
             }
         });
 
+        // on Button handler
+        ImageButton submitBtn = v.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_highlight_submit_btn));
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogOnAdd(eT, adapter, asList);
+            }
+        });
+
+
         AlertDialog dialog = b.create();
         dialog.show();
+    }
+
+    public static boolean dialogOnAdd(TextView v, HighlightAdapter adapter, ArrayList<String> asList) {
+        for (String w: v.getText().toString().split(" ")) {
+            String word = w.toLowerCase();
+            if (word.trim().isEmpty()) {
+                continue;
+            }
+            if (Highlight.add(word)) {
+                asList.add(word);
+            }
+        }
+        adapter.notifyDataSetChanged();
+        v.setText("");
+        return true;
     }
 }

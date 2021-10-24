@@ -12,6 +12,8 @@ public class Res {
         bttv_sleep_timer_button,
         bttv_highlight_dia_list,
         bttv_highlight_dia_input,
+        bttv_highlight_dia_input_wrap,
+        bttv_highlight_submit_btn,
         bttv_highlight_dia_title,
         bttv_highlight_dia_list_text,
         bttv_highlight_dia_list_btn,
