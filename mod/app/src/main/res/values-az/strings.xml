@@ -48,4 +48,5 @@
     <string name="bttv_settings_enable_split_chat_descr">Hər ikinci söhbət mesajının arxaplanını rəngləndirin</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Həmişəlik canlandır</string>
     <string name="bttv_settings_gif_render_mode_descr">Qeyd: \"Həmişəlik canlandır\" batereyanızın daha tez bitirə bilər</string>
+    <string name="bttv_highlight_dia_list_empty">Burada heç nə yoxdur\n¯\\_(ツ)_/¯</string>
 </resources>
