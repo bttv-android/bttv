@@ -48,4 +48,5 @@
     <string name="bttv_settings_enable_split_chat_descr">Alternar cor de fundo entre as mensagens</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animar eternamente</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar para sempre\" pode esgotar sua bateria muito rápido</string>
+    <string name="bttv_highlight_dia_list_empty">Não há nada aqui\n¯\\_(ツ)_/¯</string>
 </resources>
