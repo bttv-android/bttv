@@ -48,4 +48,5 @@
     <string name="bttv_settings_enable_split_chat_descr">Teindre l\'arrière plan en alternant un message sur deux</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animer pour toujours</string>
     <string name="bttv_settings_gif_render_mode_descr">Note : \"Animer pour toujours\" peut décharger votre batterie très rapidement</string>
+    <string name="bttv_highlight_dia_list_empty">Il n\'y a rien ici\n¯\\_(ツ)_/¯</string>
 </resources>
