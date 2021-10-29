@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- rebase to v11.9.0
+
 # v0.14.1-beta
 - fix webp animations (again)
 - adjust split chat colors
