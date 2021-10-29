@@ -1,9 +1,9 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1.smali
-@@ -182,6 +182,11 @@
+@@ -121,6 +121,11 @@
  
-     move-result-object p1
+     check-cast p2, Ljava/util/List;
  
 +    # BTTV
 +    #  add bttv emotes to emote picker
@@ -11,5 +11,5 @@ diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePic
 +    # /BTTV
 +
      .line 237
-     invoke-virtual {p2}, Ltv/twitch/android/util/Optional;->isPresent()Z
+     iget-object v1, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$refreshAndShowEmoteSets$1;->this$0:Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;
  

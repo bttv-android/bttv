@@ -13,5 +13,5 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoord
 +
 +    invoke-static/range {v1 .. v6}, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;->onSubscribeButtonClicked$feature_theatre_release$default(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/models/subscriptions/SubscriptionScreen;ILjava/lang/Object;)V
  
-     goto :goto_0
- 
+     :cond_0
+     return-void
