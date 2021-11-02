@@ -49,4 +49,5 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Siempre Animado</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Siempre Animado\" puede consumir la batería muy rápido</string>
     <string name="bttv_highlight_dia_list_empty">Aquí no hay nada\n¯\\_(ツ)_/¯</string>
+    <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar a un usuario como <this>. Por ejemplo: <fosefx>]]></string>
 </resources>
