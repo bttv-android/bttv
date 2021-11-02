@@ -55,7 +55,10 @@ public class Highlight {
             return num;
         }
 
-        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")) {
+        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")
+                || (delegate.getUserName() != null && Highlight.shouldHighlightChannel(delegate.getUserName()))
+                || (delegate.getDisplayName() != null && Highlight.shouldHighlightChannel(delegate.getDisplayName()))
+        ) {
             num = ResUtil.getResourceId(Res.colors.bttv_sonic);
         }
         return num;
@@ -88,7 +91,14 @@ public class Highlight {
 
     public static boolean shouldHighlight(String word) {
         loadSet();
+        if (word.startsWith("<") || word.endsWith(">"))
+            return false;
         return highlightSet.contains(word.toLowerCase());
+    }
+
+    public static boolean shouldHighlightChannel(String name) {
+        loadSet();
+        return highlightSet.contains("<" + name.toLowerCase() + ">");
     }
 
     public static boolean isEmpty() {

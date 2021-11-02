@@ -1,9 +1,12 @@
 package bttv;
 
+import android.util.Log;
+
 import androidx.core.util.Pair;
 
 import java.util.List;
 
+import bttv.highlight.Highlight;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
@@ -32,9 +35,21 @@ public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
     }
 
     public boolean BTTVshouldHighlight() {
+        if (this.BTTVshouldHighlightChannel()) {
+            Log.i("LBTTVHighl", "BTTVshouldHighlightChannel() returned true");
+            return true;
+        }
         if (this.BTTVshouldHighlightB == null) {
             this.getTokens();
         }
         return this.BTTVshouldHighlightB;
+    }
+
+    private boolean BTTVshouldHighlightChannel() {
+        if (this.getDisplayName() != null && Highlight.shouldHighlightChannel(this.getDisplayName())) {
+            return true;
+        } else {
+            return this.getUserName() != null && Highlight.shouldHighlightChannel(this.getUserName());
+        }
     }
 }
