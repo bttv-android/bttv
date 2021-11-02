@@ -148,7 +148,7 @@ public class TokenizerTest {
         );
 
         // test
-        List<MessageToken> res = Tokenizer.tokenize(fInput);
+        List<MessageToken> res = Tokenizer.tokenize(fInput).first;
 
         System.out.println("---------------");
         for (MessageToken token : fExpected) {
