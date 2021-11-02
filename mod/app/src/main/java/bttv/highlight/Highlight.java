@@ -88,7 +88,14 @@ public class Highlight {
 
     public static boolean shouldHighlight(String word) {
         loadSet();
+        if (word.startsWith("<") || word.endsWith(">"))
+            return false;
         return highlightSet.contains(word.toLowerCase());
+    }
+
+    public static boolean shouldHighlightChannel(String name) {
+        loadSet();
+        return highlightSet.contains("<" + name.toLowerCase() + ">");
     }
 
     public static boolean isEmpty() {
