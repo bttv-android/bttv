@@ -55,7 +55,10 @@ public class Highlight {
             return num;
         }
 
-        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")) {
+        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")
+                || (delegate.getUserName() != null && Highlight.shouldHighlightChannel(delegate.getUserName()))
+                || (delegate.getDisplayName() != null && Highlight.shouldHighlightChannel(delegate.getDisplayName()))
+        ) {
             num = ResUtil.getResourceId(Res.colors.bttv_sonic);
         }
         return num;
