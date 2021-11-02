@@ -3,6 +3,8 @@ package bttv;
 import android.content.Context;
 import android.util.Log;
 
+import androidx.core.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +24,18 @@ import tv.twitch.chat.ChatTextToken;
 
 public class Tokenizer {
 
-    public static List<MessageToken> tokenize(List<MessageToken> orig) {
+    public static Pair<List<MessageToken>, Boolean> tokenize(List<MessageToken> orig) {
         Context ctx = Data.ctx;
         int channel = Data.currentBroadcasterId;
 
         // Don't add Emotes, when we don't have the channel's emotes (yet)
-        if (!Emotes.channelHasEmotes(ctx, channel)) {
-            return orig;
+        // and we don't need to Highlight any messages
+        if (!Emotes.channelHasEmotes(ctx, channel) && Highlight.isEmpty()) {
+            return new Pair<>(orig, false);
         }
 
         ArrayList<MessageToken> newTokens = new ArrayList<>(orig.size() + 5);
+        boolean shouldHighlight = false;
 
         for (MessageToken token : orig) {
             // possible issue: emotes won't work in e.g. MentionToken or BitsToken
@@ -51,6 +55,9 @@ public class Tokenizer {
             StringBuilder currentText = new StringBuilder();
             for (String word : tokens) {
                 Emote emote = Emotes.getEmote(ctx, word, channel);
+                if (Highlight.shouldHighlight(word)) {
+                    shouldHighlight = true;
+                }
                 if (emote == null) {
                     currentText.append(word).append(" ");
                     continue;
@@ -72,7 +79,7 @@ public class Tokenizer {
             }
         }
 
-        return newTokens;
+        return new Pair<>(newTokens, shouldHighlight);
     }
 
     public static void retokenizeLiveChatMessage(ChatMessageInfo info) {

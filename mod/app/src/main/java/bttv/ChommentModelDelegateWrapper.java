@@ -1,5 +1,7 @@
 package bttv;
 
+import androidx.core.util.Pair;
+
 import java.util.List;
 
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
@@ -10,6 +12,8 @@ import tv.twitch.android.shared.chat.ChatMessageParser;
 import tv.twitch.android.shared.chat.chomments.ChommentModelDelegate;
 
 public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
+
+    private Boolean BTTVshouldHighlightB = null;
 
     public ChommentModelDelegateWrapper(ChommentModel chommentModel,
                                         SDKServicesController sdkServicesController,
@@ -22,6 +26,15 @@ public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
     @Override
     public List<MessageToken> getTokens() {
         List<MessageToken> orig = super.getTokens();
-        return Tokenizer.tokenize(orig);
+        Pair<List<MessageToken>, Boolean> result = Tokenizer.tokenize(orig);
+        this.BTTVshouldHighlightB = result.second;
+        return result.first;
+    }
+
+    public boolean BTTVshouldHighlight() {
+        if (this.BTTVshouldHighlightB == null) {
+            this.getTokens();
+        }
+        return this.BTTVshouldHighlightB;
     }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+# master
+- improve the highlight keyword dialog
+- highlight keywords in VODs
+
 # v0.14.1-beta
 - fix webp animations (again)
 - adjust split chat colors
