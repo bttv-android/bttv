@@ -44,6 +44,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </ListView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bttv_highlight_user_notice"
+            android:textSize="13sp"
+            android:textAlignment="center" />
+
     </LinearLayout>
 
     <LinearLayout
