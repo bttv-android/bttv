@@ -48,4 +48,6 @@
     <string name="bttv_settings_enable_split_chat_descr">Tintar el fondo de cada mensaje par</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animar constantemente</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar constantemente\" puede consumir mucha batería</string>
+    <string name="bttv_highlight_dia_list_empty">Nada que ver aquí\n¯\\_(ツ)_/¯</string>
+    <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <user> así. ej.: <fosefx>]]></string>
 </resources>
