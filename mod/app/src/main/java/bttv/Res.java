@@ -75,5 +75,6 @@ public class Res {
         bttv_settings_enable_split_chat,
         bttv_settings_enable_split_chat_descr,
         bttv_highlight_dia_list_empty,
+        bttv_highlight_user_notice,
     }
 }

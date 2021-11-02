@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13277,4 +13277,66 @@
+@@ -13277,4 +13277,67 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -65,6 +65,7 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_credits_ideas" id="0x7f130e15" />
 +    <public type="string" name="bttv_credits_translations" id="0x7f130e16" />
 +    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f130e17" />
++    <public type="string" name="bttv_highlight_user_notice" id="0x7f130e18" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080536" />
 +    <!-- /BTTV -->
  </resources>

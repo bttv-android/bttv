@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 
+import bttv.ChommentModelDelegateWrapper;
 import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
@@ -31,11 +32,20 @@ public class Highlight {
             Log.w(TAG, "replaceNum: chatMessageInterface is null", new Exception());
             return num;
         }
-        if (!(chatMessageInterface instanceof ChatMessageDelegate)) {
-            Log.i(TAG, "replaceNum: " + chatMessageInterface + " is not a ChatMessageDelegate");
-            return num;
+        if (chatMessageInterface instanceof ChatMessageDelegate) {
+            ChatMessageDelegate delegate = (ChatMessageDelegate) chatMessageInterface;
+            return replaceNumLive(delegate, num);
         }
-        ChatMessageDelegate delegate = (ChatMessageDelegate) chatMessageInterface;
+        if (chatMessageInterface instanceof ChommentModelDelegateWrapper) {
+            ChommentModelDelegateWrapper delegate = (ChommentModelDelegateWrapper) chatMessageInterface;
+            return replaceNumVOD(delegate, num);
+        }
+
+        Log.i(TAG, "replaceNum: " + chatMessageInterface + " is not a ChatMessageDelegate");
+        return num;
+    }
+
+    private static Integer replaceNumLive(ChatMessageDelegate delegate, Integer num) {
         if (delegate.mChatMessage == null) {
             Log.w(TAG, "replaceNum: delegate.mChatMessage is null " + delegate, new Exception());
             return num;
@@ -45,10 +55,20 @@ public class Highlight {
             return num;
         }
 
-        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")) {
+        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")
+                || (delegate.getUserName() != null && Highlight.shouldHighlightChannel(delegate.getUserName()))
+                || (delegate.getDisplayName() != null && Highlight.shouldHighlightChannel(delegate.getDisplayName()))
+        ) {
             num = ResUtil.getResourceId(Res.colors.bttv_sonic);
         }
         return num;
+    }
+
+    private static Integer replaceNumVOD(ChommentModelDelegateWrapper delegateWrapper, Integer num) {
+        if (!delegateWrapper.BTTVshouldHighlight()) {
+            return num;
+        }
+        return ResUtil.getResourceId(Res.colors.bttv_sonic);
     }
 
     private static void loadSet() {
@@ -71,7 +91,19 @@ public class Highlight {
 
     public static boolean shouldHighlight(String word) {
         loadSet();
+        if (word.startsWith("<") || word.endsWith(">"))
+            return false;
         return highlightSet.contains(word.toLowerCase());
+    }
+
+    public static boolean shouldHighlightChannel(String name) {
+        loadSet();
+        return highlightSet.contains("<" + name.toLowerCase() + ">");
+    }
+
+    public static boolean isEmpty() {
+        loadSet();
+        return highlightSet.isEmpty();
     }
 
     public static void openDialog(Activity activity) {

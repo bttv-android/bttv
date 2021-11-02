@@ -2,6 +2,9 @@
 
 # master
 - rebase to v11.9.0
+- improve the highlight keyword dialog
+- highlight keywords in VODs
+- you can now highlight users like this: &lt;fosefx&gt;
 
 # v0.14.1-beta
 - fix webp animations (again)
