@@ -3,6 +3,7 @@ package bttv;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,9 +32,17 @@ public class SplitChat {
             return;
         }
         View view = viewHolder.itemView;
-        int color = isDarkThemeEnabled() ? ResUtil.getColorValue("material_grey_900") : ResUtil.getColorValue("material_grey_300");
+        int color = isDarkThemeEnabled()
+                ? ResUtil.getColorValue("material_grey_900")
+                : ResUtil.getColorValue("material_grey_300");
 
         boolean doChange = position % 2 == 1;
+
+        // fix VODs
+        if (view.getId() == ResUtil.getResourceId(Data.ctx, "chomment_root_view", "id")) {
+            LinearLayout linearLayout = (LinearLayout) view;
+            view = linearLayout.getChildAt(0);
+        }
 
         if (doChange) {
             view.setBackgroundColor(color);
@@ -42,8 +51,9 @@ public class SplitChat {
         }
 
         // fix width
+        boolean matchParent = doChange || viewHolder instanceof ChommentItemViewHolder;
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = doChange ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT;
+        layoutParams.width = matchParent ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT;
         view.setLayoutParams(layoutParams);
     }
 
