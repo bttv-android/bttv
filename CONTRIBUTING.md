@@ -35,7 +35,7 @@ Before you undraft a PR follow this checklist:
 
 Do the following once:
 
-1. Intialize the workspace as described in the README
+1. Initialize the workspace as described in the README
 2. Rename `disass` to `extracted`
 3. Now you can build the java source code in (`mod`) using `./buildsource extracted`.
    It will automaticly dex the class files and baksmali them.
