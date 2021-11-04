@@ -6,7 +6,7 @@ diff --git a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali 
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
 +    # BTTV
-+    invoke-static {p2, p1}, Lbttv/api/SplitChat;->setBackgroundColor(ILtv/twitch/android/core/adapters/RecyclerAdapterItem;)V
++    invoke-static {p2, p1}, Lbttv/api/SplitChat;->setBackgroundColor(ILandroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
 +    # /BTTV
 +
      .line 128

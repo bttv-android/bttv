@@ -1,17 +1,15 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 --- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
 +++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter$setMetadata$1.smali
-@@ -89,7 +89,12 @@
+@@ -89,6 +89,11 @@
  
      const/4 v6, 0x0
  
--    invoke-static/range {v1 .. v6}, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;->onSubscribeButtonClicked$feature_theatre_release$default(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/shared/subscriptions/pub/button/SubscriptionPageType;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/models/subscriptions/SubscriptionScreen;ILjava/lang/Object;)V
 +    # BTTV
 +    invoke-static {v1, p1}, Lbttv/api/SubscribeRedirect;->subscribe(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/feature/theatre/metadata/MetadataViewEvent$SubscribeButtonClicked;)V
-+    goto :goto_0
++    goto :cond_0
 +    # /BTTV
 +
-+    invoke-static/range {v1 .. v6}, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;->onSubscribeButtonClicked$feature_theatre_release$default(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/shared/subscriptions/pager/SubscriptionPageType;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/models/subscriptions/SubscriptionScreen;ILjava/lang/Object;)V
+     invoke-static/range {v1 .. v6}, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;->onSubscribeButtonClicked$feature_theatre_release$default(Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter;Ltv/twitch/android/shared/subscriptions/pub/button/SubscriptionPageType;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/models/subscriptions/SubscriptionScreen;ILjava/lang/Object;)V
  
-     goto :goto_0
- 
+     :cond_0

@@ -1,0 +1,15 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
+@@ -1553,6 +1553,11 @@
+     :cond_0
+     invoke-interface {p1, p3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+ 
++    # BTTV
++    #  add bttv emotes to emote picker
++    invoke-static {p1}, Lbttv/api/EmotePicker;->extendList(Ljava/util/List;)V
++    # /BTTV
++
+     if-eqz p2, :cond_1
+ 
+     goto :goto_0
