@@ -166,6 +166,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/metezd"><img src="https://avatars.githubusercontent.com/u/37701679?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mete</b></sub></a><br /><a href="#translation-metezd" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/splizh"><img src="https://avatars.githubusercontent.com/u/85130943?v=4?s=100" width="100px;" alt=""/><br /><sub><b>splizh</b></sub></a><br /><a href="#translation-splizh" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://bandism.net/"><img src="https://avatars.githubusercontent.com/u/22633385?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ikko Ashimine</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/commits?author=eltociear" title="Documentation">📖</a></td>
   </tr>
 </table>
 
