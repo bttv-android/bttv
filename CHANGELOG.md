@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# v0.15.0-beta
 - rebase to v11.9.0
 - improve the highlight keyword dialog
 - highlight keywords in VODs
