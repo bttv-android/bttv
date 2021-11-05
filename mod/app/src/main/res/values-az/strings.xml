@@ -49,5 +49,6 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Həmişəlik canlandır</string>
     <string name="bttv_settings_gif_render_mode_descr">Qeyd: \"Həmişəlik canlandır\" batereyanızın daha tez bitirə bilər</string>
     <string name="bttv_highlight_dia_list_empty">Burada heç nə yoxdur\n¯\\_(ツ)_/¯</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[<user> istifadəçisini vurğulaya bilərsiniz. Məs.: <fosefx>]]></string>
 </resources>
