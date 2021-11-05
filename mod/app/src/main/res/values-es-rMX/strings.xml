@@ -49,4 +49,6 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Siempre Animado</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Siempre Animado\" puede consumir la batería muy rápido</string>
     <string name="bttv_highlight_dia_list_empty">Aquí no hay nada\n¯\\_(ツ)_/¯</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <user> así. Por ejemplo: <fosefx>]]></string>
 </resources>

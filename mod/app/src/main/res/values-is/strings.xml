@@ -31,4 +31,5 @@
     <string name="bttv_settings_open_highlights_dia_primary">Setja Hápunkt Leitarorð</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Opnar Hápunkt Valmynd</string>
     <string name="bttv_highlight_dia_list_empty">Það er ekkert hér\n¯\\_(ツ)_/¯</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

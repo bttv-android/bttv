@@ -49,4 +49,5 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Sonsuza kadar canlandır</string>
     <string name="bttv_settings_gif_render_mode_descr">Not: \"Sonsuza kadar canlandır\" pilinizi çok hızlı tüketebilir</string>
     <string name="bttv_highlight_dia_list_empty">Burada hiçbir şey yok\n¯\\_(ツ)_/¯</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
