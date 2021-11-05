@@ -50,5 +50,6 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Animate forever</string>
     <string name="bttv_settings_gif_render_mode_descr">Note: "Animate forever" might drain your battery really fast</string>
     <string name="bttv_highlight_dia_list_empty">There\'s nothing here\n¯\\_(ツ)_/¯</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[You can highlight a <user> like this. e.g.: <fosefx>]]></string>
 </resources>
