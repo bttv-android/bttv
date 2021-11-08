@@ -22,7 +22,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 
 # Install
 
-1. Scim through this [guide on how to enable third party app istallations][enable-guide]
+1. Skim through this [guide on how to enable third party app istallations][enable-guide]
 2. Go to the [latest release][latest-release] page and download the `.apk` file of the mod. It periodically checks for new releases so you only have to download it once from there.
    [![How to download][howtodl]][latest-release]
 
