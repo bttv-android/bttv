@@ -20,7 +20,16 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emote-ok</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Csatornapontok automatikus begyűjtése</string>
     <string name="bttv_settings_show_sleep_timer_primary">Alvási időzítő megjelenítése</string>
+    <string name="bttv_emote_added_by_bttv">Az emote hozzáadva a bttv-androiddal</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote hozzáadva %s által</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV hozzáadva %s által</string>
+    <string name="bttv_updater_downloading">Letöltés</string>
+    <string name="bttv_updater_downloading_version">%s letöltése</string>
+    <string name="bttv_updater_notice">Ha ez az első alkalom, hogy használod a frissítőt, engedélyezd az alkalmazások telepítését ebből a forrásból amikor a telepítő erre megkér.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Szövegkiemelés kulcsszavainak beállítása</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Szövegkiemelés megnyitása</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Írj be kulcsszót</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
