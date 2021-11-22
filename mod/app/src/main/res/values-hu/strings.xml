@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Üdvözöl a\nBetter Twitch!</string>
+    <string name="bttv_emote_picker_global_bttv">Globális BTTV Emote-ok</string>
+    <string name="bttv_emote_picker_channel_bttv">A csatorna BTTV Emote-jai</string>
+    <string name="bttv_emote_picker_global_ffz">Globális FrankerFaceZ Emoteok</string>
+    <string name="bttv_emote_picker_channel_ffz">A csatorna FrankerFaceZ Emote-jai</string>
+    <string name="bttv_emote_picker_global_7tv">Globális 7TV Emote-ok</string>
+    <string name="bttv_emote_picker_channel_7tv">A csatorna 7TV Emote-jai</string>
+    <string name="bttv_app_update_available">bttv-android: Új frissítés érhető el</string>
+    <string name="bttv_app_update_available_cta">Koppints ide hogy letöltsd és telepítsd az új frissítést.</string>
+    <string name="bttv_sleep_timer_button_descr">Alvási időzítés megnyitása</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Alvási Időzítő</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Alvási időzítő törlése</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Már fut az alvási időzítő. Szeretnéd kikapcsolni?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emote-ok</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Szeretnéd kikapcsolni ezt?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF Emote-ok</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emote-ok</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emote-ok</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Csatornapontok automatikus begyűjtése</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Alvási időzítő megjelenítése</string>
+    <string name="bttv_emote_added_by_bttv">Az emote hozzáadva a bttv-androiddal</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote hozzáadva %s által</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV hozzáadva %s által</string>
+    <string name="bttv_updater_downloading">Letöltés</string>
+    <string name="bttv_updater_downloading_version">%s letöltése</string>
+    <string name="bttv_updater_notice">Ha ez az első alkalom, hogy használod a frissítőt, engedélyezd az alkalmazások telepítését ebből a forrásból amikor a telepítő erre megkér.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Szövegkiemelés kulcsszavainak beállítása</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Szövegkiemelés megnyitása</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Írj be kulcsszót</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
