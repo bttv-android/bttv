@@ -15,6 +15,8 @@ import tv.twitch.android.models.chat.AutoModMessageFlags;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
+import tv.twitch.android.provider.chat.ChatMessageInterface;
+import tv.twitch.android.shared.chat.ChatMessageDelegate;
 import tv.twitch.chat.AutoModFlags;
 import tv.twitch.chat.ChatEmoticonToken;
 import tv.twitch.chat.ChatMessageInfo;
@@ -80,6 +82,18 @@ public class Tokenizer {
         }
 
         return new Pair<>(newTokens, shouldHighlight);
+    }
+
+    public static void retokenizeLiveChatMessage(ChatMessageInterface chatMessageInterface) {
+        if (chatMessageInterface instanceof ChatMessageDelegate) {
+            ChatMessageDelegate delegate = (ChatMessageDelegate) chatMessageInterface;
+            retokenizeLiveChatMessage(delegate.mChatMessage);
+        } else {
+            Log.w(
+                "LBTTV",
+                "retokenizeLiveChatMessage: interface it not a ChatMessageDelegate it's a "
+                + chatMessageInterface.getClass().getName());
+        }
     }
 
     public static void retokenizeLiveChatMessage(ChatMessageInfo info) {

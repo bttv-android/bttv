@@ -9,8 +9,8 @@ diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.s
 +    #  Check for Updates
 +    #     expects:
 +    #       p0: android.app.Activity
-+    #       p1: tv/twitch/android/app/core/navigation/PersistentBannerPresenter
-+    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/app/core/navigation/PersistentBannerPresenter;)V
++    #       p1: tv.twitch.android.feature.viewer.main.navigation.PersistentBannerPresenter
++    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;)V
 +    # /BTTV
 +
      .line 356

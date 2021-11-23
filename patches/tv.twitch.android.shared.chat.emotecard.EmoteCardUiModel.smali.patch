@@ -7,7 +7,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardUiM
  
 -    iput-object p3, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel;->emoteUrl:Ljava/lang/String;
 +    # BTTV
-+    invoke-static {p1, p3}, Lbttv/emote/EmoteCardUtil;->maybeReplaceEmoteCardUiModelEmoteUrl(Ltv/twitch/android/shared/chat/model/EmoteCardModel;Ljava/lang/String;)Ljava/lang/String;
++    invoke-static {p1, p3}, Lbttv/emote/EmoteCardUtil;->maybeReplaceEmoteCardUiModelEmoteUrl(Ltv/twitch/android/provider/chat/model/EmoteCardModel;Ljava/lang/String;)Ljava/lang/String;
 +    move-result-object v0
 +    # /BTTV
 +
