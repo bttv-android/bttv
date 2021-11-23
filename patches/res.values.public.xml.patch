@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13273,4 +13273,67 @@
+@@ -13312,4 +13312,67 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />

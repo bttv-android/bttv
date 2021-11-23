@@ -93,7 +93,6 @@ sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
 # fix full dex-files
 mkdir .tmp/base/smali_classes8
-mv .tmp/base/smali_classes3/jp .tmp/base/smali_classes8/.
 mkdir -p .tmp/base/smali_classes8/tv/twitch/android
 mv .tmp/base/smali_classes6/tv/twitch/android/player .tmp/base/smali_classes8/tv/twitch/android/player
 

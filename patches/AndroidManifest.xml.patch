@@ -2,23 +2,23 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
--<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="29" android:compileSdkVersionCodename="10" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="29" platformBuildVersionName="10">
+-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="31" android:compileSdkVersionCodename="12" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="31" platformBuildVersionName="12">
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
 +    android:versionCode="01109001501"
 +    android:versionName="0.15.1-beta"
-+    android:compileSdkVersion="29"
-+    android:compileSdkVersionCodename="10"
++    android:compileSdkVersion="31"
++    android:compileSdkVersionCodename="12"
 +    android:installLocation="auto"
 +    package="tv.twitch.bttvandroid.app"
-+    platformBuildVersionCode="29"
-+    platformBuildVersionName="10">
++    platformBuildVersionCode="31"
++    platformBuildVersionName="12">
 +
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
-     <uses-permission android:name="android.permission.CAMERA"/>
-@@ -7,6 +18,7 @@
+     <queries>
+@@ -44,6 +55,7 @@
      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -26,7 +26,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -128,10 +140,10 @@
+@@ -156,10 +168,10 @@
              </intent-filter>
          </receiver>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -39,7 +39,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -231,11 +243,11 @@
+@@ -259,11 +271,11 @@
              </intent-filter>
          </receiver>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -53,10 +53,10 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
-@@ -291,5 +303,18 @@
-         <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-         <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
-         <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
+@@ -313,5 +325,18 @@
+         <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+         <service android:exported="false" android:name="com.amazon.client.metrics.nexus.EventUploadService"/>
+         <service android:exported="true" android:name="com.amazon.client.metrics.nexus.UploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"
