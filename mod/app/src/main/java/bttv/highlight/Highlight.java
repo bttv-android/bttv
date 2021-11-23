@@ -21,7 +21,7 @@ import bttv.ResUtil;
 import bttv.settings.Settings;
 import bttv.settings.UserPreferences;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
-import tv.twitch.android.shared.chat.ChatMessageInterface;
+import tv.twitch.android.provider.chat.ChatMessageInterface;
 
 public class Highlight {
     private static final String TAG = "LBTTVHighlight";

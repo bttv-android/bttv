@@ -19,8 +19,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-import tv.twitch.android.app.core.navigation.PersistentBannerPresenter;
-import tv.twitch.android.app.core.navigation.PersistentBannerPresenter.PersistentBannerPresenterListener;
+import tv.twitch.android.feature.viewer.main.navigation.PersistentBannerPresenter;
+import tv.twitch.android.feature.viewer.main.navigation.PersistentBannerPresenter.PersistentBannerPresenterListener;
 
 public class Updater {
     private static final String GH_API_HOST = "https://api.github.com";

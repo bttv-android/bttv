@@ -1,4 +1,4 @@
-package tv.twitch.android.app.core.navigation;
+package tv.twitch.android.feature.viewer.main.navigation;
 
 public class PersistentBannerPresenter {
     public interface PersistentBannerPresenterListener {

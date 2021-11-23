@@ -9,6 +9,7 @@ import java.util.List;
 
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
+import tv.twitch.android.provider.chat.ChatMessageInterface;
 import tv.twitch.chat.ChatMessageInfo;
 
 public class ChatMessageDelegate implements ChatMessageInterface {

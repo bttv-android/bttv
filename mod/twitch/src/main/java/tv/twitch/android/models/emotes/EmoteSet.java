@@ -1,8 +1,6 @@
-package tv.twitch.android.shared.emotes.models;
+package tv.twitch.android.models.emotes;
 
 import java.util.List;
-
-import tv.twitch.android.models.emotes.EmoteModel;
 
 public abstract class EmoteSet {
     public abstract List<EmoteModel> getEmotes();
