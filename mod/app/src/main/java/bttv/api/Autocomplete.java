@@ -4,7 +4,7 @@ import android.util.Log;
 
 import java.util.List;
 
-import tv.twitch.android.shared.emotes.models.EmoteSet;
+import tv.twitch.android.models.emotes.EmoteSet;
 
 public class Autocomplete {
     final static String TAG = "LBTTVAutocomplete";

@@ -21,7 +21,7 @@ public abstract class EmoteModel {
             return "";
         }
 
-        public Generic(String id, String token, EmoteModelAssetType assetType) {
+        public Generic(String id, String token, EmoteModelAssetType assetType, EmoteModelType type) {
         }
     }
 

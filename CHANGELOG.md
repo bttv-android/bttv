@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- rebase to v12.0.1
+
 # v0.15.1-beta
 - fix a split-chat related bug
 

@@ -6,8 +6,8 @@ import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
 import io.reactivex.Single;
-import tv.twitch.android.shared.chat.model.EmoteCardModel;
-import tv.twitch.android.shared.chat.parser.EmoteCardModelParser;
+import tv.twitch.android.provider.chat.model.EmoteCardModelResponse;
+import tv.twitch.android.provider.chat.model.EmoteCardModel;
 import tv.twitch.android.models.emotes.EmoteModelAssetType;
 
 
@@ -59,7 +59,7 @@ public class EmoteCardUtil {
     }
 
     // called in Ltv/twitch/android/shared/chat/api/EmoteCardApi.getEmoteCardModelResponse()
-    public static Single<EmoteCardModelParser.EmoteCardModelResponse> getEmoteResponseOrNull(String emoteId) {
+    public static Single<EmoteCardModelResponse> getEmoteResponseOrNull(String emoteId) {
         if (!emoteId.startsWith("BTTV-")) {
             return null;
         }
@@ -69,21 +69,8 @@ public class EmoteCardUtil {
             return null;
         }
         EmoteCardModel model = new BTTVEmoteCardModel(emoteId, emote.code);
-        EmoteCardModelParser.EmoteCardModelResponse resp = new EmoteCardModelParser.EmoteCardModelResponse.Success(
+        EmoteCardModelResponse resp = new EmoteCardModelResponse.Success(
                 model);
         return Single.just(resp);
-    }
-
-    // called in Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.<init>
-    public static String maybeReplaceEmoteCardUiModelEmoteUrl(EmoteCardModel model, String originalUrl) {
-        if (model == null || model.emoteId == null) {
-            return originalUrl;
-        }
-        String bttvId = EmoteUrlUtil.extractBTTVId(model.emoteId);
-        if (bttvId != null) {
-            return EmoteUrlUtil.realIdToUrl(bttvId);
-        } else {
-            return originalUrl;
-        }
     }
 }

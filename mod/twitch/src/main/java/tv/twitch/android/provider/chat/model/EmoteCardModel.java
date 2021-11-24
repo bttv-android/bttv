@@ -1,4 +1,4 @@
-package tv.twitch.android.shared.chat.model;
+package tv.twitch.android.provider.chat.model;
 
 import tv.twitch.android.models.emotes.EmoteModelAssetType;
 

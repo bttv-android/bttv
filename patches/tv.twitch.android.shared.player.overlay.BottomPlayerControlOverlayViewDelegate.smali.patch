@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
---- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-+++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-@@ -54,6 +54,13 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+@@ -126,6 +126,13 @@
      .line 70
      invoke-direct {p0, p1, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;)V
  

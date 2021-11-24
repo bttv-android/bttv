@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
 --- a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
-@@ -126,6 +126,16 @@
+@@ -132,6 +132,16 @@
      :goto_2
      new-instance p4, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;
  
@@ -18,7 +18,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotes
      .line 115
      new-instance v1, Ljava/lang/StringBuilder;
  
-@@ -159,6 +169,8 @@
+@@ -165,6 +175,8 @@
  
      move-result-object p1
  

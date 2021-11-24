@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder;
 
 public class MessageRecyclerItem implements tv.twitch.android.core.adapters.RecyclerAdapterItem {
     public static class ChatMessageViewHolder extends ViewHolder {
-        public ChatMessageViewHolder(@NonNull View itemView) {
+        public ChatMessageViewHolder(@NonNull View itemView, boolean bool) {
             super(itemView);
         }
 
