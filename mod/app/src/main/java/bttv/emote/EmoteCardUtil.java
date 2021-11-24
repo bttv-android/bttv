@@ -73,17 +73,4 @@ public class EmoteCardUtil {
                 model);
         return Single.just(resp);
     }
-
-    // called in Ltv/twitch/android/shared/chat/emotecard/EmoteCardUiModel.<init>
-    public static String maybeReplaceEmoteCardUiModelEmoteUrl(EmoteCardModel model, String originalUrl) {
-        if (model == null || model.emoteId == null) {
-            return originalUrl;
-        }
-        String bttvId = EmoteUrlUtil.extractBTTVId(model.emoteId);
-        if (bttvId != null) {
-            return EmoteUrlUtil.realIdToUrl(bttvId);
-        } else {
-            return originalUrl;
-        }
-    }
 }
