@@ -53,7 +53,12 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
-@@ -313,5 +325,18 @@
+@@ -309,9 +321,22 @@
+         <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingIntentService"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
+         <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
+-        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
++        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
          <service android:exported="false" android:name="com.amazon.client.metrics.nexus.EventUploadService"/>
          <service android:exported="true" android:name="com.amazon.client.metrics.nexus.UploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
