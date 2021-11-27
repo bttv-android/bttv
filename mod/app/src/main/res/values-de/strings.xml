@@ -43,6 +43,7 @@
     <string name="bttv_credits_bugs">Bug Reports</string>
     <string name="bttv_credits_ideas">Ideen</string>
     <string name="bttv_credits_translations">Übersetzungen</string>
+    <string name="bttv_credits_docs">Dokumentation</string>
     <string name="bttv_copied_to_clipboard">Nutzername wurde in die Zwischenablage kopiert</string>
     <string name="bttv_settings_enable_split_chat">Chat teilen</string>
     <string name="bttv_settings_enable_split_chat_descr">Färbe den Hintergrund jeder zweiten Chat-Nachricht ein</string>

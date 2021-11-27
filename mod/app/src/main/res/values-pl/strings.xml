@@ -43,6 +43,7 @@
     <string name="bttv_credits_bugs">Zgłaszanie Błędów</string>
     <string name="bttv_credits_ideas">Pomysły</string>
     <string name="bttv_credits_translations">Tłumaczenia</string>
+    <string name="bttv_credits_docs">Dokumentacja</string>
     <string name="bttv_copied_to_clipboard">Skopiowano nazwę użytkownika do schowka</string>
     <string name="bttv_settings_enable_split_chat">Podzielony Czat</string>
     <string name="bttv_settings_enable_split_chat_descr">Ściemniaj tło co drugą wiadomość na czacie</string>

@@ -8,16 +8,39 @@
     <string name="bttv_emote_picker_global_7tv">7TV 글로벌 이모트</string>
     <string name="bttv_emote_picker_channel_7tv">7TV 채널이모트</string>
     <string name="bttv_app_update_available">bttv-android: 새로운 업데이트 발견됨</string>
+    <string name="bttv_app_update_available_cta">업데이트를 다운로드하고 설치하려면 여기를 누르세요.</string>
     <string name="bttv_sleep_timer_select_dialog_title">수면 타이머</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">수면 타이머 취소</string>
-    <string name="bttv_sleep_timer_cancel_dialog_message">이미 수면 타이머가 실행중입니다. 취소 하시겠습니까?</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">이미 수면 타이머가 실행중입니다. 취소할까요?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">BTTV 이모트</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">왜 이걸 비활성화 하시려는 건가요?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif 이모트</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ 이모트</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV 이모트</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">채널 포인트 자동 수집</string>
     <string name="bttv_settings_show_sleep_timer_primary">수면 타이머 표시</string>
+    <string name="bttv_emote_added_by_bttv">bttv-android로부터 이모트 추가됨</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">%s(으)로부터 FrankerFaceZ 이모트 추가됨</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">%s(으)로부터 7TV 이모트 추가됨</string>
+    <string name="bttv_updater_downloading">다운로드 중</string>
+    <string name="bttv_updater_downloading_version">%s 다운로드중</string>
+    <string name="bttv_settings_open_highlights_dia_primary">하이라이트 키워드 설정</string>
+    <string name="bttv_settings_highlights_dia_input_hint">새 키워드 입력</string>
+    <string name="bttv_settings_highlights_dia_title">하이라이트 키워드 관리</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif 이모트</string>
+    <string name="bttv_settings_gif_render_mode_animate">애니메이션</string>
+    <string name="bttv_settings_gif_render_mode_static">정적</string>
+    <string name="bttv_settings_gif_render_mode_disabled">비활성화됨</string>
+    <string name="bttv_settings_open_credits_button_title">크레딧</string>
+    <string name="bttv_settings_enable_show_deleted_messages">삭제된 메시지 표시</string>
+    <string name="bttv_credits_title">크레딧</string>
+    <string name="bttv_credits_bugs">버그 신고</string>
+    <string name="bttv_credits_ideas">아이디어</string>
+    <string name="bttv_credits_translations">번역 참여자</string>
+    <string name="bttv_copied_to_clipboard">클립보드에 아이디 복사됨</string>
+    <string name="bttv_settings_enable_split_chat">채팅 분할</string>
+    <string name="bttv_highlight_dia_list_empty">여긴 아무것도 없습니다\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
