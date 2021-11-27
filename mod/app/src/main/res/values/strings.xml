@@ -44,6 +44,7 @@
     <string name="bttv_credits_bugs">Bug Reports</string>
     <string name="bttv_credits_ideas">Ideas</string>
     <string name="bttv_credits_translations">Translations</string>
+    <string name="bttv_credits_docs">Documentation</string>
     <string name="bttv_copied_to_clipboard">Username copied to clipboard</string>
     <string name="bttv_settings_enable_split_chat">Split Chat</string>
     <string name="bttv_settings_enable_split_chat_descr">Tint the background of every second chat message</string>

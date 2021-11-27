@@ -150,6 +150,8 @@ public class Credits {
                 return ResUtil.getLocaleString(context, Res.strings.bttv_credits_translations);
             case "ideas":
                 return ResUtil.getLocaleString(context, Res.strings.bttv_credits_ideas);
+            case "doc":
+                return ResUtil.getLocaleString(context, Res.strings.bttv_credits_docs);
         }
         return kind;
     }

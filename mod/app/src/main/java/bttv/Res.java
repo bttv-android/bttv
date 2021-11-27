@@ -71,6 +71,7 @@ public class Res {
         bttv_credits_bugs,
         bttv_credits_ideas,
         bttv_credits_translations,
+        bttv_credits_docs,
         bttv_copied_to_clipboard,
         bttv_settings_enable_split_chat,
         bttv_settings_enable_split_chat_descr,
