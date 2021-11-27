@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Better Twitch\n에 오신 것을 환영합니다.</string>
+    <string name="bttv_emote_picker_global_bttv">BTTV 글로벌 이모트</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV 채널 이모트</string>
+    <string name="bttv_emote_picker_global_ffz">FrankerFaceZ 글로벌 이모트</string>
+    <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ 채널 이모트</string>
+    <string name="bttv_emote_picker_global_7tv">7TV 글로벌 이모트</string>
+    <string name="bttv_emote_picker_channel_7tv">7TV 채널이모트</string>
+    <string name="bttv_app_update_available">bttv-android: 새로운 업데이트 발견됨</string>
+    <string name="bttv_sleep_timer_select_dialog_title">수면 타이머</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">수면 타이머 취소</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">이미 수면 타이머가 실행중입니다. 취소 하시겠습니까?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV 이모트</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">왜 이걸 비활성화 하시려는 건가요?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif 이모트</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ 이모트</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV 이모트</string>
+    <string name="bttv_settings_show_sleep_timer_primary">수면 타이머 표시</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
