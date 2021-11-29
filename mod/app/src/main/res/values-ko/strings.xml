@@ -6,7 +6,7 @@
     <string name="bttv_emote_picker_global_ffz">FrankerFaceZ 글로벌 이모트</string>
     <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ 채널 이모트</string>
     <string name="bttv_emote_picker_global_7tv">7TV 글로벌 이모트</string>
-    <string name="bttv_emote_picker_channel_7tv">7TV 채널이모트</string>
+    <string name="bttv_emote_picker_channel_7tv">7TV 채널 이모트</string>
     <string name="bttv_app_update_available">bttv-android: 새로운 업데이트 발견됨</string>
     <string name="bttv_app_update_available_cta">업데이트를 다운로드하고 설치하려면 여기를 누르세요.</string>
     <string name="bttv_sleep_timer_select_dialog_title">수면 타이머</string>
@@ -33,12 +33,13 @@
     <string name="bttv_settings_gif_render_mode_animate">애니메이션</string>
     <string name="bttv_settings_gif_render_mode_static">정적</string>
     <string name="bttv_settings_gif_render_mode_disabled">비활성화됨</string>
-    <string name="bttv_settings_open_credits_button_title">크레딧</string>
+    <string name="bttv_settings_open_credits_button_title">제작 지원</string>
     <string name="bttv_settings_enable_show_deleted_messages">삭제된 메시지 표시</string>
-    <string name="bttv_credits_title">크레딧</string>
-    <string name="bttv_credits_bugs">버그 신고</string>
+    <string name="bttv_credits_title">제작 지원</string>
+    <string name="bttv_credits_bugs">버그 신고자</string>
     <string name="bttv_credits_ideas">아이디어</string>
     <string name="bttv_credits_translations">번역 참여자</string>
+    <string name="bttv_credits_docs">문서</string>
     <string name="bttv_copied_to_clipboard">클립보드에 아이디 복사됨</string>
     <string name="bttv_settings_enable_split_chat">채팅 분할</string>
     <string name="bttv_highlight_dia_list_empty">여긴 아무것도 없습니다\n¯\\_(ツ)_/¯</string>
