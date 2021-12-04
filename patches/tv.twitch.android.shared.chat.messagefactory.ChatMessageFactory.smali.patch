@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-@@ -692,6 +692,12 @@
+@@ -697,6 +697,12 @@
      goto :goto_2
  
      :cond_3
@@ -13,10 +13,10 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +
      if-eqz p12, :cond_4
  
-     .line 741
-@@ -2839,6 +2845,13 @@
+     .line 783
+@@ -2917,6 +2923,13 @@
  
-     invoke-static {v13, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+     invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
 +    # BTTV
 +    #  Add bttv emotes
@@ -28,9 +28,9 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
      const-string v0, "webViewSource"
  
      move-object/from16 v8, p8
-@@ -4175,6 +4188,13 @@
-     .line 337
-     iget-object v4, v9, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
+@@ -4359,6 +4372,13 @@
+     .line 355
+     iget-object v4, v13, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
  
 +    # BTTV
 +    #  Add bttv emotes
@@ -39,6 +39,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +    invoke-static {v4}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/chat/ChatMessageInfo;)V
 +    # /BTTV
 +
-     const/4 v15, 0x0
+     const/4 v14, 0x0
  
      if-eqz v4, :cond_a

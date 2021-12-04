@@ -19,5 +19,5 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardVie
 +    # /BTTV
 +
      .line 246
-     instance-of v1, p1, Ltv/twitch/android/provider/chat/model/EmoteCardModel$ChannelPointsEmoteCardModel;
+     instance-of v1, p1, Ltv/twitch/android/models/emotes/EmoteCardModel$ChannelPointsEmoteCardModel;
  
