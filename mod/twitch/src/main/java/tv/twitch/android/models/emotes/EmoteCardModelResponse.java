@@ -1,7 +1,6 @@
-package tv.twitch.android.provider.chat.model;
+package tv.twitch.android.models.emotes;
 
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
-import tv.twitch.android.models.emotes.EmoteCardModel;
 
 public abstract class EmoteCardModelResponse {
 

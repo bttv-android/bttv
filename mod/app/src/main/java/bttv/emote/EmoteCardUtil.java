@@ -6,8 +6,8 @@ import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
 import io.reactivex.Single;
-import tv.twitch.android.provider.chat.model.EmoteCardModelResponse;
-import tv.twitch.android.provider.chat.model.EmoteCardModel;
+import tv.twitch.android.models.emotes.EmoteCardModelResponse;
+import tv.twitch.android.models.emotes.EmoteCardModel;
 import tv.twitch.android.models.emotes.EmoteModelAssetType;
 
 
