@@ -21,8 +21,8 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +    # BTTV
 +    #  Add bttv emotes
 +    #     expects:
-+    #       v13: tv.twitch.android.provider.chat.ChatMessageInterface
-+    invoke-static {v13}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
++    #       v14: tv.twitch.android.provider.chat.ChatMessageInterface
++    invoke-static {v14}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
 +    # /BTTV
 +
      const-string v0, "webViewSource"
