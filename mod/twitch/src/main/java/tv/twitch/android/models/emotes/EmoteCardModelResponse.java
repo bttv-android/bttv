@@ -1,4 +1,4 @@
-package tv.twitch.android.provider.chat.model;
+package tv.twitch.android.models.emotes;
 
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 
