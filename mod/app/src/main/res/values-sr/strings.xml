@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">Dobrodošli na\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Globalni BTTV Emotikoni</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV Emotikoni Kanala</string>
+    <string name="bttv_emote_picker_global_ffz">Globalni FrankerFaceZ Emotikoni</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
