@@ -4,7 +4,52 @@
     <string name="bttv_emote_picker_global_bttv">Globalni BTTV Emotikoni</string>
     <string name="bttv_emote_picker_channel_bttv">BTTV Emotikoni Kanala</string>
     <string name="bttv_emote_picker_global_ffz">Globalni FrankerFaceZ Emotikoni</string>
+    <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ Emotikoni Kanala</string>
+    <string name="bttv_emote_picker_global_7tv">Globalni 7TV Emotikoni</string>
+    <string name="bttv_emote_picker_channel_7tv">7TV Emotikoni Kanala</string>
+    <string name="bttv_app_update_available">bttv-android: Novo ažuriranje otkriveno</string>
+    <string name="bttv_app_update_available_cta">Dodirnite ovde da skinete i instalirate ažuriranje.</string>
+    <string name="bttv_sleep_timer_button_descr">Otvorite Tajmer Spavanja</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Tajmer Spavanja</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Otkažite Tajmer Spavanja</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Već imate pokrenut tajmer za spavanje. Da li želite da ga otkažete?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotikoni</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Zašto bi ste onemogućili ovo?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif Emotikoni</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emotikoni</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotikoni</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Automatsko Kupljenje Poena Kanala</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Prikaži Tajmer Spavanja</string>
+    <string name="bttv_emote_added_by_bttv">Emotikon dodat od strane bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emotikon dodat od strane %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emotikon dodat od strane %s</string>
+    <string name="bttv_updater_downloading">Preuzimanje</string>
+    <string name="bttv_updater_downloading_version">Preuzimanje %s</string>
+    <string name="bttv_updater_notice">Ako vam je ovo prvi put da koristite nadograđivač, dopustite instalacije iz ovog izvora kada vas instaler to pita.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Postavite Istaknute Ključne Reči</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Otvorite Dijalog za Istaknuće</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Unesite novu Ključnu Reč</string>
+    <string name="bttv_settings_highlights_dia_title">Upravljajte Istaknutim Ključnim Rečima</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif Emotikoni</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animiraj</string>
+    <string name="bttv_settings_gif_render_mode_static">Statičan</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Onemogućen</string>
+    <string name="bttv_settings_open_credits_button_title">Krediti</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Prikažite Obrisane Poruke</string>
+    <string name="bttv_credits_title">Krediti</string>
+    <string name="bttv_credits_intro">bttv-android je napravljen od strane <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> uz pomoć ovog društva:</string>
+    <string name="bttv_credits_bugs">Izveštaji Greške</string>
+    <string name="bttv_credits_ideas">Ideje</string>
+    <string name="bttv_credits_translations">Prevodi</string>
+    <string name="bttv_credits_docs">Dokumentacija</string>
+    <string name="bttv_copied_to_clipboard">Korisničko ime kopirovano u privremenu memoriju</string>
+    <string name="bttv_settings_enable_split_chat">Razdvojite Ćaskanje</string>
+    <string name="bttv_settings_enable_split_chat_descr">Potamnite pozadinu od svake druge poruke ćaskanja</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animiraj zauvek</string>
+    <string name="bttv_settings_gif_render_mode_descr">Beleška: \"Animiraj zauvek\" može da isprazni vašu bateriju veoma brzo</string>
+    <string name="bttv_highlight_dia_list_empty">Ovde nema ničeg\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Ovako možete istaći korisnika <korisnik>. Primer: <fosefx>]]></string>
 </resources>
