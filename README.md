@@ -1,4 +1,10 @@
-[![license: MIT][license-badge]][license-file] [![bttv version][bttv-version]][latest-release] ![build on][base-version] ![GitHub release (latest by date)][downloads-latest] ![GitHub all releases][downloads-total] [![Crowdin](https://badges.crowdin.net/bttv-android/localized.svg)](https://crowdin.com/project/bttv-android) [![Discord][discord-badge]][discord-invite]
+[![license: MIT][license-badge]][license-file]
+[![bttv version][bttv-version]][latest-release]
+![build on][base-version]
+![GitHub release (latest by date)][downloads-latest]
+![GitHub all releases][downloads-total]
+[![Discord][discord-badge]][discord-invite]
+
 # bttv-android
 
 
