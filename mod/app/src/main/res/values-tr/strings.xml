@@ -43,6 +43,7 @@
     <string name="bttv_credits_bugs">Hata Bildirenler</string>
     <string name="bttv_credits_ideas">Fikir Bildirenler</string>
     <string name="bttv_credits_translations">Çevirmenler</string>
+    <string name="bttv_credits_docs">Dökümantasyon</string>
     <string name="bttv_copied_to_clipboard">Kullanıcı adı panoya kopyalandı</string>
     <string name="bttv_settings_enable_split_chat">Bölünmüş Sohbet</string>
     <string name="bttv_settings_enable_split_chat_descr">Sohbette her ikinci mesajın arka planını hafifçe renklendir</string>
