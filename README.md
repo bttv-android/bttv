@@ -20,6 +20,11 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
  - Highlight Keywords
  - Split Chat
 
+## Known issues
+ - Amazon Video Watch Parties do not work
+ - Animated Emotes occasionally glitch on some devices
+ - Split Chat breaks after 150 messages
+
 # Install
 
 1. Skim through this [guide on how to enable third party app istallations][enable-guide]
