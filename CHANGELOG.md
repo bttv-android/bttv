@@ -1,6 +1,6 @@
 # Changelog
 
-# v0.17.1-beta
+# v0.17.2-beta
 - rebase to v12.1.2
 - stabilize split chat
 
