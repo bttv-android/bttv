@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import bttv.settings.Settings;
-import tv.twitch.android.adapters.social.MessageRecyclerItem.ChatMessageViewHolder;
+import tv.twitch.android.shared.chat.adapter.item.MessageRecyclerItem.ChatMessageViewHolder;
 import tv.twitch.android.shared.chat.chomments.ChommentRecyclerItem.ChommentItemViewHolder;
 import tv.twitch.android.shared.chat.messagefactory.adapteritem.UserNoticeRecyclerItem.UserNoticeViewHolder;
 

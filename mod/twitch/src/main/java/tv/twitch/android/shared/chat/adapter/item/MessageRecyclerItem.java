@@ -1,4 +1,4 @@
-package tv.twitch.android.adapters.social;
+package tv.twitch.android.shared.chat.adapter.item;
 
 import android.view.View;
 import android.widget.TextView;
