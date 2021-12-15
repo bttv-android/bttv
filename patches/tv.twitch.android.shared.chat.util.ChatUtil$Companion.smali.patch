@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
-@@ -180,6 +180,15 @@
+@@ -181,6 +181,15 @@
          }
      .end annotation
  
@@ -16,4 +16,4 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companio
 +
      const-string v0, "span"
  
-     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
