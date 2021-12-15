@@ -1,0 +1,14 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+@@ -347,6 +347,10 @@
+ 
+     goto :goto_0
+ 
++    # BTTV
++    invoke-static {v0}, Lbttv/api/SplitChat;->removedNMessages(I)V
++    # /BTTV
++
+     .line 200
+     :cond_1
+     invoke-virtual {p0, v1, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemRangeRemoved(II)V

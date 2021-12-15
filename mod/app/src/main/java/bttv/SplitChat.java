@@ -17,6 +17,28 @@ import tv.twitch.android.shared.chat.messagefactory.adapteritem.UserNoticeRecycl
 public class SplitChat {
     private final static String TAG = "LBTTVSplitChat";
 
+    /**
+     * The Buffer backing the Chat has a fixed Capacity and is cleared when it overflows;
+     * Old messages get removed. This means we can't rely on the position parameter in
+     * onBindViewHolder() to determine the background color:
+     *
+     * Example:
+     *   Capacity is 3.
+     *   1 new message arrive:
+     * - Old Message | bound with position 0 (even) (will be removed)
+     * - Old Message | bound with position 1 (odd)
+     * - Old Message | bound with position 2 (even)
+     * - New Message | binding with position 2 (even)
+     *
+     * So now two even elements are next to each other.
+     *
+     * To counter this we continue to count the "absolute" position by keeping track of the
+     * total removed messages.
+     *
+     * totalPosition = positionInAdapter + totalRemovedMessages
+     */
+    private static int totalRemovedMessages = 0;
+
     public static void setBackgroundColor(int position, RecyclerView.ViewHolder viewHolder) {
         if (!ResUtil.getBooleanFromSettings(Settings.SplitChatEnabled)) {
             return;
@@ -49,7 +71,7 @@ public class SplitChat {
                 ? ResUtil.getColorValue("material_grey_900")
                 : ResUtil.getColorValue("material_grey_300");
 
-        boolean doChange = position % 2 == 1;
+        boolean doChange = shouldTintBG(position);
 
         // for some reason we can't set the background for the whole view for Chomments (VODs)
         // so we just highlight the TextView (first child)
@@ -73,6 +95,17 @@ public class SplitChat {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.width = matchParent ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT;
         view.setLayoutParams(layoutParams);
+    }
+
+    /** called after Twitch removes the first N Messages from the buffer */
+    public static void removedNMessages(int n) {
+        totalRemovedMessages += n;
+    }
+
+    private static boolean shouldTintBG(int positionInAdapter) {
+        // see comment on totalRemovedMessages to see why we do this
+        int totalPosition = positionInAdapter + totalRemovedMessages;
+        return totalPosition % 2 == 1;
     }
 
     private static void reset(View view) {
