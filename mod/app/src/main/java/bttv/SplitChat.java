@@ -99,14 +99,12 @@ public class SplitChat {
 
     /** called after Twitch removes the first N Messages from the buffer */
     public static void removedNMessages(int n) {
-        Log.d(TAG, "removedNMessages(" + n + "): prev=" + totalRemovedMessages + ", after=" + (totalRemovedMessages + n));
         totalRemovedMessages += n;
     }
 
     private static boolean shouldTintBG(int positionInAdapter) {
         // see comment on totalRemovedMessages to see why we do this
         int totalPosition = positionInAdapter + totalRemovedMessages;
-        Log.d(TAG, "shouldTintBG() positionInAdapter: " + positionInAdapter + " totalRemovedMessages: " + totalRemovedMessages + " totalPosition:" + totalPosition);
         return totalPosition % 2 == 1;
     }
 
