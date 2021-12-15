@@ -17,4 +17,13 @@ public class SplitChat {
         }
     }
 
+    /** Called in ChannelChatAdapter.addItems() */
+    public static void removedNMessages(int n) {
+        try {
+            bttv.SplitChat.removedNMessages(n);
+        } catch (Throwable t) {
+            Log.e(TAG, "removedNMessages: ", t);
+        }
+    }
+
 }
