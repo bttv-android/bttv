@@ -1,5 +1,13 @@
 #!/bin/bash
 
+calc_cache_hash() {
+  current_hash=$(find .tmp/ -maxdepth 1 -type f -name "*.apk" -exec sha256sum {} \; |  awk '{print $1}' | sort -d | sha256sum | cut -d ' ' -f 1)
+}
+
+#
+# gather variables
+#
+
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
 [ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
@@ -15,12 +23,42 @@ echo "FILE: $FILE"
 echo "BUILD_COMPANION: $BUILD_COMPANION"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
+# remove old working space
 rm -rf .tmp
+
+#
+# gather apk files
+#
+
 if [ "${FILE: -4}" = ".zip" ]; then
   unzip $FILE -d .tmp
 else
   mkdir .tmp
   cp twitch.apk .tmp/tv.twitch.android.app.apk
+fi
+
+
+#
+# check if cache available
+#
+
+if [ -d ".bttv-cache" ] && [ -f ".bttv-cache/disass_hash" ] && [ -d ".bttv-cache/disass" ];
+then
+  echo "found cache"
+  disass_cache_hash=$(<.bttv-cache/disass_hash)
+  calc_cache_hash
+  echo $disass_cache_hash
+  echo $current_hash
+
+  if [ $current_hash = $disass_cache_hash ]; then
+    cp -R .bttv-cache/disass disass
+    rm -rf .tmp
+    echo "used cache"
+    exit 0
+  else
+    echo "cache invalid, removing..."
+    rm -rf .bttv-cache/disass_hash .bttv-cache/disass
+  fi
 fi
 
 #
@@ -95,6 +133,15 @@ sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 mkdir .tmp/base/smali_classes8
 mkdir -p .tmp/base/smali_classes8/tv/twitch/android
 mv .tmp/base/smali_classes6/tv/twitch/android/player .tmp/base/smali_classes8/tv/twitch/android/player
+
+#
+# cache
+#
+mkdir -p .bttv-cache
+calc_cache_hash
+echo $current_hash > .bttv-cache/disass_hash
+cp -R .tmp/base .bttv-cache/disass
+
 
 #
 # clean up
