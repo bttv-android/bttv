@@ -1,6 +1,6 @@
 #!/bin/bash
 
-STEPS=6
+STEPS=5
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
@@ -14,22 +14,6 @@ STEPS=6
 DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
 DX_FILES=( $DX_PATTERN )
 DX=${DX_FILES[0]}
-
-
-create_gitignore() {
-    cat << EOF > .gitignore &&
-.gitignore
-build
-dist
-lib
-assets/bttv_contributors.json
-smali*/androidx
-smali_classes7/bttv
-smali_classes7/com
-EOF
-    find ../mod/app/src/main/res -type f | sed "s/..\/mod\/app\/src\/main\///" >> .gitignore &&
-    echo "" >> .gitignore
-}
 
 echo "=== Verifing tools (1/$STEPS) ===" &&
 echo "If an errr occurs during this step make" &&
@@ -62,15 +46,6 @@ echo "" &&
 echo "" &&
 echo "=== Disassemble twitch.zip (2/$STEPS) ===" &&
 ./disassemble &&
-echo "" &&
-echo "=== Create reference for diffs (3/$STEPS) ===" &&
-cd disass &&
-git init &&
-create_gitignore &&
-git add . &&
-git commit --quiet -m "base" &&
-git tag base &&
-cd .. &&
 echo "" &&
 echo "=== Build source (4/$STEPS) ===" &&
 ./buildsource disass &&
