@@ -17,17 +17,42 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # checkout current state of repo
       - uses: actions/checkout@v2
-      - name: download base
-        run: wget https://www.dropbox.com/s/z80c908ot2esgtq/twitch-12.1.2.apk\?\dl=1 -O twitch.apk
+
+      # set env variables
+      - name: set variables
+        run: |
+          "APK_URL=https://www.dropbox.com/s/z80c908ot2esgtq/twitch-12.1.2.apk\?\dl=1" >> $GITHUB_ENV
+
+      # get keystore.kjs from secret
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
+
+      # get apk file from cache
+      - name: get apk from cache
+        uses: actions/cache@v2
+        id: apk-cache
+        with:
+          path: twitch.apk
+          key: ${{ env.APK_URL }}
+
+      # download apk when cache miss
+      - name: download base
+        if: steps.apk-cache.outputs.cache-hit != 'true'
+        run: wget ${{ env.APK_URL }} -O twitch.apk
+      
+      # get disass dir from cache
       - name: get disass cache
         uses: actions/cache@v2
         with:
           path: .bttv-cache
           key: bttv-cache-${{ hashFiles('twitch.apk') }}
+      
+      # TODO: remove this
       - run: ls -la .bttv-cache || exit 0
+
+      # run the build using docker container
       - name: run build
         run: |
           docker run --rm \
@@ -41,8 +66,12 @@ jobs:
             -e KS=/usr/build/keystore.jks \
             -e KSPASS=${{ secrets.KSPASS }} \
             ghcr.io/bttv-android/builder
+      
+      # print checksums so anybody can confirm legitimacy of their apk
       - name: print checksums
         run: cp dist/twitch.apk bttv.apk && shasum *.apk
+      
+      # send to other release job if needed
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'push' }}
         with:
