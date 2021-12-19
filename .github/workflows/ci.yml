@@ -47,7 +47,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .bttv-cache
-          key: bttv-cache-2-${{ hashFiles('twitch.apk') }}
+          key: bttv-cache-3-${{ hashFiles('twitch.apk') }}
 
       # run the build using docker container
       - name: run build
