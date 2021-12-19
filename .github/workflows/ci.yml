@@ -49,9 +49,6 @@ jobs:
           path: .bttv-cache
           key: bttv-cache-2-${{ hashFiles('twitch.apk') }}
 
-      # TODO: remove this
-      - run: ls -la .bttv-cache || exit 0
-
       # run the build using docker container
       - name: run build
         run: |
@@ -66,8 +63,6 @@ jobs:
             -e KS=/usr/build/keystore.jks \
             -e KSPASS=${{ secrets.KSPASS }} \
             ghcr.io/bttv-android/builder
-      # TODO: remove this
-      - run: ls -la .bttv-cache || exit 0
 
       # print checksums so anybody can confirm legitimacy of their apk
       - name: print checksums

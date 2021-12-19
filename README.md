@@ -73,6 +73,7 @@ Docker
       ```
       docker run --rm -ti \
          -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
+         -v $(pwd)/.bttv-cache:/usr/build/.bttv-cache \
          -v $(pwd)/dist:/usr/build/dist \
          -v $(pwd)/patches:/usr/build/patches \
          -v $(pwd)/mod:/usr/build/mod \
