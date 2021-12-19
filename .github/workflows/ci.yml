@@ -26,7 +26,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .bttv-cache
-          key: ${{ hashFiles('twitch.apk') }}
+          key: bttv-cache-${{ hashFiles('twitch.apk') }}
+      - run: ls -la .bttv-cache && exit 1
       - name: run build
         run: |
           docker run --rm \
