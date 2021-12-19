@@ -41,14 +41,14 @@ jobs:
       - name: download base
         if: steps.apk-cache.outputs.cache-hit != 'true'
         run: wget ${{ env.APK_URL }} -O twitch.apk
-      
+
       # get disass dir from cache
       - name: get disass cache
         uses: actions/cache@v2
         with:
           path: .bttv-cache
-          key: bttv-cache-${{ hashFiles('twitch.apk') }}
-      
+          key: bttv-cache-2-${{ hashFiles('twitch.apk') }}
+
       # TODO: remove this
       - run: ls -la .bttv-cache || exit 0
 
@@ -66,11 +66,13 @@ jobs:
             -e KS=/usr/build/keystore.jks \
             -e KSPASS=${{ secrets.KSPASS }} \
             ghcr.io/bttv-android/builder
-      
+      # TODO: remove this
+      - run: ls -la .bttv-cache || exit 0
+
       # print checksums so anybody can confirm legitimacy of their apk
       - name: print checksums
         run: cp dist/twitch.apk bttv.apk && shasum *.apk
-      
+
       # send to other release job if needed
       - uses: actions/upload-artifact@v2
         if: ${{ github.event_name == 'push' }}
