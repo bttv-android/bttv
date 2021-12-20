@@ -49,7 +49,10 @@ jobs:
           path: |
             .bttv-cache/disass
             .bttv-cache/disass_hash
-          key: disass-cache-${{ hashFiles('twitch.apk') }}
+          key: disass-cache-2-${{ hashFiles('twitch.apk') }}
+
+      - name: make sure disass_hash is a file
+        run: touch .bttv-cache/disass_hash
 
       # get gradle caches
       - name: get gradle caches
@@ -58,7 +61,7 @@ jobs:
           path: |
             .bttv-cache/gradle_caches
             .bttv-cache/gradle_wrapper
-          key: gradle
+          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
 
       # run the build using docker container
       - name: run build
