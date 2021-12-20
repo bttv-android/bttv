@@ -46,15 +46,29 @@ jobs:
       - name: get disass cache
         uses: actions/cache@v2
         with:
-          path: .bttv-cache
-          key: bttv-cache-3-${{ hashFiles('twitch.apk') }}
+          path: |
+            .bttv-cache/disass
+            .bttv-cache/disass_hash
+          key: disass-cache-${{ hashFiles('twitch.apk') }}
+
+      # get gradle caches
+      - name: get gradle caches
+        uses: actions/cache@v2
+        with:
+          path: |
+            .bttv-cache/gradle_caches
+            .bttv-cache/gradle_wrapper
+          key: gradle
 
       # run the build using docker container
       - name: run build
         run: |
           docker run --rm \
             -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
-            -v $(pwd)/.bttv-cache:/usr/build/.bttv-cache \
+            -v $(pwd)/.bttv-cache/disass:/usr/build/.bttv-cache/disass \
+            -v $(pwd)/.bttv-cache/disass_hash:/usr/build/.bttv-cache/disass_hash \
+            -v $(pwd)/.bttv-cache/gradle_caches:/root/.gradle/caches \
+            -v $(pwd)/.bttv-cache/gradle_wrapper:/root/.gradle/wrapper \
             -v $(pwd)/dist:/usr/build/dist \
             -v $(pwd)/mod:/usr/build/mod \
             -v $(pwd)/patches:/usr/build/patches \
