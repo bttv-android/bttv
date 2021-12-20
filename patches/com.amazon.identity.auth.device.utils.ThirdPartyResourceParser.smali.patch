@@ -1,0 +1,14 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali b/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
+@@ -38,6 +38,10 @@
+     .line 51
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+ 
++    # BTTV
++    const-string p2, "tv.twitch.bttvandroid.app"
++    # /BTTV
++
+     .line 52
+     iput-object p2, p0, Lcom/amazon/identity/auth/device/utils/ThirdPartyResourceParser;->_packageName:Ljava/lang/String;
+ 

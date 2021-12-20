@@ -1,0 +1,15 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/InternalAuthManager$1.smali
+@@ -38,6 +38,11 @@
+     .line 70
+     iput-object p1, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$1;->this$0:Lcom/amazon/identity/auth/device/authorization/InternalAuthManager;
+ 
++    # BTTV
++    invoke-static {p2}, Lbttv/api/WatchParties;->wrap(Landroid/content/Context;)Landroid/content/Context;
++    move-result-object p2
++    # /BTTV
++
+     iput-object p2, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$1;->val$context:Landroid/content/Context;
+ 
+     iput-object p3, p0, Lcom/amazon/identity/auth/device/authorization/InternalAuthManager$1;->val$listener:Lcom/amazon/identity/auth/device/authorization/api/AuthorizationListener;

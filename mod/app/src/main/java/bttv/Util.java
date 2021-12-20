@@ -27,4 +27,17 @@ public class Util {
                 Uri.parse(url));
         activity.startActivity(viewIntent);
     }
+
+    public static void printStacktrace() {
+        Log.e("LBTTV", "printStacktrace: ", new Exception());
+    }
+
+    public static void printException(Throwable e) {
+        Log.e("LBTTV", "printException: ", e);
+    }
+
+    public static void printString(String s) {
+        Log.i("LBTTV", "printString: " + s);
+    }
+
 }
