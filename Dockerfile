@@ -21,7 +21,6 @@ RUN echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux 
 
 # apktool
 
-
 RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
 
 ENV APKTOOL_PATH /opt/apktool_2.5.0.jar
@@ -45,22 +44,36 @@ RUN shasum build-companion
 RUN chmod +x build-companion
 ENV BUILD_COMPANION /opt/build-companion
 
+#
 # Cleanup
+#
+
 RUN apt remove wget --yes
 RUN apt autoremove --yes
 RUN apt clean --yes
 
+#
 # Git
+#
 
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
 
-# Repo
+#
+# Environment
+#
 
 WORKDIR /usr/build
 
 ENV DOCKER true
 RUN mkdir dist
+
+# disable long-lived gradle daemon (so we do not cache lock files)
+RUN mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+
+#
+# Repo
+#
 
 COPY disassemble disassemble
 COPY build build
