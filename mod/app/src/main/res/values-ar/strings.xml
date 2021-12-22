@@ -42,4 +42,5 @@
     <string name="bttv_credits_translations">الترجمات</string>
     <string name="bttv_copied_to_clipboard">تم نسخ إسم المستخدم إلى الحافظة</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>

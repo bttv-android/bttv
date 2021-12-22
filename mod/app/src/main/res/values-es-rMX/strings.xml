@@ -43,6 +43,7 @@
     <string name="bttv_credits_bugs">Informe de errores</string>
     <string name="bttv_credits_ideas">Ideas</string>
     <string name="bttv_credits_translations">Traducciones</string>
+    <string name="bttv_credits_docs">Documentación</string>
     <string name="bttv_copied_to_clipboard">Nombre de usuario copiado al portapapeles</string>
     <string name="bttv_settings_enable_split_chat">Dividir Chat</string>
     <string name="bttv_settings_enable_split_chat_descr">Alternar el color de fondo entre mensajes</string>
@@ -51,4 +52,6 @@
     <string name="bttv_highlight_dia_list_empty">Aquí no hay nada\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <user> así. Por ejemplo: <fosefx>]]></string>
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Usted no tiene la aplicación de Twitch en su dispositivo. Para poder utilizar Watch Parties en bttv-android necesita tener la aplicación de Twitch instalada.\n\nTambién debe de prevenir que la aplicación de Twitch se abra cuando interactúe con enlaces de twitch.tv. Realice lo siguiente:\n\nMantenga presionado sobre la aplicación de Twitch -&gt; \"Info. de aplicación\" -&gt; \"Avanzado\" -&gt; \"Abrir por defecto\" -&gt; \"Abrir enlaces soportados\" -&gt; \"Preguntar siempre\" (puede variar dependiendo del fabricante).\n\nAhora se te preguntara de que aplicación quieres utilizar para abrir enlaces.</string>
 </resources>

@@ -53,5 +53,4 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
-    <string name="bttv_watchparty_twitch_missing">Die Twitch App ist auf deinem Gerät nicht installiert. Um Watch Parties in bttv-android zu benutzen, muss die Twitch App installiert sein.\n\nZusätzlich musst du verhindern, dass sich die Twitch App öffnet wenn du mit twitch.tv Links interagierst. Dazu mache folgendes:\n\nLange auf die Twitch App drücken -> "App-Info" -> "Erweitert" -> "Festlegen als Standard" -> "Zu unterstützten URLs" -> "Immer fragen" (kann je nach Hersteller abweichen).\n\nJetzt wirst du immer erst gefragt mit welcher App du diese Links öffnen möchtest.</string>
 </resources>

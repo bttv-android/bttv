@@ -40,4 +40,5 @@
     <string name="bttv_credits_ideas">Идеи</string>
     <string name="bttv_credits_translations">Переводы</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>

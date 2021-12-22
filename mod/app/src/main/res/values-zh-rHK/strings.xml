@@ -10,4 +10,5 @@
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_updater_notice">如果你是第一次看到此更新程式，當通知顯示時，請允許安裝至此來源。</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
