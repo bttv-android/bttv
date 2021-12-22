@@ -8,7 +8,6 @@ public class WatchParties {
 
   public static Context wrap(Context context) {
     try {
-      Log.i(TAG, "wrap: " + context.toString());
       return new bttv.WatchParties.CustomContext(context);
     } catch (Throwable t) {
       Log.e(TAG, "wrap: ", t);
