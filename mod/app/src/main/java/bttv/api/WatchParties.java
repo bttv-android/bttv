@@ -8,6 +8,7 @@ public class WatchParties {
 
   public static Context wrap(Context context) {
     try {
+      bttv.WatchParties.checkIfTwitchInstalledOrNotifyUser(context);
       return new bttv.WatchParties.CustomContext(context);
     } catch (Throwable t) {
       Log.e(TAG, "wrap: ", t);
