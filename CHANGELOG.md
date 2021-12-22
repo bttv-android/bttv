@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- fix watch parties
+
 # v0.17.2-beta
 - rebase to v12.1.2
 - stabilize split chat
