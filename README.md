@@ -27,7 +27,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
  - Split Chat
 
 ## Known issues
- - Amazon Video Watch Parties require the Twitch App to be installed on the device
+ - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
  - Animated Emotes occasionally glitch on some devices
 
 # Install
