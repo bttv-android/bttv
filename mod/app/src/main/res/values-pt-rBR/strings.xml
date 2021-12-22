@@ -51,4 +51,5 @@
     <string name="bttv_highlight_dia_list_empty">Não há nada aqui\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user>. por ex: <fosefx>]]></string>
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
