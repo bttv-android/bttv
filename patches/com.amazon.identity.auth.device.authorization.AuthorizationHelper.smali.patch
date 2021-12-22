@@ -1,0 +1,15 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
+@@ -1397,6 +1397,11 @@
+ 
+     move-object/from16 v2, p10
+ 
++    # BTTV
++    invoke-static {p1}, Lbttv/api/WatchParties;->wrap(Landroid/content/Context;)Landroid/content/Context;
++    move-result-object p1
++    # /BTTV
++
+     .line 120
+     invoke-static {}, Lcom/amazon/identity/auth/device/thread/ThreadUtils;->isRunningOnMainThread()Z
+ 

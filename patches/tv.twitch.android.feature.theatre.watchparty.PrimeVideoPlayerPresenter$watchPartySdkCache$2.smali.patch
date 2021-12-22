@@ -1,0 +1,15 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali b/smali_classes6/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
+@@ -71,6 +71,11 @@
+ 
+     move-result-object v1
+ 
++    # BTTV
++    invoke-static {v1}, Lbttv/api/WatchParties;->wrap(Landroid/content/Context;)Landroid/content/Context;
++    move-result-object v1
++    # /BTTV
++
+     .line 116
+     iget-object v2, p0, Ltv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2;->this$0:Ltv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter;
+ 

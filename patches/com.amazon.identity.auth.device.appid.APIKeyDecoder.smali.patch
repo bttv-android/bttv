@@ -1,0 +1,14 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+@@ -618,6 +618,10 @@
+         }
+     .end annotation
+ 
++    # BTTV
++    const-string p0, "tv.twitch.android.app"
++    # BTTV
++
+     .line 216
+     sget-object v0, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->LOG_TAG:Ljava/lang/String;
+ 
