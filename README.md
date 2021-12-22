@@ -35,6 +35,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 1. Skim through this [guide on how to enable third party app istallations][enable-guide]
 2. Go to the [latest release][latest-release] page and download the `.apk` file of the mod. It periodically checks for new releases so you only have to download it once from there.
    [![How to download][howtodl]][latest-release]
+3. (Optional) Prevent Twitch from opening when you interact with twitch.tv links: Long-press on the Twitch App -> "App Info" -> "Advanced" -> "Open by default" -> "Open supported links" -> "Ask every time" (might vary depending on OEM)
 
 # Build it yourself
 
