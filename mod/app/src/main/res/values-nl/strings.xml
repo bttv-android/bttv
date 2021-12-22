@@ -45,4 +45,5 @@
     <string name="bttv_settings_enable_split_chat">Chat splitsen</string>
     <string name="bttv_settings_enable_split_chat_descr">Tint de achtergrond van elk tweede chat bericht</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
