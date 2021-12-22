@@ -52,7 +52,7 @@ jobs:
           key: disass-cache-2-${{ hashFiles('twitch.apk') }}
 
       - name: make sure disass_hash is a file
-        run: touch .bttv-cache/disass_hash
+        run: mkdir -p .bttv-cache && touch .bttv-cache/disass_hash
 
       # get gradle caches
       - name: get gradle caches

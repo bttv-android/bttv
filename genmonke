@@ -16,5 +16,5 @@ for File in $Files
 do
     Path=../patches/$(echo $File | sed 's/\//./g;s/smali_classes[0-9]\.//; s/smali\.//').patch
     echo $File
-    git diff --minimal $BASE $File | sed '/^index [a-zA-Z0-9]\{9\}\.\.[a-z0-9]\{9\}/d' > $Path
+    git diff --minimal $BASE $File | sed '/^index /d' > $Path
 done
