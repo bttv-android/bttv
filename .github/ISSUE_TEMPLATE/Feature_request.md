@@ -16,6 +16,8 @@ Not in scope:
 
 This way the mod does not become bloated and is thus more stable and maintainable.
 
+Also please check opened and closed issues on Github first, maybe somebody else has already opened a similar issue: https://github.com/bttv-android/bttv/issues?q=is%3Aissue
+
 Thank you!
 
 -->
