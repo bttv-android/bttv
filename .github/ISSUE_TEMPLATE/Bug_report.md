@@ -3,6 +3,14 @@ name: 🐛 Bug Report
 about: If something isn't working as expected.
 ---
 
+<!--
+
+Please check opened and closed issues on Github first, maybe somebody else has already opened a similar issue: https://github.com/bttv-android/bttv/issues?q=is%3Aissue
+
+Thank you!
+
+-->
+
 ## Bug Report
 
 **Current Behavior**
