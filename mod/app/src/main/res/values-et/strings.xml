@@ -2,6 +2,10 @@
 <resources>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_credits_bugs">Veaaruanded</string>
+    <string name="bttv_credits_ideas">Ideed</string>
+    <string name="bttv_credits_translations">Tõlked</string>
+    <string name="bttv_credits_docs">Dokumentatsioon</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
