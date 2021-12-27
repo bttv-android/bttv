@@ -2,6 +2,8 @@
 <resources>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_settings_gif_render_mode_disabled">Keelatud</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Kuva kustutatud sõnumid</string>
     <string name="bttv_credits_bugs">Veaaruanded</string>
     <string name="bttv_credits_ideas">Ideed</string>
     <string name="bttv_credits_translations">Tõlked</string>
