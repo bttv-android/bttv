@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">Tere tulemast\nBetter Twitch-i</string>
+    <string name="bttv_emote_picker_global_bttv">Globaalsed BTTV Emotikonid</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanali BTTV Emotikonid</string>
+    <string name="bttv_emote_picker_global_ffz">Globaalsed FrankerFaceZ Emotikonid</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanali FrankerFaceZ Emotikonid</string>
+    <string name="bttv_emote_picker_global_7tv">Globaalsed 7TV Emotikonid</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanali 7TV Emotikonid</string>
+    <string name="bttv_app_update_available">bttv-android: Tuvastati uus värskendus</string>
+    <string name="bttv_app_update_available_cta">Värskenduse allalaadimiseks ja installimiseks puudutage siia.</string>
+    <string name="bttv_sleep_timer_button_descr">Ava Unetaimeri Dialoog</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Unetaimer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Tühista Unetaimer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Teil juba töötab unetaimer. Kas soovite selle tühistada?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotikonid</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Miks sa selle keelaksid?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif Emotikonid</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emotikonid</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotikonid</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Lunasta kanalipunktid automaatselt</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Näita Unetaimerit</string>
+    <string name="bttv_emote_added_by_bttv">Emotikon lisatud bttv-android poolt</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emotikon lisatud %s poolt</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emotikon lisatud %s poolt</string>
+    <string name="bttv_updater_downloading">Allalaadimine</string>
+    <string name="bttv_updater_downloading_version">Allalaadimine %s</string>
+    <string name="bttv_updater_notice">Kui kasutate värskendust esimest korda, lubage installimine sellest allikast, kui viisard seda küsib.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Määrake esiletõstetud märksõnad</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Avab esiletõstmise dialoogi</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Sisesta uus Võtmesõna</string>
+    <string name="bttv_settings_highlights_dia_title">Halda Esiletõstetuid Võtmesõnu</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif Emotikonid</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animeeri</string>
+    <string name="bttv_settings_gif_render_mode_static">Staatiline</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Keelatud</string>
+    <string name="bttv_settings_open_credits_button_title">Tunnustus</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Kuva kustutatud sõnumid</string>
+    <string name="bttv_credits_title">Tunnustus</string>
+    <string name="bttv_credits_intro">bttv-android loodi <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> poolt, koos nende lahkete inimeste abiga:</string>
+    <string name="bttv_credits_bugs">Veaaruanded</string>
+    <string name="bttv_credits_ideas">Ideed</string>
+    <string name="bttv_credits_translations">Tõlked</string>
+    <string name="bttv_credits_docs">Dokumentatsioon</string>
+    <string name="bttv_copied_to_clipboard">Kasutajanimi kopeeriti lõikelauale</string>
+    <string name="bttv_settings_enable_split_chat">Poolita vestlust</string>
+    <string name="bttv_settings_enable_split_chat_descr">Värvige iga teise vestlussõnumi tausta</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animeerida igavesti</string>
+    <string name="bttv_settings_gif_render_mode_descr">Märkus. „Animeerida igavesti” võib aku väga kiiresti tühjendada</string>
+    <string name="bttv_highlight_dia_list_empty">Siin pole midagi\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Saate <user> esile tõsta näiteks nii:: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Teie seadmesse pole installitud rakendust Twitch. Funktsiooni Watch Parties kasutamiseks bttv-androidis peab teil olema installitud rakendus Twitch.\n\nSamuti peate takistama Twitchi avanemist, kui kasutate twitch.tv linke. Tehke järgmist.\n\nVajutage Twitchi rakendust pikalt -&gt; \"Rakenduse teave\" -&gt; \"Täpsem\" -&gt; \"Vaikimisi avatud\" -&gt; \"Ava toetatud lingid\" -&gt; „Küsi iga kord” (võib olenevalt OEM-ist erineda).\n\nNüüd küsitakse teilt, millise rakendusega soovite linke avada.</string>
 </resources>

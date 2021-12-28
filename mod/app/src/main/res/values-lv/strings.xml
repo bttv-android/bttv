@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">Laipni lūdzam\nlabākā Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Globālās BTTV Emocijzīmes</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanāla BTTV Emocijzīmes</string>
+    <string name="bttv_emote_picker_global_ffz">Globālās FrankerFaceZ Emocijzīmes</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanāla FrankerFaceZ Emocijzīmes</string>
+    <string name="bttv_emote_picker_global_7tv">Globālās 7TV Emocijzīmes</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanāla 7TV Emocijzīmes</string>
+    <string name="bttv_app_update_available">bttv-android: Atrasts Jauns Atjauninājums</string>
+    <string name="bttv_app_update_available_cta">Nospiediet šeit, lai lejupielādētu un instalētu atjauninājumu.</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
