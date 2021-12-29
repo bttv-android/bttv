@@ -91,6 +91,15 @@ public enum Settings {
                 null
             )
     ),
+    ShowUptime(
+          new Entry.BoolEntry(
+                  "show_uptime",
+                  new Entry.BoolValue(false),
+                  Res.strings.bttv_settings_show_uptime,
+                  null,
+                  null
+          )
+    ),
     OpenHighlightedWordsButton(
             new Entry.LinkEntry(
                 Res.strings.bttv_settings_open_highlights_dia_primary,

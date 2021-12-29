@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali b/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
+--- a/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
++++ b/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
+@@ -57,7 +57,7 @@
+     .end annotation
+ .end field
+ 
+-.field private createdAt:Ljava/lang/String;
++.field public createdAt:Ljava/lang/String; # BTTV: private -> public
+ 
+ .field private delay:I
+ 

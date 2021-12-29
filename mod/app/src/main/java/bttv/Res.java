@@ -66,6 +66,7 @@ public class Res {
         bttv_settings_gif_render_mode_disabled,
         bttv_settings_open_credits_button_title,
         bttv_settings_enable_show_deleted_messages,
+        bttv_settings_show_uptime,
         bttv_credits_title,
         bttv_credits_intro,
         bttv_credits_bugs,

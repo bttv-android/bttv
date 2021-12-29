@@ -2,6 +2,7 @@
 
 # master
 - fix watch parties
+- add "Show Uptime" option
 
 # v0.17.2-beta
 - rebase to v12.1.2
