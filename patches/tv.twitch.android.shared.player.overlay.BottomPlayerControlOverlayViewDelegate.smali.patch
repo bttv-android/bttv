@@ -1,6 +1,15 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+@@ -22,7 +22,7 @@
+ 
+ .field private final mLiveIndicatorImageView:Landroid/widget/ImageView;
+ 
+-.field private final mLiveIndicatorLeftText:Landroid/widget/TextView;
++.field public final mLiveIndicatorLeftText:Landroid/widget/TextView; # BTTV: private -> public
+ 
+ .field private final mOverlayFloatRightText:Landroid/widget/TextView;
+ 
 @@ -126,6 +126,13 @@
      .line 70
      invoke-direct {p0, p1, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;-><init>(Landroid/content/Context;Landroid/view/View;)V
