@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import bttv.settings.Settings;
 import tv.twitch.android.models.streams.StreamModel;
 import tv.twitch.android.models.streams.StreamType;
 import tv.twitch.android.shared.player.overlay.BottomPlayerControlOverlayViewDelegate;
@@ -20,52 +21,67 @@ public class Uptime {
   private final static String TAG = "LBTTVUptime";
   private final static Clock clock = new Clock();
 
+  private static enum ReplaceOutcome {
+    Success,
+    Error,
+    NotLive
+  }
+
   public static void replaceLiveIndicatorWithUptime(StreamModel streamModel, PlayerOverlayViewDelegate playerOverlayViewDelegate) throws NullPointerException {
-    if (!prepareClock(streamModel, playerOverlayViewDelegate)) {
+    if(!ResUtil.getBooleanFromSettings(Settings.ShowUptime)) {
       clock.cancelExistingSchedule();
-      playerOverlayViewDelegate.BTTVgetBottomPlayerControlOverlayViewDelegate().updateStreamType(StreamType.LIVE_VIDEO);
+      return;
+    }
+
+    ReplaceOutcome result = prepareClock(streamModel, playerOverlayViewDelegate);
+
+    if (!result.equals(ReplaceOutcome.Success)) {
+      clock.cancelExistingSchedule();
+      if (!result.equals(ReplaceOutcome.NotLive)) {
+        playerOverlayViewDelegate.BTTVgetBottomPlayerControlOverlayViewDelegate().updateStreamType(StreamType.LIVE_VIDEO);
+      }
     }
   }
 
-  public static boolean prepareClock(StreamModel streamModel, PlayerOverlayViewDelegate playerOverlayViewDelegate) {
+  public static ReplaceOutcome prepareClock(StreamModel streamModel, PlayerOverlayViewDelegate playerOverlayViewDelegate) {
     if (streamModel == null) {
       Log.i(TAG, "replaceLiveIndicatorWithUptime: streamModel is null");
-      return false;
+      return ReplaceOutcome.Error;
     }
 
     if (!streamModel.getStreamType().equals(StreamType.LIVE_VIDEO)) {
       Log.d(TAG, "replaceLiveIndicatorWithUptime: stream type is not LIVE_VIDEO");
-      return false;
+      return ReplaceOutcome.NotLive;
     }
 
     if (playerOverlayViewDelegate == null) {
       Log.i(TAG, "replaceLiveIndicatorWithUptime: playerOverlayViewDelegate is null");
-      return false;
+      return ReplaceOutcome.Error;
     }
 
     BottomPlayerControlOverlayViewDelegate bottomVD = playerOverlayViewDelegate.BTTVgetBottomPlayerControlOverlayViewDelegate();
 
     if (bottomVD == null) {
       Log.i(TAG, "replaceLiveIndicatorWithUptime: playerOverlayViewDelegate.getBottomPlayerControlOverlayViewDelegate() returned null");
-      return false;
+      return ReplaceOutcome.Error;
     }
 
     if (bottomVD.mLiveIndicatorLeftText == null) {
       Log.i(TAG, "replaceLiveIndicatorWithUptime: mLiveIndicatorLeftText is null");
-      return false;
+      return ReplaceOutcome.Error;
     }
 
     Date date = parseDate(streamModel.createdAt);
 
     if (date == null) {
       Log.w(TAG, "replaceLiveIndicatorWithUptime: date is null (" + streamModel.createdAt + ")");
-      return false;
+      return ReplaceOutcome.Error;
     }
 
     Log.i(TAG, "replaceLiveIndicatorWithUptime: " + streamModel.createdAt + " " + date);
 
     clock.textViewUpdated(bottomVD.mLiveIndicatorLeftText, secondsSince(date));
-    return true;
+    return ReplaceOutcome.Success;
   }
 
   private static Date parseDate(String dateString) {
