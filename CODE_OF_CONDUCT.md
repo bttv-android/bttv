@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-max@fosefx.com, Twitter DMs, or on [Discord](https://discord.gg/7jgDGdXXqN).
+max@bmn.dev, Twitter DMs, or on [Discord](https://discord.gg/7jgDGdXXqN).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the
