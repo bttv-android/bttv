@@ -8,7 +8,7 @@
 # bttv-android
 
 
-A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV emotes
+A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding BetterTTV, FrankerFaceZ and 7TV emotes
 
 > This project is **not affiliated** to Twitch Interactive Inc, NightBot LLC, Dan Salvato LLC or the SevenTV project!
 > THE SOFTWARE IS PROVIDED "AS IS", **WITHOUT WARRANTY OF ANY KIND**!
@@ -29,6 +29,7 @@ A mod of the Twitch Android Mobile App adding BetterTTV, FrankerFaceZ and 7TV em
 ## Known issues
  - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
  - Animated Emotes occasionally glitch on some devices
+ - <span id="no-tv">bttv-android will not work on Android TVs as it is a mod of the Twitch mobile App and not of the Twitch Andorid TV App. You can install it, just do not expect a good experience</span>
 
 # Install
 
