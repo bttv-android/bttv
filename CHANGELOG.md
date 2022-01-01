@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# v0.18.0-beta
 - fix watch parties
 - add "Show Uptime" option
 
