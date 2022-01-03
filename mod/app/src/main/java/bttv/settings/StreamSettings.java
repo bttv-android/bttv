@@ -14,6 +14,7 @@ public class StreamSettings {
         setupEnableFFZEmotes(view);
         setupEnable7TVEmotes(view);
         setupEnableAutoRedeem(view);
+        setupEnableDeletedMessages(view);
     }
 
     private static void setupEnableBTTVEmotes(View view) {
@@ -74,6 +75,22 @@ public class StreamSettings {
             @Override
             public void onClick(View v) {
                 Settings.AutoRedeemChannelPointsEnabled.entry.set(
+                        v.getContext(),
+                        new UserPreferences.Entry.BoolValue(toggle.isChecked())
+                );
+            }
+        });
+    }
+
+    private static void setupEnableDeletedMessages(View view) {
+        int id = ResUtil.getResourceId(view.getContext(), Res.ids.bttv_stream_settings_enable_show_deleted_messages_toggle);
+        SwitchCompat toggle = view.findViewById(id);
+        boolean checked = ResUtil.getBooleanFromSettings(Settings.ShowDeletedMessagesEnabled);
+        toggle.setChecked(checked);
+        toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Settings.ShowDeletedMessagesEnabled.entry.set(
                     v.getContext(),
                     new UserPreferences.Entry.BoolValue(toggle.isChecked())
                 );

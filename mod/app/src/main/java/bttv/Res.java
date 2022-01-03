@@ -23,6 +23,7 @@ public class Res {
         bttv_stream_settings_enable_ffz_emotes_toggle,
         bttv_stream_settings_enable_7TV_emotes_toggle,
         bttv_stream_settings_enable_auto_redeem_toggle,
+        bttv_stream_settings_enable_show_deleted_messages_toggle,
     }
     public enum layouts {
         bttv_highlight_dialog,
