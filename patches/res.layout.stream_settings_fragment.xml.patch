@@ -1,0 +1,11 @@
+diff --git a/res/layout/stream_settings_fragment.xml b/res/layout/stream_settings_fragment.xml
+--- a/res/layout/stream_settings_fragment.xml
++++ b/res/layout/stream_settings_fragment.xml
+@@ -57,6 +57,7 @@
+                 <FrameLayout android:id="@id/report_issue_button" android:background="?selectableItemBackground" android:layout_width="fill_parent" android:layout_height="@dimen/selectable_item_row_height">
+                     <TextView android:textSize="@dimen/font_large" android:textColor="@color/text_base" android:ellipsize="end" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/stream_settings_content_margin" android:layout_marginRight="@dimen/stream_settings_content_margin" android:text="@string/report_playback_issue" android:maxLines="1" />
+                 </FrameLayout>
++                <include layout="@layout/bttv_stream_settings" />
+             </LinearLayout>
+         </androidx.core.widget.NestedScrollView>
+         <androidx.core.widget.NestedScrollView android:id="@id/report_scrollview" android:background="@color/background_base" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true">
