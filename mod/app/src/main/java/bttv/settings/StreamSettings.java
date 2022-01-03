@@ -45,4 +45,20 @@ public class StreamSettings {
             }
         });
     }
+
+    private static void setupEnable7TVEmotes(View view) {
+        int id = ResUtil.getResourceId(view.getContext(), Res.ids.bttv_stream_settings_enable_7TV_emotes_toggle);
+        SwitchCompat toggle = view.findViewById(id);
+        boolean checked = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        toggle.setChecked(checked);
+        toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Settings.SevenTVEmotesEnabled.entry.set(
+                    v.getContext(),
+                    new UserPreferences.Entry.BoolValue(toggle.isChecked())
+                );
+            }
+        });
+    }
 }

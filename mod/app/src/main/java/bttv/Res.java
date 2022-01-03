@@ -21,6 +21,7 @@ public class Res {
         bttv_credits_into_tv,
         bttv_stream_settings_enable_bttv_emotes_toggle,
         bttv_stream_settings_enable_ffz_emotes_toggle,
+        bttv_stream_settings_enable_7TV_emotes_toggle,
     }
     public enum layouts {
         bttv_highlight_dialog,
