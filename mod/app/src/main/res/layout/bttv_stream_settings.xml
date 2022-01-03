@@ -40,4 +40,31 @@
             android:layout_height="fill_parent"
             android:layout_marginRight="@dimen/stream_settings_content_margin" />
     </FrameLayout>
+
+
+    <FrameLayout
+        android:background="?selectableItemBackground"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/selectable_item_row_height">
+        <TextView
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/text_base"
+            android:ellipsize="end"
+            android:layout_gravity="center|left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/stream_settings_content_margin"
+            android:layout_marginRight="60.0dip"
+            android:text="@string/bttv_settings_enable_ffz_emotes_primary"
+            android:maxLines="2" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/bttv_stream_settings_enable_ffz_emotes_toggle"
+            android:layout_gravity="center|right"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="@dimen/stream_settings_content_margin" />
+    </FrameLayout>
+
+
 </LinearLayout>
