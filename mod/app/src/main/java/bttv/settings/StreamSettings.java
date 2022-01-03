@@ -12,6 +12,8 @@ public class StreamSettings {
     public static void setupBTTVStreamSettings(View view) {
         setupEnableBTTVEmotes(view);
         setupEnableFFZEmotes(view);
+        setupEnable7TVEmotes(view);
+        setupEnableAutoRedeem(view);
     }
 
     private static void setupEnableBTTVEmotes(View view) {
@@ -61,4 +63,23 @@ public class StreamSettings {
             }
         });
     }
+
+
+    private static void setupEnableAutoRedeem(View view) {
+        int id = ResUtil.getResourceId(view.getContext(), Res.ids.bttv_stream_settings_enable_auto_redeem_toggle);
+        SwitchCompat toggle = view.findViewById(id);
+        boolean checked = ResUtil.getBooleanFromSettings(Settings.AutoRedeemChannelPointsEnabled);
+        toggle.setChecked(checked);
+        toggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Settings.AutoRedeemChannelPointsEnabled.entry.set(
+                    v.getContext(),
+                    new UserPreferences.Entry.BoolValue(toggle.isChecked())
+                );
+            }
+        });
+    }
+
+
 }
