@@ -1,0 +1,13 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+@@ -2288,5 +2288,9 @@
+ 
+     invoke-direct {p0, p1, v0}, Ltv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate;->setupDoNotDisturb(ZLtv/twitch/android/feature/theatre/common/StreamSettings$ConfigurablePlayer;)V
+ 
++    # BTTV
++    invoke-static {p0}, Lbttv/api/StreamSettings;->setupBTTVStreamSettings(Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;)V
++    # /BTTV
++
+     return-void
+ .end method
