@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13334,4 +13334,70 @@
+@@ -13334,4 +13334,79 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -21,6 +21,15 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0e0e" />
 +    <public type="id" name="bttv_highlight_dia_list_empty" id="0x7f0b0e0f" />
 +    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0e10" />
++    <public type="id" name="bttv_stream_settings_enable_bttv_emotes_toggle" id="0x7f0b0e11" />
++    <public type="id" name="bttv_stream_settings_gif_mode_spinner" id="0x7f0b0e12" />
++    <public type="id" name="bttv_stream_settings_enable_ffz_emotes_toggle" id="0x7f0b0e13" />
++    <public type="id" name="bttv_stream_settings_enable_7TV_emotes_toggle" id="0x7f0b0e14" />
++    <public type="id" name="bttv_stream_settings_enable_auto_redeem_toggle" id="0x7f0b0e15" />
++    <public type="id" name="bttv_stream_settings_enable_show_deleted_messages_toggle" id="0x7f0b0e16" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button" id="0x7f0b0e17" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button_primary" id="0x7f0b0e18" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button_secondary" id="0x7f0b0e19" />
 +    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e0347" />
 +    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e0348" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e0349" />
