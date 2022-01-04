@@ -18,9 +18,17 @@ public class Res {
         bttv_highlight_dia_list_text,
         bttv_highlight_dia_list_btn,
         bttv_highlight_dia_list_empty,
-        bttv_credits_into_tv
+        bttv_credits_into_tv,
+        bttv_stream_settings_enable_bttv_emotes_toggle,
+        bttv_stream_settings_enable_ffz_emotes_toggle,
+        bttv_stream_settings_enable_7TV_emotes_toggle,
+        bttv_stream_settings_enable_auto_redeem_toggle,
+        bttv_stream_settings_enable_show_deleted_messages_toggle,
+        bttv_stream_settings_gif_mode_spinner,
+        bttv_stream_settings_open_highlight_button,
     }
     public enum layouts {
+        twitch_spinner_dropdown_item,
         bttv_highlight_dialog,
         bttv_updater_activity,
         bttv_highlight_list_view,

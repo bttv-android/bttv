@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_small">13sp</dimen>
+    <dimen name="stream_settings_content_margin">16dp</dimen>
+    <dimen name="stream_settings_section_header_height">44dp</dimen>
+    <dimen name="selectable_item_row_height">44dp</dimen>
+    <dimen name="font_large">18sp</dimen>
+</resources>

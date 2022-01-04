@@ -2,4 +2,5 @@
 <resources>
     <color name="text_alt">#ff1f1f23</color>
     <color name="text_base">#ff0e0e10</color>
+    <color name="text_alt_2">#000</color>
 </resources>

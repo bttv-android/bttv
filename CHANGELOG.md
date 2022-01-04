@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add some bttv-android settings to stream settings
+
 # v0.18.0-beta
 - fix watch parties
 - add "Show Uptime" option
