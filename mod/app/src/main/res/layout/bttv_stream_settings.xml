@@ -41,6 +41,36 @@
             android:layout_marginRight="@dimen/stream_settings_content_margin" />
     </FrameLayout>
 
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <FrameLayout
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/selectable_item_row_height">
+            <TextView
+                android:textSize="@dimen/font_large"
+                android:textColor="@color/text_base"
+                android:ellipsize="end"
+                android:layout_gravity="left|center_vertical|center_horizontal|center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/stream_settings_content_margin"
+                android:layout_marginRight="@dimen/stream_settings_content_margin"
+                android:text="@string/bttv_settings_gif_render_mode_title"
+                android:maxLines="1"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/rounded_input_border"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/stream_settings_content_margin"
+            android:layout_marginRight="@dimen/stream_settings_content_margin">
+            <Spinner
+                android:id="@+id/bttv_stream_settings_gif_mode_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:background="?selectableItemBackground"
