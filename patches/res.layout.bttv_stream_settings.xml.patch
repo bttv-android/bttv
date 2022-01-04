@@ -1,0 +1,179 @@
+diff --git a/res/layout/bttv_stream_settings.xml b/res/layout/bttv_stream_settings.xml
+new file mode 100644
+--- /dev/null
++++ b/res/layout/bttv_stream_settings.xml
+@@ -0,0 +1,174 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:orientation="vertical">
++
++    <TextView
++        android:textSize="@dimen/font_small"
++        android:textColor="@color/text_alt_2"
++        android:gravity="center_vertical"
++        android:paddingLeft="@dimen/stream_settings_content_margin"
++        android:focusable="false"
++        android:focusableInTouchMode="false"
++        android:clickable="false"
++        android:layout_width="match_parent"
++        android:layout_height="@dimen/stream_settings_section_header_height"
++        android:text="bttv-android"
++        android:textAllCaps="true" />
++
++    <FrameLayout
++        android:background="?selectableItemBackground"
++        android:layout_width="fill_parent"
++        android:layout_height="@dimen/selectable_item_row_height">
++        <TextView
++            android:textSize="@dimen/font_large"
++            android:textColor="@color/text_base"
++            android:ellipsize="end"
++            android:layout_gravity="center|left"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="60.0dip"
++            android:text="@string/bttv_settings_enable_bttv_emotes_primary"
++            android:maxLines="2" />
++
++        <androidx.appcompat.widget.SwitchCompat
++            android:id="@+id/bttv_stream_settings_enable_bttv_emotes_toggle"
++            android:layout_gravity="center|right"
++            android:layout_width="wrap_content"
++            android:layout_height="fill_parent"
++            android:layout_marginRight="@dimen/stream_settings_content_margin" />
++    </FrameLayout>
++
++    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
++        <FrameLayout
++            android:background="?attr/selectableItemBackground"
++            android:layout_width="match_parent"
++            android:layout_height="@dimen/selectable_item_row_height">
++            <TextView
++                android:textSize="@dimen/font_large"
++                android:textColor="@color/text_base"
++                android:ellipsize="end"
++                android:layout_gravity="left|center_vertical|center_horizontal|center"
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_marginLeft="@dimen/stream_settings_content_margin"
++                android:layout_marginRight="@dimen/stream_settings_content_margin"
++                android:text="@string/bttv_settings_gif_render_mode_title"
++                android:maxLines="1"/>
++        </FrameLayout>
++        <FrameLayout
++            android:layout_gravity="center_vertical"
++            android:background="@drawable/rounded_input_border"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="@dimen/stream_settings_content_margin">
++            <Spinner
++                android:id="@+id/bttv_stream_settings_gif_mode_spinner"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"/>
++        </FrameLayout>
++    </LinearLayout>
++
++    <FrameLayout
++        android:background="?selectableItemBackground"
++        android:layout_width="fill_parent"
++        android:layout_height="@dimen/selectable_item_row_height">
++        <TextView
++            android:textSize="@dimen/font_large"
++            android:textColor="@color/text_base"
++            android:ellipsize="end"
++            android:layout_gravity="center|left"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="60.0dip"
++            android:text="@string/bttv_settings_enable_ffz_emotes_primary"
++            android:maxLines="2" />
++
++        <androidx.appcompat.widget.SwitchCompat
++            android:id="@+id/bttv_stream_settings_enable_ffz_emotes_toggle"
++            android:layout_gravity="center|right"
++            android:layout_width="wrap_content"
++            android:layout_height="fill_parent"
++            android:layout_marginRight="@dimen/stream_settings_content_margin" />
++    </FrameLayout>
++
++    <FrameLayout
++        android:background="?selectableItemBackground"
++        android:layout_width="fill_parent"
++        android:layout_height="@dimen/selectable_item_row_height">
++        <TextView
++            android:textSize="@dimen/font_large"
++            android:textColor="@color/text_base"
++            android:ellipsize="end"
++            android:layout_gravity="center|left"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="60.0dip"
++            android:text="@string/bttv_settings_enable_7tv_emotes_primary"
++            android:maxLines="2" />
++
++        <androidx.appcompat.widget.SwitchCompat
++            android:id="@+id/bttv_stream_settings_enable_7TV_emotes_toggle"
++            android:layout_gravity="center|right"
++            android:layout_width="wrap_content"
++            android:layout_height="fill_parent"
++            android:layout_marginRight="@dimen/stream_settings_content_margin" />
++    </FrameLayout>
++
++
++    <FrameLayout
++        android:background="?selectableItemBackground"
++        android:layout_width="fill_parent"
++        android:layout_height="@dimen/selectable_item_row_height">
++        <TextView
++            android:textSize="@dimen/font_large"
++            android:textColor="@color/text_base"
++            android:ellipsize="end"
++            android:layout_gravity="center|left"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="60.0dip"
++            android:text="@string/bttv_settings_enable_auto_redeem_points_primary"
++            android:maxLines="2" />
++
++        <androidx.appcompat.widget.SwitchCompat
++            android:id="@+id/bttv_stream_settings_enable_auto_redeem_toggle"
++            android:layout_gravity="center|right"
++            android:layout_width="wrap_content"
++            android:layout_height="fill_parent"
++            android:layout_marginRight="@dimen/stream_settings_content_margin" />
++    </FrameLayout>
++
++
++    <FrameLayout
++        android:background="?selectableItemBackground"
++        android:layout_width="fill_parent"
++        android:layout_height="@dimen/selectable_item_row_height">
++        <TextView
++            android:textSize="@dimen/font_large"
++            android:textColor="@color/text_base"
++            android:ellipsize="end"
++            android:layout_gravity="center|left"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginLeft="@dimen/stream_settings_content_margin"
++            android:layout_marginRight="60.0dip"
++            android:text="@string/bttv_settings_enable_show_deleted_messages"
++            android:maxLines="2" />
++
++        <androidx.appcompat.widget.SwitchCompat
++            android:id="@+id/bttv_stream_settings_enable_show_deleted_messages_toggle"
++            android:layout_gravity="center|right"
++            android:layout_width="wrap_content"
++            android:layout_height="fill_parent"
++            android:layout_marginRight="@dimen/stream_settings_content_margin" />
++    </FrameLayout>
++
++
++</LinearLayout>

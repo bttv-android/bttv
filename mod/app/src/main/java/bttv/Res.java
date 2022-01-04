@@ -25,6 +25,7 @@ public class Res {
         bttv_stream_settings_enable_auto_redeem_toggle,
         bttv_stream_settings_enable_show_deleted_messages_toggle,
         bttv_stream_settings_gif_mode_spinner,
+        bttv_stream_settings_open_highlight_button,
     }
     public enum layouts {
         twitch_spinner_dropdown_item,

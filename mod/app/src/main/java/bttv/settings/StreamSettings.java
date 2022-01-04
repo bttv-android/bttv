@@ -1,5 +1,6 @@
 package bttv.settings;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -17,16 +18,17 @@ import java.util.ArrayList;
 
 import bttv.Res;
 import bttv.ResUtil;
-import bttv.Data;
+import bttv.highlight.Highlight;
 
 public class StreamSettings {
-    public static void setupBTTVStreamSettings(View view) {
+    public static void setupBTTVStreamSettings(Activity activity, View view) {
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_bttv_emotes_toggle, Settings.BTTVEmotesEnabled);
         setupGifEmotes(view);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_ffz_emotes_toggle, Settings.FFZEmotesEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_7TV_emotes_toggle, Settings.SevenTVEmotesEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_auto_redeem_toggle, Settings.AutoRedeemChannelPointsEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_show_deleted_messages_toggle, Settings.ShowDeletedMessagesEnabled);
+        setupOpenHighlightDialog(activity, view);
     }
 
     private static void setupBooleanToggle(View view, Res.ids toggleId, Settings setting) {
@@ -45,7 +47,6 @@ public class StreamSettings {
             }
         });
     }
-
 
     private static void setupGifEmotes(View view) {
         Context context = view.getContext();
@@ -103,5 +104,17 @@ public class StreamSettings {
             }
         });
         spinner.setSelection(defaultSelected);
+    }
+
+    private static void setupOpenHighlightDialog(Activity activity, View view) {
+        int id = ResUtil.getResourceId(view.getContext(), Res.ids.bttv_stream_settings_open_highlight_button);
+        View button = view.findViewById(id);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Highlight.openDialog(activity);
+            }
+        });
     }
 }
