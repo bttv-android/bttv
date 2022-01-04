@@ -183,6 +183,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://e-hentai.ml"><img src="https://avatars.githubusercontent.com/u/50764666?v=4?s=100" width="100px;" alt=""/><br /><sub><b>KeepSOBP</b></sub></a><br /><a href="#translation-KeepSOBP" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/jhurag"><img src="https://avatars.githubusercontent.com/u/25354634?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jhurag</b></sub></a><br /><a href="#translation-jhurag" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/Avernys"><img src="https://avatars.githubusercontent.com/u/75722852?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Avernys</b></sub></a><br /><a href="#translation-Avernys" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/Jfamig"><img src="https://avatars.githubusercontent.com/u/21336678?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jfamig</b></sub></a><br /><a href="#ideas-Jfamig" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
