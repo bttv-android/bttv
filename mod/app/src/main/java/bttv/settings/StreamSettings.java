@@ -16,6 +16,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 
+import bttv.AnonChat;
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.highlight.Highlight;
@@ -113,7 +114,8 @@ public class StreamSettings {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Highlight.openDialog(activity);
+                AnonChat.reconnectWithViewerID(0);
+                // Highlight.openDialog(activity);
             }
         });
     }

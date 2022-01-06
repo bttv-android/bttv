@@ -1,0 +1,46 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+@@ -37,7 +37,7 @@
+ 
+ .field private final buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
+ 
+-.field private channel:Ltv/twitch/android/models/channel/ChannelInfo;
++.field public channel:Ltv/twitch/android/models/channel/ChannelInfo; # BTTV: private -> public
+ 
+ .field private channelInfo:Ltv/twitch/chat/ChatChannelInfo;
+ 
+@@ -65,7 +65,7 @@
+ 
+ .field private chatConnectDisposable:Lio/reactivex/disposables/Disposable;
+ 
+-.field private final chatConnectionController:Ltv/twitch/android/shared/chat/observables/ChatConnectionController;
++.field public final chatConnectionController:Ltv/twitch/android/shared/chat/observables/ChatConnectionController; # BTTV: private -> publix
+ 
+ .field private final chatDialogRouter:Ltv/twitch/android/provider/chat/ChatDialogRouter;
+ 
+@@ -1334,6 +1334,9 @@
+ 
+     iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->clickableUsernameSpanListener:Ltv/twitch/android/shared/chat/chatsource/IClickableUsernameSpanListener;
+ 
++    # BTTV
++    invoke-static {v0}, Lbttv/api/AnonChat;->setChatViewPresenter(Ltv/twitch/android/shared/chat/ChatViewPresenter;)V
++    # /BTTV
+     return-void
+ .end method
+ 
+@@ -2131,6 +2134,14 @@
+     return-void
+ .end method
+ 
++# BTTV
++.method public BTTVconnect()V
++    .locals 1
++    invoke-direct {p0}, Ltv/twitch/android/shared/chat/ChatViewPresenter;->connect()V
++    return-void
++.end method
++# BTTV
++
+ .method private final doFriendActionIfValidId(ILkotlin/jvm/functions/Function0;)V
+     .locals 1
+     .annotation system Ldalvik/annotation/Signature;
