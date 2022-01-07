@@ -16,4 +16,15 @@ public class AnonChat {
             Log.e(TAG, "setChatViewPresenter: ", t);
         }
     }
+
+    // called in ChatConnectionController.connect()
+    public static int getViewerId(int viewerId) {
+        try {
+            Log.d(TAG, "getViewerId: " + viewerId);
+            return bttv.AnonChat.getViewerId(viewerId);
+        } catch (Throwable t) {
+            Log.e(TAG, "getViewerId: ", t);
+            return viewerId;
+        }
+    }
 }

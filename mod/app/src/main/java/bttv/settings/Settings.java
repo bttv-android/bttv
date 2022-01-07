@@ -100,6 +100,15 @@ public enum Settings {
                   null
           )
     ),
+    AnonChatEnabled(
+            new Entry.BoolEntry(
+                    "enable_anon_chat",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_enable_anon_chat_primary,
+                    Res.strings.bttv_settings_enable_anon_chat_secondary,
+                    null
+            )
+    ),
     OpenHighlightedWordsButton(
             new Entry.LinkEntry(
                 Res.strings.bttv_settings_open_highlights_dia_primary,

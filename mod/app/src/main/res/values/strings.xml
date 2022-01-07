@@ -40,6 +40,8 @@
     <string name="bttv_settings_gif_render_mode_disabled">Disabled</string>
     <string name="bttv_settings_open_credits_button_title">Credits</string>
     <string name="bttv_settings_enable_show_deleted_messages">Show Deleted Messages</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anon Chat</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Joins chat anonymously without appearing in the userlist</string>
     <string name="bttv_credits_title">Credits</string>
     <string name="bttv_credits_intro">bttv-android was made by <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> with help of these kind folks:</string>
     <string name="bttv_credits_bugs">Bug Reports</string>
