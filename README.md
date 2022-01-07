@@ -25,6 +25,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
  - Sleep Timer
  - Highlight Keywords
  - Split Chat
+ - Anon Chat
 
 ## Known issues
  - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
