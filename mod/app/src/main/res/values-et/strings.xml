@@ -39,6 +39,8 @@
     <string name="bttv_settings_gif_render_mode_disabled">Keelatud</string>
     <string name="bttv_settings_open_credits_button_title">Tunnustus</string>
     <string name="bttv_settings_enable_show_deleted_messages">Kuva kustutatud sõnumid</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonüümne vestlus</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Liitub vestlusega anonüümselt, ilma kasutajate loendis ilmumata</string>
     <string name="bttv_credits_title">Tunnustus</string>
     <string name="bttv_credits_intro">bttv-android loodi <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> poolt, koos nende lahkete inimeste abiga:</string>
     <string name="bttv_credits_bugs">Veaaruanded</string>

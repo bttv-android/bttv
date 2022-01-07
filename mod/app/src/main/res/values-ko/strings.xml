@@ -48,4 +48,5 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[<user>를 강조할 수 있습니다. 예: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Twitch 앱이 설치되어 있지 않습니다. bttv-android에서 함께 시청하기를 원하시면 Twitch 앱이 설치되어 있어야 합니다.\n\n또한 twitch.tv 링크를 열때 Twitch 앱이 열리지 않도록 해야 합니다. 따라 해보세요:\n\nTwitch 앱 길게 누르기 -&gt; \"애플리케이션\" -&gt; \"고급\" -&gt; \"기본으로 실행\" -&gt; \"지원되는 링크 열기\" -&gt; \"항상 확인\" (OEM에 따라 다를 수 있음)\n\n이제 링크를 열 앱을 묻는 메시지가 표시됩니다.</string>
 </resources>
