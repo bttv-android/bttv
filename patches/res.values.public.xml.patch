@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13334,4 +13334,79 @@
+@@ -13334,4 +13334,81 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -69,15 +69,17 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_settings_enable_split_chat" id="0x7f130e1b" />
 +    <public type="string" name="bttv_settings_enable_split_chat_descr" id="0x7f130e1c" />
 +    <public type="string" name="bttv_settings_show_uptime" id="0x7f130e1d" />
-+    <public type="string" name="bttv_credits_title" id="0x7f130e1e" />
-+    <public type="string" name="bttv_credits_intro" id="0x7f130e1f" />
-+    <public type="string" name="bttv_credits_bugs" id="0x7f130e20" />
-+    <public type="string" name="bttv_credits_ideas" id="0x7f130e21" />
-+    <public type="string" name="bttv_credits_translations" id="0x7f130e22" />
-+    <public type="string" name="bttv_credits_docs" id="0x7f130e23" />
-+    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f130e24" />
-+    <public type="string" name="bttv_highlight_user_notice" id="0x7f130e25" />
-+    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f130e26" />
++    <public type="string" name="bttv_settings_enable_anon_chat_primary" id="0x7f130e1e" />
++    <public type="string" name="bttv_settings_enable_anon_chat_secondary" id="0x7f130e1f" />
++    <public type="string" name="bttv_credits_title" id="0x7f130e20" />
++    <public type="string" name="bttv_credits_intro" id="0x7f130e21" />
++    <public type="string" name="bttv_credits_bugs" id="0x7f130e22" />
++    <public type="string" name="bttv_credits_ideas" id="0x7f130e23" />
++    <public type="string" name="bttv_credits_translations" id="0x7f130e24" />
++    <public type="string" name="bttv_credits_docs" id="0x7f130e25" />
++    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f130e26" />
++    <public type="string" name="bttv_highlight_user_notice" id="0x7f130e27" />
++    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f130e28" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08053a" />
 +    <!-- /BTTV -->
  </resources>

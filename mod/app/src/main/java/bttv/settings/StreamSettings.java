@@ -16,6 +16,7 @@ import androidx.appcompat.widget.SwitchCompat;
 
 import java.util.ArrayList;
 
+import bttv.AnonChat;
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.highlight.Highlight;
@@ -28,10 +29,11 @@ public class StreamSettings {
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_7TV_emotes_toggle, Settings.SevenTVEmotesEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_auto_redeem_toggle, Settings.AutoRedeemChannelPointsEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_show_deleted_messages_toggle, Settings.ShowDeletedMessagesEnabled);
+        setupAnonChatToggle(view);
         setupOpenHighlightDialog(activity, view);
     }
 
-    private static void setupBooleanToggle(View view, Res.ids toggleId, Settings setting) {
+    private static void setupBooleanToggle(View view, Res.ids toggleId, Settings setting, View.OnClickListener onClickListener) {
         int id = ResUtil.getResourceId(view.getContext(), toggleId);
         SwitchCompat toggle = view.findViewById(id);
 
@@ -44,8 +46,14 @@ public class StreamSettings {
                     v.getContext(),
                     new UserPreferences.Entry.BoolValue(toggle.isChecked())
                 );
+                if (onClickListener != null)
+                    onClickListener.onClick(toggle);
             }
         });
+    }
+
+    private static void setupBooleanToggle(View view, Res.ids toggleId, Settings setting) {
+        setupBooleanToggle(view, toggleId, setting, null);
     }
 
     private static void setupGifEmotes(View view) {
@@ -104,6 +112,17 @@ public class StreamSettings {
             }
         });
         spinner.setSelection(defaultSelected);
+    }
+
+    private static void setupAnonChatToggle(View view) {
+        setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_anon_chat_toggle, Settings.AnonChatEnabled, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SwitchCompat toggle = (SwitchCompat) v;
+                boolean asAnon = toggle.isChecked();
+                AnonChat.reconnect(asAnon);
+            }
+        });
     }
 
     private static void setupOpenHighlightDialog(Activity activity, View view) {

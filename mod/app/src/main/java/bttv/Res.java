@@ -24,6 +24,7 @@ public class Res {
         bttv_stream_settings_enable_7TV_emotes_toggle,
         bttv_stream_settings_enable_auto_redeem_toggle,
         bttv_stream_settings_enable_show_deleted_messages_toggle,
+        bttv_stream_settings_enable_anon_chat_toggle,
         bttv_stream_settings_gif_mode_spinner,
         bttv_stream_settings_open_highlight_button,
     }
@@ -74,6 +75,8 @@ public class Res {
         bttv_settings_gif_render_mode_disabled,
         bttv_settings_open_credits_button_title,
         bttv_settings_enable_show_deleted_messages,
+        bttv_settings_enable_anon_chat_primary,
+        bttv_settings_enable_anon_chat_secondary,
         bttv_settings_show_uptime,
         bttv_credits_title,
         bttv_credits_intro,

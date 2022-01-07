@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- add anon chat
 - add some bttv-android settings to stream settings
 - fix bug related to Watch Parties
 

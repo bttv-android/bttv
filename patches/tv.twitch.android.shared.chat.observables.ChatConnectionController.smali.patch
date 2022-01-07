@@ -1,0 +1,39 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
+@@ -197,7 +197,7 @@
+ 
+ .field private streamType:Ltv/twitch/android/models/streams/StreamType;
+ 
+-.field private viewerId:I
++.field public viewerId:I # BTTV: private -> public
+ 
+ 
+ # direct methods
+@@ -841,6 +841,11 @@
+ 
+     iget v1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->viewerId:I
+ 
++    # BTTV
++    invoke-static {v1}, Lbttv/api/AnonChat;->getViewerId(I)I
++    move-result v1
++    # /BTTV
++
+     invoke-interface {p1}, Ltv/twitch/android/models/channel/ChannelInfo;->getId()I
+ 
+     move-result p1
+@@ -896,6 +901,14 @@
+     return-void
+ .end method
+ 
++# BTTV
++.method public BTTVdisconnect(I)V
++    .locals 2
++    invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->disconnect(I)V
++    return-void
++.end method
++# BTTV
++
+ .method private final getChatConnectionInfo(I)Ltv/twitch/android/shared/chat/observables/ChatConnectionController$ChatConnectionInfo;
+     .locals 9
+ 
