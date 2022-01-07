@@ -2,6 +2,7 @@
 
 # master
 - add some bttv-android settings to stream settings
+- fix bug related to Watch Parties
 
 # v0.18.0-beta
 - fix watch parties
