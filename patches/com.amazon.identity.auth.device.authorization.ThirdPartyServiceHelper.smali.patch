@@ -1,0 +1,18 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+@@ -1409,12 +1409,8 @@
+ 
+     invoke-static {v0, v1}, Lcom/amazon/identity/auth/map/device/utils/MAPLog;->i(Ljava/lang/String;Ljava/lang/String;)I
+ 
+-    .line 431
+-    invoke-virtual {p0, p1, p2}, Lcom/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper;->getAuthorizationServiceInstance(Landroid/content/Context;Z)Landroid/os/IInterface;
+-
+-    move-result-object p1
+-
+-    check-cast p1, Lcom/amazon/identity/auth/device/authorization/AmazonAuthorizationServiceInterface;
++    # BTTV: Never find first party Apps
++    const/4 p1, 0x0
+ 
+     return-object p1
+ .end method
