@@ -263,6 +263,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "NumbPat",
+      "name": "NumbPat",
+      "avatar_url": "https://avatars.githubusercontent.com/u/88035271?v=4",
+      "profile": "https://github.com/NumbPat",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
