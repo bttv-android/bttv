@@ -9,6 +9,7 @@
     <string name="bttv_emote_picker_channel_7tv">7TV 채널 이모트</string>
     <string name="bttv_app_update_available">bttv-android: 새로운 업데이트 발견됨</string>
     <string name="bttv_app_update_available_cta">업데이트를 다운로드하고 설치하려면 여기를 누르세요.</string>
+    <string name="bttv_sleep_timer_button_descr">수면 타이머 열기</string>
     <string name="bttv_sleep_timer_select_dialog_title">수면 타이머</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">수면 타이머 취소</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">이미 수면 타이머가 실행중입니다. 취소할까요?</string>
@@ -19,6 +20,7 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV 이모티콘</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">채널 포인트 자동 수집</string>
     <string name="bttv_settings_show_sleep_timer_primary">수면 타이머 표시</string>
+    <string name="bttv_settings_show_uptime">업타임 표시</string>
     <string name="bttv_emote_added_by_bttv">bttv-android로부터 이모티콘 추가됨</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">%s(으)로부터 FrankerFaceZ 이모티콘 추가됨</string>
