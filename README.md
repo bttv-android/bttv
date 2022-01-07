@@ -185,6 +185,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Avernys"><img src="https://avatars.githubusercontent.com/u/75722852?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Avernys</b></sub></a><br /><a href="#translation-Avernys" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/Jfamig"><img src="https://avatars.githubusercontent.com/u/21336678?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jfamig</b></sub></a><br /><a href="#ideas-Jfamig" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/NumbPat"><img src="https://avatars.githubusercontent.com/u/88035271?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NumbPat</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ANumbPat" title="Bug reports">🐛</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
