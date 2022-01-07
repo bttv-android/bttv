@@ -21,10 +21,17 @@ public class AnonChat {
     public static int getViewerId(int viewerId) {
         try {
             Log.d(TAG, "getViewerId: " + viewerId);
-            return bttv.AnonChat.getViewerId(viewerId);
+            int id = bttv.AnonChat.getViewerId(viewerId);
+            bttv.AnonChat.isAnonRightNow = (id == bttv.AnonChat.ANON_VIEWER_ID);
+            return id;
         } catch (Throwable t) {
             Log.e(TAG, "getViewerId: ", t);
             return viewerId;
         }
+    }
+
+    // called in ChatMessageInputPresenter.onStateChange()
+    public static boolean isAnonChatOr(boolean or) {
+        return or || bttv.AnonChat.isAnonRightNow;
     }
 }

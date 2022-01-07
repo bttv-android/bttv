@@ -11,6 +11,7 @@ public class AnonChat {
     private static final String TAG = "LBTTVAnonChat";
     private static ChatViewPresenter chatViewPresenter;
     private static Integer originalViewerID = null;
+    public static boolean isAnonRightNow = false;
 
     public static void setChatViewPresenter(ChatViewPresenter chatViewPr) {
         chatViewPresenter = chatViewPr;
@@ -23,6 +24,7 @@ public class AnonChat {
         }
         int viewerID = asAnon ? ANON_VIEWER_ID : originalViewerID;
         reconnectWithViewerID(viewerID);
+        isAnonRightNow = asAnon;
     }
 
     private static void reconnectWithViewerID(int newViewerID) {
@@ -54,10 +56,7 @@ public class AnonChat {
             Log.i(TAG, "getViewerId: originalViewerID=" + originalViewerID  + " viewerId=" + viewerId);
         }
 
-        if (isAnonChatEnabled()) {
-            return ANON_VIEWER_ID;
-        }
-        return viewerId;
+        return isAnonChatEnabled() ? ANON_VIEWER_ID : viewerId;
     }
 
     private static boolean isAnonChatEnabled() {
