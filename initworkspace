@@ -47,17 +47,17 @@ echo "" &&
 echo "=== Disassemble twitch.zip (2/$STEPS) ===" &&
 ./disassemble &&
 echo "" &&
-echo "=== Build source (4/$STEPS) ===" &&
+echo "=== Build source (3/$STEPS) ===" &&
 ./buildsource disass &&
 echo "" &&
-echo "=== Apply patches (5/$STEPS) ===" &&
+echo "=== Apply patches (4/$STEPS) ===" &&
 ./patch &&
 cd disass &&
 git commit -m "applied patches" &&
 cd .. &&
 echo "" &&
 [ -z "$NOBUILD" ] &&
-echo "=== Build apk (6/$STEPS) ===" &&
+echo "=== Build apk (5/$STEPS) ===" &&
 ./build disass &&
 echo "" &&
 ([ -z "$DOCKER" ] && echo "done, new apk: ./disass/dist/twitch.apk" || mv ./disass/dist/twitch.apk dist/twitch.apk)

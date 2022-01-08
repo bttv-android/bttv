@@ -9,8 +9,13 @@ fi
 
 Files=$(git diff $BASE --name-only)
 
+# patches dir
 rm -rf ../patches
 mkdir ../patches
+
+#
+# gen patch files
+#
 
 for File in $Files
 do
@@ -18,3 +23,125 @@ do
     echo $File
     git diff --minimal $BASE $File | sed '/^index /d' > $Path
 done
+
+#
+# Organize
+#
+
+cd ../patches
+
+# Core
+mkdir core
+mv AndroidManifest.xml.patch core/.
+mv res.values.colors.xml.patch core/.
+mv res.values.ids.xml.patch core/.
+mv res.values.public.xml.patch core/.
+mv tv.twitch.android.app.consumer.TwitchApplication.smali.patch core/.
+
+# Watch Parties
+mkdir watchparties
+mv com.amazon.identity.* watchparties/.
+mv tv.twitch.android.feature.theatre.watchparty.* watchparties/.
+mv tv.twitch.android.shared.amazon.login.* watchparties/.
+
+# Anon Chat
+mkdir anonchat
+mv tv.twitch.android.shared.chat.ChatViewPresenter.smali.patch anonchat/.
+mv tv.twitch.android.shared.chat.messageinput.ChatMessageInputViewPresenter.smali.patch anonchat/.
+mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patch anonchat/.
+
+# Uptime
+mkdir uptime
+mv tv.twitch.android.models.streams.StreamModel.smali.patch uptime/.
+mv tv.twitch.android.shared.player.overlay.PlayerOverlayPresenter.smali.patch uptime/.
+mv tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate.smali.patch uptime/.
+
+
+# Stream Settings
+mkdir stream-settings
+mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
+mv tv.twitch.android.feature.theatre.common.StreamSettingsViewDelegate.smali.patch stream-settings/.
+
+
+# WebP Glide
+mkdir webp
+mv com.bumptech.glide* webp/.
+mv tv.twitch.android.shared.ui.elements.span.UrlDrawable.smali.patch webp/.
+mv 'tv.twitch.android.shared.ui.elements.GlideHelper$generateGlideRequestListener$1.smali.patch' webp/.
+mv tv.twitch.android.shared.ui.elements.GlideHelper.smali.patch webp/.
+
+# Sleep Timer
+mkdir sleeptimer
+mv res.layout.bottom_player_control_overlay_widget.xml.patch sleeptimer/.
+mv res.layout-v22.bottom_player_control_overlay_widget.xml.patch sleeptimer/.
+mv tv.twitch.android.shared.player.overlay.BottomPlayerControlOverlayViewDelegate.smali.patch sleeptimer/.
+
+# Emotes
+mkdir emotes
+mv tv.twitch.android.api.EmoteApiImpl.smali.patch emotes/.
+mv tv.twitch.android.shared.chat.chomments.ChommentMessageFactory.smali.patch emotes/.
+mv tv.twitch.android.shared.chat.chomments.ChommentModelDelegate.smali.patch emotes/.
+mv tv.twitch.android.util.EmoteUrlUtil.smali.patch emotes/.
+mv tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget.smali.patch emotes/.
+mv tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil.smali.patch emotes/.
+mv tv.twitch.android.sdk.ChatController.smali.patch emotes/.
+mv tv.twitch.android.shared.chat.messagefactory.ChatMessageFactory.smali.patch emotes/.
+mv tv.twitch.android.shared.chomments.impl.ChommentsFetcherImpl.smali.patch emotes/.
+mv tv.twitch.android.shared.chat.ChatMessageDelegate.smali.patch emotes/.
+
+# Emote Card
+mkdir emotecard
+mv tv.twitch.android.shared.chat.emotecard.EmoteCardViewDelegate.smali.patch emotecard/.
+mv 'tv.twitch.android.models.emotes.EmoteCardModel$GlobalEmoteCardModel.smali.patch' emotecard/.
+
+# Emote Picker and Autocomplete
+mkdir picker
+mv 'tv.twitch.android.shared.chat.messageinput.autocomplete.EmoteAutoCompleteMapProvider$1.smali.patch' picker/.
+mv tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.smali.patch picker/.
+
+# Settings
+mkdir settings
+mv tv.twitch.android.app.consumer.dagger.DaggerAppComponent.smali.patch settings/.
+mv 'tv.twitch.android.app.consumer.dagger.DaggerAppComponent$SettingsActivitySubcomponentImpl.smali.patch' settings/.
+mv 'tv.twitch.android.shared.ui.menus.SettingsPreferencesController$SettingsPreference.smali.patch' settings/.
+mv tv.twitch.android.models.settings.SettingsDestination.smali.patch settings/.
+mv tv.twitch.android.settings.* settings/.
+
+# Split Chat
+mkdir splitchat
+mv tv.twitch.android.core.adapters.TwitchAdapter.smali.patch splitchat/.
+mv tv.twitch.android.shared.chat.adapter.ChannelChatAdapter.smali.patch splitchat/.
+
+# Updater
+mkdir updater
+mv tv.twitch.android.feature.viewer.main.MainActivity.smali.patch updater/.
+mv 'tv.twitch.android.feature.viewer.main.navigation.PersistentBannerPresenter$PersistentBanners.smali.patch' updater/.
+
+# Bits fix
+mkdir bits
+mv tv.twitch.android.shared.bits.* bits/.
+
+# Subs fix
+mkdir subs
+mv tv.twitch.android.shared.chat.chatuserdialog.ChatUserDialogPresenter.smali.patch subs/.
+mv 'tv.twitch.android.feature.theatre.common.PlayerCoordinatorPresenter$setMetadata$1.smali.patch' subs/.
+mv tv.twitch.android.feature.theatre.common.PlayerCoordinatorPresenter.smali.patch subs/.
+mv tv.twitch.android.feature.theatre.metadata.ExtendedPlayerMetadataViewDelegate.smali.patch subs/.
+mv 'tv.twitch.android.feature.theatre.metadata.MetadataViewEvent$SubscribeButtonClicked.smali.patch' subs/.
+mv tv.twitch.android.models.social.ChatUser.smali.patch subs/.
+
+# Auto-redeem
+mkdir autoredeem
+mv tv.twitch.android.shared.community.points.viewdelegate.CommunityPointsButtonViewDelegate.smali.patch autoredeem/.
+
+# Deleted Messages
+mkdir deletedmsgs
+mv 'tv.twitch.android.shared.chat.util.ChatUtil$Companion.smali.patch' deletedmsgs/.
+
+# Other UI patches
+mkdir ui
+mv res.drawable.background_splash.xml.patch ui/.
+mv res.drawable-v23.background_splash.xml.patch ui/.
+mv res.mipmap-anydpi-v26.ic_launcher.xml.patch ui/.
+mv res.layout.settings_logout_footer.xml.patch ui/.
+
