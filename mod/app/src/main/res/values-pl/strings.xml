@@ -39,6 +39,8 @@
     <string name="bttv_settings_gif_render_mode_disabled">Wyłączone</string>
     <string name="bttv_settings_open_credits_button_title">Autorzy</string>
     <string name="bttv_settings_enable_show_deleted_messages">Pokaż Usunięte Wiadomości</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonimowy czat</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Dołącza do czatu anonimowo bez pojawiania się na liście uczestników</string>
     <string name="bttv_credits_title">Autorzy</string>
     <string name="bttv_credits_intro">bttv-android został stworzony przez <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> z pomocą tych miłych ludzi:</string>
     <string name="bttv_credits_bugs">Zgłaszanie Błędów</string>
