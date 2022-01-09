@@ -6,8 +6,8 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
-+    android:versionCode="01201011800"
-+    android:versionName="0.18.0-beta"
++    android:versionCode="01201011900"
++    android:versionName="0.19.0-beta"
 +    android:compileSdkVersion="31"
 +    android:compileSdkVersionCodename="12"
 +    android:installLocation="auto"
