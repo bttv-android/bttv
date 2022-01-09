@@ -30,14 +30,6 @@ done
 
 cd ../patches
 
-# Core
-mkdir core
-mv AndroidManifest.xml.patch core/.
-mv res.values.colors.xml.patch core/.
-mv res.values.ids.xml.patch core/.
-mv res.values.public.xml.patch core/.
-mv tv.twitch.android.app.consumer.TwitchApplication.smali.patch core/.
-
 # Watch Parties
 mkdir watchparties
 mv com.amazon.identity.* watchparties/.
