@@ -39,6 +39,8 @@
     <string name="bttv_settings_gif_render_mode_disabled">Devre dışı</string>
     <string name="bttv_settings_open_credits_button_title">Emeği geçenler</string>
     <string name="bttv_settings_enable_show_deleted_messages">Silinen mesajları göster</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonim Sohbet</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Kullanıcı listesinde görünmeden sohbete anonim olarak katılır</string>
     <string name="bttv_credits_title">Emeği geçenler</string>
     <string name="bttv_credits_intro">bttv-android <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> tarafından yapılmıştır. Bu topluluğun sayesinde:</string>
     <string name="bttv_credits_bugs">Hata Bildirenler</string>
