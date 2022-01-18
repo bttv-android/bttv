@@ -39,6 +39,8 @@
     <string name="bttv_settings_gif_render_mode_disabled">Desactivado</string>
     <string name="bttv_settings_open_credits_button_title">Créditos</string>
     <string name="bttv_settings_enable_show_deleted_messages">Mostrar mensajes eliminados</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Chat anónimo</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Unirse al chat anónimamente sin aparecer en la lista de usuarios</string>
     <string name="bttv_credits_title">Créditos</string>
     <string name="bttv_credits_intro">bttv-android fue desarrollado por <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> con ayuda de estas generosas personas:</string>
     <string name="bttv_credits_bugs">Informe de errores</string>
