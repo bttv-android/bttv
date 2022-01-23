@@ -6,6 +6,12 @@ public class Res {
         bttv_sonic
     }
     public enum ids {
+        debug_experiment_dialog,
+        ad_debug_settings,
+        commerce_settings,
+        creator_settings,
+        community_settings,
+        latency_injection_settings,
         bttv_updater_activity_title,
         bttv_updater_activity_body,
         bttv_updater_activity_pb,
@@ -78,6 +84,8 @@ public class Res {
         bttv_settings_enable_anon_chat_primary,
         bttv_settings_enable_anon_chat_secondary,
         bttv_settings_show_uptime,
+        bttv_settings_enable_dev_tools,
+        bttv_settings_enable_dev_tools_secondary,
         bttv_credits_title,
         bttv_credits_intro,
         bttv_credits_bugs,
