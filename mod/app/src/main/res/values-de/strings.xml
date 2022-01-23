@@ -52,6 +52,8 @@
     <string name="bttv_settings_enable_split_chat_descr">Färbe den Hintergrund jeder zweiten Chat-Nachricht ein</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Ewig animieren</string>
     <string name="bttv_settings_gif_render_mode_descr">Hinweis: \"Ewig animieren\" kann deinen Akku stark belasten</string>
+    <string name="bttv_settings_enable_dev_tools">Entwickler-Tools aktivieren</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Experimente, Latenz und andere Einstellungen verwalten. Sei vorsichtig.</string>
     <string name="bttv_highlight_dia_list_empty">Hier ist nichts\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
