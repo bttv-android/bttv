@@ -137,3 +137,7 @@ mv res.drawable-v23.background_splash.xml.patch ui/.
 mv res.mipmap-anydpi-v26.ic_launcher.xml.patch ui/.
 mv res.layout.settings_logout_footer.xml.patch ui/.
 
+# DevTools
+mkdir devtools
+mv tv.twitch.android.feature.viewer.main.navigation.ToolbarPresenter.smali.patch devtools/.
+

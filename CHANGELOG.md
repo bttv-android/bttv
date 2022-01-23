@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add devtools toggle
+
 # v0.19.0-beta
 - add anon chat
 - add some bttv-android settings to stream settings

@@ -126,6 +126,15 @@ public enum Settings {
                     null
             )
     ),
+    DevToolsEnabled(
+            new Entry.BoolEntry(
+                    "bttv_enable_dev_tools",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_enable_dev_tools,
+                    Res.strings.bttv_settings_enable_dev_tools_secondary,
+                    null
+            )
+    ),
     OpenCreditsButton(
             new Entry.LinkEntry(
                     Res.strings.bttv_settings_open_credits_button_title,
