@@ -52,6 +52,8 @@
     <string name="bttv_settings_enable_split_chat_descr">Värvige iga teise vestlussõnumi tausta</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animeerida igavesti</string>
     <string name="bttv_settings_gif_render_mode_descr">Märkus. „Animeerida igavesti” võib aku väga kiiresti tühjendada</string>
+    <string name="bttv_settings_enable_dev_tools">Lubage Arendaja tööriistad</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Hallake katseid, latentsust ja muid seadeid. Jätka ettevaatlikult.</string>
     <string name="bttv_highlight_dia_list_empty">Siin pole midagi\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Saate <user> esile tõsta näiteks nii:: <fosefx>]]></string>
