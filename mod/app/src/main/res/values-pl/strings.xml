@@ -52,6 +52,8 @@
     <string name="bttv_settings_enable_split_chat_descr">Ściemniaj tło co drugą wiadomość na czacie</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animuj na zawsze</string>
     <string name="bttv_settings_gif_render_mode_descr">Uwaga: \"Animuj na zawsze\" może bardzo szybko wyczerpać twoją baterię</string>
+    <string name="bttv_settings_enable_dev_tools">Włącz Narzędzia Programistyczne</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Zarządzaj eksperymentami, opóźnieniem i innymi ustawieniami. Zachowaj ostrożność.</string>
     <string name="bttv_highlight_dia_list_empty">Niczego tu nie ma\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Możesz wyróżnić <user> w taki sposób. np.: <fosefx>]]></string>
