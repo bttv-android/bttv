@@ -12,3 +12,21 @@ diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.
      .line 216
      sget-object v0, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->LOG_TAG:Ljava/lang/String;
  
+@@ -732,8 +736,6 @@
+     .line 232
+     sget-object v2, Lcom/amazon/identity/auth/device/utils/HashAlgorithm;->MD5:Lcom/amazon/identity/auth/device/utils/HashAlgorithm;
+ 
+-    invoke-static {v1, p0, v2, p2}, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->verifySignature(Ljava/lang/String;Ljava/lang/String;Lcom/amazon/identity/auth/device/utils/HashAlgorithm;Landroid/content/Context;)V
+-
+     :cond_2
+     const-string v1, "appsigSha256"
+ 
+@@ -767,8 +769,6 @@
+     .line 239
+     sget-object v0, Lcom/amazon/identity/auth/device/utils/HashAlgorithm;->SHA_256:Lcom/amazon/identity/auth/device/utils/HashAlgorithm;
+ 
+-    invoke-static {p1, p0, v0, p2}, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->verifySignature(Ljava/lang/String;Ljava/lang/String;Lcom/amazon/identity/auth/device/utils/HashAlgorithm;Landroid/content/Context;)V
+-
+     :cond_3
+     return-void
+ 
