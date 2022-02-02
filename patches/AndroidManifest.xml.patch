@@ -28,8 +28,8 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
 @@ -56,7 +68,7 @@
      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
      <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
 -    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
 +    <application android:debuggable="true" android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
@@ -48,29 +48,28 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -259,11 +271,11 @@
-             </intent-filter>
-         </receiver>
+@@ -267,14 +279,14 @@
+         <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+         <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 -        <provider android:authorities="tv.twitch.android.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
-+        <provider android:authorities="tv.twitch.bttvandroid.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
-         <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
-         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
-         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
 -        <provider android:authorities="tv.twitch.android.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
++        <provider android:authorities="tv.twitch.bttvandroid.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-         <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
-@@ -309,9 +321,22 @@
          <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingIntentService"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
          <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
 -        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-         <service android:exported="false" android:name="com.amazon.client.metrics.nexus.EventUploadService"/>
-         <service android:exported="true" android:name="com.amazon.client.metrics.nexus.UploadJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+         <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
+         <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+@@ -313,5 +325,18 @@
+                 <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
+             </intent-filter>
+         </receiver>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"

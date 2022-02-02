@@ -1,7 +1,9 @@
 rm disass -rf
 rm old -rf
 mv old.apk twitch.apk
+rm .bttv-cache -rf
 NOBUILD=true ./initworkspace
+rm .bttv-cache -rf
 mv disass old
 cd old
 git checkout -b new base

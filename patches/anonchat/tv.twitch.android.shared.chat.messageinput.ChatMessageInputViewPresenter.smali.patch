@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
-@@ -2758,6 +2758,11 @@
+@@ -2764,6 +2764,11 @@
  
      const/4 v1, 0x0
  

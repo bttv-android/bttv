@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- rebase to v12.2.0
 - add devtools toggle
 
 # v0.19.0-beta

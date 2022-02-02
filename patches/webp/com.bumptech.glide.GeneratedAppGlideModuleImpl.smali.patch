@@ -9,6 +9,6 @@ diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
 +    invoke-static {p1, p2, p3}, Lbttv/api/Webp;->registerWebpDecoder(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V
 +    # /BTTV
 +
-     .line 35
+     .line 32
      iget-object v0, p0, Lcom/bumptech/glide/GeneratedAppGlideModuleImpl;->appGlideModule:Ltv/twitch/android/shared/ui/elements/image/TwitchGlideModule;
  

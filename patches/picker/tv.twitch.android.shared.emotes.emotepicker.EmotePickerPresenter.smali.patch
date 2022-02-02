@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
-@@ -1559,6 +1559,11 @@
+@@ -1722,6 +1722,11 @@
      :cond_0
      invoke-interface {p1, p3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
  

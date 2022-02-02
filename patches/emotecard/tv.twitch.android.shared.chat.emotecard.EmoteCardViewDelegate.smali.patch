@@ -1,8 +1,8 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate.smali
-@@ -2058,6 +2058,19 @@
-     .line 245
+@@ -2078,6 +2078,19 @@
+     .line 331
      iget-object v0, p0, Ltv/twitch/android/shared/chat/emotecard/EmoteCardViewDelegate;->emoteDesc:Landroid/widget/TextView;
  
 +    # BTTV
@@ -18,6 +18,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardVie
 +    :after_bttv
 +    # /BTTV
 +
-     .line 246
+     .line 332
      instance-of v1, p1, Ltv/twitch/android/models/emotes/EmoteCardModel$ChannelPointsEmoteCardModel;
  
