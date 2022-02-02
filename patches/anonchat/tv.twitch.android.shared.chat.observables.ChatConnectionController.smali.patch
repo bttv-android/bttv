@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-@@ -197,7 +197,7 @@
+@@ -195,7 +195,7 @@
  
  .field private streamType:Ltv/twitch/android/models/streams/StreamType;
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
  
  
  # direct methods
-@@ -841,6 +841,11 @@
+@@ -819,6 +819,11 @@
  
      iget v1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->viewerId:I
  
@@ -22,7 +22,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
      invoke-interface {p1}, Ltv/twitch/android/models/channel/ChannelInfo;->getId()I
  
      move-result p1
-@@ -896,6 +901,14 @@
+@@ -874,6 +879,14 @@
      return-void
  .end method
  
