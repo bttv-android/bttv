@@ -1,4 +1,4 @@
-# Architecture
+# Architecture - Overview
 
 This file should help new contributors getting started.
 
@@ -41,6 +41,28 @@ In order to compile `javac` needs the call signature of every method we call in 
 As we can't publish the whole application we simply track all our changes using `git`. This is done by creating a new tag right after the dissemblance of the base apk file. Every modification can then be tracked using `git diff` the result of which is stored in the `patches` directory. `git apply` takes these files and appies the changes to a given commit. This way, given the same base code produced by apktool, the mod is reproducable.
 
 `base + patches (+ sources) = mod`
+
+# Architecture - mod directory
+
+The `mod` Android Studio Project contains three modules:
+
+ - [`app`](#app) - core logic of the mod
+ - [`twitch`](#twitch) - stubs for Twitch Classes
+ - [`consumer`](#consumer) - needed to get some mangled methods back
+
+## app
+
+The app module contains most of the logic for the mod. For it to use it depends on the `twitch` module to use classes in the stock twitch app.
+All calls in `patches` should go to methods in the `bttv.api` package. The methods in this package are mostly just wrappers around classes in the root `bttv` package. They exist for the purpose of error handling (they call their underlying method in a try/catch block) and somtimes Logging (they can log if a method is called and what it has returned). For Android Studio this will look like dead code.
+
+## twitch
+
+This module consists of stubs for classes that exist in the twitch app. The app module depends on it's APIs. This means the app module can call methods in this module but this module itself will not be compiled. This way we do not overwrite the existing classes when merging.
+
+## consumer
+
+For the Webp-Glide library we need to call certain methods and use classes that do not exist in the stock app. This module is an App which simply registers the WebP library. In the buildsource step we then copy the needed files from this module into the bundle.
+
 
 If anything is left unclear feel free to [create a new discussion][new-disc] here on github.
 
