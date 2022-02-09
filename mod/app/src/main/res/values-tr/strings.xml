@@ -58,4 +58,5 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Bir <kullanıcıyı> bunu gibi vurgulayabilirsiniz. Örneğin <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Cihazınızda Twitch uygulaması yüklü değil. Partileri bttv-android\'de kullanabilmek için Twitch uygulamasının yüklü olması gerekir.\n\nAyrıca twitch.tv bağlantılarıyla etkileşim kurduğunuzda Twitch\'in açılmasını da engellemelisiniz. Aşağıdakileri yapın:\n\nTwitch uygulamasına uzun süre basın -&gt; \"Uygulama Bilgisi\" -&gt; \"Gelişmiş\" -&gt; \"Varsayılan olarak aç\" -&gt; \"Desteklenen bağlantıları aç\" -&gt; \"Her zaman sor\" (OEM\'e bağlı olarak değişebilir).\n\nArtık bağlantıları hangi Uygulamayla açmak istediğiniz sorulur.</string>
 </resources>
