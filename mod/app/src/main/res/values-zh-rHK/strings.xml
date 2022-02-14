@@ -2,20 +2,20 @@
 <resources>
     <string name="login_landing_title">歡迎使用\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">BTTV 全局表情</string>
-    <string name="bttv_emote_picker_channel_bttv">BTTV 頻道表情</string>
+    <string name="bttv_emote_picker_channel_bttv">頻道的 BTTV 表情</string>
     <string name="bttv_emote_picker_global_ffz">FrankerFaceZ 全局表情</string>
-    <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ 頻道表情</string>
+    <string name="bttv_emote_picker_channel_ffz">頻道的 FrankerFaceZ 表情</string>
     <string name="bttv_emote_picker_global_7tv">7TV 全局表情</string>
-    <string name="bttv_emote_picker_channel_7tv">7TV 頻道表情</string>
+    <string name="bttv_emote_picker_channel_7tv">頻道的 7TV 表情</string>
     <string name="bttv_app_update_available">bttv-android: 已偵察到新版本</string>
-    <string name="bttv_app_update_available_cta">點擊這裡 下載和安裝新版本</string>
+    <string name="bttv_app_update_available_cta">點擊此處下載並安裝更新。</string>
     <string name="bttv_sleep_timer_button_descr">打開 睡眠定時器會話框</string>
     <string name="bttv_sleep_timer_select_dialog_title">睡眠定時器</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">取消 睡眠定時器</string>
-    <string name="bttv_sleep_timer_cancel_dialog_message">你已有一個睡眠定時器正在執行緊，你想取消正在執行的定時器？</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">您已經運行了睡眠定時器。你想取消嗎？</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">BTTV 表情</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">你為什麼要禁用此項?</string>
-    <string name="bttv_settings_enable_gif_emotes_primary">BTTV 動態表情</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF表情</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ 表情</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV 表情</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">自動收集頻道點數</string>
