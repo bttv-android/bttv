@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">欢迎使用\nBetter Twitch</string>
-    <string name="bttv_emote_picker_global_bttv">全局BTV表情</string>
-    <string name="bttv_emote_picker_channel_bttv">频道的 BTV 表情</string>
+    <string name="bttv_emote_picker_global_bttv">全局BTTV表情</string>
+    <string name="bttv_emote_picker_channel_bttv">频道的 BTTV 表情</string>
     <string name="bttv_emote_picker_global_ffz">全局FrankerFaceZ 表情</string>
-    <string name="bttv_emote_picker_channel_ffz">频道的FrankerFacebook表情</string>
+    <string name="bttv_emote_picker_channel_ffz">频道的FrankerFaceZ表情</string>
     <string name="bttv_emote_picker_global_7tv">全局7TV 表情</string>
     <string name="bttv_emote_picker_channel_7tv">频道的7TV 表情</string>
     <string name="bttv_app_update_available">bttv-android: 检测到更新</string>
