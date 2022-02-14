@@ -189,6 +189,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/NumbPat"><img src="https://avatars.githubusercontent.com/u/88035271?v=4?s=100" width="100px;" alt=""/><br /><sub><b>NumbPat</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ANumbPat" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/JRoy"><img src="https://avatars.githubusercontent.com/u/10731363?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Josh Roy</b></sub></a><br /><a href="#ideas-JRoy" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Lather0519"><img src="https://avatars.githubusercontent.com/u/32637838?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lather0519</b></sub></a><br /><a href="#translation-Lather0519" title="Translation">🌍</a></td>
   </tr>
 </table>
 
