@@ -39,7 +39,7 @@
     <string name="bttv_settings_gif_render_mode_disabled">關閉</string>
     <string name="bttv_settings_open_credits_button_title">鳴謝</string>
     <string name="bttv_settings_enable_show_deleted_messages">顯示 已刪除消息</string>
-    <string name="bttv_settings_enable_anon_chat_primary">匿名聊天</string>
+    <string name="bttv_settings_enable_anon_chat_primary">匿名進入聊天室[無法發言]</string>
     <string name="bttv_settings_enable_anon_chat_secondary">匿名加入聊天室並且唔出現喺用戶列表中[隱身模式]</string>
     <string name="bttv_credits_title">鳴謝</string>
     <string name="bttv_credits_intro">bttv-android 是由 <annotation link_to="https://github.com/FoseFx"> FoseFx 在 </annotation> 這些好心人的幫助下開發。</string>
@@ -47,6 +47,16 @@
     <string name="bttv_credits_ideas">提交我嘅新主意</string>
     <string name="bttv_credits_translations">翻譯</string>
     <string name="bttv_credits_docs">文檔</string>
+    <string name="bttv_copied_to_clipboard">用戶名 已黏貼到剪切板</string>
+    <string name="bttv_settings_enable_split_chat">獨窗聊天室</string>
+    <string name="bttv_settings_enable_split_chat_descr">為每一秒聊天消息的背景著色</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">保持動畫</string>
+    <string name="bttv_settings_gif_render_mode_descr">注意：“持續動畫” 可能會極快消耗你嘅電量</string>
+    <string name="bttv_settings_enable_dev_tools">啟用 開發者工具</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">實驗式功能，延遲和其他設置。謹慎操作。</string>
+    <string name="bttv_highlight_dia_list_empty">呢喥無任何嘢 \n ¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[你可以咁樣高亮一個 <user> 。例如：<fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">您嘅設備上未安裝 Twitch 應用程序。 為咗喺 bttv-android 中使用觀看派對，您需要安裝 Twitch 應用程序。\n\n 您仲必須防止喺同 twitch.tv 鏈接交互時打開 Twitch。 請先執行以下操作：\n\n 長按 Twitch 應用程序 &gt; “應用信息”&gt; “高級”-&gt; “默認打開”&gt;“打開支持的鏈接”&gt; “每次都詢問”(可能因 設備製造商 而異)。\n\n 宜家系統會問你要使用邊個應用打開鏈接。</string>
 </resources>
