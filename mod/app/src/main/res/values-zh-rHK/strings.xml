@@ -38,9 +38,9 @@
     <string name="bttv_settings_gif_render_mode_static">靜態</string>
     <string name="bttv_settings_gif_render_mode_disabled">關閉</string>
     <string name="bttv_settings_open_credits_button_title">鳴謝</string>
-    <string name="bttv_settings_enable_show_deleted_messages">顯示 已刪除消息</string>
+    <string name="bttv_settings_enable_show_deleted_messages">顯示 已刪除的信息</string>
     <string name="bttv_settings_enable_anon_chat_primary">匿名進入聊天室[無法發言]</string>
-    <string name="bttv_settings_enable_anon_chat_secondary">匿名加入聊天室並且不出現在用戶列表中[隱身模式]</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">匿名加入聊天室並且不出現於用戶列表中[隱身模式]</string>
     <string name="bttv_credits_title">鳴謝</string>
     <string name="bttv_credits_intro">bttv-android 是由 <annotation link_to="https://github.com/FoseFx"> FoseFx 在 </annotation> 這些好心人的幫助下開發。</string>
     <string name="bttv_credits_bugs">報告錯誤</string>
@@ -58,5 +58,5 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[你可以這樣高亮一個 <user> 。例如：<fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
-    <string name="bttv_watchparty_twitch_missing">您的設備上沒有安裝 Twitch 應用程序。 為了在 bttv-android 中使用觀看派對，您需要安裝 Twitch 應用程序。\n\n 您還必須防止在與 twitch.tv 進行鏈接時打開 Twitch。 請先遵循以下操作：\n\n 長按 Twitch 應用程序 &gt; “應用信息”&gt; “高級”-&gt; “默認打開”&gt;“打開支持的鏈接”&gt; “每次都詢問”(可能因 設備製造商 而異)。\n\n 現在系統會詢問您要使用哪個應用打開鏈接。</string>
+    <string name="bttv_watchparty_twitch_missing">您的設備上未安裝 Twitch 應用程序。 您需要安裝 Twitch 應用程序，以便在 bttv-android 中使用觀看派對。\n\n 您還必須防止在與 twitch.tv 建立鏈接時打開 Twitch。 請先遵循以下操作：\n\n 長按 Twitch 應用程序 &gt; “應用信息”&gt; “高級”-&gt; “默認打開”&gt;“打開支持的鏈接”&gt; “每次都詢問”(可能因 設備製造商 而異)。\n\n 現在系統會詢問您要使用哪個應用打開鏈接。</string>
 </resources>
