@@ -1,9 +1,0 @@
-diff --git a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel.smali b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel.smali
---- a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel.smali
-+++ b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel.smali
-@@ -1,4 +1,4 @@
--.class public final Ltv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel;
-+.class public Ltv/twitch/android/models/emotes/EmoteCardModel$GlobalEmoteCardModel;
- .super Ltv/twitch/android/models/emotes/EmoteCardModel;
- .source "SourceFile"
- 

@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel.smali b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel.smali
+--- a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel.smali
++++ b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel.smali
+@@ -17,7 +17,7 @@
+ 
+ .field private final emoteCardType:Ltv/twitch/android/models/emotes/EmoteCardType;
+ 
+-.field private final emoteId:Ljava/lang/String;
++.field public final emoteId:Ljava/lang/String; # BTTV private -> public
+ 
+ .field private final emoteToken:Ljava/lang/String;
+ 
