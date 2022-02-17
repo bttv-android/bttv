@@ -1,0 +1,17 @@
+ignore:
+  - name: tv.twitch.android.models.emotes.EmoteCardModel
+    ignore_methods:
+    - name: "<init>"
+      parameter_types:
+      - java.lang.String
+      - java.lang.String
+      - tv.twitch.android.models.emotes.EmoteModelAssetType
+      - tv.twitch.android.models.emotes.EmoteCardModel$1
+      return_type: "idk"
+  - name: tv.twitch.android.shared.chat.emotecard.EmoteCardViewDelegate
+    ignore_super: tv.twitch.android.core.mvp.viewdelegate.BaseViewDelegate
+
+ignore_not_found:
+  - tv/twitch/android/models/emotes/EmoteCardModel$1.smali
+  - tv/twitch/BuildConfig.smali
+  - kotlin/jvm/internal/BTTVDefaultConstructorMarker.smali
