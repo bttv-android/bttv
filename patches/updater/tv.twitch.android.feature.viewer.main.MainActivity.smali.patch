@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
 --- a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
 +++ b/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
-@@ -1534,6 +1534,14 @@
+@@ -1545,6 +1545,14 @@
  
      invoke-virtual {p1, v0}, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
  

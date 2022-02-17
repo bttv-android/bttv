@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
-@@ -655,6 +655,10 @@
+@@ -654,6 +654,10 @@
  
      invoke-virtual {v0, v1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->updateStreamType(Ltv/twitch/android/models/streams/StreamType;)V
  
