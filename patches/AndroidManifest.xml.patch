@@ -7,7 +7,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
 +    android:versionCode="01202000200"
-+    android:versionName="0.20.0-beta"
++    android:versionName="0.21.0-beta"
 +    android:compileSdkVersion="31"
 +    android:compileSdkVersionCodename="12"
 +    android:installLocation="auto"
