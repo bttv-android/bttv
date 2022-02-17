@@ -83,7 +83,10 @@ mv tv.twitch.android.shared.chat.ChatMessageDelegate.smali.patch emotes/.
 
 # Emote Card
 mkdir emotecard
-mv tv.twitch.android.shared.chat.emotecard.EmoteCardViewDelegate.smali.patch emotecard/.
+mv tv.twitch.android.models.emotes.EmoteCardModel.smali.patch emotecard/.
+mv tv.twitch.android.models.emotes.EmoteCardModel\$GenericEmoteCardModel.smali.patch emotecard/.
+mv tv.twitch.android.models.emotes.EmoteCardType\$GenericEmoteCardType\$Global.smali.patch emotecard/.
+mv tv.twitch.android.shared.chat.emotecard.EmoteCardPresenter.smali.patch emotecard/.
 
 # Emote Picker and Autocomplete
 mkdir picker
