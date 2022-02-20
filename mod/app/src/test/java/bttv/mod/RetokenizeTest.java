@@ -20,10 +20,12 @@ import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import tv.twitch.chat.ChatEmoticonToken;
+import tv.twitch.chat.ChatMentionToken;
 import tv.twitch.chat.ChatMessageInfo;
 import tv.twitch.chat.ChatMessageToken;
 import tv.twitch.chat.ChatMessageTokenType;
 import tv.twitch.chat.ChatTextToken;
+import tv.twitch.chat.ChatUrlToken;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -167,6 +169,23 @@ public class RetokenizeTest {
 
             FoundInMid = new Object[]{input, expected};
         }
+
+        static Object[] UrlAfterMention;
+
+        static {
+            ChatMentionToken mentionToken = new ChatMentionToken();
+            ChatTextToken textToken = new ChatTextToken();
+            textToken.text = " ";
+            ChatUrlToken urlToken = new ChatUrlToken();
+
+            ChatMessageInfo input = new ChatMessageInfo();
+            input.tokens = new ChatMessageToken[]{ mentionToken, textToken, urlToken };
+
+            ChatMessageInfo expected = new ChatMessageInfo();
+            expected.tokens = new ChatMessageToken[]{ mentionToken, textToken, urlToken };
+
+            UrlAfterMention = new Object[]{input, expected};
+        }
     }
 
     @Parameterized.Parameters
@@ -175,7 +194,8 @@ public class RetokenizeTest {
                 Cases.TrivialCase,
                 Cases.FoundInBeginning,
                 Cases.FoundAtEnd,
-                Cases.FoundInMid
+                Cases.FoundInMid,
+                Cases.UrlAfterMention
         );
     }
 

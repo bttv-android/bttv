@@ -101,6 +101,21 @@ public class TokenizerTest {
                         new MessageToken.EmoticonToken("LUL", "123")
                 )
         };
+
+        static Object[] UrlAfterMention = {
+                // Input
+                Arrays.asList(
+                        new MessageToken.MentionToken("@bttv_android", "bttv_android", true),
+                        new MessageToken.TextToken(" ", flags),
+                        new MessageToken.UrlToken("https://bmn.dev/", false)
+                ),
+                // Expected Output
+                Arrays.asList(
+                        new MessageToken.MentionToken("@bttv_android", "bttv_android", true),
+                        new MessageToken.TextToken(" ", flags),
+                        new MessageToken.UrlToken("https://bmn.dev/", false)
+                ),
+        };
     }
 
     @Parameterized.Parameters
@@ -109,7 +124,8 @@ public class TokenizerTest {
                 Cases.TrivialCase,
                 Cases.FoundInBeginning,
                 Cases.FoundAtEnd,
-                Cases.FoundInMid
+                Cases.FoundInMid,
+                Cases.UrlAfterMention
         );
     }
 

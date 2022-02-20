@@ -5,6 +5,8 @@ import android.util.Log;
 
 import androidx.core.util.Pair;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,13 @@ public class Tokenizer {
             }
 
             TextToken text = (TextToken) token;
+
+            if (text.getText().equals(" ")) {
+                // " ".split(" ") will produce an empty array
+                // this is why we need to handle this edge-case
+                newTokens.add(token);
+                continue;
+            }
             String[] tokens = text.getText().split(" ");
 
             StringBuilder currentText = new StringBuilder();
@@ -105,10 +114,11 @@ public class Tokenizer {
         boolean shouldHighlight = false;
 
         for (ChatMessageToken token : info.tokens) {
-            if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
-                if (token.type.getValue() == ChatMessageTokenType.Emoticon.getValue() && newTokens.size() > 0) {
+            Log.d("LBTTV", "retokenizeLiveChatMessage: " + token);
+            if (!isTextToken(token)) {
+                if (isEmoteToken(token) && !newTokens.isEmpty()) {
                     ChatMessageToken prevToken = newTokens.get(newTokens.size() - 1);
-                    if (prevToken != null && prevToken.type.getValue() == ChatMessageTokenType.Emoticon.getValue()) {
+                    if (prevToken != null && !endsWithSpace(prevToken)) {
                         ChatTextToken spaceToken = new ChatTextToken();
                         spaceToken.text = " ";
                         spaceToken.autoModFlags = new AutoModFlags();
@@ -118,9 +128,16 @@ public class Tokenizer {
                 newTokens.add(token);
                 continue;
             }
+
             ChatTextToken textToken = (ChatTextToken) token;
             String text = textToken.text;
 
+            if (text.equals(" ")) {
+                // " ".split(" ") will produce an empty array
+                // this is why we need to handle this edge-case
+                newTokens.add(textToken);
+                continue;
+            }
             String[] tokens = text.split(" ");
 
             StringBuilder currentText = new StringBuilder();
@@ -164,5 +181,32 @@ public class Tokenizer {
         if (shouldHighlight) {
             info.messageType = "bttv-highlighted-message";
         }
+    }
+
+    private static boolean endsWithSpace(@NotNull ChatMessageToken token) {
+        if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
+            return false;
+        }
+        ChatTextToken textToken = (ChatTextToken) token;
+        String text = textToken.text;
+        if (text.length() == 0) {
+            return false;
+        }
+        char lastChar = text.charAt(text.length() - 1);
+        return lastChar == ' ';
+    }
+
+    private static boolean isTextToken(ChatMessageToken token) {
+        if (token == null) {
+            return false;
+        }
+        return token.type.getValue() == ChatMessageTokenType.Text.getValue();
+    }
+
+    private static boolean isEmoteToken(ChatMessageToken token) {
+        if (token == null) {
+            return false;
+        }
+        return token.type.getValue() == ChatMessageTokenType.Emoticon.getValue();
     }
 }
