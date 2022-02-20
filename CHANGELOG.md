@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- fix url-after-mention bug
+
 # v0.21.0-beta
 - rebase to v12.3.0
 - anon chat issues fixed
