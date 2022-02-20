@@ -45,4 +45,15 @@ public abstract class MessageToken {
 
     }
 
+    public static final class MentionToken extends MessageToken {
+        public MentionToken(String text, String username, boolean isLocaluser) {
+            super(null);
+        }
+    }
+
+    public static final class UrlToken extends MessageToken {
+        public UrlToken(String url, boolean hidden) {
+            super(null);
+        }
+    }
 }
