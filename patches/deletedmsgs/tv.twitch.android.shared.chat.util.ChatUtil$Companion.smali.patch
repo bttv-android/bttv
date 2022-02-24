@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
-@@ -181,6 +181,15 @@
+@@ -184,6 +184,15 @@
          }
      .end annotation
  

@@ -18,7 +18,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <queries>
-@@ -44,6 +55,7 @@
+@@ -42,6 +53,7 @@
      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -48,7 +48,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -267,14 +279,14 @@
+@@ -267,8 +279,8 @@
          <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
          <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -59,13 +59,15 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <service android:exported="false" android:name="com.amazon.avod.identity.AVODMAPBroadcastProcessingIntentService"/>
-         <meta-data android:name="com.amazon.client.metrics.nexus.RunContext" android:value="com.amazon.avod.metrics.nexus.NexusRunContext"/>
-         <meta-data android:name="com.amazon.client.metrics.nexus.EndpointTypeProvider" android:value="com.amazon.avod.metrics.nexus.NexusEndpointTypeProvider"/>
+@@ -281,7 +293,7 @@
+         <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
+         <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.3"/>
+         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 -        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
-         <activity android:enabled="false" android:exported="false" android:launchMode="singleInstance" android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity" android:process=":playcore_missing_splits_activity" android:stateNotNeeded="true"/>
-         <activity android:enabled="false" android:exported="false" android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity" android:stateNotNeeded="true" android:theme="@style/Theme.PlayCore.Transparent"/>
+         <uses-library android:name="com.amazon.client.metrics.api" android:required="false"/>
+         <activity android:allowTaskReparenting="true" android:configChanges="@integer/config_maskLocaleOrientationKeyboardKeyboardHiddenLayoutDirectionScreenSize" android:exported="true" android:label="Amazon AuthPortal" android:launchMode="singleTop" android:name="com.amazon.identity.auth.device.AuthPortalUIActivity" android:permission="com.amazon.identity.auth.device.perm.AUTH_SDK"/>
 @@ -313,5 +325,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>

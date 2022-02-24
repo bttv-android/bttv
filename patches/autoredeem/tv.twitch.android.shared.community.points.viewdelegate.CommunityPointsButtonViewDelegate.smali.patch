@@ -1,8 +1,8 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
-@@ -591,6 +591,12 @@
-     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate$showClaimAvailable$1;-><init>(Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;Ltv/twitch/android/models/communitypoints/CommunityPointsModel;)V
+@@ -632,6 +632,12 @@
+     invoke-direct {v1, p1, p0}, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate$$ExternalSyntheticLambda0;-><init>(Ltv/twitch/android/models/communitypoints/CommunityPointsModel;Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;)V
  
      invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 +    # BTTV

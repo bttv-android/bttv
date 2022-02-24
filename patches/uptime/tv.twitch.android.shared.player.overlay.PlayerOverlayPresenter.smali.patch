@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
-@@ -654,6 +654,10 @@
+@@ -717,6 +717,10 @@
  
      invoke-virtual {v0, v1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->updateStreamType(Ltv/twitch/android/models/streams/StreamType;)V
  
@@ -10,5 +10,5 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverla
 +    # /BTTV
 +
      .line 284
-     :cond_1
+     :goto_1
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->viewDelegate:Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;

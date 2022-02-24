@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
-@@ -331,6 +331,11 @@
+@@ -342,6 +342,11 @@
  
      .line 148
      :cond_1

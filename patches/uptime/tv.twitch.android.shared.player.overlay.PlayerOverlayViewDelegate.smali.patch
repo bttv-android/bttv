@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
-@@ -561,6 +561,18 @@
+@@ -720,6 +720,18 @@
      return-object v0
  .end method
  

@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
-@@ -4,7 +4,7 @@
+@@ -10,7 +10,7 @@
  
  
  # instance fields
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
  
  .field private final blockedUsersManager:Ltv/twitch/android/shared/blocking/BlockedUsersManager;
  
-@@ -22,7 +22,7 @@
+@@ -28,7 +28,7 @@
  
  .field private final giftSubUserAction:Ltv/twitch/android/shared/chat/chatuserdialog/StandardGiftSubscriptionUserAction;
  
@@ -19,9 +19,9 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
  
  .field private listeners:Ljava/util/Set;
      .annotation system Ldalvik/annotation/Signature;
-@@ -603,6 +603,11 @@
+@@ -818,6 +818,11 @@
  
-     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$setupClickHandlers$2;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
+     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda10;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
  
 +    # BTTV
 +    invoke-static {p0, p1}, Lbttv/api/SubscribeRedirect;->giftSubscriptionListener(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)Landroid/view/View$OnClickListener;
@@ -30,4 +30,4 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
 +
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
  
-     .line 157
+     .line 156
