@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- rebase to v12.4.1
 - fix url-after-mention bug
 
 # v0.21.0-beta
