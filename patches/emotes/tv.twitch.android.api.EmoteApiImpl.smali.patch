@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/api/EmoteApiImpl.smali b/smali_classes5/tv/twitch/android/api/EmoteApiImpl.smali
 --- a/smali_classes5/tv/twitch/android/api/EmoteApiImpl.smali
 +++ b/smali_classes5/tv/twitch/android/api/EmoteApiImpl.smali
-@@ -135,6 +135,21 @@
+@@ -138,6 +138,21 @@
          }
      .end annotation
  

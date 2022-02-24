@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 --- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -698,6 +698,28 @@
+@@ -836,6 +836,28 @@
  
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
@@ -25,8 +25,8 @@ diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresente
 +    invoke-direct/range {v1 .. v8}, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/twitch/android/models/settings/SettingsDestination;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 +
 +    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-+    #
++    # /BTTV
 +
-     .line 134
+     .line 139
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
  

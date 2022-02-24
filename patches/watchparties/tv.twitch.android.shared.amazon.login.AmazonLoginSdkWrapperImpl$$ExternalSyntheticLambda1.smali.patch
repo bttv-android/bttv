@@ -1,0 +1,15 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali b/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
+--- a/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
++++ b/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
+@@ -20,6 +20,11 @@
+ 
+     iput-object p1, p0, Ltv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1;->f$0:Ltv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl;
+ 
++    # BTTV
++    invoke-static {p2}, Lbttv/api/WatchParties;->wrap(Landroid/content/Context;)Landroid/content/Context;
++    move-result-object p2
++    # /BTTV
++
+     iput-object p2, p0, Ltv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1;->f$1:Landroid/content/Context;
+ 
+     return-void

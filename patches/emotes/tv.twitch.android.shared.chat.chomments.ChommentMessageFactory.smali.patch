@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-@@ -237,7 +237,9 @@
+@@ -244,7 +244,9 @@
      :cond_2
      iget-object p2, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->chatMessageFactory:Ltv/twitch/android/shared/chat/messagefactory/ChatMessageFactory;
  
@@ -12,7 +12,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMess
  
      iget-object v3, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->sdkServicesController:Ltv/twitch/android/sdk/SDKServicesController;
  
-@@ -251,7 +253,7 @@
+@@ -258,7 +260,7 @@
  
      move-object v2, p1
  

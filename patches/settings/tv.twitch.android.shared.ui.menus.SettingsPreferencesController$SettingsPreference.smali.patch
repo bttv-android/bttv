@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 --- a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 +++ b/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-@@ -97,12 +97,15 @@
+@@ -93,12 +93,15 @@
  
  .field public static final enum SmartFeed:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
@@ -10,17 +10,17 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreference
 +# /BTTV
  
  # direct methods
- .method static constructor <clinit>()V
-     .locals 4
+ .method private static final synthetic $values()[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
+     .locals 3
  
--    const/16 v0, 0x24
-+    const/16 v0, 0x25 # length of values array
+-    const/16 v0, 0x22
++    const/16 v0, 0x23 # length of values array (22 -> 23)
  
      new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
-@@ -566,6 +569,22 @@
+@@ -690,6 +693,22 @@
  
-     aput-object v1, v0, v2
+     move-result-object v0
  
 +    # BTTV
 +    #     expects:
@@ -32,9 +32,9 @@ diff --git a/smali_classes7/tv/twitch/android/shared/ui/menus/SettingsPreference
 +    #       v3: I
 +    new-instance v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
 +    const-string v2, "BTTVEmotesEnabled"
-+    const/16 v3, 0x24
++    const/16 v3, 0x22
 +    invoke-direct {v1, v2, v3}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
-+    const/16 v2, 0x24
++    const/16 v2, 0x22
 +    aput-object v1, v0, v2
 +    # /BTTV
 +

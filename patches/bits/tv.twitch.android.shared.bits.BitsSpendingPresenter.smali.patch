@@ -10,14 +10,14 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.
  
  .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availbility/AvailabilityTracker;
  
-@@ -819,7 +819,9 @@
+@@ -931,7 +931,9 @@
  
-     const/4 v2, 0x1
+     const/4 v1, 0x1
  
--    invoke-virtual {v0, v1, v2}, Ltv/twitch/android/shared/bits/billing/BitsIAPManager;->isPurchasingAvailable(Landroidx/fragment/app/FragmentActivity;Z)Lio/reactivex/Single;
+-    invoke-virtual {v0, v1}, Ltv/twitch/android/shared/bits/billing/BitsIAPManager;->isPurchasingAvailable(Z)Lio/reactivex/Single;
 +    # BTTV
 +    invoke-static {}, Lbttv/api/Util;->getTrueSingle()Lio/reactivex/Single;
 +    # /BTTV
  
-     move-result-object v4
+     move-result-object v3
  

@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali b/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
 --- a/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
 +++ b/smali_classes6/tv/twitch/android/models/streams/StreamModel.smali
-@@ -57,7 +57,7 @@
+@@ -51,7 +51,7 @@
      .end annotation
  .end field
  
