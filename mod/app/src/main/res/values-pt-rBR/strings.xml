@@ -14,7 +14,7 @@
     <string name="bttv_sleep_timer_cancel_dialog_title">Cancelar Timer</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">Você já possui um Timer no momento. Deseja Cancela-lo?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
-    <string name="bttv_settings_enable_bttv_emotes_secondary">Porquê você deseja Desabilitar isto?</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Por que você deseja desabilitar isso?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Animados BTTV</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
@@ -36,7 +36,7 @@
     <string name="bttv_settings_gif_render_mode_title">Emotes Animados</string>
     <string name="bttv_settings_gif_render_mode_animate">Animado</string>
     <string name="bttv_settings_gif_render_mode_static">Estatico</string>
-    <string name="bttv_settings_gif_render_mode_disabled">Desativado</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Desabilitado</string>
     <string name="bttv_settings_open_credits_button_title">Créditos</string>
     <string name="bttv_settings_enable_show_deleted_messages">Exibir mensagens Excluidas</string>
     <string name="bttv_settings_enable_anon_chat_primary">Chat Anônimo</string>
