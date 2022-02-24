@@ -46,6 +46,7 @@
     <string name="bttv_credits_bugs">Reports de Bugs</string>
     <string name="bttv_credits_ideas">Ideias</string>
     <string name="bttv_credits_translations">Traduções</string>
+    <string name="bttv_credits_docs">Documentação</string>
     <string name="bttv_copied_to_clipboard">Nome de usuário copiado para a área de transferência</string>
     <string name="bttv_settings_enable_split_chat">Dividir Chat</string>
     <string name="bttv_settings_enable_split_chat_descr">Alternar cor de fundo entre as mensagens</string>
