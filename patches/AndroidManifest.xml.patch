@@ -6,8 +6,8 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
-+    android:versionCode="${BTTVVERSIONCODE}"
-+    android:versionName="${BTTVVERSION}"
++    android:versionCode="01202000221"
++    android:versionName="0.22.1-beta"
 +    android:compileSdkVersion="31"
 +    android:compileSdkVersionCodename="12"
 +    android:installLocation="auto"
