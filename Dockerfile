@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt update
-RUN apt install openjdk-11-jdk-headless git wget zip rsync --yes
+RUN apt install openjdk-11-jdk-headless git wget zip rsync jq --yes
 
 # build tools
 
@@ -48,16 +48,16 @@ ENV BUILD_COMPANION /opt/build-companion
 # Cleanup
 #
 
-RUN apt remove wget --yes
-RUN apt autoremove --yes
-RUN apt clean --yes
+RUN apt remove wget --yes && \
+    apt autoremove --yes && \
+    apt clean --yes
 
 #
 # Git
 #
 
-RUN git config --global user.email "you@example.com"
-RUN git config --global user.name "Your Name"
+RUN git config --global user.email "you@example.com" && \
+    git config --global user.name "Your Name"
 
 #
 # Environment

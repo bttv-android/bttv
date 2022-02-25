@@ -2,6 +2,7 @@
 
 [ -z "$1" ] && echo "usage: ./build <directory>" && echo "e.g. ./build disass" && exit 1
 
+# read .env
 if [ -f .env ]
 then
   export $(cat .env | sed 's/#.*//g' | xargs)
@@ -15,12 +16,21 @@ echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
+# Set version
+VERSION=$(jq -r ".version" bttv.manifest.json)
+VERSIONCODE=$(jq -r ".versionCode" bttv.manifest.json)
+sed -i "s/android:versionCode=\".*\"/android:versionCode=\"${VERSIONCODE}\"/" $1/AndroidManifest.xml
+sed -i "s/android:versionName=\".*\"/android:versionName=\"${VERSION}\"/" $1/AndroidManifest.xml
+sed -i "s/android:text=\"BTTV .*\"/android:text=\"BTTV ${VERSION}\"/" $1/res/layout/settings_logout_footer.xml
+
 cd $1
 
 APK_PATH=./dist/twitch.apk
 
+# Build using APKTool
 $JAVA_PATH -Xmx6g -jar $APKTOOL_PATH b . --use-aapt2 &&
 
+# Sign with keystore if available, else use debug KS
 if [ -z "$KS" ]; then
 
 	$JAVA_PATH -jar $UBER_APK_SIGNER_PATH -a $APK_PATH
