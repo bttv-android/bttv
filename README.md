@@ -96,6 +96,7 @@ Docker
 | Bash                                                                 | _Has to be in /bin_      |                                                |
 | Git                                                                  | _Has to be in PATH_      |                                                |
 | Java JDK                                                             | JAVA_PATH and JAVAC_PATH | java and javac (from PATH)                     |
+| jq                                                                   | _Has to be in PATH_      |                                                |
 | [Android SDK][sdk] or install using Android Studio | BUILDTOOLS_PATH | ~/Android/Sdk            |
 | [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
 | [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
