@@ -1,8 +1,9 @@
 # Changelog
 
-# 0.22.0-beta
+# 0.22.2-beta
 - rebase to v12.4.1
 - fix url-after-mention bug
+- fix bttv settings crash
 
 # v0.21.0-beta
 - rebase to v12.3.0
