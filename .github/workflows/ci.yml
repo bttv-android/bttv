@@ -72,6 +72,7 @@ jobs:
             -v $(pwd)/.bttv-cache/disass_hash:/usr/build/.bttv-cache/disass_hash \
             -v $(pwd)/.bttv-cache/gradle_caches:/root/.gradle/caches \
             -v $(pwd)/.bttv-cache/gradle_wrapper:/root/.gradle/wrapper \
+            -v $(pwd)/bttv.manifest.json:/usr/build/bttv.manifest.json \
             -v $(pwd)/dist:/usr/build/dist \
             -v $(pwd)/mod:/usr/build/mod \
             -v $(pwd)/patches:/usr/build/patches \

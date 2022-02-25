@@ -70,6 +70,7 @@ Docker
       -v path/to/patches:/usr/build/patches \
       -v /path/to/mod:/usr/build/mod \
       -v /path/to/.all-contributorsrc:/usr/build/.all-contributorsrc \
+      -v /path/to/bttv.manifest.json:/usr/build/bttv.manifest.json \
       ghcr.io/bttv-android/builder
       ```
    > If you are in the same directory as the apk file you can copy and paste: 
