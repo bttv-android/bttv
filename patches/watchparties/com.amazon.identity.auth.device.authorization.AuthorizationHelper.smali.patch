@@ -1,7 +1,20 @@
 diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
 --- a/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
 +++ b/smali_classes3/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
-@@ -1397,6 +1397,11 @@
+@@ -47,6 +47,12 @@
+ .method private static getAppIdentifierBlob(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+     .locals 8
+ 
++    # BTTV
++    # b64 of {"package":"tv.twitch.android.app","MD5":["551ae28730c6b69565c56ce7a42e582e"],"SHA-256":["1338f9b049893cc70b78432a177582f90bd4bc6296ea4ed35bcc7df59687ac53"]}
++    const-string v0, "eyJwYWNrYWdlIjoidHYudHdpdGNoLmFuZHJvaWQuYXBwIiwiTUQ1IjpbIjU1MWFlMjg3MzBjNmI2OTU2NWM1NmNlN2E0MmU1ODJlIl0sIlNIQS0yNTYiOlsiMTMzOGY5YjA0OTg5M2NjNzBiNzg0MzJhMTc3NTgyZjkwYmQ0YmM2Mjk2ZWE0ZWQzNWJjYzdkZjU5Njg3YWM1MyJdfQ=="
++    return-object v0
++    # /BTTV
++
+     .line 362
+     new-instance v0, Lorg/json/JSONObject;
+ 
+@@ -1397,6 +1403,11 @@
  
      move-object/from16 v2, p10
  

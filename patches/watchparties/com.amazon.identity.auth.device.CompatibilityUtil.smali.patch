@@ -1,0 +1,12 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/CompatibilityUtil.smali b/smali_classes3/com/amazon/identity/auth/device/CompatibilityUtil.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/CompatibilityUtil.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/CompatibilityUtil.smali
+@@ -59,6 +59,8 @@
+ .method static assertCorrectManifestIntegration(ZZ)V
+     .locals 0
+ 
++    goto :goto_1 # BTTV skip this
++
+     if-eqz p0, :cond_1
+ 
+     if-nez p1, :cond_0
