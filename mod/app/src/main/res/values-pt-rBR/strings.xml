@@ -1,61 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
+    <string name="login_landing_title">Seja bem-vindo ao\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Emotes Globais do BTTV</string>
     <string name="bttv_emote_picker_channel_bttv">Emotes BTTV do Canal</string>
-    <string name="bttv_emote_picker_global_ffz">Emotes Globais FrankerFaceZ</string>
+    <string name="bttv_emote_picker_global_ffz">Emotes Globais do FrankerFaceZ</string>
     <string name="bttv_emote_picker_channel_ffz">Emotes FrankerFaceZ do Canal</string>
-    <string name="bttv_emote_picker_global_7tv">Emotes 7TV Globais</string>
+    <string name="bttv_emote_picker_global_7tv">Emotes Globais do 7TV</string>
     <string name="bttv_emote_picker_channel_7tv">Emotes 7TV do Canal</string>
-    <string name="bttv_app_update_available">bttv-android: Nova Atualização Disponível</string>
-    <string name="bttv_app_update_available_cta">Clique aqui para Baixar e Instalar a Atualização.</string>
-    <string name="bttv_sleep_timer_button_descr">Abrir Opções do Timer</string>
-    <string name="bttv_sleep_timer_select_dialog_title">Timer-Descanso</string>
-    <string name="bttv_sleep_timer_cancel_dialog_title">Cancelar Timer</string>
-    <string name="bttv_sleep_timer_cancel_dialog_message">Você já possui um Timer no momento. Deseja Cancela-lo?</string>
+    <string name="bttv_app_update_available">bttv-android: Nova Atualização detectada</string>
+    <string name="bttv_app_update_available_cta">Toque aqui para baixar e instalar a atualização.</string>
+    <string name="bttv_sleep_timer_button_descr">Abrir Diálogo do Sleep-Timer</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Sleep-Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Cancelar Sleep-Timer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Você já tem um Sleep Timer em execução. Deseja cancelá-lo?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
-    <string name="bttv_settings_enable_bttv_emotes_secondary">Porquê você deseja Desabilitar isto?</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Por que você desativaria isso?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Animados BTTV</string>
     <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
-    <string name="bttv_settings_enable_auto_redeem_points_primary">Coletar Automaticamente os Pontos do Canal</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Resgatar Pontos do Canal Automaticamente</string>
     <string name="bttv_settings_show_sleep_timer_primary">Mostrar Timer de Descanso</string>
-    <string name="bttv_settings_show_uptime">Exibir tempo de Live</string>
-    <string name="bttv_emote_added_by_bttv">Emotes adicionado pelo bttv-android</string>
+    <string name="bttv_settings_show_uptime">Mostrar Tempo de Transmissão</string>
+    <string name="bttv_emote_added_by_bttv">Emote adicionado pelo bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ adicionado por %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_stv">Emote 7TV adicionado por %s</string>
     <string name="bttv_updater_downloading">Baixando</string>
     <string name="bttv_updater_downloading_version">Baixando %s</string>
-    <string name="bttv_updater_notice">Se essa é a sua primeira vez usando o Updater, permita instalações a partir desta fonte quando solicitado.</string>
-    <string name="bttv_settings_open_highlights_dia_primary">Definir palavras-chave destacadas</string>
-    <string name="bttv_settings_open_highlights_dia_secondary">Opções de Palavras-chave Realçadas</string>
-    <string name="bttv_settings_highlights_dia_input_hint">Digite uma nova Palavra</string>
+    <string name="bttv_updater_notice">Se essa for a primeira vez que você usa o atualizador, permita instalações dessa fonte quando o assistente solicitar.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Definir Palavras-chave Destacadas</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Abre o Diálogo de Palavras-chave Destacadas</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Digitar nova Palavra-chave</string>
     <string name="bttv_settings_highlights_dia_title">Gerenciar Palavras-chaves Destacadas</string>
     <string name="bttv_settings_gif_render_mode_title">Emotes Animados</string>
     <string name="bttv_settings_gif_render_mode_animate">Animado</string>
-    <string name="bttv_settings_gif_render_mode_static">Estatico</string>
+    <string name="bttv_settings_gif_render_mode_static">Estático</string>
     <string name="bttv_settings_gif_render_mode_disabled">Desativado</string>
     <string name="bttv_settings_open_credits_button_title">Créditos</string>
-    <string name="bttv_settings_enable_show_deleted_messages">Exibir mensagens Excluidas</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Mostrar Mensagens Excluídas</string>
     <string name="bttv_settings_enable_anon_chat_primary">Chat Anônimo</string>
-    <string name="bttv_settings_enable_anon_chat_secondary">Junta-se ao chat anonimamente sem aparecer na lista de usuários</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Assistir uma transmissão anonimamente sem aparecer na lista de usuários do chat</string>
     <string name="bttv_credits_title">Créditos</string>
-    <string name="bttv_credits_intro">bttv-android foi Desenvolvido por <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> junto com estes Camaradas:</string>
-    <string name="bttv_credits_bugs">Reports de Bugs</string>
+    <string name="bttv_credits_intro">bttv-android foi feito por <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> com a contribuição dessas pessoas incríveis:</string>
+    <string name="bttv_credits_bugs">Relatórios de Bugs</string>
     <string name="bttv_credits_ideas">Ideias</string>
     <string name="bttv_credits_translations">Traduções</string>
+    <string name="bttv_credits_docs">Documentação</string>
     <string name="bttv_copied_to_clipboard">Nome de usuário copiado para a área de transferência</string>
     <string name="bttv_settings_enable_split_chat">Dividir Chat</string>
     <string name="bttv_settings_enable_split_chat_descr">Alternar cor de fundo entre as mensagens</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animar eternamente</string>
-    <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar para sempre\" pode esgotar sua bateria muito rápido</string>
-    <string name="bttv_settings_enable_dev_tools">Habilitar ferramentas do desenvolvedor</string>
+    <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar eternamente\" pode esgotar sua bateria muito rápido</string>
+    <string name="bttv_settings_enable_dev_tools">Ativar Ferramentas do Desenvolvedor</string>
     <string name="bttv_settings_enable_dev_tools_secondary">Gerencie experimentos, latência e outras configurações. Prossiga com cautela.</string>
     <string name="bttv_highlight_dia_list_empty">Não há nada aqui\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
-    <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user>. por ex: <fosefx>]]></string>
+    <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user> dessa forma. Exemplo: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
-    <string name="bttv_watchparty_twitch_missing">Você não possui o aplicativo da Twitch instalado em seu dispositivo. Para usar Watch Parties no bttv-android você precisa ter o aplicativo da Twitch instalado.\n\nVocê também tem que impedir o app da Twitch de abrir quando você interagir com links twitch.tv. Faça o seguinte:\n\nSegure encima do App da Twitch-&gt; \"Informações do aplicativo\" -&gt; \"Avançado\" -&gt; \"Abrir por padrão\" -&gt; \"Abrir links suportados\" -&gt; \"Perguntar todas as vezes\" (pode variar dependendo de OEM).\n\nAgora você será perguntado com qual aplicativo você vai querer abrir os links.</string>
+    <string name="bttv_watchparty_twitch_missing">Você não tem o aplicativo da Twitch instalado no seu dispositivo. Para poder usar as Sessões em Grupo no bttv-android você precisa ter o aplicativo da Twitch instalado.\n\nVocê também precisa impedir que a Twitch abra ao interagir com os links da twitch.tv. Faça o seguinte:\n\n Acesse as Informações do Aplicativo através das Configurações do seu dispositivo, ou pressionando o ícone até aparecer a opção -&gt; \"Informações do Aplicativo\" -&gt; \"Avançado\" -&gt; \"Abrir por padrão\" -&gt; \"Abrir links suportados\" -&gt; \"Perguntar sempre\" (pode variar dependendo do OEM).\n\nAgora você será perguntado com qual aplicativo deseja abrir os links.</string>
 </resources>
