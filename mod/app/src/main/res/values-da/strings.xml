@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Velkommen til\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Globale BTTV emotes</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanalens BTTV emotes</string>
+    <string name="bttv_emote_picker_global_ffz">Globale FrankerFaceZ emotes</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanalens FrankerFaceZ emotes</string>
+    <string name="bttv_emote_picker_global_7tv">Globale 7TV emotes</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanalens 7TV emotes</string>
+    <string name="bttv_app_update_available">bttv-android: Ny opdatering fundet</string>
+    <string name="bttv_app_update_available_cta">Tryk her for at downloade og installere opdateringen.</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Sovetimer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Annullér sovetimer</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Hvorfor ville du deaktivere dette?</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
