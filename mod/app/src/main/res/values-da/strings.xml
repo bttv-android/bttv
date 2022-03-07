@@ -9,11 +9,45 @@
     <string name="bttv_emote_picker_channel_7tv">Kanalens 7TV emotes</string>
     <string name="bttv_app_update_available">bttv-android: Ny opdatering fundet</string>
     <string name="bttv_app_update_available_cta">Tryk her for at downloade og installere opdateringen.</string>
+    <string name="bttv_sleep_timer_button_descr">Åbn sovetimer dialog</string>
     <string name="bttv_sleep_timer_select_dialog_title">Sovetimer</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Annullér sovetimer</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Du har allerede en aktiv sovetimer. Vil du annullere den?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV emotes</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Hvorfor ville du deaktivere dette?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF emotes</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ emotes</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV emotes</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Vis sovetimer</string>
+    <string name="bttv_settings_show_uptime">Vis livetid</string>
+    <string name="bttv_emote_added_by_bttv">Emote tilføjet af bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ emote tilføjet af %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV emote tilføjet af %s</string>
+    <string name="bttv_updater_downloading">Downloader</string>
+    <string name="bttv_updater_downloading_version">Downloader %s</string>
+    <string name="bttv_updater_notice">Hvis dette er første gang du bruger opdateringen, skal du tillade installationer fra denne kilde, når guiden beder dig om det.</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Indtast nyt søgeord</string>
+    <string name="bttv_settings_gif_render_mode_title">GIF emotes</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animér</string>
+    <string name="bttv_settings_gif_render_mode_static">Statisk</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Deaktiveret</string>
+    <string name="bttv_settings_open_credits_button_title">Kredit</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Vis slettede beskeder</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonym chat</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Deltager i chatten anonymt uden at blive vist på brugerlisten</string>
+    <string name="bttv_credits_title">Kredit</string>
+    <string name="bttv_credits_bugs">Fejlrapporter</string>
+    <string name="bttv_credits_ideas">Idéer</string>
+    <string name="bttv_credits_translations">Oversættelser</string>
+    <string name="bttv_credits_docs">Dokumentation</string>
+    <string name="bttv_copied_to_clipboard">Brugernavn kopieret til udklipsholder</string>
+    <string name="bttv_settings_enable_split_chat">Opdel chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Tint baggrunden for hver anden chatbesked</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animér for evigt</string>
+    <string name="bttv_settings_gif_render_mode_descr">Bemærk: \"Animér for evigt\" kan dræne dit batteri virkelig hurtigt</string>
+    <string name="bttv_settings_enable_dev_tools">Aktivér udviklingsværktøjer</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
