@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
---- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
-+++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
+--- a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
++++ b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter$navController$1.smali
 @@ -48,6 +48,23 @@
  
      invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali b/smali_classes5/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/adapter/ChannelChatAdapter.smali
 @@ -342,6 +342,11 @@
  
      .line 148

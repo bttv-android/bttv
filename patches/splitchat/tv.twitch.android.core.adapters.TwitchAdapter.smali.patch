@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
---- a/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
-+++ b/smali_classes5/tv/twitch/android/core/adapters/TwitchAdapter.smali
+diff --git a/smali_classes4/tv/twitch/android/core/adapters/TwitchAdapter.smali b/smali_classes4/tv/twitch/android/core/adapters/TwitchAdapter.smali
+--- a/smali_classes4/tv/twitch/android/core/adapters/TwitchAdapter.smali
++++ b/smali_classes4/tv/twitch/android/core/adapters/TwitchAdapter.smali
 @@ -446,6 +446,10 @@
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

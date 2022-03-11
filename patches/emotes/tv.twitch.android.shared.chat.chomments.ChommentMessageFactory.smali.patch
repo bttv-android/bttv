@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
 @@ -244,7 +244,9 @@
      :cond_2
      iget-object p2, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->chatMessageFactory:Ltv/twitch/android/shared/chat/messagefactory/ChatMessageFactory;

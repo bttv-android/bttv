@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
 @@ -22,7 +22,7 @@
  
  

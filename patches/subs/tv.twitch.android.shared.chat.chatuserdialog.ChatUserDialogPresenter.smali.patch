@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter.smali
 @@ -10,7 +10,7 @@
  
  

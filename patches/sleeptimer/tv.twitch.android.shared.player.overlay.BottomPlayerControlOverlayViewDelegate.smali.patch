@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
---- a/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
-+++ b/smali_classes7/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate.smali
 @@ -22,7 +22,7 @@
  
  .field private final mLiveIndicatorImageView:Landroid/widget/ImageView;

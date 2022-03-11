@@ -1,6 +1,6 @@
-diff --git a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
---- a/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
-+++ b/smali_classes3/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+diff --git a/smali_classes2/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali b/smali_classes2/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
+--- a/smali_classes2/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
++++ b/smali_classes2/com/bumptech/glide/GeneratedAppGlideModuleImpl.smali
 @@ -108,6 +108,10 @@
  
      invoke-virtual {v0, p1, p2, p3}, Lcom/bumptech/glide/integration/okhttp3/OkHttpLibraryGlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/Registry;)V

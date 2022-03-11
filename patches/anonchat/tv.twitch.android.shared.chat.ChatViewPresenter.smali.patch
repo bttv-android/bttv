@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 @@ -37,7 +37,7 @@
  
  .field private final buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;

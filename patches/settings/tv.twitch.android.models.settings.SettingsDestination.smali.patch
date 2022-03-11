@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
---- a/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
-+++ b/smali_classes6/tv/twitch/android/models/settings/SettingsDestination.smali
+diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
+--- a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
++++ b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 @@ -106,11 +106,36 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
