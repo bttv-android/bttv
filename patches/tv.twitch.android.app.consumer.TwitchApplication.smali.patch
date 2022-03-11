@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
---- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-+++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
+diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
+--- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
++++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 @@ -196,6 +196,13 @@
      .line 92
      invoke-super {p0}, Landroid/app/Application;->onCreate()V

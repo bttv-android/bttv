@@ -1,6 +1,6 @@
-diff --git a/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali b/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
---- a/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
-+++ b/smali_classes3/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
+diff --git a/smali_classes2/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali b/smali_classes2/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
+--- a/smali_classes2/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
++++ b/smali_classes2/com/amazon/identity/auth/device/utils/ThirdPartyResourceParser.smali
 @@ -38,6 +38,10 @@
      .line 51
      invoke-direct {p0}, Ljava/lang/Object;-><init>()V

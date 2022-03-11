@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
---- a/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
-+++ b/smali_classes7/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper$generateGlideRequestListener$1.smali
 @@ -81,6 +81,16 @@
          }
      .end annotation

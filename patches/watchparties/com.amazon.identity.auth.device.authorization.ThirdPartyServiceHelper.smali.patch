@@ -1,6 +1,6 @@
-diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
---- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
-+++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+diff --git a/smali_classes2/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali b/smali_classes2/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+--- a/smali_classes2/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
++++ b/smali_classes2/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
 @@ -1409,12 +1409,8 @@
  
      invoke-static {v0, v1}, Lcom/amazon/identity/auth/map/device/utils/MAPLog;->i(Ljava/lang/String;Ljava/lang/String;)I

@@ -1,6 +1,6 @@
-diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
---- a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
-+++ b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+diff --git a/smali_classes2/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes2/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+--- a/smali_classes2/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
++++ b/smali_classes2/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
 @@ -618,6 +618,10 @@
          }
      .end annotation
