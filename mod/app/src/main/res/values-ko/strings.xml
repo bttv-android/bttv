@@ -44,6 +44,8 @@
     <string name="bttv_credits_docs">문서</string>
     <string name="bttv_copied_to_clipboard">클립보드에 아이디 복사됨</string>
     <string name="bttv_settings_enable_split_chat">채팅 분할</string>
+    <string name="bttv_settings_enable_dev_tools">개발자 도구 활성화</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">실험 기능, 대기 시간 및 기타 설정을 관리합니다. 주의해서 진행 해주세요.</string>
     <string name="bttv_highlight_dia_list_empty">여긴 아무것도 없습니다\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[<user>를 강조할 수 있습니다. 예: <fosefx>]]></string>
