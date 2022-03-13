@@ -194,6 +194,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Lather0519"><img src="https://avatars.githubusercontent.com/u/32637838?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lather0519</b></sub></a><br /><a href="#translation-Lather0519" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/zezofelipe"><img src="https://avatars.githubusercontent.com/u/37094298?v=4?s=100" width="100px;" alt=""/><br /><sub><b>zezofelipe</b></sub></a><br /><a href="#translation-zezofelipe" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/ARTH-V-R"><img src="https://avatars.githubusercontent.com/u/101481528?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ARTH-V-R</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3AARTH-V-R" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/linkmath"><img src="https://avatars.githubusercontent.com/u/43995639?v=4?s=100" width="100px;" alt=""/><br /><sub><b>linkmath</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Alinkmath" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
