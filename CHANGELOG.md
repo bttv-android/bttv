@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.23.1-beta
+- fix issue that prevented install for some users
+
 # 0.23.0-beta
 - rebase to v12.5.2
 
