@@ -6,8 +6,8 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
-+    android:versionCode="01202000221"
-+    android:versionName="0.22.1-beta"
++    android:versionCode="01202000222"
++    android:versionName="0.22.2-beta"
 +    android:compileSdkVersion="31"
 +    android:compileSdkVersionCodename="12"
 +    android:installLocation="auto"
@@ -48,7 +48,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -267,8 +279,8 @@
+@@ -267,11 +279,11 @@
          <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
          <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -58,7 +58,11 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.ads.AdService"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-         <provider android:authorities="tv.twitch.android.app.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+-        <provider android:authorities="tv.twitch.android.app.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
++        <provider android:authorities="tv.twitch.bttvandroid.app.androidx-startup" android:exported="false" android:name="androidx.startup.InitializationProvider">
+             <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+             <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+         </provider>
 @@ -285,7 +297,7 @@
          <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.3"/>
