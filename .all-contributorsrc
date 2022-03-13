@@ -299,6 +299,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "ARTH-V-R",
+      "name": "ARTH-V-R",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101481528?v=4",
+      "profile": "https://github.com/ARTH-V-R",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
