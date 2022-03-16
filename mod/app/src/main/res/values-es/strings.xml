@@ -52,6 +52,8 @@
     <string name="bttv_settings_enable_split_chat_descr">Tintar el fondo de cada mensaje par</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animar constantemente</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar constantemente\" puede consumir mucha batería</string>
+    <string name="bttv_settings_enable_dev_tools">Activar herramientas de desarrollador</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Administrar experimentos, latencia y otros ajustes. Proceda con precaución.</string>
     <string name="bttv_highlight_dia_list_empty">Nada que ver aquí\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <usuario> así. ej.: <fosefx>]]></string>
