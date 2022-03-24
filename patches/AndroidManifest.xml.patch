@@ -26,16 +26,16 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -56,7 +68,7 @@
-     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+@@ -57,7 +69,7 @@
      <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+     <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 -    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
 +    <application android:debuggable="true" android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
          <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
          <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
-@@ -156,10 +168,10 @@
+@@ -157,10 +169,10 @@
              </intent-filter>
          </receiver>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -48,7 +48,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -267,11 +279,11 @@
+@@ -268,11 +280,11 @@
          <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
          <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -63,7 +63,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
              <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
              <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
          </provider>
-@@ -285,7 +297,7 @@
+@@ -286,7 +298,7 @@
          <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.3"/>
          <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -72,7 +72,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
          <uses-library android:name="com.amazon.client.metrics.api" android:required="false"/>
          <activity android:allowTaskReparenting="true" android:configChanges="@integer/config_maskLocaleOrientationKeyboardKeyboardHiddenLayoutDirectionScreenSize" android:exported="true" android:label="Amazon AuthPortal" android:launchMode="singleTop" android:name="com.amazon.identity.auth.device.AuthPortalUIActivity" android:permission="com.amazon.identity.auth.device.perm.AUTH_SDK"/>
-@@ -317,5 +329,18 @@
+@@ -318,5 +330,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>

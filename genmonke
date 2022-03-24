@@ -121,7 +121,6 @@ mv tv.twitch.android.shared.chat.chatuserdialog.ChatUserDialogPresenter.smali.pa
 mv 'tv.twitch.android.feature.theatre.common.PlayerCoordinatorPresenter$setMetadata$1.smali.patch' subs/.
 mv tv.twitch.android.feature.theatre.common.PlayerCoordinatorPresenter.smali.patch subs/.
 mv tv.twitch.android.feature.theatre.metadata.ExtendedPlayerMetadataViewDelegate.smali.patch subs/.
-mv 'tv.twitch.android.feature.theatre.metadata.MetadataViewEvent$SubscribeButtonClicked.smali.patch' subs/.
 mv tv.twitch.android.models.social.ChatUser.smali.patch subs/.
 
 # Auto-redeem
