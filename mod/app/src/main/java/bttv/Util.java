@@ -40,4 +40,8 @@ public class Util {
         Log.i("LBTTV", "printString: " + s);
     }
 
+    public static void printObject(Object o) {
+        Log.i("LBTTV", "printObject: " + o.toString());
+    }
+
 }

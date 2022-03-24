@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali b/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
+--- a/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
++++ b/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
+@@ -119,6 +119,8 @@
+ 
+     move-result-object v0
+ 
++    invoke-static {v0}, Lbttv/Util;->printObject(Ljava/lang/Object;)V
++
+     sget-object v1, Ltv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory$WhenMappings;->$EnumSwitchMapping$0:[I
+ 
+     invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I

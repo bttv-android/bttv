@@ -5,7 +5,7 @@ diff --git a/res/layout/settings_logout_footer.xml b/res/layout/settings_logout_
  <LinearLayout android:orientation="vertical" android:id="@id/settings_logout_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true"
    xmlns:android="http://schemas.android.com/apk/res/android">
      <ImageView android:layout_gravity="center_horizontal" android:id="@id/app_settings_icon" android:padding="@dimen/default_margin" android:layout_width="@dimen/settings_footer_logo_size" android:layout_height="@dimen/settings_footer_logo_size" android:src="@drawable/ic_twitch_glitch_uv" />
-+    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV 0.22.1-beta" />
++    <TextView android:textColor="@color/text_alt" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="BTTV 0.23.1-beta" />
      <TextView android:textColor="@color/text_alt" android:gravity="center" android:id="@id/app_settings_version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/version_label" />
      <TextView android:textColor="@color/text_alt" android:gravity="center" android:id="@id/app_settings_build_date" android:layout_width="fill_parent" android:layout_height="wrap_content" />
      <FrameLayout android:id="@id/app_settings_logout_button" android:background="@drawable/settings_logout_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/default_margin">

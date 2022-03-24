@@ -1,17 +1,23 @@
 diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
 --- a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
 +++ b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1.smali
-@@ -63,6 +63,13 @@
- .method public final invoke()V
-     .locals 9
+@@ -70,6 +70,12 @@
+     .line 513
+     iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
  
 +    # BTTV
 +    #  Set up BitsButton-Click-Handler
-+    iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
 +    invoke-static {v0}, Lbttv/api/Bits;->onBuyBitsButtonClick(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)V
-+    goto :goto_0
++    goto :bttv_skip
 +    # /BTTV
 +
-     .line 499
-     iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$1;->$productForAmount:Ltv/twitch/android/models/bits/IapBundleModel;
+     .line 512
+     invoke-static {v0}, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->access$getPostalCodeCapturePresenter$p(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeCapturePresenter;
  
+@@ -155,5 +161,6 @@
+     .line 518
+     invoke-virtual {v0, v1, v2, v3}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsBundleButtonFromInsufficientFundsClicked(ILjava/lang/String;Ljava/lang/String;)V
+ 
++    :bttv_skip
+     return-void
+ .end method

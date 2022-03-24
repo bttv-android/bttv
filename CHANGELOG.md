@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- rebase to v12.6.0
+
 # 0.23.1-beta
 - fix issue that prevented install for some users
 
