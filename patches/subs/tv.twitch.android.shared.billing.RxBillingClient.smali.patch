@@ -6,7 +6,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.sma
      .locals 1
  
 +    # BTTV
-+    const v0, 0x0 # false
++    const/4 v0, 0x0 # false
 +    return v0
 +    # /BTTV
 +

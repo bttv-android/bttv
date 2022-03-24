@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali b/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
+--- a/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
++++ b/smali_classes6/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
+@@ -119,7 +119,7 @@
+ 
+     .line 60
+     :cond_2
+-    sget-object v0, Ltv/twitch/android/shared/subscriptions/SubscriptionFlow;->Unavailable:Ltv/twitch/android/shared/subscriptions/SubscriptionFlow;
++    sget-object v0, Ltv/twitch/android/shared/subscriptions/SubscriptionFlow;->Browser:Ltv/twitch/android/shared/subscriptions/SubscriptionFlow;
+ 
+     :goto_0
+     return-object v0
