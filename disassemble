@@ -145,10 +145,7 @@ sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/
 sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
 # fix full dex-files
-mkdir .tmp/base/smali_classes8
-mkdir -p .tmp/base/smali_classes8/tv/twitch/android
-mkdir -p .tmp/base/smali_classes8/com
-mv .tmp/base/smali_classes2/com/google .tmp/base/smali_classes8/com/google
+# Not needed right now
 
 #
 # Create reference for diffs
