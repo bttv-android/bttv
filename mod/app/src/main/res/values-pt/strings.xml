@@ -1,8 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Bem-vindo à\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Emotes Globais do BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">Emotes BTTV do Canal</string>
+    <string name="bttv_emote_picker_global_ffz">Emotes FrankerFaceZ globais</string>
+    <string name="bttv_emote_picker_channel_ffz">Emotes FrankerFaceZ do Canal</string>
+    <string name="bttv_emote_picker_global_7tv">Emotes Globais do 7TV</string>
+    <string name="bttv_emote_picker_channel_7tv">Emotes 7TV do Canal</string>
+    <string name="bttv_app_update_available">bttv-android: Nova atualização detectada</string>
+    <string name="bttv_app_update_available_cta">Toque aqui para baixar e instalar a atualização.</string>
+    <string name="bttv_sleep_timer_button_descr">Abrir caixa de diálogo do Sleep-timer</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Temporizador de sono</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Cancelar Temporizador</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Você já possui um Temporizador em execução. Deseja cancelá-lo?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Por que você desabilitaria isto?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">Emotes Animados do BTTV</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Emotes FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Resgatar pontos de canal automaticamente</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Mostrar Timer de Sono</string>
+    <string name="bttv_settings_show_uptime">Mostrar Tempo de atividade</string>
+    <string name="bttv_emote_added_by_bttv">Emote adicionado pelo bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ adicionado por %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">Emote 7TV adicionado por %s</string>
+    <string name="bttv_updater_downloading">A descarregar</string>
+    <string name="bttv_updater_downloading_version">A descarregar %s</string>
+    <string name="bttv_updater_notice">Se esta é a primeira vez que você utiliza o atualizador, permita instalações desta fonte quando o assistente lhe pedir.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Definir Palavras-Chave de Destaque</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Abrir Dialogo de Palavras-Chave</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Digite a nova palavra-chave</string>
+    <string name="bttv_settings_highlights_dia_title">Gerenciar Palavras-Chave de Destaque</string>
+    <string name="bttv_settings_gif_render_mode_title">Emotes em Gif</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animado</string>
+    <string name="bttv_settings_gif_render_mode_static">Estático</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Desativado</string>
+    <string name="bttv_settings_open_credits_button_title">Créditos</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Exibir Mensagens Excluídas</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Bate-Papo Anon</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Junta-se ao chat anonimamente sem aparecer na lista de usuários</string>
+    <string name="bttv_credits_title">Créditos</string>
+    <string name="bttv_credits_intro">bttv-android foi feito por <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> com ajuda dessas pessoas fodas:</string>
+    <string name="bttv_credits_bugs">Relatórios de Erros</string>
+    <string name="bttv_credits_ideas">Sugestões</string>
+    <string name="bttv_credits_translations">Traduções</string>
+    <string name="bttv_credits_docs">Documentação</string>
+    <string name="bttv_copied_to_clipboard">Usuário copiado para área de transferência</string>
+    <string name="bttv_settings_enable_split_chat">Dividir Chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Gravar o fundo de cada segunda mensagem de bate-papo</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animação para sempre</string>
+    <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar para sempre\" pode esgotar sua bateria muito rapidamente</string>
+    <string name="bttv_settings_enable_dev_tools">Habilitar Ferramentas de Desenvolvedor</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
