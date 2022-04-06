@@ -10,10 +10,10 @@ import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
+import tv.twitch.android.provider.chat.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;
 import tv.twitch.android.sdk.SDKServicesController;
 import tv.twitch.android.provider.chat.ChatMessageInterface;
-import tv.twitch.android.shared.chat.ChatConnectionManagerWrapper;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 
 public class ChommentModelDelegate implements ChatMessageInterface {
@@ -22,7 +22,7 @@ public class ChommentModelDelegate implements ChatMessageInterface {
                                  SDKServicesController sdkServicesController,
                                  ChatMessageParser chatMessageParser,
                                  ExperimentHelper experimentHelper,
-                                 ChatConnectionManagerWrapper chatConnectionManagerWrapper) {
+                                 ChatMessageTokenizerWrapper chatMessageTokenizerWrapper) {
     }
 
     @Override

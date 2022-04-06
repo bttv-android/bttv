@@ -10,9 +10,9 @@ import bttv.highlight.Highlight;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
+import tv.twitch.android.provider.chat.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;
 import tv.twitch.android.sdk.SDKServicesController;
-import tv.twitch.android.shared.chat.ChatConnectionManagerWrapper;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 import tv.twitch.android.shared.chat.chomments.ChommentModelDelegate;
 
@@ -24,13 +24,13 @@ public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
                                         SDKServicesController sdkServicesController,
                                         ChatMessageParser chatMessageParser,
                                         ExperimentHelper experimentHelper,
-                                        ChatConnectionManagerWrapper chatConnectionManagerWrapper) {
+                                        ChatMessageTokenizerWrapper chatMessageTokenizerWrapper) {
         super(
             chommentModel,
             sdkServicesController,
             chatMessageParser,
             experimentHelper,
-            chatConnectionManagerWrapper
+            chatMessageTokenizerWrapper
         );
     }
 

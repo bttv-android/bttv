@@ -1,41 +1,41 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13507,4 +13507,83 @@
+@@ -13543,4 +13543,83 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
 +    <!-- BTTV -->
 +    <!-- generate ids using `build-companion ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->
-+    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0e43" />
-+    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0e44" />
-+    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0e45" />
-+    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0e46" />
-+    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0e47" />
-+    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0e48" />
-+    <public type="id" name="bttv_highlight_dia_input_wrap" id="0x7f0b0e49" />
-+    <public type="id" name="bttv_highlight_submit_btn" id="0x7f0b0e4a" />
-+    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0e4b" />
-+    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0e4c" />
-+    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0e4d" />
-+    <public type="id" name="bttv_highlight_dia_list_empty" id="0x7f0b0e4e" />
-+    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0e4f" />
-+    <public type="id" name="bttv_stream_settings_enable_bttv_emotes_toggle" id="0x7f0b0e50" />
-+    <public type="id" name="bttv_stream_settings_gif_mode_spinner" id="0x7f0b0e51" />
-+    <public type="id" name="bttv_stream_settings_enable_ffz_emotes_toggle" id="0x7f0b0e52" />
-+    <public type="id" name="bttv_stream_settings_enable_7TV_emotes_toggle" id="0x7f0b0e53" />
-+    <public type="id" name="bttv_stream_settings_enable_auto_redeem_toggle" id="0x7f0b0e54" />
-+    <public type="id" name="bttv_stream_settings_enable_show_deleted_messages_toggle" id="0x7f0b0e55" />
-+    <public type="id" name="bttv_stream_settings_open_highlight_button" id="0x7f0b0e56" />
-+    <public type="id" name="bttv_stream_settings_open_highlight_button_primary" id="0x7f0b0e57" />
-+    <public type="id" name="bttv_stream_settings_open_highlight_button_secondary" id="0x7f0b0e58" />
-+    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e035d" />
-+    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e035e" />
-+    <public type="layout" name="bttv_updater_activity" id="0x7f0e035f" />
-+    <public type="layout" name="bttv_credits_dialog" id="0x7f0e0360" />
-+    <public type="color" name="bttv_mega" id="0x7f06027d" />
-+    <public type="color" name="bttv_sonic" id="0x7f06027e" />
++    <public type="id" name="bttv_updater_activity_title" id="0x7f0b0e5f" />
++    <public type="id" name="bttv_updater_activity_body" id="0x7f0b0e60" />
++    <public type="id" name="bttv_updater_activity_pb" id="0x7f0b0e61" />
++    <public type="id" name="bttv_sleep_timer_button" id="0x7f0b0e62" />
++    <public type="id" name="bttv_highlight_dia_list" id="0x7f0b0e63" />
++    <public type="id" name="bttv_highlight_dia_input" id="0x7f0b0e64" />
++    <public type="id" name="bttv_highlight_dia_input_wrap" id="0x7f0b0e65" />
++    <public type="id" name="bttv_highlight_submit_btn" id="0x7f0b0e66" />
++    <public type="id" name="bttv_highlight_dia_title" id="0x7f0b0e67" />
++    <public type="id" name="bttv_highlight_dia_list_text" id="0x7f0b0e68" />
++    <public type="id" name="bttv_highlight_dia_list_btn" id="0x7f0b0e69" />
++    <public type="id" name="bttv_highlight_dia_list_empty" id="0x7f0b0e6a" />
++    <public type="id" name="bttv_credits_into_tv" id="0x7f0b0e6b" />
++    <public type="id" name="bttv_stream_settings_enable_bttv_emotes_toggle" id="0x7f0b0e6c" />
++    <public type="id" name="bttv_stream_settings_gif_mode_spinner" id="0x7f0b0e6d" />
++    <public type="id" name="bttv_stream_settings_enable_ffz_emotes_toggle" id="0x7f0b0e6e" />
++    <public type="id" name="bttv_stream_settings_enable_7TV_emotes_toggle" id="0x7f0b0e6f" />
++    <public type="id" name="bttv_stream_settings_enable_auto_redeem_toggle" id="0x7f0b0e70" />
++    <public type="id" name="bttv_stream_settings_enable_show_deleted_messages_toggle" id="0x7f0b0e71" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button" id="0x7f0b0e72" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button_primary" id="0x7f0b0e73" />
++    <public type="id" name="bttv_stream_settings_open_highlight_button_secondary" id="0x7f0b0e74" />
++    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e035e" />
++    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e035f" />
++    <public type="layout" name="bttv_updater_activity" id="0x7f0e0360" />
++    <public type="layout" name="bttv_credits_dialog" id="0x7f0e0361" />
++    <public type="color" name="bttv_mega" id="0x7f06027f" />
++    <public type="color" name="bttv_sonic" id="0x7f060280" />
 +    <public type="string" name="bttv_app_update_available_cta" id="0x7f130e3d" />
 +    <public type="string" name="bttv_app_update_available" id="0x7f130e3e" />
 +    <public type="string" name="bttv_emote_picker_global_bttv" id="0x7f130e3f" />
@@ -82,7 +82,7 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f130e68" />
 +    <public type="string" name="bttv_highlight_user_notice" id="0x7f130e69" />
 +    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f130e6a" />
-+    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08053b" />
++    <public type="drawable" name="bttv_ic_bedtime" id="0x7f08053d" />
 +    <!-- /BTTV -->
  </resources>
 \ No newline at end of file
