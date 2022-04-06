@@ -9,6 +9,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/PlayerOverla
 +    invoke-static {p1, v0}, Lbttv/api/Uptime;->replaceLiveIndicatorWithUptime(Ltv/twitch/android/models/streams/StreamModel;Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;)V
 +    # /BTTV
 +
-     .line 284
+     .line 322
      :goto_1
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->viewDelegate:Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;

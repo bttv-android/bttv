@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 --- a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -836,6 +836,28 @@
+@@ -826,6 +826,28 @@
  
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
@@ -27,6 +27,6 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
 +    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 +    # /BTTV
 +
-     .line 139
+     .line 138
      sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
  

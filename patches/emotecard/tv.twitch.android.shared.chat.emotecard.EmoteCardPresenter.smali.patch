@@ -3,7 +3,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPre
 +++ b/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
 @@ -2367,6 +2367,7 @@
  
-     .line 435
+     .line 434
      check-cast p1, Ltv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel;
 +    move-object v2, p1 # BTTV
  

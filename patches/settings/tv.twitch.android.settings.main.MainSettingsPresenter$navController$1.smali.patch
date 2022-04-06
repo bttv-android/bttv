@@ -22,13 +22,13 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
 +    :not_bttv
 +    # /BTTV
 +
-     .line 77
+     .line 76
      sget-object p2, Ltv/twitch/android/models/settings/SettingsDestination;->CommunityGuidelines:Ltv/twitch/android/models/settings/SettingsDestination;
  
 @@ -268,6 +285,13 @@
      move-result-object p1
  
-     .line 110
+     .line 109
 +    # BTTV
 +    #  v0 may not be initialized, so we set it to null
 +    #  it's ok as it is null anyway
@@ -38,4 +38,4 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
 +    # /BTTV
      invoke-virtual {v2, v1, p2, p1, v0}, Ltv/twitch/android/util/FragmentUtil$Companion;->addOrRecreateFragment(Landroidx/fragment/app/FragmentActivity;Landroidx/fragment/app/Fragment;Ljava/lang/String;Landroid/os/Bundle;)V
  
-     .line 109
+     .line 108
