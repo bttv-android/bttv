@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.25.1-beta
+- rebase to v12.7.1
+
 # 0.25.0-beta
 - rebase to v12.7.0
 
