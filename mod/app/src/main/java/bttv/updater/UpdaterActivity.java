@@ -1,6 +1,7 @@
 package bttv.updater;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class UpdaterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LOCKED);
 
         Resources res = getResources();
         int bttv_updater_activity = res.getIdentifier("bttv_updater_activity", "layout", getPackageName());
