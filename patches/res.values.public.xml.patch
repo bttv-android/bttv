@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13543,4 +13543,83 @@
+@@ -13543,4 +13543,85 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -30,6 +30,8 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="id" name="bttv_stream_settings_open_highlight_button" id="0x7f0b0e72" />
 +    <public type="id" name="bttv_stream_settings_open_highlight_button_primary" id="0x7f0b0e73" />
 +    <public type="id" name="bttv_stream_settings_open_highlight_button_secondary" id="0x7f0b0e74" />
++    <public type="id" name="bttv_chat_settings_bs_title" id="0x7f0b0e75" />
++    <public type="id" name="bttv_chat_settings_bs_container" id="0x7f0b0e76" />
 +    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e035e" />
 +    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e035f" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e0360" />
