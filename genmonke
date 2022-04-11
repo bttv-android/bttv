@@ -105,6 +105,7 @@ mv tv.twitch.android.settings.* settings/.
 mkdir settings-bottom
 mv res.layout-v22.chat_settings_bottom_sheet.xml.patch settings-bottom/.
 mv res.layout.chat_settings_bottom_sheet.xml.patch settings-bottom/.
+mv tv.twitch.android.shared.chat.settings.entry.ChatSettingsViewDelegate.smali.patch settings-bottom/.
 
 # Split Chat
 mkdir splitchat
