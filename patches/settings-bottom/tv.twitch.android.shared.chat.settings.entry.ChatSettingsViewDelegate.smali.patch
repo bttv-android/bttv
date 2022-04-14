@@ -1,0 +1,24 @@
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+@@ -466,6 +466,10 @@
+ 
+     invoke-virtual {p1, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
++    # BTTV
++    invoke-static {p0}, Lbttv/api/SettingsBottom;->fillSettingsContainer(Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;)V
++    #/BTTV
++
+     return-void
+ .end method
+ 
+@@ -1190,5 +1194,9 @@
+ 
+     invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->renderPreferencesSettings(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;)V
+ 
++    # BTTV
++    invoke-static {}, Lbttv/api/SettingsBottom;->renderBTTV()V
++    #/BTTV
++
+     return-void
+ .end method

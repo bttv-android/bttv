@@ -1,0 +1,37 @@
+diff --git a/res/layout-v22/chat_settings_bottom_sheet.xml b/res/layout-v22/chat_settings_bottom_sheet.xml
+--- a/res/layout-v22/chat_settings_bottom_sheet.xml
++++ b/res/layout-v22/chat_settings_bottom_sheet.xml
+@@ -10,5 +10,32 @@
+         <LinearLayout android:orientation="vertical" android:id="@id/identity_container" android:background="@drawable/chat_setting_rounded_background" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_margin_quarter" android:divider="@drawable/list_divider" android:showDividers="middle" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/identity_title" />
+         <TextView android:id="@id/preferences_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_double" android:layout_marginTop="@dimen/default_margin_double" android:layout_marginRight="@dimen/default_margin_double" android:text="@string/chat_settings_preferences_subtitle" android:textAllCaps="true" android:layout_marginHorizontal="@dimen/default_margin_double" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/identity_container" />
+         <LinearLayout android:orientation="vertical" android:id="@id/preferences_container" android:background="@drawable/chat_setting_rounded_background" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/default_margin_quarter" android:layout_marginBottom="@dimen/default_margin_large" android:divider="@drawable/list_divider" android:showDividers="middle" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/preferences_title" />
++        <TextView
++          android:id="@id/bttv_chat_settings_bs_title"
++          android:layout_width="0.0dip"
++          android:layout_height="wrap_content"
++          android:layout_marginLeft="@dimen/default_margin_double"
++          android:layout_marginTop="@dimen/default_margin_double"
++          android:layout_marginRight="@dimen/default_margin_double"
++          android:text="bttv-android"
++          android:textAllCaps="true"
++          android:layout_marginHorizontal="@dimen/default_margin_double"
++          app:layout_constraintEnd_toEndOf="parent"
++          app:layout_constraintStart_toStartOf="parent"
++          app:layout_constraintTop_toBottomOf="@id/preferences_container" />
++        <LinearLayout
++          android:orientation="vertical"
++          android:id="@id/bttv_chat_settings_bs_container"
++          android:background="@drawable/chat_setting_rounded_background"
++          android:layout_width="0.0dip"
++          android:layout_height="wrap_content"
++          android:layout_marginTop="@dimen/default_margin_quarter"
++          android:layout_marginBottom="@dimen/default_margin_large"
++          android:divider="@drawable/list_divider"
++          android:showDividers="middle"
++          app:layout_constraintEnd_toEndOf="parent"
++          app:layout_constraintStart_toStartOf="parent"
++          app:layout_constraintTop_toBottomOf="@id/bttv_chat_settings_bs_title" />
++
+     </androidx.constraintlayout.widget.ConstraintLayout>
+ </androidx.core.widget.NestedScrollView>
+\ No newline at end of file
