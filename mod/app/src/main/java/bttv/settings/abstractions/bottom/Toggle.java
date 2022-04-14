@@ -16,7 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 import tv.twitch.android.shared.ui.menus.togglemenu.SimpleToggleRowViewDelegate;
 
 public class Toggle {
-    public static SimpleToggleRowViewDelegate fromSetting(Context ctx, ViewGroup container, Settings setting) {
+    public static SimpleToggleRowViewDelegate fromSetting(Context ctx, ViewGroup container, Settings setting, Consumer<SimpleToggleRowViewDelegate.ToggleSwitched> onToggle) {
         if (!(setting.entry instanceof UserPreferences.Entry.BoolEntry)) {
             throw new IllegalArgumentException("setting's entry is not a BoolEntry: " + setting);
         }
@@ -36,9 +36,16 @@ public class Toggle {
                             ctx,
                             new UserPreferences.Entry.BoolValue(toggleSwitched.isToggled())
                         );
+                        if (onToggle != null) {
+                            onToggle.accept(toggleSwitched);
+                        }
                     }
                 })
                 .subscribe();
         return toggle;
+    }
+
+    public static SimpleToggleRowViewDelegate fromSetting(Context ctx, ViewGroup container, Settings setting) {
+        return fromSetting(ctx, container, setting, null);
     }
 }
