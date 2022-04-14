@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- add bttv emote toggles to bottom chat settings (more are planned)
+
 # 0.25.1-beta
 - rebase to v12.7.1
 
