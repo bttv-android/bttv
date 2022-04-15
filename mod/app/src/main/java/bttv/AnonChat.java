@@ -41,7 +41,7 @@ public class AnonChat {
             Log.w(TAG, "reconnectWithViewerID: called but chatViewPresenter.channel null");
             return;
         }
-        chatViewPresenter.chatConnectionController.BTTVdisconnect(chatViewPresenter.channel.getId());
+        chatViewPresenter.chatConnectionController.BTTVdisconnect(chatViewPresenter.channel);
         int oldViewerId = chatViewPresenter.chatConnectionController.viewerId;
         Log.d(TAG, "reconnectWithViewerID: oldViewerId: " + oldViewerId);
         chatViewPresenter.chatConnectionController.viewerId = newViewerID;

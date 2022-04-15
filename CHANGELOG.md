@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- fix crash related to anon chat feature
 - add bttv emote toggles to bottom chat settings (more are planned)
 
 # 0.25.1-beta
