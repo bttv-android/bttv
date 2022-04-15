@@ -24,14 +24,13 @@ public class Link {
         // FIXME: this causes a leak as it is never unsubscribed from
         Disposable handle = delegate.eventObserver()
                 .observeOn(Schedulers.computation())
-                .doOnNext(new Consumer<InfoMenuViewDelegate.Event>() {
+                .subscribe(new Consumer<InfoMenuViewDelegate.Event>() {
                     @Override
                     public void accept(InfoMenuViewDelegate.Event event) throws Exception {
                         if (listener != null)
                             listener.onClick(view);
                     }
-                })
-                .subscribe();
+                });
         return delegate;
     }
 }

@@ -31,19 +31,18 @@ public class Toggle {
         // FIXME: this causes a leak as it is never unsubscribed from
         Disposable handle = toggle.eventObserver()
                 .observeOn(Schedulers.computation())
-                .doOnNext(new Consumer<SimpleToggleRowViewDelegate.ToggleSwitched>() {
+                .subscribe(new Consumer<SimpleToggleRowViewDelegate.ToggleSwitched>() {
                     @Override
                     public void accept(SimpleToggleRowViewDelegate.ToggleSwitched toggleSwitched) throws Exception {
                         Log.i("LBTTVToggle", "accept: " + toggleSwitched);
                         entry.set(
-                            ctx,
-                            new UserPreferences.Entry.BoolValue(toggleSwitched.isToggled())
+                                ctx,
+                                new UserPreferences.Entry.BoolValue(toggleSwitched.isToggled())
                         );
                         if (onToggle != null)
                             onToggle.accept(toggleSwitched);
                     }
-                })
-                .subscribe();
+                });
         return toggle;
     }
 
