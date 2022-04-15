@@ -11,6 +11,7 @@ import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
 import bttv.settings.UserPreferences;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import tv.twitch.android.shared.ui.menus.togglemenu.SimpleToggleRowViewDelegate;
@@ -26,7 +27,9 @@ public class Toggle {
         int textRes = ResUtil.getResourceId(entry.primaryTextResource);
         View view = LayoutInflater.from(ctx).inflate(toggleItemRes, container, false);
         SimpleToggleRowViewDelegate toggle = new SimpleToggleRowViewDelegate(view, textRes);
-        toggle.eventObserver()
+
+        // FIXME: this causes a leak as it is never unsubscribed from
+        Disposable handle = toggle.eventObserver()
                 .observeOn(Schedulers.computation())
                 .doOnNext(new Consumer<SimpleToggleRowViewDelegate.ToggleSwitched>() {
                     @Override
@@ -36,9 +39,8 @@ public class Toggle {
                             ctx,
                             new UserPreferences.Entry.BoolValue(toggleSwitched.isToggled())
                         );
-                        if (onToggle != null) {
+                        if (onToggle != null)
                             onToggle.accept(toggleSwitched);
-                        }
                     }
                 })
                 .subscribe();
