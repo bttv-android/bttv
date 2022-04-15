@@ -27,9 +27,9 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/observables/ChatConnec
  .end method
  
 +# BTTV
-+.method public BTTVdisconnect(I)V
++.method public BTTVdisconnect(Ltv/twitch/android/models/channel/ChannelInfo;)V
 +    .locals 2
-+    invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->disconnect(I)V
++    invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->disconnect(Ltv/twitch/android/models/channel/ChannelInfo;)V
 +    return-void
 +.end method
 +# BTTV
