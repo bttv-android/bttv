@@ -55,11 +55,7 @@ public class SettingsBottom {
                 SimpleToggleRowViewDelegate castedItem = (SimpleToggleRowViewDelegate) item;
                 castedItem.render(new SimpleToggleRowViewDelegate.ToggleState(getBooleanFromSettings(setting)));
             } else if (item instanceof InfoMenuViewDelegate) {
-                InfoMenuViewDelegate castedItem = (InfoMenuViewDelegate) item;
-                String primaryText = getLocaleString(Data.ctx, setting.entry.primaryTextResource);
-                // TODO: drawable
-                String secondaryText = getLocaleString(Data.ctx, setting.entry.secondaryTextResource);
-                castedItem.render(new InfoMenuViewDelegate.State(primaryText, null, secondaryText));
+                Link.render((InfoMenuViewDelegate) item, setting);
             }
         }
     }
@@ -97,15 +93,21 @@ public class SettingsBottom {
 
     private static DelegateSettingsPair getOpenHighlightLink(Context ctx, ViewGroup container) {
         Log.i(TAG, "getOpenHighlightLink: " + ctx);
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+        Consumer<InfoMenuViewDelegate.Event> onClick = new Consumer<InfoMenuViewDelegate.Event>() {
             @Override
-            public void onClick(View v) {
+            public void accept(InfoMenuViewDelegate.Event event) throws Exception {
                 Log.d(TAG, "onClick: ");
-                Highlight.openDialog((Activity) ctx);
+                Activity activity = (Activity) ctx;
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Highlight.openDialog(activity);
+                    }
+                });
             }
         };
         return new DelegateSettingsPair(
-                Link.simple(ctx, container, onClickListener),
+                Link.simple(ctx, container, onClick),
                 Settings.OpenHighlightedWordsButton
         );
     }

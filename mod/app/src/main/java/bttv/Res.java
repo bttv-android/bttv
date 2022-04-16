@@ -103,4 +103,8 @@ public class Res {
         bttv_highlight_user_notice,
         bttv_watchparty_twitch_missing,
     }
+
+    public enum drawables {
+        ic_arrow_right
+    }
 }

@@ -25,6 +25,10 @@ public class ResUtil {
         return getResourceId(context, res.name(), "layout");
     }
 
+    public static int getResourceId(@NonNull Context context, @NonNull Res.drawables res) {
+        return getResourceId(context, res.name(), "drawable");
+    }
+
     public static int getResourceId(@NonNull Context context, @NonNull String name, @NonNull String type) {
         Resources res = context.getResources();
         String pkgName = context.getPackageName();
