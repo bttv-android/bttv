@@ -37,6 +37,7 @@ public class Res {
         bttv_chat_settings_bs_container,
     }
     public enum layouts {
+        value_row_item,
         toggle_row_item,
         twitch_spinner_dropdown_item,
         bttv_highlight_dialog,
@@ -101,5 +102,9 @@ public class Res {
         bttv_highlight_dia_list_empty,
         bttv_highlight_user_notice,
         bttv_watchparty_twitch_missing,
+    }
+
+    public enum drawables {
+        ic_arrow_right
     }
 }
