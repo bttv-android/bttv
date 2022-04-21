@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali b/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
 --- a/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
 +++ b/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
-@@ -2377,6 +2377,11 @@
+@@ -2379,6 +2379,11 @@
  .method public final isAvailable()Z
      .locals 1
  
