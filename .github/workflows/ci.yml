@@ -23,7 +23,7 @@ jobs:
       # set env variables
       - name: set variables
         run: |
-          echo "APK_URL=https://www.dropbox.com/s/rvpm7tyolhi6ksp/twitch-12.8.0.apk\?\dl=1" >> $GITHUB_ENV
+          echo "APK_URL=https://www.dropbox.com/s/ujhhyfq5cn4mtx0/twitch-12.8.1.apk\?\dl=1" >> $GITHUB_ENV
       # get keystore.kjs from secret
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
