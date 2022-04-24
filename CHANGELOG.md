@@ -1,6 +1,9 @@
 # Changelog
 
 # master
+- rebase to v12.8.1
+
+# 0.26.0-beta
 - rebase to v12.8.0
 - fix crash related to anon chat feature
 - add bttv emote toggles to bottom chat settings (more are planned)
