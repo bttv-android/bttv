@@ -1,0 +1,37 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
+@@ -18,7 +18,7 @@
+ 
+ .field private mMaxSideDimenPixel:I
+ 
+-.field private mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
++.field public mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
+ 
+ 
+ # direct methods
+@@ -81,7 +81,7 @@
+ .end method
+ 
+ .method private scaleSquared(FFF)Landroid/graphics/Point;
+-    .locals 3
++    .locals 4
+ 
+     const/high16 v0, 0x3f800000    # 1.0f
+ 
+@@ -109,6 +109,15 @@
+ 
+     move-result p3
+ 
++    # BTTV
++    #  fix wide emotes
++    invoke-static {p0}, Lbttv/api/Glide;->getIsBttvEmote(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget;)Z
++    move-result v3
++    if-eqz v3, :not_bttv
++    move p3, v0
++    :not_bttv
++    # /BTTV
++
+     mul-float p1, p1, p3
+ 
+     float-to-int p1, p1
