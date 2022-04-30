@@ -7,10 +7,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
 
+import tv.twitch.android.shared.ui.elements.span.GlideChatImageCustomTarget;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class Glide {
+
+
+    public static boolean getIsBttvEmote(GlideChatImageCustomTarget target) {
+        try {
+            return bttv.emote.Glide.getIsBttvEmote(target);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "getIsBttvEmote: ", t);
+            return false;
+        }
+    }
 
     public static boolean getIsBttvEmote(GlideChatImageTarget target) {
         try {

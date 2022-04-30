@@ -1,6 +1,5 @@
 package bttv.api;
 
-import android.util.Log;
 
 import io.reactivex.Single;
 
