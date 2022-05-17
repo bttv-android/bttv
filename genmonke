@@ -109,7 +109,7 @@ mv tv.twitch.android.shared.chat.settings.entry.ChatSettingsViewDelegate.smali.p
 
 # Split Chat
 mkdir splitchat
-mv tv.twitch.android.core.adapters.TwitchAdapter.smali.patch splitchat/.
+mv tv.twitch.android.core.adapters.AbstractTwitchRecyclerViewAdapter.smali.patch splitchat/.
 mv tv.twitch.android.shared.chat.adapter.ChannelChatAdapter.smali.patch splitchat/.
 
 # Updater

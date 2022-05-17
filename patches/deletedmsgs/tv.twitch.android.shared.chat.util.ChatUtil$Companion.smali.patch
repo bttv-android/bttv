@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
-@@ -184,6 +184,15 @@
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes5/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
+@@ -180,6 +180,15 @@
          }
      .end annotation
  

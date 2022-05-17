@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 --- a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.smali
-@@ -374,6 +374,10 @@
+@@ -362,6 +362,10 @@
  
      invoke-direct {v0, p0, p1, v1}, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;-><init>(Landroid/content/Context;Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;I)V
  

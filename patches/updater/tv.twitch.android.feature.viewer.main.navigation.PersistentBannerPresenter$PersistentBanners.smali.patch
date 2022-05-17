@@ -4,7 +4,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/Per
 @@ -193,10 +193,24 @@
      new-instance v0, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners;
  
-     .line 79
+     .line 75
 -    sget v14, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
 +    # BTTV
 +    #   Replaces Update Banner's Content with custom string
@@ -15,7 +15,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/Per
 +    move-result v14
 +    # /BTTV
  
-     .line 80
+     .line 76
 -    sget v1, Ltv/twitch/android/core/strings/R$string;->app_update_available:I
 +    # BTTV
 +    #   Replaces Update Banner's Title with custom string
