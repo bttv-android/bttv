@@ -59,4 +59,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user> dessa forma. Exemplo: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Você não tem o aplicativo da Twitch instalado no seu dispositivo. Para poder usar as Sessões em Grupo no bttv-android você precisa ter o aplicativo da Twitch instalado.\n\nVocê também precisa impedir que a Twitch abra ao interagir com os links da twitch.tv. Faça o seguinte:\n\n Acesse as Informações do Aplicativo através das Configurações do seu dispositivo, ou pressionando o ícone até aparecer a opção -&gt; \"Informações do Aplicativo\" -&gt; \"Avançado\" -&gt; \"Abrir por padrão\" -&gt; \"Abrir links suportados\" -&gt; \"Perguntar sempre\" (pode variar dependendo do OEM).\n\nAgora você será perguntado com qual aplicativo deseja abrir os links.</string>
+    <string name="bttv_removed_by_mod">removido</string>
 </resources>
