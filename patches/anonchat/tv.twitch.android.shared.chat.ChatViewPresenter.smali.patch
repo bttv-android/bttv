@@ -19,7 +19,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private final chatDialogRouter:Ltv/twitch/android/provider/chat/ChatDialogRouter;
  
-@@ -1437,6 +1437,9 @@
+@@ -1355,6 +1355,9 @@
  
      iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->clickableUsernameSpanListener:Ltv/twitch/android/shared/chat/chatsource/IClickableUsernameSpanListener;
  
@@ -29,7 +29,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      return-void
  .end method
  
-@@ -2303,6 +2306,14 @@
+@@ -2161,6 +2164,14 @@
      return-void
  .end method
  
@@ -41,6 +41,6 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
 +.end method
 +# BTTV
 +
- .method private final doFriendActionIfValidId(ILkotlin/jvm/functions/Function0;)V
+ .method private final getChatSpammerDebugPresenter()Ltv/twitch/android/shared/chat/debug/spammer/ChatSpammerDebugPresenter;
      .locals 1
-     .annotation system Ldalvik/annotation/Signature;
+ 

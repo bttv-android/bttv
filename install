@@ -1,1 +1,1 @@
-/usr/bin/adb install ./extracted/dist/twitch.apk
+/usr/bin/adb install ./disass/dist/twitch.apk

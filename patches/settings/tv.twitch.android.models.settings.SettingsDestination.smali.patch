@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 --- a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -106,11 +106,36 @@
+@@ -104,11 +104,36 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
@@ -13,7 +13,7 @@ diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestinatio
  
  # direct methods
  .method static constructor <clinit>()V
-     .locals 47
+     .locals 46
  
 +    # BTTV
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
@@ -38,12 +38,3 @@ diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestinatio
      .line 9
      new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
  
-@@ -668,6 +693,8 @@
- 
-     sput-object v4, Ltv/twitch/android/models/settings/SettingsDestination;->ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
- 
-+    # VALUES:
-+
-     const/16 v2, 0x2d
- 
-     new-array v2, v2, [Ltv/twitch/android/models/settings/SettingsDestination;

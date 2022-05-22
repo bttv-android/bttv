@@ -102,6 +102,7 @@ public class Res {
         bttv_highlight_dia_list_empty,
         bttv_highlight_user_notice,
         bttv_watchparty_twitch_missing,
+        bttv_removed_by_mod,
     }
 
     public enum drawables {

@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/models/social/ChatUser.smali b/smali_classes5/tv/twitch/android/models/social/ChatUser.smali
 --- a/smali_classes5/tv/twitch/android/models/social/ChatUser.smali
 +++ b/smali_classes5/tv/twitch/android/models/social/ChatUser.smali
-@@ -26,7 +26,7 @@
+@@ -22,7 +22,7 @@
  
  .field private final userId:I
  

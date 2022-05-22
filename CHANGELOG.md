@@ -1,7 +1,8 @@
 # Changelog
 
 # master
-- rebase to v12.8.1
+- rebase to v13.0.0
+- fix deleted messages issue
 
 # 0.26.0-beta
 - rebase to v12.8.0

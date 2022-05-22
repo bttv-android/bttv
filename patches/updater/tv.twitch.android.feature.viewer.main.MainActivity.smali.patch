@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
 --- a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
 +++ b/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.smali
-@@ -1557,6 +1557,14 @@
+@@ -1552,6 +1552,14 @@
  
      invoke-virtual {p1, v0}, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
  
@@ -13,6 +13,6 @@ diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/MainActivity.s
 +    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;)V
 +    # /BTTV
 +
-     .line 354
+     .line 352
      iget-object p1, p0, Ltv/twitch/android/feature/viewer/main/MainActivity;->cookieConsentDialogPresenter:Ltv/twitch/android/settings/cookieconsent/CookieConsentDialogPresenter;
  

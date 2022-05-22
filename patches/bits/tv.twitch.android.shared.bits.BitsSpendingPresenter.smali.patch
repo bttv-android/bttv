@@ -10,7 +10,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.
  
  .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availbility/AvailabilityTracker;
  
-@@ -963,7 +963,9 @@
+@@ -946,7 +946,9 @@
  
      const/4 v1, 0x1
  

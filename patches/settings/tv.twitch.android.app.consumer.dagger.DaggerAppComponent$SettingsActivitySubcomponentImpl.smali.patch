@@ -1,8 +1,8 @@
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl.smali
-@@ -707,9 +707,23 @@
-     .line 15069
+@@ -697,9 +697,23 @@
+     .line 14984
      iput-object p2, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->settingsActivityModule:Ltv/twitch/android/settings/dagger/SettingsActivityModule;
  
 +    # BTTV
@@ -12,7 +12,7 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 +    invoke-static {p2}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsActivityModule(Ltv/twitch/android/settings/dagger/SettingsActivityModule;)V
 +    # /BTTV
 +
-     .line 15070
+     .line 14985
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->activityModule:Ltv/twitch/android/app/core/dagger/modules/ActivityModule;
  
 +    # BTTV
@@ -22,10 +22,10 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setActivityModule(Ltv/twitch/android/app/core/dagger/modules/ActivityModule;)V
 +    # /BTTV
 +
-     .line 15071
+     .line 14986
      invoke-direct {p0, p2, p3, p4}, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->initialize(Ltv/twitch/android/settings/dagger/SettingsActivityModule;Ltv/twitch/android/app/core/dagger/modules/ActivityModule;Ltv/twitch/android/settings/SettingsActivity;)V
  
-@@ -1311,6 +1325,12 @@
+@@ -1294,6 +1308,12 @@
      move-result-object p3
  
      iput-object p3, p0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$SettingsActivitySubcomponentImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
@@ -36,9 +36,9 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 +    invoke-static {p3}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivityProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
  
-     .line 15453
+     .line 15361
      invoke-static {}, Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;->create()Ltv/twitch/android/shared/billing/postalcodecapture/PostalCodeEventDispatcher_Factory;
-@@ -1944,6 +1964,19 @@
+@@ -1949,6 +1969,19 @@
  
      move-result-object v0
  
