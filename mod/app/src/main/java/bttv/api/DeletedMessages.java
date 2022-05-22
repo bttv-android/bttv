@@ -7,6 +7,8 @@ import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.style.StyleSpan;
 
+import bttv.Data;
+import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
 
@@ -19,7 +21,8 @@ public class DeletedMessages {
         }
 
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(original);
-        SpannableString postFix = new SpannableString("(removed by mod)");
+        String removedByModText = ResUtil.getLocaleString(Data.ctx, Res.strings.bttv_removed_by_mod);
+        SpannableString postFix = new SpannableString("(" + removedByModText + ")");
         postFix.setSpan(new StyleSpan(Typeface.ITALIC), 0, postFix.length(), 0);
         spannableStringBuilder.append(postFix);
 

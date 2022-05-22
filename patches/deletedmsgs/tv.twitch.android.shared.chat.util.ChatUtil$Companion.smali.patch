@@ -6,10 +6,10 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/util/ChatUtil$Companio
      .end annotation
  
 +    # BTTV
-+    invoke-static {p1}, Lbttv/api/DeletedMessages;->reSpan(Landroid/text/Spanned;)Landroid/text/Spanned;
++    invoke-static {p2}, Lbttv/api/DeletedMessages;->reSpan(Landroid/text/Spanned;)Landroid/text/Spanned;
 +    move-result-object v0
 +    if-eqz v0, :bttv_skip
-+    move-object p1, v0
++    move-object p2, v0
 +    goto :cond_1
 +    :bttv_skip
 +    # /BTTV
