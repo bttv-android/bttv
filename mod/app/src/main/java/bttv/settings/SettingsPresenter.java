@@ -22,7 +22,6 @@ import tv.twitch.android.settings.base.BaseSettingsPresenter;
 import tv.twitch.android.settings.base.SettingsNavigationController;
 import tv.twitch.android.settings.base.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
-import tv.twitch.android.shared.ui.menus.checkable.CheckableGroupModel;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
 import tv.twitch.android.shared.ui.menus.core.MenuSection;
@@ -122,12 +121,6 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 			}
 
 			setting.entry.set(ctx, new UserPreferences.Entry.BoolValue(z));
-		}
-
-		@Override
-		public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
-			Log.d("LBTTVSettingsPC",
-					"updatePreferenceCheckedState() checkableGroupModel: " + checkableGroupModel.toString());
 		}
 
 	}
