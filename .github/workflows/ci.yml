@@ -24,53 +24,21 @@ jobs:
       - name: set variables
         run: |
           echo "APK_URL=https://www.dropbox.com/s/r98fwugblbpm2w9/twitch-13.0.0.apk\?\dl=1" >> $GITHUB_ENV
+
       # get keystore.kjs from secret
       - name: create keystore.kjs from secret
         run: echo "${{ secrets.KEYSTORE }}" | base64 -d > keystore.jks
-
-      # get apk file from cache
-      - name: get apk from cache
-        uses: actions/cache@v2
-        id: apk-cache
-        with:
-          path: twitch.apk
-          key: ${{ env.APK_URL }}
 
       # download apk when cache miss
       - name: download base
         if: steps.apk-cache.outputs.cache-hit != 'true'
         run: wget ${{ env.APK_URL }} -O twitch.apk
 
-      # get disass dir from cache
-      - name: get disass cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            .bttv-cache/disass
-            .bttv-cache/disass_hash
-          key: disass-cache-2-${{ hashFiles('twitch.apk') }}
-
-      - name: make sure disass_hash is a file
-        run: mkdir -p .bttv-cache && touch .bttv-cache/disass_hash
-
-      # get gradle caches
-      - name: get gradle caches
-        uses: actions/cache@v2
-        with:
-          path: |
-            .bttv-cache/gradle_caches
-            .bttv-cache/gradle_wrapper
-          key: gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-
       # run the build using docker container
       - name: run build
         run: |
           docker run --rm \
             -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
-            -v $(pwd)/.bttv-cache/disass:/usr/build/.bttv-cache/disass \
-            -v $(pwd)/.bttv-cache/disass_hash:/usr/build/.bttv-cache/disass_hash \
-            -v $(pwd)/.bttv-cache/gradle_caches:/root/.gradle/caches \
-            -v $(pwd)/.bttv-cache/gradle_wrapper:/root/.gradle/wrapper \
             -v $(pwd)/bttv.manifest.json:/usr/build/bttv.manifest.json \
             -v $(pwd)/dist:/usr/build/dist \
             -v $(pwd)/mod:/usr/build/mod \
