@@ -58,4 +58,5 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_removed_by_mod">gelöscht</string>
 </resources>
