@@ -59,4 +59,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <usuario> así. ej.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">No tienes la aplicación de Twitch instalada en tu dispositivo. Para poder usar Vídeos Grupales en bttv-android necesitas tener la aplicación de Twitch instalada.\n\nTambién tienes que evitar que Twitch se abra cuando interactúes con enlaces de twitch.tv. Haz lo siguiente:\n\nMantén presionado sobre la aplicación de Twitch -&gt; \"Información de la aplicación\" -&gt; \"Avanzado\" -&gt; \"Abrir de forma predeterminada\" -&gt; \"Abrir enlaces compatibles\" -&gt; \"Preguntar cada vez\" (puede variar dependiendo del OEM).\n\nDe esta manera se te preguntara con que aplicación abrir los enlaces.</string>
+    <string name="bttv_removed_by_mod">eliminado</string>
 </resources>
