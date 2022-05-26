@@ -20,9 +20,12 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV emotikony</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automaticky odkliknout věrnostní body kanálu</string>
     <string name="bttv_settings_show_sleep_timer_primary">Zobrazit časovač spánku</string>
+    <string name="bttv_settings_show_uptime">Zobrazit čas provozu</string>
     <string name="bttv_emote_added_by_bttv">Emotikon přidán od bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote přidal %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emote přidal %s</string>
     <string name="bttv_updater_downloading">Stahování</string>
     <string name="bttv_updater_downloading_version">Stahování %s</string>
     <string name="bttv_updater_notice">Pokud je toto první použití aktualizace, povolte instalace z této aplikace, když vás průvodce požádá.</string>
@@ -34,6 +37,24 @@
     <string name="bttv_settings_gif_render_mode_animate">Animované</string>
     <string name="bttv_settings_gif_render_mode_static">Statické</string>
     <string name="bttv_settings_gif_render_mode_disabled">Vypnuto</string>
+    <string name="bttv_settings_open_credits_button_title">Závěrečné titulky</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Zobrazit smazané zprávy</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonymní Chat</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Připojit se anonymně bez zobrazení v uživatelském seznamu</string>
+    <string name="bttv_credits_title">Závěrečné titulky</string>
+    <string name="bttv_credits_intro">bttv-android byl vytvořen <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> s pomocí těchto lidí:</string>
+    <string name="bttv_credits_bugs">Hlášení chyb</string>
+    <string name="bttv_credits_ideas">Návrhy</string>
+    <string name="bttv_credits_translations">Překlady</string>
+    <string name="bttv_credits_docs">Dokumentace</string>
+    <string name="bttv_copied_to_clipboard">Uživatelské jméno zkopírováno do schránky</string>
+    <string name="bttv_settings_enable_split_chat">Rozdělit chat</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animovat navždy</string>
+    <string name="bttv_settings_gif_render_mode_descr">Poznámka: \"Animovat navždy\" může vybíjet baterii opravdu rychle</string>
+    <string name="bttv_settings_enable_dev_tools">Povolit vývojářské nástroje</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Spravovat experimentální prvky, latenci a další nastavení. Postupujte opatrně.</string>
+    <string name="bttv_highlight_dia_list_empty">Tady nic není\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Můžete zvýraznit <user> např. takto: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
 </resources>
