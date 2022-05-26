@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Vítá vás\nBetter Twitch</string>
-    <string name="bttv_emote_picker_global_bttv">Globální BTTV emotikony</string>
+    <string name="bttv_emote_picker_global_bttv">Globální BTTV Emotikony</string>
     <string name="bttv_emote_picker_channel_bttv">BTTV emotikony kanálu</string>
-    <string name="bttv_emote_picker_global_ffz">Globální FrankerFaceZ emotikony</string>
+    <string name="bttv_emote_picker_global_ffz">Globální FrankerFaceZ Emotikony</string>
     <string name="bttv_emote_picker_channel_ffz">FrankerFacez emotikony kanálu</string>
-    <string name="bttv_emote_picker_global_7tv">Globální 7TV emotikony</string>
+    <string name="bttv_emote_picker_global_7tv">Globální 7TV Emotikony</string>
     <string name="bttv_emote_picker_channel_7tv">7TV emotikony kanálu</string>
     <string name="bttv_app_update_available">bttv-android: Byla zjištěna nová aktualizace</string>
     <string name="bttv_app_update_available_cta">Klepnutím sem stáhněte a nainstalujte aktualizaci.</string>
@@ -49,6 +49,7 @@
     <string name="bttv_credits_docs">Dokumentace</string>
     <string name="bttv_copied_to_clipboard">Uživatelské jméno zkopírováno do schránky</string>
     <string name="bttv_settings_enable_split_chat">Rozdělit chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Stínovat pozadí každé druhé zprávy v chatu</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Animovat navždy</string>
     <string name="bttv_settings_gif_render_mode_descr">Poznámka: \"Animovat navždy\" může vybíjet baterii opravdu rychle</string>
     <string name="bttv_settings_enable_dev_tools">Povolit vývojářské nástroje</string>
@@ -57,4 +58,6 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Můžete zvýraznit <user> např. takto: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Na svém zařízení nemáte aplikaci Twitch nainstalovanou. Abyste mohli používat funkci Watch Party v bttv-android je třeba mít aplikaci Twitch nainstalovanou.\n\nTaké musíte zabrát spuštění Twitch aplikace, když otevírate twitch.tv odkazy. Udělejte následující:\n\nDlouze podržte aplikaci Twitch -&gt; \"Informace o aplikaci\" -&gt; \"Pokročilé\" -&gt; \"Ve výchozím nastavení otevřít\" -&gt; \"Otevřít podporované odkazy\" -&gt; \"Vždy se ptát\" (může se lišit podle OEM).\n\nNyní budete dotázáni jakou aplikací budete chtít otevírat odkazy.</string>
+    <string name="bttv_removed_by_mod">odstraněno</string>
 </resources>
