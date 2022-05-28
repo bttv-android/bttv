@@ -2,9 +2,9 @@
 <resources>
     <string name="login_landing_title">Vítá vás\nBetter Twitch</string>
     <string name="bttv_emote_picker_global_bttv">Globální BTTV Emotikony</string>
-    <string name="bttv_emote_picker_channel_bttv">BTTV emotikony kanálu</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV Emotikony kanálu</string>
     <string name="bttv_emote_picker_global_ffz">Globální FrankerFaceZ Emotikony</string>
-    <string name="bttv_emote_picker_channel_ffz">FrankerFacez emotikony kanálu</string>
+    <string name="bttv_emote_picker_channel_ffz">FrankerFacez Emotikony kanálu</string>
     <string name="bttv_emote_picker_global_7tv">Globální 7TV Emotikony</string>
     <string name="bttv_emote_picker_channel_7tv">7TV emotikony kanálu</string>
     <string name="bttv_app_update_available">bttv-android: Byla zjištěna nová aktualizace</string>
