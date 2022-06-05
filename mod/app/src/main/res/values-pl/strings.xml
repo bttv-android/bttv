@@ -59,4 +59,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Możesz wyróżnić <user> w taki sposób. np.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Nie posiadasz zainstalowanej aplikacji Twitch na swoim urządzeniu. Aby korzystać ze wspólnego oglądania w bttv-android musisz posiadać zainstalowaną aplikację Twitch.\n\nPonad to musisz zablokować uruchamianie adresów twitch.tv w aplikacji Twitch. Wykonaj następujące czynności:\n\nPrzytrzymaj aplikację Twitch -&gt; \"Informacje o aplikacji\" -&gt; \"Zaawansowane\" -&gt; \"Otwieraj domyślnie\" -&gt; \"Otwieraj wspierane adresy\" -&gt; \"Pytaj zawsze\" (może się różnić w zależności od OEM).\n\nBędziesz teraz pytany jaką aplikacją chcesz otwierać adresy.</string>
+    <string name="bttv_removed_by_mod">usunięto</string>
 </resources>
