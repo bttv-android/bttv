@@ -8,5 +8,5 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoord
 -.field private final activity:Landroidx/fragment/app/FragmentActivity;
 +.field public final activity:Landroidx/fragment/app/FragmentActivity;
  
- .field private final audioDeviceManager:Ltv/twitch/android/shared/player/AudioDeviceManager;
+ .field private final audioDeviceManager:Ltv/twitch/android/shared/background/audio/AudioDeviceManager;
  
