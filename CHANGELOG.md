@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.28.0-beta
 - rebase to v13.1.0
 
 # 0.27.0-beta
