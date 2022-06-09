@@ -52,5 +52,6 @@ public class Data {
         Data.ctx = ctx;
         Log.i("LBTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
         UpdaterJobService.schedule(ctx);
+        Badges.getBadges();
     }
 }

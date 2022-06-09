@@ -1,0 +1,18 @@
+diff --git a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
+--- a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
++++ b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
+@@ -361,6 +361,14 @@
+ .method public final getChatBadgeImageUrl(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     .locals 1
+ 
++    # BTTV
++    invoke-static {p1, p2, p3}, Lbttv/api/Badges;->getUrl(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :nope
++    return-object v0
++    :nope
++    # /BTTV
++
+     const-string v0, "badgeName"
+ 
+     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V

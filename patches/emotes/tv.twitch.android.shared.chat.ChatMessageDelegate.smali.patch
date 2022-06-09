@@ -10,3 +10,15 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatMessageDelegate.sm
  
  .field private mChatMessageParser:Ltv/twitch/android/shared/chat/ChatMessageParser;
  
+@@ -56,6 +56,11 @@
+ 
+     move-result-object v0
+ 
++    # BTTV
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/ChatMessageDelegate;->mChatMessage:Ltv/twitch/chat/ChatMessageInfo;
++    invoke-static {v1, v0}, Lbttv/api/Badges;->appendToBadges(Ltv/twitch/chat/ChatMessageInfo;Ljava/util/List;)V
++    # /BTTV
++
+     return-object v0
+ .end method
+ 
