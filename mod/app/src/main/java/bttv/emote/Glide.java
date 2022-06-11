@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
-
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
@@ -59,32 +57,5 @@ public class Glide {
         target.bttvView.invalidate();
         target.bttvView.setText(target.bttvView.getText()); // dirty trick to force re-draw
         target.bttvView = null; // drop ref idk how it could impact GC, and onResourceReady is only called once anyway (I hope)
-    }
-
-    public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
-        if (!(drawable instanceof WebpDrawable)) {
-            return;
-        }
-        WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        webpDrawable.setCallback(cb);
-    }
-
-    public static void startWebpDrawable(Drawable drawable) {
-        if (!(drawable instanceof WebpDrawable)) {
-            return;
-        }
-        WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        if (!webpDrawable.isRunning())
-            webpDrawable.start();
-    }
-
-    public static void stopWebpDrawable(Drawable drawable) {
-        if (!(drawable instanceof WebpDrawable)) {
-            return;
-        }
-        WebpDrawable webpDrawable = (WebpDrawable) drawable;
-        if (webpDrawable.isRunning()) {
-            webpDrawable.stop();
-        }
     }
 }

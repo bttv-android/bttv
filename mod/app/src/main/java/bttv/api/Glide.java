@@ -1,10 +1,12 @@
 package bttv.api;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.bumptech.glide.Registry;
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
 
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
@@ -57,7 +59,7 @@ public class Glide {
 
     public static void startWebpDrawable(Drawable drawable) {
         try {
-            bttv.emote.Glide.startWebpDrawable(drawable);
+            bttv.glide.Webp.startWebpDrawable(drawable);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "startWebpDrawable: ", t);
         }
@@ -65,7 +67,7 @@ public class Glide {
 
     public static void stopWebpDrawable(Drawable drawable) {
         try {
-            bttv.emote.Glide.stopWebpDrawable(drawable);
+            bttv.glide.Webp.stopWebpDrawable(drawable);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "stopWebpDrawable: ", t);
         }
@@ -73,7 +75,7 @@ public class Glide {
 
     public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
         try {
-            bttv.emote.Glide.setWebpCallback(drawable, cb);
+            bttv.glide.Webp.setWebpCallback(drawable, cb);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "setWebpCallback: ", t);
         }
@@ -84,5 +86,23 @@ public class Glide {
             return ((WebpDrawable) drawable).getFirstFrame();
         }
         return null;
+    }
+
+    public static void registerWebpDecoder(Context context, com.bumptech.glide.Glide glide, Registry registry) {
+        try {
+            Log.d("LBTTVGlide", "registerWebpDecoder called");
+            bttv.glide.Webp.registerWebpDecoder(context, glide, registry);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "failed to registerWebDecoder()", t);
+        }
+    }
+
+    public static void registerSVGDecoder(Context context, com.bumptech.glide.Glide glide, Registry registry) {
+        try {
+            Log.d("LBTTVGlide", "registerSVGDecoder called");
+            bttv.glide.svg.Svg.registerSvgDecoder(context, glide, registry);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "failed to registerSVGDecoder()", t);
+        }
     }
 }

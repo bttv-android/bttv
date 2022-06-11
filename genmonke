@@ -55,12 +55,12 @@ mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
 mv tv.twitch.android.feature.theatre.common.StreamSettingsViewDelegate.smali.patch stream-settings/.
 
 
-# WebP Glide
-mkdir webp
-mv com.bumptech.glide* webp/.
-mv tv.twitch.android.shared.ui.elements.span.UrlDrawable.smali.patch webp/.
-mv 'tv.twitch.android.shared.ui.elements.GlideHelper$generateGlideRequestListener$1.smali.patch' webp/.
-mv tv.twitch.android.shared.ui.elements.GlideHelper.smali.patch webp/.
+# Glide Modules
+mkdir glide
+mv com.bumptech.glide* glide/.
+mv tv.twitch.android.shared.ui.elements.span.UrlDrawable.smali.patch glide/.
+mv 'tv.twitch.android.shared.ui.elements.GlideHelper$generateGlideRequestListener$1.smali.patch' glide/.
+mv tv.twitch.android.shared.ui.elements.GlideHelper.smali.patch glide/.
 
 # Sleep Timer
 mkdir sleeptimer
