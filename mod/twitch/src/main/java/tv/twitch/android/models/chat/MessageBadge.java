@@ -6,4 +6,7 @@ package tv.twitch.android.models.chat;
 
 public class MessageBadge {
     public MessageBadge(String name, String version) {}
+    public final java.lang.String component1() {
+        return null;
+    }
 }

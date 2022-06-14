@@ -9,8 +9,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -23,16 +23,34 @@ public class Badges {
     public static final String TAG = "LBTTVBadges";
     public static final String BADGE_VERSION = "bttv-android";
 
-    private static HashMap<String, List<BTTVBadge>> badgeHashMap = new HashMap<>();
+    private static final ConcurrentHashMap<String, List<BTTVBadge>> badgeHashMap = new ConcurrentHashMap<>();
 
     public static void appendToBadges(ChatMessageInfo chatMessageInfo, List<MessageBadge> badges) {
         List<BTTVBadge> ourBadges = badgeHashMap.get(chatMessageInfo.userId + "");
         if (ourBadges == null)
             return;
         int i = 0;
+        ArrayList<String> keysToRemove = new ArrayList<>(1);
+
         for (BTTVBadge badge : ourBadges) {
             badges.add(new MessageBadge(badge.userId + "-" + i, BADGE_VERSION));
             i++;
+            if (badge.removes != null) {
+                keysToRemove.add(badge.removes);
+            }
+        }
+
+        for (String key : keysToRemove) {
+            MessageBadge target = null;
+            for (MessageBadge badge : badges) {
+                if (badge.component1().equalsIgnoreCase(key)) {
+                    target = badge;
+                    break;
+                }
+            }
+            if (target != null) {
+                badges.remove(target);
+            }
         }
     }
 
@@ -52,7 +70,8 @@ public class Badges {
     }
 
     public static void getBadges() {
-        Network.get(Network.BTTV_API_HOST+ "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
+        Network.get(Network.BTTV_API_HOST + "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
+        Network.get(Network.FFZ_API_HOST + "/badges/ids", new ResponseHandler(BTTVBadgeKind.FFZ));
         Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
         Network.get(Network.CHATTERINO_API_HOST + "/badges", new ResponseHandler(BTTVBadgeKind.Chatterino));
     }
@@ -138,6 +157,28 @@ public class Badges {
                         }
                     }
 
+                } else if (kind == BTTVBadgeKind.FFZ) {
+                    JSONObject obj = new JSONObject(json);
+                    JSONArray badgeArray = obj.getJSONArray("badges");
+                    JSONObject usersObj = obj.getJSONObject("users");
+
+                    for (int i = 0; i < badgeArray.length(); i++) {
+                        JSONObject badgeObj = badgeArray.getJSONObject(i);
+                        String id = badgeObj.getString("id");
+
+                        String description = badgeObj.getString("title");
+                        String url = "https:" + badgeObj.getString("image");
+                        String replaces = badgeObj.getString("replaces");
+
+                        JSONArray usersArr = usersObj.getJSONArray(id);
+
+
+                        for (int j = 0; j < usersArr.length(); j++) {
+                            String userId = usersArr.getString(j);
+                            BTTVBadge badge = new BTTVBadge(userId, description, url, replaces);
+                            appendToUser(badge);
+                        }
+                    }
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -163,6 +204,7 @@ public class Badges {
 
 enum BTTVBadgeKind {
     BTTV,
+    FFZ,
     STV,
     Chatterino,
 }
@@ -171,10 +213,16 @@ class BTTVBadge {
     String userId;
     String description;
     String url;
+    String removes;
 
     public BTTVBadge(String userId, String description, String url) {
+        this(userId, description, url, null);
+    }
+
+    public BTTVBadge(String userId, String description, String url, String removes) {
         this.userId = userId;
         this.description = description;
         this.url = url;
+        this.removes = removes;
     }
 }
