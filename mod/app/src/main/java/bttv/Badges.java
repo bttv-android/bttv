@@ -52,8 +52,8 @@ public class Badges {
     }
 
     public static void getBadges() {
-        Network.get(/*Network.BTTV_API_HOST*/ "https://f42c-134-61-143-182.eu.ngrok.io"+ "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
-        Network.get(/*Network.STV_API_HOST*/ "https://f42c-134-61-143-182.eu.ngrok.io" + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
+        Network.get(Network.BTTV_API_HOST+ "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
+        Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
     }
 
     private static class ResponseHandler implements Callback {
