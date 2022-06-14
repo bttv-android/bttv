@@ -52,8 +52,8 @@ public class Badges {
     }
 
     public static void getBadges() {
-        Network.get(Network.BTTV_API_HOST + "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
-        Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
+        Network.get(/*Network.BTTV_API_HOST*/ "https://f42c-134-61-143-182.eu.ngrok.io"+ "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
+        Network.get(/*Network.STV_API_HOST*/ "https://f42c-134-61-143-182.eu.ngrok.io" + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
     }
 
     private static class ResponseHandler implements Callback {
@@ -80,7 +80,7 @@ public class Badges {
                         JSONObject item = array.getJSONObject(i);
                         JSONObject badgeObj = item.getJSONObject("badge");
 
-                        String userId = item.getString("id");
+                        String userId = item.getString("providerId");
                         String description = badgeObj.getString("description");
                         String url = badgeObj.getString("svg");
 
@@ -97,9 +97,9 @@ public class Badges {
                         String description = item.getString("tooltip");
 
                         if (urls.length() >= 2) {
-                            url = urls.getString(1);
+                            url = urls.getJSONArray(1).getString(1);
                         } else if (urls.length() >= 1) {
-                            url = urls.getString(0);
+                            url = urls.getJSONArray(0).getString(1);
                         } else {
                             Log.w(TAG, "onResponse: ignoring because missing urls: " + item);
                             continue;
