@@ -23,6 +23,7 @@ public class Network {
     private static final int GLOBAL_CHANNEL_ID = -2;
     public static final String BTTV_API_HOST = "https://api.betterttv.net";
     public static final String STV_API_HOST = "https://api.7tv.app/v2";
+    public static final String CHATTERINO_API_HOST = "https://api.chatterino.com";
 
     public static void get(String url, Callback cb) {
         OkHttpClient client = new OkHttpClient();

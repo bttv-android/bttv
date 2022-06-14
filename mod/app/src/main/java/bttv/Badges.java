@@ -54,6 +54,7 @@ public class Badges {
     public static void getBadges() {
         Network.get(Network.BTTV_API_HOST+ "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
         Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
+        Network.get(Network.CHATTERINO_API_HOST + "/badges", new ResponseHandler(BTTVBadgeKind.Chatterino));
     }
 
     private static class ResponseHandler implements Callback {
@@ -112,6 +113,31 @@ public class Badges {
                             appendToUser(badge);
                         }
                     }
+                } else if (kind == BTTVBadgeKind.Chatterino) {
+                    JSONObject obj = new JSONObject(json);
+                    JSONArray array = obj.getJSONArray("badges");
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject item = array.getJSONObject(i);
+                        String url;
+                        String description = item.getString("tooltip");
+
+                        if (item.has("image2")) {
+                            url = item.getString("image2");
+                        } else if (item.has("image1")) {
+                            url = item.getString("image1");
+                        } else {
+                            Log.w(TAG, "onResponse: ignoring because missing urls: " + item);
+                            continue;
+                        }
+
+                        JSONArray usersArr = item.getJSONArray("users");
+                        for (int j = 0; j < usersArr.length(); j++) {
+                            String userId = usersArr.getString(j);
+                            BTTVBadge badge = new BTTVBadge(userId, description, url);
+                            appendToUser(badge);
+                        }
+                    }
+
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -137,7 +163,8 @@ public class Badges {
 
 enum BTTVBadgeKind {
     BTTV,
-    STV
+    STV,
+    Chatterino,
 }
 
 class BTTVBadge {
