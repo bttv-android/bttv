@@ -53,6 +53,7 @@ public class Badges {
 
     public static void getBadges() {
         Network.get(Network.BTTV_API_HOST + "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
+        Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
     }
 
     private static class ResponseHandler implements Callback {
@@ -84,12 +85,32 @@ public class Badges {
                         String url = badgeObj.getString("svg");
 
                         BTTVBadge badge = new BTTVBadge(userId, description, url);
-                        List<BTTVBadge> existingBadges = badgeHashMap.get(userId);
-                        if (existingBadges == null) {
-                            existingBadges = new ArrayList<>();
+                        appendToUser(badge);
+                    }
+                } else if (kind == BTTVBadgeKind.STV) {
+                    JSONObject obj = new JSONObject(json);
+                    JSONArray array = obj.getJSONArray("badges");
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject item = array.getJSONObject(i);
+                        JSONArray urls = item.getJSONArray("urls");
+                        String url;
+                        String description = item.getString("tooltip");
+
+                        if (urls.length() >= 2) {
+                            url = urls.getString(1);
+                        } else if (urls.length() >= 1) {
+                            url = urls.getString(0);
+                        } else {
+                            Log.w(TAG, "onResponse: ignoring because missing urls: " + item);
+                            continue;
                         }
-                        existingBadges.add(badge);
-                        badgeHashMap.put(userId, existingBadges);
+
+                        JSONArray usersArr = item.getJSONArray("users");
+                        for (int j = 0; j < usersArr.length(); j++) {
+                            String userId = usersArr.getString(j);
+                            BTTVBadge badge = new BTTVBadge(userId, description, url);
+                            appendToUser(badge);
+                        }
                     }
                 }
             } catch (IOException e) {
@@ -101,11 +122,22 @@ public class Badges {
                 Log.e(TAG, e.getMessage(), e);
             }
         }
+
+        private static void appendToUser(BTTVBadge badge) {
+            String userId = badge.userId;
+            List<BTTVBadge> existingBadges = badgeHashMap.get(userId);
+            if (existingBadges == null) {
+                existingBadges = new ArrayList<>();
+            }
+            existingBadges.add(badge);
+            badgeHashMap.put(userId, existingBadges);
+        }
     }
 }
 
 enum BTTVBadgeKind {
-    BTTV
+    BTTV,
+    STV
 }
 
 class BTTVBadge {
