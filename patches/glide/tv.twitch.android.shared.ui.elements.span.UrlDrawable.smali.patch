@@ -23,7 +23,18 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  
      const-string v0, "canvas"
  
-@@ -156,10 +162,25 @@
+@@ -140,6 +146,10 @@
+ 
+     if-eqz v0, :cond_0
+ 
++    # BTTV
++    invoke-static {p0, p1, v0}, Lbttv/api/Glide;->maybeSetBG(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Landroid/graphics/Canvas;Landroid/graphics/drawable/Drawable;)V
++    # /BTTV
++
+     .line 54
+     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+ 
+@@ -156,10 +166,25 @@
  
      if-nez p1, :cond_0
  
