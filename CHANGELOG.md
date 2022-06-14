@@ -2,6 +2,11 @@
 
 # master
 - rebase to v13.1.1
+- add third party badges:
+  - bttv
+  - 7TV
+  - Chatterino
+- adding support for svgs
 
 # 0.28.0-beta
 - rebase to v13.1.0
