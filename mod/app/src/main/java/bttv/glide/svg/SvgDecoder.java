@@ -2,6 +2,8 @@ package bttv.glide.svg;
 
 import static com.bumptech.glide.request.target.Target.SIZE_ORIGINAL;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
+    private static final String TAG = "LBTTVSVG";
+
     @Override
     public boolean handles(@NonNull InputStream source, @NonNull Options options) throws IOException {
         // TODO
@@ -26,6 +30,9 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
     public Resource<SVG> decode(@NonNull InputStream source, int width, int height, @NonNull Options options) throws IOException {
         try {
             SVG svg = SVG.getFromInputStream(source);
+            Log.d(TAG, "decode: width: " + width + (width == SIZE_ORIGINAL ? " (SIZE_ORIGINAL)" : ""));
+            Log.d(TAG, "decode: height: " + height + (height == SIZE_ORIGINAL ? " (SIZE_ORIGINAL)" : ""));
+
             if (width != SIZE_ORIGINAL) {
                 svg.setDocumentWidth(width);
             }

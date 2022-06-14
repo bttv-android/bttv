@@ -36,7 +36,7 @@ public class Badges {
         }
     }
 
-    public static String getUrl(int channelId, String badgeName, String badgeVersion) {
+    public static String getUrl(int _channelId, String badgeName, String badgeVersion) {
         if (!badgeVersion.equals(BADGE_VERSION)) {
             return null;
         }
@@ -92,6 +92,10 @@ public class Badges {
                         badgeHashMap.put(userId, existingBadges);
                     }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e(TAG, "onResponse: " + e.getMessage(), e);
+                throw e;
             } catch (Exception e) {
                 e.printStackTrace();
                 Log.e(TAG, e.getMessage(), e);
