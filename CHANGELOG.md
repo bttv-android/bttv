@@ -4,6 +4,7 @@
 - rebase to v13.1.1
 - add third party badges:
   - bttv
+  - FFZ
   - 7TV
   - Chatterino
 - adding support for svgs
