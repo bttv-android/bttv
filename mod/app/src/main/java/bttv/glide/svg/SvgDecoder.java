@@ -33,15 +33,20 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
             Log.d(TAG, "decode: width: " + width + (width == SIZE_ORIGINAL ? " (SIZE_ORIGINAL)" : ""));
             Log.d(TAG, "decode: height: " + height + (height == SIZE_ORIGINAL ? " (SIZE_ORIGINAL)" : ""));
 
-            if (width != SIZE_ORIGINAL) {
-                svg.setDocumentWidth(width);
-            }
-            if (height != SIZE_ORIGINAL) {
-                svg.setDocumentHeight(height);
-            }
+            float w = width != SIZE_ORIGINAL ? (float) width : dpToPx(18.0f);
+            float h = height != SIZE_ORIGINAL ? (float) height : dpToPx(18.0f);
+            svg.setDocumentWidth(w);
+            svg.setDocumentWidth(h);
+
+            // TODO: scale so viewbox maxes document
+
             return new SimpleResource<>(svg);
         } catch (Exception e) {
             throw new IOException("Cannot load SVG from stream", e);
         }
+    }
+
+    private static float dpToPx(float f) {
+        return android.util.TypedValue.applyDimension(1, f, android.content.res.Resources.getSystem().getDisplayMetrics());
     }
 }
