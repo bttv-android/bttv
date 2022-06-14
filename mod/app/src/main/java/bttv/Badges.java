@@ -1,5 +1,6 @@
 package bttv;
 
+import android.graphics.Color;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -66,7 +67,11 @@ public class Badges {
             Log.w(TAG, "getUrl: arr not found for " + badgeName);
             return null;
         }
-        return badges.get(ix).url;
+        BTTVBadge badge = badges.get(ix);
+        if (badge.bg != null) {
+            Data.backgrounds.put(badge.url, badge.bg);
+        }
+        return badge.url;
     }
 
     public static void getBadges() {
@@ -167,15 +172,17 @@ public class Badges {
                         String id = badgeObj.getString("id");
 
                         String description = badgeObj.getString("title");
-                        String url = "https:" + badgeObj.getString("image");
+                        String url = "https:" + badgeObj.getJSONObject("urls").getString("2");
                         String replaces = badgeObj.getString("replaces");
+                        String bg = badgeObj.getString("color");
+                        Integer color = Color.parseColor(bg);
 
                         JSONArray usersArr = usersObj.getJSONArray(id);
 
 
                         for (int j = 0; j < usersArr.length(); j++) {
                             String userId = usersArr.getString(j);
-                            BTTVBadge badge = new BTTVBadge(userId, description, url, replaces);
+                            BTTVBadge badge = new BTTVBadge(userId, description, url, replaces, color);
                             appendToUser(badge);
                         }
                     }
@@ -214,15 +221,17 @@ class BTTVBadge {
     String description;
     String url;
     String removes;
+    Integer bg;
 
     public BTTVBadge(String userId, String description, String url) {
-        this(userId, description, url, null);
+        this(userId, description, url, null, null);
     }
 
-    public BTTVBadge(String userId, String description, String url, String removes) {
+    public BTTVBadge(String userId, String description, String url, String removes, Integer bg) {
         this.userId = userId;
         this.description = description;
         this.url = url;
         this.removes = removes;
+        this.bg = bg;
     }
 }

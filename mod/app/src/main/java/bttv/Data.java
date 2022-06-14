@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
 
+import java.util.HashMap;
+
 import bttv.emote.Emotes;
 import bttv.updater.UpdaterJobService;
 import tv.twitch.android.models.channel.ChannelModel;
@@ -11,6 +13,8 @@ import tv.twitch.android.models.channel.ChannelModel;
 public class Data {
     public static int currentBroadcasterId = -1;
     public static Context ctx;
+
+    public static final HashMap<String, Integer> backgrounds = new HashMap<>(3);
 
     public static String currentBroadcasterName = null;
 

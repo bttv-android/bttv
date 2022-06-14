@@ -2,17 +2,35 @@ package bttv.api;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.bumptech.glide.Registry;
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
 
+import bttv.Data;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class Glide {
+
+    public static void maybeSetBG(UrlDrawable urlDrawable, Canvas canvas, Drawable d) {
+        Integer bg = Data.backgrounds.get(urlDrawable.getUrl());
+        if (bg == null) {
+            return;
+        }
+        float[] radii = new float[] { 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f };
+        RoundRectShape shape = new RoundRectShape(radii, null, radii);
+
+        ShapeDrawable drawable = new ShapeDrawable(shape);
+        drawable.getPaint().setColor(bg);
+        drawable.setBounds(d.getBounds());
+        drawable.draw(canvas);
+    }
 
     public static boolean getIsBttvEmote(GlideChatImageTarget target) {
         try {
