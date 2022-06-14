@@ -36,9 +36,7 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
             float w = width != SIZE_ORIGINAL ? (float) width : dpToPx(18.0f);
             float h = height != SIZE_ORIGINAL ? (float) height : dpToPx(18.0f);
             svg.setDocumentWidth(w);
-            svg.setDocumentWidth(h);
-
-            // TODO: scale so viewbox maxes document
+            svg.setDocumentHeight(h);
 
             return new SimpleResource<>(svg);
         } catch (Exception e) {
