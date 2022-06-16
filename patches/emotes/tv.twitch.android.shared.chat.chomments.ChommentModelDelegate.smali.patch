@@ -5,5 +5,5 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMode
 -.class public final Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
 +.class public Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
  .super Ljava/lang/Object;
- .source "SourceFile"
+ .source "ChommentModelDelegate.kt"
  

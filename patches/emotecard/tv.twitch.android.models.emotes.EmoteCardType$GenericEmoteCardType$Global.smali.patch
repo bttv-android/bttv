@@ -5,7 +5,7 @@ diff --git a/smali_classes5/tv/twitch/android/models/emotes/EmoteCardType$Generi
 -.class public final Ltv/twitch/android/models/emotes/EmoteCardType$GenericEmoteCardType$Global;
 +.class public Ltv/twitch/android/models/emotes/EmoteCardType$GenericEmoteCardType$Global;
  .super Ltv/twitch/android/models/emotes/EmoteCardType$GenericEmoteCardType;
- .source "SourceFile"
+ .source "EmoteCardType.kt"
  
 @@ -31,7 +31,7 @@
      return-void
