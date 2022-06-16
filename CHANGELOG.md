@@ -1,7 +1,7 @@
 # Changelog
 
 # master
-- rebase to v13.1.1
+- rebase to v13.2.0
 - add third party badges:
   - bttv
   - FFZ

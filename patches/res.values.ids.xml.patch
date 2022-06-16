@@ -1,7 +1,7 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -3416,4 +3416,8 @@
+@@ -3407,4 +3407,8 @@
      <item type="id" name="write_message_button" />
      <item type="id" name="year_published" />
      <item type="id" name="zero_corner_chip" />

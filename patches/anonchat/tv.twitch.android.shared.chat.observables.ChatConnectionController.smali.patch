@@ -10,7 +10,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/observables/ChatConnec
  
  
  # direct methods
-@@ -1075,6 +1075,11 @@
+@@ -1104,6 +1104,11 @@
  
      iget v1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->viewerId:I
  
@@ -22,7 +22,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/observables/ChatConnec
      iget-object v2, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->screenName:Ljava/lang/String;
  
      invoke-virtual {v0, v1, p1, v2}, Ltv/twitch/android/sdk/ChatController;->connect(IILjava/lang/String;)V
-@@ -1427,6 +1432,14 @@
+@@ -1456,6 +1461,14 @@
      return-object v0
  .end method
  
