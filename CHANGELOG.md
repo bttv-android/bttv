@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.29.0-beta
 - rebase to v13.2.0
 - add third party badges:
   - bttv
