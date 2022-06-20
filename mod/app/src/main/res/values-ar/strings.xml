@@ -25,6 +25,7 @@
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">فرانكر فايس إيموتي أضيف بواسطة %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">تمت اضافة ايموت 7TV بواسطة %s</string>
     <string name="bttv_updater_downloading">جارى التحميل</string>
     <string name="bttv_updater_downloading_version">جارٍ التحميل %s</string>
     <string name="bttv_updater_notice">إذا كانت هذه هي المرة الأولى التي تحدث بها، فيجب عليك ان تسمح بالتثبيت من هذا المصدر عندما يطلب منك Wizard ذلك.</string>
@@ -37,12 +38,17 @@
     <string name="bttv_settings_gif_render_mode_static">ثابت</string>
     <string name="bttv_settings_gif_render_mode_disabled">معطل</string>
     <string name="bttv_settings_open_credits_button_title">المساهمون في العمل</string>
+    <string name="bttv_settings_enable_show_deleted_messages">إظهار الرسائل المحذوفة</string>
+    <string name="bttv_settings_enable_anon_chat_primary">الدردشة المجهولة</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">الانضمام إلى الدردشة بشكل مجهول دون الظهور في قائمة المشاهدين</string>
     <string name="bttv_credits_title">المساهمون في العمل</string>
     <string name="bttv_credits_intro">تم صنع بيتر تي في بواسطة <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> بمساعدة من الناس الطيبه:</string>
     <string name="bttv_credits_bugs">تقارير الأخطاء</string>
     <string name="bttv_credits_ideas">أفكار</string>
     <string name="bttv_credits_translations">الترجمات</string>
+    <string name="bttv_credits_docs">التوثيق</string>
     <string name="bttv_copied_to_clipboard">تم نسخ إسم المستخدم إلى الحافظة</string>
+    <string name="bttv_settings_enable_split_chat">تقسيم الدردشة</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_removed_by_mod">إزالة</string>
