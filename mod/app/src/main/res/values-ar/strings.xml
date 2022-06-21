@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">مرحبا بكم في\nتويتش أفضل</string>
+    <string name="login_landing_title">مرحبًا بكم فيBetter Twitch\n</string>
     <string name="bttv_emote_picker_global_bttv">ايموتات BTTV العالمية</string>
     <string name="bttv_emote_picker_channel_bttv">ايموتات BTTV للقناة</string>
     <string name="bttv_emote_picker_global_ffz">ايموتات FrankerFaceZ العالمية</string>
@@ -43,8 +43,8 @@
     <string name="bttv_settings_enable_anon_chat_secondary">الانضمام إلى الدردشة بشكل مجهول دون الظهور في قائمة المشاهدين</string>
     <string name="bttv_credits_title">المساهمون في العمل</string>
     <string name="bttv_credits_intro">تم صنع bttv-android بواسطة <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> بمساعدة هؤلاء الأشخاص:</string>
-    <string name="bttv_credits_bugs">تقارير الأخطاء</string>
-    <string name="bttv_credits_ideas">أفكار</string>
+    <string name="bttv_credits_bugs">الإبلاغ عن الأخطاء</string>
+    <string name="bttv_credits_ideas">الأفكار</string>
     <string name="bttv_credits_translations">الترجمات</string>
     <string name="bttv_credits_docs">التوثيق</string>
     <string name="bttv_copied_to_clipboard">تم نسخ إسم المستخدم إلى الحافظة</string>
