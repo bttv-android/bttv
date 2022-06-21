@@ -3,6 +3,17 @@
     <string name="login_landing_title">Добре дошли в\nBetter Twitch</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_credits_intro">bttv-android е създаден от <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> с помощта на тези мили хора:</string>
+    <string name="bttv_credits_ideas">Идеи</string>
+    <string name="bttv_credits_translations">Преводи</string>
+    <string name="bttv_credits_docs">Документация</string>
+    <string name="bttv_copied_to_clipboard">Потребителското име е копирано в клипборда</string>
+    <string name="bttv_settings_enable_split_chat">Разделяне на чата</string>
+    <string name="bttv_settings_enable_split_chat_descr">Затъмняване на фона за всяко второ съобщение</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Анимирай завинаги</string>
+    <string name="bttv_settings_enable_dev_tools">Инструменти за разработчици</string>
+    <string name="bttv_highlight_dia_list_empty">Тук няма нищо\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_removed_by_mod">премахнат</string>
 </resources>
