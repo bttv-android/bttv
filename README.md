@@ -197,6 +197,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/linkmath"><img src="https://avatars.githubusercontent.com/u/43995639?v=4?s=100" width="100px;" alt=""/><br /><sub><b>linkmath</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Alinkmath" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://thedearbear.com"><img src="https://avatars.githubusercontent.com/u/37769766?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Oleg</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ATheDearbear" title="Bug reports">🐛</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/3bood-k"><img src="https://avatars.githubusercontent.com/u/74608947?v=4?s=100" width="100px;" alt=""/><br /><sub><b>3bood_k</b></sub></a><br /><a href="#translation-3bood-k" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
