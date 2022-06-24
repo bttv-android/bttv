@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">مرحبا بكم في \nبيتر تويتش</string>
-    <string name="bttv_emote_picker_global_bttv">ايموتات بيتر تي في العالميه</string>
-    <string name="bttv_emote_picker_channel_bttv">ايموتات بيتر تي في للقناة</string>
-    <string name="bttv_emote_picker_global_ffz">ايموتات فرانكيرفايسيز العالميه</string>
-    <string name="bttv_emote_picker_channel_ffz">ايموتات فرانكيرفيسيز للقناة</string>
-    <string name="bttv_emote_picker_global_7tv">ايموتات سفن تي في العالميه</string>
-    <string name="bttv_emote_picker_channel_7tv">ايموتات سفن تي في للقناة</string>
-    <string name="bttv_app_update_available">bttv-android: تم اكتشاف تحديث جديد</string>
+    <string name="login_landing_title">مرحبًا بكم فيBetter Twitch\n</string>
+    <string name="bttv_emote_picker_global_bttv">ايموتات BTTV العالمية</string>
+    <string name="bttv_emote_picker_channel_bttv">ايموتات BTTV للقناة</string>
+    <string name="bttv_emote_picker_global_ffz">ايموتات FrankerFaceZ العالمية</string>
+    <string name="bttv_emote_picker_channel_ffz">ايموتات FrankerFaceZ للقناة</string>
+    <string name="bttv_emote_picker_global_7tv">ايموتات 7TV العالمية</string>
+    <string name="bttv_emote_picker_channel_7tv">ايموتات 7TV للقناة</string>
+    <string name="bttv_app_update_available">تم اكتشاف تحديث جديد</string>
     <string name="bttv_app_update_available_cta">انقر هنا لتنزيل وتثبيت التحديث.</string>
-    <string name="bttv_sleep_timer_button_descr">فتح حوار النوم الموقت</string>
+    <string name="bttv_sleep_timer_button_descr">فتح حوار مؤقت النوم</string>
     <string name="bttv_sleep_timer_select_dialog_title">مؤقت النوم</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">الغاء مؤقت النوم</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">لديك بالفعل مؤقت النوم قيد التشغيل. هل تريد إلغائه؟</string>
-    <string name="bttv_settings_enable_bttv_emotes_primary">ايموتات بيتر تي في</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">ايموتات BTTV</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">لماذا تقوم بتعطيل هذا؟</string>
-    <string name="bttv_settings_enable_gif_emotes_primary">ايموتات الجيف بيتر تي في</string>
-    <string name="bttv_settings_enable_ffz_emotes_primary">ايموتات فرانكيرفيسيز</string>
-    <string name="bttv_settings_enable_7tv_emotes_primary">ايموتات سفن تي في</string>
-    <string name="bttv_settings_enable_auto_redeem_points_primary">احصل على نقاط القناة بشكل تلقائي</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">ايموتات BTTV المتحركة</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">ايموتات FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">ايموتات 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">الحصول على نقاط القناة بشكل تلقائي</string>
     <string name="bttv_settings_show_sleep_timer_primary">إظهار مؤقت النوم</string>
-    <string name="bttv_settings_show_uptime">إضهار قتي</string>
-    <string name="bttv_emote_added_by_bttv">ايموتات تمت اضافتها من بيتر تي في اندرويد</string>
+    <string name="bttv_settings_show_uptime">إظهار وقت البث</string>
+    <string name="bttv_emote_added_by_bttv">تم إضافة الإيموت بواسطة bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
-    <string name="bttv_emote_added_by_bttv_ffz">فرانكر فايس إيموتي أضيف بواسطة %s</string>
+    <string name="bttv_emote_added_by_bttv_ffz">تم إضافة إيموت FrankerFaceZ بواسطة %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
-    <string name="bttv_updater_downloading">جارى التحميل</string>
-    <string name="bttv_updater_downloading_version">جارٍ التحميل %s</string>
-    <string name="bttv_updater_notice">إذا كانت هذه هي المرة الأولى التي تحدث بها، فيجب عليك ان تسمح بالتثبيت من هذا المصدر عندما يطلب منك Wizard ذلك.</string>
-    <string name="bttv_settings_open_highlights_dia_primary">عين الكلمات المميزه</string>
-    <string name="bttv_settings_open_highlights_dia_secondary">افتح حوار الكلمات المميزه</string>
-    <string name="bttv_settings_highlights_dia_input_hint">ادخل الكلمة المفتاحية</string>
-    <string name="bttv_settings_highlights_dia_title">ادارة الكلمات المميزه</string>
-    <string name="bttv_settings_gif_render_mode_title">ايموتات الجيف</string>
+    <string name="bttv_emote_added_by_bttv_stv">تم إضافة ايموت 7TV بواسطة %s</string>
+    <string name="bttv_updater_downloading">جار التحميل</string>
+    <string name="bttv_updater_downloading_version">جار تحميل اصدار %s</string>
+    <string name="bttv_updater_notice">إذا كانت هذه هي المرة الأولى التي تُحدث بها، فيجب عليك ان تسمح بالتثبيت من هذا المصدر عندما يطلب منك الهاتف بذلك.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">تعيين الكلمات المميزة</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">فتح حوار الكلمات المميزة</string>
+    <string name="bttv_settings_highlights_dia_input_hint">ادخل كلمة جديدة</string>
+    <string name="bttv_settings_highlights_dia_title">ادارة الكلمات المميزة</string>
+    <string name="bttv_settings_gif_render_mode_title">ايموتات متحركة</string>
     <string name="bttv_settings_gif_render_mode_animate">متحرك</string>
     <string name="bttv_settings_gif_render_mode_static">ثابت</string>
     <string name="bttv_settings_gif_render_mode_disabled">معطل</string>
     <string name="bttv_settings_open_credits_button_title">المساهمون في العمل</string>
+    <string name="bttv_settings_enable_show_deleted_messages">إظهار الرسائل المحذوفة</string>
+    <string name="bttv_settings_enable_anon_chat_primary">دردشة مجهولة</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">الانضمام إلى الدردشة بشكل مجهول دون الظهور في قائمة المشاهدين</string>
     <string name="bttv_credits_title">المساهمون في العمل</string>
-    <string name="bttv_credits_intro">تم صنع بيتر تي في بواسطة <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> بمساعدة من الناس الطيبه:</string>
-    <string name="bttv_credits_bugs">تقارير الأخطاء</string>
-    <string name="bttv_credits_ideas">أفكار</string>
+    <string name="bttv_credits_intro">تم صنع bttv-android بواسطة <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> بمساعدة هؤلاء الأشخاص:</string>
+    <string name="bttv_credits_bugs">الإبلاغ عن الأخطاء</string>
+    <string name="bttv_credits_ideas">الأفكار</string>
     <string name="bttv_credits_translations">الترجمات</string>
+    <string name="bttv_credits_docs">التوثيق</string>
     <string name="bttv_copied_to_clipboard">تم نسخ إسم المستخدم إلى الحافظة</string>
+    <string name="bttv_settings_enable_split_chat">تقسيم الدردشة</string>
+    <string name="bttv_settings_enable_split_chat_descr">تلوين خلفية كل رسالة من رسائل الدردشة</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">تحريك إلى الأبد</string>
+    <string name="bttv_settings_gif_render_mode_descr">ملاحظة: \"تحريك إلى الأبد\" قد يستنزف البطارية الخاصة بك بسرعة كبيرة</string>
+    <string name="bttv_settings_enable_dev_tools">تفعيل أداة المطور</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">إدارة التجارِب، ووقت الاستجابة والإعدادات الأخرى. كن حذرًا.</string>
+    <string name="bttv_highlight_dia_list_empty">لا يوجد شيء هنا\n
+¯/_(ツ)_\\¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[يمكنك تمييز <user> مثل هذا. مثلاً: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">ليس لديك تطبيق Twitch مثبتًا على جهازك. من أجل استخدام Watch Parties في bttv-android، يجب أن يكون لديك تطبيق Twitch مثبتًا.\n\nكما يجب عليك منع Twitch من الفتح عندما تتفاعل مع روابط twitch.tv. قم بما يلي:\n\nاضغط مطولاً على تطبيق Twitch -&gt; \"معلومات التطبيق\" -&gt; \"متقدم\" -&gt; \"الفتح الافتراضي\" -&gt; \"فتح الروابط المدعومة\" -&gt; \"اسأل في كل مرة\" (قد يختلف اعتمادًا على نوعية هاتفك).\n\nالآن يتم سؤالك عن التطبيق الذي تريد فتح الروابط به.</string>
     <string name="bttv_removed_by_mod">إزالة</string>
 </resources>

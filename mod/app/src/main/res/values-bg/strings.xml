@@ -1,8 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Добре дошли в\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Общи BTTV емоти</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV емоти на канала</string>
+    <string name="bttv_emote_picker_global_ffz">Общи FrankerFaceZ емоти</string>
+    <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ емоти на канала</string>
+    <string name="bttv_emote_picker_global_7tv">Общи 7TV емоти</string>
+    <string name="bttv_emote_picker_channel_7tv">7TV емоти на канала</string>
+    <string name="bttv_app_update_available">bttv-android: Намерена е нова актуализация</string>
+    <string name="bttv_app_update_available_cta">Натисни тук да свалиш и инсталираш новата актуализация.</string>
+    <string name="bttv_sleep_timer_button_descr">Отвори прозореца за таймера за заспиване</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Таймер за заспиване</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Отмени таймер за заспиване</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Вече има активен таймер за заспиване. Искаш ли да го отмениш?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV емоти</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Защо би го изключил това?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif емоти</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ емоти</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV емоти</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Автоматично събиране на точки за канал</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Покажи таймера за заспиване</string>
+    <string name="bttv_settings_show_uptime">Покажи време на експлоатация</string>
+    <string name="bttv_emote_added_by_bttv">Емота е добавен от bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ емота е добавен от %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV емота е добавен от %s</string>
+    <string name="bttv_updater_downloading">Изтегляне</string>
+    <string name="bttv_updater_downloading_version">Изтегляне на %s</string>
+    <string name="bttv_updater_notice">Ако това е първият път, който използвате актуализатора, разрешете инсталации от този източник, когато съветникът ви поиска това.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Управление на акцентираните ключови думи</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Отваряне на на прозореца с акцентираните ключови думи</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Въведете нова ключова дума</string>
+    <string name="bttv_settings_highlights_dia_title">Управление на акцентираните ключови думи</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif емоти</string>
+    <string name="bttv_settings_gif_render_mode_animate">Анимирани</string>
+    <string name="bttv_settings_gif_render_mode_static">Статични</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Изключено</string>
+    <string name="bttv_settings_open_credits_button_title">Заслуги</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Покажи изтритите съобщения</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Анонимен чат</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Влизане в чата без появяване в списъка с потребители</string>
+    <string name="bttv_credits_title">Заслуги</string>
+    <string name="bttv_credits_intro">bttv-android е създаден от <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> с помощта на тези мили хора:</string>
+    <string name="bttv_credits_bugs">Докладване на неизправности</string>
+    <string name="bttv_credits_ideas">Идеи</string>
+    <string name="bttv_credits_translations">Преводи</string>
+    <string name="bttv_credits_docs">Документация</string>
+    <string name="bttv_copied_to_clipboard">Потребителското име е копирано в клипборда</string>
+    <string name="bttv_settings_enable_split_chat">Разделяне на чата</string>
+    <string name="bttv_settings_enable_split_chat_descr">Затъмняване на фона за всяко второ съобщение</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Анимирай завинаги</string>
+    <string name="bttv_settings_gif_render_mode_descr">Забележка: \"Анимирай завинаги\" може да изтощи батерията много бързо</string>
+    <string name="bttv_settings_enable_dev_tools">Инструменти за разработчици</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Управление на експерименти, забавяне и други настройки. Продължете с повишено внимание.</string>
+    <string name="bttv_highlight_dia_list_empty">Тук няма нищо\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Може да акцентирате <user> така: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Нямате инсталирано приложението Twitch на вашето устройство. За да използвате Watch Party в bttv-android, трябва да имате инсталирано приложението Twitch.\n\nСъщо така трябва да предотвратите отварянето на Twitch, когато взаимодействате с линкове към twitch.tv. Направете следното:\n\nНатиснете продължително върху приложението Twitch -&gt; \"App Info\" -&gt; \"Advanced\" -&gt; \"Open by default\" -&gt; \"Open supported links\" -&gt; \"Ask every time\" (може да варира според производителя).\n\nСега ще бъдете попитани с кое приложение искате да отворите връзките.</string>
+    <string name="bttv_removed_by_mod">премахнат</string>
 </resources>
