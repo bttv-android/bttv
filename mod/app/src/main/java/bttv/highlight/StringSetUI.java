@@ -22,7 +22,7 @@ import bttv.settings.UserPreferences;
 
 /** Parent class for both the Highlight and Blacklist features */
 public abstract class StringSetUI {
-    static Set<String> stringSet = null;
+    Set<String> stringSet = null;
 
     private final Settings stringSetSetting;
     private final Res.layouts dialogLayoutRes;

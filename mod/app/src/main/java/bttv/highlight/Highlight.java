@@ -87,12 +87,12 @@ public class Highlight extends StringSetUI {
         getInstance().loadSet();
         if (word.startsWith("<") || word.endsWith(">"))
             return false;
-        return stringSet.contains(word.toLowerCase());
+        return INSTANCE.stringSet.contains(word.toLowerCase());
     }
 
     public static boolean shouldHighlightChannel(String name) {
         getInstance().loadSet();
-        return stringSet.contains("<" + name.toLowerCase() + ">");
+        return INSTANCE.stringSet.contains("<" + name.toLowerCase() + ">");
     }
 
 }
