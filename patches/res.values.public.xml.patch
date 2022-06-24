@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13729,4 +13729,86 @@
+@@ -13729,4 +13729,93 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -32,6 +32,9 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="id" name="bttv_stream_settings_open_highlight_button_secondary" id="0x7f0b0e8b" />
 +    <public type="id" name="bttv_chat_settings_bs_title" id="0x7f0b0e8c" />
 +    <public type="id" name="bttv_chat_settings_bs_container" id="0x7f0b0e8d" />
++    <public type="id" name="bttv_stream_settings_open_blacklist_button" id="0x7f0b0e8e" />
++    <public type="id" name="bttv_stream_settings_open_blacklist_button_primary" id="0x7f0b0e8f" />
++    <public type="id" name="bttv_stream_settings_open_blacklist_button_secondary" id="0x7f0b0e90" />
 +    <public type="layout" name="bttv_highlight_dialog" id="0x7f0e036e" />
 +    <public type="layout" name="bttv_highlight_list_view" id="0x7f0e036f" />
 +    <public type="layout" name="bttv_updater_activity" id="0x7f0e0370" />
@@ -85,6 +88,10 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_highlight_user_notice" id="0x7f130e67" />
 +    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f130e68" />
 +    <public type="string" name="bttv_removed_by_mod" id="0x7f130e69" />
++    <public type="string" name="bttv_settings_open_blacklist_dia_primary" id="0x7f130e6a" />
++    <public type="string" name="bttv_settings_open_blacklist_dia_secondary" id="0x7f130e6b" />
++    <public type="string" name="bttv_settings_blacklist_dia_title" id="0x7f130e6c" />
++    <public type="string" name="bttv_blacklist_user_notice" id="0x7f130e6d" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080542" />
 +    <!-- /BTTV -->
  </resources>

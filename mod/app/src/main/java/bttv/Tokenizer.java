@@ -34,7 +34,7 @@ public class Tokenizer {
 
         // Don't add Emotes, when we don't have the channel's emotes (yet)
         // and we don't need to Highlight any messages
-        if (!Emotes.channelHasEmotes(ctx, channel) && Highlight.isEmpty()) {
+        if (!Emotes.channelHasEmotes(ctx, channel) && Highlight.getInstance().isEmpty()) {
             return new Pair<>(orig, false);
         }
 

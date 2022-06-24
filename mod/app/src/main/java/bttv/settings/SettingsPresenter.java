@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 
 import bttv.Credits;
+import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
 import bttv.settings.abstractions.Dropdown;
 import bttv.settings.abstractions.Link;
@@ -89,7 +90,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 			public void navigateToSettingFragment(SettingsDestination settingsDestination, Bundle bundle) {
 				Log.i("LBTTVDEBUG", "navigateToSettingFragment: " + settingsDestination);
 				if (settingsDestination.equals(SettingsDestination.BTTV_HIGHLIGHTS)) {
-					Highlight.openDialog(context);
+					Highlight.getInstance().openDialog(context);
+				} else if (settingsDestination.equals(SettingsDestination.BTTV_BLACKLIST)) {
+					Blacklist.getInstance().openDialog(context);
 				} else if (settingsDestination.equals(SettingsDestination.BTTV_CREDITS)) {
 					Credits.openDialog(context);
 				}
