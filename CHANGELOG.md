@@ -1,6 +1,7 @@
 # Changelog
 
 # master
+- add blacklist feature
 - rebase to v13.2.1
 
 # 0.29.0-beta
