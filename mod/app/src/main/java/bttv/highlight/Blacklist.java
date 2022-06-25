@@ -1,5 +1,7 @@
 package bttv.highlight;
 
+import android.util.Log;
+
 import bttv.Res;
 import bttv.settings.Settings;
 
@@ -16,5 +18,9 @@ public class Blacklist extends StringSetUI {
             INSTANCE = new Blacklist();
         }
         return INSTANCE;
+    }
+    public static boolean shouldBlock(String word) {
+        getInstance().loadSet();
+        return INSTANCE.stringSet.contains(word);
     }
 }

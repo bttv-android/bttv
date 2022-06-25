@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -13729,4 +13729,93 @@
+@@ -13729,4 +13729,92 @@
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="syncadapter" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
@@ -91,7 +91,6 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_settings_open_blacklist_dia_primary" id="0x7f130e6a" />
 +    <public type="string" name="bttv_settings_open_blacklist_dia_secondary" id="0x7f130e6b" />
 +    <public type="string" name="bttv_settings_blacklist_dia_title" id="0x7f130e6c" />
-+    <public type="string" name="bttv_blacklist_user_notice" id="0x7f130e6d" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f080542" />
 +    <!-- /BTTV -->
  </resources>

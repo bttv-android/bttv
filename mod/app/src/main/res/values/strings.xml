@@ -65,5 +65,4 @@
     <string name="bttv_settings_open_blacklist_dia_secondary">Opens Blacklist Dialog</string>
     <string name="bttv_settings_blacklist_dia_title">Manage blacklisted Keywords</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
-    <string name="bttv_blacklist_user_notice"><![CDATA[You can blacklist a <user> like this. e.g.: <fosefx>]]></string>
 </resources>
