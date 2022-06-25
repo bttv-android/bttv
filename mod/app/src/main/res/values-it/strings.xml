@@ -59,4 +59,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[È possibile evidenziare un <user> come questo. Ad esempio: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Non hai installato l\'App Twitch sul tuo dispositivo. Per poter utilizzare Watch Parties in bttv-android è necessario avere installato l\'App Twitch.\n\nDevi anche impedire che Twitch si apra quando interagisci con i link twitch.tv. Fai quanto segue:\n\nPremi a lungo sull\'app Twitch -&gt; \"Informazioni sull\'App\" -&gt; \"Avanzate\" -&gt; \"Apri per impostazione predefinita\" -&gt; \"Apri link supportati\" -&gt; \"Chiedi ogni volta\" (potrebbe variare a seconda dell\'OEM).\n\nOra ti viene chiesto con quale App vuoi aprire i collegamenti.</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
