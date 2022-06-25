@@ -59,10 +59,10 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[يمكنك تمييز <user> مثل هذا. مثلاً: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
-    <string name="bttv_watchparty_twitch_missing">ليس لديك تطبيق Twitch مثبتًا على جهازك. من أجل استخدام Watch Parties في bttv-android، يجب أن يكون لديك تطبيق Twitch مثبتًا.\n\nكما يجب عليك منع Twitch من الفتح عندما تتفاعل مع روابط twitch.tv. قم بما يلي:\n\nاضغط مطولاً على تطبيق Twitch -&gt; \"معلومات التطبيق\" -&gt; \"متقدم\" -&gt; \"الفتح الافتراضي\" -&gt; \"فتح الروابط المدعومة\" -&gt; \"اسأل في كل مرة\" (قد يختلف اعتمادًا على نوعية هاتفك).\n\nالآن يتم سؤالك عن التطبيق الذي تريد فتح الروابط به.</string>
-    <string name="bttv_removed_by_mod">إزالة</string>
+    <string name="bttv_watchparty_twitch_missing">ليس لديك تطبيق Twitch مثبتًا على جهازك. من أجل استخدام Watch Parties في bttv-android، يجب أن يكون لديك تطبيق Twitch مثبتًا.\n\nكما يجب عليك منع Twitch من الفتح عندما تتفاعل مع روابط twitch.tv. قم بما يلي:\n\nاضغط مطولاً على تطبيق تويتش -&gt; \"معلومات التطبيق\" -&gt; \"متقدم\" -&gt; \"الفتح الافتراضي\" -&gt; \"فتح الروابط المدعومة\" -&gt; \"اسأل في كل مرة\" (قد يختلف اعتمادًا على نوعية هاتفك).\n\nالآن يتم سؤالك عن التطبيق الذي تريد فتح الروابط به.</string>
+    <string name="bttv_removed_by_mod">تم الإزالة</string>
     <string name="bttv_settings_open_blacklist_dia_primary">إدارة القائمة السوداء</string>
     <string name="bttv_settings_open_blacklist_dia_secondary">فتح نافذة القائمة السوداء</string>
-    <string name="bttv_settings_blacklist_dia_title">إدارة الكلمات في قائمة السوداء</string>
+    <string name="bttv_settings_blacklist_dia_title">إدارة الكلمات في القائمة السوداء</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
