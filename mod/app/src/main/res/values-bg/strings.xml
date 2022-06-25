@@ -60,4 +60,5 @@
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Нямате инсталирано приложението Twitch на вашето устройство. За да използвате Watch Party в bttv-android, трябва да имате инсталирано приложението Twitch.\n\nСъщо така трябва да предотвратите отварянето на Twitch, когато взаимодействате с линкове към twitch.tv. Направете следното:\n\nНатиснете продължително върху приложението Twitch -&gt; \"App Info\" -&gt; \"Advanced\" -&gt; \"Open by default\" -&gt; \"Open supported links\" -&gt; \"Ask every time\" (може да варира според производителя).\n\nСега ще бъдете попитани с кое приложение искате да отворите връзките.</string>
     <string name="bttv_removed_by_mod">премахнат</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
