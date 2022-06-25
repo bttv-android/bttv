@@ -59,4 +59,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[您可以高亮显示用户 。例如： <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">您的设备上没有安装Twitch应用程序。 为了在 bttv-android 中使用Watch Parties，您需要安装 Twitch 应用程序。\n\n您也必须阻止Twitch打开 twitch.tv 链接。请使用以下操作：\n\n长按Twitch 应用-&gt; \"应用信息\" -&gt; \"高级\" -&gt; \"默认打开\" -&gt; \"打开支持的链接\" -&gt; \"每次询问\" (可能会根据OEM而变化)。\n\n现在将询问打开链接的应用程序。</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
