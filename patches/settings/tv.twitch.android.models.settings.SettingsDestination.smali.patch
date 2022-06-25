@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 --- a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -104,11 +104,36 @@
+@@ -104,11 +104,43 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
@@ -9,6 +9,7 @@ diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestinatio
 +.field public static final enum BTTV:Ltv/twitch/android/models/settings/SettingsDestination;
 +.field public static final enum BTTV_HIGHLIGHTS:Ltv/twitch/android/models/settings/SettingsDestination;
 +.field public static final enum BTTV_CREDITS:Ltv/twitch/android/models/settings/SettingsDestination;
++.field public static final enum BTTV_BLACKLIST:Ltv/twitch/android/models/settings/SettingsDestination;
 +# /BTTV
  
  # direct methods
@@ -33,6 +34,12 @@ diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestinatio
 +    const/16 v2, 0x2f
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
 +    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV_CREDITS:Ltv/twitch/android/models/settings/SettingsDestination;
++
++    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
++    const-string v1, "BTTV_BLACKLIST"
++    const/16 v2, 0x30
++    invoke-direct {v0, v1, v2}, Ltv/twitch/android/models/settings/SettingsDestination;-><init>(Ljava/lang/String;I)V
++    sput-object v0, Ltv/twitch/android/models/settings/SettingsDestination;->BTTV_BLACKLIST:Ltv/twitch/android/models/settings/SettingsDestination;
 +    # /BTTV
 +
      .line 9

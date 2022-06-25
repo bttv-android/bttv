@@ -14,7 +14,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMes
      if-eqz p12, :cond_4
  
      .line 790
-@@ -3069,6 +3075,13 @@
+@@ -3069,6 +3075,21 @@
  
      invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
@@ -23,12 +23,20 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +    #     expects:
 +    #       v14: tv.twitch.android.provider.chat.ChatMessageInterface
 +    invoke-static {v14}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
++
++    # dont add if contians word on blocklist
++    invoke-static {v14}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/provider/chat/ChatMessageInterface;)Z
++    move-result v0
++    if-eqz v0, :skipnullreturn
++    const/4 v0, 0x0
++    return-object v0
++    :skipnullreturn
 +    # /BTTV
 +
      const-string v0, "webViewSource"
  
      move-object/from16 v8, p8
-@@ -4515,6 +4528,13 @@
+@@ -4515,6 +4536,13 @@
      .line 360
      iget-object v4, v13, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
  

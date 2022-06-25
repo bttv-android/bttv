@@ -19,7 +19,9 @@ import java.util.ArrayList;
 import bttv.AnonChat;
 import bttv.Res;
 import bttv.ResUtil;
+import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
+import bttv.highlight.StringSetUI;
 
 public class StreamSettings {
     public static void setupBTTVStreamSettings(Activity activity, View view) {
@@ -30,7 +32,8 @@ public class StreamSettings {
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_auto_redeem_toggle, Settings.AutoRedeemChannelPointsEnabled);
         setupBooleanToggle(view, Res.ids.bttv_stream_settings_enable_show_deleted_messages_toggle, Settings.ShowDeletedMessagesEnabled);
         setupAnonChatToggle(view);
-        setupOpenHighlightDialog(activity, view);
+        setupOpenStringSetUIDialog(activity, view, Res.ids.bttv_stream_settings_open_highlight_button, Highlight.getInstance());
+        setupOpenStringSetUIDialog(activity, view, Res.ids.bttv_stream_settings_open_blacklist_button, Blacklist.getInstance());
     }
 
     private static void setupBooleanToggle(View view, Res.ids toggleId, Settings setting, View.OnClickListener onClickListener) {
@@ -125,14 +128,14 @@ public class StreamSettings {
         });
     }
 
-    private static void setupOpenHighlightDialog(Activity activity, View view) {
-        int id = ResUtil.getResourceId(view.getContext(), Res.ids.bttv_stream_settings_open_highlight_button);
+    private static void setupOpenStringSetUIDialog(Activity activity, View view, Res.ids buttonId, StringSetUI setUI) {
+        int id = ResUtil.getResourceId(view.getContext(), buttonId);
         View button = view.findViewById(id);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Highlight.openDialog(activity);
+                setUI.openDialog(activity);
             }
         });
     }

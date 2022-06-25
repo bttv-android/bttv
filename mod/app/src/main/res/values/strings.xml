@@ -61,4 +61,8 @@
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">You do not have the Twitch App installed on your device. In order to use Watch Parties in bttv-android you need to have the Twitch App installed.\n\nYou also have to prevent Twitch from opening when you interact with twitch.tv links. Do the following:\n\nLong-press on the Twitch App -> "App Info" -> "Advanced" -> "Open by default" -> "Open supported links" -> "Ask every time" (might vary depending on OEM).\n\nNow you are asked which App you want to open the links with.</string>
     <string name="bttv_removed_by_mod">removed</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Manage Blacklist</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Opens Blacklist Dialog</string>
+    <string name="bttv_settings_blacklist_dia_title">Manage blacklisted Keywords</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

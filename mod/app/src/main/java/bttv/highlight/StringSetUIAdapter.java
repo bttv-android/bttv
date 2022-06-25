@@ -17,23 +17,25 @@ import java.util.List;
 import bttv.Res;
 import bttv.ResUtil;
 
-public class HighlightAdapter extends ArrayAdapter<String> {
+public class StringSetUIAdapter extends ArrayAdapter<String> {
     public interface AfterRemoved {
         void onAfterRemoved();
     }
 
-    public static final String TAG = "LBTTVHighlAdapter";
+    public static final String TAG = "LBTTVStringSetUIAdapter";
 
     public AfterRemoved afterRemovedListener;
     private final Context context;
     private final int res;
+    private final StringSetUI setUI;
     private final List<String> words;
 
-    public HighlightAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
+    public StringSetUIAdapter(@NonNull Context context, int resource, @NonNull List<String> objects, StringSetUI setUI) {
         super(context, resource, objects);
         this.context = context;
         this.res = resource;
         this.words = objects;
+        this.setUI = setUI;
     }
 
     @NonNull
@@ -52,7 +54,7 @@ public class HighlightAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View v) {
                 String word = words.get(position);
-                Highlight.remove(word);
+                setUI.remove(word);
                 words.remove(position);
                 notifyDataSetChanged();
                 Log.i(TAG, "onClick: " + word);

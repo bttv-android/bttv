@@ -33,6 +33,7 @@ public class Res {
         bttv_stream_settings_enable_anon_chat_toggle,
         bttv_stream_settings_gif_mode_spinner,
         bttv_stream_settings_open_highlight_button,
+        bttv_stream_settings_open_blacklist_button,
         bttv_chat_settings_bs_title,
         bttv_chat_settings_bs_container,
     }
@@ -43,7 +44,8 @@ public class Res {
         bttv_highlight_dialog,
         bttv_updater_activity,
         bttv_highlight_list_view,
-        bttv_credits_dialog
+        bttv_credits_dialog,
+        bttv_blacklist_dialog,
     }
     public enum strings {
         app_name,
@@ -103,6 +105,8 @@ public class Res {
         bttv_highlight_user_notice,
         bttv_watchparty_twitch_missing,
         bttv_removed_by_mod,
+        bttv_settings_open_blacklist_dia_primary,
+        bttv_settings_open_blacklist_dia_secondary,
     }
 
     public enum drawables {

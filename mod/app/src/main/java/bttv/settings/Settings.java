@@ -126,6 +126,23 @@ public enum Settings {
                     null
             )
     ),
+    OpenBlacklistButton(
+            new Entry.LinkEntry(
+                    Res.strings.bttv_settings_open_blacklist_dia_primary,
+                    Res.strings.bttv_settings_open_blacklist_dia_secondary,
+                    null,
+                    SettingsDestination.BTTV_BLACKLIST
+            )
+    ),
+    BlacklistedKeyWords(
+            new Entry.StringSetEntry(
+                    "bttv_blacklist_set",
+                    new HashSet<>(),
+                    null,
+                    null,
+                    null
+            )
+    ),
     DevToolsEnabled(
             new Entry.BoolEntry(
                     "bttv_enable_dev_tools",
