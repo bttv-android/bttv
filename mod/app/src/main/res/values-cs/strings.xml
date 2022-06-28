@@ -60,4 +60,5 @@
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Na svém zařízení nemáte aplikaci Twitch nainstalovanou. Abyste mohli používat funkci Watch Party v bttv-android je třeba mít aplikaci Twitch nainstalovanou.\n\nTaké musíte zabrát spuštění Twitch aplikace, když otevírate twitch.tv odkazy. Udělejte následující:\n\nDlouze podržte aplikaci Twitch -&gt; \"Informace o aplikaci\" -&gt; \"Pokročilé\" -&gt; \"Ve výchozím nastavení otevřít\" -&gt; \"Otevřít podporované odkazy\" -&gt; \"Vždy se ptát\" (může se lišit podle OEM).\n\nNyní budete dotázáni jakou aplikací budete chtít otevírat odkazy.</string>
     <string name="bttv_removed_by_mod">odstraněno</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

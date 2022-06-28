@@ -9,7 +9,7 @@
     <string name="bttv_emote_picker_channel_7tv">ايموتات 7TV للقناة</string>
     <string name="bttv_app_update_available">تم اكتشاف تحديث جديد</string>
     <string name="bttv_app_update_available_cta">انقر هنا لتنزيل وتثبيت التحديث.</string>
-    <string name="bttv_sleep_timer_button_descr">فتح حوار مؤقت النوم</string>
+    <string name="bttv_sleep_timer_button_descr">فتح نافذة مؤقت النوم</string>
     <string name="bttv_sleep_timer_select_dialog_title">مؤقت النوم</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">الغاء مؤقت النوم</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">لديك بالفعل مؤقت النوم قيد التشغيل. هل تريد إلغائه؟</string>
@@ -30,9 +30,9 @@
     <string name="bttv_updater_downloading_version">جار تحميل اصدار %s</string>
     <string name="bttv_updater_notice">إذا كانت هذه هي المرة الأولى التي تُحدث بها، فيجب عليك ان تسمح بالتثبيت من هذا المصدر عندما يطلب منك الهاتف بذلك.</string>
     <string name="bttv_settings_open_highlights_dia_primary">تعيين الكلمات المميزة</string>
-    <string name="bttv_settings_open_highlights_dia_secondary">فتح حوار الكلمات المميزة</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">فتح نافذة الكلمات المميزة</string>
     <string name="bttv_settings_highlights_dia_input_hint">ادخل كلمة جديدة</string>
-    <string name="bttv_settings_highlights_dia_title">ادارة الكلمات المميزة</string>
+    <string name="bttv_settings_highlights_dia_title">إدارة الكلمات المميزة</string>
     <string name="bttv_settings_gif_render_mode_title">ايموتات متحركة</string>
     <string name="bttv_settings_gif_render_mode_animate">متحرك</string>
     <string name="bttv_settings_gif_render_mode_static">ثابت</string>
@@ -59,6 +59,10 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[يمكنك تمييز <user> مثل هذا. مثلاً: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
-    <string name="bttv_watchparty_twitch_missing">ليس لديك تطبيق Twitch مثبتًا على جهازك. من أجل استخدام Watch Parties في bttv-android، يجب أن يكون لديك تطبيق Twitch مثبتًا.\n\nكما يجب عليك منع Twitch من الفتح عندما تتفاعل مع روابط twitch.tv. قم بما يلي:\n\nاضغط مطولاً على تطبيق Twitch -&gt; \"معلومات التطبيق\" -&gt; \"متقدم\" -&gt; \"الفتح الافتراضي\" -&gt; \"فتح الروابط المدعومة\" -&gt; \"اسأل في كل مرة\" (قد يختلف اعتمادًا على نوعية هاتفك).\n\nالآن يتم سؤالك عن التطبيق الذي تريد فتح الروابط به.</string>
-    <string name="bttv_removed_by_mod">إزالة</string>
+    <string name="bttv_watchparty_twitch_missing">ليس لديك تطبيق Twitch مثبتًا على جهازك. من أجل استخدام Watch Parties في bttv-android، يجب أن يكون لديك تطبيق Twitch مثبتًا.\n\nكما يجب عليك منع Twitch من الفتح عندما تتفاعل مع روابط twitch.tv. قم بما يلي:\n\nاضغط مطولاً على تطبيق تويتش -&gt; \"معلومات التطبيق\" -&gt; \"متقدم\" -&gt; \"الفتح الافتراضي\" -&gt; \"فتح الروابط المدعومة\" -&gt; \"اسأل في كل مرة\" (قد يختلف اعتمادًا على نوعية هاتفك).\n\nالآن يتم سؤالك عن التطبيق الذي تريد فتح الروابط به.</string>
+    <string name="bttv_removed_by_mod">تم الإزالة</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">إدارة القائمة السوداء</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">فتح نافذة القائمة السوداء</string>
+    <string name="bttv_settings_blacklist_dia_title">إدارة الكلمات في القائمة السوداء</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

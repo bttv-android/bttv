@@ -56,4 +56,8 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_removed_by_mod">removido</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Gerenciar Blacklist</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Abre a Blacklist</string>
+    <string name="bttv_settings_blacklist_dia_title">Gerenciar Palavras na Blacklist</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

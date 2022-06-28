@@ -60,4 +60,5 @@
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">您的設備上未安裝 Twitch 應用程序。 您需要安裝 Twitch 應用程序，以便在 bttv-android 中使用觀看派對。\n\n 您還必須防止在與 twitch.tv 建立鏈接時打開 Twitch。 請先遵循以下操作：\n\n 長按 Twitch 應用程序 &gt; “應用信息”&gt; “高級”-&gt; “默認打開”&gt;“打開支持的鏈接”&gt; “每次都詢問”(可能因 設備製造商 而異)。\n\n 現在系統會詢問您要使用哪個應用打開鏈接。</string>
     <string name="bttv_removed_by_mod">移除</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
