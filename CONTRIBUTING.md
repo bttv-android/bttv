@@ -36,16 +36,15 @@ Before you undraft a PR follow this checklist:
 Do the following once:
 
 1. Initialize the workspace as described in the README
-2. Rename `disass` to `extracted`
-3. Now you can build the java source code in (`mod`) using `./buildsource extracted`.
+2. Now you can build the java source code in (`mod`) using `./buildsource disass`.
    It will automaticly dex the class files and baksmali them.
    It is recommended to scim through the script so you can set your environment variables.
-4. Build your new changes using the `./build extracted` script.
+4. Build your new changes using the `./build disass` script.
 5. Open an emulator and run `./install`
 
 > Please only modify or add java files in the bttv package! Others won't be compiled anyway.
 > In case you need to apply a monkey-patch (i.e. edit smali files (not in the bttv package) in `extracted` directly) read the [instructions below](#genmonke).
-> **Never check in the `extracted` or `disass` directories for legal reasons**
+> **Never check in the `disass` directories for legal reasons**
 
 ## Overview
 
@@ -83,7 +82,7 @@ You need to nothing else, you can commit your code and start a pull request!
 
 #### Monkey patch changes
 
-Run `./genmonke <dir>` before you make a commit.
+Run `./genmonke disass` before you make a commit.
 
 ## Best practices for contributers
 
