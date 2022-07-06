@@ -1,8 +1,8 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -3407,4 +3407,8 @@
-     <item type="id" name="write_message_button" />
+@@ -3360,4 +3360,8 @@
+     <item type="id" name="wrapper_states" />
      <item type="id" name="year_published" />
      <item type="id" name="zero_corner_chip" />
 +    <item type="id" name="bttv_updater_activity_title" />

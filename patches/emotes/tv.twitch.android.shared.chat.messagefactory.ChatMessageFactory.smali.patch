@@ -13,8 +13,8 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +
      if-eqz p12, :cond_4
  
-     .line 790
-@@ -3069,6 +3075,21 @@
+     .line 748
+@@ -3010,6 +3016,21 @@
  
      invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
@@ -36,7 +36,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMes
      const-string v0, "webViewSource"
  
      move-object/from16 v8, p8
-@@ -4515,6 +4536,13 @@
+@@ -4269,6 +4290,13 @@
      .line 360
      iget-object v4, v13, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
  
