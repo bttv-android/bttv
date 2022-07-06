@@ -19,7 +19,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private final chatDialogRouter:Ltv/twitch/android/provider/chat/ChatDialogRouter;
  
-@@ -1355,6 +1355,9 @@
+@@ -1338,6 +1338,9 @@
  
      iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->clickableUsernameSpanListener:Ltv/twitch/android/shared/chat/chatsource/IClickableUsernameSpanListener;
  
@@ -29,7 +29,7 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      return-void
  .end method
  
-@@ -2169,6 +2172,13 @@
+@@ -2117,6 +2120,13 @@
      :cond_0
      return-void
  .end method

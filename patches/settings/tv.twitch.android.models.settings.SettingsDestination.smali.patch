@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 --- a/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
 +++ b/smali_classes5/tv/twitch/android/models/settings/SettingsDestination.smali
-@@ -104,11 +104,43 @@
+@@ -94,11 +94,43 @@
  
  .field public static final enum ViewerChatFilters:Ltv/twitch/android/models/settings/SettingsDestination;
  
@@ -14,7 +14,7 @@ diff --git a/smali_classes5/tv/twitch/android/models/settings/SettingsDestinatio
  
  # direct methods
  .method static constructor <clinit>()V
-     .locals 46
+     .locals 41
  
 +    # BTTV
 +    new-instance v0, Ltv/twitch/android/models/settings/SettingsDestination;
