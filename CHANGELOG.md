@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.30.1-beta
+- fix split chat color in dark mode
+
 # 0.30.0-beta
 - add blacklist feature
 - rebase to v13.3.1
