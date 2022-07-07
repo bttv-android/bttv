@@ -1,5 +1,6 @@
 package bttv;
 
+import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import bttv.settings.Settings;
+import tv.twitch.android.app.core.ThemeManager;
 import tv.twitch.android.shared.chat.adapter.item.MessageRecyclerItem.ChatMessageViewHolder;
 import tv.twitch.android.shared.chat.chomments.ChommentRecyclerItem.ChommentItemViewHolder;
 import tv.twitch.android.shared.chat.messagefactory.adapteritem.UserNoticeRecyclerItem.UserNoticeViewHolder;
@@ -56,10 +58,11 @@ public class SplitChat {
             return;
         }
         View view = viewHolder.itemView;
+        Context context = view.getContext();
 
         // make sure we only change chat message items
-        boolean hasChatMessageId = view.getId() == ResUtil.getResourceId(view.getContext(), "chat_message_item", "id");
-        boolean hasChommentRootId = view.getId() == ResUtil.getResourceId(view.getContext(), "chomment_root_view", "id");
+        boolean hasChatMessageId = view.getId() == ResUtil.getResourceId(context, "chat_message_item", "id");
+        boolean hasChommentRootId = view.getId() == ResUtil.getResourceId(context, "chomment_root_view", "id");
 
         if (!hasChatMessageId && !hasChommentRootId) {
             Log.i(TAG, "view skipped, as it's not a chat message or chomment" + viewHolder.toString());
@@ -67,7 +70,7 @@ public class SplitChat {
             return;
         }
 
-        int color = isDarkThemeEnabled()
+        int color = ThemeManager.Companion.isNightModeEnabled(context)
                 ? ResUtil.getColorValue("material_grey_900")
                 : ResUtil.getColorValue("material_grey_300");
 
@@ -124,9 +127,4 @@ public class SplitChat {
         }
     }
 
-    private static boolean isDarkThemeEnabled() {
-        return Data.ctx
-            .getSharedPreferences("tv.twitch.bttvandroid.app_preferences", 0)
-            .getBoolean("dark_theme_enabled", false);
-    }
 }
