@@ -9,7 +9,7 @@
     <string name="bttv_emote_picker_channel_7tv">Смайлики 7TV канала</string>
     <string name="bttv_app_update_available">bttv-android: Обнаружено новое обновление</string>
     <string name="bttv_app_update_available_cta">Нажмите здесь, чтобы скачать и установить обновление.</string>
-    <string name="bttv_sleep_timer_button_descr">Открыть таймер-сна</string>
+    <string name="bttv_sleep_timer_button_descr">Открыть таймер сна</string>
     <string name="bttv_sleep_timer_select_dialog_title">Таймер сна</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Отменить таймер сна</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">Таймер сна уже запущен. Вы хотите выключить его?</string>
