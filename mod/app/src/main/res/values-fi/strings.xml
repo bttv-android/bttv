@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Tervetuloa\nBetter Twitchiin</string>
+    <string name="bttv_emote_picker_global_bttv">Globaalit BTTV emotit</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanavan BTTV Emotit</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
