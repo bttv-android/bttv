@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Välkommen till\nBetter Twitch</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Emotes</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Varför skulle du inaktivera detta?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF Emotes</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Emotes</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Lös in kanalpoäng automatiskt</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Visa sovtidtagare</string>
+    <string name="bttv_settings_show_uptime">Visa upptid</string>
+    <string name="bttv_emote_added_by_bttv">Emote tillagd av bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote tillagd av %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emote tillagd av %s</string>
+    <string name="bttv_updater_downloading">Laddar</string>
+    <string name="bttv_updater_downloading_version">Laddar ner %s</string>
+    <string name="bttv_updater_notice">Om detta är första gången du använder uppdateraren, tillåt installationer från denna källa när guiden ber dig om det.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Ange markering av nyckelord</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Öppnar markerad dialog</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Ange ny nyckelord</string>
+    <string name="bttv_settings_highlights_dia_title">Hantera markerade nyckelord</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif Emotes</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animera</string>
+    <string name="bttv_settings_gif_render_mode_static">Statisk</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Avaktiverad</string>
+    <string name="bttv_settings_open_credits_button_title">Krediter</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Visa borttagna meddelanden</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonymt chatt</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Ansluter chattar anonymt utan att visas i användarlistan</string>
+    <string name="bttv_credits_title">Krediter</string>
+    <string name="bttv_credits_intro">bttv-android gjordes av <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> med hjälp av dessa fina människor:</string>
+    <string name="bttv_credits_bugs">Felrapporter</string>
+    <string name="bttv_credits_ideas">Idéer</string>
     <string name="bttv_credits_translations">Översättningar</string>
+    <string name="bttv_credits_docs">Dokumentation</string>
+    <string name="bttv_copied_to_clipboard">Användarnamn kopierat till urklipp</string>
+    <string name="bttv_settings_enable_split_chat">Dela chatt</string>
+    <string name="bttv_settings_enable_split_chat_descr">Färga bakgrunden till varannan chatt meddelande</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animera för alltid</string>
+    <string name="bttv_settings_gif_render_mode_descr">Obs: \"Animera för alltid\" kan tömma ditt batteri riktigt snabbt</string>
+    <string name="bttv_settings_enable_dev_tools">Aktivera utvecklarverktyg</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Hantera experiment, latens och andra inställningar. Fortsätt med försiktighet.</string>
+    <string name="bttv_highlight_dia_list_empty">Det finns ingenting här\n&lt;unk&gt; \\_(&lt;unk&gt;)_/ &lt;unk&gt;</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Du kan markera en <user> som denna. t.ex.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Du har inte Twitch-appen installerad på din enhet. För att använda Watch Parties i bttv-android måste du ha Twitch App installerad.\n\nDu måste också förhindra att Twitch öppnas när du interagerar med twitch.tv länkar. Gör följande:\n\nLångtryck på Twitch App -&gt; \"App Info\" -&gt; \"Avancerat\" -&gt; \"Öppna som standard\" -&gt; \"Öppna länkar som stöds\" -&gt; \"Fråga varje gång\" (kan variera beroende på OEM).\n\nNu får du frågan om vilken app du vill öppna länkarna med.</string>
+    <string name="bttv_removed_by_mod">borttagen</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Hantera svartlista</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Öppnar svartlist-dialog</string>
+    <string name="bttv_settings_blacklist_dia_title">Hantera svartlistade nyckelord</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
