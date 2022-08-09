@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotki 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automatycznie Zbieraj Punkty Kanału</string>
     <string name="bttv_settings_show_sleep_timer_primary">Pokaż Licznik Snu</string>
-    <string name="bttv_settings_show_uptime">Pokaż Długość</string>
     <string name="bttv_emote_added_by_bttv">Emotka dodana przez bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emotka FrankerFaceZ dodana przez %s</string>
