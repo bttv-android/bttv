@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Емоції 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Автоматичне повернення балів каналу</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показати таймер сну</string>
-    <string name="bttv_settings_show_uptime">Показувати час роботи</string>
     <string name="bttv_emote_added_by_bttv">Емоцію додано через bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Емоція FrankerFaceZ додана %s</string>
