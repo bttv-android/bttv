@@ -1,21 +1,21 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
 --- a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
 +++ b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
-@@ -193,10 +193,24 @@
+@@ -197,10 +197,24 @@
      new-instance v0, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners;
  
-     .line 74
--    sget v14, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
+     .line 81
+-    sget v15, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
 +    # BTTV
 +    #   Replaces Update Banner's Content with custom string
 +    #      sets:
-+    #        v14: I
-+    const-string v14, "bttv_app_update_available_cta"
-+    invoke-static {v14}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
-+    move-result v14
++    #        v15: I
++    const-string v15, "bttv_app_update_available_cta"
++    invoke-static {v15}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
++    move-result v15
 +    # /BTTV
  
-     .line 75
+     .line 82
 -    sget v1, Ltv/twitch/android/core/strings/R$string;->app_update_available:I
 +    # BTTV
 +    #   Replaces Update Banner's Title with custom string

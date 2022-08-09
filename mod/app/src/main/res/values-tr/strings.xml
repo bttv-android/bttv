@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emojileri</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Kanal Puanlarını Otomatik Topla</string>
     <string name="bttv_settings_show_sleep_timer_primary">Uyku Zamanlayıcısını göster</string>
-    <string name="bttv_settings_show_uptime">Yayın Süresini Göster</string>
     <string name="bttv_emote_added_by_bttv">Emoji bttv-android tarafından eklendi</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emojisi %s tarafından eklendi</string>

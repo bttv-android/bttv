@@ -91,15 +91,6 @@ public enum Settings {
                 null
             )
     ),
-    ShowUptime(
-          new Entry.BoolEntry(
-                  "show_uptime",
-                  new Entry.BoolValue(false),
-                  Res.strings.bttv_settings_show_uptime,
-                  null,
-                  null
-          )
-    ),
     AnonChatEnabled(
             new Entry.BoolEntry(
                     "enable_anon_chat",

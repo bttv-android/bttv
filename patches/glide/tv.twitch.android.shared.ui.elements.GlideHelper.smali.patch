@@ -9,6 +9,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/GlideHelper.sma
 +    invoke-static {v0, p2}, Lbttv/api/Glide;->setRenderingView(Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;Landroid/widget/TextView;)V
 +    # /BTTV
 +
-     .line 93
+     .line 95
      invoke-static {p0}, Lcom/bumptech/glide/Glide;->with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
  
