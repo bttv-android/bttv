@@ -8,7 +8,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Lös in kanalpoäng automatiskt</string>
     <string name="bttv_settings_show_sleep_timer_primary">Visa sovtidtagare</string>
-    <string name="bttv_settings_show_uptime">Visa upptid</string>
     <string name="bttv_emote_added_by_bttv">Emote tillagd av bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote tillagd av %s</string>
