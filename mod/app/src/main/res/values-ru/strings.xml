@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Смайлики 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-сбор бонусных баллов канала</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показать таймер сна</string>
-    <string name="bttv_settings_show_uptime">Показывать продолжительность стрима</string>
     <string name="bttv_emote_added_by_bttv">Смайлики добавленые bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Смайлик FrankerFaceZ добавлен %s</string>
