@@ -42,13 +42,6 @@ mv tv.twitch.android.shared.chat.ChatViewPresenter.smali.patch anonchat/.
 mv tv.twitch.android.shared.chat.messageinput.ChatMessageInputViewPresenter.smali.patch anonchat/.
 mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patch anonchat/.
 
-# Uptime
-mkdir uptime
-mv tv.twitch.android.models.streams.StreamModel.smali.patch uptime/.
-mv tv.twitch.android.shared.player.overlay.PlayerOverlayPresenter.smali.patch uptime/.
-mv tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate.smali.patch uptime/.
-
-
 # Stream Settings
 mkdir stream-settings
 mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
