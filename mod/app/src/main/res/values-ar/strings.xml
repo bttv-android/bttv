@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">ايموتات 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">الحصول على نقاط القناة بشكل تلقائي</string>
     <string name="bttv_settings_show_sleep_timer_primary">إظهار مؤقت النوم</string>
-    <string name="bttv_settings_show_uptime">إظهار وقت البث</string>
     <string name="bttv_emote_added_by_bttv">تم إضافة الإيموت بواسطة bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">تم إضافة إيموت FrankerFaceZ بواسطة %s</string>
