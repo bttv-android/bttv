@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV 이모티콘</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">채널 포인트 자동 수집</string>
     <string name="bttv_settings_show_sleep_timer_primary">수면 타이머 표시</string>
-    <string name="bttv_settings_show_uptime">업타임 표시</string>
     <string name="bttv_emote_added_by_bttv">bttv-android로부터 이모티콘 추가됨</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">%s(으)로부터 FrankerFaceZ 이모티콘 추가됨</string>
