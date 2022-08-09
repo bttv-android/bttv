@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV表情</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">自动兑换频道点数</string>
     <string name="bttv_settings_show_sleep_timer_primary">显示睡眠计时</string>
-    <string name="bttv_settings_show_uptime">显示上线时间</string>
     <string name="bttv_emote_added_by_bttv">bttv-android添加的表情</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">%s添加的FrankerFaceZ表情</string>
