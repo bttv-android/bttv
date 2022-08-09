@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotikonid</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Lunasta kanalipunktid automaatselt</string>
     <string name="bttv_settings_show_sleep_timer_primary">Näita Unetaimerit</string>
-    <string name="bttv_settings_show_uptime">Näita Kestvust</string>
     <string name="bttv_emote_added_by_bttv">Emotikon lisatud bttv-android poolt</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emotikon lisatud %s poolt</string>
