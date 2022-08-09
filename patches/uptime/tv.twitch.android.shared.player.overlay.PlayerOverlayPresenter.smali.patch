@@ -1,14 +1,15 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/player/overlay/PlayerOverlayPresenter.smali
-@@ -688,6 +688,10 @@
+@@ -758,6 +758,11 @@
  
-     invoke-virtual {v0, v1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->updateStreamType(Ltv/twitch/android/models/streams/StreamType;)V
+     invoke-virtual {v0, p1}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->updateViewerCount(I)V
  
 +    # BTTV
-+    invoke-static {p1, v0}, Lbttv/api/Uptime;->replaceLiveIndicatorWithUptime(Ltv/twitch/android/models/streams/StreamModel;Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;)V
++    # MAYBE REMOVE
++    # invoke-static {p1, v0}, Lbttv/api/Uptime;->replaceLiveIndicatorWithUptime(Ltv/twitch/android/models/streams/StreamModel;Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;)V
 +    # /BTTV
 +
-     .line 309
+     .line 314
      :cond_1
-     iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->viewDelegate:Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;
+     invoke-virtual {p0}, Ltv/twitch/android/shared/player/overlay/PlayerOverlayPresenter;->layoutForOverlayConfiguration()V

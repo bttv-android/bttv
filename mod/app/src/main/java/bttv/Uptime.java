@@ -66,10 +66,9 @@ public class Uptime {
       return ReplaceOutcome.Error;
     }
 
-    if (bottomVD.mLiveIndicatorLeftText == null) {
-      Log.i(TAG, "replaceLiveIndicatorWithUptime: mLiveIndicatorLeftText is null");
-      return ReplaceOutcome.Error;
-    }
+    Log.i(TAG, "replaceLiveIndicatorWithUptime: mLiveIndicatorLeftText is null");
+    return ReplaceOutcome.Error;
+    /*
 
     Date date = parseDate(streamModel.createdAt);
 
@@ -82,6 +81,7 @@ public class Uptime {
 
     clock.textViewUpdated(bottomVD.mLiveIndicatorLeftText, secondsSince(date));
     return ReplaceOutcome.Success;
+     */
   }
 
   private static Date parseDate(String dateString) {
