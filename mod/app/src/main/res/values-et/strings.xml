@@ -58,5 +58,9 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Saate <user> esile tõsta näiteks nii:: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Teie seadmesse pole installitud rakendust Twitch. Funktsiooni Watch Parties kasutamiseks bttv-androidis peab teil olema installitud rakendus Twitch.\n\nSamuti peate takistama Twitchi avanemist, kui kasutate twitch.tv linke. Tehke järgmist.\n\nVajutage Twitchi rakendust pikalt -&gt; \"Rakenduse teave\" -&gt; \"Täpsem\" -&gt; \"Vaikimisi avatud\" -&gt; \"Ava toetatud lingid\" -&gt; „Küsi iga kord” (võib olenevalt OEM-ist erineda).\n\nNüüd küsitakse teilt, millise rakendusega soovite linke avada.</string>
+    <string name="bttv_removed_by_mod">eemalda</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Musta nimekirja haldamine</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Avage Must nimekiri</string>
+    <string name="bttv_settings_blacklist_dia_title">Hallake mustas nimekirjas olevaid märksõnu</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

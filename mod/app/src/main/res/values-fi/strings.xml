@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Tervetuloa\nBetter Twitchiin</string>
+    <string name="login_landing_title">Tervetuloa \nBetter Twitchiin</string>
+    <string name="bttv_emote_picker_global_bttv">Globaalit BTTV hymiöt</string>
+    <string name="bttv_emote_picker_channel_bttv">Kanavan BTTV hymiöt</string>
+    <string name="bttv_emote_picker_global_ffz">Globaalit FrankerFacez Hymiöt</string>
+    <string name="bttv_emote_picker_channel_ffz">Kanavan FrankerFacez Hymiöt</string>
+    <string name="bttv_emote_picker_global_7tv">Globaalit 7TV Hymiöt</string>
+    <string name="bttv_emote_picker_channel_7tv">Kanavan 7TV Hymiöt</string>
+    <string name="bttv_app_update_available">bttv-android: Uusi päivitys havaittu</string>
+    <string name="bttv_app_update_available_cta">Lataa ja asenna päivitys napauttamalla tätä.</string>
+    <string name="bttv_sleep_timer_button_descr">Avaa Nukkuma-Ajastin-ikkuna</string>
+    <string name="bttv_sleep_timer_select_dialog_title">Uniajastin</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">Peruuta uniajastin</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Sinulla on jo uni ajastin käynnissä. Haluatko peruuttaa sen?</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Hymiöt</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">Miksi poistaisit tämän käytöstä?</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV Gif Hymiöt</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ Hymiöt</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Hymiöt</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Kanava-pisteiden automaattinen lunastus</string>
+    <string name="bttv_settings_show_sleep_timer_primary">Näytä Uniajastin</string>
+    <string name="bttv_emote_added_by_bttv">Hymiön lisännyt bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ hymiön lisäsi %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV hymiön lisännyt %s</string>
+    <string name="bttv_updater_downloading">Ladataan</string>
+    <string name="bttv_updater_downloading_version">Ladataan %s</string>
+    <string name="bttv_updater_notice">Jos tämä on ensimmäinen kerta kun käytät sovellusta, salli asennukset tästä lähteestä, kun systeemi pyytää sitä.</string>
+    <string name="bttv_settings_open_highlights_dia_primary">Määritä korostetut Avainsanat</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Avaa Korostusvalikon</string>
+    <string name="bttv_settings_highlights_dia_input_hint">Syötä uusi avainsana</string>
+    <string name="bttv_settings_highlights_dia_title">Hallitse Korostetuita Avainsanoja</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif Hymiöt</string>
+    <string name="bttv_settings_gif_render_mode_animate">Animoi</string>
+    <string name="bttv_settings_gif_render_mode_static">Staattinen</string>
+    <string name="bttv_settings_gif_render_mode_disabled">Poistettu käytöstä</string>
+    <string name="bttv_settings_open_credits_button_title">Krediitit</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Näytä poistetut viestit</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anon Chatti</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Liittyy keskusteluun anonyymisti näkymättä käyttäjälistalla</string>
+    <string name="bttv_credits_title">Krediitit</string>
+    <string name="bttv_credits_intro">bttv-androidia teki <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> näiden mukavien ihmisten avulla:</string>
+    <string name="bttv_credits_bugs">Virheraportit</string>
+    <string name="bttv_credits_ideas">Ehdotuksia</string>
+    <string name="bttv_credits_translations">Käännökset</string>
+    <string name="bttv_credits_docs">Dokumentointi</string>
+    <string name="bttv_copied_to_clipboard">Käyttäjänimi kopioitu leikepöydälle</string>
+    <string name="bttv_settings_enable_split_chat">Jaettu Keskustelu</string>
+    <string name="bttv_settings_enable_split_chat_descr">Tummenna tausta joka toisesta chat-viestistä</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animoi ikuisesti</string>
+    <string name="bttv_settings_gif_render_mode_descr">Huomautus: \"Animoi ikuisesti\" saattaa tyhjentää akun todella nopeasti</string>
+    <string name="bttv_settings_enable_dev_tools">Ota Käyttöön Kehittäjätyökalut</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->

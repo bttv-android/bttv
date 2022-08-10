@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">به بتر توییچ (توییچ بهتر)
+خوش آمدید</string>
+    <string name="bttv_emote_picker_global_bttv">ایموت های کلی BTTV</string>
     <string name="bttv_emote_picker_global_ffz">Global FrankerFaceZ Emotes</string>
+    <string name="bttv_app_update_available">بتر توییچ: بروزرسانی جدید شناسایی شد</string>
+    <string name="bttv_app_update_available_cta">برای دانلود و نصب آپدیت اینجا را ضربه بزنید.</string>
+    <string name="bttv_sleep_timer_button_descr">باز کردن دیالوگ زمان سنج خواب</string>
+    <string name="bttv_sleep_timer_select_dialog_title">زمان سنج خواب</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">لغو زمان سنج خواب</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <!-- e.g.: 7TV Emote added by FoseFx -->
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->

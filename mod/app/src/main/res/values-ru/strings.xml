@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Добро пожаловать в \nBetter Twitch</string>
-    <string name="bttv_emote_picker_global_bttv">Глобальные BTTV смайлики</string>
-    <string name="bttv_emote_picker_channel_bttv">Смайлики BTTV на канале</string>
+    <string name="bttv_emote_picker_global_bttv">Глобальные смайлики BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">Смайлики BTTV канала</string>
     <string name="bttv_emote_picker_global_ffz">Глобальные смайлики FrankerFaceZ</string>
     <string name="bttv_emote_picker_channel_ffz">Смайлики FrankerFaceZ канала</string>
-    <string name="bttv_emote_picker_global_7tv">Глобальные 7TV смайлики</string>
+    <string name="bttv_emote_picker_global_7tv">Глобальные смайлики 7TV</string>
     <string name="bttv_emote_picker_channel_7tv">Смайлики 7TV канала</string>
     <string name="bttv_app_update_available">bttv-android: Обнаружено новое обновление</string>
     <string name="bttv_app_update_available_cta">Нажмите здесь, чтобы скачать и установить обновление.</string>
-    <string name="bttv_sleep_timer_button_descr">Открыть таймер-сна</string>
+    <string name="bttv_sleep_timer_button_descr">Открыть таймер сна</string>
     <string name="bttv_sleep_timer_select_dialog_title">Таймер сна</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Отменить таймер сна</string>
     <string name="bttv_sleep_timer_cancel_dialog_message">Таймер сна уже запущен. Вы хотите выключить его?</string>
-    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV Смайлики</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">Смайлики BTTV</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Зачем вам выключать это?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF смайлики</string>
-    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ смайлики</string>
-    <string name="bttv_settings_enable_7tv_emotes_primary">7TV Смайлики</string>
-    <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-получение Баллов канала</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">Смайлики FrankerFaceZ</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">Смайлики 7TV</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-сбор бонусных баллов канала</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показать таймер сна</string>
-    <string name="bttv_emote_added_by_bttv">Эмоции добавленые bttv-android</string>
+    <string name="bttv_emote_added_by_bttv">Смайлики добавленные bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
-    <string name="bttv_emote_added_by_bttv_ffz">Эмодзи FrankerFaceZ добавлен %s</string>
+    <string name="bttv_emote_added_by_bttv_ffz">Смайлик FrankerFaceZ добавлен %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
-    <string name="bttv_emote_added_by_bttv_stv">7TV Эмодзи добавлена %s</string>
+    <string name="bttv_emote_added_by_bttv_stv">7TV Смайлик добавлен %s</string>
     <string name="bttv_updater_downloading">Скачивание</string>
     <string name="bttv_updater_downloading_version">Скачивание %s</string>
     <string name="bttv_updater_notice">Если это первый раз, когда вы используете обновления приложения, разрешите установку из этого источника.</string>
     <string name="bttv_settings_open_highlights_dia_primary">Установить подсвечиваемые слова</string>
-    <string name="bttv_settings_open_highlights_dia_secondary">Открыть выделенный диалог</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">Открыть список подсвечиваемых слов</string>
     <string name="bttv_settings_highlights_dia_input_hint">Введите новое ключевое слово</string>
-    <string name="bttv_settings_highlights_dia_title">Настроить подсвечиваемые слова</string>
+    <string name="bttv_settings_highlights_dia_title">Управление подсвечиваемых слов</string>
     <string name="bttv_settings_gif_render_mode_title">Анимированные смайлы</string>
-    <string name="bttv_settings_gif_render_mode_animate">Анимированный</string>
-    <string name="bttv_settings_gif_render_mode_static">Статичный</string>
+    <string name="bttv_settings_gif_render_mode_animate">Анимировать</string>
+    <string name="bttv_settings_gif_render_mode_static">Статично</string>
     <string name="bttv_settings_gif_render_mode_disabled">Отключено</string>
-    <string name="bttv_settings_open_credits_button_title">Кредиты</string>
-    <string name="bttv_settings_enable_show_deleted_messages">Показать удаленные сообщения</string>
+    <string name="bttv_settings_open_credits_button_title">Благодарности</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Показывать удалённые сообщения</string>
     <string name="bttv_settings_enable_anon_chat_primary">Анонимный чат</string>
-    <string name="bttv_settings_enable_anon_chat_secondary">Присоединяется к чату анонимно, не появляясь в списке пользователей</string>
-    <string name="bttv_credits_title">Кредиты</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Присоединяться к чату анонимно, не появляясь в списке пользователей</string>
+    <string name="bttv_credits_title">Благодарности</string>
     <string name="bttv_credits_intro">bttv-android был сделан <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> с помощью этих добрых людей:</string>
     <string name="bttv_credits_bugs">Сообщение об ошибках</string>
     <string name="bttv_credits_ideas">Идеи</string>
@@ -50,17 +50,17 @@
     <string name="bttv_settings_enable_split_chat">Разделить чат</string>
     <string name="bttv_settings_enable_split_chat_descr">Тонирование фона каждого второго сообщения чата</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Анимировать всегда</string>
-    <string name="bttv_settings_gif_render_mode_descr">Примечание: \"Анимировать всегда\" может очень быстро разрядить ваш аккумулятор</string>
+    <string name="bttv_settings_gif_render_mode_descr">Примечание: \"Анимировать всегда\" может быстро разрядить ваш аккумулятор</string>
     <string name="bttv_settings_enable_dev_tools">Включить инструменты разработчика</string>
-    <string name="bttv_settings_enable_dev_tools_secondary">Управляйте экспериментами, задержкой и другими настройками. Действуйте с осторожностью.</string>
-    <string name="bttv_highlight_dia_list_empty">Здесь нет ничего\n¯\\_(ツ)_/¯</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Управляйте экспериментальными функциями, задержками и другими настройками. Будьте осторожны.</string>
+    <string name="bttv_highlight_dia_list_empty">Здесь пустовато, даже очень...\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Вы можете выделить <user> следующим образом. Например: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">На вашем устройстве не установлено приложение Twitch. Для использования Watch Parties в bttv-android необходимо установить приложение Twitch.\n\nВы также должны предотвратить открытие Twitch при взаимодействии со ссылками twitch.tv. Сделайте следующее:\n\nДлительное нажатие на приложение Twitch -&gt; \"App Info\" -&gt; \"Расширенный\" -&gt; \"Открывать по умолчанию\" -&gt; \"Открыть поддерживаемые ссылки\" -&gt; \"Спрашивайте каждый раз\" (может меняться в зависимости от OEM).\n\nНу а теперь вас спросят, с помощью какого приложения вы хотите открывать ссылки.</string>
     <string name="bttv_removed_by_mod">удалено</string>
-    <string name="bttv_settings_open_blacklist_dia_primary">Управление чёрным списком</string>
-    <string name="bttv_settings_open_blacklist_dia_secondary">Открыть черный список</string>
-    <string name="bttv_settings_blacklist_dia_title">Фильтр запрещенных слов</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Управление списком игнорируемых слов</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Открыть список игнорируемых слов</string>
+    <string name="bttv_settings_blacklist_dia_title">Управление игнорируемых слов</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
