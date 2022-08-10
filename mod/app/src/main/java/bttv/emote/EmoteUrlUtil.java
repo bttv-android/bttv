@@ -37,7 +37,7 @@ public class EmoteUrlUtil {
         Emote emote = Emotes.getEmoteById(realId);
         if (emote == null) {
             Log.w("LBTTVEmoteUrlUtil", "emote is null, fall back to bttv url, realId was " + realId);
-            return "https://cdn.betterttv.net/emote/" + realId + "/1x"; // gamble
+            return "https://cdn.betterttv.net/emote/" + realId + "/2x"; // gamble
         }
         return emote.url;
     }

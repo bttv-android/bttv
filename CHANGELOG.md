@@ -6,6 +6,7 @@
 
 # 0.30.1-beta
 - fix split chat color in dark mode
+- improve emote quality
 
 # 0.30.0-beta
 - add blacklist feature
