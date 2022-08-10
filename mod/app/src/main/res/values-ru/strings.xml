@@ -5,7 +5,7 @@
     <string name="bttv_emote_picker_channel_bttv">Смайлики BTTV канала</string>
     <string name="bttv_emote_picker_global_ffz">Глобальные смайлики FrankerFaceZ</string>
     <string name="bttv_emote_picker_channel_ffz">Смайлики FrankerFaceZ канала</string>
-    <string name="bttv_emote_picker_global_7tv">Глобальные смайлики 7TV </string>
+    <string name="bttv_emote_picker_global_7tv">Глобальные смайлики 7TV</string>
     <string name="bttv_emote_picker_channel_7tv">Смайлики 7TV канала</string>
     <string name="bttv_app_update_available">bttv-android: Обнаружено новое обновление</string>
     <string name="bttv_app_update_available_cta">Нажмите здесь, чтобы скачать и установить обновление.</string>
@@ -20,7 +20,7 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Смайлики 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Авто-сбор бонусных баллов канала</string>
     <string name="bttv_settings_show_sleep_timer_primary">Показать таймер сна</string>
-    <string name="bttv_emote_added_by_bttv">Смайлики добавленые bttv-android</string>
+    <string name="bttv_emote_added_by_bttv">Смайлики добавленные bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Смайлик FrankerFaceZ добавлен %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
@@ -39,7 +39,7 @@
     <string name="bttv_settings_open_credits_button_title">Благодарности</string>
     <string name="bttv_settings_enable_show_deleted_messages">Показывать удалённые сообщения</string>
     <string name="bttv_settings_enable_anon_chat_primary">Анонимный чат</string>
-    <string name="bttv_settings_enable_anon_chat_secondary">Присоединяется к чату анонимно, не появляясь в списке пользователей</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Присоединяться к чату анонимно, не появляясь в списке пользователей</string>
     <string name="bttv_credits_title">Благодарности</string>
     <string name="bttv_credits_intro">bttv-android был сделан <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> с помощью этих добрых людей:</string>
     <string name="bttv_credits_bugs">Сообщение об ошибках</string>
@@ -52,7 +52,7 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Анимировать всегда</string>
     <string name="bttv_settings_gif_render_mode_descr">Примечание: \"Анимировать всегда\" может быстро разрядить ваш аккумулятор</string>
     <string name="bttv_settings_enable_dev_tools">Включить инструменты разработчика</string>
-    <string name="bttv_settings_enable_dev_tools_secondary">Управляйте экспериментами, задержками и другими настройками. Будьте осторожны.</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Управляйте экспериментальными функциями, задержками и другими настройками. Будьте осторожны.</string>
     <string name="bttv_highlight_dia_list_empty">Здесь пустовато, даже очень...\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Вы можете выделить <user> следующим образом. Например: <fosefx>]]></string>
