@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
 @@ -466,6 +466,10 @@
  
      invoke-virtual {p1, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V

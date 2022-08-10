@@ -35,9 +35,9 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
          <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
          <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
-@@ -165,10 +177,10 @@
+@@ -175,10 +187,10 @@
              </intent-filter>
-         </receiver>
+         </service>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
 -        <provider android:authorities="tv.twitch.android.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
 +        <provider android:authorities="tv.twitch.bttvandroid.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
@@ -48,7 +48,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -277,11 +289,11 @@
+@@ -287,11 +299,11 @@
          <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
          <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -63,7 +63,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
              <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
              <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
          </provider>
-@@ -295,7 +307,7 @@
+@@ -305,7 +317,7 @@
          <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.3"/>
          <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -72,7 +72,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
          <activity android:name="com.amazon.identity.auth.device.activity.GetAuthenticatorResultsActivity" android:theme="@style/TransparentActivityTheme"/>
          <uses-library android:name="com.amazon.client.metrics.api" android:required="false"/>
-@@ -328,5 +340,18 @@
+@@ -338,5 +350,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>

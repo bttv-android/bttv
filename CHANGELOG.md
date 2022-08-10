@@ -1,7 +1,12 @@
 # Changelog
 
+# master
+- rebase to v14.4.1
+- remove uptime feature as it is now a native feature
+
 # 0.30.1-beta
 - fix split chat color in dark mode
+- improve emote quality
 
 # 0.30.0-beta
 - add blacklist feature

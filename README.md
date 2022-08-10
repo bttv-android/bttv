@@ -30,6 +30,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 ## Known issues
  - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
  - Animated Emotes occasionally glitch on some devices
+ - 7TV's zero width emotes are not supported right now
  - Users have [reported that notifications are not working for them](https://github.com/bttv-android/bttv/issues/492). To fix this go to  "App-Info -> Open Supported Apps" and select "Only in this application".
 
  - <span id="no-tv">bttv-android will not work on Android TVs as it is a mod of the Twitch mobile App and not of the Twitch Andorid TV App. You can install it, just do not expect a good experience</span>
@@ -43,7 +44,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 
 # Build it yourself
 
-> This patch is meant to be applied to version **13.3.1** of the official twitch app
+> This patch is meant to be applied to version **13.4.1** of the official twitch app
 > Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
@@ -125,7 +126,7 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
-[base-version]: https://img.shields.io/badge/build%20on-v13.3.1-blueviolet?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v13.4.1-blueviolet?style=flat-square
 [downloads-latest]: https://img.shields.io/github/downloads/bttv-android/bttv/latest/total?color=yellow&style=flat-square
 [downloads-total]: https://img.shields.io/github/downloads/bttv-android/bttv/total?color=yellowgreen&label=downloads%20total&style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest

@@ -89,7 +89,6 @@ public class Res {
         bttv_settings_enable_show_deleted_messages,
         bttv_settings_enable_anon_chat_primary,
         bttv_settings_enable_anon_chat_secondary,
-        bttv_settings_show_uptime,
         bttv_settings_enable_dev_tools,
         bttv_settings_enable_dev_tools_secondary,
         bttv_credits_title,
