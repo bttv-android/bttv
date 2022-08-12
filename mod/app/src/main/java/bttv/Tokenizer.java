@@ -12,6 +12,7 @@ import java.util.List;
 
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
+import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
 import tv.twitch.android.models.chat.AutoModMessageFlags;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
@@ -34,7 +35,7 @@ public class Tokenizer {
 
         // Don't add Emotes, when we don't have the channel's emotes (yet)
         // and we don't need to Highlight any messages
-        if (!Emotes.channelHasEmotes(ctx, channel) && Highlight.isEmpty()) {
+        if (!Emotes.channelHasEmotes(ctx, channel) && Highlight.getInstance().isEmpty()) {
             return new Pair<>(orig, false);
         }
 
@@ -112,6 +113,7 @@ public class Tokenizer {
         ArrayList<ChatMessageToken> newTokens = new ArrayList<>(info.tokens.length + 10);
 
         boolean shouldHighlight = false;
+        boolean shouldBlock = false;
 
         for (ChatMessageToken token : info.tokens) {
             Log.d("LBTTV", "retokenizeLiveChatMessage: " + token);
@@ -142,6 +144,9 @@ public class Tokenizer {
 
             StringBuilder currentText = new StringBuilder();
             for(String word : tokens) {
+                if (Blacklist.shouldBlock(word)) {
+                    shouldBlock = true;
+                }
                 if (Highlight.shouldHighlight(word)) {
                     shouldHighlight = true;
                 }
@@ -178,7 +183,9 @@ public class Tokenizer {
 
         info.tokens = newTokens.toArray(new ChatMessageToken[0]);
 
-        if (shouldHighlight) {
+        if (shouldBlock) {
+            info.messageType = "bttv-blocked-message";
+        } else if (shouldHighlight) {
             info.messageType = "bttv-highlighted-message";
         }
     }

@@ -38,14 +38,18 @@ public class Emote {
         switch (source) {
             case BTTV:
                 code = jsonObject.getString("code");
-                url = "https://cdn.betterttv.net/emote/" + id + "/1x";
+                url = "https://cdn.betterttv.net/emote/" + id + "/2x";
                 imageType = jsonObject.getString("imageType");
                 owner = null; // we don't get the owner :/
                 break;
             case FFZ:
                 code = jsonObject.getString("code");
                 JSONObject images = jsonObject.getJSONObject("images");
-                url = images.getString("1x");
+                if (images.has("2x") && !images.isNull("2x")) {
+                    url = images.getString("2x");
+                } else {
+                    url = images.getString("1x");
+                }
                 imageType = jsonObject.getString("imageType");
                 if (jsonObject.has("user"))
                     owner = jsonObject.getJSONObject("user").getString("displayName");
@@ -53,8 +57,17 @@ public class Emote {
             case STV:
                 code = jsonObject.getString("name");
                 JSONArray urls = jsonObject.getJSONArray("urls");
-                JSONArray oneX = urls.getJSONArray(0);
-                url = oneX.getString(1);
+
+                JSONArray urlArr; // urlArr = ["1", "https://.."]
+
+                if (urls.length() >= 2) {
+                    urlArr = urls.getJSONArray(1); // 2x
+                } else {
+                    urlArr = urls.getJSONArray(0); // 1x
+                }
+
+                url = urlArr.getString(1);
+
                 String mime = jsonObject.getString("mime");
                 if (mime.equals("image/gif")) {
                     imageType = "gif";

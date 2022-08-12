@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Recoger automáticamente los puntos del canal</string>
     <string name="bttv_settings_show_sleep_timer_primary">Mostrar temporizador de sueño</string>
-    <string name="bttv_settings_show_uptime">Mostrar tiempo de actividad</string>
     <string name="bttv_emote_added_by_bttv">Emote añadido por bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ añadido por %s</string>
@@ -59,4 +58,9 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Puedes destacar un <usuario> así. ej.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">No tienes la aplicación de Twitch instalada en tu dispositivo. Para poder usar Vídeos Grupales en bttv-android necesitas tener la aplicación de Twitch instalada.\n\nTambién tienes que evitar que Twitch se abra cuando interactúes con enlaces de twitch.tv. Haz lo siguiente:\n\nMantén presionado sobre la aplicación de Twitch -&gt; \"Información de la aplicación\" -&gt; \"Avanzado\" -&gt; \"Abrir de forma predeterminada\" -&gt; \"Abrir enlaces compatibles\" -&gt; \"Preguntar cada vez\" (puede variar dependiendo del OEM).\n\nDe esta manera se te preguntara con que aplicación abrir los enlaces.</string>
+    <string name="bttv_removed_by_mod">eliminado</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Gestionar lista negra</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Abre el diálogo de la lista negra</string>
+    <string name="bttv_settings_blacklist_dia_title">Gestionar palabras clave en la lista negra</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

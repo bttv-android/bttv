@@ -19,7 +19,6 @@
     <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ emotes</string>
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV emotes</string>
     <string name="bttv_settings_show_sleep_timer_primary">Vis sovetimer</string>
-    <string name="bttv_settings_show_uptime">Vis livetid</string>
     <string name="bttv_emote_added_by_bttv">Emote tilføjet af bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ emote tilføjet af %s</string>
@@ -50,4 +49,5 @@
     <string name="bttv_settings_enable_dev_tools">Aktivér udviklingsværktøjer</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

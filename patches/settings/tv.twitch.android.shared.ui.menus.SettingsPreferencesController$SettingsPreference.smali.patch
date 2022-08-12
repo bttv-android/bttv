@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 --- a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-@@ -93,12 +93,15 @@
+@@ -75,12 +75,15 @@
  
  .field public static final enum SmartFeed:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
@@ -13,32 +13,32 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ui/menus/SettingsPreference
  .method private static final synthetic $values()[Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
      .locals 3
  
--    const/16 v0, 0x22
-+    const/16 v0, 0x23 # length of values array (22 -> 23)
+-    const/16 v0, 0x19
++    const/16 v0, 0x1a # length of values array (0x19 -> 0x1a)
  
      new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
-@@ -306,6 +309,12 @@
+@@ -234,6 +237,12 @@
  
      aput-object v1, v0, v2
  
 +    # BTTV
 +    sget-object v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
-+    const/16 v2, 0x22
++    const/16 v2, 0x19
 +    aput-object v1, v0, v2
 +    # /BTTV
 +
      return-object v0
  .end method
  
-@@ -686,6 +695,14 @@
+@@ -515,6 +524,14 @@
  
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->GameBroadcastingViewerCount:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
 +    # BTTV
 +    new-instance v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
 +    const-string v1, "BTTVEmotesEnabled"
-+    const/16 v2, 0x22
++    const/16 v2, 0x19
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;-><init>(Ljava/lang/String;I)V
 +    sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
 +    # /BTTV

@@ -1,18 +1,23 @@
 package bttv.api;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.bumptech.glide.Registry;
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
 
+import bttv.Data;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageCustomTarget;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class Glide {
-
 
     public static boolean getIsBttvEmote(GlideChatImageCustomTarget target) {
         try {
@@ -21,6 +26,20 @@ public class Glide {
             Log.e("LBTTVGlide", "getIsBttvEmote: ", t);
             return false;
         }
+    }
+
+    public static void maybeSetBG(UrlDrawable urlDrawable, Canvas canvas, Drawable d) {
+        Integer bg = Data.backgrounds.get(urlDrawable.getUrl());
+        if (bg == null) {
+            return;
+        }
+        float[] radii = new float[] { 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f, 3.0f };
+        RoundRectShape shape = new RoundRectShape(radii, null, radii);
+
+        ShapeDrawable drawable = new ShapeDrawable(shape);
+        drawable.getPaint().setColor(bg);
+        drawable.setBounds(d.getBounds());
+        drawable.draw(canvas);
     }
 
     public static boolean getIsBttvEmote(GlideChatImageTarget target) {
@@ -68,7 +87,7 @@ public class Glide {
 
     public static void startWebpDrawable(Drawable drawable) {
         try {
-            bttv.emote.Glide.startWebpDrawable(drawable);
+            bttv.glide.Webp.startWebpDrawable(drawable);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "startWebpDrawable: ", t);
         }
@@ -76,7 +95,7 @@ public class Glide {
 
     public static void stopWebpDrawable(Drawable drawable) {
         try {
-            bttv.emote.Glide.stopWebpDrawable(drawable);
+            bttv.glide.Webp.stopWebpDrawable(drawable);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "stopWebpDrawable: ", t);
         }
@@ -84,7 +103,7 @@ public class Glide {
 
     public static void setWebpCallback(Drawable drawable, Drawable.Callback cb) {
         try {
-            bttv.emote.Glide.setWebpCallback(drawable, cb);
+            bttv.glide.Webp.setWebpCallback(drawable, cb);
         } catch (Throwable t) {
             Log.e("LBTTVGlide", "setWebpCallback: ", t);
         }
@@ -95,5 +114,23 @@ public class Glide {
             return ((WebpDrawable) drawable).getFirstFrame();
         }
         return null;
+    }
+
+    public static void registerWebpDecoder(Context context, com.bumptech.glide.Glide glide, Registry registry) {
+        try {
+            Log.d("LBTTVGlide", "registerWebpDecoder called");
+            bttv.glide.Webp.registerWebpDecoder(context, glide, registry);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "failed to registerWebDecoder()", t);
+        }
+    }
+
+    public static void registerSVGDecoder(Context context, com.bumptech.glide.Glide glide, Registry registry) {
+        try {
+            Log.d("LBTTVGlide", "registerSVGDecoder called");
+            bttv.glide.svg.Svg.registerSvgDecoder(context, glide, registry);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "failed to registerSVGDecoder()", t);
+        }
     }
 }

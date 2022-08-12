@@ -30,6 +30,9 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 ## Known issues
  - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
  - Animated Emotes occasionally glitch on some devices
+ - 7TV's zero width emotes are not supported right now
+ - Users have [reported that notifications are not working for them](https://github.com/bttv-android/bttv/issues/492). To fix this go to  "App-Info -> Open Supported Apps" and select "Only in this application".
+
  - <span id="no-tv">bttv-android will not work on Android TVs as it is a mod of the Twitch mobile App and not of the Twitch Andorid TV App. You can install it, just do not expect a good experience</span>
 
 # Install
@@ -41,7 +44,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 
 # Build it yourself
 
-> This patch is meant to be applied to version **12.8.1** of the official twitch app
+> This patch is meant to be applied to version **13.4.1** of the official twitch app
 > Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
@@ -123,7 +126,7 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
-[base-version]: https://img.shields.io/badge/build%20on-v12.8.1-blueviolet?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v13.4.1-blueviolet?style=flat-square
 [downloads-latest]: https://img.shields.io/github/downloads/bttv-android/bttv/latest/total?color=yellow&style=flat-square
 [downloads-total]: https://img.shields.io/github/downloads/bttv-android/bttv/total?color=yellowgreen&label=downloads%20total&style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
@@ -196,6 +199,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ARTH-V-R"><img src="https://avatars.githubusercontent.com/u/101481528?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ARTH-V-R</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3AARTH-V-R" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/linkmath"><img src="https://avatars.githubusercontent.com/u/43995639?v=4?s=100" width="100px;" alt=""/><br /><sub><b>linkmath</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Alinkmath" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://thedearbear.com"><img src="https://avatars.githubusercontent.com/u/37769766?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Oleg</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ATheDearbear" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/3bood-k"><img src="https://avatars.githubusercontent.com/u/74608947?v=4?s=100" width="100px;" alt=""/><br /><sub><b>3bood_k</b></sub></a><br /><a href="#translation-3bood-k" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/moonMan8"><img src="https://avatars.githubusercontent.com/u/107777735?v=4?s=100" width="100px;" alt=""/><br /><sub><b>moonMan8</b></sub></a><br /><a href="#ideas-moonMan8" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/mirronake"><img src="https://avatars.githubusercontent.com/u/96698262?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mirronake</b></sub></a><br /><a href="#translation-mirronake" title="Translation">🌍</a></td>
   </tr>
 </table>
 

@@ -11,4 +11,4 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedP
 +
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
  
-     .line 179
+     .line 181

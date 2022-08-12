@@ -4,11 +4,12 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import tv.twitch.android.core.adapters.AbstractTwitchRecyclerViewHolder;
 import tv.twitch.android.core.adapters.RecyclerAdapterItem;
 
 public class ChommentRecyclerItem implements RecyclerAdapterItem {
-    public static class ChommentItemViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
-        public ChommentItemViewHolder(@NonNull View itemView) {
+    public static class ChommentItemViewHolder extends AbstractTwitchRecyclerViewHolder {
+        public ChommentItemViewHolder(@NonNull View itemView, boolean isChatClearGlideResourcesExperimentEnabled) {
             super(itemView);
         }
         public final android.widget.TextView getChommentTextView() {

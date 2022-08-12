@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Récupération automatique des points de chaine</string>
     <string name="bttv_settings_show_sleep_timer_primary">Afficher minuterie de sommeil</string>
-    <string name="bttv_settings_show_uptime">Afficher le temps de stream</string>
     <string name="bttv_emote_added_by_bttv">Emote ajoutée par bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ ajoutée par %s</string>
@@ -59,4 +58,6 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Vous pouvez mettre en surbrillance un <utilisateur> comme ça. Par exemple : <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">L\'application Twitch n\'est pas installée sur votre appareil. Pour utiliser les Watch Parties dans bttv-android, vous devez avoir installé l\'application Twitch.\n\nVous devez également empêcher Twitch de s\'ouvrir lorsque vous interagissez avec les liens twitch.tv. Procédez comme suit :\n\nAppuyez longuement sur l\'application Twitch -&gt; \"Informations sur l\'application\" -&gt; \"Avancé\" -&gt; \"Ouvrir par défaut\" -&gt; \"Ouvrir les liens pris en charge\" -&gt; \"Demander à chaque fois\" (peut varier en fonction de l\'OEM).\n\nOn vous demande maintenant avec quelle application vous souhaitez ouvrir les liens.</string>
+    <string name="bttv_removed_by_mod">supprimé</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

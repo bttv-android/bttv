@@ -11,6 +11,7 @@ import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 
 import bttv.Credits;
+import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
 import bttv.settings.abstractions.Dropdown;
 import bttv.settings.abstractions.Link;
@@ -22,7 +23,6 @@ import tv.twitch.android.settings.base.BaseSettingsPresenter;
 import tv.twitch.android.settings.base.SettingsNavigationController;
 import tv.twitch.android.settings.base.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
-import tv.twitch.android.shared.ui.menus.checkable.CheckableGroupModel;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 import tv.twitch.android.shared.ui.menus.core.MenuModel;
 import tv.twitch.android.shared.ui.menus.core.MenuSection;
@@ -90,7 +90,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 			public void navigateToSettingFragment(SettingsDestination settingsDestination, Bundle bundle) {
 				Log.i("LBTTVDEBUG", "navigateToSettingFragment: " + settingsDestination);
 				if (settingsDestination.equals(SettingsDestination.BTTV_HIGHLIGHTS)) {
-					Highlight.openDialog(context);
+					Highlight.getInstance().openDialog(context);
+				} else if (settingsDestination.equals(SettingsDestination.BTTV_BLACKLIST)) {
+					Blacklist.getInstance().openDialog(context);
 				} else if (settingsDestination.equals(SettingsDestination.BTTV_CREDITS)) {
 					Credits.openDialog(context);
 				}
@@ -122,12 +124,6 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 			}
 
 			setting.entry.set(ctx, new UserPreferences.Entry.BoolValue(z));
-		}
-
-		@Override
-		public void updatePreferenceCheckedState(CheckableGroupModel checkableGroupModel) {
-			Log.d("LBTTVSettingsPC",
-					"updatePreferenceCheckedState() checkableGroupModel: " + checkableGroupModel.toString());
 		}
 
 	}

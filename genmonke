@@ -42,30 +42,22 @@ mv tv.twitch.android.shared.chat.ChatViewPresenter.smali.patch anonchat/.
 mv tv.twitch.android.shared.chat.messageinput.ChatMessageInputViewPresenter.smali.patch anonchat/.
 mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patch anonchat/.
 
-# Uptime
-mkdir uptime
-mv tv.twitch.android.models.streams.StreamModel.smali.patch uptime/.
-mv tv.twitch.android.shared.player.overlay.PlayerOverlayPresenter.smali.patch uptime/.
-mv tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate.smali.patch uptime/.
-
-
 # Stream Settings
 mkdir stream-settings
 mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
 mv tv.twitch.android.feature.theatre.common.StreamSettingsViewDelegate.smali.patch stream-settings/.
 
 
-# WebP Glide
-mkdir webp
-mv com.bumptech.glide* webp/.
-mv tv.twitch.android.shared.ui.elements.span.UrlDrawable.smali.patch webp/.
-mv 'tv.twitch.android.shared.ui.elements.GlideHelper$generateGlideRequestListener$1.smali.patch' webp/.
-mv tv.twitch.android.shared.ui.elements.GlideHelper.smali.patch webp/.
+# Glide Modules
+mkdir glide
+mv com.bumptech.glide* glide/.
+mv tv.twitch.android.shared.ui.elements.span.UrlDrawable.smali.patch glide/.
+mv 'tv.twitch.android.shared.ui.elements.GlideHelper$generateGlideRequestListener$1.smali.patch' glide/.
+mv tv.twitch.android.shared.ui.elements.GlideHelper.smali.patch glide/.
 
 # Sleep Timer
 mkdir sleeptimer
 mv res.layout.bottom_player_control_overlay_widget.xml.patch sleeptimer/.
-mv res.layout-v22.bottom_player_control_overlay_widget.xml.patch sleeptimer/.
 mv tv.twitch.android.shared.player.overlay.BottomPlayerControlOverlayViewDelegate.smali.patch sleeptimer/.
 
 # Emotes
@@ -109,7 +101,7 @@ mv tv.twitch.android.shared.chat.settings.entry.ChatSettingsViewDelegate.smali.p
 
 # Split Chat
 mkdir splitchat
-mv tv.twitch.android.core.adapters.TwitchAdapter.smali.patch splitchat/.
+mv tv.twitch.android.core.adapters.AbstractTwitchRecyclerViewAdapter.smali.patch splitchat/.
 mv tv.twitch.android.shared.chat.adapter.ChannelChatAdapter.smali.patch splitchat/.
 
 # Updater

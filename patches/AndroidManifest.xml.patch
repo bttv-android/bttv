@@ -18,7 +18,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <queries>
-@@ -44,6 +55,7 @@
+@@ -53,6 +64,7 @@
      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
      <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -26,7 +26,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -57,7 +69,7 @@
+@@ -66,7 +78,7 @@
      <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
      <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
@@ -35,9 +35,9 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
          <meta-data android:name="WindowManagerPreference:FreeformWindowOrientation" android:value="portrait"/>
          <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
-@@ -157,10 +169,10 @@
+@@ -175,10 +187,10 @@
              </intent-filter>
-         </receiver>
+         </service>
          <service android:name="tv.twitch.android.shared.app.indexing.AppIndexingUpdateService" android:permission="android.permission.BIND_JOB_SERVICE"/>
 -        <provider android:authorities="tv.twitch.android.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
 +        <provider android:authorities="tv.twitch.bttvandroid.app.provider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
@@ -48,7 +48,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -268,11 +280,11 @@
+@@ -287,11 +299,11 @@
          <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
          <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" android:visibleToInstantApps="true"/>
          <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
@@ -63,16 +63,16 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
              <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
              <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
          </provider>
-@@ -286,7 +298,7 @@
+@@ -305,7 +317,7 @@
          <service android:enabled="false" android:exported="true" android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"/>
          <meta-data android:name="com.google.android.play.billingclient.version" android:value="3.0.3"/>
          <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 -        <provider android:authorities="tv.twitch.android.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.mlsInitializationProvider" android:enabled="true" android:exported="false" android:name="com.amazon.mls.config.internal.sushi.background.ProcessLifecycleTrackerInitialization"/>
          <service android:name="com.amazon.mls.config.internal.sushi.uploader.BackupUploaderService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+         <activity android:name="com.amazon.identity.auth.device.activity.GetAuthenticatorResultsActivity" android:theme="@style/TransparentActivityTheme"/>
          <uses-library android:name="com.amazon.client.metrics.api" android:required="false"/>
-         <activity android:allowTaskReparenting="true" android:configChanges="@integer/config_maskLocaleOrientationKeyboardKeyboardHiddenLayoutDirectionScreenSize" android:exported="true" android:label="Amazon AuthPortal" android:launchMode="singleTop" android:name="com.amazon.identity.auth.device.AuthPortalUIActivity" android:permission="com.amazon.identity.auth.device.perm.AUTH_SDK"/>
-@@ -318,5 +330,18 @@
+@@ -338,5 +350,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>

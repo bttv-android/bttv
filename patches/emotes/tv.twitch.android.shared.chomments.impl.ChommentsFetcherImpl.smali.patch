@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
 --- a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
-@@ -885,6 +885,13 @@
+@@ -881,6 +881,13 @@
      .line 57
      iput-object p2, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
  

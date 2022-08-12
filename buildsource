@@ -19,7 +19,7 @@ export ANDROID_SDK_ROOT
 
 # build mod
 cd mod
-bash gradlew build
+bash gradlew assemble
 
 # fail if failed
 [ $? = 0 ] || exit 1

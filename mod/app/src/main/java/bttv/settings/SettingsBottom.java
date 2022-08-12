@@ -14,7 +14,9 @@ import bttv.AnonChat;
 import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
+import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
+import bttv.highlight.StringSetUI;
 import bttv.settings.abstractions.bottom.Link;
 import bttv.settings.abstractions.bottom.Toggle;
 import io.reactivex.functions.Consumer;
@@ -76,6 +78,7 @@ public class SettingsBottom {
                 new DelegateSettingsPair(Toggle.fromSetting(ctx, container, Settings.ShowDeletedMessagesEnabled), Settings.ShowDeletedMessagesEnabled),
                 getAnonToggle(ctx, container),
                 getOpenHighlightLink(ctx, container),
+                getOpenBlacklistLink(ctx, container)
         };
 
         LAST_ITEMS = items;
@@ -91,8 +94,8 @@ public class SettingsBottom {
         }), Settings.AnonChatEnabled);
     }
 
-    private static DelegateSettingsPair getOpenHighlightLink(Context ctx, ViewGroup container) {
-        Log.i(TAG, "getOpenHighlightLink: " + ctx);
+    private static DelegateSettingsPair getOpenStringSetLink(Context ctx, ViewGroup container, StringSetUI setUI, Settings setting) {
+        Log.i(TAG, "getOpenStringSetLink: " + ctx);
         Consumer<InfoMenuViewDelegate.Event> onClick = new Consumer<InfoMenuViewDelegate.Event>() {
             @Override
             public void accept(InfoMenuViewDelegate.Event event) throws Exception {
@@ -101,14 +104,22 @@ public class SettingsBottom {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Highlight.openDialog(activity);
+                        setUI.openDialog(activity);
                     }
                 });
             }
         };
         return new DelegateSettingsPair(
                 Link.simple(ctx, container, onClick),
-                Settings.OpenHighlightedWordsButton
+                setting
         );
+    }
+
+    private static DelegateSettingsPair getOpenHighlightLink(Context ctx, ViewGroup container) {
+        return getOpenStringSetLink(ctx, container, Highlight.getInstance(), Settings.OpenHighlightedWordsButton);
+    }
+
+    private static DelegateSettingsPair getOpenBlacklistLink(Context ctx, ViewGroup container) {
+        return getOpenStringSetLink(ctx, container, Blacklist.getInstance(), Settings.OpenBlacklistButton);
     }
 }

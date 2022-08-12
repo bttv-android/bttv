@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="login_landing_title">Vítá vás\nBetter Twitch</string>
-    <string name="bttv_emote_picker_global_bttv">Globální BTTV emotikony</string>
-    <string name="bttv_emote_picker_channel_bttv">BTTV emotikony kanálu</string>
-    <string name="bttv_emote_picker_global_ffz">Globální FrankerFaceZ emotikony</string>
-    <string name="bttv_emote_picker_channel_ffz">FrankerFacez emotikony kanálu</string>
-    <string name="bttv_emote_picker_global_7tv">Globální 7TV emotikony</string>
+    <string name="bttv_emote_picker_global_bttv">Globální BTTV Emotikony</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV Emotikony kanálu</string>
+    <string name="bttv_emote_picker_global_ffz">Globální FrankerFaceZ Emotikony</string>
+    <string name="bttv_emote_picker_channel_ffz">FrankerFacez Emotikony kanálu</string>
+    <string name="bttv_emote_picker_global_7tv">Globální 7TV Emotikony</string>
     <string name="bttv_emote_picker_channel_7tv">7TV emotikony kanálu</string>
     <string name="bttv_app_update_available">bttv-android: Byla zjištěna nová aktualizace</string>
     <string name="bttv_app_update_available_cta">Klepnutím sem stáhněte a nainstalujte aktualizaci.</string>
@@ -22,7 +22,9 @@
     <string name="bttv_settings_show_sleep_timer_primary">Zobrazit časovač spánku</string>
     <string name="bttv_emote_added_by_bttv">Emotikon přidán od bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote přidal %s</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">7TV Emote přidal %s</string>
     <string name="bttv_updater_downloading">Stahování</string>
     <string name="bttv_updater_downloading_version">Stahování %s</string>
     <string name="bttv_updater_notice">Pokud je toto první použití aktualizace, povolte instalace z této aplikace, když vás průvodce požádá.</string>
@@ -34,6 +36,28 @@
     <string name="bttv_settings_gif_render_mode_animate">Animované</string>
     <string name="bttv_settings_gif_render_mode_static">Statické</string>
     <string name="bttv_settings_gif_render_mode_disabled">Vypnuto</string>
+    <string name="bttv_settings_open_credits_button_title">Závěrečné titulky</string>
+    <string name="bttv_settings_enable_show_deleted_messages">Zobrazit smazané zprávy</string>
+    <string name="bttv_settings_enable_anon_chat_primary">Anonymní Chat</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">Připojit se anonymně bez zobrazení v uživatelském seznamu</string>
+    <string name="bttv_credits_title">Závěrečné titulky</string>
+    <string name="bttv_credits_intro">bttv-android byl vytvořen <annotation link_to="https://github.com/FoseFx">FoseFx</annotation> s pomocí těchto lidí:</string>
+    <string name="bttv_credits_bugs">Hlášení chyb</string>
+    <string name="bttv_credits_ideas">Návrhy</string>
+    <string name="bttv_credits_translations">Překlady</string>
+    <string name="bttv_credits_docs">Dokumentace</string>
+    <string name="bttv_copied_to_clipboard">Uživatelské jméno zkopírováno do schránky</string>
+    <string name="bttv_settings_enable_split_chat">Rozdělit chat</string>
+    <string name="bttv_settings_enable_split_chat_descr">Stínovat pozadí každé druhé zprávy v chatu</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">Animovat navždy</string>
+    <string name="bttv_settings_gif_render_mode_descr">Poznámka: \"Animovat navždy\" může vybíjet baterii opravdu rychle</string>
+    <string name="bttv_settings_enable_dev_tools">Povolit vývojářské nástroje</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">Spravovat experimentální prvky, latenci a další nastavení. Postupujte opatrně.</string>
+    <string name="bttv_highlight_dia_list_empty">Tady nic není\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[Můžete zvýraznit <user> např. takto: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Na svém zařízení nemáte aplikaci Twitch nainstalovanou. Abyste mohli používat funkci Watch Party v bttv-android je třeba mít aplikaci Twitch nainstalovanou.\n\nTaké musíte zabrát spuštění Twitch aplikace, když otevírate twitch.tv odkazy. Udělejte následující:\n\nDlouze podržte aplikaci Twitch -&gt; \"Informace o aplikaci\" -&gt; \"Pokročilé\" -&gt; \"Ve výchozím nastavení otevřít\" -&gt; \"Otevřít podporované odkazy\" -&gt; \"Vždy se ptát\" (může se lišit podle OEM).\n\nNyní budete dotázáni jakou aplikací budete chtít otevírat odkazy.</string>
+    <string name="bttv_removed_by_mod">odstraněno</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

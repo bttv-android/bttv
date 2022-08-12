@@ -4,8 +4,10 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import tv.twitch.android.core.adapters.AbstractTwitchRecyclerViewHolder;
+
 public class UserNoticeRecyclerItem {
-  public static final class UserNoticeViewHolder extends androidx.recyclerview.widget.RecyclerView.ViewHolder {
+  public static final class UserNoticeViewHolder extends AbstractTwitchRecyclerViewHolder {
     public UserNoticeViewHolder(@NonNull View itemView) {
       super(itemView);
     }

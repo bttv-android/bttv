@@ -21,8 +21,10 @@ import okhttp3.ResponseBody;
 public class Network {
 
     private static final int GLOBAL_CHANNEL_ID = -2;
-    private static final String BTTV_API_HOST = "https://api.betterttv.net";
-    private static final String STV_API_HOST = "https://api.7tv.app/v2";
+    public static final String BTTV_API_HOST = "https://api.betterttv.net";
+    public static final String FFZ_API_HOST = "https://api.frankerfacez.com/v1";
+    public static final String STV_API_HOST = "https://api.7tv.app/v2";
+    public static final String CHATTERINO_API_HOST = "https://api.chatterino.com";
 
     public static void get(String url, Callback cb) {
         OkHttpClient client = new OkHttpClient();

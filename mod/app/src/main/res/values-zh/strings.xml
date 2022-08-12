@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV 表情</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">自動收集頻道點數</string>
     <string name="bttv_settings_show_sleep_timer_primary">显示睡眠定时器</string>
-    <string name="bttv_settings_show_uptime">显示上传时间</string>
     <string name="bttv_emote_added_by_bttv">由 bttv-android 添加的表情</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">由 %s 添加的FrankerFaceZ 表情</string>
@@ -59,4 +58,5 @@
     <string name="bttv_highlight_user_notice"><![CDATA[您可以突出显示类似的 <user> 。例如： <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">您的设备上没有安装Twitch应用程序。 为了在 bttv-android 中使用监视缔约方，您需要安装 Twitch 应用程序。\n\n您还必须阻止Twitch与 twitch.tv 链接交互时打开 Twitch。 做以下操作：\n\nTwitch App 长按-&gt; \"App Info\" -&gt; \"高级\" -&gt; \"默认打开\" -&gt; \"Open supported links\" -&gt; \"每次询问\" (可能根据OEM而变化)。\n\n现在询问您想要打开链接的应用程序。</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

@@ -1,7 +1,32 @@
 # Changelog
 
 # master
-- rebase to v12.8.1
+- rebase to v14.4.1
+- remove uptime feature as it is now a native feature
+
+# 0.30.1-beta
+- fix split chat color in dark mode
+- improve emote quality
+
+# 0.30.0-beta
+- add blacklist feature
+- rebase to v13.3.1
+
+# 0.29.0-beta
+- rebase to v13.2.0
+- add third party badges:
+  - bttv
+  - FFZ
+  - 7TV
+  - Chatterino
+- adding support for svgs
+
+# 0.28.0-beta
+- rebase to v13.1.0
+
+# 0.27.0-beta
+- rebase to v13.0.0
+- fix deleted messages issue
 
 # 0.26.0-beta
 - rebase to v12.8.0

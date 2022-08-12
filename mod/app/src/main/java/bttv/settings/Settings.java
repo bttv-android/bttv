@@ -91,15 +91,6 @@ public enum Settings {
                 null
             )
     ),
-    ShowUptime(
-          new Entry.BoolEntry(
-                  "show_uptime",
-                  new Entry.BoolValue(false),
-                  Res.strings.bttv_settings_show_uptime,
-                  null,
-                  null
-          )
-    ),
     AnonChatEnabled(
             new Entry.BoolEntry(
                     "enable_anon_chat",
@@ -120,6 +111,23 @@ public enum Settings {
     HighlightedKeyWords(
             new Entry.StringSetEntry(
                     "bttv_highlight_set",
+                    new HashSet<>(),
+                    null,
+                    null,
+                    null
+            )
+    ),
+    OpenBlacklistButton(
+            new Entry.LinkEntry(
+                    Res.strings.bttv_settings_open_blacklist_dia_primary,
+                    Res.strings.bttv_settings_open_blacklist_dia_secondary,
+                    null,
+                    SettingsDestination.BTTV_BLACKLIST
+            )
+    ),
+    BlacklistedKeyWords(
+            new Entry.StringSetEntry(
+                    "bttv_blacklist_set",
                     new HashSet<>(),
                     null,
                     null,

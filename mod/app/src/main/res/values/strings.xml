@@ -21,7 +21,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Auto-Redeem Channel Points</string>
     <string name="bttv_settings_show_sleep_timer_primary">Show Sleep Timer</string>
-    <string name="bttv_settings_show_uptime">Show Uptime</string>
     <string name="bttv_emote_added_by_bttv">Emote added by bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote added by %s</string>
@@ -60,4 +59,9 @@
     <string name="bttv_highlight_user_notice"><![CDATA[You can highlight a <user> like this. e.g.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">You do not have the Twitch App installed on your device. In order to use Watch Parties in bttv-android you need to have the Twitch App installed.\n\nYou also have to prevent Twitch from opening when you interact with twitch.tv links. Do the following:\n\nLong-press on the Twitch App -> "App Info" -> "Advanced" -> "Open by default" -> "Open supported links" -> "Ask every time" (might vary depending on OEM).\n\nNow you are asked which App you want to open the links with.</string>
+    <string name="bttv_removed_by_mod">removed</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Manage Blacklist</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Opens Blacklist Dialog</string>
+    <string name="bttv_settings_blacklist_dia_title">Manage blacklisted Keywords</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

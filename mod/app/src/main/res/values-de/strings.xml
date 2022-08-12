@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">7TV Emotes</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Kanal Punkte automatisch erhalten</string>
     <string name="bttv_settings_show_sleep_timer_primary">Sleep Timer anzeigen</string>
-    <string name="bttv_settings_show_uptime">Uptime anzeigen</string>
     <string name="bttv_emote_added_by_bttv">Von bttv-android hinzugefügtes Emote</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">FrankerFaceZ Emote von %s hinzugefügt</string>
@@ -58,4 +57,6 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_removed_by_mod">gelöscht</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

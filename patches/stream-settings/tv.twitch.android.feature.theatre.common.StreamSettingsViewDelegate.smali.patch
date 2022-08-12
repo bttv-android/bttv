@@ -10,7 +10,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSetti
  
  .field private final animatedEmotesButton:Landroidx/appcompat/widget/SwitchCompat;
  
-@@ -2800,5 +2800,9 @@
+@@ -2767,5 +2767,9 @@
  
      invoke-direct {p0, p1, v0}, Ltv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate;->setupDoNotDisturb(ZLtv/twitch/android/feature/theatre/common/StreamSettings$ConfigurablePlayer;)V
  

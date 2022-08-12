@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotki 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Automatycznie Zbieraj Punkty Kanału</string>
     <string name="bttv_settings_show_sleep_timer_primary">Pokaż Licznik Snu</string>
-    <string name="bttv_settings_show_uptime">Pokaż Długość</string>
     <string name="bttv_emote_added_by_bttv">Emotka dodana przez bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emotka FrankerFaceZ dodana przez %s</string>
@@ -59,4 +58,9 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Możesz wyróżnić <user> w taki sposób. np.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Nie posiadasz zainstalowanej aplikacji Twitch na swoim urządzeniu. Aby korzystać ze wspólnego oglądania w bttv-android musisz posiadać zainstalowaną aplikację Twitch.\n\nPonad to musisz zablokować uruchamianie adresów twitch.tv w aplikacji Twitch. Wykonaj następujące czynności:\n\nPrzytrzymaj aplikację Twitch -&gt; \"Informacje o aplikacji\" -&gt; \"Zaawansowane\" -&gt; \"Otwieraj domyślnie\" -&gt; \"Otwieraj wspierane adresy\" -&gt; \"Pytaj zawsze\" (może się różnić w zależności od OEM).\n\nBędziesz teraz pytany jaką aplikacją chcesz otwierać adresy.</string>
+    <string name="bttv_removed_by_mod">usunięto</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Zarządzaj Czarną Listą</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Otwiera Czarną Listę</string>
+    <string name="bttv_settings_blacklist_dia_title">Zarządzaj słowami na czarnej liście</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

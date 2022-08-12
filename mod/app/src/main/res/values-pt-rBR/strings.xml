@@ -20,7 +20,6 @@
     <string name="bttv_settings_enable_7tv_emotes_primary">Emotes 7TV</string>
     <string name="bttv_settings_enable_auto_redeem_points_primary">Resgatar Pontos do Canal Automaticamente</string>
     <string name="bttv_settings_show_sleep_timer_primary">Mostrar Timer de Descanso</string>
-    <string name="bttv_settings_show_uptime">Mostrar Tempo de Transmissão</string>
     <string name="bttv_emote_added_by_bttv">Emote adicionado pelo bttv-android</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
     <string name="bttv_emote_added_by_bttv_ffz">Emote FrankerFaceZ adicionado por %s</string>
@@ -59,4 +58,9 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user> dessa forma. Exemplo: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_watchparty_twitch_missing">Você não tem o aplicativo da Twitch instalado no seu dispositivo. Para poder usar as Sessões em Grupo no bttv-android você precisa ter o aplicativo da Twitch instalado.\n\nVocê também precisa impedir que a Twitch abra ao interagir com os links da twitch.tv. Faça o seguinte:\n\n Acesse as Informações do Aplicativo através das Configurações do seu dispositivo, ou pressionando o ícone até aparecer a opção -&gt; \"Informações do Aplicativo\" -&gt; \"Avançado\" -&gt; \"Abrir por padrão\" -&gt; \"Abrir links suportados\" -&gt; \"Perguntar sempre\" (pode variar dependendo do OEM).\n\nAgora você será perguntado com qual aplicativo deseja abrir os links.</string>
+    <string name="bttv_removed_by_mod">removido</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Gerenciar Lista Negra</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Abre o Diálogo da Lista Negra</string>
+    <string name="bttv_settings_blacklist_dia_title">Gerenciar Palavras-chave na Lista Negra</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

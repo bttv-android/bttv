@@ -1,7 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="login_landing_title">欢迎使用\nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">全局 BTTV 表情</string>
+    <string name="bttv_emote_picker_channel_bttv">频道专属BTTV表情</string>
+    <string name="bttv_emote_picker_global_ffz">全局FrankerFaceZ表情</string>
+    <string name="bttv_emote_picker_channel_ffz">频道专属FrankerFaceZ表情</string>
+    <string name="bttv_emote_picker_global_7tv">全局7TV表情</string>
+    <string name="bttv_emote_picker_channel_7tv">频道专属7TV表情</string>
+    <string name="bttv_app_update_available">bttv-android: 检测到新的更新</string>
+    <string name="bttv_app_update_available_cta">点击下载并安装更新</string>
+    <string name="bttv_sleep_timer_button_descr">打开定时睡眠对话框</string>
+    <string name="bttv_sleep_timer_select_dialog_title">定时睡眠</string>
+    <string name="bttv_sleep_timer_cancel_dialog_title">取消定时睡眠</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">定时睡眠已在运行。您想要取消它吗？</string>
+    <string name="bttv_settings_enable_bttv_emotes_primary">BTTV表情</string>
+    <string name="bttv_settings_enable_bttv_emotes_secondary">为何禁用此功能？</string>
+    <string name="bttv_settings_enable_gif_emotes_primary">BTTV GIF表情</string>
+    <string name="bttv_settings_enable_ffz_emotes_primary">FrankerFaceZ表情</string>
+    <string name="bttv_settings_enable_7tv_emotes_primary">7TV表情</string>
+    <string name="bttv_settings_enable_auto_redeem_points_primary">自动兑换频道点数</string>
+    <string name="bttv_settings_show_sleep_timer_primary">显示睡眠计时</string>
+    <string name="bttv_emote_added_by_bttv">bttv-android添加的表情</string>
     <!-- e.g.: FrankerFaceZ Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_ffz">%s添加的FrankerFaceZ表情</string>
     <!-- e.g.: 7TV Emote added by FoseFx -->
+    <string name="bttv_emote_added_by_bttv_stv">%s添加的7TV表情</string>
+    <string name="bttv_updater_downloading">正在下载</string>
+    <string name="bttv_updater_downloading_version">正在下载 %s</string>
+    <string name="bttv_updater_notice">如果这是您第一次更新，当向导询问时，请允许从此源安装。</string>
+    <string name="bttv_settings_open_highlights_dia_primary">设置高亮关键字</string>
+    <string name="bttv_settings_open_highlights_dia_secondary">打开高亮对话框</string>
+    <string name="bttv_settings_highlights_dia_input_hint">输入新的关键词</string>
+    <string name="bttv_settings_highlights_dia_title">管理高亮关键字</string>
+    <string name="bttv_settings_gif_render_mode_title">Gif表情</string>
+    <string name="bttv_settings_gif_render_mode_animate">动态</string>
+    <string name="bttv_settings_gif_render_mode_static">静态</string>
+    <string name="bttv_settings_gif_render_mode_disabled">停用</string>
+    <string name="bttv_settings_open_credits_button_title">鸣谢</string>
+    <string name="bttv_settings_enable_show_deleted_messages">显示已删除的消息</string>
+    <string name="bttv_settings_enable_anon_chat_primary">匿名聊天</string>
+    <string name="bttv_settings_enable_anon_chat_secondary">匿名加入聊天</string>
+    <string name="bttv_credits_title">鸣谢</string>
+    <string name="bttv_credits_intro"> <annotation link_to="https://github.com/FoseFx">FoseFx</annotation>制作的bttv-android有以下人员的帮助：</string>
+    <string name="bttv_credits_bugs">错误报告</string>
+    <string name="bttv_credits_ideas">建议</string>
+    <string name="bttv_credits_translations">翻译</string>
+    <string name="bttv_credits_docs">开发文档</string>
+    <string name="bttv_copied_to_clipboard">用户名已复制到剪切板。</string>
+    <string name="bttv_settings_enable_split_chat">拆分聊天</string>
+    <string name="bttv_settings_enable_split_chat_descr">对每隔一条聊天背景染色</string>
+    <string name="bttv_settings_gif_render_mode_animate_forever">永久动画</string>
+    <string name="bttv_settings_gif_render_mode_descr">注意：“永远保持动画”可能会消耗您的电量非常快。</string>
+    <string name="bttv_settings_enable_dev_tools">启用开发者工具</string>
+    <string name="bttv_settings_enable_dev_tools_secondary">管理实验、延迟和其他设置。请谨慎操作。</string>
+    <string name="bttv_highlight_dia_list_empty">这里什么都没有\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
+    <string name="bttv_highlight_user_notice"><![CDATA[您可以高亮显示用户 。例如： <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">您的设备上没有安装Twitch应用程序。 为了在 bttv-android 中使用Watch Parties，您需要安装 Twitch 应用程序。\n\n您也必须阻止Twitch打开 twitch.tv 链接。请使用以下操作：\n\n长按Twitch 应用-&gt; \"应用信息\" -&gt; \"高级\" -&gt; \"默认打开\" -&gt; \"打开支持的链接\" -&gt; \"每次询问\" (可能会根据OEM而变化)。\n\n现在将询问打开链接的应用程序。</string>
+    <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>

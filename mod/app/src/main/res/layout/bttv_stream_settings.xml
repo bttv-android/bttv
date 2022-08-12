@@ -227,4 +227,36 @@
             app:layout_constraintTop_toBottomOf="@+id/bttv_stream_settings_open_highlight_button_primary"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bttv_stream_settings_open_blacklist_button"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/stream_settings_content_margin">
+        <TextView
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/text_base"
+            android:ellipsize="end"
+            android:id="@+id/bttv_stream_settings_open_blacklist_button_primary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bttv_settings_open_blacklist_dia_primary"
+            android:maxLines="2"
+            app:layout_constraintBottom_toTopOf="@+id/bttv_stream_settings_open_blacklist_button_secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:textSize="@dimen/font_small"
+            android:textColor="@color/text_alt_2"
+            android:ellipsize="end"
+            android:id="@+id/bttv_stream_settings_open_blacklist_button_secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bttv_settings_open_blacklist_dia_secondary"
+            android:maxLines="3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bttv_stream_settings_open_blacklist_button_primary"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </LinearLayout>
