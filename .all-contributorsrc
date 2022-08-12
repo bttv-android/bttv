@@ -354,6 +354,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "mariusandersen",
+      "name": "Marius Andersen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3061094?v=4",
+      "profile": "https://github.com/mariusandersen",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
