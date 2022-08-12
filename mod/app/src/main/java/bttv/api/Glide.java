@@ -13,10 +13,20 @@ import com.bumptech.glide.Registry;
 import com.bumptech.glide.integration.webp.decoder.WebpDrawable;
 
 import bttv.Data;
+import tv.twitch.android.shared.ui.elements.span.GlideChatImageCustomTarget;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class Glide {
+
+    public static boolean getIsBttvEmote(GlideChatImageCustomTarget target) {
+        try {
+            return bttv.emote.Glide.getIsBttvEmote(target);
+        } catch (Throwable t) {
+            Log.e("LBTTVGlide", "getIsBttvEmote: ", t);
+            return false;
+        }
+    }
 
     public static void maybeSetBG(UrlDrawable urlDrawable, Canvas canvas, Drawable d) {
         Integer bg = Data.backgrounds.get(urlDrawable.getUrl());

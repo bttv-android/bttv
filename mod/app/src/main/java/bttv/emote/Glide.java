@@ -8,10 +8,16 @@ import android.widget.TextView;
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
+import tv.twitch.android.shared.ui.elements.span.GlideChatImageCustomTarget;
 import tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget;
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable;
 
 public class Glide {
+
+    public static boolean getIsBttvEmote(GlideChatImageCustomTarget target) {
+        UrlDrawable urlDrawable = target.mUrlDrawable;
+        return getIsBttvEmote(urlDrawable);
+    }
 
     public static boolean getIsBttvEmote(GlideChatImageTarget target) {
         UrlDrawable urlDrawable = target.mUrlDrawable;
