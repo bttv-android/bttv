@@ -58,5 +58,8 @@
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_removed_by_mod">gelöscht</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Sperrliste verwalten</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Öffnet den Dialog für gesperrte Wörter</string>
+    <string name="bttv_settings_blacklist_dia_title">Gesperrte Wörter verwalten</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
