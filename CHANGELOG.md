@@ -1,5 +1,8 @@
 # Changelog
 
+# master
+- fix blacklist issue
+
 # 0.31.0-beta
 - rebase to v14.4.1
 - remove uptime feature as it is now a native feature
