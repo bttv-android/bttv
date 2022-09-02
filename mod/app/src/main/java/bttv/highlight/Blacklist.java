@@ -21,6 +21,6 @@ public class Blacklist extends StringSetUI {
     }
     public static boolean shouldBlock(String word) {
         getInstance().loadSet();
-        return INSTANCE.stringSet.contains(word);
+        return INSTANCE.stringSet.contains(word.toLowerCase());
     }
 }
