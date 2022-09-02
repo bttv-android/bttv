@@ -134,8 +134,6 @@ mv 'tv.twitch.android.shared.chat.util.ChatUtil$Companion.smali.patch' deletedms
 
 # Other UI patches
 mkdir ui
-mv res.drawable.background_splash.xml.patch ui/.
-mv res.drawable-v23.background_splash.xml.patch ui/.
 mv res.mipmap-anydpi-v26.ic_launcher.xml.patch ui/.
 mv res.layout.settings_logout_footer.xml.patch ui/.
 
