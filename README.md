@@ -205,6 +205,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/moonMan8"><img src="https://avatars.githubusercontent.com/u/107777735?v=4?s=100" width="100px;" alt=""/><br /><sub><b>moonMan8</b></sub></a><br /><a href="#ideas-moonMan8" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/mirronake"><img src="https://avatars.githubusercontent.com/u/96698262?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mirronake</b></sub></a><br /><a href="#translation-mirronake" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/mariusandersen"><img src="https://avatars.githubusercontent.com/u/3061094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marius Andersen</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Amariusandersen" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/owwouwu"><img src="https://avatars.githubusercontent.com/u/112671011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>owwouwu</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aowwouwu" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
