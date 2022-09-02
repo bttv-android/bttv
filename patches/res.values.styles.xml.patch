@@ -1,0 +1,12 @@
+diff --git a/res/values/styles.xml b/res/values/styles.xml
+--- a/res/values/styles.xml
++++ b/res/values/styles.xml
+@@ -3097,7 +3097,7 @@
+     <style name="Theme.Twitch.Splash" parent="@style/Theme.SplashScreen">
+         <item name="postSplashScreenTheme">@style/Theme.Twitch</item>
+         <item name="windowSplashScreenAnimatedIcon">@drawable/background_splash</item>
+-        <item name="windowSplashScreenBackground">@color/twitch_purple</item>
++        <item name="windowSplashScreenBackground">@color/bttv_mega</item>
+     </style>
+     <style name="Theme.Twitch.ToolBarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+         <item name="android:textSize">18.0sp</item>

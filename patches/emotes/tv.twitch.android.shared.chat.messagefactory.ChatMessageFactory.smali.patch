@@ -1,52 +1,25 @@
 diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 --- a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-@@ -779,6 +779,12 @@
-     goto :goto_2
+@@ -644,6 +644,21 @@
  
-     :cond_3
-+
-+    # BTTV
-+    invoke-static/range {p1 .. p12}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/provider/chat/ChatMessageInterface;ZZIILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
-+    move-result-object p12
-+    # /BTTV
-+
-     if-eqz p12, :cond_4
- 
-     .line 748
-@@ -3010,6 +3016,21 @@
- 
-     invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+     invoke-static {v15, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
 +    # BTTV
 +    #  Add bttv emotes
 +    #     expects:
-+    #       v14: tv.twitch.android.provider.chat.ChatMessageInterface
-+    invoke-static {v14}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
++    #       v15: tv.twitch.android.provider.chat.ChatMessageInterface
++    invoke-static {v15}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
 +
 +    # dont add if contians word on blocklist
-+    invoke-static {v14}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/provider/chat/ChatMessageInterface;)Z
-+    move-result v0
-+    if-eqz v0, :skipnullreturn
-+    const/4 v0, 0x0
-+    return-object v0
++    invoke-static {v15}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/provider/chat/ChatMessageInterface;)Z
++    move-result v1
++    if-eqz v1, :skipnullreturn
++    const/4 v1, 0x0
++    return-object v1
 +    :skipnullreturn
 +    # /BTTV
 +
-     const-string v0, "webViewSource"
+     const-string v1, "webViewSource"
  
-     move-object/from16 v8, p8
-@@ -4269,6 +4290,13 @@
-     .line 360
-     iget-object v4, v13, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
- 
-+    # BTTV
-+    #  Add bttv emotes
-+    #     expects:
-+    #       v4: tv.twitch.chat.ChatMessageInfo
-+    invoke-static {v4}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/chat/ChatMessageInfo;)V
-+    # /BTTV
-+
-     const/4 v14, 0x0
- 
-     if-eqz v4, :cond_a
+     move-object/from16 v10, p8

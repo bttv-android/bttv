@@ -6,7 +6,7 @@ import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.formvalue.FormValueDelegate;
 
-public class ToggleMenuModel extends FormValueDelegate<Boolean> {
+public class ToggleMenuModel extends tv.twitch.android.shared.ui.menus.core.MenuModel.SingleItemModel {
 
     public ToggleMenuModel(String primaryText, String secondaryText, String auxiliaryText, boolean z, boolean z2,
                            Drawable icon, String eventName, boolean includeBackground, String pillText, Integer pillColor,
