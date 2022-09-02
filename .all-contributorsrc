@@ -363,6 +363,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mklwong",
+      "name": "mklwong",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8085890?v=4",
+      "profile": "https://github.com/mklwong",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
