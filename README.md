@@ -207,6 +207,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/mariusandersen"><img src="https://avatars.githubusercontent.com/u/3061094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Marius Andersen</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Amariusandersen" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/mklwong"><img src="https://avatars.githubusercontent.com/u/8085890?v=4?s=100" width="100px;" alt=""/><br /><sub><b>mklwong</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Amklwong" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/owwouwu"><img src="https://avatars.githubusercontent.com/u/112671011?v=4?s=100" width="100px;" alt=""/><br /><sub><b>owwouwu</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aowwouwu" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/Wissididom"><img src="https://avatars.githubusercontent.com/u/30803034?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wissididom</b></sub></a><br /><a href="#translation-Wissididom" title="Translation">🌍</a></td>
   </tr>
 </table>
 
