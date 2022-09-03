@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_landing_title">Ласкаво просимо в\nBetter Twitch</string>
-    <string name="bttv_emote_picker_global_bttv">Глобальні емоції BTTV</string>
-    <string name="bttv_emote_picker_channel_bttv">BTTV емоції каналу</string>
-    <string name="bttv_emote_picker_global_ffz">Глобальні емоції FrankerFaceZ</string>
+    <string name="login_landing_title">Ласкаво просимо в \nBetter Twitch</string>
+    <string name="bttv_emote_picker_global_bttv">Глобальні смайли BTTV</string>
+    <string name="bttv_emote_picker_channel_bttv">BTTV смайли каналу</string>
+    <string name="bttv_emote_picker_global_ffz">Глобальні смайли FrankerFaceZ</string>
     <string name="bttv_emote_picker_channel_ffz">FrankerFaceZ емоції каналу</string>
     <string name="bttv_emote_picker_global_7tv">Глобальні емоції 7TV</string>
     <string name="bttv_emote_picker_channel_7tv">7TV емоції каналу</string>

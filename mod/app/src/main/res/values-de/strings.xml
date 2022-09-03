@@ -57,6 +57,10 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Du kannst auch <Benutzer> hervorheben. z.B.: <fosefx>]]></string>
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
+    <string name="bttv_watchparty_twitch_missing">Sie haben die Twitch-App nicht auf Ihrem Gerät installiert. Um die Watch-Partys in bttv-android nutzen zu können, muss die Twitch-App installiert sein.\n\nDu musst auch das Öffnen von Twitch bei Interaktionen mit twitch.tv-Links verhindern. Führen Sie das Folgende aus:\n\nTippe lange auf die Twitch-App -&gt; \"App Info\" -&gt; \"Erweitert\" -&gt; \"Standardmäßig öffnen\" -&gt; \"Unterstützte Links öffnen\" -&gt; \"Immer fragen\" (kann je nach OEM variieren).\n\nJetzt werden Sie gefragt, mit welcher App Sie die Links öffnen möchten.</string>
     <string name="bttv_removed_by_mod">gelöscht</string>
+    <string name="bttv_settings_open_blacklist_dia_primary">Sperrliste verwalten</string>
+    <string name="bttv_settings_open_blacklist_dia_secondary">Öffnet den Dialog für gesperrte Wörter</string>
+    <string name="bttv_settings_blacklist_dia_title">Gesperrte Wörter verwalten</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
 </resources>
