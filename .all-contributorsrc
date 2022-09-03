@@ -381,6 +381,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Wissididom",
+      "name": "Wissididom",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30803034?v=4",
+      "profile": "https://github.com/Wissididom",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
