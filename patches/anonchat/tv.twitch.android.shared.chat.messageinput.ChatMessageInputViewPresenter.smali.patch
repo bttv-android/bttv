@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
 --- a/smali_classes5/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/shared/chat/messageinput/ChatMessageInputViewPresenter.smali
-@@ -3038,6 +3038,11 @@
+@@ -3031,6 +3031,11 @@
  
      const/4 v1, 0x0
  
@@ -12,4 +12,4 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messageinput/ChatMessa
 +
      if-eqz v0, :cond_0
  
-     .line 257
+     .line 258
