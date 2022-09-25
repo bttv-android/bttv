@@ -44,7 +44,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 
 # Build it yourself
 
-> This patch is meant to be applied to version **13.4.1** of the official twitch app
+> This patch is meant to be applied to version **13.8.0** of the official twitch app
 > Make sure you use this version before you create an issue!
 
 ## Easy way: Docker
@@ -126,7 +126,7 @@ Made with ♥️ by [@FoseFx](https://github.com/FoseFx) and contributors. MIT L
 [license-badge]: https://img.shields.io/github/license/bttv-android/bttv?style=flat-square
 [license-file]: ./LICENSE
 [bttv-version]: https://img.shields.io/github/v/release/bttv-android/bttv?style=flat-square
-[base-version]: https://img.shields.io/badge/build%20on-v13.4.1-blueviolet?style=flat-square
+[base-version]: https://img.shields.io/badge/build%20on-v13.8.0-blueviolet?style=flat-square
 [downloads-latest]: https://img.shields.io/github/downloads/bttv-android/bttv/latest/total?color=yellow&style=flat-square
 [downloads-total]: https://img.shields.io/github/downloads/bttv-android/bttv/total?color=yellowgreen&label=downloads%20total&style=flat-square
 [latest-release]: https://github.com/bttv-android/bttv/releases/latest
