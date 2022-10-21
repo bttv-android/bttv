@@ -1,7 +1,7 @@
 diff --git a/res/values/styles.xml b/res/values/styles.xml
 --- a/res/values/styles.xml
 +++ b/res/values/styles.xml
-@@ -3101,7 +3101,7 @@
+@@ -3053,7 +3053,7 @@
      <style name="Theme.Twitch.Splash" parent="@style/Theme.SplashScreen">
          <item name="postSplashScreenTheme">@style/Theme.Twitch</item>
          <item name="windowSplashScreenAnimatedIcon">@drawable/background_splash</item>
