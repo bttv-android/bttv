@@ -19,7 +19,7 @@ diff --git a/res/layout/chat_settings_bottom_sheet.xml b/res/layout/chat_setting
 +          app:layout_constraintTop_toBottomOf="@id/preferences_container" />
 +        <LinearLayout
 +          android:orientation="vertical"
-+          android:id="@id/bttv_chat_settings_bs_container" 
++          android:id="@id/bttv_chat_settings_bs_container"
 +          android:background="@drawable/chat_setting_rounded_background"
 +          android:layout_width="0.0dip"
 +          android:layout_height="wrap_content"
