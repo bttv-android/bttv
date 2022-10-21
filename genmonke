@@ -89,7 +89,7 @@ mv tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.smali.patch 
 
 # Settings
 mkdir settings
-mv tv.twitch.android.app.consumer.dagger.DaggerAppComponent.smali.patch settings/.
+mv 'tv.twitch.android.app.consumer.dagger.DaggerAppComponent$AppComponentImpl.smali.patch' settings/.
 mv 'tv.twitch.android.app.consumer.dagger.DaggerAppComponent$SettingsActivitySubcomponentImpl.smali.patch' settings/.
 mv 'tv.twitch.android.shared.ui.menus.SettingsPreferencesController$SettingsPreference.smali.patch' settings/.
 mv tv.twitch.android.models.settings.SettingsDestination.smali.patch settings/.
