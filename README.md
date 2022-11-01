@@ -31,6 +31,7 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
  - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
  - Animated Emotes occasionally glitch on some devices
  - 7TV's zero width emotes are not supported right now
+ - Personal Emotes are not supported for now
  - Users have [reported that notifications are not working for them](https://github.com/bttv-android/bttv/issues/492). To fix this go to  "App-Info -> Open Supported Apps" and select "Only in this application".
 
  - <span id="no-tv">bttv-android will not work on Android TVs as it is a mod of the Twitch mobile App and not of the Twitch Andorid TV App. You can install it, just do not expect a good experience</span>
