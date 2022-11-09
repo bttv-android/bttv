@@ -390,6 +390,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "theSaintKappa",
+      "name": "SaintKappa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96151089?v=4",
+      "profile": "https://github.com/theSaintKappa",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -397,5 +406,6 @@
   "projectOwner": "bttv-android",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }
