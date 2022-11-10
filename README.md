@@ -213,6 +213,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center"><a href="https://github.com/theSaintKappa"><img src="https://avatars.githubusercontent.com/u/96151089?v=4?s=100" width="100px;" alt="SaintKappa"/><br /><sub><b>SaintKappa</b></sub></a><br /><a href="#translation-theSaintKappa" title="Translation">🌍</a></td>
+      <td align="center"><a href="https://github.com/sassvagyok"><img src="https://avatars.githubusercontent.com/u/76638318?v=4?s=100" width="100px;" alt="sassvagyok"/><br /><sub><b>sassvagyok</b></sub></a><br /><a href="#translation-sassvagyok" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
