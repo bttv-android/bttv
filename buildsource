@@ -30,7 +30,7 @@ TMP_DIR=app/build/.bttv_tmp
 CONSUMER_APK=consumer/build/outputs/apk/release/consumer-release-unsigned.apk
 DEX_FILE="$TMP_DIR/classes.dex"
 
-FINAL_TARGET="../$TARGETDIR/smali_classes7"
+FINAL_TARGET="../$TARGETDIR/smali_classes8"
 RES_DIR="app/src/main/res"
 RES_TARGET="../$TARGETDIR/res"
 LIB_DIR="$TMP_DIR/lib"
