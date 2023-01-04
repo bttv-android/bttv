@@ -7,7 +7,7 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
  
 +    # BTTV Settings
 +    invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
-+    
++
 +    move-result-object v0
 +
 +    new-instance v9, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;
@@ -23,7 +23,7 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
 +    move-object v1, v9
 +
 +    invoke-direct/range {v1 .. v8}, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/twitch/android/models/settings/SettingsDestination;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-+    
++
 +    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 +
 +    # /BTTV
