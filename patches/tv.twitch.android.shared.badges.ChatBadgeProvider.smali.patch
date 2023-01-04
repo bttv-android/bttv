@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
---- a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
-+++ b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/badges/ChatBadgeProvider.smali b/smali_classes6/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
+--- a/smali_classes6/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
++++ b/smali_classes6/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
 @@ -361,6 +361,14 @@
  .method public final getChatBadgeImageUrl(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
      .locals 1

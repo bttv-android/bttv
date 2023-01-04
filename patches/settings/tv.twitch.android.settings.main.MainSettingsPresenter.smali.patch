@@ -1,13 +1,13 @@
 diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 --- a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -817,6 +817,28 @@
+@@ -817,6 +817,30 @@
  
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
 +    # BTTV Settings
 +    invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
-+
++    
 +    move-result-object v0
 +
 +    new-instance v9, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;
@@ -23,10 +23,12 @@ diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresente
 +    move-object v1, v9
 +
 +    invoke-direct/range {v1 .. v8}, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/twitch/android/models/settings/SettingsDestination;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-+
++    
 +    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++
 +    # /BTTV
 +
-     .line 134
-     sget-object v0, Ltv/twitch/android/shared/legal/kftc/KftcPresenter;->Companion:Ltv/twitch/android/shared/legal/kftc/KftcPresenter$Companion;
++
+     .line 140
+     invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
  

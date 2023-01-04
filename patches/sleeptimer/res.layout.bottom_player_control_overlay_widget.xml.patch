@@ -2,7 +2,7 @@ diff --git a/res/layout/bottom_player_control_overlay_widget.xml b/res/layout/bo
 --- a/res/layout/bottom_player_control_overlay_widget.xml
 +++ b/res/layout/bottom_player_control_overlay_widget.xml
 @@ -10,6 +10,18 @@
-         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_audio_only" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" app:theme="@style/SettingsSwitch" />
+         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_player_mode" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" app:theme="@style/SettingsSwitch" />
          <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_info" android:scaleType="fitCenter" app:tint="@color/white" />
          <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" app:tint="@color/white" />
 +        <ImageView
