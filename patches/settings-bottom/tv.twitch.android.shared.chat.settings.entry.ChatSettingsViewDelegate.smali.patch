@@ -12,7 +12,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSet
      return-void
  .end method
  
-@@ -1190,5 +1194,9 @@
+@@ -1206,5 +1210,9 @@
  
      invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->renderPreferencesSettings(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;)V
  

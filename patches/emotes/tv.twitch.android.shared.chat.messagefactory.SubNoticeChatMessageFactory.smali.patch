@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
 @@ -317,6 +317,13 @@
      .line 61
      iget-object v4, v1, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
