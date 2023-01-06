@@ -28,6 +28,10 @@
     <string name="bttv_updater_downloading">A descarregar</string>
     <string name="bttv_updater_downloading_version">A descarregar %s</string>
     <string name="bttv_updater_notice">Se esta é a primeira vez que você utiliza o atualizador, permita instalações desta fonte quando o assistente lhe pedir.</string>
+    <string name="bttv_updater_manual_update_start_toast">Verificando por atualizações…</string>
+    <string name="bttv_updater_manual_update_no_update_toast">Nenhuma atualização disponível</string>
+    <string name="bttv_updater_manual_update_update_toast">Atualização disponivel!</string>
+    <string name="bttv_updater_manual_update_error_toast">Ocorreu um erro</string>
     <string name="bttv_settings_open_highlights_dia_primary">Definir Palavras-Chave de Destaque</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Abrir Dialogo de Palavras-Chave</string>
     <string name="bttv_settings_highlights_dia_input_hint">Digite a nova palavra-chave</string>
