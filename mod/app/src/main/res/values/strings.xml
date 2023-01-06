@@ -29,6 +29,10 @@
     <string name="bttv_updater_downloading">Downloading</string>
     <string name="bttv_updater_downloading_version">Downloading %s</string>
     <string name="bttv_updater_notice">If this is the first time you use the updater, allow installations from this source when the wizard asks you for it.</string>
+    <string name="bttv_updater_manual_update_start_toast">Checking for updates…</string>
+    <string name="bttv_updater_manual_update_no_update_toast">No updates found</string>
+    <string name="bttv_updater_manual_update_update_toast">Update found!</string>
+    <string name="bttv_updater_manual_update_error_toast">An error occurred</string>
     <string name="bttv_settings_open_highlights_dia_primary">Set Highlight Keywords</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Opens Highlight Dialog</string>
     <string name="bttv_settings_highlights_dia_input_hint">Enter new Keyword</string>
@@ -54,6 +58,9 @@
     <string name="bttv_settings_gif_render_mode_descr">Note: "Animate forever" might drain your battery really fast</string>
     <string name="bttv_settings_enable_dev_tools">Enable Developer Tools</string>
     <string name="bttv_settings_enable_dev_tools_secondary">Manage experiments, latency and other settings. Proceed with caution.</string>
+    <string name="bttv_auto_update_checks_enabled">Check for updates automatically</string>
+    <string name="bttv_auto_update_checks_enabled_secondary">If enabled, the app checks for updates every day and with every start.</string>
+    <string name="bttv_settings_invoke_update_check">Check for updates now</string>
     <string name="bttv_highlight_dia_list_empty">There\'s nothing here\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[You can highlight a <user> like this. e.g.: <fosefx>]]></string>

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -15,6 +16,9 @@ import java.io.IOException;
 
 import bttv.Data;
 import bttv.Network;
+import bttv.Res;
+import bttv.ResUtil;
+import bttv.settings.Settings;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -25,14 +29,23 @@ import tv.twitch.android.feature.viewer.main.navigation.PersistentBannerPresente
 public class Updater {
     private static final String GH_API_HOST = "https://api.github.com";
 
-    public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter) {
-        checkForUpdates(activity, new UIListener(activity, presenter));
+    public static void manuallyCheckForUpdates(final Activity activity) {
+        ManualUpdateListener listener = new ManualUpdateListener(activity);
+        listener.onStart();
+        checkForUpdates(activity, listener, true);
     }
 
-    public static void checkForUpdates(@NonNull final Context context, @NonNull final UpdateCallbackListener listener) {
+    public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter) {
+        checkForUpdates(activity, new UIListener(activity, presenter), false);
+    }
+
+    public static void checkForUpdates(@NonNull final Context context, @NonNull final UpdateCallbackListener listener, boolean manual) {
+        if (!ResUtil.getBooleanFromSettings(Settings.AutoUpdateChecksEnabled) && !manual) {
+            listener.onNoUpdate();
+            return;
+        }
         Log.d("LBTTVUpdated", "Checking for updates...");
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
-
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e("LBTTVNetworkFail", "Update Call failed", e);
@@ -104,6 +117,7 @@ public class Updater {
         void onError(final Throwable error);
     }
 
+    /** Shows update bar when update found, triggered automatically when the app is started */
     private static class UIListener implements UpdateCallbackListener {
         final Activity activity;
         final PersistentBannerPresenter presenter;
@@ -153,4 +167,43 @@ public class Updater {
         }
     }
 
+    private static class ManualUpdateListener implements UpdateCallbackListener {
+        private final Activity activity;
+        private final Context appContext;
+
+        private ManualUpdateListener(Activity activity) {
+            this.activity = activity;
+            this.appContext = activity.getApplicationContext();
+        }
+
+        private void showToast(@NonNull final Res.strings stringResource, final int duration) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    CharSequence text = ResUtil.getLocaleString(ManualUpdateListener.this.activity, stringResource);
+                    Toast.makeText(ManualUpdateListener.this.appContext, text, duration).show();
+                }
+            });
+        }
+
+        private void onStart() {
+            showToast(Res.strings.bttv_updater_manual_update_start_toast, Toast.LENGTH_SHORT);
+        }
+
+        @Override
+        public void onNoUpdate() {
+            showToast(Res.strings.bttv_updater_manual_update_no_update_toast, Toast.LENGTH_LONG);
+        }
+
+        @Override
+        public void onUpdate(String newVersion, String body, String apkUrl, String htmlUrl) {
+            showToast(Res.strings.bttv_updater_manual_update_update_toast, Toast.LENGTH_SHORT);
+            activity.startActivity(updateActivityIndent(activity, newVersion, body, apkUrl));
+        }
+
+        @Override
+        public void onError(Throwable error) {
+            showToast(Res.strings.bttv_updater_manual_update_error_toast, Toast.LENGTH_SHORT);
+        }
+    }
 }
