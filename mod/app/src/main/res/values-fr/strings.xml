@@ -12,7 +12,7 @@
     <string name="bttv_sleep_timer_button_descr">Ouvrir la page de la minuterie de sommeil</string>
     <string name="bttv_sleep_timer_select_dialog_title">Minuterie de sommeil</string>
     <string name="bttv_sleep_timer_cancel_dialog_title">Arrêter minuterie</string>
-    <string name="bttv_sleep_timer_cancel_dialog_message">Vous avez déjà une minuterie d\'activé, voulez vous l’arrêter ?</string>
+    <string name="bttv_sleep_timer_cancel_dialog_message">Vous avez déjà une minuterie d\'activé, voulez-vous l’arrêter ?</string>
     <string name="bttv_settings_enable_bttv_emotes_primary">Emotes BTTV</string>
     <string name="bttv_settings_enable_bttv_emotes_secondary">Pourquoi désactiver cela ?</string>
     <string name="bttv_settings_enable_gif_emotes_primary">Emotes Gif BTTV</string>
