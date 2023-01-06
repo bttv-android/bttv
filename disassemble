@@ -12,8 +12,8 @@ dist
 lib
 assets/bttv_contributors.json
 smali*/androidx
-smali_classes7/bttv
-smali_classes7/com
+smali_classes8/bttv
+smali_classes8/com
 EOF
     find ../../mod/app/src/main/res -type f | sed "s/..\/..\/mod\/app\/src\/main\///" >> .gitignore &&
     echo "" >> .gitignore
