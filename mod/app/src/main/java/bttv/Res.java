@@ -95,6 +95,8 @@ public class Res {
         bttv_settings_enable_anon_chat_secondary,
         bttv_settings_enable_dev_tools,
         bttv_settings_enable_dev_tools_secondary,
+        bttv_auto_update_checks_enabled,
+        bttv_auto_update_checks_enabled_secondary,
         bttv_settings_invoke_update_check,
         bttv_credits_title,
         bttv_credits_intro,

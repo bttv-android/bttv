@@ -134,6 +134,15 @@ public enum Settings {
                     null
             )
     ),
+    AutoUpdateChecksEnabled(
+            new Entry.BoolEntry(
+                    "bttv_auto_update_checks_enabled",
+                    new Entry.BoolValue(true),
+                    Res.strings.bttv_auto_update_checks_enabled,
+                    Res.strings.bttv_auto_update_checks_enabled_secondary,
+                    null
+            )
+    ),
     InvokeUpdateCheck(
             new Entry.LinkEntry(
                     Res.strings.bttv_settings_invoke_update_check,

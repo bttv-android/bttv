@@ -18,6 +18,7 @@ import bttv.Data;
 import bttv.Network;
 import bttv.Res;
 import bttv.ResUtil;
+import bttv.settings.Settings;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -31,17 +32,20 @@ public class Updater {
     public static void manuallyCheckForUpdates(final Activity activity) {
         ManualUpdateListener listener = new ManualUpdateListener(activity);
         listener.onStart();
-        checkForUpdates(activity, listener);
+        checkForUpdates(activity, listener, true);
     }
 
     public static void checkForUpdates(final Activity activity, final PersistentBannerPresenter presenter) {
-        checkForUpdates(activity, new UIListener(activity, presenter));
+        checkForUpdates(activity, new UIListener(activity, presenter), false);
     }
 
-    public static void checkForUpdates(@NonNull final Context context, @NonNull final UpdateCallbackListener listener) {
+    public static void checkForUpdates(@NonNull final Context context, @NonNull final UpdateCallbackListener listener, boolean manual) {
+        if (!ResUtil.getBooleanFromSettings(Settings.AutoUpdateChecksEnabled) && !manual) {
+            listener.onNoUpdate();
+            return;
+        }
         Log.d("LBTTVUpdated", "Checking for updates...");
         Network.get(GH_API_HOST + "/repos/bttv-android/bttv/releases/latest", new Callback() {
-
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Log.e("LBTTVNetworkFail", "Update Call failed", e);

@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -15486,4 +15486,96 @@
+@@ -15486,4 +15486,98 @@
      <public type="xml" name="standalone_badge_gravity_top_start" id="0x7f160006" />
      <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
      <public type="xml" name="splits0" id="0x7f160008" />
@@ -84,17 +84,19 @@ diff --git a/res/values/public.xml b/res/values/public.xml
 +    <public type="string" name="bttv_settings_open_blacklist_dia_primary" id="0x7f13104d" />
 +    <public type="string" name="bttv_settings_open_blacklist_dia_secondary" id="0x7f13104e" />
 +    <public type="string" name="bttv_settings_blacklist_dia_title" id="0x7f13104f" />
-+    <public type="string" name="bttv_settings_invoke_update_check" id="0x7f131050" />
-+    <public type="string" name="bttv_credits_title" id="0x7f131051" />
-+    <public type="string" name="bttv_credits_intro" id="0x7f131052" />
-+    <public type="string" name="bttv_credits_bugs" id="0x7f131053" />
-+    <public type="string" name="bttv_credits_ideas" id="0x7f131054" />
-+    <public type="string" name="bttv_credits_translations" id="0x7f131055" />
-+    <public type="string" name="bttv_credits_docs" id="0x7f131056" />
-+    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f131057" />
-+    <public type="string" name="bttv_highlight_user_notice" id="0x7f131058" />
-+    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f131059" />
-+    <public type="string" name="bttv_removed_by_mod" id="0x7f13105a" />
++    <public type="string" name="bttv_auto_update_checks_enabled" id="0x7f131050" />
++    <public type="string" name="bttv_auto_update_checks_enabled_secondary" id="0x7f131051" />
++    <public type="string" name="bttv_settings_invoke_update_check" id="0x7f131052" />
++    <public type="string" name="bttv_credits_title" id="0x7f131053" />
++    <public type="string" name="bttv_credits_intro" id="0x7f131054" />
++    <public type="string" name="bttv_credits_bugs" id="0x7f131055" />
++    <public type="string" name="bttv_credits_ideas" id="0x7f131056" />
++    <public type="string" name="bttv_credits_translations" id="0x7f131057" />
++    <public type="string" name="bttv_credits_docs" id="0x7f131058" />
++    <public type="string" name="bttv_highlight_dia_list_empty" id="0x7f131059" />
++    <public type="string" name="bttv_highlight_user_notice" id="0x7f13105a" />
++    <public type="string" name="bttv_watchparty_twitch_missing" id="0x7f13105b" />
++    <public type="string" name="bttv_removed_by_mod" id="0x7f13105c" />
 +    <public type="drawable" name="bttv_ic_bedtime" id="0x7f0805b4" />
 +    <!-- /BTTV -->
  </resources>
