@@ -50,7 +50,7 @@
     <string name="bttv_settings_enable_split_chat">Разделить чат</string>
     <string name="bttv_settings_enable_split_chat_descr">Тонирование фона каждого второго сообщения чата</string>
     <string name="bttv_settings_gif_render_mode_animate_forever">Анимировать всегда</string>
-    <string name="bttv_settings_gif_render_mode_descr">Примечание: \"Анимировать всегда\" может быстро разрядить ваш аккумулятор</string>
+    <string name="bttv_settings_gif_render_mode_descr">Примечание: «Анимировать всегда» может быстро разрядить ваш аккумулятор</string>
     <string name="bttv_settings_enable_dev_tools">Включить инструменты разработчика</string>
     <string name="bttv_settings_enable_dev_tools_secondary">Управляйте экспериментальными функциями, задержками и другими настройками. Будьте осторожны.</string>
     <string name="bttv_highlight_dia_list_empty">Здесь пустовато, даже очень...\n¯\\_(ツ)_/¯</string>
