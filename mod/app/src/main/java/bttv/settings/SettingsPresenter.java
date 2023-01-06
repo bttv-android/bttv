@@ -16,6 +16,7 @@ import bttv.highlight.Highlight;
 import bttv.settings.abstractions.Dropdown;
 import bttv.settings.abstractions.Link;
 import bttv.settings.abstractions.Switch;
+import bttv.updater.Updater;
 import tv.twitch.android.core.adapters.HeaderConfig;
 import tv.twitch.android.core.adapters.SectionHeaderDisplayConfig;
 import tv.twitch.android.models.settings.SettingsDestination;
@@ -95,6 +96,8 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 					Blacklist.getInstance().openDialog(context);
 				} else if (settingsDestination.equals(SettingsDestination.BTTV_CREDITS)) {
 					Credits.openDialog(context);
+				} else if (settingsDestination.equals(SettingsDestination.BTTV_INVOKE_UPDATE_CHECK)) {
+					Updater.manuallyCheckForUpdates(context);
 				}
 			}
 		};

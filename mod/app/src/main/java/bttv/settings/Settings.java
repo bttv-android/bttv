@@ -134,6 +134,14 @@ public enum Settings {
                     null
             )
     ),
+    InvokeUpdateCheck(
+            new Entry.LinkEntry(
+                    Res.strings.bttv_settings_invoke_update_check,
+                    null,
+                    null,
+                    SettingsDestination.BTTV_INVOKE_UPDATE_CHECK
+            )
+    ),
     DevToolsEnabled(
             new Entry.BoolEntry(
                     "bttv_enable_dev_tools",
