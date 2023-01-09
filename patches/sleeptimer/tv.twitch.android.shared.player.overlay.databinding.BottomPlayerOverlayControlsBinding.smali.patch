@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+--- a/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
++++ b/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+@@ -15,7 +15,7 @@
+ 
+ .field public final progressText:Landroid/widget/TextView;
+ 
+-.field private final rootView:Landroidx/constraintlayout/widget/ConstraintLayout;
++.field public final rootView:Landroidx/constraintlayout/widget/ConstraintLayout;
+ 
+ .field public final rotateButton:Landroid/widget/ImageView;
+ 

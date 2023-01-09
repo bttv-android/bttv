@@ -1,0 +1,26 @@
+diff --git a/res/layout-v22/bottom_player_overlay_controls.xml b/res/layout-v22/bottom_player_overlay_controls.xml
+--- a/res/layout-v22/bottom_player_overlay_controls.xml
++++ b/res/layout-v22/bottom_player_overlay_controls.xml
+@@ -7,6 +7,22 @@
+     <TextView android:gravity="center_vertical" android:id="@id/stream_stats_text" android:background="@drawable/viewer_count_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:drawablePadding="@dimen/default_margin_half" android:paddingEnd="@dimen/default_margin" app:drawableStartCompat="@drawable/ic_user_placeholder" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@id/stream_uptime_label" app:layout_constraintTop_toTopOf="parent" app:layout_goneMarginStart="@dimen/default_margin_quarter" style="@style/LiveIndicatorText" />
+     <ImageView android:id="@id/fullscreen_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_fullscreen_enter" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" android:layout_marginHorizontal="@dimen/default_margin_half" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/show_chat_overlay_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
+     <ImageView android:id="@id/video_debug_info_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/ic_info" android:scaleType="fitCenter" android:contentDescription="@string/fullscreen_talkback" android:layout_marginHorizontal="@dimen/default_margin_half" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/fullscreen_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
++
++    <ImageView
++      android:id="@id/bttv_sleep_timer_button"
++      android:background="?selectableItemBackgroundBorderless"
++      android:padding="@dimen/default_margin"
++      android:visibility="gone"
++      android:layout_width="wrap_content"
++      android:layout_height="wrap_content"
++      android:layout_marginLeft="@dimen/default_margin"
++      android:layout_marginRight="@dimen/default_margin"
++      android:src="@drawable/bttv_ic_bedtime"
++      android:scaleType="fitCenter"
++      android:contentDescription="@string/bttv_sleep_timer_button_descr"
++      app:layout_constraintEnd_toStartOf="@+id/video_debug_info_button"
++      app:tint="@color/white" />
++
+     <ImageView android:id="@id/show_chat_overlay_button" android:background="?selectableItemBackgroundBorderless" android:padding="@dimen/default_margin" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/default_margin_half" android:layout_marginRight="@dimen/default_margin_half" android:src="@drawable/show_chat_selector" android:contentDescription="@string/show_chat" android:layout_marginHorizontal="@dimen/default_margin_half" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/rotate_button" app:layout_constraintTop_toTopOf="parent" app:tint="@color/white" />
+     <TextView android:textSize="@dimen/font_small" android:textColor="@color/white" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/player_mode_label" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/default_margin" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/toggle_player_mode" app:layout_constraintTop_toTopOf="parent" />
+     <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center_vertical" android:id="@id/toggle_player_mode" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="@dimen/default_margin_large" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:theme="@style/SettingsSwitch" />

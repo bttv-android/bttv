@@ -1,0 +1,25 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+@@ -25,7 +25,7 @@
+ 
+ 
+ # instance fields
+-.field private final viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
++.field public final viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
+ 
+ 
+ # direct methods
+@@ -707,6 +707,12 @@
+ .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter$State;)V
+     .locals 9
+ 
++    # BTTV
++    invoke-virtual {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->getContext()Landroid/content/Context;
++    move-result-object v0
++    invoke-static {v0, p0}, Lbttv/api/SleepTimer;->onInit(Landroid/content/Context;Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate;)V
++    # /BTTV
++
+     const-string v0, "state"
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
