@@ -28,6 +28,10 @@
     <string name="bttv_updater_downloading">A descarregar</string>
     <string name="bttv_updater_downloading_version">A descarregar %s</string>
     <string name="bttv_updater_notice">Se esta é a primeira vez que você utiliza o atualizador, permita instalações desta fonte quando o assistente lhe pedir.</string>
+    <string name="bttv_updater_manual_update_start_toast">Verificando por atualizações…</string>
+    <string name="bttv_updater_manual_update_no_update_toast">Nenhuma atualização disponível</string>
+    <string name="bttv_updater_manual_update_update_toast">Atualização disponivel!</string>
+    <string name="bttv_updater_manual_update_error_toast">Ocorreu um erro</string>
     <string name="bttv_settings_open_highlights_dia_primary">Definir Palavras-Chave de Destaque</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Abrir Dialogo de Palavras-Chave</string>
     <string name="bttv_settings_highlights_dia_input_hint">Digite a nova palavra-chave</string>
@@ -52,6 +56,9 @@
     <string name="bttv_settings_gif_render_mode_animate_forever">Animação para sempre</string>
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar para sempre\" pode esgotar sua bateria muito rapidamente</string>
     <string name="bttv_settings_enable_dev_tools">Habilitar Ferramentas de Desenvolvedor</string>
+    <string name="bttv_auto_update_checks_enabled">Procurar atualizações automaticamente?</string>
+    <string name="bttv_auto_update_checks_enabled_secondary">Se habilitado, o aplicativo verifica atualizações diariamente e a cada início.</string>
+    <string name="bttv_settings_invoke_update_check">Procurar por atualizações</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <!-- Not to translators: It would be great if you can check what these settings are called on your device/language -->
     <string name="bttv_removed_by_mod">removido</string>

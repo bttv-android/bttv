@@ -28,6 +28,10 @@
     <string name="bttv_updater_downloading">Baixando</string>
     <string name="bttv_updater_downloading_version">Baixando %s</string>
     <string name="bttv_updater_notice">Se essa for a primeira vez que você usa o atualizador, permita instalações dessa fonte quando o assistente solicitar.</string>
+    <string name="bttv_updater_manual_update_start_toast">Verificando atualizações…</string>
+    <string name="bttv_updater_manual_update_no_update_toast">Nenhuma atualização encontrada</string>
+    <string name="bttv_updater_manual_update_update_toast">Atualização encontrada!</string>
+    <string name="bttv_updater_manual_update_error_toast">Ocorreu um erro</string>
     <string name="bttv_settings_open_highlights_dia_primary">Definir Palavras-chave Destacadas</string>
     <string name="bttv_settings_open_highlights_dia_secondary">Abre o Diálogo de Palavras-chave Destacadas</string>
     <string name="bttv_settings_highlights_dia_input_hint">Digitar nova Palavra-chave</string>
@@ -53,6 +57,9 @@
     <string name="bttv_settings_gif_render_mode_descr">Nota: \"Animar eternamente\" pode esgotar sua bateria muito rápido</string>
     <string name="bttv_settings_enable_dev_tools">Ativar Ferramentas do Desenvolvedor</string>
     <string name="bttv_settings_enable_dev_tools_secondary">Gerencie experimentos, latência e outras configurações. Prossiga com cautela.</string>
+    <string name="bttv_auto_update_checks_enabled">Verificar atualizações automaticamente</string>
+    <string name="bttv_auto_update_checks_enabled_secondary">Se ativada, o aplicativo verifica se há atualizações todos os dias e a cada inicialização.</string>
+    <string name="bttv_settings_invoke_update_check">Verificar atualizações agora</string>
     <string name="bttv_highlight_dia_list_empty">Não há nada aqui\n¯\\_(ツ)_/¯</string>
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_highlight_user_notice"><![CDATA[Você pode destacar um <user> dessa forma. Exemplo: <fosefx>]]></string>
