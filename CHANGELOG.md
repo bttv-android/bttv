@@ -2,6 +2,7 @@
 
 # master
 - add toggle to control automatic update checks
+- fix sleep timer for livestreams
 
 # 0.35.0-beta
 - rebase to v14.3.2
