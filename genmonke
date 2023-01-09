@@ -60,6 +60,8 @@ mkdir sleeptimer
 mv res.layout.bottom_player_control_overlay_widget.xml.patch sleeptimer/.
 mv res.layout-v22.bottom_player_overlay_controls.xml.patch sleeptimer/.
 mv res.layout.bottom_player_overlay_controls.xml.patch sleeptimer/.
+mv tv.twitch.android.shared.player.overlay.RxBottomPlayerControlOverlayViewDelegate.smali.patch sleeptimer/.
+mv tv.twitch.android.shared.player.overlay.databinding.BottomPlayerOverlayControlsBinding.smali.patch sleeptimer/.
 mv tv.twitch.android.shared.player.overlay.BottomPlayerControlOverlayViewDelegate.smali.patch sleeptimer/.
 
 # Emotes
