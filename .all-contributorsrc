@@ -426,6 +426,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Dlevda",
+      "name": "Dlevda",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122129905?v=4",
+      "profile": "https://github.com/Dlevda",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
