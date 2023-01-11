@@ -86,6 +86,7 @@ Docker
          -v $(pwd)/patches:/usr/build/patches \
          -v $(pwd)/mod:/usr/build/mod \
          -v $(pwd)/.all-contributorsrc:/usr/build/.all-contributorsrc \
+         -v $(pwd)/bttv.manifest.json:/usr/build/bttv.manifest.json \
          ghcr.io/bttv-android/builder
       ```
 4. The `dist` directory will contain the patched apk file!
