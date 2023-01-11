@@ -217,6 +217,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/wacra"><img src="https://avatars.githubusercontent.com/u/82950858?v=4?s=100" width="100px;" alt="Wacra"/><br /><sub><b>Wacra</b></sub></a><br /><a href="#ideas-wacra" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://steamcommunity.com/profiles/76561198158864042 "><img src="https://avatars.githubusercontent.com/u/36592509?v=4?s=100" width="100px;" alt="Blueberryy"/><br /><sub><b>Blueberryy</b></sub></a><br /><a href="#translation-Blueberryy" title="Translation">🌍</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dlevda"><img src="https://avatars.githubusercontent.com/u/122129905?v=4?s=100" width="100px;" alt="Dlevda"/><br /><sub><b>Dlevda</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ADlevda" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AFranzo"><img src="https://avatars.githubusercontent.com/u/17572007?v=4?s=100" width="100px;" alt="AFranzo"/><br /><sub><b>AFranzo</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/commits?author=AFranzo" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
