@@ -435,6 +435,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "AFranzo",
+      "name": "AFranzo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17572007?v=4",
+      "profile": "https://github.com/AFranzo",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
