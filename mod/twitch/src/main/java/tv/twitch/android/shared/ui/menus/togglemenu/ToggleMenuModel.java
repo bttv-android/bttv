@@ -4,7 +4,6 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
-import tv.twitch.android.shared.ui.menus.formvalue.FormValueDelegate;
 
 public class ToggleMenuModel extends tv.twitch.android.shared.ui.menus.core.MenuModel.SingleItemModel {
 

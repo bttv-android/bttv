@@ -7,10 +7,9 @@ import androidx.core.util.Pair;
 import java.util.List;
 
 import bttv.highlight.Highlight;
-import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
-import tv.twitch.android.provider.chat.model.ChatMessageTokenizerWrapper;
+import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;
 import tv.twitch.android.sdk.SDKServicesController;
 import tv.twitch.android.shared.chat.ChatMessageParser;

@@ -1,4 +1,4 @@
-package tv.twitch.android.provider.chat.model;
+package tv.twitch.android.shared.chat.pub.model;
 
 public interface ChatMessageTokenizerWrapper {
 }
