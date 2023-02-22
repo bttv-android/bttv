@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali b/smali_classes5/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
+diff --git a/smali_classes4/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali b/smali_classes4/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
+--- a/smali_classes4/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
++++ b/smali_classes4/tv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2.smali
 @@ -71,6 +71,11 @@
  
      move-result-object v1

@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 @@ -2193,6 +2193,12 @@
      goto :goto_2
  

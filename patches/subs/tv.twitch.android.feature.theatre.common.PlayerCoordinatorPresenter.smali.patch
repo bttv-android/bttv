@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
+diff --git a/smali_classes4/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali b/smali_classes4/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
+--- a/smali_classes4/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
++++ b/smali_classes4/tv/twitch/android/feature/theatre/common/PlayerCoordinatorPresenter.smali
 @@ -27,7 +27,7 @@
  
  

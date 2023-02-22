@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali b/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
---- a/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
-+++ b/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali b/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
+--- a/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
++++ b/smali_classes5/tv/twitch/android/shared/billing/RxBillingClient.smali
 @@ -2692,6 +2692,11 @@
  .method public final isAvailable()Z
      .locals 1

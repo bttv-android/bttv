@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-@@ -37,7 +37,7 @@
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+@@ -38,7 +38,7 @@
  
  .field private final buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
  
@@ -10,16 +10,16 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private channelInfo:Ltv/twitch/chat/ChatChannelInfo;
  
-@@ -65,7 +65,7 @@
+@@ -66,7 +66,7 @@
  
  .field private chatConnectDisposable:Lio/reactivex/disposables/Disposable;
  
 -.field private final chatConnectionController:Ltv/twitch/android/shared/chat/observables/ChatConnectionController;
 +.field public final chatConnectionController:Ltv/twitch/android/shared/chat/observables/ChatConnectionController; # BTTV: private -> publix
  
- .field private final chatDialogRouter:Ltv/twitch/android/provider/chat/ChatDialogRouter;
+ .field private final chatDialogRouter:Ltv/twitch/android/shared/chat/pub/ChatDialogRouter;
  
-@@ -1439,6 +1439,9 @@
+@@ -1455,6 +1455,9 @@
  
      iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->clickableUsernameSpanListener:Ltv/twitch/android/shared/chat/chatsource/IClickableUsernameSpanListener;
  
@@ -29,7 +29,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      return-void
  .end method
  
-@@ -2238,6 +2241,13 @@
+@@ -2263,6 +2266,13 @@
      :cond_0
      return-void
  .end method

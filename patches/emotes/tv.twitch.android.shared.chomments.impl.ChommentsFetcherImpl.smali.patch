@@ -1,8 +1,8 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
---- a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
-@@ -881,6 +881,13 @@
-     .line 57
+diff --git a/smali_classes5/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali b/smali_classes5/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+--- a/smali_classes5/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
++++ b/smali_classes5/tv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl.smali
+@@ -870,6 +870,13 @@
+     .line 58
      iput-object p2, p0, Ltv/twitch/android/shared/chomments/impl/ChommentsFetcherImpl;->channelModel:Ltv/twitch/android/models/channel/ChannelModel;
  
 +    # BTTV
@@ -12,6 +12,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chomments/impl/ChommentsFet
 +    invoke-static {p2}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/channel/ChannelModel;)V
 +    # /BTTV
 +
-     .line 58
+     .line 59
      invoke-static {}, Ltv/twitch/android/util/RandomUtil;->generateRandomHexadecimal32Characters()Ljava/lang/String;
  

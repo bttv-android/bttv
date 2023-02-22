@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
+diff --git a/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
 @@ -2358,6 +2358,7 @@
  
      .line 440

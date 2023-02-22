@@ -1,16 +1,16 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
-@@ -22,7 +22,7 @@
+diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+--- a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
++++ b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
+@@ -33,7 +33,7 @@
  
  
  # instance fields
 -.field private final activity:Landroidx/fragment/app/FragmentActivity;
 +.field public final activity:Landroidx/fragment/app/FragmentActivity;
  
- .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availbility/AvailabilityTracker;
+ .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availability/AvailabilityTracker;
  
-@@ -973,7 +973,9 @@
+@@ -997,7 +997,9 @@
  
      const/4 v1, 0x1
  
@@ -20,4 +20,25 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.
 +    # /BTTV
  
      move-result-object v3
+ 
+@@ -1337,6 +1339,12 @@
+ .method private final startPurchaseFlow(Ltv/twitch/android/models/bits/IapBundleModel;)V
+     .locals 3
+ 
++    # BTTV
++    #  Set up BitsButton-Click-Handler
++    invoke-static {p0}, Lbttv/api/Bits;->onBuyBitsButtonClick(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)V
++    goto :bttv_skip
++    # /BTTV
++
+     .line 545
+     iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->iapManager:Ltv/twitch/android/shared/bits/billing/BitsIAPManager;
+ 
+@@ -1346,6 +1354,7 @@
+ 
+     invoke-virtual {v0, v1, p1, v2}, Ltv/twitch/android/shared/bits/billing/BitsIAPManager;->purchase(Landroid/app/Activity;Ltv/twitch/android/models/bits/IapBundleModel;I)V
+ 
++    :bttv_skip
+     return-void
+ .end method
  

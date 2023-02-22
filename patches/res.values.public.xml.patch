@@ -1,10 +1,10 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -15486,4 +15486,98 @@
-     <public type="xml" name="standalone_badge_gravity_top_start" id="0x7f160006" />
-     <public type="xml" name="standalone_badge_offset" id="0x7f160007" />
-     <public type="xml" name="splits0" id="0x7f160008" />
+@@ -15439,4 +15439,98 @@
+     <public type="xml" name="standalone_badge_gravity_top_start" id="0x7f160007" />
+     <public type="xml" name="standalone_badge_offset" id="0x7f160008" />
+     <public type="xml" name="splits0" id="0x7f160009" />
 +    <!-- BTTV -->
 +    <!-- generate ids using `build-companion ids <path/to/this/file>` -->
 +    <!-- spacing must be exact, so just c&p a line and change name and type -->

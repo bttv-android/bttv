@@ -1,17 +1,17 @@
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl.smali b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl.smali
 --- a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl.smali
-@@ -14293,6 +14293,13 @@
+@@ -13982,6 +13982,13 @@
  
-     iput-object v3, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl;->pageViewTrackerProvider:Ljavax/inject/Provider;
+     iput-object v4, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl;->pageViewTrackerProvider:Ljavax/inject/Provider;
  
 +    # BTTV
 +    # Set PageViewTracker Provider
 +    #   expects:
-+    #       v3: javax.inject.Provider<tv.twitch.android.shared.analytics.PageViewTracker>
-+    invoke-static {v3}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
++    #       v4: javax.inject.Provider<tv.twitch.android.shared.analytics.PageViewTracker>
++    invoke-static {v4}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
 +
-     .line 52644
-     iget-object v4, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl;->provideTwitchAccountManagerProvider:Ljavax/inject/Provider;
+     .line 50968
+     iget-object v5, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl;->provideTwitchAccountManagerProvider:Ljavax/inject/Provider;
  
