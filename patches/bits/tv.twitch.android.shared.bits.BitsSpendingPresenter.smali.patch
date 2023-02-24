@@ -21,24 +21,3 @@ diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter.
  
      move-result-object v3
  
-@@ -1337,6 +1339,12 @@
- .method private final startPurchaseFlow(Ltv/twitch/android/models/bits/IapBundleModel;)V
-     .locals 3
- 
-+    # BTTV
-+    #  Set up BitsButton-Click-Handler
-+    invoke-static {p0}, Lbttv/api/Bits;->onBuyBitsButtonClick(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)V
-+    goto :bttv_skip
-+    # /BTTV
-+
-     .line 545
-     iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->iapManager:Ltv/twitch/android/shared/bits/billing/BitsIAPManager;
- 
-@@ -1346,6 +1354,7 @@
- 
-     invoke-virtual {v0, v1, p1, v2}, Ltv/twitch/android/shared/bits/billing/BitsIAPManager;->purchase(Landroid/app/Activity;Ltv/twitch/android/models/bits/IapBundleModel;I)V
- 
-+    :bttv_skip
-     return-void
- .end method
- 
