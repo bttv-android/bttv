@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.36.0-beta
 - rebase to v14.5.2
 - fix login issues
 
