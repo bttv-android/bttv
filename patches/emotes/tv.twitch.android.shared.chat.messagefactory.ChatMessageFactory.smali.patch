@@ -8,11 +8,11 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +    # BTTV
 +    #  Add bttv emotes
 +    #     expects:
-+    #       v15: tv.twitch.android.provider.chat.ChatMessageInterface
-+    invoke-static {v15}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/provider/chat/ChatMessageInterface;)V
++    #       v15: tv.twitch.android.shared.chat.pub.ChatMessageInterface;
++    invoke-static {v15}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;)V
 +
 +    # dont add if contians word on blocklist
-+    invoke-static {v15}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/provider/chat/ChatMessageInterface;)Z
++    invoke-static {v15}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;)Z
 +    move-result v1
 +    if-eqz v1, :skipnullreturn
 +    const/4 v1, 0x0
