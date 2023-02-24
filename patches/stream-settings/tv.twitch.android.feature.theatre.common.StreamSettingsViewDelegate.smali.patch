@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+diff --git a/smali_classes4/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali b/smali_classes4/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+--- a/smali_classes4/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
++++ b/smali_classes4/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
 @@ -35,7 +35,7 @@
  
  

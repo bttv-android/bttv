@@ -18,7 +18,7 @@ import tv.twitch.android.models.chat.AutoModMessageFlags;
 import tv.twitch.android.models.chat.MessageToken.TextToken;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chat.MessageToken.EmoticonToken;
-import tv.twitch.android.provider.chat.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
 import tv.twitch.chat.AutoModFlags;
 import tv.twitch.chat.ChatEmoticonToken;

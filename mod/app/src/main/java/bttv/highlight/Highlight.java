@@ -1,27 +1,13 @@
 package bttv.highlight;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
 
 import bttv.ChommentModelDelegateWrapper;
-import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
-import bttv.settings.UserPreferences;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
-import tv.twitch.android.provider.chat.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 
 public class Highlight extends StringSetUI {
     private static Highlight INSTANCE;

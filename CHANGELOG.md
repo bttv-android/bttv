@@ -1,5 +1,9 @@
 # Changelog
 
+# master
+- rebase to v14.5.2
+- fix login issues
+
 # 0.35.1-beta
 - add toggle to control automatic update checks
 - fix sleep timer for livestreams

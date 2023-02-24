@@ -3,7 +3,7 @@ package bttv.api;
 
 import android.util.Log;
 
-import tv.twitch.android.provider.chat.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
 
 public class Blacklist {

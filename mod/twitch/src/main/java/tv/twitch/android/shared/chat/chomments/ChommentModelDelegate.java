@@ -6,14 +6,13 @@ package tv.twitch.android.shared.chat.chomments;
 
 import java.util.List;
 
-import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.models.chat.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
-import tv.twitch.android.provider.chat.model.ChatMessageTokenizerWrapper;
+import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;
 import tv.twitch.android.sdk.SDKServicesController;
-import tv.twitch.android.provider.chat.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 
 public class ChommentModelDelegate implements ChatMessageInterface {

@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
---- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
-+++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
+--- a/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
++++ b/smali_classes6/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 @@ -117,6 +117,12 @@
      invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stop()V
  
