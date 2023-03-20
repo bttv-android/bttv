@@ -66,7 +66,7 @@ mv tv.twitch.android.shared.player.overlay.BottomPlayerControlOverlayViewDelegat
 
 # Emotes
 mkdir emotes
-mv tv.twitch.android.api.EmoteApiImpl.smali.patch emotes/.
+mv tv.twitch.android.shared.emotes.network.EmoteApiImpl.smali.patch emotes/.
 mv tv.twitch.android.shared.chat.chomments.ChommentMessageFactory.smali.patch emotes/.
 mv tv.twitch.android.shared.chat.chomments.ChommentModelDelegate.smali.patch emotes/.
 mv tv.twitch.android.util.EmoteUrlUtil.smali.patch emotes/.

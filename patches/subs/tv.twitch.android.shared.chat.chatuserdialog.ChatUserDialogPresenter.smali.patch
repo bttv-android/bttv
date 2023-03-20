@@ -19,9 +19,9 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
  
  .field private listeners:Ljava/util/Set;
      .annotation system Ldalvik/annotation/Signature;
-@@ -789,6 +789,11 @@
+@@ -683,6 +683,11 @@
  
-     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda4;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
+     invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda2;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
  
 +    # BTTV
 +    invoke-static {p0, p1}, Lbttv/api/SubscribeRedirect;->giftSubscriptionListener(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)Landroid/view/View$OnClickListener;

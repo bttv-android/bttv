@@ -10,7 +10,7 @@ diff --git a/smali_classes4/tv/twitch/android/feature/theatre/common/StreamSetti
  
  .field private final animatedEmotesButton:Landroidx/appcompat/widget/SwitchCompat;
  
-@@ -3213,5 +3213,9 @@
+@@ -3206,5 +3206,9 @@
  
      invoke-virtual {v0, p1}, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
  
