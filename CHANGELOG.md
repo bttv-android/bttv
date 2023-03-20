@@ -2,6 +2,7 @@
 
 # master
 - rebase to v14.7.0
+- fix ffz badges
 
 # 0.36.0-beta
 - rebase to v14.5.2
