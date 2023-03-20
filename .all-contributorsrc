@@ -446,7 +446,6 @@
       ]
     },
     {
-
       "login": "framerunner",
       "name": "Samsa",
       "avatar_url": "https://avatars.githubusercontent.com/u/78372766?v=4",
@@ -469,6 +468,15 @@
       "name": "LtHusky1218",
       "avatar_url": "https://avatars.githubusercontent.com/u/126059193?v=4",
       "profile": "https://github.com/LtHusky1218",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "abraxas86",
+      "name": "abraxas86",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8891358?v=4",
+      "profile": "https://github.com/abraxas86",
       "contributions": [
         "bug"
       ]

@@ -220,8 +220,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Dlevda"><img src="https://avatars.githubusercontent.com/u/122129905?v=4?s=100" width="100px;" alt="Dlevda"/><br /><sub><b>Dlevda</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ADlevda" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AFranzo"><img src="https://avatars.githubusercontent.com/u/17572007?v=4?s=100" width="100px;" alt="AFranzo"/><br /><sub><b>AFranzo</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/commits?author=AFranzo" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/framerunner"><img src="https://avatars.githubusercontent.com/u/78372766?v=4?s=100" width="100px;" alt="Samsa"/><br /><sub><b>Samsa</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aframerunner" title="Bug reports">🐛</a></td>
+    </tr>
+    <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Benderosy"><img src="https://avatars.githubusercontent.com/u/126038064?v=4?s=100" width="100px;" alt="Benderosy"/><br /><sub><b>Benderosy</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ABenderosy" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LtHusky1218"><img src="https://avatars.githubusercontent.com/u/126059193?v=4?s=100" width="100px;" alt="LtHusky1218"/><br /><sub><b>LtHusky1218</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ALtHusky1218" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/abraxas86"><img src="https://avatars.githubusercontent.com/u/8891358?v=4?s=100" width="100px;" alt="abraxas86"/><br /><sub><b>abraxas86</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aabraxas86" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
