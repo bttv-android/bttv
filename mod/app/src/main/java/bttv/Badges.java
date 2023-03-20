@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -24,51 +25,67 @@ public class Badges {
     public static final String TAG = "LBTTVBadges";
     public static final String BADGE_VERSION = "bttv-android";
 
-    private static final ConcurrentHashMap<String, List<BTTVBadge>> badgeHashMap = new ConcurrentHashMap<>();
+    // userToBadgesMap maps all known users to their badges for all providers
+    private static final ConcurrentHashMap<String, List<BTTVBadge>> userToBadgesMap = new ConcurrentHashMap<>();
 
-    public static void appendToBadges(ChatMessageInfo chatMessageInfo, List<MessageBadge> badges) {
-        List<BTTVBadge> ourBadges = badgeHashMap.get(chatMessageInfo.userId + "");
-        if (ourBadges == null)
+    /*
+    * Appends our badges to the list of badges if the user has any
+    */
+    public static void appendToBadges(ChatMessageInfo chatMessageInfo, List<MessageBadge> originalBadges) {
+        String userId = String.valueOf(chatMessageInfo.userId);
+
+        List<BTTVBadge> ourBadges = userToBadgesMap.get(userId);
+
+        if (ourBadges == null) {
+            Log.d(TAG, "appendToBadges(" + userId + "): ourBadges: null");
             return;
-        int i = 0;
+        }
+
+        Log.d(TAG, "appendToBadges(" + userId + "): ourBadges: " + Arrays.toString(ourBadges.toArray()));
+
+        // FFZ supports overwriting badges, so we might have to remove badges from the list later
         ArrayList<String> keysToRemove = new ArrayList<>(1);
 
-        for (BTTVBadge badge : ourBadges) {
-            badges.add(new MessageBadge(badge.userId + "-" + i, BADGE_VERSION));
-            i++;
+        // Add new MessageBadges to list
+        for (int i = 0; i < ourBadges.size(); i++) {
+            BTTVBadge badge = ourBadges.get(i);
+            originalBadges.add(new MessageBadge(userId + "-" + i, BADGE_VERSION));
             if (badge.removes != null) {
                 keysToRemove.add(badge.removes);
             }
         }
 
+        // Remove overwritten badges
         for (String key : keysToRemove) {
             MessageBadge target = null;
-            for (MessageBadge badge : badges) {
+            for (MessageBadge badge : originalBadges) {
                 if (badge.component1().equalsIgnoreCase(key)) {
                     target = badge;
                     break;
                 }
             }
             if (target != null) {
-                badges.remove(target);
+                originalBadges.remove(target);
             }
         }
     }
 
     public static String getUrl(int _channelId, String badgeName, String badgeVersion) {
+        Log.d(TAG, "getUrl(" + badgeName + "): badgeVersion: " + badgeVersion);
         if (!badgeVersion.equals(BADGE_VERSION)) {
             return null;
         }
         String[] split = badgeName.split("-");
-        String id = split[0];
+        String userId = split[0];
         int ix = Integer.parseInt(split[1]);
-        List<BTTVBadge> badges = badgeHashMap.get(id);
+        List<BTTVBadge> badges = userToBadgesMap.get(userId);
         if (badges == null) {
             Log.w(TAG, "getUrl: arr not found for " + badgeName);
             return null;
         }
         BTTVBadge badge = badges.get(ix);
         if (badge.bg != null) {
+            Log.d(TAG, "getUrl: backgrounds.put(" + badge.url + ", " + badge.bg +")");
             Data.backgrounds.put(badge.url, badge.bg);
         }
         return badge.url;
@@ -109,8 +126,8 @@ public class Badges {
                         String description = badgeObj.getString("description");
                         String url = badgeObj.getString("svg");
 
-                        BTTVBadge badge = new BTTVBadge(userId, description, url);
-                        appendToUser(badge);
+                        BTTVBadge badge = new BTTVBadge(description, url);
+                        appendBadgeToUser(userId, badge);
                     }
                 } else if (kind == BTTVBadgeKind.STV) {
                     JSONObject obj = new JSONObject(json);
@@ -133,8 +150,8 @@ public class Badges {
                         JSONArray usersArr = item.getJSONArray("users");
                         for (int j = 0; j < usersArr.length(); j++) {
                             String userId = usersArr.getString(j);
-                            BTTVBadge badge = new BTTVBadge(userId, description, url);
-                            appendToUser(badge);
+                            BTTVBadge badge = new BTTVBadge(description, url);
+                            appendBadgeToUser(userId, badge);
                         }
                     }
                 } else if (kind == BTTVBadgeKind.Chatterino) {
@@ -157,8 +174,8 @@ public class Badges {
                         JSONArray usersArr = item.getJSONArray("users");
                         for (int j = 0; j < usersArr.length(); j++) {
                             String userId = usersArr.getString(j);
-                            BTTVBadge badge = new BTTVBadge(userId, description, url);
-                            appendToUser(badge);
+                            BTTVBadge badge = new BTTVBadge(description, url);
+                            appendBadgeToUser(userId, badge);
                         }
                     }
 
@@ -172,7 +189,7 @@ public class Badges {
                         String id = badgeObj.getString("id");
 
                         String description = badgeObj.getString("title");
-                        String url = "https:" + badgeObj.getJSONObject("urls").getString("2");
+                        String url = badgeObj.getJSONObject("urls").getString("2");
                         String replaces = badgeObj.getString("replaces");
                         String bg = badgeObj.getString("color");
                         Integer color = Color.parseColor(bg);
@@ -182,8 +199,8 @@ public class Badges {
 
                         for (int j = 0; j < usersArr.length(); j++) {
                             String userId = usersArr.getString(j);
-                            BTTVBadge badge = new BTTVBadge(userId, description, url, replaces, color);
-                            appendToUser(badge);
+                            BTTVBadge badge = new BTTVBadge(description, url, replaces, color);
+                            appendBadgeToUser(userId, badge);
                         }
                     }
                 }
@@ -197,14 +214,13 @@ public class Badges {
             }
         }
 
-        private static void appendToUser(BTTVBadge badge) {
-            String userId = badge.userId;
-            List<BTTVBadge> existingBadges = badgeHashMap.get(userId);
+        private static void appendBadgeToUser(String userId, BTTVBadge badge) {
+            List<BTTVBadge> existingBadges = userToBadgesMap.get(userId);
             if (existingBadges == null) {
                 existingBadges = new ArrayList<>();
             }
             existingBadges.add(badge);
-            badgeHashMap.put(userId, existingBadges);
+            userToBadgesMap.put(userId, existingBadges);
         }
     }
 }
@@ -217,18 +233,16 @@ enum BTTVBadgeKind {
 }
 
 class BTTVBadge {
-    String userId;
     String description;
     String url;
     String removes;
     Integer bg;
 
-    public BTTVBadge(String userId, String description, String url) {
-        this(userId, description, url, null, null);
+    public BTTVBadge(String description, String url) {
+        this(description, url, null, null);
     }
 
-    public BTTVBadge(String userId, String description, String url, String removes, Integer bg) {
-        this.userId = userId;
+    public BTTVBadge(String description, String url, String removes, Integer bg) {
         this.description = description;
         this.url = url;
         this.removes = removes;

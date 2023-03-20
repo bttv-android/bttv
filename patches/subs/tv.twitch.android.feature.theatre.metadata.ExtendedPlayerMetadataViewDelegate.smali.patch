@@ -1,7 +1,7 @@
 diff --git a/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
 --- a/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
 +++ b/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
-@@ -380,6 +380,10 @@
+@@ -370,6 +370,10 @@
  
      move-result-object v1
  
@@ -11,4 +11,4 @@ diff --git a/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedP
 +
      invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
  
-     .line 182
+     .line 169
