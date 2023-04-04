@@ -1,7 +1,7 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali b/smali_classes5/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
---- a/smali_classes5/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
-+++ b/smali_classes5/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
-@@ -2066,6 +2066,11 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
+@@ -2040,6 +2040,11 @@
      :cond_0
      invoke-interface {p1, p3}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
  
