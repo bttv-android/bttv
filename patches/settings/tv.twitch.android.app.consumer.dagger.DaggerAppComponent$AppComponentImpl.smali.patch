@@ -12,6 +12,6 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 +    invoke-static {v4}, Lbttv/settings/SettingsFragmentBindingFactory;->setPageViewTrackerProvider(Ljavax/inject/Provider;)V
 +    # /BTTV
 +
-     .line 52181
+     .line 52479
      iget-object v5, v0, Ltv/twitch/android/app/consumer/dagger/DaggerAppComponent$AppComponentImpl;->provideTwitchAccountManagerProvider:Ljavax/inject/Provider;
  

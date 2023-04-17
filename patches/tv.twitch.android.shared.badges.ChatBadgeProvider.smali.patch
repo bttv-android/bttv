@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
 --- a/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
 +++ b/smali_classes5/tv/twitch/android/shared/badges/ChatBadgeProvider.smali
-@@ -321,6 +321,14 @@
+@@ -326,6 +326,14 @@
  .method public final getChatBadgeImageUrl(ILjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
      .locals 1
  

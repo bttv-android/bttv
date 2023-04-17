@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlay
  
  
  # direct methods
-@@ -707,6 +707,12 @@
+@@ -713,6 +713,12 @@
  .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter$State;)V
      .locals 9
  

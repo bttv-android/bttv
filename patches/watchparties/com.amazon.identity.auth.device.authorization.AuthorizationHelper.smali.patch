@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali b/smali_classes2/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
 --- a/smali_classes2/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
 +++ b/smali_classes2/com/amazon/identity/auth/device/authorization/AuthorizationHelper.smali
-@@ -1397,6 +1397,11 @@
+@@ -1400,6 +1400,11 @@
  
      move-object/from16 v2, p10
  

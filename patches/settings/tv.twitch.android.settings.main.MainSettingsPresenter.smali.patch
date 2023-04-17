@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 --- a/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/settings/main/MainSettingsPresenter.smali
-@@ -885,6 +885,30 @@
+@@ -888,6 +888,30 @@
  
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
