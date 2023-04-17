@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
-@@ -633,6 +633,13 @@
+@@ -635,6 +635,13 @@
  
      invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
  

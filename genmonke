@@ -39,7 +39,7 @@ mv tv.twitch.android.shared.amazon.login.* watchparties/.
 # Anon Chat
 mkdir anonchat
 mv tv.twitch.android.shared.chat.ChatViewPresenter.smali.patch anonchat/.
-mv tv.twitch.android.shared.messageinput.impl.ChatMessageInputViewPresenter.smali.patch anonchat/.
+mv 'tv.twitch.android.shared.messageinput.impl.ChatMessageInputViewDelegate$State.smali.patch' anonchat/.
 mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patch anonchat/.
 
 # Stream Settings

@@ -1,7 +1,7 @@
 diff --git a/smali_classes4/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewAdapter.smali b/smali_classes4/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewAdapter.smali
 --- a/smali_classes4/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewAdapter.smali
 +++ b/smali_classes4/tv/twitch/android/core/adapters/AbstractTwitchRecyclerViewAdapter.smali
-@@ -156,6 +156,10 @@
+@@ -157,6 +157,10 @@
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  

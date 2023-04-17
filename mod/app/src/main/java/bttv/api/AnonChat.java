@@ -30,8 +30,8 @@ public class AnonChat {
         }
     }
 
-    // called in ChatMessageInputPresenter.onStateChange()
-    public static boolean isAnonChatOr(boolean or) {
-        return or || bttv.AnonChat.isAnonRightNow;
+    // called in ChatMessageInputDelegate.State.isVisible()
+    public static boolean negAnonChatOr(boolean or) {
+        return !bttv.AnonChat.isAnonRightNow && or;
     }
 }
