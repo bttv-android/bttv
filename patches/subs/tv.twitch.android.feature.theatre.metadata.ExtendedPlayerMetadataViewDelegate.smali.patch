@@ -1,6 +1,6 @@
-diff --git a/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
---- a/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
-+++ b/smali_classes4/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+diff --git a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
+--- a/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
++++ b/smali_classes5/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
 @@ -370,6 +370,10 @@
  
      move-result-object v1

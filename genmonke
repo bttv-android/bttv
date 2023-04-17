@@ -39,7 +39,7 @@ mv tv.twitch.android.shared.amazon.login.* watchparties/.
 # Anon Chat
 mkdir anonchat
 mv tv.twitch.android.shared.chat.ChatViewPresenter.smali.patch anonchat/.
-mv tv.twitch.android.shared.chat.messageinput.ChatMessageInputViewPresenter.smali.patch anonchat/.
+mv tv.twitch.android.shared.messageinput.impl.ChatMessageInputViewPresenter.smali.patch anonchat/.
 mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patch anonchat/.
 
 # Stream Settings
@@ -88,7 +88,7 @@ mv tv.twitch.android.shared.chat.emotecard.EmoteCardPresenter.smali.patch emotec
 
 # Emote Picker and Autocomplete
 mkdir picker
-mv 'tv.twitch.android.shared.chat.messageinput.autocomplete.EmoteAutoCompleteMapProvider$1.smali.patch' picker/.
+mv 'tv.twitch.android.shared.messageinput.impl.autocomplete.EmoteAutoCompleteMapProvider$1.smali.patch' picker/.
 mv tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.smali.patch picker/.
 
 # Settings
