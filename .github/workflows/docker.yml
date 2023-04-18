@@ -16,9 +16,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Build docker images using cache
-        uses: whoan/docker-build-with-cache-action@v5
+        uses: whoan/docker-build-with-cache-action@v6
         with:
           username: bttv-android
           password: "${{ secrets.BGITHUB_TOKEN }}"
