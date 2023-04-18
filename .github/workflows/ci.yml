@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # checkout current state of repo
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       # set env variables
       - name: set variables
