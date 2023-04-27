@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.39.0-beta
 - rebase to v15.0.0
 
 # 0.38.0-beta 
