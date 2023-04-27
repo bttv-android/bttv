@@ -1,7 +1,7 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -4116,4 +4116,8 @@
+@@ -4120,4 +4120,8 @@
      <item type="id" name="wrapper_states" />
      <item type="id" name="year_published" />
      <item type="id" name="zero_corner_chip" />
