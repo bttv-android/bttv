@@ -148,8 +148,8 @@ public class EmotePicker {
                 clickedEmote,
                 emote.getAssetType(),
                 EmoteImageDescriptor.NONE,
-                ResUtil.getResourceId("emote_2x_image_dimen", "dimen"),
-                ResUtil.getResourceId("default_margin_large", "dimen")
+                ResUtil.getResourceId("emote_picker_emote_size", "dimen"),
+                ResUtil.getResourceId("emote_picker_emote_padding", "dimen")
         );
     }
 }
