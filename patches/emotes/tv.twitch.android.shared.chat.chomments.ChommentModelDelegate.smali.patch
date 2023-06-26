@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentModelDelegate.smali
 @@ -1,4 +1,4 @@
 -.class public final Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
 +.class public Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;

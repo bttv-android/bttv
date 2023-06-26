@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 @@ -38,7 +38,7 @@
  
  .field private final buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
@@ -19,17 +19,18 @@ diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private final chatDialogRouter:Ltv/twitch/android/shared/chat/pub/ChatDialogRouter;
  
-@@ -1526,6 +1526,9 @@
+@@ -1262,6 +1262,10 @@
  
-     iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->clickableUsernameSpanListener:Ltv/twitch/android/shared/chat/chatsource/IClickableUsernameSpanListener;
+     iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->messageInputListener:Ltv/twitch/android/shared/chat/ChatViewPresenter$messageInputListener$1;
  
 +    # BTTV
 +    invoke-static {v0}, Lbttv/api/AnonChat;->setChatViewPresenter(Ltv/twitch/android/shared/chat/ChatViewPresenter;)V
 +    # /BTTV
++
      return-void
  .end method
  
-@@ -2182,6 +2185,13 @@
+@@ -1753,6 +1757,13 @@
      :cond_0
      return-void
  .end method
