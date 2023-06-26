@@ -12,14 +12,13 @@ import bttv.Data;
 import bttv.Res;
 import bttv.ResUtil;
 import tv.twitch.android.models.emotes.EmoteModelType;
-import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.ClickedEmote;
+import tv.twitch.android.shared.emotes.emotepicker.models.ClickedEmote;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteImageDescriptor;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiModel;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet;
 import tv.twitch.android.shared.emotes.models.EmoteMessageInput;
-import tv.twitch.android.models.emotes.EmoteModelAssetType;
 import tv.twitch.android.models.emotes.EmoteModel;
 
 public class EmotePicker {
@@ -143,7 +142,14 @@ public class EmotePicker {
 
         EmoteMessageInput input = new EmoteMessageInput(emote.code, id, false);
         ClickedEmote clickedEmote = new ClickedEmote.Unlocked(model, input, null, null, 12, null);
-        return new EmoteUiModel(id, clickedEmote, emote.getAssetType(), EmoteImageDescriptor.NONE);
-    }
 
+        return new EmoteUiModel(
+                id,
+                clickedEmote,
+                emote.getAssetType(),
+                EmoteImageDescriptor.NONE,
+                ResUtil.getResourceId("emote_2x_image_dimen", "dimen"),
+                ResUtil.getResourceId("default_margin_large", "dimen")
+        );
+    }
 }

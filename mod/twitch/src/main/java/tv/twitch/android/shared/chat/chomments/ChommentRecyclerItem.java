@@ -9,11 +9,8 @@ import tv.twitch.android.core.adapters.RecyclerAdapterItem;
 
 public class ChommentRecyclerItem implements RecyclerAdapterItem {
     public static class ChommentItemViewHolder extends AbstractTwitchRecyclerViewHolder {
-        public ChommentItemViewHolder(@NonNull View itemView, boolean isChatClearGlideResourcesExperimentEnabled) {
+        public ChommentItemViewHolder(@NonNull View itemView) {
             super(itemView);
-        }
-        public final android.widget.TextView getChommentTextView() {
-            throw new IllegalStateException("ChommentRecyclerItem.ChommentItemViewHolder.getChommentTextView mock was called");
         }
     }
 }
