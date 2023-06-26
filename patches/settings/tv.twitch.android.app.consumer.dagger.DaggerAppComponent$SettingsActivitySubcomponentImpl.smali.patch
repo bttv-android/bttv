@@ -55,7 +55,7 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/dagger/DaggerAppCompo
 +    const-class v1, Lbttv/settings/SettingsFragment;
 +    invoke-static {}, Lbttv/settings/SettingsFragmentProvider;->getInstance()Lbttv/settings/SettingsFragmentProvider;
 +    move-result-object v2
-+    invoke-virtual {v0, v1, v2}, Ldagger/internal/MapBuilder;->put(Ljava/lang/Object;Ljava/lang/Object;)Ldagger/internal/MapBuilder;
++    invoke-virtual {v0, v1, v2}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
 +    # /BTTV
      const-class v1, Ltv/twitch/android/settings/account/AccountSettingsFragment;
  
