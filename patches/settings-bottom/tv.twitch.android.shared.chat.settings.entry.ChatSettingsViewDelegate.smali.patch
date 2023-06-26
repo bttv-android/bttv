@@ -1,9 +1,9 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
 @@ -534,6 +534,10 @@
  
-     invoke-static {p1}, Ltv/twitch/android/shared/accessibility/HeadingAccessibilityUtilKt;->headingForAccessibility(Landroid/widget/TextView;)V
+     invoke-static {p1}, Ltv/twitch/android/shared/accessibility/AccessibilityUtilKt;->headingForAccessibility(Landroid/widget/TextView;)V
  
 +    # BTTV
 +    invoke-static {p0}, Lbttv/api/SettingsBottom;->fillSettingsContainer(Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;)V

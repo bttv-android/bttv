@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/ChatMessageDelegate.smali b/smali_classes5/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/ChatMessageDelegate.smali
 @@ -7,7 +7,7 @@
  
  

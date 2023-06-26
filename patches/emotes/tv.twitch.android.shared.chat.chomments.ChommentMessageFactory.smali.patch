@@ -1,23 +1,23 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
---- a/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-+++ b/smali_classes5/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
-@@ -261,7 +261,9 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+--- a/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
++++ b/smali_classes6/tv/twitch/android/shared/chat/chomments/ChommentMessageFactory.smali
+@@ -245,7 +245,9 @@
      iget-object p2, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->chatMessageFactory:Ltv/twitch/android/shared/chat/messagefactory/ChatMessageFactory;
  
-     .line 57
+     .line 55
 -    new-instance v7, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;
 +    # BTTV
 +    new-instance v7, Lbttv/ChommentModelDelegateWrapper;
 +    # /BTTV
  
-     .line 59
+     .line 57
      iget-object v3, p0, Ltv/twitch/android/shared/chat/chomments/ChommentMessageFactory;->sdkServicesController:Ltv/twitch/android/sdk/SDKServicesController;
-@@ -280,7 +282,7 @@
+@@ -264,7 +266,7 @@
      move-object v2, p1
  
-     .line 57
+     .line 55
 -    invoke-direct/range {v1 .. v6}, Ltv/twitch/android/shared/chat/chomments/ChommentModelDelegate;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/sdk/SDKServicesController;Ltv/twitch/android/shared/chat/ChatMessageParser;Ltv/twitch/android/provider/experiments/ExperimentHelper;Ltv/twitch/android/shared/chat/pub/model/ChatMessageTokenizerWrapper;)V
 +    invoke-direct/range {v1 .. v6}, Lbttv/ChommentModelDelegateWrapper;-><init>(Ltv/twitch/android/models/chomments/ChommentModel;Ltv/twitch/android/sdk/SDKServicesController;Ltv/twitch/android/shared/chat/ChatMessageParser;Ltv/twitch/android/provider/experiments/ExperimentHelper;Ltv/twitch/android/shared/chat/pub/model/ChatMessageTokenizerWrapper;)V
  
-     .line 65
+     .line 63
      invoke-virtual {p1}, Ltv/twitch/android/models/chomments/ChommentModel;->getChannelId()Ljava/lang/String;

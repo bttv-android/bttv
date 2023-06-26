@@ -10,6 +10,6 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/watchparty/PrimeVi
 +    move-result-object v1
 +    # /BTTV
 +
-     .line 119
+     .line 121
      iget-object v2, p0, Ltv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter$watchPartySdkCache$2;->this$0:Ltv/twitch/android/feature/theatre/watchparty/PrimeVideoPlayerPresenter;
  

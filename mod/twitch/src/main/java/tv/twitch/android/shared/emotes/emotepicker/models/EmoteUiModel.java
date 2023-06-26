@@ -4,11 +4,11 @@
  */
 package tv.twitch.android.shared.emotes.emotepicker.models;
 
-import tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter;
 import tv.twitch.android.models.emotes.EmoteModelAssetType;
 
 public class EmoteUiModel {
-    public EmoteUiModel(String id, EmotePickerPresenter.ClickedEmote clickedEmote,
-                        EmoteModelAssetType assetType, EmoteImageDescriptor emoteImageDescriptor) {
+    public EmoteUiModel(String id, ClickedEmote clickedEmote, EmoteModelAssetType assetType,
+                        EmoteImageDescriptor emoteImageDescriptor,
+                        int emoteWidthRes, Integer paddingRes) {
     }
 }
