@@ -58,7 +58,4 @@ public class ChatMessageDelegate implements ChatMessageInterface {
         return 0;
     }
 
-    public String getMessageId() {
-        return "";
-    }
 }

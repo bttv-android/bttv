@@ -14,13 +14,11 @@ import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
-import tv.twitch.android.shared.chat.pub.model.messages.AutoModMessageFlags;
 import tv.twitch.chat.library.model.MessageToken.TextToken;
 import tv.twitch.chat.library.model.MessageToken;
 import tv.twitch.chat.library.model.MessageToken.EmoteToken;
 import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
-import tv.twitch.chat.AutoModFlags;
 import tv.twitch.chat.ChatEmoticonToken;
 import tv.twitch.chat.ChatMessageInfo;
 import tv.twitch.chat.ChatMessageToken;
@@ -47,7 +45,7 @@ public class Tokenizer {
             if (!(token instanceof TextToken)) {
                 if (token instanceof EmoteToken && newTokens.size() > 0) {
                     if (newTokens.get(newTokens.size() - 1) instanceof EmoteToken) {
-                        newTokens.add(new TextToken(" ", new AutoModMessageFlags()));
+                        newTokens.add(new TextToken(" ", new tv.twitch.chat.library.model.AutoModFlags(0, 0, 0, 0)));
                     }
                 }
                 newTokens.add(token);
@@ -123,7 +121,7 @@ public class Tokenizer {
                     if (prevToken != null && !endsWithSpace(prevToken)) {
                         ChatTextToken spaceToken = new ChatTextToken();
                         spaceToken.text = " ";
-                        spaceToken.autoModFlags = new AutoModFlags();
+                        spaceToken.autoModFlags = new tv.twitch.chat.AutoModFlags();
                         newTokens.add(spaceToken);
                     }
                 }

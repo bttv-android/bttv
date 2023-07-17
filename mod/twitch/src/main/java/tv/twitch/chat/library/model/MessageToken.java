@@ -4,8 +4,6 @@
  */
 package tv.twitch.chat.library.model;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
-import tv.twitch.android.shared.chat.pub.model.messages.AutoModMessageFlags;
-
 
 public abstract class MessageToken {
 
@@ -21,17 +19,17 @@ public abstract class MessageToken {
             this.id = id;
         }
 
-        public final String component1() {
+        public final String getText() {
             return this.text;
         }
-        public final String component2() {
+        public final String getId() {
             return this.id;
         }
     }
 
     public static final class TextToken extends MessageToken {
         private final String text;
-        public TextToken(String str, AutoModMessageFlags autoModMessageFlags) {
+        public TextToken(String str, AutoModFlags autoModMessageFlags) {
             super(null);
             this.text = str;
         }
@@ -40,7 +38,7 @@ public abstract class MessageToken {
             return text;
         }
 
-        public final AutoModMessageFlags getFlags() {
+        public final AutoModFlags getFlags() {
             return null;
         }
 

@@ -21,7 +21,7 @@ import bttv.Res;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
-import tv.twitch.android.shared.chat.pub.model.messages.AutoModMessageFlags;
+import tv.twitch.chat.library.model.AutoModFlags;
 import tv.twitch.chat.library.model.MessageToken;
 
 import static org.junit.Assert.*;
@@ -29,7 +29,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(Parameterized.class)
 public class TokenizerTest {
-    final static AutoModMessageFlags flags = new AutoModMessageFlags();
+    final static AutoModFlags flags = new AutoModFlags(0, 0, 0, 0);
 
     private static class Cases {
         static Object[] TrivialCase = {
@@ -173,7 +173,7 @@ public class TokenizerTest {
                 System.out.println("text: '" + ((MessageToken.TextToken) token).getText() + "'");
             }
             if (token instanceof MessageToken.EmoteToken) {
-                System.out.println("name: " + ((MessageToken.EmoteToken) token).component1());
+                System.out.println("name: " + ((MessageToken.EmoteToken) token).getText());
             }
         }
         System.out.println("---------------");
@@ -197,8 +197,8 @@ public class TokenizerTest {
                 MessageToken.EmoteToken expectedEmoteToken = (MessageToken.EmoteToken) expected;
                 MessageToken.EmoteToken receivedEmoteToken = (MessageToken.EmoteToken) received;
 
-                assertEquals(expectedEmoteToken.component1(), receivedEmoteToken.component1());
-                assertEquals(expectedEmoteToken.component2(), receivedEmoteToken.component2());
+                assertEquals(expectedEmoteToken.getText(), receivedEmoteToken.getText());
+                assertEquals(expectedEmoteToken.getId(), receivedEmoteToken.getId());
             }
 
             index++;
