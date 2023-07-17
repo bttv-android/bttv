@@ -2,8 +2,9 @@
  * This file is a stub, so javac does not throw errors,
  * it is not used in the actual patch.
  */
-package tv.twitch.android.models.chat;
+package tv.twitch.chat.library.model;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
+import tv.twitch.android.shared.chat.pub.model.messages.AutoModMessageFlags;
 
 
 public abstract class MessageToken {
@@ -11,10 +12,10 @@ public abstract class MessageToken {
     public MessageToken(BTTVDefaultConstructorMarker u) {
     }
 
-    public static final class EmoticonToken extends MessageToken {
+    public static final class EmoteToken extends MessageToken {
         private final String text;
         private final String id;
-        public EmoticonToken(String text, String id) {
+        public EmoteToken(String text, String id) {
             super(null);
             this.text = text;
             this.id = id;

@@ -4,12 +4,14 @@
  */
 package tv.twitch.android.shared.chat.pub;
 
+import tv.twitch.chat.library.model.MessageToken;
+
 public interface ChatMessageInterface {
     java.util.List<tv.twitch.android.models.chat.MessageBadge> getBadges();
 
     String getDisplayName();
 
-    java.util.List<tv.twitch.android.models.chat.MessageToken> getTokens();
+    java.util.List<MessageToken> getTokens();
 
     int getUserId();
 
