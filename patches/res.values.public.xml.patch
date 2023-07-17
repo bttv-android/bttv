@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -16786,4 +16786,98 @@
+@@ -17012,4 +17012,98 @@
      <public type="xml" name="standalone_badge_gravity_top_start" id="0x7f160007" />
      <public type="xml" name="standalone_badge_offset" id="0x7f160008" />
      <public type="xml" name="splits0" id="0x7f160009" />
