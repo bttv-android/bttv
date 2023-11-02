@@ -59,7 +59,8 @@ public class Emote {
                 code = data.getString("name");
 
                 JSONObject hostObj = data.getJSONObject("host");
-                StringBuilder urlBuilder = new StringBuilder(hostObj.getString("url"));
+                StringBuilder urlBuilder = new StringBuilder("https:"); // for some godforsaken reason this part is missing
+                urlBuilder.append(hostObj.getString("url"));
                 urlBuilder.append('/');
 
                 JSONArray files = hostObj.getJSONArray("files");
