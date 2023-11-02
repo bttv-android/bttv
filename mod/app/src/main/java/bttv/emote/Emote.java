@@ -55,26 +55,53 @@ public class Emote {
                     owner = jsonObject.getJSONObject("user").getString("displayName");
                 break;
             case STV:
-                code = jsonObject.getString("name");
-                JSONArray urls = jsonObject.getJSONArray("urls");
+                JSONObject data = jsonObject.getJSONObject("data");
+                code = data.getString("name");
 
-                JSONArray urlArr; // urlArr = ["1", "https://.."]
+                JSONObject hostObj = data.getJSONObject("host");
+                StringBuilder urlBuilder = new StringBuilder("https:"); // for some godforsaken reason this part is missing
+                urlBuilder.append(hostObj.getString("url"));
+                urlBuilder.append('/');
 
-                if (urls.length() >= 2) {
-                    urlArr = urls.getJSONArray(1); // 2x
+                JSONArray files = hostObj.getJSONArray("files");
+
+                // the following is semantically equivalent to this:
+                // - filter out non-webp files
+                // - if length > 1 choose the second option (the 2x size, which has a height of 64)
+                //   else choose the first item (low quality)
+
+                String smallerThan64 = null;
+                String geThan64 = null;
+
+                for (int i = 0; i < files.length(); i++) {
+                    JSONObject emote = files.getJSONObject(i);
+                    if (!emote.getString("format").equals("WEBP")) {
+                        continue;
+                    }
+                    String name = emote.getString("name");
+                    if (emote.getInt("height") >= 64 && geThan64 == null) {
+                        geThan64 = name;
+                    } else if (smallerThan64 == null) {
+                        smallerThan64 = name;
+                    }
+                }
+                String selected = null;
+                if (geThan64 != null) {
+                    selected = geThan64;
                 } else {
-                    urlArr = urls.getJSONArray(0); // 1x
+                    selected = smallerThan64; // if missing, we are f'ed anyway
                 }
 
-                url = urlArr.getString(1);
+                urlBuilder.append(selected);
 
-                String mime = jsonObject.getString("mime");
-                if (mime.equals("image/gif")) {
+                url = urlBuilder.toString();
+
+                if (data.getBoolean("animated")) {
                     imageType = "gif";
                 } else {
                     imageType = "png";
                 }
-                owner = jsonObject.getJSONObject("owner").getString("display_name");
+                owner = data.getJSONObject("owner").getString("display_name");
                 break;
             default:
                 Log.w("LBTTVEmoteFromJson", "source unknown: " + source);
@@ -88,7 +115,21 @@ public class Emote {
     }
 
     public static List<Emote> fromJSONArray(String json, Emotes.Source source) throws JSONException {
-        JSONArray arr = new JSONArray(json);
+        JSONArray arr;
+        if (source == Emotes.Source.STV) {
+            JSONObject response = new JSONObject(json);
+            JSONObject emoteSet;
+            // global emotes already is only the emote set,
+            // for user-related requests get it
+            if (response.has("emote_set")) {
+                emoteSet = response.getJSONObject("emote_set");
+            } else {
+                emoteSet = response;
+            }
+            arr = emoteSet.getJSONArray("emotes");
+        } else {
+            arr = new JSONArray(json);
+        }
         return fromJSONArray(arr, source);
     }
 
