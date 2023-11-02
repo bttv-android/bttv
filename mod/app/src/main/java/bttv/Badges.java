@@ -94,7 +94,12 @@ public class Badges {
     public static void getBadges() {
         Network.get(Network.BTTV_API_HOST + "/3/cached/badges", new ResponseHandler(BTTVBadgeKind.BTTV));
         Network.get(Network.FFZ_API_HOST + "/badges/ids", new ResponseHandler(BTTVBadgeKind.FFZ));
-        Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
+        // Since API v3 7TV does cosmetics in an event-driven way,
+        // Once a user joins, their presence, along their cosmetics is populated to us
+        // this would require us to keep a connection to 7TV and wait for presence updates,
+        // which is expensive in terms of CPU usage, so we are not doing that.
+        // 7TV Badges are deprecated
+        // Network.get(Network.STV_API_HOST + "/cosmetics?user_identifier=twitch_id", new ResponseHandler(BTTVBadgeKind.STV));
         Network.get(Network.CHATTERINO_API_HOST + "/badges", new ResponseHandler(BTTVBadgeKind.Chatterino));
     }
 
