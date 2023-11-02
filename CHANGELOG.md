@@ -1,5 +1,9 @@
 # Changelog
 
+# master
+- move to 7TV API v3
+- remove support for 7TV badges
+
 # 0.40.1-beta 
 - rebase to v15.4.1
 
