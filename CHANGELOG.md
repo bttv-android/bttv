@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.40.2-beta
 - move to 7TV API v3
 - remove support for 7TV badges
 
