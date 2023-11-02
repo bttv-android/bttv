@@ -23,7 +23,7 @@ public class Network {
     private static final int GLOBAL_CHANNEL_ID = -2;
     public static final String BTTV_API_HOST = "https://api.betterttv.net";
     public static final String FFZ_API_HOST = "https://api.frankerfacez.com/v1";
-    public static final String STV_API_HOST = "https://api.7tv.app/v2";
+    public static final String STV_API_HOST = "https://7tv.io/v3";
     public static final String CHATTERINO_API_HOST = "https://api.chatterino.com";
 
     public static void get(String url, Callback cb) {
@@ -97,7 +97,7 @@ public class Network {
     }
 
     public static void get7TVGlobalEmotes() {
-        get(STV_API_HOST + "/emotes/global", new ResponseHandler(Emotes.Source.STV, GLOBAL_CHANNEL_ID));
+        get(STV_API_HOST + "/emote-sets/global", new ResponseHandler(Emotes.Source.STV, GLOBAL_CHANNEL_ID));
     }
 
     public static void getBTTVChannelEmotes(int channelId) {
@@ -110,7 +110,7 @@ public class Network {
     }
 
     public static void get7TVChannelEmotes(int channelId) {
-        get(STV_API_HOST + "/users/" + channelId + "/emotes",
+        get(STV_API_HOST + "/users/twitch/" + channelId,
                 new ResponseHandler(Emotes.Source.STV, channelId));
     }
 
