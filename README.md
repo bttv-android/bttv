@@ -226,6 +226,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LtHusky1218"><img src="https://avatars.githubusercontent.com/u/126059193?v=4?s=100" width="100px;" alt="LtHusky1218"/><br /><sub><b>LtHusky1218</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3ALtHusky1218" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/abraxas86"><img src="https://avatars.githubusercontent.com/u/8891358?v=4?s=100" width="100px;" alt="abraxas86"/><br /><sub><b>abraxas86</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aabraxas86" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Vikings09876"><img src="https://avatars.githubusercontent.com/u/11668494?v=4?s=100" width="100px;" alt="Ataraxia"/><br /><sub><b>Ataraxia</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3AVikings09876" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/zakary2841"><img src="https://avatars.githubusercontent.com/u/26402356?v=4?s=100" width="100px;" alt="zakary2841"/><br /><sub><b>zakary2841</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Azakary2841" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
