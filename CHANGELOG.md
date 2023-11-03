@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.40.3-beta
+- fix issue for 7TV Emotes without owner
+
 # 0.40.2-beta
 - move to 7TV API v3
 - remove support for 7TV badges

@@ -101,7 +101,11 @@ public class Emote {
                 } else {
                     imageType = "png";
                 }
-                owner = data.getJSONObject("owner").getString("display_name");
+                if (data.has("owner")) {
+                    owner = data.getJSONObject("owner").getString("display_name");
+                } else {
+                    owner = null; // we don't get the owner
+                }
                 break;
             default:
                 Log.w("LBTTVEmoteFromJson", "source unknown: " + source);
