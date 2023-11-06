@@ -55,8 +55,11 @@ public class Emote {
                     owner = jsonObject.getJSONObject("user").getString("displayName");
                 break;
             case STV:
+                // note: this is the emote set item's name, which may differ from the emote name
+                // (from what I understand an emote can be added to a channel using a different name)
+                code = jsonObject.getString("name");
+
                 JSONObject data = jsonObject.getJSONObject("data");
-                code = data.getString("name");
 
                 JSONObject hostObj = data.getJSONObject("host");
                 StringBuilder urlBuilder = new StringBuilder("https:"); // for some godforsaken reason this part is missing
