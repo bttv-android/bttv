@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.40.4-beta
+- fix issue related to 7TV emote names
+
 # 0.40.3-beta
 - fix issue for 7TV Emotes without owner
 
