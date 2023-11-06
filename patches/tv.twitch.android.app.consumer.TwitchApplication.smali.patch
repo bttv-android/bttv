@@ -1,7 +1,7 @@
 diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 --- a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.smali
-@@ -196,6 +196,13 @@
+@@ -222,6 +222,13 @@
      .line 99
      invoke-super {p0}, Landroid/app/Application;->onCreate()V
  
@@ -15,14 +15,14 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.sma
      .line 102
      invoke-static {p0}, Lcom/google/firebase/FirebaseApp;->initializeApp(Landroid/content/Context;)Lcom/google/firebase/FirebaseApp;
  
-@@ -233,6 +240,10 @@
+@@ -259,6 +266,10 @@
  
-     move-result-object v2
+     move-result-object v1
  
 +    # BTTV
-+    const-string v2, "tv.twitch.android.app"
++    const-string v1, "tv.twitch.android.app"
 +    # /BTTV
 +
-     const-string v3, "15.4.1"
+     const-string v2, "15.6.2"
  
-     const v4, 0x16f30a
+     const v3, 0x16fae4
