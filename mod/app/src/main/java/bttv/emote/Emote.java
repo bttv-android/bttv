@@ -16,7 +16,7 @@ public class Emote {
     public Emotes.Source source;
     public String code;
     public String url;
-    public String imageType;
+    public String imageType; // this is really only used to start the Gif if it is a Gif
     public String owner;
 
     public Emote(String id, Emotes.Source source, String code, String url, String imageType, String owner) {
@@ -38,7 +38,7 @@ public class Emote {
         switch (source) {
             case BTTV:
                 code = jsonObject.getString("code");
-                url = "https://cdn.betterttv.net/emote/" + id + "/2x";
+                url = "https://cdn.betterttv.net/emote/" + id + "/2x.webp";
                 imageType = jsonObject.getString("imageType");
                 owner = null; // we don't get the owner :/
                 break;
