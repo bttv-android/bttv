@@ -228,6 +228,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Vikings09876"><img src="https://avatars.githubusercontent.com/u/11668494?v=4?s=100" width="100px;" alt="Ataraxia"/><br /><sub><b>Ataraxia</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3AVikings09876" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/zakary2841"><img src="https://avatars.githubusercontent.com/u/26402356?v=4?s=100" width="100px;" alt="zakary2841"/><br /><sub><b>zakary2841</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Azakary2841" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ecan18"><img src="https://avatars.githubusercontent.com/u/149601367?v=4?s=100" width="100px;" alt="ecan18"/><br /><sub><b>ecan18</b></sub></a><br /><a href="https://github.com/bttv-android/bttv/issues?q=author%3Aecan18" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Alucard-xi"><img src="https://avatars.githubusercontent.com/u/98977509?v=4?s=100" width="100px;" alt="Alucard"/><br /><sub><b>Alucard</b></sub></a><br /><a href="#translation-Alucard-xi" title="Translation">🌍</a></td>
     </tr>
   </tbody>
 </table>
