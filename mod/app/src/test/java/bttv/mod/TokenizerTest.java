@@ -21,26 +21,26 @@ import bttv.Res;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
-import tv.twitch.android.models.chat.AutoModMessageFlags;
-import tv.twitch.android.models.chat.MessageToken;
+import tv.twitch.chat.library.model.AutoModFlags;
+import tv.twitch.chat.library.model.MessageToken;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(Parameterized.class)
 public class TokenizerTest {
-    final static AutoModMessageFlags flags = new AutoModMessageFlags();
+    final static AutoModFlags flags = new AutoModFlags(0, 0, 0, 0);
 
     private static class Cases {
         static Object[] TrivialCase = {
                 // Input
                 Arrays.asList(new MessageToken.TextToken("Test Message, fam ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha", flags)
                 ),
                 // Expected Output
                 Arrays.asList(new MessageToken.TextToken("Test Message, fam ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha ", flags)
                 ),
         };
@@ -48,16 +48,16 @@ public class TokenizerTest {
         static Object[] FoundInBeginning = {
                 // Input
                 Arrays.asList(new MessageToken.TextToken("KEKW Pog and ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha", flags)
                 ),
                 // Expected Output
                 Arrays.asList(
-                        new MessageToken.EmoticonToken("KEKW", "BTTV-5ea831f074046462f768097a"),
+                        new MessageToken.EmoteToken("KEKW", "BTTV-5ea831f074046462f768097a"),
                         new MessageToken.TextToken(" ", flags),
-                        new MessageToken.EmoticonToken("Pog", "BTTV-5ff827395ef7d10c7912c106"),
+                        new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106"),
                         new MessageToken.TextToken(" and ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha ", flags)
                 ),
         };
@@ -65,40 +65,40 @@ public class TokenizerTest {
         static Object[] FoundAtEnd = {
                 // Input
                 Arrays.asList(new MessageToken.TextToken("Test message ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha, Pog", flags)
                 ),
                 // Expected Output
                 Arrays.asList(
                         new MessageToken.TextToken("Test message ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha, ", flags),
-                        new MessageToken.EmoticonToken("Pog", "BTTV-5ff827395ef7d10c7912c106")
+                        new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106")
                 )
         };
 
         static Object[] FoundInMid = {
                 // Input
                 Arrays.asList(
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Test message ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("test Pog test", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha", flags),
-                        new MessageToken.EmoticonToken("LUL", "123")
+                        new MessageToken.EmoteToken("LUL", "123")
                     ),
                 // Expected Output
                 Arrays.asList(
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Test message ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("test ", flags),
-                        new MessageToken.EmoticonToken("Pog", "BTTV-5ff827395ef7d10c7912c106"),
+                        new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106"),
                         new MessageToken.TextToken(" test ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123"),
+                        new MessageToken.EmoteToken("LUL", "123"),
                         new MessageToken.TextToken("Haha ", flags),
-                        new MessageToken.EmoticonToken("LUL", "123")
+                        new MessageToken.EmoteToken("LUL", "123")
                 )
         };
 
@@ -172,8 +172,8 @@ public class TokenizerTest {
             if (token instanceof MessageToken.TextToken) {
                 System.out.println("text: '" + ((MessageToken.TextToken) token).getText() + "'");
             }
-            if (token instanceof MessageToken.EmoticonToken) {
-                System.out.println("name: " + ((MessageToken.EmoticonToken) token).component1());
+            if (token instanceof MessageToken.EmoteToken) {
+                System.out.println("name: " + ((MessageToken.EmoteToken) token).getText());
             }
         }
         System.out.println("---------------");
@@ -186,19 +186,19 @@ public class TokenizerTest {
             System.out.println(received);
             // both same type
             assertEquals(expected instanceof  MessageToken.TextToken, received instanceof MessageToken.TextToken);
-            assertEquals(expected instanceof  MessageToken.EmoticonToken, received instanceof MessageToken.EmoticonToken);
+            assertEquals(expected instanceof MessageToken.EmoteToken, received instanceof MessageToken.EmoteToken);
 
             if (expected instanceof  MessageToken.TextToken && received instanceof MessageToken.TextToken) {
                 MessageToken.TextToken expectedTextToken = (MessageToken.TextToken) expected;
                 MessageToken.TextToken receivedTextToken = (MessageToken.TextToken) received;
 
                 assertEquals(expectedTextToken.getText(), receivedTextToken.getText());
-            } else if (expected instanceof  MessageToken.EmoticonToken && received instanceof MessageToken.EmoticonToken) {
-                MessageToken.EmoticonToken expectedEmoteToken = (MessageToken.EmoticonToken) expected;
-                MessageToken.EmoticonToken receivedEmoteToken = (MessageToken.EmoticonToken) received;
+            } else if (expected instanceof MessageToken.EmoteToken && received instanceof MessageToken.EmoteToken) {
+                MessageToken.EmoteToken expectedEmoteToken = (MessageToken.EmoteToken) expected;
+                MessageToken.EmoteToken receivedEmoteToken = (MessageToken.EmoteToken) received;
 
-                assertEquals(expectedEmoteToken.component1(), receivedEmoteToken.component1());
-                assertEquals(expectedEmoteToken.component2(), receivedEmoteToken.component2());
+                assertEquals(expectedEmoteToken.getText(), receivedEmoteToken.getText());
+                assertEquals(expectedEmoteToken.getId(), receivedEmoteToken.getId());
             }
 
             index++;

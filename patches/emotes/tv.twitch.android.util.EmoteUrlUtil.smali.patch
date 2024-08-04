@@ -20,7 +20,7 @@ diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_cl
 @@ -703,7 +712,7 @@
  .end method
  
- .method public static final getEmoteUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+ .method public static final getEmoteUrl(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Float;)Ljava/lang/String;
 -    .locals 1
 +    .locals 2
  
@@ -38,6 +38,6 @@ diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_cl
 +    :dont_return
 +    # /BTTV
 +
-     .line 73
-     sget-object v0, Ltv/twitch/android/util/EmoteUrlUtil;->INSTANCE:Ltv/twitch/android/util/EmoteUrlUtil;
+     if-eqz p2, :cond_0
  
+     .line 74
