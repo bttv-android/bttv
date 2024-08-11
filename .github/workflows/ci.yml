@@ -47,17 +47,17 @@ jobs:
       - name: Install APKTool
         run: |
           wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
-          mv apktool_2.5.0.jar /opt/bttv/apktool.jar
+          mv apktool_2.5.0.jar /opt/bttv/apktool_2.5.0.jar
 
       - name: Install Uber APK Signer
         run: |
           wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar
-          mv uber-apk-signer-1.2.1.jar /opt/bttv/uber-apk-signer.jar
+          mv uber-apk-signer-1.2.1.jar /opt/bttv/uber-apk-signer-1.2.1.jar
 
       - name: Install Smali
         run: |
           wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
-          mv baksmali-2.4.0.jar /opt/bttv/baksmali.jar
+          mv baksmali-2.4.0.jar /opt/bttv/baksmali-2.4.0.jar
 
       - name: Install Build Companion
         run: |
