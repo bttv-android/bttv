@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
-@@ -2261,6 +2261,12 @@
+@@ -2282,6 +2282,12 @@
      goto :goto_2
  
      :cond_3
@@ -13,4 +13,4 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +
      if-eqz p12, :cond_4
  
-     .line 111
+     .line 113
