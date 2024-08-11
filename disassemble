@@ -24,7 +24,7 @@ EOF
 #
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
-[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/bttv/apktool.jar
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/bttv/apktool_2.5.0.jar
 [ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/bttv/build-companion
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/bttv/uber-apk-signer-1.2.1.jar
 

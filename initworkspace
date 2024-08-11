@@ -4,7 +4,7 @@ STEPS=5
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
-[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/bttv/apktool.jar
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/bttv/apktool_2.5.0.jar
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/bttv/uber-apk-signer-1.2.1.jar
 [ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
 [ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/bttv/baksmali-2.4.0.jar
