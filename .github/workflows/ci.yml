@@ -32,7 +32,7 @@ jobs:
       # download apk when cache miss
       - name: download base
         if: steps.apk-cache.outputs.cache-hit != 'true'
-        run: wget '${{ env.APK_URL }}' -O twitch.apk
+        run: wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" '${{ env.APK_URL }}' -O twitch.apk
 
       # run the build using docker container
       - name: run build
