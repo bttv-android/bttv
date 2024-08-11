@@ -25,8 +25,8 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
      <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
-     <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -69,8 +81,8 @@
+     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" android:required="false"/>
+@@ -70,8 +82,8 @@
      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
      <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
@@ -37,7 +37,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
          <profileable android:shell="true"/>
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
-@@ -176,15 +188,15 @@
+@@ -177,15 +189,15 @@
                  <action android:name="android.intent.action.MEDIA_BUTTON"/>
              </intent-filter>
          </service>
@@ -56,7 +56,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -287,7 +299,7 @@
+@@ -288,7 +300,7 @@
          <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -65,7 +65,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <uses-library android:name="androidx.window.extensions" android:required="false"/>
          <uses-library android:name="androidx.window.sidecar" android:required="false"/>
-@@ -346,5 +358,18 @@
+@@ -347,5 +359,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>
