@@ -23,7 +23,7 @@ jobs:
       # set env variables
       - name: set variables
         run: |
-          echo "APK_URL=https://www.apkmirror.com/apk/twitch-interactive-inc/twitch/twitch-15-7-0-release/twitch-live-game-streaming-15-7-0-2-android-apk-download/download/?key=6fc8db71df8514911da2e8a6d57d361927d42853&forcebaseapk=true" >> $GITHUB_ENV
+          echo 'APK_URL=https://eb5e7388c3df147b74dd2379b7cf8323.r2.cloudflarestorage.com/downloadprod/wp-content/uploads/2023/07/84/64c13eaf89071/tv.twitch.android.app_15.7.0-1507000_minAPI21%28arm64-v8a%2Carmeabi-v7a%2Cx86%2Cx86_64%29%28nodpi%29_apkmirror.com.apk?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=72a5ba3a0b8a601e535d5525f12f8177%2F20240811%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20240811T192858Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=697c1e1775abdb2b99379877dcaaf0027dfec22a823bd41b6709742bee81d948' >> $GITHUB_ENV
 
       # get keystore.kjs from secret
       - name: create keystore.kjs from secret
@@ -32,7 +32,7 @@ jobs:
       # download apk when cache miss
       - name: download base
         if: steps.apk-cache.outputs.cache-hit != 'true'
-        run: wget --user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" '${{ env.APK_URL }}' -O twitch.apk
+        run: wget --user-agent="Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36" '${{ env.APK_URL }}' -O twitch.apk
 
       # run the build using docker container
       - name: run build
