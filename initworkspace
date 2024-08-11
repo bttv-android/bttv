@@ -4,11 +4,11 @@ STEPS=5
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
-[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
-[ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
+[ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/bttv/apktool.jar
+[ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/bttv/uber-apk-signer-1.2.1.jar
 [ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
-[ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
-[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
+[ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/bttv/baksmali-2.4.0.jar
+[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/bttv/build-companion
 
 
 DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
