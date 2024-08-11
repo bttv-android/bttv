@@ -36,34 +36,34 @@ jobs:
 
       # Install tools
       - name: install tools
-        steps: 
-        - run: |
-            cd wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip 
-            unzip commandlinetools-linux-6858069_latest.zip -d /opt/bttv/cmdline-tools 
-            rm commandlinetools-linux-6858069_latest.zip
-            echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "build-tools;30.0.0"
-        - run: |
-            wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
-            mv apktool_2.5.0.jar /opt/bttv/apktool.jar
-        - run: |
-            wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar
-            mv uber-apk-signer-1.2.1.jar /opt/bttv/uber-apk-signer.jar
-        - run: |
-            wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
-            mv baksmali-2.4.0.jar /opt/bttv/baksmali.jar
-        - run: |
-            wget https://github.com/bttv-android/build-companion/releases/download/v5.2.0/build-companion
-            shasum build-companion
-            chmod +x build-companion
-            mv build-companion /opt/bttv/build-companion
-        - run: |
-            mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-        - run: |
-            echo "ANDROID_SDK_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
-            echo "ANDROID_SDK_ROOT /opt/android-sdk-linux" >> $GITHUB_ENV
-            echo "ANDROID_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
-            echo "ANDROID_SDK /opt/android-sdk-linux" >> $GITHUB_ENV
-            echo "PATH=$PATH:/opt/bttv" >> $GITHUB_ENV
+        run: |
+          echo "Install Android SDK"
+          cd wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip 
+          unzip commandlinetools-linux-6858069_latest.zip -d /opt/bttv/cmdline-tools 
+          rm commandlinetools-linux-6858069_latest.zip
+          echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "build-tools;30.0.0"
+          echo "Install APKTool"
+          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
+          mv apktool_2.5.0.jar /opt/bttv/apktool.jar
+          echo "Install Uber APK Signer"
+          wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar
+          mv uber-apk-signer-1.2.1.jar /opt/bttv/uber-apk-signer.jar
+          echo "Install Smali"
+          wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
+          mv baksmali-2.4.0.jar /opt/bttv/baksmali.jar
+          echo "Install Build Companion"
+          wget https://github.com/bttv-android/build-companion/releases/download/v5.2.0/build-companion
+          shasum build-companion
+          chmod +x build-companion
+          mv build-companion /opt/bttv/build-companion
+          echo "Disable long-lived gradle daemon (so we do not cache lock files)"
+          mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
+          echo "Set environment variables"
+          echo "ANDROID_SDK_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT /opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_SDK /opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "PATH=$PATH:/opt/bttv" >> $GITHUB_ENV
 
       # build apk
       - name: build apk
