@@ -72,10 +72,10 @@ jobs:
 
       - name: Set env variables
         run: |
-          echo "ANDROID_SDK_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
-          echo "ANDROID_SDK_ROOT /opt/android-sdk-linux" >> $GITHUB_ENV
-          echo "ANDROID_HOME /opt/android-sdk-linux" >> $GITHUB_ENV
-          echo "ANDROID_SDK /opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_SDK_HOME=/opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_SDK_ROOT=/opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_HOME=/opt/android-sdk-linux" >> $GITHUB_ENV
+          echo "ANDROID_SDK=/opt/android-sdk-linux" >> $GITHUB_ENV
           echo "PATH=$PATH:/opt/bttv" >> $GITHUB_ENV
 
       # build apk
