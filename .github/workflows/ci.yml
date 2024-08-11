@@ -89,7 +89,7 @@ jobs:
 
       # print checksums so anybody can confirm legitimacy of their apk
       - name: print checksums
-        run: cp dist/twitch.apk bttv.apk && shasum *.apk
+        run: cp ./disass/dist/twitch.apk bttv.apk && shasum *.apk
 
       # send to other release job if needed
       - uses: actions/upload-artifact@v2
