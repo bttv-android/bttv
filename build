@@ -25,6 +25,11 @@ sed -i "s/android:text=\"BTTV .*\"/android:text=\"BTTV ${VERSION}\"/" $1/res/lay
 
 cd $1
 
+# Move classes2 to classes9
+mkdir -p smali_classes9/com/amazon
+
+mv smali_classes2/com/amazon smali_classes9/com/amazon
+
 APK_PATH=./dist/twitch.apk
 
 # Build using APKTool
