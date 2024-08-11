@@ -159,8 +159,6 @@ mkdir .tmp/base/smali_classes8
 # Create reference for diffs
 #
 cd .tmp/base &&
-git config user.email "<>" &&
-git config user.name "Test User" &&
 git init &&
 create_gitignore &&
 git add . &&
