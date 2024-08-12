@@ -1,8 +1,8 @@
 diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/ToolbarPresenter.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/ToolbarPresenter.smali
 --- a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/ToolbarPresenter.smali
 +++ b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/ToolbarPresenter.smali
-@@ -2515,6 +2515,10 @@
-     .line 415
+@@ -2494,6 +2494,10 @@
+     .line 412
      invoke-direct {p0, p1}, Ltv/twitch/android/feature/viewer/main/navigation/ToolbarPresenter;->updateSearchVisibilityForCreatorMode(Landroid/view/Menu;)V
  
 +    # BTTV
