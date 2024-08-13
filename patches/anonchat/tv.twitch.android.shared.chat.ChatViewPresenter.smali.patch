@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-@@ -38,7 +38,7 @@
+@@ -36,7 +36,7 @@
  
  .field private final buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private channelInfo:Ltv/twitch/chat/ChatChannelInfo;
  
-@@ -66,7 +66,7 @@
+@@ -64,7 +64,7 @@
  
  .field private chatConnectDisposable:Lio/reactivex/disposables/Disposable;
  
@@ -19,7 +19,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private final chatDialogRouter:Ltv/twitch/android/shared/chat/pub/ChatDialogRouter;
  
-@@ -1300,6 +1300,10 @@
+@@ -1337,6 +1337,10 @@
  
      iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->messageInputListener:Ltv/twitch/android/shared/chat/ChatViewPresenter$messageInputListener$1;
  
@@ -30,7 +30,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      return-void
  .end method
  
-@@ -1791,6 +1795,13 @@
+@@ -1837,6 +1841,13 @@
      :cond_0
      return-void
  .end method

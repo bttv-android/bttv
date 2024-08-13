@@ -12,6 +12,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelega
 +    invoke-static {v1}, Lbttv/ChannelPoints;->autoRedeem(Landroid/view/View$OnClickListener;)V
 +    # /BTTV
 +
-     .line 140
+     .line 153
      iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
  
