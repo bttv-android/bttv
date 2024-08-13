@@ -1,7 +1,7 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -4456,4 +4456,8 @@
+@@ -4490,4 +4490,8 @@
      <item type="id" name="ximg" />
      <item type="id" name="year_published" />
      <item type="id" name="zero_corner_chip" />
