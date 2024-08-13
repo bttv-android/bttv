@@ -51,8 +51,8 @@ jobs:
 
       - name: Install APKTool
         run: |
-          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
-          mv apktool_2.5.0.jar /opt/bttv/apktool_2.5.0.jar
+          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar
+          mv apktool_2.9.3.jar /opt/bttv/apktool_2.9.3.jar
 
       - name: Install Uber APK Signer
         run: |
