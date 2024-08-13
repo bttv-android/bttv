@@ -23,7 +23,7 @@ jobs:
       # set env variables
       - name: set variables
         run: |
-          echo 'APK_URL=https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=5174516&key=d3bdf6a94af6428a10cf05bd1dda3583c9e98089&forcebaseapk=true' >> $GITHUB_ENV
+          echo 'APK_URL=https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=5192421&key=c831db3fd02dea97d28fe64a1b3ff1eb3a37b0c0&forcebaseapk=true' >> $GITHUB_ENV
 
       # get keystore.kjs from secret
       - name: create keystore.kjs from secret
