@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali b/smali_classes5/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
---- a/smali_classes5/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
-+++ b/smali_classes5/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali b/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
+--- a/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
++++ b/smali_classes6/tv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1.smali
 @@ -21,6 +21,11 @@
  
      iput-object p1, p0, Ltv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl$$ExternalSyntheticLambda1;->f$0:Ltv/twitch/android/shared/amazon/login/AmazonLoginSdkWrapperImpl;

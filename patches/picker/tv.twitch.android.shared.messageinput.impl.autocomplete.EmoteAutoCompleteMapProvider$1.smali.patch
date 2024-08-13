@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali b/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
---- a/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
-+++ b/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
+--- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
++++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider$1.smali
 @@ -79,6 +79,12 @@
          }
      .end annotation

@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
---- a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
-+++ b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
 @@ -26,7 +26,7 @@
  
  

@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
---- a/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
-+++ b/smali_classes6/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding.smali
 @@ -17,7 +17,7 @@
  
  .field public final progressText:Landroid/widget/TextView;
