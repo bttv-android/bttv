@@ -26,10 +26,10 @@ sed -i "s/android:text=\"BTTV .*\"/android:text=\"BTTV ${VERSION}\"/" $1/res/lay
 cd $1
 
 # Move classes2 to classes9
-echo "Moving classes2 to classes9"
-mkdir -p smali_classes9/com/amazon
+echo "Moving classes6 to classes9"
+mkdir -p smali_classes9/tv/twitch/android/shared
 
-mv smali_classes2/com/amazon smali_classes9/com
+mv smali_classes6/tv/twitch/android/shared/chat smali_classes9/tv/twitch/android/shared
 
 APK_PATH=./dist/twitch.apk
 
