@@ -2,7 +2,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$
 --- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
 +++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
 @@ -67,6 +67,12 @@
-     .line 529
+     .line 534
      iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
  
 +    # BTTV
@@ -14,9 +14,9 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$
      invoke-static {v0}, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->access$getChatCommerceRequestUpdater$p(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)Ltv/twitch/android/core/data/source/DataUpdater;
  
      move-result-object v0
-@@ -96,5 +102,6 @@
+@@ -108,5 +114,6 @@
  
-     invoke-virtual {v0, v1}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsButtonClicked(I)V
+     invoke-virtual {v0, v1, v2}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsButtonClicked(ILtv/twitch/android/shared/one/chat/pub/OneChatMetadata;)V
  
 +    :bttv_skip
      return-void

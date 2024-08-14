@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
-@@ -26,7 +26,7 @@
+@@ -27,7 +27,7 @@
  
  
  # instance fields
@@ -10,9 +10,9 @@ diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlay
  
  
  # direct methods
-@@ -867,6 +867,12 @@
- .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter$State;)V
-     .locals 10
+@@ -861,6 +861,12 @@
+ .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$State;)V
+     .locals 9
  
 +    # BTTV
 +    invoke-virtual {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->getContext()Landroid/content/Context;
