@@ -1,17 +1,17 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
-@@ -635,6 +635,13 @@
+@@ -630,6 +630,13 @@
  
-     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+     invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
  
 +    # BTTV
 +    #  auto redeem feature
 +    #     expects:
-+    #     - v1: impl android.view.View.OnClickListener
-+    invoke-static {v1}, Lbttv/ChannelPoints;->autoRedeem(Landroid/view/View$OnClickListener;)V
++    #     - v0: impl android.view.View.OnClickListener
++    invoke-static {v0}, Lbttv/ChannelPoints;->autoRedeem(Landroid/view/View$OnClickListener;)V
 +    # /BTTV
 +
-     .line 153
-     iget-object v0, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
+     .line 139
+     iget-object p1, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
  
