@@ -1,5 +1,8 @@
 # Changelog
 
+# 0.41.0-beta
+- rebase to v16.9.1
+
 # 0.40.4-beta
 - fix issue related to 7TV emote names
 
