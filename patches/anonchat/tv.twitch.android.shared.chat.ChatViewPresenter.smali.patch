@@ -19,7 +19,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
  
  .field private final chatDialogRouter:Ltv/twitch/android/shared/chat/pub/ChatDialogRouter;
  
-@@ -1449,6 +1449,10 @@
+@@ -1489,6 +1489,10 @@
  
      iput-object v1, v0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->messageInputListener:Ltv/twitch/android/shared/chat/ChatViewPresenter$messageInputListener$1;
  
@@ -30,7 +30,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      return-void
  .end method
  
-@@ -2000,6 +2004,13 @@
+@@ -2040,6 +2044,13 @@
      :cond_0
      return-void
  .end method
