@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate.smali
-@@ -674,6 +674,13 @@
+@@ -869,6 +869,13 @@
  
      invoke-virtual {p1, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
  
@@ -12,6 +12,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/community/points/viewdelega
 +    invoke-static {v0}, Lbttv/ChannelPoints;->autoRedeem(Landroid/view/View$OnClickListener;)V
 +    # /BTTV
 +
-     .line 146
+     .line 176
      iget-object p1, p0, Ltv/twitch/android/shared/community/points/viewdelegate/CommunityPointsButtonViewDelegate;->communityPointsUtil:Ltv/twitch/android/shared/community/points/util/CommunityPointsUtil;
  

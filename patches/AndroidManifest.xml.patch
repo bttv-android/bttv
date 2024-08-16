@@ -2,18 +2,18 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,4 +1,15 @@
--<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="33" platformBuildVersionName="13">
+-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="34" android:compileSdkVersionCodename="14" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="34" platformBuildVersionName="14">
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
 +    android:versionCode="${BTTVVERSIONCODE}"
 +    android:versionName="${BTTVVERSION}"
-+    android:compileSdkVersion="33"
-+    android:compileSdkVersionCodename="13"
++    android:compileSdkVersion="34"
++    android:compileSdkVersionCodename="14"
 +    android:installLocation="auto"
 +    package="tv.twitch.bttvandroid.app"
-+    platformBuildVersionCode="33"
-+    platformBuildVersionName="13">
++    platformBuildVersionCode="34"
++    platformBuildVersionName="14">
 +
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
@@ -37,7 +37,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
          <profileable android:shell="true"/>
          <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
-@@ -176,15 +188,15 @@
+@@ -178,15 +190,15 @@
                  <action android:name="android.intent.action.MEDIA_BUTTON"/>
              </intent-filter>
          </service>
@@ -56,7 +56,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -289,7 +301,7 @@
+@@ -291,7 +303,7 @@
          <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
          <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
@@ -65,7 +65,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <uses-library android:name="androidx.window.extensions" android:required="false"/>
          <uses-library android:name="androidx.window.sidecar" android:required="false"/>
-@@ -346,5 +358,18 @@
+@@ -348,5 +360,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>
