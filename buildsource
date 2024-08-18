@@ -3,9 +3,9 @@
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac
 [ -z "$ANDROID_SDK_ROOT" ] && ANDROID_SDK_ROOT=~/Android/Sdk
-[ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/bttv/baksmali-2.4.0.jar
+[ -z "$BAKSMALI_PATH" ] && BAKSMALI_PATH=/opt/baksmali/baksmali-2.4.0.jar
 [ -z "$1" ] && TARGETDIR=extracted || TARGETDIR=$1
-[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/bttv/build-companion
+[ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
 
 
 echo "JAVA_PATH: $JAVA_PATH"
