@@ -9,7 +9,7 @@ import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher;
 
 public class UserNoticeRecyclerItem {
   public static final class UserNoticeViewHolder extends AbstractTwitchRecyclerViewHolder {
-    public UserNoticeViewHolder(@NonNull View itemView, tv.twitch.android.core.mvp.viewdelegate.EventDispatcher eventDispatcher) {
+    public UserNoticeViewHolder(@NonNull View itemView, EventDispatcher eventDispatcher) {
       super(itemView);
     }
   }
