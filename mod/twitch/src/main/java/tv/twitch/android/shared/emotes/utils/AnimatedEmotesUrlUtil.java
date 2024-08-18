@@ -8,7 +8,7 @@ public class AnimatedEmotesUrlUtil {
         throw new IllegalStateException("AnimatedEmotesUrlUtil.generateEmoteUrl() called");
     }
 
-    public final String getEmoteUrl(Context context, String emoticonId) {
+    public final String getEmoteUrl(Context context, String emoticonId, Float f) {
         throw new IllegalStateException("AnimatedEmotesUrlUtil.getEmoteUrl() called");
     }
 

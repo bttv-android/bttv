@@ -5,15 +5,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import tv.twitch.android.core.adapters.AbstractTwitchRecyclerViewHolder;
+import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher;
 
 public class UserNoticeRecyclerItem {
   public static final class UserNoticeViewHolder extends AbstractTwitchRecyclerViewHolder {
-    public UserNoticeViewHolder(@NonNull View itemView) {
+    public UserNoticeViewHolder(@NonNull View itemView, tv.twitch.android.core.mvp.viewdelegate.EventDispatcher eventDispatcher) {
       super(itemView);
-    }
-
-    public final android.widget.TextView getChatMessage() {
-      throw new IllegalStateException("");
     }
   }
 }
