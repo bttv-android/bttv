@@ -21,9 +21,9 @@ RUN echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux 
 
 # apktool
 
-RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.5.0/apktool_2.5.0.jar
+RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar
 
-ENV APKTOOL_PATH /opt/apktool_2.5.0.jar
+ENV APKTOOL_PATH /opt/apktool_2.9.3.jar
 
 # uber apk signer
 
