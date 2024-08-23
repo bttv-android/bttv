@@ -507,6 +507,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "Zerwin",
+      "name": "Zerwin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46265592?v=4",
+      "profile": "https://github.com/Zerwin",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
