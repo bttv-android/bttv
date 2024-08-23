@@ -1,16 +1,16 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
-@@ -2261,6 +2261,12 @@
+@@ -2324,6 +2324,12 @@
      goto :goto_2
  
      :cond_3
 +
 +    # BTTV
-+    invoke-static/range {p1 .. p12}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;ZZIILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
-+    move-result-object p12
++    invoke-static/range {p2 .. p13}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
++    move-result-object p13
 +    # /BTTV
 +
-     if-eqz p12, :cond_4
+     if-eqz p13, :cond_4
  
-     .line 111
+     .line 116

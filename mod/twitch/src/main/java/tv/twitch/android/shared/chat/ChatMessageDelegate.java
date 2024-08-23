@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import tv.twitch.android.models.chat.MessageBadge;
-import tv.twitch.android.models.chat.MessageToken;
+import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
 import tv.twitch.chat.ChatMessageInfo;
 
@@ -56,9 +56,5 @@ public class ChatMessageDelegate implements ChatMessageInterface {
     @Override
     public int getUserId() {
         return 0;
-    }
-
-    public String getMessageId() {
-        return "";
     }
 }

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import bttv.settings.Settings;
 import tv.twitch.android.app.core.ThemeManager;
-import tv.twitch.android.shared.chat.adapter.item.MessageRecyclerItem.ChatMessageViewHolder;
 import tv.twitch.android.shared.chat.chomments.ChommentRecyclerItem.ChommentItemViewHolder;
 import tv.twitch.android.shared.chat.messagefactory.adapteritem.UserNoticeRecyclerItem.UserNoticeViewHolder;
 
@@ -50,8 +49,7 @@ public class SplitChat {
         // so make sure not to do anything when
         // not a ViewHolder used in Chat
         if (
-            !(viewHolder instanceof ChatMessageViewHolder)
-            && !(viewHolder instanceof ChommentItemViewHolder)
+            !(viewHolder instanceof ChommentItemViewHolder)
             && !(viewHolder instanceof UserNoticeViewHolder)
         ) {
             Log.i(TAG, "viewHolder is not known: " + viewHolder.toString());

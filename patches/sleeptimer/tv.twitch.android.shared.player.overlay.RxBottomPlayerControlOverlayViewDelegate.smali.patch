@@ -1,7 +1,7 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
---- a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
-+++ b/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
-@@ -25,7 +25,7 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
+@@ -27,7 +27,7 @@
  
  
  # instance fields
@@ -10,8 +10,8 @@ diff --git a/smali_classes6/tv/twitch/android/shared/player/overlay/RxBottomPlay
  
  
  # direct methods
-@@ -713,6 +713,12 @@
- .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter$State;)V
+@@ -861,6 +861,12 @@
+ .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$State;)V
      .locals 9
  
 +    # BTTV

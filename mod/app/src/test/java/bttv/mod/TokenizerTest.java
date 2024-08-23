@@ -22,7 +22,7 @@ import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import tv.twitch.android.models.chat.AutoModMessageFlags;
-import tv.twitch.android.models.chat.MessageToken;
+import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;

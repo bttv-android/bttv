@@ -1,8 +1,8 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali b/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
---- a/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
-+++ b/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
-@@ -244,6 +244,11 @@
-     .line 62
+diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
+--- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
++++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
+@@ -166,6 +166,11 @@
+     .line 57
      iget-boolean v0, p0, Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State;->isVisible:Z
  
 +    # BTTV

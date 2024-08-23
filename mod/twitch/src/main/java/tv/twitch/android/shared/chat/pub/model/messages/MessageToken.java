@@ -2,8 +2,9 @@
  * This file is a stub, so javac does not throw errors,
  * it is not used in the actual patch.
  */
-package tv.twitch.android.models.chat;
+package tv.twitch.android.shared.chat.pub.model.messages;
 import kotlin.jvm.internal.BTTVDefaultConstructorMarker;
+import tv.twitch.android.shared.chat.pub.model.messages.AutoModMessageFlags;
 
 
 public abstract class MessageToken {
@@ -20,19 +21,15 @@ public abstract class MessageToken {
             this.id = id;
         }
 
-        public final String component1() {
-            return this.text;
-        }
-        public final String component2() {
-            return this.id;
-        }
     }
 
     public static final class TextToken extends MessageToken {
         private final String text;
-        public TextToken(String str, AutoModMessageFlags autoModMessageFlags) {
+        private final AutoModMessageFlags flags;
+        public TextToken(String str, AutoModMessageFlags flags) {
             super(null);
             this.text = str;
+            this.flags = flags;
         }
 
         public final String getText() {
@@ -40,7 +37,7 @@ public abstract class MessageToken {
         }
 
         public final AutoModMessageFlags getFlags() {
-            return null;
+            return flags;
         }
 
     }

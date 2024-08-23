@@ -9,7 +9,7 @@ public interface ChatMessageInterface {
 
     String getDisplayName();
 
-    java.util.List<tv.twitch.android.models.chat.MessageToken> getTokens();
+    java.util.List<tv.twitch.android.shared.chat.pub.model.messages.MessageToken> getTokens();
 
     int getUserId();
 

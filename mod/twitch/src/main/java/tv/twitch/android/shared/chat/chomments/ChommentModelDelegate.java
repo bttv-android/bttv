@@ -7,7 +7,7 @@ package tv.twitch.android.shared.chat.chomments;
 import java.util.List;
 
 import tv.twitch.android.models.chat.MessageBadge;
-import tv.twitch.android.models.chat.MessageToken;
+import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
 import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;

@@ -1,8 +1,8 @@
-diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
---- a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
-+++ b/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
+--- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
++++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
 @@ -67,6 +67,12 @@
-     .line 571
+     .line 537
      iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
  
 +    # BTTV
@@ -11,12 +11,12 @@ diff --git a/smali_classes5/tv/twitch/android/shared/bits/BitsSpendingPresenter$
 +    goto :bttv_skip
 +    # /BTTV
 +
-     invoke-static {v0}, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->access$getUiCallbacks$p(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)Ltv/twitch/android/shared/bits/BitsUiCallbacks;
+     invoke-static {v0}, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->access$getChatCommerceRequestUpdater$p(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)Ltv/twitch/android/core/data/source/DataUpdater;
  
      move-result-object v0
-@@ -95,5 +101,6 @@
+@@ -108,5 +114,6 @@
  
-     invoke-virtual {v0, v1}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsButtonClicked(I)V
+     invoke-virtual {v0, v1, v2}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsButtonClicked(ILtv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
  
 +    :bttv_skip
      return-void
