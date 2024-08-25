@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
---- a/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
-+++ b/smali_classes6/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
+diff --git a/smali_classes7/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali b/smali_classes7/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
+--- a/smali_classes7/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
++++ b/smali_classes7/tv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil.smali
 @@ -156,6 +156,16 @@
      :goto_2
      new-instance p4, Ltv/twitch/android/shared/emotes/utils/AnimatedEmotesUrlUtil$EmoteUrlDetails;

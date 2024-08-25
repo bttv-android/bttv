@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali b/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
 --- a/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
 +++ b/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.smali
-@@ -2146,6 +2146,11 @@
+@@ -2174,6 +2174,11 @@
  .method public final isAvailable()Z
      .locals 1
  
@@ -10,6 +10,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/billing/RxBillingClient.sma
 +    return v0
 +    # /BTTV
 +
-     .line 132
+     .line 134
      iget-object v0, p0, Ltv/twitch/android/shared/billing/RxBillingClient;->googlePlayServicesHelper:Ltv/twitch/android/app/core/GooglePlayServicesHelper;
  

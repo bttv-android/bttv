@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
---- a/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
-+++ b/smali_classes7/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
+--- a/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
++++ b/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatImageCustomTarget.smali
 @@ -18,7 +18,7 @@
  
  .field private mMaxSideDimenPixel:I

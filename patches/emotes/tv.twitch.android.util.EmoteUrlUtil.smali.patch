@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
---- a/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
-+++ b/smali_classes7/tv/twitch/android/util/EmoteUrlUtil.smali
+diff --git a/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
+--- a/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
++++ b/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
 @@ -627,6 +627,15 @@
  .method public static final generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
      .locals 2
