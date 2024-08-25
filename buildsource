@@ -30,7 +30,7 @@ TMP_DIR=app/build/.bttv_tmp
 CONSUMER_APK=consumer/build/outputs/apk/release/consumer-release-unsigned.apk
 DEX_FILE="$TMP_DIR/classes.dex"
 
-FINAL_TARGET="../$TARGETDIR/smali_classes8"
+FINAL_TARGET="../$TARGETDIR/smali_classes9"
 RES_DIR="app/src/main/res"
 RES_TARGET="../$TARGETDIR/res"
 LIB_DIR="$TMP_DIR/lib"
@@ -54,7 +54,7 @@ rm -rf "$FINAL_TARGET/com"
 mv "$TMP_DIR/bttv" "$FINAL_TARGET/."
 mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
-rsync -ar --ignore-existing "$TMP_DIR/androidx/" "../$TARGETDIR/smali_classes8/androidx/"
+rsync -ar --ignore-existing "$TMP_DIR/androidx/" "../$TARGETDIR/smali_classes9/androidx/"
 
 # copy res
 ls "$RES_DIR" -1 | grep -v values | xargs -i cp -R "$RES_DIR/{}" "$RES_TARGET"
