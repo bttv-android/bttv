@@ -20,12 +20,7 @@ import tv.twitch.android.shared.chat.pub.model.messages.MessageToken.TextToken;
 import tv.twitch.android.shared.chat.pub.model.messages.MessageToken.EmoticonToken;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
-import tv.twitch.chat.AutoModFlags;
-import tv.twitch.chat.ChatEmoticonToken;
-import tv.twitch.chat.ChatMessageInfo;
-import tv.twitch.chat.ChatMessageToken;
-import tv.twitch.chat.ChatMessageTokenType;
-import tv.twitch.chat.ChatTextToken;
+import tv.twitch.chat.library.model.ChatMessageInfo;
 
 public class Tokenizer {
 
@@ -45,7 +40,7 @@ public class Tokenizer {
         for (MessageToken token : orig) {
             // possible issue: emotes won't work in e.g. MentionToken or BitsToken
             if (!(token instanceof TextToken)) {
-                if (token instanceof EmoticonToken && newTokens.size() > 0) {
+                if (token instanceof EmoticonToken && !newTokens.isEmpty()) {
                     if (newTokens.get(newTokens.size() - 1) instanceof EmoticonToken) {
                         newTokens.add(new TextToken(" ", new AutoModMessageFlags()));
                     }
@@ -94,10 +89,11 @@ public class Tokenizer {
         return new Pair<>(newTokens, shouldHighlight);
     }
 
+    /** @noinspection unused */
     public static void retokenizeLiveChatMessage(ChatMessageInterface chatMessageInterface) {
         if (chatMessageInterface instanceof ChatMessageDelegate) {
             ChatMessageDelegate delegate = (ChatMessageDelegate) chatMessageInterface;
-            retokenizeLiveChatMessage(delegate.mChatMessage);
+            retokenizeLiveChatMessage(delegate.chatMessage);
         } else {
             Log.w(
                 "LBTTV",
@@ -110,20 +106,21 @@ public class Tokenizer {
         Context ctx = Data.ctx;
         int channel = Data.currentBroadcasterId;
 
-        ArrayList<ChatMessageToken> newTokens = new ArrayList<>(info.tokens.length + 10);
+        ArrayList<tv.twitch.chat.library.model.MessageToken> newTokens = new ArrayList<>(info.tokens.size() + 10);
 
         boolean shouldHighlight = false;
         boolean shouldBlock = false;
 
-        for (ChatMessageToken token : info.tokens) {
+        for (tv.twitch.chat.library.model.MessageToken token : info.tokens) {
             Log.d("LBTTV", "retokenizeLiveChatMessage: " + token);
             if (!isTextToken(token)) {
                 if (isEmoteToken(token) && !newTokens.isEmpty()) {
-                    ChatMessageToken prevToken = newTokens.get(newTokens.size() - 1);
+                    tv.twitch.chat.library.model.MessageToken prevToken = newTokens.get(newTokens.size() - 1);
                     if (prevToken != null && !endsWithSpace(prevToken)) {
-                        ChatTextToken spaceToken = new ChatTextToken();
-                        spaceToken.text = " ";
-                        spaceToken.autoModFlags = new AutoModFlags();
+                        tv.twitch.chat.library.model.MessageToken.TextToken spaceToken = new tv.twitch.chat.library.model.MessageToken.TextToken(
+                                " ",
+                                new tv.twitch.chat.library.model.AutoModFlags()
+                        );
                         newTokens.add(spaceToken);
                     }
                 }
@@ -131,8 +128,8 @@ public class Tokenizer {
                 continue;
             }
 
-            ChatTextToken textToken = (ChatTextToken) token;
-            String text = textToken.text;
+            tv.twitch.chat.library.model.MessageToken.TextToken textToken = (tv.twitch.chat.library.model.MessageToken.TextToken) token;
+            String text = textToken.getText();
 
             if (text.equals(" ")) {
                 // " ".split(" ") will produce an empty array
@@ -158,14 +155,10 @@ public class Tokenizer {
                 // emote found
                 String before = currentText.toString();
                 if (!before.isEmpty()) {
-                    ChatTextToken everythingBeforeEmote = new ChatTextToken();
-                    everythingBeforeEmote.text = before;
-                    everythingBeforeEmote.autoModFlags = textToken.autoModFlags;
+                    tv.twitch.chat.library.model.MessageToken.TextToken everythingBeforeEmote = new tv.twitch.chat.library.model.MessageToken.TextToken(before, textToken.getFlags());
                     newTokens.add(everythingBeforeEmote);
                 }
-                ChatEmoticonToken emoteToken = new ChatEmoticonToken();
-                emoteToken.emoticonId = "BTTV-" + emote.id;
-                emoteToken.emoticonText = word;
+                tv.twitch.chat.library.model.MessageToken.EmoteToken emoteToken = new tv.twitch.chat.library.model.MessageToken.EmoteToken(word, "BTTV-" + emote.id);
                 newTokens.add(emoteToken);
 
                 // prepare next TextToken
@@ -174,14 +167,14 @@ public class Tokenizer {
             }
             String before = currentText.toString();
             if (!before.trim().isEmpty()) {
-                ChatTextToken everything = new ChatTextToken();
-                everything.text = before;
-                everything.autoModFlags = textToken.autoModFlags;
+                tv.twitch.chat.library.model.MessageToken.TextToken everything = new tv.twitch.chat.library.model.MessageToken.TextToken(
+                        before, textToken.getFlags()
+                );
                 newTokens.add(everything);
             }
         }
 
-        info.tokens = newTokens.toArray(new ChatMessageToken[0]);
+        info.tokens = newTokens;
 
         if (shouldBlock) {
             info.messageType = "bttv-blocked-message";
@@ -190,30 +183,30 @@ public class Tokenizer {
         }
     }
 
-    private static boolean endsWithSpace(@NotNull ChatMessageToken token) {
-        if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
+    private static boolean endsWithSpace(@NotNull tv.twitch.chat.library.model.MessageToken token) {
+        if (!(token instanceof tv.twitch.chat.library.model.MessageToken.TextToken)) {
             return false;
         }
-        ChatTextToken textToken = (ChatTextToken) token;
-        String text = textToken.text;
-        if (text.length() == 0) {
+        tv.twitch.chat.library.model.MessageToken.TextToken textToken = (tv.twitch.chat.library.model.MessageToken.TextToken) token;
+        String text = textToken.getText();
+        if (text.isEmpty()) {
             return false;
         }
         char lastChar = text.charAt(text.length() - 1);
         return lastChar == ' ';
     }
 
-    private static boolean isTextToken(ChatMessageToken token) {
+    private static boolean isTextToken(tv.twitch.chat.library.model.MessageToken token) {
         if (token == null) {
             return false;
         }
-        return token.type.getValue() == ChatMessageTokenType.Text.getValue();
+        return token instanceof tv.twitch.chat.library.model.MessageToken.TextToken;
     }
 
-    private static boolean isEmoteToken(ChatMessageToken token) {
+    private static boolean isEmoteToken(tv.twitch.chat.library.model.MessageToken token) {
         if (token == null) {
             return false;
         }
-        return token.type.getValue() == ChatMessageTokenType.Emoticon.getValue();
+        return token instanceof tv.twitch.chat.library.model.MessageToken.EmoteToken;
     }
 }

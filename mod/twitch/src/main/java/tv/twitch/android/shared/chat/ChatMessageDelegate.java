@@ -10,17 +10,12 @@ import java.util.List;
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
-import tv.twitch.chat.ChatMessageInfo;
+import tv.twitch.chat.library.model.ChatMessageInfo;
 
 public class ChatMessageDelegate implements ChatMessageInterface {
-    public ChatMessageInfo mChatMessage;
+    public ChatMessageInfo chatMessage;
 
     public ChatMessageDelegate(ChatMessageInfo chatMessageInfo) {
-    }
-
-    @Override
-    public boolean isSystemMessage() {
-        return false;
     }
 
     @Override
@@ -39,22 +34,8 @@ public class ChatMessageDelegate implements ChatMessageInterface {
     }
 
     @Override
-    public boolean isAction() {
-        return false;
-    }
-
-    @Override
-    public boolean isDeleted() {
-        return false;
-    }
-
-    @Override
     public String getUserName() {
         return "";
     }
 
-    @Override
-    public int getUserId() {
-        return 0;
-    }
 }

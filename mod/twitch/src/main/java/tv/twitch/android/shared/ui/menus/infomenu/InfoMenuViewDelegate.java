@@ -9,7 +9,7 @@ import tv.twitch.android.core.mvp.viewdelegate.ViewDelegateState;
 
 public class InfoMenuViewDelegate extends RxViewDelegate<InfoMenuViewDelegate.State, InfoMenuViewDelegate.Event> {
     public static final class State implements ViewDelegateState {
-        public State(String title, Drawable icon, String description) { }
+        public State(String title, Drawable icon, String description, boolean shouldTint) { }
     }
     public static abstract class Event implements ViewDelegateEvent {
         public static final class InfoMenuItemClicked extends Event { }
