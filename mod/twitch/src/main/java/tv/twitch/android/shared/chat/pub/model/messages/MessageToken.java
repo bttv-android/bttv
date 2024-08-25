@@ -21,6 +21,14 @@ public abstract class MessageToken {
             this.id = id;
         }
 
+        public final String component1() {
+            return this.text;
+        }
+        public final String component2() {
+            return this.id;
+        }
+
+
     }
 
     public static final class TextToken extends MessageToken {

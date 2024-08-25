@@ -1,5 +1,7 @@
 package bttv.highlight;
 
+import java.util.Locale;
+
 import android.util.Log;
 
 import bttv.ChommentModelDelegateWrapper;
@@ -73,12 +75,12 @@ public class Highlight extends StringSetUI {
         getInstance().loadSet();
         if (word.startsWith("<") || word.endsWith(">"))
             return false;
-        return INSTANCE.stringSet.contains(word.toLowerCase());
+        return INSTANCE.stringSet.contains(word.toLowerCase(Locale.getDefault()));
     }
 
     public static boolean shouldHighlightChannel(String name) {
         getInstance().loadSet();
-        return INSTANCE.stringSet.contains("<" + name.toLowerCase() + ">");
+        return INSTANCE.stringSet.contains("<" + name.toLowerCase(Locale.getDefault()) + ">");
     }
 
 }

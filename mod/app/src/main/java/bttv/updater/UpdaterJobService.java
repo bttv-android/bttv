@@ -8,12 +8,15 @@ import android.app.job.JobService;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
+import android.Manifest;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import bttv.Data;
 
@@ -94,27 +97,32 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
         Log.d("LBTTVUpdaterJob", "onUpdate");
         try {
             int icon = getResources().getIdentifier("ic_twitch_glitch_uv_alpha_only", "drawable", getPackageName());
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted, proceed with notification
+                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+                Notifications.createChannels(this);
 
-            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-            Notifications.createChannels(this);
+                NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, "bttv_android_updates")
+                        .setSmallIcon(icon)
+                        .setContentTitle("bttv-android update detected")
+                        .setContentText(Data.getBttvVersion(this) + " -> " + newVersion)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setContentIntent(
+                                PendingIntent.getActivity(
+                                        this,
+                                        0,
+                                        Updater.updateActivityIndent(this, newVersion, body, apkUrl)
+                                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK),
+                                        PendingIntent.FLAG_IMMUTABLE
+                                )
+                        )
+                        .setAutoCancel(true);
 
-            NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, "bttv_android_updates")
-                    .setSmallIcon(icon)
-                    .setContentTitle("bttv-android update detected")
-                    .setContentText(Data.getBttvVersion(this) + " -> " + newVersion)
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setContentIntent(
-                            PendingIntent.getActivity(
-                                    this,
-                                    0,
-                                    Updater.updateActivityIndent(this, newVersion, body, apkUrl)
-                                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK),
-                                    0
-                            )
-                    )
-                    .setAutoCancel(true);
-
-            notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
+                notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
+            } else {
+                Log.w("NotificationsPermissionsReceiver", "Permissions are not allowed, not showing notification");
+                //Twitch already asks on startup, we do not need to take care of this
+            }
             jobFinished(params, false);
         } catch (Throwable e) {
             Log.e("LBTTVUpdaterJob", "err creating notif ", e);
