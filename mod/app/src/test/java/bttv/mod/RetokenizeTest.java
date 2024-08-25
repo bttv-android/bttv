@@ -13,6 +13,7 @@ import org.mockito.junit.MockitoRule;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import bttv.Data;
 import bttv.Res;
@@ -21,11 +22,12 @@ import bttv.emote.Emote;
 import bttv.emote.Emotes;
 import tv.twitch.chat.ChatEmoticonToken;
 import tv.twitch.chat.ChatMentionToken;
-import tv.twitch.chat.ChatMessageInfo;
+import tv.twitch.chat.library.model.ChatMessageInfo;
 import tv.twitch.chat.ChatMessageToken;
 import tv.twitch.chat.ChatMessageTokenType;
 import tv.twitch.chat.ChatTextToken;
 import tv.twitch.chat.ChatUrlToken;
+import tv.twitch.chat.library.model.MessageToken;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -37,25 +39,15 @@ public class RetokenizeTest {
         static Object[] TrivialCase;
 
         static {
-            ChatTextToken t1 = new ChatTextToken();
-            t1.text = "Test Message, fam ";
-
-            ChatEmoticonToken t2 = new ChatEmoticonToken();
-            t2.emoticonText = "LUL";
-            t2.emoticonId = "123";
-
-            ChatTextToken t3 = new ChatTextToken();
-            t3.text = "Haha";
-
-            ChatTextToken e3 = new ChatTextToken();
-            e3.text = "Haha ";
-
+            MessageToken.TextToken t1 = new MessageToken.TextToken("Test Message, fam ", null);
+            MessageToken.EmoteToken t2 = new MessageToken.EmoteToken("LUL", "123");
+            MessageToken.TextToken t3 = new MessageToken.TextToken("Haha", null);
+            MessageToken.TextToken e3 = new MessageToken.TextToken("Haha ", null);
 
             ChatMessageInfo input = new ChatMessageInfo();
-            input.tokens = new ChatMessageToken[]{t1, t2, t3};
-
+            input.tokens = List.of(t1, t2, t3);
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{t1, t2, e3};
+            expected.tokens = List.of(t1, t2, e3);
 
             TrivialCase = new Object[]{input, expected};
         }
@@ -64,38 +56,19 @@ public class RetokenizeTest {
 
         static {
 
-            ChatTextToken t1 = new ChatTextToken();
-            t1.text = "KEKW Pog and ";
-
-            ChatEmoticonToken t2 = new ChatEmoticonToken();
-            t2.emoticonText = "LUL";
-            t2.emoticonId = "123";
-
-            ChatTextToken t3 = new ChatTextToken();
-            t3.text = "Haha";
-
-            ChatEmoticonToken e1 = new ChatEmoticonToken();
-            e1.emoticonText = "KEKW";
-            e1.emoticonId = "BTTV-5ea831f074046462f768097a";
-
-            ChatTextToken e2 = new ChatTextToken();
-            e2.text = " ";
-
-            ChatEmoticonToken e3 = new ChatEmoticonToken();
-            e3.emoticonText = "Pog";
-            e3.emoticonId = "BTTV-5ff827395ef7d10c7912c106";
-
-            ChatTextToken e4 = new ChatTextToken();
-            e4.text = " and ";
-
-            ChatTextToken e5 = new ChatTextToken();
-            e5.text = "Haha ";
+            MessageToken.TextToken t1 = new MessageToken.TextToken("KEKW Pog and ", null);
+            MessageToken.EmoteToken t2 = new MessageToken.EmoteToken("LUL", "123");
+            MessageToken.TextToken t3 = new MessageToken.TextToken("Haha", null);
+            MessageToken.EmoteToken e1 = new MessageToken.EmoteToken("KEKW", "BTTV-5ea831f074046462f768097a");
+            MessageToken.TextToken e2 = new MessageToken.TextToken(" ", null);
+            MessageToken.EmoteToken e3 = new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106");
+            MessageToken.TextToken e4 = new MessageToken.TextToken(" and ", null);
+            MessageToken.TextToken e5 = new MessageToken.TextToken("Haha ", null);
 
             ChatMessageInfo input = new ChatMessageInfo();
-            input.tokens = new ChatMessageToken[]{t1, t2, t3};
-
+            input.tokens = List.of(t1, t2, t3);
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{e1, e2, e3, e4, t2, e5};
+            expected.tokens = List.of(e1, e2, e3, e4, t2, e5);
 
             FoundInBeginning = new Object[]{input, expected};
         }
@@ -104,29 +77,16 @@ public class RetokenizeTest {
 
         static {
 
-            ChatTextToken t1 = new ChatTextToken();
-            t1.text = "Test message ";
-
-            ChatEmoticonToken t2 = new ChatEmoticonToken();
-            t2.emoticonText = "LUL";
-            t2.emoticonId = "123";
-
-            ChatTextToken t3 = new ChatTextToken();
-            t3.text = "Haha, Pog";
-
-            ChatTextToken e3 = new ChatTextToken();
-            e3.text = "Haha, ";
-
-            ChatEmoticonToken e4 = new ChatEmoticonToken();
-            e4.emoticonText = "Pog";
-            e4.emoticonId = "BTTV-5ff827395ef7d10c7912c106";
-
+            MessageToken.TextToken t1 = new MessageToken.TextToken("Test message ", null);
+            MessageToken.EmoteToken t2 = new MessageToken.EmoteToken("LUL", "123");
+            MessageToken.TextToken t3 = new MessageToken.TextToken("Haha, Pog", null);
+            MessageToken.TextToken e3 = new MessageToken.TextToken("Haha, ", null);
+            MessageToken.EmoteToken e4 = new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106");
 
             ChatMessageInfo input = new ChatMessageInfo();
-            input.tokens = new ChatMessageToken[]{t1, t2, t3};
-
+            input.tokens = List.of(t1, t2, t3);
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{t1, t2, e3, e4};
+            expected.tokens = List.of(t1, t2, e3, e4);
 
             FoundAtEnd = new Object[]{input, expected};
         }
@@ -134,38 +94,19 @@ public class RetokenizeTest {
         static Object[] FoundInMid;
 
         static {
-            ChatEmoticonToken t1 = new ChatEmoticonToken();
-            t1.emoticonText = "LUL";
-            t1.emoticonId = "123";
-
-            ChatTextToken t2 = new ChatTextToken();
-            t2.text = "Test message ";
-
-            ChatTextToken t3 = new ChatTextToken();
-            t3.text = "test Pog test";
-
-            ChatTextToken t4 = new ChatTextToken();
-            t4.text = "Haha";
-
-            ChatTextToken e4 = new ChatTextToken();
-            e4.text = "test ";
-
-            ChatEmoticonToken e5 = new ChatEmoticonToken();
-            e5.emoticonText = "Pog";
-            e5.emoticonId = "BTTV-5ff827395ef7d10c7912c106";
-
-            ChatTextToken e6 = new ChatTextToken();
-            e6.text = " test ";
-
-            ChatTextToken e7 = new ChatTextToken();
-            e7.text = "Haha ";
-
+            MessageToken.EmoteToken t1 = new MessageToken.EmoteToken("LUL", "123");
+            MessageToken.TextToken t2 = new MessageToken.TextToken("Test message ", null);
+            MessageToken.TextToken t3 = new MessageToken.TextToken("test Pog test", null);
+            MessageToken.TextToken t4 = new MessageToken.TextToken("Haha", null);
+            MessageToken.TextToken e4 = new MessageToken.TextToken("test ", null);
+            MessageToken.EmoteToken e5 = new MessageToken.EmoteToken("Pog", "BTTV-5ff827395ef7d10c7912c106");
+            MessageToken.TextToken e6 = new MessageToken.TextToken(" test ", null);
+            MessageToken.TextToken e7 = new MessageToken.TextToken("Haha ", null);
 
             ChatMessageInfo input = new ChatMessageInfo();
-            input.tokens = new ChatMessageToken[]{t1, t2, t1, t3, t1, t4, t1};
-
+            input.tokens = List.of(t1, t2, t1, t3, t1, t4, t1);
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{t1, t2, t1, e4, e5, e6, t1, e7, t1};
+            expected.tokens = List.of(t1, t2, t1, e4, e5, e6, t1, e7, t1);
 
             FoundInMid = new Object[]{input, expected};
         }
@@ -173,16 +114,14 @@ public class RetokenizeTest {
         static Object[] UrlAfterMention;
 
         static {
-            ChatMentionToken mentionToken = new ChatMentionToken();
-            ChatTextToken textToken = new ChatTextToken();
-            textToken.text = " ";
-            ChatUrlToken urlToken = new ChatUrlToken();
+            MessageToken.MentionToken mentionToken = new MessageToken.MentionToken();
+            MessageToken.TextToken textToken = new MessageToken.TextToken(" ", null);
+            MessageToken.UrlToken urlToken = new MessageToken.UrlToken();
 
             ChatMessageInfo input = new ChatMessageInfo();
-            input.tokens = new ChatMessageToken[]{ mentionToken, textToken, urlToken };
-
+            input.tokens = List.of(mentionToken, textToken, urlToken);
             ChatMessageInfo expected = new ChatMessageInfo();
-            expected.tokens = new ChatMessageToken[]{ mentionToken, textToken, urlToken };
+            expected.tokens = List.of(mentionToken, textToken, urlToken);
 
             UrlAfterMention = new Object[]{input, expected};
         }
@@ -237,39 +176,35 @@ public class RetokenizeTest {
         Tokenizer.retokenizeLiveChatMessage(fInput);
 
         System.out.println("---------------");
-        for (ChatMessageToken token : fExpected.tokens) {
+        for (MessageToken token : fExpected.tokens) {
             System.out.print(token + " ");
-            if (token.type.getValue() == ChatMessageTokenType.Text.getValue()) {
-                System.out.println("text: '" + ((ChatTextToken) token).text + "'");
+            if (token instanceof  MessageToken.TextToken) {
+                System.out.println("text: '" + ((MessageToken.TextToken) token).getText() + "'");
             }
-            if (token.type.getValue() == ChatMessageTokenType.Emoticon.getValue()) {
-                assert token instanceof ChatEmoticonToken;
-                System.out.println("name: " + ((ChatEmoticonToken) token).emoticonText);
+            if (token instanceof  MessageToken.EmoteToken) {
+                System.out.println("name: " + ((MessageToken.EmoteToken) token).getText());
             }
         }
         System.out.println("---------------");
 
         // compare
-        assertEquals(fExpected.tokens.length, fInput.tokens.length);
+        assertEquals(fExpected.tokens.size(), fInput.tokens.size());
         int index = 0;
-        for (ChatMessageToken expected : fExpected.tokens) {
-            ChatMessageToken received = fInput.tokens[index];
+        for (MessageToken expected : fExpected.tokens) {
+            MessageToken received = fInput.tokens.get(index);
             System.out.println(received);
 
-            // both same type
-            assertEquals(expected.type.getValue(), received.type.getValue());
+            if (expected instanceof MessageToken.TextToken) {
+                MessageToken.TextToken expectedTextToken = (MessageToken.TextToken) expected;
+                MessageToken.TextToken receivedTextToken = (MessageToken.TextToken) received;
 
-            if (expected.type.getValue() == ChatMessageTokenType.Text.getValue()) {
-                ChatTextToken expectedTextToken = (ChatTextToken) expected;
-                ChatTextToken receivedTextToken = (ChatTextToken) received;
+                assertEquals(expectedTextToken.getText(), receivedTextToken.getText());
+            } else if (expected instanceof MessageToken.EmoteToken) {
+                MessageToken.EmoteToken expectedEmoteToken = (MessageToken.EmoteToken) expected;
+                MessageToken.EmoteToken receivedEmoteToken = (MessageToken.EmoteToken) received;
 
-                assertEquals(expectedTextToken.text, receivedTextToken.text);
-            } else if (expected.type.getValue() == ChatMessageTokenType.Emoticon.getValue()) {
-                ChatEmoticonToken expectedEmoteToken = (ChatEmoticonToken) expected;
-                ChatEmoticonToken receivedEmoteToken = (ChatEmoticonToken) received;
-
-                assertEquals(expectedEmoteToken.emoticonText, receivedEmoteToken.emoticonText);
-                assertEquals(expectedEmoteToken.emoticonId, receivedEmoteToken.emoticonId);
+                assertEquals(expectedEmoteToken.getText(), receivedEmoteToken.getText());
+                assertEquals(expectedEmoteToken.getId(), receivedEmoteToken.getId());
             }
 
             index++;

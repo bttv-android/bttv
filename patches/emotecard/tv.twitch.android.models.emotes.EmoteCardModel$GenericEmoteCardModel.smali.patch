@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali b/smali_classes5/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
---- a/smali_classes5/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
-+++ b/smali_classes5/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
+diff --git a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
+--- a/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
++++ b/smali_classes6/tv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel.smali
 @@ -19,7 +19,7 @@
  
  .field private final emoteCardType:Ltv/twitch/android/models/emotes/EmoteCardType$GenericEmoteCardType;

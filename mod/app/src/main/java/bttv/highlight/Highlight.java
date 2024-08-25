@@ -44,16 +44,16 @@ public class Highlight extends StringSetUI {
     }
 
     private static Integer replaceNumLive(ChatMessageDelegate delegate, Integer num) {
-        if (delegate.mChatMessage == null) {
+        if (delegate.chatMessage == null) {
             Log.w(TAG, "replaceNum: delegate.mChatMessage is null " + delegate, new Exception());
             return num;
         }
-        if (delegate.mChatMessage.messageType == null) {
-            Log.w(TAG, "replaceNum: delegate.mChatMessage.messageType is null " + delegate.mChatMessage, new Exception());
+        if (delegate.chatMessage.messageType == null) {
+            Log.w(TAG, "replaceNum: delegate.mChatMessage.messageType is null " + delegate.chatMessage, new Exception());
             return num;
         }
 
-        if (delegate.mChatMessage.messageType.equals("bttv-highlighted-message")
+        if (delegate.chatMessage.messageType.equals("bttv-highlighted-message")
                 || (delegate.getUserName() != null && Highlight.shouldHighlightChannel(delegate.getUserName()))
                 || (delegate.getDisplayName() != null && Highlight.shouldHighlightChannel(delegate.getDisplayName()))
         ) {

@@ -4,20 +4,17 @@
  */
 package tv.twitch.android.shared.chat.pub.messages.ui;
 
+import java.util.List;
+
+import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
+
 public interface ChatMessageInterface {
-    java.util.List<tv.twitch.android.models.chat.MessageBadge> getBadges();
+    List<tv.twitch.android.models.chat.MessageBadge> getBadges();
 
     String getDisplayName();
 
-    java.util.List<tv.twitch.android.shared.chat.pub.model.messages.MessageToken> getTokens();
-
-    int getUserId();
+    List<MessageToken> getTokens();
 
     String getUserName();
 
-    boolean isAction();
-
-    boolean isDeleted();
-
-    boolean isSystemMessage();
 }

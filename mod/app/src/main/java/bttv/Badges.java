@@ -19,7 +19,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import tv.twitch.android.models.chat.MessageBadge;
-import tv.twitch.chat.ChatMessageInfo;
+import tv.twitch.chat.library.model.ChatMessageInfo;
 
 public class Badges {
     public static final String TAG = "LBTTVBadges";
@@ -32,7 +32,7 @@ public class Badges {
     * Appends our badges to the list of badges if the user has any
     */
     public static void appendToBadges(ChatMessageInfo chatMessageInfo, List<MessageBadge> originalBadges) {
-        String userId = String.valueOf(chatMessageInfo.userId);
+        String userId = String.valueOf(chatMessageInfo.getUserInfo().getUserId());
 
         List<BTTVBadge> ourBadges = userToBadgesMap.get(userId);
 

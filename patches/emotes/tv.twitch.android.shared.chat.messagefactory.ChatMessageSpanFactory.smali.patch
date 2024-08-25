@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageSpanFactory.smali
-@@ -2324,6 +2324,12 @@
+@@ -2322,6 +2322,12 @@
      goto :goto_2
  
      :cond_3

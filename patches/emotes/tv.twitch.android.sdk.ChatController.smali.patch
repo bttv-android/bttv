@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/sdk/ChatController.smali b/smali_classes5/tv/twitch/android/sdk/ChatController.smali
---- a/smali_classes5/tv/twitch/android/sdk/ChatController.smali
-+++ b/smali_classes5/tv/twitch/android/sdk/ChatController.smali
+diff --git a/smali_classes6/tv/twitch/android/sdk/ChatController.smali b/smali_classes6/tv/twitch/android/sdk/ChatController.smali
+--- a/smali_classes6/tv/twitch/android/sdk/ChatController.smali
++++ b/smali_classes6/tv/twitch/android/sdk/ChatController.smali
 @@ -332,6 +332,13 @@
  
      move-result p1

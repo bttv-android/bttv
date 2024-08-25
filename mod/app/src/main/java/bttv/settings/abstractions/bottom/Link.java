@@ -48,6 +48,6 @@ public class Link {
 
         String secondaryText = getLocaleString(Data.ctx, setting.entry.secondaryTextResource);
 
-        item.render(new InfoMenuViewDelegate.State(primaryText, icon, secondaryText));
+        item.render(new InfoMenuViewDelegate.State(primaryText, icon, secondaryText, false));
     }
 }

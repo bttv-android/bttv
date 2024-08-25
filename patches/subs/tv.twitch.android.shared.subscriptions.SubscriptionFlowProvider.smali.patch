@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali b/smali_classes7/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
---- a/smali_classes7/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
-+++ b/smali_classes7/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali b/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
+--- a/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
++++ b/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionFlowProvider.smali
 @@ -126,7 +126,7 @@
  
      .line 60

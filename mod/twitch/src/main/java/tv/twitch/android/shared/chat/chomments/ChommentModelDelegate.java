@@ -6,22 +6,21 @@ package tv.twitch.android.shared.chat.chomments;
 
 import java.util.List;
 
+import javax.inject.Provider;
+
 import tv.twitch.android.models.chat.MessageBadge;
 import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
 import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
-import tv.twitch.android.provider.experiments.ExperimentHelper;
-import tv.twitch.android.sdk.SDKServicesController;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
-import tv.twitch.android.shared.chat.ChatMessageParser;
 
 public class ChommentModelDelegate implements ChatMessageInterface {
 
     public ChommentModelDelegate(ChommentModel chommentModel,
-                                 SDKServicesController sdkServicesController,
-                                 ChatMessageParser chatMessageParser,
-                                 ExperimentHelper experimentHelper,
-                                 ChatMessageTokenizerWrapper chatMessageTokenizerWrapper) {
+                                 Provider<tv.twitch.android.shared.chat.ChatMessageParserSdk> chatMessageParserSdkProvider,
+                                 Provider<tv.twitch.android.shared.chat.ChatMessageParser> chatMessageParserProvider,
+                                 ChatMessageTokenizerWrapper chatMessageTokenizerWrapper,
+                                 tv.twitch.android.shared.chat.KmpChatExperiment kpmChatExperiment) {
     }
 
     @Override
@@ -40,28 +39,8 @@ public class ChommentModelDelegate implements ChatMessageInterface {
     }
 
     @Override
-    public int getUserId() {
-        return 0;
-    }
-
-    @Override
     public String getUserName() {
         return null;
-    }
-
-    @Override
-    public boolean isAction() {
-        return false;
-    }
-
-    @Override
-    public boolean isDeleted() {
-        return false;
-    }
-
-    @Override
-    public boolean isSystemMessage() {
-        return false;
     }
 
 }

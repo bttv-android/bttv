@@ -26,17 +26,17 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:required="false"/>
      <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" android:required="false"/>
-@@ -70,8 +82,8 @@
+@@ -69,8 +81,8 @@
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
      <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
 -    <permission android:name="tv.twitch.android.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
 -    <uses-permission android:name="tv.twitch.android.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
 +    <permission android:name="tv.twitch.bttvandroid.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>
 +    <uses-permission android:name="tv.twitch.bttvandroid.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
      <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:enabled="true" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="tv.twitch.android.app.consumer.TwitchApplication" android:networkSecurityConfig="@xml/default_security_config" android:requestLegacyExternalStorage="false" android:supportsRtl="true" android:theme="@style/Theme.TwitchApp">
          <profileable android:shell="true"/>
-         <meta-data android:name="WindowManagerPreference:FreeformWindowSize" android:value="phone"/>
 @@ -178,15 +190,15 @@
                  <action android:name="android.intent.action.MEDIA_BUTTON"/>
              </intent-filter>
@@ -56,16 +56,16 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_jgBdao5vVtyZ3hdckxy8jlkkzqooQltZ"/>
          <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ahupan1EKvF7XkpepyA3vpfivrdlOlMg"/>
          <meta-data android:name="io.branch.sdk.TestMode" android:value="false"/>
-@@ -291,7 +303,7 @@
-         <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
-         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
-         <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+@@ -296,7 +308,7 @@
+         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+         <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+         <service android:enabled="true" android:exported="false" android:name="com.google.firebase.sessions.SessionLifecycleService"/>
 -        <provider android:authorities="tv.twitch.android.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <uses-library android:name="androidx.window.extensions" android:required="false"/>
          <uses-library android:name="androidx.window.sidecar" android:required="false"/>
-@@ -348,5 +360,18 @@
+@@ -353,5 +365,18 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>

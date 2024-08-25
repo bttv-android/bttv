@@ -1,0 +1,19 @@
+diff --git a/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali b/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali
+--- a/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali
++++ b/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali
+@@ -27,13 +27,13 @@
+     .end annotation
+ .end field
+ 
+-.field private final messageType:Ljava/lang/String;
++.field public final messageType:Ljava/lang/String;
+ 
+ .field private final numBitsSent:I
+ 
+ .field private final timestamp:Ljava/lang/Long;
+ 
+-.field private final tokens:Ljava/util/List;
++.field public tokens:Ljava/util/List;
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "Ljava/util/List<",
