@@ -1,0 +1,14 @@
+
+services:
+  build:
+    image: ghcr.io/bttv-android/builder # todo
+    volumes:
+      - ./twitch.apk:/usr/build/twitch.apk
+      - ./.bttv-cache:/usr/build/.bttv-cache
+      - ./dist:/usr/build/dist
+      - ./patches:/usr/build/patches
+      - ./mod:/usr/build/mod
+      - ./.all-contributorsrc:/usr/build/.all-contributorsrc
+      - ./bttv.manifest.json:/usr/build/bttv.manifest.json
+    entrypoint: ["sleep", "infinity"] # keep the container alive
+
