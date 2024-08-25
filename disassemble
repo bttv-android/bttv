@@ -12,8 +12,8 @@ dist
 lib
 assets/bttv_contributors.json
 smali*/androidx
-smali_classes8/bttv
-smali_classes8/com
+smali_classes9/bttv
+smali_classes9/com
 EOF
     find ../../mod/app/src/main/res -type f | sed "s/..\/..\/mod\/app\/src\/main\///" >> .gitignore &&
     echo "" >> .gitignore
@@ -145,15 +145,8 @@ sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/
 sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
 # fix full dex-files
-mkdir .tmp/base/smali_classes8
-
-# mkdir .tmp/base/smali_classes8/tv
-# mkdir -p .tmp/base/smali_classes8/tv/twitch/android
-
-# mv .tmp/base/smali_classes2/com/github .tmp/base/smali_classes8/com/github
-# mv .tmp/base/smali_classes5/tv/twitch/android/network .tmp/base/smali_classes8/tv/twitch/android/network
-# mv .tmp/base/smali_classes4/jp .tmp/base/smali_classes8/jp
-# mv .tmp/base/smali_classes7/tv/gql .tmp/base/smali_classes8/tv/gql
+mkdir .tmp/base/smali_classes9
+# mv .tmp/base/smali_classes8/androidx .tmp/base/smali_classes9/.
 
 #
 # Create reference for diffs

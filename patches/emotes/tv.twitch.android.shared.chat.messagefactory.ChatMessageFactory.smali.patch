@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMessageFactory.smali
-@@ -1101,6 +1101,21 @@
+@@ -1093,6 +1093,21 @@
  
      invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  
@@ -9,10 +9,10 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
 +    #  Add bttv emotes
 +    #     expects:
 +    #       v14: tv.twitch.android.shared.chat.pub.ChatMessageInterface;
-+    invoke-static {v14}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;)V
++    invoke-static {v14}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/android/shared/chat/pub/messages/ui/ChatMessageInterface;)V
 +
 +    # dont add if contians word on blocklist
-+    invoke-static {v14}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;)Z
++    invoke-static {v14}, Lbttv/api/Blacklist;->isBlocked(Ltv/twitch/android/shared/chat/pub/messages/ui/ChatMessageInterface;)Z
 +    move-result v0
 +    if-eqz v0, :skipnullreturn
 +    const/4 v0, 0x0

@@ -19,16 +19,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
  
  .field private listeners:Ljava/util/Set;
      .annotation system Ldalvik/annotation/Signature;
-@@ -706,7 +706,7 @@
- 
-     new-instance v1, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda2;
- 
--    invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda2;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
-+    invoke-direct {v1, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda2;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V   
- 
-     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
- 
-@@ -744,6 +744,11 @@
+@@ -746,6 +746,11 @@
  
      invoke-direct {v0, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda7;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
  

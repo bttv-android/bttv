@@ -12,7 +12,7 @@ import tv.twitch.android.models.chomments.ChommentModel;
 import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
 import tv.twitch.android.provider.experiments.ExperimentHelper;
 import tv.twitch.android.sdk.SDKServicesController;
-import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 
 public class ChommentModelDelegate implements ChatMessageInterface {

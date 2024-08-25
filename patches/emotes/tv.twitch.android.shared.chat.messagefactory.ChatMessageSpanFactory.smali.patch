@@ -7,7 +7,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/ChatMes
      :cond_3
 +
 +    # BTTV
-+    invoke-static/range {p2 .. p13}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/shared/chat/pub/ChatMessageInterface;ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
++    invoke-static/range {p2 .. p13}, Lbttv/api/Highlight;->replaceNum(Ltv/twitch/android/shared/chat/pub/messages/ui/ChatMessageInterface;ZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;ZLjava/lang/Object;Ljava/lang/Integer;)Ljava/lang/Integer;
 +    move-result-object p13
 +    # /BTTV
 +

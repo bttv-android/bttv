@@ -7,7 +7,7 @@ import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
-import tv.twitch.android.shared.chat.pub.ChatMessageInterface;
+import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
 
 public class Highlight extends StringSetUI {
     private static Highlight INSTANCE;
