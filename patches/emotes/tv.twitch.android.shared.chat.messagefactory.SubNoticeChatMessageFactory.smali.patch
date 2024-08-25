@@ -1,14 +1,12 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
-@@ -318,6 +318,13 @@
+@@ -318,6 +318,11 @@
      .line 62
      iget-object v4, v1, Ltv/twitch/chat/ChatSubscriptionNotice;->userMessage:Ltv/twitch/chat/ChatMessageInfo;
  
 +    # BTTV
 +    #  Add bttv emotes
-+    #     expects:
-+    #       v4: tv.twitch.chat.ChatMessageInfo
 +    invoke-static {v4}, Lbttv/Tokenizer;->retokenizeLiveChatMessage(Ltv/twitch/chat/ChatMessageInfo;)V
 +    # /BTTV
 +

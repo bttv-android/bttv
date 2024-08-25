@@ -20,6 +20,11 @@ import tv.twitch.android.shared.chat.pub.model.messages.MessageToken.TextToken;
 import tv.twitch.android.shared.chat.pub.model.messages.MessageToken.EmoticonToken;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
 import tv.twitch.android.shared.chat.ChatMessageDelegate;
+import tv.twitch.chat.AutoModFlags;
+import tv.twitch.chat.ChatEmoticonToken;
+import tv.twitch.chat.ChatMessageToken;
+import tv.twitch.chat.ChatMessageTokenType;
+import tv.twitch.chat.ChatTextToken;
 import tv.twitch.chat.library.model.ChatMessageInfo;
 
 public class Tokenizer {
@@ -99,6 +104,95 @@ public class Tokenizer {
                 "LBTTV",
                 "retokenizeLiveChatMessage: interface it not a ChatMessageDelegate it's a "
                 + chatMessageInterface.getClass().getName());
+        }
+    }
+
+    /** @noinspection unused */
+    public static void retokenizeLiveChatMessage(tv.twitch.chat.ChatMessageInfo info) {
+        try {
+            Context ctx = Data.ctx;
+            int channel = Data.currentBroadcasterId;
+
+            ArrayList<tv.twitch.chat.ChatMessageToken> newTokens = new ArrayList<>(info.tokens.length + 10);
+
+            boolean shouldHighlight = false;
+            boolean shouldBlock = false;
+
+            for (tv.twitch.chat.ChatMessageToken token : info.tokens) {
+                Log.d("LBTTV", "retokenizeLiveChatMessage: " + token);
+                if (!isTextTokenOld(token)) {
+                    if (isEmoteTokenOld(token) && !newTokens.isEmpty()) {
+                        tv.twitch.chat.ChatMessageToken prevToken = newTokens.get(newTokens.size() - 1);
+                        if (prevToken != null && !endsWithSpaceOld(prevToken)) {
+                            ChatTextToken spaceToken = new ChatTextToken();
+                            spaceToken.text = " ";
+                            spaceToken.autoModFlags = new AutoModFlags();
+                            newTokens.add(spaceToken);
+                        }
+                    }
+                    newTokens.add(token);
+                    continue;
+                }
+
+                ChatTextToken textToken = (ChatTextToken) token;
+                String text = textToken.text;
+
+                if (text.equals(" ")) {
+                    // " ".split(" ") will produce an empty array
+                    // this is why we need to handle this edge-case
+                    newTokens.add(textToken);
+                    continue;
+                }
+                String[] tokens = text.split(" ");
+
+                StringBuilder currentText = new StringBuilder();
+                for (String word : tokens) {
+                    if (Blacklist.shouldBlock(word)) {
+                        shouldBlock = true;
+                    }
+                    if (Highlight.shouldHighlight(word)) {
+                        shouldHighlight = true;
+                    }
+                    Emote emote = Emotes.getEmote(ctx, word, channel);
+                    if (emote == null) {
+                        currentText.append(word).append(" ");
+                        continue;
+                    }
+                    // emote found
+                    String before = currentText.toString();
+                    if (!before.isEmpty()) {
+                        ChatTextToken everythingBeforeEmote = new ChatTextToken();
+                        everythingBeforeEmote.text = before;
+                        everythingBeforeEmote.autoModFlags = textToken.autoModFlags;
+                        newTokens.add(everythingBeforeEmote);
+                    }
+                    ChatEmoticonToken emoteToken = new ChatEmoticonToken();
+                    emoteToken.emoticonText = word;
+                    emoteToken.emoticonId = "BTTV-" + emote.id;
+                    newTokens.add(emoteToken);
+
+                    // prepare next TextToken
+                    currentText.setLength(0);
+                    currentText.append(' ');
+                }
+                String before = currentText.toString();
+                if (!before.trim().isEmpty()) {
+                    ChatTextToken everything = new ChatTextToken();
+                    everything.text = before;
+                    everything.autoModFlags = textToken.autoModFlags;
+                    newTokens.add(everything);
+                }
+            }
+
+            info.tokens = newTokens.toArray(new ChatMessageToken[0]);
+
+            if (shouldBlock) {
+                info.messageType = "bttv-blocked-message";
+            } else if (shouldHighlight) {
+                info.messageType = "bttv-highlighted-message";
+            }
+        } catch (Throwable throwable) {
+            Log.e("LBTTV", "retokenizeLiveChatMessage: " + throwable.getMessage());
         }
     }
 
@@ -196,6 +290,19 @@ public class Tokenizer {
         return lastChar == ' ';
     }
 
+    private static boolean endsWithSpaceOld(@NotNull tv.twitch.chat.ChatMessageToken token) {
+        if (token.type.getValue() != ChatMessageTokenType.Text.getValue()) {
+            return false;
+        }
+        ChatTextToken textToken = (ChatTextToken) token;
+        String text = textToken.text;
+        if (text.isEmpty()) {
+            return false;
+        }
+        char lastChar = text.charAt(text.length() - 1);
+        return lastChar == ' ';
+    }
+
     private static boolean isTextToken(tv.twitch.chat.library.model.MessageToken token) {
         if (token == null) {
             return false;
@@ -203,10 +310,25 @@ public class Tokenizer {
         return token instanceof tv.twitch.chat.library.model.MessageToken.TextToken;
     }
 
+    private static boolean isTextTokenOld(tv.twitch.chat.ChatMessageToken token) {
+        if (token == null) {
+            return false;
+        }
+        return token.type.getValue() == ChatMessageTokenType.Text.getValue();
+    }
+
+
     private static boolean isEmoteToken(tv.twitch.chat.library.model.MessageToken token) {
         if (token == null) {
             return false;
         }
         return token instanceof tv.twitch.chat.library.model.MessageToken.EmoteToken;
+    }
+
+    private static boolean isEmoteTokenOld(tv.twitch.chat.ChatMessageToken token) {
+        if (token == null) {
+            return false;
+        }
+        return token.type.getValue() == ChatMessageTokenType.Emoticon.getValue();
     }
 }

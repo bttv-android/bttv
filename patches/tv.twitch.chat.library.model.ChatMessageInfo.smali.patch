@@ -13,7 +13,7 @@ diff --git a/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali b
  .field private final timestamp:Ljava/lang/Long;
  
 -.field private final tokens:Ljava/util/List;
-+.field public final tokens:Ljava/util/List;
++.field public tokens:Ljava/util/List;
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "Ljava/util/List<",
