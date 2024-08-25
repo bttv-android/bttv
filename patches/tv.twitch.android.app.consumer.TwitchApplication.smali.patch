@@ -23,6 +23,6 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.sma
 +    const-string v1, "tv.twitch.android.app"
 +    # /BTTV
 +
-     const-string v2, "16.9.1"
+     const-string v2, "17.0.0"
  
-     const v3, 0x188d38
+     const v3, 0x19f0a6
