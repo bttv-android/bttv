@@ -20,7 +20,7 @@ diff --git a/smali_classes4/tv/twitch/android/app/consumer/TwitchApplication.sma
      move-result-object v2
  
 +    # BTTV
-+    const-string v3, "tv.twitch.android.app"
++    const-string v2, "tv.twitch.android.app"
 +    # /BTTV
 +
      const-string v3, "packageName"
