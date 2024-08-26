@@ -121,7 +121,7 @@ public class UpdaterJobService extends JobService implements Updater.UpdateCallb
                 notificationManager.notify((int) (Math.random() * 10000), notifBuilder.build());
             } else {
                 Log.w("NotificationsPermissionsReceiver", "Permissions are not allowed, not showing notification");
-                //Twitch already asks on startup, we do not need to take care of this
+                // Twitch already asks on startup, we do not need to take care of this
             }
             jobFinished(params, false);
         } catch (Throwable e) {
