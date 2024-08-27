@@ -2,7 +2,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$
 --- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
 +++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2.smali
 @@ -67,6 +67,12 @@
-     .line 537
+     .line 516
      iget-object v0, p0, Ltv/twitch/android/shared/bits/BitsSpendingPresenter$maybeShowBuyBitsButton$1$2;->this$0:Ltv/twitch/android/shared/bits/BitsSpendingPresenter;
  
 +    # BTTV
