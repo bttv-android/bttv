@@ -1,7 +1,7 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -20041,4 +20041,98 @@
+@@ -20043,4 +20043,98 @@
      <public type="xml" name="file_paths" id="0x7f170002" />
      <public type="xml" name="image_share_filepaths" id="0x7f170003" />
      <public type="xml" name="splits0" id="0x7f170004" />

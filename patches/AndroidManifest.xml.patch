@@ -65,10 +65,10 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
          <uses-library android:name="androidx.window.extensions" android:required="false"/>
          <uses-library android:name="androidx.window.sidecar" android:required="false"/>
-@@ -353,5 +365,18 @@
-                 <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
+@@ -354,5 +366,18 @@
              </intent-filter>
          </receiver>
+         <service android:exported="true" android:name="com.amazonaws.ivs.player.AnalyticsService" android:permission="android.permission.BIND_JOB_SERVICE"/>
 +        <activity android:name="bttv.updater.UpdaterActivity" />
 +        <provider
 +            android:name="androidx.core.content.FileProvider"
