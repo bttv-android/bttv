@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-@@ -279,7 +279,7 @@
+@@ -245,7 +245,7 @@
  
  .field private viewer:Ltv/twitch/android/models/UserModel;
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
  
  
  # direct methods
-@@ -1438,6 +1438,11 @@
+@@ -1305,6 +1305,11 @@
  
      iget v1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->viewerId:I
  
@@ -22,8 +22,8 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
      iget-object v2, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->screenName:Ljava/lang/String;
  
      invoke-virtual {v0, v1, p1, v2}, Ltv/twitch/android/sdk/ChatController;->connect(IILjava/lang/String;)V
-@@ -2104,6 +2109,14 @@
-     return-object v0
+@@ -1391,6 +1396,14 @@
+     return-void
  .end method
  
 +# BTTV
@@ -34,6 +34,6 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
 +.end method
 +# BTTV
 +
- .method private final getChatConnectionInfo(I)Ltv/twitch/android/shared/chat/observables/ChatConnectionController$ChatConnectionInfo;
-     .locals 10
+ .method private final getChannelRestrictionTypeChange(ILtv/twitch/chat/library/model/ChatChannelRestrictions;)Ltv/twitch/android/shared/chat/events/ChannelRestrictionsChangedEvent;
+     .locals 3
  

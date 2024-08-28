@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali b/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
---- a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
-+++ b/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSettingsViewDelegate.smali
 @@ -35,7 +35,7 @@
  
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSetti
  
  .field private final audioOnlyToggle:Ltv/twitch/android/shared/ui/elements/bottomsheet/LabeledCheckBox;
  
-@@ -2954,5 +2954,9 @@
+@@ -3177,6 +3177,10 @@
  
      invoke-virtual {v0, p1}, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
  
@@ -20,3 +20,4 @@ diff --git a/smali_classes5/tv/twitch/android/feature/theatre/common/StreamSetti
 +
      return-void
  .end method
+ 

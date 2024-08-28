@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali b/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
 --- a/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
 +++ b/smali_classes8/tv/twitch/android/shared/subscriptions/SubscriptionPresenterFactory.smali
-@@ -126,6 +126,8 @@
+@@ -121,6 +121,8 @@
  
      move-result-object v0
  
