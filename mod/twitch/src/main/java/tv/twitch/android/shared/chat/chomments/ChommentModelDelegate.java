@@ -17,10 +17,8 @@ import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface;
 public class ChommentModelDelegate implements ChatMessageInterface {
 
     public ChommentModelDelegate(ChommentModel chommentModel,
-                                 Provider<tv.twitch.android.shared.chat.ChatMessageParserSdk> chatMessageParserSdkProvider,
                                  Provider<tv.twitch.android.shared.chat.ChatMessageParser> chatMessageParserProvider,
-                                 ChatMessageTokenizerWrapper chatMessageTokenizerWrapper,
-                                 tv.twitch.android.shared.chat.KmpChatExperiment kpmChatExperiment) {
+                                 ChatMessageTokenizerWrapper chatMessageTokenizerWrapper) {
     }
 
     @Override

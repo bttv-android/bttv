@@ -2,8 +2,8 @@ package bttv.settings;
 
 import javax.inject.Inject;
 import android.util.Log;
-import tv.twitch.android.settings.base.BaseSettingsFragment;
-import tv.twitch.android.settings.base.BaseSettingsPresenter;
+import tv.twitch.android.shared.settings.BaseSettingsFragment;
+import tv.twitch.android.shared.settings.BaseSettingsPresenter;
 
 public class SettingsFragment extends BaseSettingsFragment {
 

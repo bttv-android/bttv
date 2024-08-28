@@ -4,9 +4,9 @@ import javax.inject.Provider;
 
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
-import tv.twitch.android.app.core.dagger.modules.ActivityModule;
-import tv.twitch.android.app.core.dagger.modules.ActivityModule_ProvideMenuAdapterBinderFactory;
-import tv.twitch.android.settings.base.SettingsTracker;
+import tv.twitch.android.app.consumer.dagger.ActivityModule;
+import tv.twitch.android.app.consumer.dagger.ActivityModule_ProvideMenuAdapterBinderFactory;
+import tv.twitch.android.shared.settings.SettingsTracker;
 import tv.twitch.android.settings.dagger.SettingsActivityModule;
 import tv.twitch.android.settings.dagger.SettingsActivityModule_ProvideSettingsTrackerFactory;
 import tv.twitch.android.shared.analytics.PageViewTracker;

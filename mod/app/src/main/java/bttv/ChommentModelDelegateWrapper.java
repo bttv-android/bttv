@@ -9,12 +9,9 @@ import java.util.List;
 import javax.inject.Provider;
 
 import bttv.highlight.Highlight;
-import tv.twitch.android.shared.chat.ChatMessageParserSdk;
 import tv.twitch.android.shared.chat.pub.model.messages.MessageToken;
 import tv.twitch.android.models.chomments.ChommentModel;
 import tv.twitch.android.shared.chat.pub.model.ChatMessageTokenizerWrapper;
-import tv.twitch.android.provider.experiments.ExperimentHelper;
-import tv.twitch.android.sdk.SDKServicesController;
 import tv.twitch.android.shared.chat.ChatMessageParser;
 import tv.twitch.android.shared.chat.chomments.ChommentModelDelegate;
 
@@ -23,16 +20,12 @@ public class ChommentModelDelegateWrapper extends ChommentModelDelegate {
     private Boolean BTTVshouldHighlightB = null;
 
     public ChommentModelDelegateWrapper(ChommentModel chommentModel,
-                                        Provider<ChatMessageParserSdk> chatMessageParserSdkProvider,
-                                        Provider<tv.twitch.android.shared.chat.ChatMessageParser> chatMessageParserProvider,
-                                        ChatMessageTokenizerWrapper chatMessageTokenizerWrapper,
-                                        tv.twitch.android.shared.chat.KmpChatExperiment kpmChatExperiment) {
+                                        Provider<ChatMessageParser> chatMessageParserProvider,
+                                        ChatMessageTokenizerWrapper chatMessageTokenizerWrapper) {
         super(
             chommentModel,
-            chatMessageParserSdkProvider,
             chatMessageParserProvider,
-            chatMessageTokenizerWrapper,
-            kpmChatExperiment
+            chatMessageTokenizerWrapper
         );
     }
 

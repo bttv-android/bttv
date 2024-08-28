@@ -1,4 +1,4 @@
-package tv.twitch.android.settings.base;
+package tv.twitch.android.shared.settings;
 
 import android.os.Bundle;
 
