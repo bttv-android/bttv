@@ -96,6 +96,7 @@ mkdir settings
 mv 'tv.twitch.android.shared.ui.menus.SettingsPreferencesController$SettingsPreference.smali.patch' settings/.
 mv tv.twitch.android.models.settings.SettingsDestination.smali.patch settings/.
 mv tv.twitch.android.settings.* settings/.
+mv tv.twitch.android.app.consumer.DaggerTwitchApplication_HiltComponents_SingletonC\$ActivityCImpl.smali.patch settings/.
 
 # Settings bottom
 mkdir settings-bottom

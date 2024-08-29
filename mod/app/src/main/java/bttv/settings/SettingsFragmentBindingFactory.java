@@ -1,77 +1,46 @@
 package bttv.settings;
 
-import javax.inject.Provider;
-
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
-import tv.twitch.android.app.consumer.dagger.ActivityModule;
-import tv.twitch.android.app.consumer.dagger.ActivityModule_ProvideMenuAdapterBinderFactory;
 import tv.twitch.android.shared.settings.SettingsTracker;
-import tv.twitch.android.settings.dagger.SettingsActivityModule;
-import tv.twitch.android.settings.dagger.SettingsActivityModule_ProvideSettingsTrackerFactory;
-import tv.twitch.android.shared.analytics.PageViewTracker;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 
 public class SettingsFragmentBindingFactory implements SettingsFragmentBinding.Factory {
 
-    private static Provider<FragmentActivity> fragmentActivityProvider;
-    private static Provider<PageViewTracker> pageViewTrackerProvider;
-    private static ActivityModule activityModule;
-    private static SettingsActivityModule settingsActivityModule;
+    private static FragmentActivity fragmentActivity; // TODO ;fragmentActivityProvider.get();
+    private static MenuAdapterBinder menuAdapterBinder; // TODO;
+    private static SettingsTracker settingsTracker; // TODO;
 
-    public static void setFragmentActivityProvider(Provider<FragmentActivity> fragmentActivityProvider) {
-        SettingsFragmentBindingFactory.fragmentActivityProvider = fragmentActivityProvider;
-        Log.d("LBTTVDI", "got fragmentActivityProvider");
+    /** @noinspection unused */
+    public static void setFragmentActivity(Object fragmentActivity) {
+        Log.d("LBTTVDI", "got fragmentActivity: " + fragmentActivity.getClass().getName());
+        SettingsFragmentBindingFactory.fragmentActivity = (FragmentActivity) fragmentActivity;
     }
 
-    public static void setActivityModule(ActivityModule activityModule) {
-        SettingsFragmentBindingFactory.activityModule = activityModule;
-        Log.d("LBTTVDI", "got activityModule");
+    /** @noinspection unused */
+    public static void setMenuAdapterBinder(MenuAdapterBinder menuAdapterBinder) {
+        SettingsFragmentBindingFactory.menuAdapterBinder = menuAdapterBinder;
+        Log.d("LBTTVDI", "got menuAdapterBinder");
     }
 
-    public static void setSettingsActivityModule(SettingsActivityModule activityModule) {
-        SettingsFragmentBindingFactory.settingsActivityModule = activityModule;
-        Log.d("LBTTVDI", "got settingsActivityModule");
-    }
-
-    public static void setPageViewTrackerProvider(Provider<PageViewTracker> pageViewTrackerProvider) {
-        SettingsFragmentBindingFactory.pageViewTrackerProvider = pageViewTrackerProvider;
-        Log.d("LBTTVDI", "got pageViewTrackerProvider");
-    }
-
-    private static MenuAdapterBinder getMenuAdapterBinder() {
-        return ActivityModule_ProvideMenuAdapterBinderFactory.provideMenuAdapterBinder(
-                SettingsFragmentBindingFactory.activityModule,
-                SettingsFragmentBindingFactory.fragmentActivityProvider.get());
-    }
-
-    private static SettingsTracker getTracker() {
-        return SettingsActivityModule_ProvideSettingsTrackerFactory.provideSettingsTracker(
-                SettingsFragmentBindingFactory.settingsActivityModule, pageViewTrackerProvider.get());
+    /** @noinspection unused */
+    public static void setSettingsTracker(SettingsTracker settingsTracker) {
+        SettingsFragmentBindingFactory.settingsTracker = settingsTracker;
+        Log.d("LBTTVDI", "got settingsTracker");
     }
 
     @Override
     public SettingsFragmentBinding create(SettingsFragment fragment) {
-        if (fragmentActivityProvider == null) {
-            Log.e("LBTTVDI", "fragmentActivityProvider null");
-            return null;
+        if (fragmentActivity == null) {
+            Log.e("LBTTV", "SettingsFragmentBinding.create will fail: fragmentActivity == null");
         }
-        if (activityModule == null) {
-            Log.e("LBTTVDI", "activityModule null");
-            return null;
+        if (menuAdapterBinder == null) {
+            Log.e("LBTTV", "SettingsFragmentBinding.create will fail: menuAdapterBinder == null");
         }
-        if (settingsActivityModule == null) {
-            Log.e("LBTTVDI", "settingsActivityModule null");
-            return null;
+        if (settingsTracker == null) {
+            Log.e("LBTTV", "SettingsFragmentBinding.create will fail: settingsTracker == null");
         }
-        if (pageViewTrackerProvider == null) {
-            Log.e("LBTTVDI", "pageViewTrackerProvider null");
-            return null;
-        }
-
-        FragmentActivity activity = fragmentActivityProvider.get();
-
-        return new SettingsFragmentBindingImpl(fragment, activity, getMenuAdapterBinder(), getTracker());
+        return new SettingsFragmentBindingImpl(fragment, fragmentActivity, menuAdapterBinder, settingsTracker);
     }
 
 }

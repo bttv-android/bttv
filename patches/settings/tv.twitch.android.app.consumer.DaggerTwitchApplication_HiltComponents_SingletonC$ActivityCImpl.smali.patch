@@ -1,0 +1,37 @@
+diff --git a/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali b/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
+--- a/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
++++ b/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
+@@ -16911,6 +16911,33 @@
+ 
+     move-result-object v0
+ 
++    # BTTV
++
++    # first set dependencies for a BaseSettingsFragment
++
++    # fragmentActivity
++    iget-object v1, p0, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl;->provideFragmentActivityProvider:Ljavax/inject/Provider;
++    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
++    move-result-object v1
++    invoke-static {v1}, Lbttv/settings/SettingsFragmentBindingFactory;->setFragmentActivity(Ljava/lang/Object;)V
++
++    # menuAdapterBinder
++    invoke-direct {p0}, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl;->menuAdapterBinder()Ltv/twitch/android/shared/ui/menus/core/MenuAdapterBinder;
++    move-result-object v1
++    invoke-static {v1}, Lbttv/settings/SettingsFragmentBindingFactory;->setMenuAdapterBinder(Ltv/twitch/android/shared/ui/menus/core/MenuAdapterBinder;)V
++
++    # settingsTracker
++    invoke-direct {p0}, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl;->settingsTracker()Ltv/twitch/android/shared/settings/SettingsTracker;
++    move-result-object v1
++    invoke-static {v1}, Lbttv/settings/SettingsFragmentBindingFactory;->setSettingsTracker(Ltv/twitch/android/shared/settings/SettingsTracker;)V
++
++    # now provide SettingsFragmentProvider for SettingsFragment
++    invoke-static {}, Lbttv/settings/SettingsFragmentProvider;->getInstance()Lbttv/settings/SettingsFragmentProvider;
++    move-result-object v1
++    const-class v2, Lbttv/settings/SettingsFragment;
++    invoke-virtual {v0, v2, v1}, Lcom/google/common/collect/ImmutableMap$Builder;->put(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
++    # /BTTV
++
+     iget-object v1, p0, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl;->singletonCImpl:Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;
+ 
+     invoke-static {v1}, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;->-$$Nest$fgetstoriesComposerActivitySubcomponentFactoryProvider(Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;)Ljavax/inject/Provider;
