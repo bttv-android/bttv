@@ -46,6 +46,7 @@ mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patc
 mkdir stream-settings
 mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
 mv tv.twitch.android.feature.theatre.common.StreamSettingsViewDelegate.smali.patch stream-settings/.
+mv res.layout-v22.stream_settings_fragment.xml.patch stream-settings/.
 
 
 # Glide Modules
