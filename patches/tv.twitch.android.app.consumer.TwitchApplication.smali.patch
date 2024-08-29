@@ -1,9 +1,9 @@
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 --- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-@@ -109,6 +109,13 @@
-     .line 25
-     invoke-virtual {p0}, Ltv/twitch/android/app/consumer/TwitchApplication;->getApplicationDelegate()Ltv/twitch/android/app/consumer/ApplicationDelegate;
+@@ -106,6 +106,13 @@
+     .line 24
+     invoke-super {p0}, Ltv/twitch/android/app/consumer/Hilt_TwitchApplication;->onCreate()V
  
 +    # BTTV
 +    #  Set Application Context
@@ -12,6 +12,6 @@ diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.sma
 +    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
 +    # /BTTV
 +
-     move-result-object v0
+     .line 25
+     invoke-virtual {p0}, Ltv/twitch/android/app/consumer/TwitchApplication;->getApplicationDelegate()Ltv/twitch/android/app/consumer/ApplicationDelegate;
  
-     invoke-virtual {v0}, Ltv/twitch/android/app/consumer/ApplicationDelegate;->afterSuperOnCreate()V
