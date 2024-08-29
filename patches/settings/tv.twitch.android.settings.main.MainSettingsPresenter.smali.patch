@@ -6,13 +6,13 @@ diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresente
      invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
  
 +    # BTTV Settings
-+    invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
++    invoke-virtual {p0}, Ltv/twitch/android/shared/settings/BaseSettingsPresenter;->getSettingModels()Ljava/util/List;
 +
 +    move-result-object v0
 +
 +    new-instance v9, Ltv/twitch/android/shared/ui/menus/subscription/SubMenuModel;
 +
-+    invoke-virtual {p0}, Ltv/twitch/android/settings/base/BaseSettingsPresenter;->getActivity()Landroidx/fragment/app/FragmentActivity;
++    invoke-virtual {p0}, Ltv/twitch/android/shared/settings/BaseSettingsPresenter;->getActivity()Landroidx/fragment/app/FragmentActivity;
 +
 +    move-result-object v1
 +
