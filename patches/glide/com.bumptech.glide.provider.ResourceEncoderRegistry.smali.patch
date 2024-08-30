@@ -1,6 +1,6 @@
-diff --git a/smali_classes2/com/bumptech/glide/provider/ResourceEncoderRegistry.smali b/smali_classes2/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
---- a/smali_classes2/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
-+++ b/smali_classes2/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
+--- a/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
++++ b/smali_classes3/com/bumptech/glide/provider/ResourceEncoderRegistry.smali
 @@ -40,6 +40,50 @@
      return-void
  .end method

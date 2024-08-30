@@ -1,26 +1,26 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
---- a/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
-+++ b/smali_classes5/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
-@@ -207,10 +207,24 @@
-     const/4 v3, 0x3
+diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
+--- a/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
++++ b/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
+@@ -111,10 +111,24 @@
+     const/4 v13, 0x1
  
-     .line 81
--    sget v4, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
+     .line 56
+-    sget v14, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
++    # sget v14, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I
++
 +    # BTTV
 +    #   Replaces Update Banner's Content with custom string
-+    #      sets:
-+    #        v4: I
-+    const-string v4, "bttv_app_update_available_cta"
-+    invoke-static {v4}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
-+    move-result v4
++    const-string v14, "bttv_app_update_available_cta"
++    invoke-static {v14}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
++    move-result v14
 +    # /BTTV
  
-     .line 82
+     .line 57
 -    sget v1, Ltv/twitch/android/core/strings/R$string;->app_update_available:I
++    # sget v1, Ltv/twitch/android/core/strings/R$string;->app_update_available:I
++
 +    # BTTV
 +    #   Replaces Update Banner's Title with custom string
-+    #      sets:
-+    #        v1: I
 +    const-string v1, "bttv_app_update_available"
 +    invoke-static {v1}, Lbttv/api/Strings;->getStringId(Ljava/lang/String;)I
 +    move-result v1

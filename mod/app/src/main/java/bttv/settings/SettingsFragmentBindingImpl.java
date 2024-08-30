@@ -1,7 +1,7 @@
 package bttv.settings;
 
 import androidx.fragment.app.FragmentActivity;
-import tv.twitch.android.settings.base.SettingsTracker;
+import tv.twitch.android.shared.settings.SettingsTracker;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 
 public class SettingsFragmentBindingImpl implements SettingsFragmentBinding {

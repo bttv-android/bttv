@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.smali
-@@ -33,7 +33,7 @@
+@@ -35,7 +35,7 @@
  
  
  # instance fields
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter.
  
  .field private final availabilityTracker:Ltv/twitch/android/shared/analytics/availability/AvailabilityTracker;
  
-@@ -933,7 +933,9 @@
+@@ -986,7 +986,9 @@
  
      const/4 v1, 0x1
  

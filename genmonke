@@ -46,6 +46,7 @@ mv tv.twitch.android.shared.chat.observables.ChatConnectionController.smali.patc
 mkdir stream-settings
 mv res.layout.stream_settings_fragment.xml.patch stream-settings/.
 mv tv.twitch.android.feature.theatre.common.StreamSettingsViewDelegate.smali.patch stream-settings/.
+mv res.layout-v22.stream_settings_fragment.xml.patch stream-settings/.
 
 
 # Glide Modules
@@ -93,11 +94,10 @@ mv tv.twitch.android.shared.emotes.emotepicker.EmotePickerPresenter.smali.patch 
 
 # Settings
 mkdir settings
-mv 'tv.twitch.android.app.consumer.dagger.DaggerAppComponent$AppComponentImpl.smali.patch' settings/.
-mv 'tv.twitch.android.app.consumer.dagger.DaggerAppComponent$SettingsActivitySubcomponentImpl.smali.patch' settings/.
 mv 'tv.twitch.android.shared.ui.menus.SettingsPreferencesController$SettingsPreference.smali.patch' settings/.
 mv tv.twitch.android.models.settings.SettingsDestination.smali.patch settings/.
 mv tv.twitch.android.settings.* settings/.
+mv tv.twitch.android.app.consumer.DaggerTwitchApplication_HiltComponents_SingletonC\$ActivityCImpl.smali.patch settings/.
 
 # Settings bottom
 mkdir settings-bottom

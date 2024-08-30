@@ -1,0 +1,14 @@
+diff --git a/smali_classes5/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali b/smali_classes5/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
+--- a/smali_classes5/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
++++ b/smali_classes5/tv/twitch/android/app/consumer/ApplicationDelegate$Companion.smali
+@@ -154,6 +154,10 @@
+ 
+     move-result-object p1
+ 
++    # BTTV
++    const-string p1, "tv.twitch.android.app"
++    # /BTTV
++
+     const-string v2, "application.packageName"
+ 
+     invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V

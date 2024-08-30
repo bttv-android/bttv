@@ -1,8 +1,9 @@
-package tv.twitch.android.settings.base;
+package tv.twitch.android.shared.settings;
 
 import java.util.List;
 
 import androidx.fragment.app.FragmentActivity;
+
 import tv.twitch.android.shared.ui.menus.SettingActionListener;
 import tv.twitch.android.shared.ui.menus.SettingsPreferencesController;
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;

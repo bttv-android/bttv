@@ -1,6 +1,7 @@
-package tv.twitch.android.app.core.dagger.modules;
+package tv.twitch.android.app.consumer.dagger;
 
 import androidx.fragment.app.FragmentActivity;
+
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder;
 
 public class ActivityModule_ProvideMenuAdapterBinderFactory {
