@@ -14,7 +14,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/bits/BitsSpendingPresenter$
      invoke-static {v0}, Ltv/twitch/android/shared/bits/BitsSpendingPresenter;->access$getChatCommerceRequestUpdater$p(Ltv/twitch/android/shared/bits/BitsSpendingPresenter;)Ltv/twitch/android/core/data/source/DataUpdater;
  
      move-result-object v0
-@@ -108,5 +114,6 @@
+@@ -116,5 +122,6 @@
  
      invoke-virtual {v0, v1, v2}, Ltv/twitch/android/shared/bits/BitsTracker;->trackBuyBitsButtonClicked(ILtv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
  

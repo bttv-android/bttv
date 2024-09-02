@@ -1,16 +1,16 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
 --- a/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
 +++ b/smali_classes7/tv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate.smali
-@@ -29,7 +29,7 @@
- # instance fields
- .field private final chatModeButtonTooltip$delegate:Lkotlin/Lazy;
+@@ -31,7 +31,7 @@
+ 
+ .field private final transitionHelper:Ltv/twitch/android/shared/ui/elements/util/TransitionHelper;
  
 -.field private final viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
 +.field public final viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/BottomPlayerOverlayControlsBinding;
  
  
  # direct methods
-@@ -950,6 +950,12 @@
+@@ -959,6 +959,12 @@
  .method public render(Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayViewDelegate$State;)V
      .locals 9
  

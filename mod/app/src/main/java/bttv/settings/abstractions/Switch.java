@@ -23,7 +23,8 @@ public class Switch {
                 null,
                 SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled,
                 null,
-                0b1011110110100,
+                null,
+                0b11011111110100,
                 null
         );
     }
