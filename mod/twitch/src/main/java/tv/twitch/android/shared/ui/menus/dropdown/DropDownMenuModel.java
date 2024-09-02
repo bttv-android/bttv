@@ -10,7 +10,7 @@ public class DropDownMenuModel<T> extends MenuModel.SingleItemModel {
             ArrayAdapter<T> arrayAdapter,
             int selectedOption,
             String primaryText,
-            String secondaryText,
+            CharSequence secondaryText,
             String auxiliaryText,
             View.OnClickListener onClickListener,
             DropDownMenuModel.DropDownMenuItemSelection<T> dropDownMenuItemSelection) {
