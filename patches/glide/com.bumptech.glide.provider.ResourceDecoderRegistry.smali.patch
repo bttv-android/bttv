@@ -1,7 +1,7 @@
 diff --git a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali b/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
 --- a/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
 +++ b/smali_classes3/com/bumptech/glide/provider/ResourceDecoderRegistry.smali
-@@ -127,6 +127,57 @@
+@@ -133,6 +133,57 @@
      throw p1
  .end method
  

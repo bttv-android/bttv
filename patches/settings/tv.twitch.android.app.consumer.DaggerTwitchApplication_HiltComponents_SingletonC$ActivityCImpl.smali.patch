@@ -1,7 +1,7 @@
 diff --git a/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali b/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
 --- a/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
 +++ b/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
-@@ -17085,6 +17085,33 @@
+@@ -19581,6 +19581,33 @@
  
      move-result-object v0
  
@@ -34,4 +34,4 @@ diff --git a/smali_classes5/tv/twitch/android/app/consumer/DaggerTwitchApplicati
 +
      iget-object v1, p0, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl;->singletonCImpl:Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;
  
-     invoke-static {v1}, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;->-$$Nest$fgetstoriesComposerActivitySubcomponentFactoryProvider(Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;)Ljavax/inject/Provider;
+     invoke-static {v1}, Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;->-$$Nest$fgetbenchmarkActivitySubcomponentFactoryProvider(Ltv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$SingletonCImpl;)Ldagger/internal/Provider;

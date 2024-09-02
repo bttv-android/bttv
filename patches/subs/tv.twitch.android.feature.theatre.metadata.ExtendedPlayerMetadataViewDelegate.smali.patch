@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/feature/theatre/metadata/ExtendedPlayerMetadataViewDelegate.smali
-@@ -387,6 +387,10 @@
+@@ -381,6 +381,10 @@
  
      move-result-object v1
  
