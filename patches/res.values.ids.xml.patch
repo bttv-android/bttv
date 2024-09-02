@@ -1,7 +1,7 @@
 diff --git a/res/values/ids.xml b/res/values/ids.xml
 --- a/res/values/ids.xml
 +++ b/res/values/ids.xml
-@@ -4756,4 +4756,8 @@
+@@ -4791,4 +4791,8 @@
      <item type="id" name="wrapper_states" />
      <item type="id" name="ximg" />
      <item type="id" name="year_published" />

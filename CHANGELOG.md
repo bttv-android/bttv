@@ -1,7 +1,7 @@
 # Changelog
 
 # master
-- rebase to v18.9.0
+- rebase to v19.0.1
 
 # 0.41.0-beta
 - rebase to v16.9.1
