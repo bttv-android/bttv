@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.Locale;
 
 import bttv.Data;
 import bttv.Res;
@@ -41,12 +42,12 @@ public abstract class StringSetUI {
 
 
     void remove(String word) {
-        stringSet.remove(word.toLowerCase());
+        stringSet.remove(word.toLowerCase(Locale.getDefault()));
         stringSetSetting.entry.set(Data.ctx, new UserPreferences.Entry.StringSetValue(stringSet));
     }
 
     boolean add(String word) {
-        boolean val = stringSet.add(word.toLowerCase());
+        boolean val = stringSet.add(word.toLowerCase(Locale.getDefault()));
         stringSetSetting.entry.set(Data.ctx, new UserPreferences.Entry.StringSetValue(stringSet));
         return val;
     }
@@ -122,7 +123,7 @@ public abstract class StringSetUI {
 
     boolean dialogOnAdd(TextView v, StringSetUIAdapter adapter, ArrayList<String> asList, ListView list, TextView emptyTV) {
         for (String w: v.getText().toString().split(" ")) {
-            String word = w.toLowerCase();
+            String word = w.toLowerCase(Locale.getDefault());
             if (word.trim().isEmpty()) {
                 continue;
             }

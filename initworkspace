@@ -11,9 +11,9 @@ STEPS=5
 [ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
 
 
-DX_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/dx"
-DX_FILES=( $DX_PATTERN )
-DX=${DX_FILES[0]}
+D8_PATTERN="$ANDROID_SDK_ROOT/build-tools/*/d8"
+D8_FILES=( $D8_PATTERN )
+D8=${D8_FILES[0]}
 
 echo "=== Verifing tools (1/$STEPS) ===" &&
 echo "If an errr occurs during this step make" &&
@@ -35,8 +35,8 @@ echo "" && echo "apktool:" && echo "" &&
 $JAVA_PATH -jar $APKTOOL_PATH --version &&
 echo "" && echo "uber apk signer:" && echo "" &&
 $JAVA_PATH -jar $UBER_APK_SIGNER_PATH --version &&
-echo "" && echo "dx (android sdk build tools):" && echo "" &&
-$DX --version &&
+echo "" && echo "d8 (android sdk build tools):" && echo "" &&
+$D8 --version &&
 echo "" && echo "baksmali:" && echo "" &&
 $JAVA_PATH -jar $BAKSMALI_PATH --version &&
 echo "" &&
