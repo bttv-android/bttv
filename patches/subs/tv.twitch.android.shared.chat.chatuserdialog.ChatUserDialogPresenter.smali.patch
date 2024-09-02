@@ -19,7 +19,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/chatuserdialog/ChatUse
  
  .field private listeners:Ljava/util/Set;
      .annotation system Ldalvik/annotation/Signature;
-@@ -739,6 +739,11 @@
+@@ -747,6 +747,11 @@
  
      invoke-direct {v0, p0, p1}, Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter$$ExternalSyntheticLambda7;-><init>(Ltv/twitch/android/shared/chat/chatuserdialog/ChatUserDialogPresenter;Ltv/twitch/android/models/social/ChatUser;)V
  

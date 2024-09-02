@@ -74,7 +74,7 @@ mv tv.twitch.android.util.EmoteUrlUtil.smali.patch emotes/.
 mv tv.twitch.android.shared.ui.elements.span.GlideChatImageTarget.smali.patch emotes/.
 mv tv.twitch.android.shared.ui.elements.span.GlideChatImageCustomTarget.smali.patch emotes/.
 mv tv.twitch.android.shared.emotes.utils.AnimatedEmotesUrlUtil.smali.patch emotes/.
-mv tv.twitch.android.sdk.ChatController.smali.patch emotes/.
+mv tv.twitch.android.shared.chat.ChatController.smali.patch emotes/.
 mv tv.twitch.android.shared.chomments.impl.ChommentsFetcherImpl.smali.patch emotes/.
 mv tv.twitch.android.shared.chat.ChatMessageDelegate.smali.patch emotes/.
 mv tv.twitch.android.shared.chat.messagefactory.* emotes/.

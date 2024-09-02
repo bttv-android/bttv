@@ -1,15 +1,15 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/emotecard/EmoteCardPresenter.smali
-@@ -2394,6 +2394,7 @@
+@@ -2389,6 +2389,7 @@
  
-     .line 459
+     .line 457
      check-cast p1, Ltv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel;
 +    move-object v2, p1 # BTTV
  
      invoke-virtual {p1}, Ltv/twitch/android/models/emotes/EmoteCardModel$GenericEmoteCardModel;->getEmoteCardType()Ltv/twitch/android/models/emotes/EmoteCardType$GenericEmoteCardType;
  
-@@ -2486,6 +2487,11 @@
+@@ -2481,6 +2482,11 @@
  
      move-result-object p1
  

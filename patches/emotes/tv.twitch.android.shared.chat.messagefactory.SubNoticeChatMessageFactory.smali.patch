@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/messagefactory/SubNoticeChatMessageFactory.smali
-@@ -348,6 +348,11 @@
+@@ -346,6 +346,11 @@
  
      move-result-object v4
  

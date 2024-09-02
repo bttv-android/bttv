@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
 --- a/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
 +++ b/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali
-@@ -627,6 +627,15 @@
+@@ -689,6 +689,15 @@
  .method public static final generateEmoteUrl(Ljava/lang/String;F)Ljava/lang/String;
      .locals 2
  
@@ -17,7 +17,7 @@ diff --git a/smali_classes8/tv/twitch/android/util/EmoteUrlUtil.smali b/smali_cl
      const-string v0, "id"
  
      invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-@@ -715,6 +724,14 @@
+@@ -777,6 +786,14 @@
  
      if-eqz p2, :cond_0
  

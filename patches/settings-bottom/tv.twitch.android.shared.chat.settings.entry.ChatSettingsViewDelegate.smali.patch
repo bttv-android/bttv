@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate.smali
-@@ -534,6 +534,10 @@
+@@ -536,6 +536,10 @@
  
      invoke-static {p1}, Ltv/twitch/android/shared/accessibility/AccessibilityUtilKt;->headingForAccessibility(Landroid/widget/TextView;)V
  
@@ -12,7 +12,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/settings/entry/ChatSet
      return-void
  .end method
  
-@@ -1298,5 +1302,9 @@
+@@ -1318,5 +1322,9 @@
  
      invoke-direct {p0, p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsViewDelegate;->renderPreferencesSettings(Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;)V
  

@@ -1,8 +1,8 @@
 diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali b/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
 --- a/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
 +++ b/smali_classes6/tv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners.smali
-@@ -111,10 +111,24 @@
-     const/4 v13, 0x1
+@@ -109,10 +109,24 @@
+     new-instance v0, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBanners;
  
      .line 56
 -    sget v14, Ltv/twitch/android/core/strings/R$string;->app_update_available_cta:I

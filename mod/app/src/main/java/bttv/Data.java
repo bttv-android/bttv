@@ -48,6 +48,7 @@ public class Data {
         Data.currentBroadcasterName = name.toString();
     }
 
+    /** @noinspection unused */
     public static void setCurrentBroadcasterId(ChannelModel channel) {
         setCurrentBroadcasterId(channel.component1());
     }

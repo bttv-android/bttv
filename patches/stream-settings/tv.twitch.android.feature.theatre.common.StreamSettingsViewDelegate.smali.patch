@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSetti
  
  .field private final audioOnlyToggle:Ltv/twitch/android/shared/ui/elements/bottomsheet/LabeledCheckBox;
  
-@@ -3177,6 +3177,10 @@
+@@ -3119,6 +3119,10 @@
  
      invoke-virtual {v0, p1}, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
  
