@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 --- a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
 +++ b/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawable.smali
-@@ -118,6 +118,12 @@
+@@ -119,6 +119,12 @@
      invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->stop()V
  
      :cond_0
@@ -14,7 +14,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
      const/4 v0, 0x0
  
      .line 77
-@@ -130,7 +136,7 @@
+@@ -131,7 +137,7 @@
  .end method
  
  .method public draw(Landroid/graphics/Canvas;)V
@@ -23,7 +23,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
  
      const-string v0, "canvas"
  
-@@ -141,6 +147,10 @@
+@@ -142,6 +148,10 @@
  
      if-eqz v0, :cond_0
  
@@ -34,7 +34,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
      .line 54
      invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
  
-@@ -157,10 +167,25 @@
+@@ -158,10 +168,25 @@
  
      if-nez p1, :cond_0
  

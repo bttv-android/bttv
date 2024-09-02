@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali b/smali_classes8/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 --- a/smali_classes8/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
 +++ b/smali_classes8/tv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference.smali
-@@ -77,13 +77,16 @@
+@@ -81,13 +81,16 @@
  
  .field public static final enum SmartFeed:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
@@ -14,25 +14,25 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/SettingsPreference
      .locals 3
  
      .line 0
--    const/16 v0, 0x1a
-+    const/16 v0, 0x1b  # length of values array (0x1a -> 0x1b)
+-    const/16 v0, 0x1b
++    const/16 v0, 0x1c  # length of values array (0x1b -> 0x1c)
  
      new-array v0, v0, [Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  
-@@ -243,6 +246,12 @@
+@@ -253,6 +256,12 @@
  
-     aput-object v2, v0, v1
+     aput-object v1, v0, v2
  
 +    # BTTV
 +    sget-object v1, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->BTTVEmotesEnabled:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
-+    const/16 v2, 0x19
++    const/16 v2, 0x1b
 +    aput-object v1, v0, v2
 +    # /BTTV
 +
      return-object v0
  .end method
  
-@@ -535,6 +544,14 @@
+@@ -556,6 +565,14 @@
  
      sput-object v0, Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;->GameBroadcastingViewerCount:Ltv/twitch/android/shared/ui/menus/SettingsPreferencesController$SettingsPreference;
  

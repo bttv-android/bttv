@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnectionController.smali
-@@ -245,7 +245,7 @@
+@@ -215,7 +215,7 @@
  
  .field private viewer:Ltv/twitch/android/models/UserModel;
  
@@ -10,19 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/observables/ChatConnec
  
  
  # direct methods
-@@ -1305,6 +1305,11 @@
- 
-     iget v1, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->viewerId:I
- 
-+    # BTTV
-+    invoke-static {v1}, Lbttv/api/AnonChat;->getViewerId(I)I
-+    move-result v1
-+    # /BTTV
-+
-     iget-object v2, p0, Ltv/twitch/android/shared/chat/observables/ChatConnectionController;->screenName:Ljava/lang/String;
- 
-     invoke-virtual {v0, v1, p1, v2}, Ltv/twitch/android/sdk/ChatController;->connect(IILjava/lang/String;)V
-@@ -1391,6 +1396,14 @@
+@@ -986,6 +986,14 @@
      return-void
  .end method
  

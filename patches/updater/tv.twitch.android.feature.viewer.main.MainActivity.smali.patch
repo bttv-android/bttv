@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali b/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
 --- a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
 +++ b/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.smali
-@@ -1596,6 +1596,11 @@
+@@ -1480,6 +1480,11 @@
  
      invoke-virtual {p1, v0}, Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;->setListener(Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter$PersistentBannerPresenterListener;)V
  
@@ -10,6 +10,6 @@ diff --git a/smali_classes6/tv/twitch/android/feature/viewer/main/MainActivity.s
 +    invoke-static {p0, p1}, Lbttv/updater/Updater;->checkForUpdates(Landroid/app/Activity;Ltv/twitch/android/feature/viewer/main/navigation/PersistentBannerPresenter;)V
 +    # /BTTV
 +
-     .line 387
+     .line 378
      iget-object p1, p0, Ltv/twitch/android/feature/viewer/main/MainActivity;->commerceNoticesPresenter:Ltv/twitch/android/shared/commerce/notices/CommerceNoticesPresenter;
  
