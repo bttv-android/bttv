@@ -54,7 +54,7 @@ jobs:
         run: cp dist/twitch.apk bttv.apk && shasum *.apk
 
       # send to other release job if needed
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         if: ${{ github.event_name != 'pull_request' }}
         with:
           name: bttv-apk
@@ -66,14 +66,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Get CHANGELOGA
+      - name: Get CHANGELOG
         id: changelog
         run: |
           echo "RELEASE_BODY<<EOF" > /tmp/bttv &&
           head -n25 CHANGELOG.md >> /tmp/bttv &&
           echo "EOF" >> /tmp/bttv &&
           cat /tmp/bttv >> $GITHUB_OUTPUT
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: bttv-apk
       - name: Create Release
