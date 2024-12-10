@@ -40,6 +40,7 @@ public class Network {
         private final int channelId;
 
         public ResponseHandler(Emotes.Source source, int channelId) {
+            Log.d("LBTTV", "ResponseHandler: "  + source.toString() + " ch: " + channelId);
             this.source = source;
             this.channelId = channelId;
         }
@@ -52,6 +53,7 @@ public class Network {
 
         @Override
         public final void onResponse(@NotNull Call call, Response response) throws IOException {
+            Log.e("LBTTVNetwork", "onResponse");
             try (ResponseBody responseBody = response.body()) {
                 if (!response.isSuccessful())
                     throw new IOException("Unexpected code " + response);

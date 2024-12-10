@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/refactor/datasource/StreamMetadataModelProvider$dataObserver$1.smali b/smali_classes6/tv/twitch/android/feature/theatre/refactor/datasource/StreamMetadataModelProvider$dataObserver$1.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/refactor/datasource/StreamMetadataModelProvider$dataObserver$1.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/refactor/datasource/StreamMetadataModelProvider$dataObserver$1.smali
+@@ -64,6 +64,8 @@
+     .line 21
+     check-cast p1, Ltv/twitch/android/models/streams/StreamModel;
+ 
++    invoke-static {p1}, Lbttv/Data;->setCurrentBroadcasterId(Ltv/twitch/android/models/streams/StreamModel;)V
++
+     invoke-virtual {p0, p1}, Ltv/twitch/android/feature/theatre/refactor/datasource/StreamMetadataModelProvider$dataObserver$1;->invoke(Ltv/twitch/android/models/streams/StreamModel;)Ltv/twitch/android/feature/theatre/metadata/VideoMetadataModel;
+ 
+     move-result-object p1

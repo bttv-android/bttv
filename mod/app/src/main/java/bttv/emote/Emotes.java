@@ -135,6 +135,8 @@ public class Emotes {
         boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
         boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
 
+        Log.i("LBTTV", "ensureChannelEmotes: bttvEnabled: " + bttvEnabled + " ffzEnabled: " + ffzEnabled + " stvEnabled: " + stvEnabled);
+
         if (bttvEnabled && globalEmotesBTTV.isEmpty()) {
             Network.getBTTVGlobalEmotes();
         }
@@ -161,6 +163,7 @@ public class Emotes {
             map.put(emote.code, emote);
             addToCodeEmoteMap(0, emote);
             idEmoteMap.put(emote.id, emote);
+            Log.i("LBTTVEmotes", "setGlobal: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
         switch (source) {
             case BTTV:
@@ -184,6 +187,7 @@ public class Emotes {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
+            Log.i("LBTTVEmotes", "addChannelFFZ: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotesFFZ.put(id, set);
@@ -196,11 +200,13 @@ public class Emotes {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
+            Log.i("LBTTVEmotes", "addChannelBTTV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
         for (Emote emote : chEmData.sharedEmotes) {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
+            Log.i("LBTTVEmotes", "addChannelBTTV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotesBTTV.put(id, set);
@@ -215,6 +221,7 @@ public class Emotes {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
+            Log.i("LBTTVEmotes", "addChannel7TV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotes7TV.put(id, set);

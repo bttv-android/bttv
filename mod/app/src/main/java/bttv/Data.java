@@ -9,6 +9,7 @@ import java.util.HashMap;
 import bttv.emote.Emotes;
 import bttv.updater.UpdaterJobService;
 import tv.twitch.android.models.channel.ChannelModel;
+import tv.twitch.android.models.streams.StreamModel;
 
 public class Data {
     public static int currentBroadcasterId = -1;
@@ -50,6 +51,10 @@ public class Data {
 
     public static void setCurrentBroadcasterId(ChannelModel channel) {
         setCurrentBroadcasterId(channel.component1());
+    }
+
+    public static void setCurrentBroadcasterId(StreamModel stream) {
+        setCurrentBroadcasterId(stream.getChannelId());
     }
 
     public static void setContext(Context ctx) {
