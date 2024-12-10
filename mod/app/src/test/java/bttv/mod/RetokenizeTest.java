@@ -20,13 +20,7 @@ import bttv.Res;
 import bttv.Tokenizer;
 import bttv.emote.Emote;
 import bttv.emote.Emotes;
-import tv.twitch.chat.ChatEmoticonToken;
-import tv.twitch.chat.ChatMentionToken;
 import tv.twitch.chat.library.model.ChatMessageInfo;
-import tv.twitch.chat.ChatMessageToken;
-import tv.twitch.chat.ChatMessageTokenType;
-import tv.twitch.chat.ChatTextToken;
-import tv.twitch.chat.ChatUrlToken;
 import tv.twitch.chat.library.model.MessageToken;
 
 import static org.junit.Assert.assertEquals;

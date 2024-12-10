@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 --- a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
 +++ b/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companion.smali
-@@ -181,6 +181,15 @@
+@@ -169,6 +169,15 @@
          }
      .end annotation
  
@@ -10,7 +10,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/chat/util/ChatUtil$Companio
 +    move-result-object v0
 +    if-eqz v0, :bttv_skip
 +    move-object p2, v0
-+    goto :cond_1
++    goto :cond_0
 +    :bttv_skip
 +    # /BTTV
 +

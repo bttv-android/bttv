@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
 --- a/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
 +++ b/smali_classes7/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State.smali
-@@ -166,6 +166,11 @@
+@@ -159,6 +159,11 @@
      .line 61
      iget-boolean v0, p0, Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate$State;->isVisible:Z
  
