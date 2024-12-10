@@ -1,6 +1,6 @@
 # Changelog
 
-# master
+# 0.42.0-beta
 - rebase to v19.0.1
 
 # 0.41.0-beta
