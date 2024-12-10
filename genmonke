@@ -78,6 +78,7 @@ mv tv.twitch.android.shared.chomments.impl.ChommentsFetcherImpl.smali.patch emot
 mv tv.twitch.android.shared.chat.ChatMessageDelegate.smali.patch emotes/.
 mv tv.twitch.android.shared.chat.messagefactory.* emotes/.
 mv 'tv.twitch.android.feature.theatre.refactor.datasource.StreamMetadataModelProvider$dataObserver$1.smali.patch' emotes/.
+mv tv.twitch.chat.library.model.ChatMessageInfo.smali.patch emotes/.
 
 # Emote Card
 mkdir emotecard

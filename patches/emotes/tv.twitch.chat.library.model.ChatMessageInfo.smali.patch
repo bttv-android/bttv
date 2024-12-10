@@ -6,7 +6,7 @@ diff --git a/smali_classes8/tv/twitch/chat/library/model/ChatMessageInfo.smali b
  .end field
  
 -.field private final messageType:Ljava/lang/String;
-+.field public final messageType:Ljava/lang/String;
++.field public messageType:Ljava/lang/String;
  
  .field private final numBitsSent:I
  
