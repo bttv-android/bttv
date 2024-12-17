@@ -5,6 +5,8 @@ import android.util.Log;
 import bttv.Res;
 import bttv.settings.Settings;
 
+import java.util.Locale;
+
 public class Blacklist extends StringSetUI {
     private static final String TAG = "LBTTVBlacklist";
     private static Blacklist INSTANCE;
@@ -21,6 +23,6 @@ public class Blacklist extends StringSetUI {
     }
     public static boolean shouldBlock(String word) {
         getInstance().loadSet();
-        return INSTANCE.stringSet.contains(word.toLowerCase());
+        return INSTANCE.stringSet.contains(word.toLowerCase(Locale.getDefault()));
     }
 }
