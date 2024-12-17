@@ -1,0 +1,16 @@
+diff --git a/smali_classes6/tv/twitch/android/settings/cookieconsent/CookieConsentBottomSheetDialogPresenter.smali b/smali_classes6/tv/twitch/android/settings/cookieconsent/CookieConsentBottomSheetDialogPresenter.smali
+index a757e1fb6..06cf1e9a0 100644
+--- a/smali_classes6/tv/twitch/android/settings/cookieconsent/CookieConsentBottomSheetDialogPresenter.smali
++++ b/smali_classes6/tv/twitch/android/settings/cookieconsent/CookieConsentBottomSheetDialogPresenter.smali
+@@ -283,6 +283,11 @@
+ 
+     invoke-static/range {p1 .. p6}, Ltv/twitch/android/core/mvp/rxutil/ISubscriptionHelper$DefaultImpls;->directSubscribe$default(Ltv/twitch/android/core/mvp/rxutil/ISubscriptionHelper;Lio/reactivex/Flowable;Ltv/twitch/android/core/mvp/rxutil/DisposeOn;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+ 
++    # BTTV
++    # Set Consent for Cookie Consent Dialog to Disabled
++    invoke-direct {p0}, Ltv/twitch/android/settings/cookieconsent/CookieConsentBottomSheetDialogPresenter;->setConsentDisabled()V
++    # /BTTV
++
+     return-void
+ .end method
+ 
