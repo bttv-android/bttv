@@ -75,10 +75,9 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		MenuAdapterBinder binder = getAdapterBinder();
 		binder.getAdapter().removeAllSections();
 
-		MenuSection menuSection = new MenuSection(getSettingModels(), null, null, 0b110, null);
 		HeaderConfig headerCfg = new HeaderConfig(SectionHeaderDisplayConfig.IF_CONTENT,
 				"Fine tune your BTTV experience", null, 0, 0, null, null, false, null, null, 0b1111111100, null);
-		menuSection.updateHeaderConfig(headerCfg);
+		MenuSection menuSection = new MenuSection(getSettingModels(), null, headerCfg, 0b110, null);
 		binder.bindModels(getSettingModels(), getMSettingActionListener(), menuSection, null);
 	}
 
@@ -114,6 +113,10 @@ public final class SettingsPresenter extends BaseSettingsPresenter {
 		@Override
 		public void updatePreferenceBooleanState(ToggleMenuModel toggleMenuModel, boolean z) {
 			String key = toggleMenuModel.getEventName();
+			if(key == null) {
+				Log.w("LBTTVSettingsPC", "updatePreferenceBooleanState() key is null");
+				return;
+			}
 			Settings setting = Settings.get(key);
 
 			if (setting == null) {
