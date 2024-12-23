@@ -72,6 +72,8 @@ public class SplitChat {
                 if (nestedChild.getId() == ResUtil.getResourceId(context, "chat_message_item", "id")) {
                     Log.d(TAG, "found chat_message_item: " + nestedChild.toString());
                     view = nestedChild;
+                    // Increase width of linearLayout to match parent to color the whole item
+                    linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                     break;
                 }
             }
