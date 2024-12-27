@@ -3,6 +3,7 @@ package bttv.glide.svg;
 import static com.bumptech.glide.request.target.Target.SIZE_ORIGINAL;
 
 import android.util.Log;
+import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,6 +46,6 @@ public class SvgDecoder implements ResourceDecoder<InputStream, SVG> {
     }
 
     private static float dpToPx(float f) {
-        return android.util.TypedValue.applyDimension(1, f, android.content.res.Resources.getSystem().getDisplayMetrics());
+        return android.util.TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, f, android.content.res.Resources.getSystem().getDisplayMetrics());
     }
 }
