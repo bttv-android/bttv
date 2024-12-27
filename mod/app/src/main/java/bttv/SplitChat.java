@@ -63,7 +63,7 @@ public class SplitChat {
         // make sure we only change chat message items,
         // which are LinearLayouts with chat_message_item children.
         // Anything else is ignored.
-        int chatMessageItemResId = ResUtil.getResourceId(context, "chat_message_item", "id"));
+        int chatMessageItemResId = ResUtil.getResourceId(context, "chat_message_item", "id");
         int chommentRootViewResId = ResUtil.getResourceId(context, "chomment_root_view", "id");
         if(view instanceof LinearLayout) {
             Log.d(TAG, "view is LinearLayout: " + view.toString());
