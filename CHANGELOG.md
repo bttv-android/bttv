@@ -1,7 +1,8 @@
 # Changelog
 
-# 0.43.1-beta
-- fix issue which prevented bttv-settings from being persisted (thank you [@Zerwin](https://github.com/Zerwin))
+# 0.43.2-beta - authored by [@Zerwin](https://github.com/Zerwin)
+- fix issue which prevented bttv-settings from being persisted
+- fix broken split chat
 
 # 0.43.0-beta
 - rebase to v19.0.1
