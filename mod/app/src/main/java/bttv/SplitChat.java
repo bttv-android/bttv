@@ -68,7 +68,7 @@ public class SplitChat {
             LinearLayout linearLayout = (LinearLayout) view;
             for (int j = 0; j < linearLayout.getChildCount(); j++) {
                 View nestedChild = linearLayout.getChildAt(j);
-                if (nestedChild.getId() == ResUtil.getResourceId(context, "chat_message_item", "id")) {
+                if (nestedChild.getId() == chatMessageItemResId) {
                     Log.d(TAG, "found chat_message_item: " + nestedChild.toString());
                     view = nestedChild;
                     // Increase width of linearLayout to match parent to color the whole item
@@ -77,11 +77,11 @@ public class SplitChat {
                 }
             }
         }
-        boolean hasChatMessageId = view.getId() == ResUtil.getResourceId(context, "chat_message_item", "id");
-        boolean hasChommentRootId = view.getId() == ResUtil.getResourceId(context, "chomment_root_view", "id");
+        boolean hasChatMessageId = view.getId() == chatMessageItemResId;
+        boolean hasChommentRootId = view.getId() == chommentRootViewResId;
 
         if (!(hasChatMessageId || hasChommentRootId)) {
-            Log.i(TAG, "view skipped, as it's not a chat message or chomment, " + viewHolder.toString() + " ID: " + view.getId() + " View: " + view.toString() + " Expected ID: " + ResUtil.getResourceId(context, "chat_message_item", "id") + " or " + ResUtil.getResourceId(context, "chomment_root_view", "id"));
+            Log.d(TAG, "view skipped, as it's not a chat message or chomment, " + viewHolder.toString() + " ID: " + view.getId() + " View: " + view.toString() + " Expected ID: " + chatMessageItemResId + " or " + chommentRootViewResId);
             reset(view);
             return;
         }
