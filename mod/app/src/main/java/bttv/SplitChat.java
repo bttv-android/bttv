@@ -60,16 +60,17 @@ public class SplitChat {
         View view = viewHolder.itemView;
         Context context = view.getContext();
 
-        // make sure we only change chat message items
-        // Other elements like redeems or Sub Anniversaries are ConstraintLayouts
-
-        // If view is a LinearLayout, check the childrens to find chat_message_item
+        // make sure we only change chat message items,
+        // which are LinearLayouts with chat_message_item children.
+        // Anything else is ignored.
+        int chatMessageItemResId = ResUtil.getResourceId(context, "chat_message_item", "id");
+        int chommentRootViewResId = ResUtil.getResourceId(context, "chomment_root_view", "id");
         if(view instanceof LinearLayout) {
             Log.d(TAG, "view is LinearLayout: " + view.toString());
             LinearLayout linearLayout = (LinearLayout) view;
             for (int j = 0; j < linearLayout.getChildCount(); j++) {
                 View nestedChild = linearLayout.getChildAt(j);
-                if (nestedChild.getId() == ResUtil.getResourceId(context, "chat_message_item", "id")) {
+                if (nestedChild.getId() == chatMessageItemResId) {
                     Log.d(TAG, "found chat_message_item: " + nestedChild.toString());
                     view = nestedChild;
                     // Increase width of linearLayout to match parent to color the whole item
@@ -78,11 +79,11 @@ public class SplitChat {
                 }
             }
         }
-        boolean hasChatMessageId = view.getId() == ResUtil.getResourceId(context, "chat_message_item", "id");
-        boolean hasChommentRootId = view.getId() == ResUtil.getResourceId(context, "chomment_root_view", "id");
+        boolean hasChatMessageId = view.getId() == chatMessageItemResId;
+        boolean hasChommentRootId = view.getId() == chommentRootViewResId;
 
         if (!(hasChatMessageId || hasChommentRootId)) {
-            Log.i(TAG, "view skipped, as it's not a chat message or chomment, " + viewHolder.toString() + " ID: " + view.getId() + " View: " + view.toString() + " Expected ID: " + ResUtil.getResourceId(context, "chat_message_item", "id") + " or " + ResUtil.getResourceId(context, "chomment_root_view", "id"));
+            Log.d(TAG, "view skipped, as it's not a chat message or chomment, " + viewHolder.toString() + " ID: " + view.getId() + " View: " + view.toString() + " Expected ID: " + chatMessageItemResId + " or " + chommentRootViewResId);
             reset(view);
             return;
         }
