@@ -60,10 +60,9 @@ public class SplitChat {
         View view = viewHolder.itemView;
         Context context = view.getContext();
 
-        // make sure we only change chat message items
-        // Other elements like redeems or Sub Anniversaries are ConstraintLayouts
-
-        // If view is a LinearLayout, check the childrens to find chat_message_item
+        // make sure we only change chat message items,
+        // which are LinearLayouts with chat_message_item children.
+        // Anything else is ignored.
         if(view instanceof LinearLayout) {
             Log.d(TAG, "view is LinearLayout: " + view.toString());
             LinearLayout linearLayout = (LinearLayout) view;
