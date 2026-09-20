@@ -7,7 +7,6 @@ import android.util.Log;
 import java.util.HashMap;
 
 import bttv.emote.Emotes;
-import bttv.updater.UpdaterJobService;
 import tv.twitch.android.models.channel.ChannelModel;
 import tv.twitch.android.models.streams.StreamModel;
 
@@ -58,9 +57,8 @@ public class Data {
     }
 
     public static void setContext(Context ctx) {
-        Data.ctx = ctx;
+        Context applicationContext = ctx == null ? null : ctx.getApplicationContext();
+        Data.ctx = applicationContext == null ? ctx : applicationContext;
         Log.i("LBTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
-        UpdaterJobService.schedule(ctx);
-        Badges.getBadges();
     }
 }

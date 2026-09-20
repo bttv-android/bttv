@@ -78,6 +78,75 @@ Other archive entries:
 - The 31.2.0 base has six DEX files. The existing tooling later creates
   `smali_classes9` for BTTV output; compatibility with that old layout belongs
   to the feature-port/build stage, not Stage 1.
-- The first container verification should invoke `./disassemble` directly. Do
-  not run `initworkspace`, because it would compile BTTV source and attempt the
-  old 19.0.1 feature patches.
+- At the Stage 1 boundary, container verification invoked `./disassemble`
+  directly because `initworkspace` would still have attempted the old 19.0.1
+  patches. Stage 2 retires those active feature patches before its build check.
+
+## Stage 2 foundation port
+
+Stage 2 ports only the common bootstrap and resource substrate. The active
+`patches` tree now contains the seven Twitch 31.2.0 foundation patches; the
+74 Twitch 19.0.1 feature patches were removed from the active tree and remain
+available in Git history for later staged ports.
+
+### Manifest mapping
+
+- The application ID is rebased from `tv.twitch.android.app` to
+  `tv.twitch.bttvandroid.app`, with BTTV version `0.43.2-beta` / version code
+  `01208000338` from `bttv.manifest.json`.
+- Package-derived authorities were rebased for the dynamic-receiver permission,
+  Twitch Firebase provider, AndroidX Startup, the main FileProvider, Amazon MAP,
+  React Native WebView, the three Sentry providers, and the IVS background
+  detector.
+- Component class names under `tv.twitch.android.app.*` and the `amzn` callback
+  host remain unchanged because they identify Twitch code/protocol endpoints,
+  not this APK's install package.
+- The 31.2.0 manifest adds required split metadata and several providers that
+  did not exist in 19.0.1; the new package-derived authorities were included.
+- Updater-only permission, activity, provider, and job-service declarations were
+  deliberately not carried forward in this stage.
+
+### Application/bootstrap mapping
+
+- `TwitchApplication` moved from `smali_classes5` to the primary `smali` tree
+  and is now heavily obfuscated. Its `b()` call performs injection and invokes
+  `Application.onCreate()`. The BTTV context hook is placed immediately after
+  that call and invokes `bttv.Data.setContext(Context)`.
+- `Data.setContext` now stores the application context only. Badge loading and
+  updater scheduling were removed from bootstrap so Stage 2 does not activate
+  those feature groups; later feature stages must add their own initialization
+  when ported.
+- The old `ApplicationDelegate$Companion` package-name override has no direct
+  31.2.0 mapping: that class is gone, Firebase startup moved to
+  `TwitchFirebaseProvider` / the obfuscated Firebase bootstrap, and the
+  equivalent path no longer reads the application package name. The obsolete
+  patch was removed rather than attached to an unrelated package-name read.
+
+### Resource mapping
+
+- `bttv_mega` and `bttv_sonic` are appended after the 31.2.0 color table. The
+  Twitch splash theme uses `bttv_mega`.
+- The adaptive launcher resource moved from
+  `res/mipmap-anydpi-v26/ic_launcher.xml` to
+  `res/mipmap-anydpi/ic_launcher.xml`; the BTTV background override follows it.
+- Existing `buildsource` behavior continues to merge BTTV strings, localized
+  strings, XML, layouts, drawables, launcher bitmaps, native libraries, and
+  contributor metadata. This is resource plumbing only; no feature hook is
+  active in Stage 2.
+- Public resource IDs were regenerated above the 31.2.0 maxima:
+  IDs `0x7f0b17d8`-`0x7f0b17f2`, layouts `0x7f0e055e`-`0x7f0e0561`, colors
+  `0x7f060737`-`0x7f060738`, strings `0x7f1518e4`-`0x7f15191b`, and drawable
+  `0x7f080a89`. The four standalone IDs remain declared in `ids.xml`.
+
+### Verification and later-stage notes
+
+- Each foundation patch applies cleanly to the cached Twitch 31.2.0 base.
+  Modified manifest/resource XML parses successfully, and the new public IDs
+  do not collide with the 31.2.0 table.
+- Local Gradle verification is unavailable on the Windows host because Java is
+  not installed or configured; Docker is also unavailable in this shell. A
+  single Stage 2 Docker build should be used for final APK/resource-linking
+  verification.
+- Stage 3 must port feature patches from Git history to 31.2.0 semantics rather
+  than restoring the removed files wholesale. It should also exercise login to
+  confirm that the removed legacy package-name override is no longer needed.

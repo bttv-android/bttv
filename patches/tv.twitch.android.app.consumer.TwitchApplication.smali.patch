@@ -1,17 +1,13 @@
-diff --git a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
---- a/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-+++ b/smali_classes5/tv/twitch/android/app/consumer/TwitchApplication.smali
-@@ -106,6 +106,13 @@
-     .line 24
-     invoke-super {p0}, Ltv/twitch/android/app/consumer/Hilt_TwitchApplication;->onCreate()V
+diff --git a/smali/tv/twitch/android/app/consumer/TwitchApplication.smali b/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
+--- a/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
++++ b/smali/tv/twitch/android/app/consumer/TwitchApplication.smali
+@@ -1079,6 +1079,9 @@
+     .line 335
+     invoke-virtual {v1}, Ltv/twitch/android/app/consumer/TwitchApplication;->b()V
  
-+    # BTTV
-+    #  Set Application Context
-+    #     expects:
-+    #       p0: android.content.Context
-+    invoke-static {p0}, Lbttv/Data;->setContext(Landroid/content/Context;)V
-+    # /BTTV
++    # BTTV: initialize the shared application context after Application.onCreate().
++    invoke-static {v1}, Lbttv/Data;->setContext(Landroid/content/Context;)V
 +
-     .line 25
-     invoke-virtual {p0}, Ltv/twitch/android/app/consumer/TwitchApplication;->getApplicationDelegate()Ltv/twitch/android/app/consumer/ApplicationDelegate;
- 
+     .line 336
+     .line 337
+     .line 338

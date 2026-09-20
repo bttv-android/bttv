@@ -1,6 +1,6 @@
-diff --git a/res/mipmap-anydpi-v26/ic_launcher.xml b/res/mipmap-anydpi-v26/ic_launcher.xml
---- a/res/mipmap-anydpi-v26/ic_launcher.xml
-+++ b/res/mipmap-anydpi-v26/ic_launcher.xml
+diff --git a/res/mipmap-anydpi/ic_launcher.xml b/res/mipmap-anydpi/ic_launcher.xml
+--- a/res/mipmap-anydpi/ic_launcher.xml
++++ b/res/mipmap-anydpi/ic_launcher.xml
 @@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="utf-8"?>
  <adaptive-icon
@@ -9,5 +9,6 @@ diff --git a/res/mipmap-anydpi-v26/ic_launcher.xml b/res/mipmap-anydpi-v26/ic_la
 +    <background android:drawable="@color/bttv_mega" />
      <foreground android:drawable="@drawable/ic_launcher_foreground" />
      <monochrome android:drawable="@drawable/ic_launcher_foreground_monochrome" />
- </adaptive-icon>
+-</adaptive-icon>
 \ No newline at end of file
++</adaptive-icon>
