@@ -150,3 +150,23 @@ available in Git history for later staged ports.
 - Stage 3 must port feature patches from Git history to 31.2.0 semantics rather
   than restoring the removed files wholesale. It should also exercise login to
   confirm that the removed legacy package-name override is no longer needed.
+
+### Stage 2 Docker manifest correction
+
+- The first full Stage 2 Docker run reached patching but failed on
+  `AndroidManifest.xml.patch`. The cached decoded targets had been materialized
+  on Windows with CRLF endings, while the committed patches correctly use LF.
+  Docker's Linux Git configuration does not perform Windows line-ending
+  conversion, so `git apply --index` treated the carriage returns as content
+  and rejected the first manifest hunk. Reproducing the check with
+  `core.autocrlf=false` fails at line 1; the same content with normalized target
+  endings applies cleanly.
+- `AndroidManifest.xml.patch` was regenerated from the current post-processed
+  Twitch 31.2.0 manifest. It retains all Stage 2 package/authority changes and
+  now preserves the source manifest's missing final newline. The patch contains
+  LF only and no carriage-return bytes.
+- The patch runner now derives each active patch's target path and strips CR
+  only from those decoded target files before creating the Git index. This
+  avoids altering unrelated decoded content and makes LF-only patches portable
+  when the cache crosses Windows and Linux. Compose mounts the corrected local
+  runner into the builder container.

@@ -7,8 +7,8 @@ services:
       - ./.bttv-cache:/usr/build/.bttv-cache
       - ./dist:/usr/build/dist
       - ./patches:/usr/build/patches
+      - ./patch:/usr/build/patch:ro
       - ./mod:/usr/build/mod
       - ./.all-contributorsrc:/usr/build/.all-contributorsrc
       - ./bttv.manifest.json:/usr/build/bttv.manifest.json
     entrypoint: ["sleep", "infinity"] # keep the container alive
-

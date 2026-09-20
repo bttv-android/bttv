@@ -80,6 +80,5 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 -        <provider android:authorities="tv.twitch.android.app.backgrounddetector" android:enabled="true" android:exported="false" android:name="com.amazonaws.ivs.broadcast.BackgroundDetector"/>
 +        <provider android:authorities="tv.twitch.bttvandroid.app.backgrounddetector" android:enabled="true" android:exported="false" android:name="com.amazonaws.ivs.broadcast.BackgroundDetector"/>
      </application>
--</manifest>
+ </manifest>
 \ No newline at end of file
-+</manifest>

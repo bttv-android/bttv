@@ -5,6 +5,16 @@ if ! cd disass; then
 fi
 
 git init
+
+# Cached disassembly trees may have been materialized on Windows with CRLF.
+# Patch files are intentionally LF-only, so normalize only their target files
+# before creating the index used by git apply --index.
+for PatchFile in ../patches/*.patch ../patches/**/*.patch
+do
+    TargetFile=$(sed -n 's|^--- a/||p' "$PatchFile" | head -n 1)
+    [ -n "$TargetFile" ] && [ -f "$TargetFile" ] && sed -i 's/\r$//' "$TargetFile"
+done
+
 git add .
 
 if ! cd ../patches; then
