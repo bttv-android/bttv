@@ -91,16 +91,13 @@ available in Git history for later staged ports.
 
 ### Manifest mapping
 
-- The application ID is rebased from `tv.twitch.android.app` to
-  `tv.twitch.bttvandroid.app`, with BTTV version `0.43.2-beta` / version code
-  `01208000338` from `bttv.manifest.json`.
-- Package-derived authorities were rebased for the dynamic-receiver permission,
-  Twitch Firebase provider, AndroidX Startup, the main FileProvider, Amazon MAP,
-  React Native WebView, the three Sentry providers, and the IVS background
-  detector.
-- Component class names under `tv.twitch.android.app.*` and the `amzn` callback
-  host remain unchanged because they identify Twitch code/protocol endpoints,
-  not this APK's install package.
+- The application package remains the Twitch 31.2.0 value
+  `tv.twitch.android.app`. The manifest patch adds BTTV version
+  `0.43.2-beta` / version code `01208000338` from `bttv.manifest.json` without
+  reviving the obsolete 19.0.1 side-by-side package rename.
+- Package-derived permissions and provider authorities remain on
+  `tv.twitch.android.app`, matching the root package. Component class names and
+  the `amzn` callback host likewise remain unchanged.
 - The 31.2.0 manifest adds required split metadata and several providers that
   did not exist in 19.0.1; the new package-derived authorities were included.
 - Updater-only permission, activity, provider, and job-service declarations were
@@ -162,11 +159,27 @@ available in Git history for later staged ports.
   `core.autocrlf=false` fails at line 1; the same content with normalized target
   endings applies cleanly.
 - `AndroidManifest.xml.patch` was regenerated from the current post-processed
-  Twitch 31.2.0 manifest. It retains all Stage 2 package/authority changes and
-  now preserves the source manifest's missing final newline. The patch contains
-  LF only and no carriage-return bytes.
+  Twitch 31.2.0 manifest and preserves the source manifest's missing final
+  newline. The patch contains LF only and no carriage-return bytes.
 - The patch runner now derives each active patch's target path and strips CR
   only from those decoded target files before creating the Git index. This
   avoids altering unrelated decoded content and makes LF-only patches portable
   when the cache crosses Windows and Linux. Compose mounts the corrected local
   runner into the builder container.
+
+### Stage 2 Apktool package correction
+
+- The next Docker run applied every foundation patch, then Apktool reported a
+  missing root `package` attribute. The post-patch root had placed
+  `android:versionCode`, `android:versionName`, and the package on one line.
+  Before Apktool runs, `build` uses the legacy greedy expression
+  `android:versionCode=".*"`; on that one-line root it consumed the remaining
+  attributes through the last quote, including `package`.
+- The manifest patch now expands only the root tag across separate LF lines,
+  adds the two BTTV version attributes, and preserves
+  `package="tv.twitch.android.app"`. All Twitch permissions, providers,
+  authorities, components, and callback hosts remain consistent with that
+  official package; the prior 19.0.1 package/authority rename is not ported.
+- The actual post-patch manifest and a simulation of the build-time version
+  substitutions both parse as XML and retain a root `manifest` element with
+  `package="tv.twitch.android.app"`.
