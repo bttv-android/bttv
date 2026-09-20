@@ -1,7 +1,30 @@
 diff --git a/res/values/public.xml b/res/values/public.xml
 --- a/res/values/public.xml
 +++ b/res/values/public.xml
-@@ -20859,4 +20859,96 @@
+@@ -1516,11 +1516,14 @@
+     <public type="attr" name="start_dir" id="0x7f04065c" />
+     <public type="attr" name="state_above_anchor" id="0x7f04065e" />
+     <public type="attr" name="state_collapsed" id="0x7f04065f" />
+     <public type="attr" name="state_collapsible" id="0x7f040660" />
++    <public type="attr" name="state_dragged" id="0x7f040661" />
+     <public type="attr" name="state_error" id="0x7f040662" />
+     <public type="attr" name="state_indeterminate" id="0x7f040663" />
+     <public type="attr" name="state_liftable" id="0x7f040664" />
+     <public type="attr" name="state_lifted" id="0x7f040665" />
++    <public type="attr" name="state_swiped" id="0x7f040666" />
++    <public type="attr" name="state_with_icon" id="0x7f040667" />
+     <public type="attr" name="statusBarBackground" id="0x7f040668" />
+     <public type="attr" name="statusBarForeground" id="0x7f040669" />
+     <public type="attr" name="statusBarScrim" id="0x7f04066a" />
+@@ -1782,6 +1785,7 @@
+     <public type="attr" name="vr_icon" id="0x7f04079c" />
+     <public type="attr" name="watch_streak_count" id="0x7f04079e" />
+     <public type="attr" name="widgetLayout" id="0x7f0407ad" />
++    <public type="attr" name="widthChange" id="0x7f0407af" />
+     <public type="attr" name="windowActionBar" id="0x7f0407b0" />
+     <public type="attr" name="windowActionBarOverlay" id="0x7f0407b1" />
+     <public type="attr" name="windowActionModeOverlay" id="0x7f0407b2" />
+@@ -20859,4 +20863,96 @@
      <public type="xml" name="m3_split_button_inner_corner_size_state_list" id="0x7f180007" />
      <public type="xml" name="m3expressive_button_shape_state_list" id="0x7f180008" />
      <public type="xml" name="splits0" id="0x7f180009" />

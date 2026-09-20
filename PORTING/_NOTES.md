@@ -85,7 +85,7 @@ Other archive entries:
 ## Stage 2 foundation port
 
 Stage 2 ports only the common bootstrap and resource substrate. The active
-`patches` tree now contains the seven Twitch 31.2.0 foundation patches; the
+`patches` tree now contains the eight Twitch 31.2.0 foundation patches; the
 74 Twitch 19.0.1 feature patches were removed from the active tree and remain
 available in Git history for later staged ports.
 
@@ -183,3 +183,25 @@ available in Git history for later staged ports.
 - The actual post-patch manifest and a simulation of the build-time version
   substitutions both parse as XML and retain a root `manifest` element with
   `package="tv.twitch.android.app"`.
+
+### Stage 2 resource-table correction
+
+- The subsequent Docker run applied all foundation patches and reached Apktool
+  resource linking, where AAPT2 rejected Material resources that reference
+  `state_dragged`, `state_swiped`, `state_with_icon`, and `widthChange`.
+- This is not a Stage 2 patch regression or a split-merging loss. The same XML
+  references exist in the pristine 31.2.0 base, none of the four declarations
+  exists in its decoded `attrs.xml` or `public.xml`, and none is supplied by the
+  ABI or density splits. The Stage 2 patches did not remove or rename them.
+- Twitch 31.2.0's compiled binary XML retains the original attribute IDs even
+  though its optimized resource table omits the declarations. Apktool 2.9.3
+  decodes those references to names but does not reconstruct the stripped
+  declarations, so an unmodified decode/rebuild fails for the same reason.
+- The resource patch set now restores the real Material declarations and their
+  exact IDs recovered from the pristine compiled XML resource maps:
+  `state_dragged` (`0x7f040661`, boolean), `state_swiped` (`0x7f040666`,
+  boolean), `state_with_icon` (`0x7f040667`, boolean), and `widthChange`
+  (`0x7f0407af`, dimension or fraction). A scan of every binary XML resource in
+  the pristine base found no other referenced app attributes missing from the
+  decoded public table. No Twitch Material resource was removed and no ID was
+  invented.

@@ -1,0 +1,25 @@
+diff --git a/res/values/attrs.xml b/res/values/attrs.xml
+--- a/res/values/attrs.xml
++++ b/res/values/attrs.xml
+@@ -2147,10 +2147,13 @@
+     <attr name="state_above_anchor" format="boolean" />
+     <attr name="state_collapsed" format="boolean" />
+     <attr name="state_collapsible" format="boolean" />
++    <attr name="state_dragged" format="boolean" />
+     <attr name="state_error" format="boolean" />
+     <attr name="state_indeterminate" format="boolean" />
+     <attr name="state_liftable" format="boolean" />
+     <attr name="state_lifted" format="boolean" />
++    <attr name="state_swiped" format="boolean" />
++    <attr name="state_with_icon" format="boolean" />
+     <attr name="statusBarBackground" format="reference|color" />
+     <attr name="statusBarForeground" format="color" />
+     <attr name="statusBarScrim" format="color" />
+@@ -2494,6 +2497,7 @@
+     <attr name="vr_icon" format="reference" />
+     <attr name="watch_streak_count" format="integer" />
+     <attr name="widgetLayout" format="reference" />
++    <attr name="widthChange" format="dimension|fraction" />
+     <attr name="windowActionBar" format="boolean" />
+     <attr name="windowActionBarOverlay" format="boolean" />
+     <attr name="windowActionModeOverlay" format="boolean" />
