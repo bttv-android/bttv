@@ -280,6 +280,24 @@ available in Git history for later staged ports.
 - Both Stage 3 patches apply cleanly to the cached 31.2.0 base. The manifest
   activity uses the existing `Theme.TwitchApp`; all referenced Twitch colors
   and the theme exist in the 31.2.0 public resource table.
-- The Windows host still has no Java runtime, so the new Java source cannot be
-  compiled locally. A single direct builder run is required for final D8,
-  Apktool, zipalign, and signing verification; do not use the Compose service.
+- The Windows host has no Java runtime, so local compilation was unavailable;
+  final verification used the direct Docker builder rather than the Compose
+  service.
+
+### Stage 3 Docker verification
+
+- Verified branch: `twitch-31-port`.
+- Verified Stage 3 implementation commit:
+  `68cff678c9fecc2ef96064c65a0c4625ac5d15ba` (`68cff67`).
+- The first Docker builder run completed successfully with exit code `0`.
+  Java compilation, patch application, and APK rebuilding succeeded.
+- Successful APK: `C:\BTTV\bttv\dist\twitch.apk`.
+- APK SHA-256:
+  `76B663DF4CE7828F24F73ABC4B38B0A30445E5BA2E4B2B0EC5551763B19B0904`.
+- Zipalign verification succeeded, the APK's v3 signature verified, and
+  `uber-apk-signer` reported zero errors.
+- An accidental second builder run failed while applying
+  `AndroidManifest.xml.patch` because the persistent cache reused an already
+  post-processed/patched disassembly. This duplicate-run cache failure does not
+  invalidate the successful first run and must not be treated as a Stage 3
+  port failure.
