@@ -205,3 +205,81 @@ available in Git history for later staged ports.
   the pristine base found no other referenced app attributes missing from the
   decoded public table. No Twitch Material resource was removed and no ID was
   invented.
+
+## Stage 3 settings and settings navigation
+
+### Twitch 19.0.1 behavior
+
+- `MainSettingsPresenter.updateSettingModels()` appended a `SubMenuModel`
+  labelled `BTTV` to Twitch's main settings list and targeted the custom
+  `SettingsDestination.BTTV` enum constant.
+- `MainSettingsPresenter$navController$1` recognized that destination and
+  constructed `bttv.settings.SettingsFragment`.
+- `SettingsFragment` and its custom Dagger binding supplied
+  `SettingsPresenter`, a `BaseSettingsPresenter` subclass that translated the
+  BTTV `Settings` enum into Twitch `ToggleMenuModel`, `DropDownMenuModel`, and
+  `SubMenuModel` rows.
+- Four additional injected `SettingsDestination` values dispatched highlight,
+  blacklist, credits, and updater actions. The separate
+  `SettingsPreferencesController.SettingsPreference.BTTVEmotesEnabled` enum
+  value supported the old toggle pipeline.
+
+### Twitch 31.2.0 mapping and architecture change
+
+- The old named `SettingsDestination` class is gone. Its current destination
+  role is the obfuscated `b6z` enum, whose named values still include
+  `Settings`, `Preferences`, `Credits`, and other destinations.
+- `SettingsActivity` remains the host and continues to switch `b6z`
+  destinations into fragments. Its current main destination selects between
+  legacy `MainSettingsFragment`/`ffo` and, by default, the Compose-based
+  `MainSettingsFragmentV2`.
+- `MainSettingsFragmentV2.onCreateView()` creates a `ComposeView`; its injected
+  `hfo` router handles current settings destinations. There is no safe direct
+  equivalent of the old `MainSettingsPresenter.updateSettingModels()` list
+  insertion or its fragment-factory lambda.
+- Stage 3 therefore uses `SettingsActivity.onCreateOptionsMenu(Menu)` as the
+  stable current hook. It adds one visible `BTTV` toolbar action without
+  changing Twitch destinations, Compose state, Hilt bindings, or existing menu
+  actions. The action opens a manifest-registered, non-exported
+  `bttv.settings.SettingsActivity` by explicit intent.
+- The obsolete BTTV `BaseSettingsFragment`/`BaseSettingsPresenter` integration,
+  its Dagger binding helpers, and its Twitch-menu-model adapters were removed.
+  BTTV link rows now use the internal `SettingsAction` enum rather than
+  pretending to be Twitch destinations.
+
+### Implemented settings surface
+
+- `bttv.settings.SettingsActivity` builds its rows from the existing BTTV
+  `Settings` and `UserPreferences` data model. It uses the existing `BTTV`
+  `SharedPreferences` file and preserves all existing preference keys and
+  defaults.
+- The screen includes boolean rows for BTTV/FFZ/7TV emotes, automatic channel
+  points, deleted messages, split chat, sleep timer, and anonymous chat; the
+  GIF render-mode list; highlight and blacklist editors; and credits.
+- Highlight and blacklist links reuse their existing dialogs and string-set
+  storage. Credits reuses the existing contributor dialog. Updater controls
+  and developer-tools controls are deliberately hidden because those runtime
+  feature groups are outside Stage 3.
+- Existing localized BTTV strings and the Stage 2 resource-merge pipeline are
+  reused. The highlight/list/credits layouts and their fixed public IDs remain
+  unchanged; `bttv_blacklist_dialog` continues to be copied by `buildsource`
+  and assigned by AAPT as in the successful Stage 2 build. No new public
+  resource ID or arbitrary menu-item ID was introduced. Runtime colors are
+  resolved from Twitch 31.2.0's `background_base`, `background_body`,
+  `text_base`, and `text_alt` resources with safe fallbacks.
+
+### Later-stage boundary and verification
+
+- The visible feature controls persist their values, but their behavioral
+  hooks are not part of Stage 3. In particular, emote rendering, GIF behavior,
+  channel-points redemption, deleted-message display, split chat, sleep timer,
+  anonymous chat, highlighting, and blacklist filtering remain unported until
+  their respective later stages. The settings screen states this boundary.
+- Credits and highlight/blacklist list editing are functional settings-surface
+  behavior. The updater is neither invoked nor registered by Stage 3.
+- Both Stage 3 patches apply cleanly to the cached 31.2.0 base. The manifest
+  activity uses the existing `Theme.TwitchApp`; all referenced Twitch colors
+  and the theme exist in the 31.2.0 public resource table.
+- The Windows host still has no Java runtime, so the new Java source cannot be
+  compiled locally. A single direct builder run is required for final D8,
+  Apktool, zipalign, and signing verification; do not use the Compose service.

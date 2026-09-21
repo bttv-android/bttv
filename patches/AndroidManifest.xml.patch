@@ -19,3 +19,11 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <queries>
+@@ -360,5 +372,6 @@
+         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+         <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
+         <meta-data android:name="com.android.vending.derived.apk.id" android:value="4"/>
++        <activity android:exported="false" android:name="bttv.settings.SettingsActivity" android:theme="@style/Theme.TwitchApp"/>
+     </application>
+ </manifest>
+\ No newline at end of file

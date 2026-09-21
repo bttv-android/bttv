@@ -8,7 +8,6 @@ import java.util.Map;
 
 import bttv.Res;
 import bttv.settings.UserPreferences.Entry;
-import tv.twitch.android.models.settings.SettingsDestination;
 
 public enum Settings {
     BTTVEmotesEnabled(
@@ -105,7 +104,7 @@ public enum Settings {
                 Res.strings.bttv_settings_open_highlights_dia_primary,
                 Res.strings.bttv_settings_open_highlights_dia_secondary,
                 null,
-                SettingsDestination.BTTV_HIGHLIGHTS
+                SettingsAction.HIGHLIGHTS
             )
     ),
     HighlightedKeyWords(
@@ -122,7 +121,7 @@ public enum Settings {
                     Res.strings.bttv_settings_open_blacklist_dia_primary,
                     Res.strings.bttv_settings_open_blacklist_dia_secondary,
                     null,
-                    SettingsDestination.BTTV_BLACKLIST
+                    SettingsAction.BLACKLIST
             )
     ),
     BlacklistedKeyWords(
@@ -148,7 +147,7 @@ public enum Settings {
                     Res.strings.bttv_settings_invoke_update_check,
                     null,
                     null,
-                    SettingsDestination.BTTV_INVOKE_UPDATE_CHECK
+                    SettingsAction.UPDATE_CHECK
             )
     ),
     DevToolsEnabled(
@@ -165,7 +164,7 @@ public enum Settings {
                     Res.strings.bttv_settings_open_credits_button_title,
                     null,
                     null,
-                    SettingsDestination.BTTV_CREDITS
+                    SettingsAction.CREDITS
             )
     );
 
