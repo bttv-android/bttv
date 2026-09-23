@@ -37,9 +37,9 @@ public class Emotes {
         }
     }
 
-    public static Map<String, Emote> globalEmotesBTTV = new HashMap<>();
-    public static Map<String, Emote> globalEmotesFFZ = new HashMap<>();
-    public static Map<String, Emote> globalEmotes7TV = new HashMap<>();
+    public static volatile Map<String, Emote> globalEmotesBTTV = new HashMap<>();
+    public static volatile Map<String, Emote> globalEmotesFFZ = new HashMap<>();
+    public static volatile Map<String, Emote> globalEmotes7TV = new HashMap<>();
 
     // map channel ids to their emote codes
     public static Map<Integer, Set<String>> channelEmotesBTTV = new HashMap<>();
@@ -163,7 +163,6 @@ public class Emotes {
             map.put(emote.code, emote);
             addToCodeEmoteMap(0, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "setGlobal: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
         switch (source) {
             case BTTV:

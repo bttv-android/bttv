@@ -1,0 +1,13 @@
+diff --git a/smali_classes2/z86.smali b/smali_classes2/z86.smali
+--- a/smali_classes2/z86.smali
++++ b/smali_classes2/z86.smali
+@@ -2550,7 +2550,10 @@
+     .line 648
+     :cond_22
+     const/4 v6, 0x0
+
++    invoke-static {v4}, Lbttv/emote/LiveEmoteBridge;->rewrite(Ljava/util/ArrayList;)Ljava/util/ArrayList;
++    move-result-object v4
++
+     .line 649
+     invoke-static {v7, v4}, Lz86;->d(Lv86;Ljava/util/ArrayList;)Lkotlin/Pair;

@@ -1,0 +1,28 @@
+diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
+--- a/smali_classes2/f86.smali
++++ b/smali_classes2/f86.smali
+@@ -3352,8 +3352,13 @@
+     .line 30
+     :goto_1
+     iget-object v2, p0, Lf86;->a:Lqz0;
+
++    iget-object v4, p4, Lfmp;->b:Ljava/lang/String;
++    invoke-static {v1, v4}, Lbttv/emote/LiveEmotes;->urlForMarker(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v4
++    if-nez v4, :bttv31_url_ready
++
+     .line 31
+     .line 32
+     invoke-static {v2, p1, v1, p5}, Lqz0;->b(Lqz0;Landroid/content/Context;Ljava/lang/String;F)Lpz0;
+
+@@ -3363,8 +3368,10 @@
+     move-result-object p5
+
+     .line 36
+     iget-object v4, p5, Lpz0;->a:Ljava/lang/String;
+
++    :bttv31_url_ready
++
+     .line 37
+     .line 38
+     new-instance v2, Lr360;

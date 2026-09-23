@@ -1,0 +1,64 @@
+diff --git a/smali_classes7/bttv/emote/LiveEmoteBridge.smali b/smali_classes7/bttv/emote/LiveEmoteBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttv/emote/LiveEmoteBridge.smali
+@@ -0,0 +1,59 @@
++.class public final Lbttv/emote/LiveEmoteBridge;
++.super Ljava/lang/Object;
++
++.method public static rewrite(Ljava/util/ArrayList;)Ljava/util/ArrayList;
++    .locals 8
++
++    new-instance v0, Ljava/util/ArrayList;
++    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
++    move-result v1
++    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
++    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
++    move-result-object v1
++
++    :next_token
++    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
++    move-result v2
++    if-eqz v2, :done
++    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++    move-result-object v2
++    instance-of v3, v2, Limp;
++    if-eqz v3, :keep_token
++    move-object v3, v2
++    check-cast v3, Limp;
++    iget-object v3, v3, Limp;->a:Ljava/lang/String;
++    invoke-static {v3}, Lbttv/emote/LiveEmotes;->split(Ljava/lang/String;)Ljava/util/List;
++    move-result-object v3
++    if-eqz v3, :keep_token
++    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
++    move-result-object v3
++
++    :next_part
++    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
++    move-result v4
++    if-eqz v4, :next_token
++    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++    move-result-object v4
++    check-cast v4, Lbttv/emote/LiveEmotes$Part;
++    iget-object v5, v4, Lbttv/emote/LiveEmotes$Part;->text:Ljava/lang/String;
++    iget-object v6, v4, Lbttv/emote/LiveEmotes$Part;->marker:Ljava/lang/String;
++    if-eqz v6, :text_part
++    new-instance v7, Lfmp;
++    invoke-direct {v7, v6, v5}, Lfmp;-><init>(Ljava/lang/String;Ljava/lang/String;)V
++    goto :add_part
++
++    :text_part
++    new-instance v7, Limp;
++    invoke-direct {v7, v5}, Limp;-><init>(Ljava/lang/String;)V
++
++    :add_part
++    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
++    goto :next_part
++
++    :keep_token
++    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
++    goto :next_token
++
++    :done
++    return-object v0
++.end method
