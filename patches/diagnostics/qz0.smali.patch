@@ -1,0 +1,52 @@
+diff --git a/smali_classes2/qz0.smali b/smali_classes2/qz0.smali
+--- a/smali_classes2/qz0.smali
++++ b/smali_classes2/qz0.smali
+@@ -51,7 +51,7 @@
+ .end method
+ 
+ .method public static b(Lqz0;Landroid/content/Context;Ljava/lang/String;F)Lpz0;
+-    .locals 1
++    .locals 3
+ 
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+@@ -76,6 +76,17 @@
+     .line 13
+     move-result-object p3
+ 
++    new-instance v0, Ljava/lang/StringBuilder;
++    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
++    const-string v1, "URL_INPUT id="
++    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++    move-result-object v2
++    const/4 v0, 0x4
++    const-string v1, "BTTV31TRACE"
++    invoke-static {v0, v1, v2}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
++
+     .line 14
+     const/4 v0, 0x0
+ 
+@@ -87,6 +98,21 @@
+     .line 18
+     move-result-object p0
+ 
++    new-instance v0, Ljava/lang/StringBuilder;
++    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
++    const-string v1, "URL id="
++    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    const-string v1, " url="
++    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    iget-object v1, p0, Lpz0;->a:Ljava/lang/String;
++    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++    move-result-object v2
++    const/4 v0, 0x4
++    const-string v1, "BTTV31TRACE"
++    invoke-static {v0, v1, v2}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
++
+     .line 19
+     return-object p0
+ .end method

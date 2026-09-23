@@ -1,0 +1,35 @@
+diff --git a/smali_classes2/z86.smali b/smali_classes2/z86.smali
+--- a/smali_classes2/z86.smali
++++ b/smali_classes2/z86.smali
+@@ -1180,7 +1180,7 @@
+ 
+ # virtual methods
+ .method public final a(Ljava/lang/String;Lzun;Ljava/lang/String;Lf56;)Ll26;
+-    .locals 24
++    .locals 27
+ 
+     .line 1
+     move-object/from16 v0, p0
+@@ -1975,6 +1975,22 @@
+     .line 380
+     iget-object v9, v9, Lxlp;->a:Ljava/lang/String;
+ 
++    new-instance v24, Ljava/lang/StringBuilder;
++    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
++    const-string v25, "TOKEN text="
++    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    move-object/from16 v25, v9
++    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    const-string v25, " id="
++    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    move-object/from16 v25, v10
++    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++    move-result-object v26
++    const/16 v24, 0x4
++    const-string v25, "BTTV31TRACE"
++    invoke-static/range {v24 .. v26}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
++
+     .line 381
+     .line 382
+     new-instance v12, Lfmp;

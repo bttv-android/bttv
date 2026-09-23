@@ -24,10 +24,9 @@ diff --git a/res/values/public.xml b/res/values/public.xml
      <public type="attr" name="windowActionBar" id="0x7f0407b0" />
      <public type="attr" name="windowActionBarOverlay" id="0x7f0407b1" />
      <public type="attr" name="windowActionModeOverlay" id="0x7f0407b2" />
-@@ -20859,4 +20863,96 @@
+@@ -21180,3 +21184,95 @@
      <public type="xml" name="m3_split_button_inner_corner_size_state_list" id="0x7f180007" />
      <public type="xml" name="m3expressive_button_shape_state_list" id="0x7f180008" />
-     <public type="xml" name="splits0" id="0x7f180009" />
 -</resources>
 \ No newline at end of file
 +    <!-- BTTV resources reserved for injected code and later feature stages. -->

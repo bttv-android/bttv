@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/settings/SettingsActivity.smali b/smali_classes5/tv/twitch/android/settings/SettingsActivity.smali
---- a/smali_classes5/tv/twitch/android/settings/SettingsActivity.smali
-+++ b/smali_classes5/tv/twitch/android/settings/SettingsActivity.smali
+diff --git a/smali_classes7/tv/twitch/android/settings/SettingsActivity.smali b/smali_classes7/tv/twitch/android/settings/SettingsActivity.smali
+--- a/smali_classes7/tv/twitch/android/settings/SettingsActivity.smali
++++ b/smali_classes7/tv/twitch/android/settings/SettingsActivity.smali
 @@ -2717,4 +2717,8 @@
      .line 12
      .line 13

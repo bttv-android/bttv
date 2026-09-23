@@ -1,7 +1,35 @@
 #!/bin/bash
 
 calc_cache_hash() {
-  current_hash=$(find .tmp/ -maxdepth 1 -type f -name "*.apk" -exec sha256sum {} \; |  awk '{print $1}' | sort -d | sha256sum | cut -d ' ' -f 1)
+  current_hash=$(
+    {
+      find .tmp/ -maxdepth 1 -type f -name "*.apk" -exec sha256sum {} \;
+      sha256sum "$0" "$APKEDITOR_PATH"
+    } | awk '{print $1}' | sort -d | sha256sum | cut -d ' ' -f 1
+  )
+}
+
+validate_drawable_references() {
+  local decoded_dir="$1"
+  local invalid_references
+
+  invalid_references=$(grep -RIn --include='*.xml' 'android:drawable="@null"' "$decoded_dir"/res/drawable* || true)
+  if [ -n "$invalid_references" ]; then
+    echo "ERROR: unresolved drawable references remain after split-aware merge:"
+    echo "$invalid_references"
+    return 1
+  fi
+
+  grep -Fq 'android:drawable="@drawable/ic_mr_button_connected_30_dark"' "$decoded_dir/res/drawable/mr_button_dark_static.xml" &&
+  grep -Fq 'android:drawable="@drawable/ic_mr_button_disconnected_dark"' "$decoded_dir/res/drawable/mr_button_dark_static.xml" &&
+  grep -Fq 'android:drawable="@drawable/ic_mr_button_disabled_dark"' "$decoded_dir/res/drawable/mr_button_dark_static.xml" &&
+  grep -Fq 'android:drawable="@drawable/abc_btn_switch_to_on_mtrl_00012"' "$decoded_dir/res/drawable/abc_switch_thumb_material.xml" &&
+  grep -Fq 'android:drawable="@drawable/abc_btn_switch_to_on_mtrl_00001"' "$decoded_dir/res/drawable/abc_switch_thumb_material.xml" &&
+  find "$decoded_dir/res" -type f -name 'ic_mr_button_connected_30_dark.png' -print -quit | grep -q . &&
+  find "$decoded_dir/res" -type f -name 'ic_mr_button_disconnected_dark.png' -print -quit | grep -q . &&
+  find "$decoded_dir/res" -type f -name 'ic_mr_button_disabled_dark.png' -print -quit | grep -q . &&
+  find "$decoded_dir/res" -type f -name 'abc_btn_switch_to_on_mtrl_00012.9.png' -print -quit | grep -q . &&
+  find "$decoded_dir/res" -type f -name 'abc_btn_switch_to_on_mtrl_00001.9.png' -print -quit | grep -q .
 }
 
 create_gitignore() {
@@ -12,8 +40,8 @@ dist
 lib
 assets/bttv_contributors.json
 smali*/androidx
-smali_classes9/bttv
-smali_classes9/com
+smali_classes7/bttv
+smali_classes7/com
 EOF
     find ../../mod/app/src/main/res -type f | sed "s/..\/..\/mod\/app\/src\/main\///" >> .gitignore &&
     echo "" >> .gitignore
@@ -25,6 +53,7 @@ EOF
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$APKTOOL_PATH" ] && APKTOOL_PATH=/opt/apktool/apktool.jar
+[ -z "$APKEDITOR_PATH" ] && APKEDITOR_PATH=/opt/APKEditor-1.4.9.jar
 [ -z "$BUILD_COMPANION" ] && BUILD_COMPANION=/opt/build-companion
 [ -z "$UBER_APK_SIGNER_PATH" ] && UBER_APK_SIGNER_PATH=/opt/uber-apk-signer/uber-apk-signer-1.2.1.jar
 
@@ -34,12 +63,13 @@ EOF
 
 echo "JAVA_PATH: $JAVA_PATH"
 echo "APKTOOL_PATH: $APKTOOL_PATH"
+echo "APKEDITOR_PATH: $APKEDITOR_PATH"
 echo "FILE: $FILE"
 echo "BUILD_COMPANION: $BUILD_COMPANION"
 echo "UBER_APK_SIGNER_PATH: $UBER_APK_SIGNER_PATH"
 
 # remove old working space
-rm -rf .tmp
+rm -rf .tmp .merge-output
 
 #
 # gather apk files
@@ -96,32 +126,23 @@ ERROR: " &&
 exit 1
 
 #
-# disassemble apk files
+# merge split APKs before decoding resources
 #
 
-for file in .tmp/*.apk; do
-  echo $file
-  echo ====
-  $JAVA_PATH -Xmx256m -jar $APKTOOL_PATH d $file -o .tmp/disass/${file/.tmp\//} $file
-done
-
-# move base
-[[ -d ".tmp/disass/tv.twitch.android.app.apk" ]] && echo "found tv.twitch.android.app.apk" && mv .tmp/disass/tv.twitch.android.app.apk .tmp/base
-[[ -d ".tmp/disass/base.apk" ]] && echo "found base.apk" && mv .tmp/disass/base.apk .tmp/base 
-[[ -d ".tmp/base" ]] || (echo "could not identify base please file an issue!" && exit 1)
-
-if [ $(find .tmp/disass | wc -l) != "1" ]; then
-  #
-  # copy all files to base (don't overwrite)
-  #
-  for dir in .tmp/disass/*; do
-    cp -r -n $dir/* .tmp/base
-  done
-
-  # fix public.xml
-  $BUILD_COMPANION fix .tmp/base .tmp/disass/*/res/values/public.xml
-  $BUILD_COMPANION yml .tmp/base .tmp/disass/*/apktool.yml
+APK_COUNT=$(find .tmp -maxdepth 1 -type f -name '*.apk' | wc -l)
+if [ "$APK_COUNT" -gt 1 ]; then
+  mkdir .merge-output
+  $JAVA_PATH -Xmx6g -jar "$APKEDITOR_PATH" m -i .tmp -o .merge-output/twitch-merged.apk || exit 1
+  DECODE_APK=.merge-output/twitch-merged.apk
+else
+  DECODE_APK=$(find .tmp -maxdepth 1 -type f -name '*.apk' -print -quit)
 fi
+
+[ -n "$DECODE_APK" ] || (echo "could not identify APK input; please file an issue!" && exit 1)
+$JAVA_PATH -Xmx6g -jar "$APKTOOL_PATH" d "$DECODE_APK" -o .tmp/base || exit 1
+
+# Fail before patching if split-resource references were lost.
+validate_drawable_references .tmp/base || exit 1
 
 # fix apktool's &ltannotation bug
 sed -i 's/&lt;annotation/<annotation/g; s/&lt;\/annotation/<\/annotation/g' .tmp/base/res/values*/plurals.xml
@@ -144,9 +165,8 @@ sed -i '/android:name="com.android.stamp.type"/d' .tmp/base/AndroidManifest.xml
 sed -i "s/apkFileName: tv.twitch.android.app.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 sed -i "s/apkFileName: base.apk/apkFileName: twitch.apk/" .tmp/base/apktool.yml
 
-# fix full dex-files
-mkdir .tmp/base/smali_classes9
-# mv .tmp/base/smali_classes8/androidx .tmp/base/smali_classes9/.
+# reserve the next contiguous dex for BTTV classes
+mkdir .tmp/base/smali_classes7
 
 #
 # Create reference for diffs
@@ -173,4 +193,4 @@ cp -R .tmp/base .bttv-cache/disass
 # clean up
 #
 mv .tmp/base disass
-rm .tmp -rf
+rm -rf .tmp .merge-output

@@ -1,8 +1,8 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -1,4 +1,16 @@
--<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" android:installLocation="auto" android:requiredSplitTypes="base__abi,base__density" android:splitTypes="" package="tv.twitch.android.app" platformBuildVersionCode="37" platformBuildVersionName="17">
+@@ -1,4 +1,14 @@
+-<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="37" platformBuildVersionName="17">
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
 +    xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,18 +11,16 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +    android:compileSdkVersion="37"
 +    android:compileSdkVersionCodename="17"
 +    android:installLocation="auto"
-+    android:requiredSplitTypes="base__abi,base__density"
-+    android:splitTypes=""
 +    package="tv.twitch.android.app"
 +    platformBuildVersionCode="37"
 +    platformBuildVersionName="17">
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <queries>
-@@ -360,5 +372,6 @@
-         <meta-data android:name="com.android.stamp.type" android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
-         <meta-data android:name="com.android.vending.splits" android:resource="@xml/splits0"/>
-         <meta-data android:name="com.android.vending.derived.apk.id" android:value="4"/>
+@@ -355,5 +365,6 @@
+             </intent-filter>
+         </receiver>
+         <provider android:authorities="tv.twitch.android.app.backgrounddetector" android:enabled="true" android:exported="false" android:name="com.amazonaws.ivs.broadcast.BackgroundDetector"/>
 +        <activity android:exported="false" android:name="bttv.settings.SettingsActivity" android:theme="@style/Theme.TwitchApp"/>
      </application>
  </manifest>

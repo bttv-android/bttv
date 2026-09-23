@@ -27,8 +27,10 @@ cd $1
 
 APK_PATH=./dist/twitch.apk
 
-# Build using APKTool
-$JAVA_PATH -Xmx6g -jar $APKTOOL_PATH b . --use-aapt2 &&
+# Build using APKTool. The split-aware intermediate APK has its own source
+# filename, so set the final output path explicitly instead of relying on
+# apktool.yml's apkFileName value.
+$JAVA_PATH -Xmx6g -jar $APKTOOL_PATH b . --use-aapt2 -o "$APK_PATH" &&
 
 # Sign with keystore if available, else use debug KS
 if [ -z "$KS" ]; then

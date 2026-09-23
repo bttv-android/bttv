@@ -1,0 +1,37 @@
+diff --git a/smali_classes2/aaj.smali b/smali_classes2/aaj.smali
+--- a/smali_classes2/aaj.smali
++++ b/smali_classes2/aaj.smali
+@@ -742,7 +742,7 @@
+ .end method
+ 
+ .method public static final f(Landroid/content/Context;Landroid/text/Spanned;Landroid/widget/TextView;)Ljava/util/List;
+-    .locals 9
++    .locals 12
+ 
+     .line 1
+     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+@@ -937,6 +937,24 @@
+     .line 96
+     iget-object v4, v4, Lr360;->a:Ljava/lang/String;
+ 
++    sget-object v9, Ll5p;->Emote:Ll5p;
++    if-eq v6, v9, :bttv31trace_glide
++    sget-object v9, Ll5p;->GigantifiedEmote:Ll5p;
++    if-ne v6, v9, :bttv31trace_done
++
++    :bttv31trace_glide
++    new-instance v9, Ljava/lang/StringBuilder;
++    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
++    const-string v10, "GLIDE url="
++    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++    move-result-object v11
++    const/4 v9, 0x4
++    const-string v10, "BTTV31TRACE"
++    invoke-static {v9, v10, v11}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
++
++    :bttv31trace_done
+     .line 97
+     .line 98
+     invoke-virtual {v5, v4}, Li0x;->I(Ljava/lang/Object;)Li0x;

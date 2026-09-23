@@ -25,6 +25,15 @@ RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool
 
 ENV APKTOOL_PATH /opt/apktool_2.9.3.jar
 
+# APKEditor (split-aware APK merger)
+
+ARG APKEDITOR_VERSION=1.4.9
+ARG APKEDITOR_SHA256=a9cd40df818845456be6d696de6110c89edf4b0a0580cb83438ed6b25a366e67
+RUN wget -O APKEditor-${APKEDITOR_VERSION}.jar https://github.com/REAndroid/APKEditor/releases/download/V${APKEDITOR_VERSION}/APKEditor-${APKEDITOR_VERSION}.jar && \
+    echo "${APKEDITOR_SHA256}  APKEditor-${APKEDITOR_VERSION}.jar" | sha256sum -c -
+
+ENV APKEDITOR_PATH /opt/APKEditor-1.4.9.jar
+
 # uber apk signer
 
 RUN wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar
