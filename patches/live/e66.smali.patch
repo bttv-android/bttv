@@ -1,0 +1,20 @@
+diff --git a/smali_classes2/e66.smali b/smali_classes2/e66.smali
+--- a/smali_classes2/e66.smali
++++ b/smali_classes2/e66.smali
+@@ -422,5 +422,16 @@
+     iput-object p1, p0, Le66;->r:Lmlp;
+
++    :try_start_bttv_autocomplete_attach
++    iget-object v0, v0, Lb00;->f:Ljava/lang/Object;
++    check-cast v0, Landroid/widget/EditText;
++    invoke-static {v0}, Lbttv/emote/LiveEmoteAutocomplete;->attach(Landroid/widget/EditText;)V
++    :try_end_bttv_autocomplete_attach
++    goto :bttv_autocomplete_attached
++    .catch Ljava/lang/Throwable; {:try_start_bttv_autocomplete_attach .. :try_end_bttv_autocomplete_attach} :bttv_autocomplete_attach_failed
++
++    :bttv_autocomplete_attach_failed
++    move-exception v0
++    :bttv_autocomplete_attached
+     .line 204
+     .line 205
+     new-instance p1, Lc66;

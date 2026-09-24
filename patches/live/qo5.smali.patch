@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/qo5.smali b/smali_classes2/qo5.smali
 --- a/smali_classes2/qo5.smali
 +++ b/smali_classes2/qo5.smali
-@@ -2713,6 +2713,18 @@
+@@ -2713,5 +2713,17 @@
      iput-object p2, p0, Lqo5;->w:Ltv/twitch/android/models/streams/StreamType;
 
 +    :try_start_bttv_channel
