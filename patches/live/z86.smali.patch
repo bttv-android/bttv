@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/z86.smali b/smali_classes2/z86.smali
 --- a/smali_classes2/z86.smali
 +++ b/smali_classes2/z86.smali
-@@ -2550,7 +2550,10 @@
+@@ -2550,6 +2550,9 @@
      .line 648
      :cond_22
      const/4 v6, 0x0
