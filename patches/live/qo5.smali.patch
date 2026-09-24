@@ -1,0 +1,21 @@
+diff --git a/smali_classes2/qo5.smali b/smali_classes2/qo5.smali
+--- a/smali_classes2/qo5.smali
++++ b/smali_classes2/qo5.smali
+@@ -2713,6 +2713,18 @@
+     iput-object p2, p0, Lqo5;->w:Ltv/twitch/android/models/streams/StreamType;
+
++    :try_start_bttv_channel
++    invoke-virtual {v1}, Ltv/twitch/android/models/Tuid;->toString()Ljava/lang/String;
++    move-result-object v0
++    invoke-static {v0}, Lbttv/emote/LiveEmoteChannels;->ensureChannel(Ljava/lang/String;)V
++    :try_end_bttv_channel
++    goto :bttv_channel_done
++    .catch Ljava/lang/Throwable; {:try_start_bttv_channel .. :try_end_bttv_channel} :bttv_channel_failed
++
++    :bttv_channel_failed
++    move-exception v0
++    :bttv_channel_done
++
+     .line 29
+     .line 30
+     new-instance v0, Lnm5;

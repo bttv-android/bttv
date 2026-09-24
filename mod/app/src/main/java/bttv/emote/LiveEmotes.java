@@ -3,9 +3,12 @@ package bttv.emote;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import bttv.Data;
+import bttv.Res;
 import bttv.ResUtil;
 import bttv.settings.Settings;
 
@@ -43,13 +46,64 @@ public final class LiveEmotes {
         }
     }
 
+    /** Capture immutable channel snapshots once per text token; lookup never starts requests. */
+    private static final class Lookup {
+        final List<Map<String, Emote>> globals = Arrays.asList(
+                Emotes.globalEmotesFFZ, Emotes.globalEmotesBTTV, Emotes.globalEmotes7TV);
+        final List<Map<String, Emote>> channels;
+        final boolean[] enabled = {
+                ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled),
+                ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled),
+                ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled)
+        };
+        final boolean gifEnabled = !ResUtil.selectedDropdownFromSettingsIs(
+                Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_disabled);
+
+        Lookup(String channelId) {
+            channels = Arrays.asList(
+                    LiveEmoteChannels.snapshot(channelId, Emotes.Source.FFZ),
+                    LiveEmoteChannels.snapshot(channelId, Emotes.Source.BTTV),
+                    LiveEmoteChannels.snapshot(channelId, Emotes.Source.STV));
+        }
+
+        Emote find(String code) {
+            // Preserve Stage 5B's provider order and existing per-provider global-first policy.
+            for (int i = 0; i < enabled.length; i++) {
+                if (enabled[i]) {
+                    Emote emote = globals.get(i).get(code);
+                    if (allowed(emote)) {
+                        return emote;
+                    }
+                    emote = channels.get(i).get(code);
+                    if (allowed(emote)) {
+                        return emote;
+                    }
+                }
+            }
+            return null;
+        }
+
+        boolean allowed(Emote emote) {
+            return emote != null && (!"gif".equals(emote.imageType) || gifEnabled);
+        }
+
+        boolean isChannel(Emote emote) {
+            for (Map<String, Emote> channel : channels) {
+                if (channel.get(emote.code) == emote) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
     /** Returns null when the original text token should be kept unchanged. */
-    public static List<Part> split(String text) {
+    public static List<Part> split(String text, String channelId) {
         if (text == null || text.isEmpty() || Data.ctx == null) {
             return null;
         }
         try {
-            return splitLoaded(text);
+            return splitLoaded(text, channelId);
         } catch (Throwable failure) {
             if (!lookupFailureLogged) {
                 lookupFailureLogged = true;
@@ -59,8 +113,9 @@ public final class LiveEmotes {
         }
     }
 
-    private static List<Part> splitLoaded(String text) {
+    private static List<Part> splitLoaded(String text, String channelId) {
         requestGlobals();
+        Lookup lookup = new Lookup(channelId);
 
         ArrayList<Part> parts = null;
         int copiedThrough = 0;
@@ -83,7 +138,7 @@ public final class LiveEmotes {
                 continue;
             }
 
-            Match match = findMatch(text, runStart, runEnd);
+            Match match = findMatch(text, runStart, runEnd, lookup);
             Emote emote = match == null ? null : match.emote;
             if (emote == null || emote.url == null || !emote.url.startsWith("https://")) {
                 continue;
@@ -99,7 +154,11 @@ public final class LiveEmotes {
             String code = text.substring(codeStart, codeEnd);
             String marker = MARKER + emote.source.name() + ":" + emote.id + ":" + emote.url;
             parts.add(new Part(code, marker));
-            Log.i(TAG, "THIRD_PARTY_MATCH provider=" + emote.source
+            boolean channelMatch = lookup.isChannel(emote);
+            String provider = channelMatch
+                    ? LiveEmoteChannels.providerName(emote.source) + "-channel" : emote.source.name();
+            Log.i(TAG, "THIRD_PARTY_MATCH provider=" + provider
+                    + (channelMatch ? " channel=" + channelId : "")
                     + " text=" + code + " id=" + emote.id);
             copiedThrough = codeEnd;
         }
@@ -112,14 +171,14 @@ public final class LiveEmotes {
         return parts;
     }
 
-    private static Match findMatch(String text, int runStart, int runEnd) {
+    private static Match findMatch(String text, int runStart, int runEnd, Lookup lookup) {
         Match best = null;
         int left = runStart;
         do {
             int right = runEnd;
             do {
                 if (left < right && (best == null || right - left > best.end - best.start)) {
-                    Emote emote = Emotes.getEmote(Data.ctx, text.substring(left, right), -1);
+                    Emote emote = lookup.find(text.substring(left, right));
                     if (emote != null) {
                         best = new Match(left, right, emote);
                     }

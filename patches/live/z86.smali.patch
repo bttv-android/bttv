@@ -1,12 +1,14 @@
 diff --git a/smali_classes2/z86.smali b/smali_classes2/z86.smali
 --- a/smali_classes2/z86.smali
 +++ b/smali_classes2/z86.smali
-@@ -2550,6 +2550,9 @@
+@@ -2550,6 +2550,11 @@
      .line 648
      :cond_22
      const/4 v6, 0x0
 
-+    invoke-static {v4}, Lbttv/emote/LiveEmoteBridge;->rewrite(Ljava/util/ArrayList;)Ljava/util/ArrayList;
++    move-object/from16 v24, v4
++    move-object/from16 v25, p1
++    invoke-static/range {v24 .. v25}, Lbttv/emote/LiveEmoteBridge;->rewrite(Ljava/util/ArrayList;Ljava/lang/String;)Ljava/util/ArrayList;
 +    move-result-object v4
 +
      .line 649

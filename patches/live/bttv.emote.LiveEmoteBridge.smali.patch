@@ -2,12 +2,15 @@ diff --git a/smali_classes7/bttv/emote/LiveEmoteBridge.smali b/smali_classes7/bt
 new file mode 100644
 --- /dev/null
 +++ b/smali_classes7/bttv/emote/LiveEmoteBridge.smali
-@@ -0,0 +1,59 @@
+@@ -0,0 +1,68 @@
 +.class public final Lbttv/emote/LiveEmoteBridge;
 +.super Ljava/lang/Object;
 +
-+.method public static rewrite(Ljava/util/ArrayList;)Ljava/util/ArrayList;
++.method public static rewrite(Ljava/util/ArrayList;Ljava/lang/String;)Ljava/util/ArrayList;
 +    .locals 8
++
++    :try_start_channel
++    invoke-static {p1}, Lbttv/emote/LiveEmoteChannels;->ensureChannel(Ljava/lang/String;)V
 +
 +    new-instance v0, Ljava/util/ArrayList;
 +    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
@@ -27,7 +30,7 @@ new file mode 100644
 +    move-object v3, v2
 +    check-cast v3, Limp;
 +    iget-object v3, v3, Limp;->a:Ljava/lang/String;
-+    invoke-static {v3}, Lbttv/emote/LiveEmotes;->split(Ljava/lang/String;)Ljava/util/List;
++    invoke-static {v3, p1}, Lbttv/emote/LiveEmotes;->split(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 +    move-result-object v3
 +    if-eqz v3, :keep_token
 +    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
@@ -60,5 +63,11 @@ new file mode 100644
 +    goto :next_token
 +
 +    :done
++    :try_end_channel
 +    return-object v0
++    .catch Ljava/lang/Throwable; {:try_start_channel .. :try_end_channel} :channel_failed
++
++    :channel_failed
++    move-exception v0
++    return-object p0
 +.end method

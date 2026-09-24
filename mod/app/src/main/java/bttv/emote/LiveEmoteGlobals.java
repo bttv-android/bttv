@@ -47,7 +47,16 @@ final class LiveEmoteGlobals {
         worker.start();
     }
 
-    private static String fetch(String url) throws IOException {
+    static final class HttpFailure extends IOException {
+        final int status;
+
+        HttpFailure(int status) {
+            super("HTTP " + status);
+            this.status = status;
+        }
+    }
+
+    static String fetch(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setConnectTimeout(7_000);
         connection.setReadTimeout(10_000);
@@ -56,7 +65,7 @@ final class LiveEmoteGlobals {
         try {
             int status = connection.getResponseCode();
             if (status < 200 || status >= 300) {
-                throw new IOException("HTTP " + status);
+                throw new HttpFailure(status);
             }
             try (InputStream input = connection.getInputStream()) {
                 ByteArrayOutputStream output = new ByteArrayOutputStream();
