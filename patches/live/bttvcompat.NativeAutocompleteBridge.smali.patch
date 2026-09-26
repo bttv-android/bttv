@@ -1,0 +1,116 @@
+diff --git a/smali_classes7/bttvcompat/NativeAutocompleteBridge.smali b/smali_classes7/bttvcompat/NativeAutocompleteBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/NativeAutocompleteBridge.smali
+@@ -0,0 +1,111 @@
++.class public final Lbttvcompat/NativeAutocompleteBridge;
++.super Ljava/lang/Object;
++
++.method public static code(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 1
++    instance-of v0, p0, Ltnf;
++    if-eqz v0, :not_emote
++    check-cast p0, Ltnf;
++    invoke-virtual {p0}, Ltnf;->c()Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++    :not_emote
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static count(Ljava/lang/Object;)I
++    .locals 1
++    check-cast p0, Landroid/widget/Filter$FilterResults;
++    iget v0, p0, Landroid/widget/Filter$FilterResults;->count:I
++    return v0
++.end method
++
++.method public static create(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/Object;
++    .locals 3
++    if-eqz p2, :static_asset
++    sget-object v1, Lunf;->ANIMATED:Lunf;
++    goto :asset_ready
++    :static_asset
++    sget-object v1, Lunf;->STATIC:Lunf;
++    :asset_ready
++    sget-object v2, Lwnf;->OTHER:Lwnf;
++    new-instance v0, Lrnf;
++    invoke-direct {v0, p0, p1, v1, v2}, Lrnf;-><init>(Ljava/lang/String;Ljava/lang/String;Lunf;Lwnf;)V
++    return-object v0
++.end method
++
++.method public static id(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 1
++    instance-of v0, p0, Ltnf;
++    if-eqz v0, :not_emote
++    check-cast p0, Ltnf;
++    invoke-virtual {p0}, Ltnf;->b()Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++    :not_emote
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static isEmoteAdapter(Ljava/lang/Object;)Z
++    .locals 1
++    instance-of v0, p0, Lqt1;
++    if-eqz v0, :done
++    check-cast p0, Lqt1;
++    iget-object v0, p0, Lqt1;->d:Ls6l;
++    instance-of v0, v0, Lrja;
++    :done
++    return v0
++.end method
++
++.method public static publish(Ljava/lang/Object;Ljava/util/ArrayList;)V
++    .locals 1
++    check-cast p0, Landroid/widget/Filter$FilterResults;
++    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
++    move-result v0
++    iput-object p1, p0, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
++    iput v0, p0, Landroid/widget/Filter$FilterResults;->count:I
++    return-void
++.end method
++
++.method public static removeItems(Ljava/lang/Object;Ljava/util/Set;)V
++    .locals 5
++    instance-of v0, p0, Lqt1;
++    if-eqz v0, :done
++    check-cast p0, Lqt1;
++    iget-object v0, p0, Lqt1;->a:Ljava/util/List;
++    if-eqz v0, :done
++    new-instance v1, Ljava/util/ArrayList;
++    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
++    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
++    move-result-object v0
++    const/4 v4, 0x0
++    :next
++    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
++    move-result v2
++    if-eqz v2, :prepared
++    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++    move-result-object v2
++    invoke-interface {p1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
++    move-result v3
++    if-eqz v3, :keep
++    const/4 v4, 0x1
++    goto :next
++    :keep
++    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
++    goto :next
++    :prepared
++    if-eqz v4, :done
++    iput-object v1, p0, Lqt1;->a:Ljava/util/List;
++    invoke-virtual {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
++    :done
++    return-void
++.end method
++
++.method public static values(Ljava/lang/Object;)Ljava/lang/Object;
++    .locals 1
++    check-cast p0, Landroid/widget/Filter$FilterResults;
++    iget-object v0, p0, Landroid/widget/Filter$FilterResults;->values:Ljava/lang/Object;
++    return-object v0
++.end method

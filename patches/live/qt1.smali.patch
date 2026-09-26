@@ -1,0 +1,32 @@
+diff --git a/smali_classes2/qt1.smali b/smali_classes2/qt1.smali
+--- a/smali_classes2/qt1.smali
++++ b/smali_classes2/qt1.smali
+@@ -263,6 +263,20 @@
+
+     .line 88
+     .line 89
++    :try_start_bttv_ac_url
++    invoke-static {p1}, Lbttv/emote/LiveEmoteAutocomplete;->resolveNativeImageUrl(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v4
++    :try_end_bttv_ac_url
++    goto :bttv_ac_url_checked
++    .catch Ljava/lang/Throwable; {:try_start_bttv_ac_url .. :try_end_bttv_ac_url} :bttv_ac_url_failed
++    :bttv_ac_url_failed
++    move-exception v4
++    const/4 v4, 0x0
++    :bttv_ac_url_checked
++    if-eqz v4, :bttv_ac_stock_url
++    move-object p0, v4
++    goto :bttv_ac_url_ready
++    :bttv_ac_stock_url
+     iget-object p0, p0, Lqt1;->c:Lqz0;
+
+     .line 90
+@@ -295,6 +309,7 @@
+     move-result-object p0
+
+     .line 105
++    :bttv_ac_url_ready
+     invoke-virtual {v2, p0}, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->setImageURL(Ljava/lang/String;)V
+
+     .line 106

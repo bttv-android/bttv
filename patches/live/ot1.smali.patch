@@ -1,0 +1,20 @@
+diff --git a/smali_classes2/ot1.smali b/smali_classes2/ot1.smali
+--- a/smali_classes2/ot1.smali
++++ b/smali_classes2/ot1.smali
+@@ -191,6 +191,16 @@
+
+ .method public final publishResults(Ljava/lang/CharSequence;Landroid/widget/Filter$FilterResults;)V
+     .locals 1
++
++    :try_start_bttv_ac_merge
++    iget-object v0, p0, Lot1;->a:Lqt1;
++    invoke-static {v0, p1, p2}, Lbttv/emote/LiveEmoteAutocomplete;->mergeNativeResults(Ljava/lang/Object;Ljava/lang/CharSequence;Ljava/lang/Object;)V
++    :try_end_bttv_ac_merge
++    goto :bttv_ac_merged
++    .catch Ljava/lang/Throwable; {:try_start_bttv_ac_merge .. :try_end_bttv_ac_merge} :bttv_ac_merge_failed
++    :bttv_ac_merge_failed
++    move-exception v0
++    :bttv_ac_merged
+
+     .line 1
+     if-eqz p1, :cond_1

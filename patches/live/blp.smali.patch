@@ -1,0 +1,19 @@
+diff --git a/smali_classes2/blp.smali b/smali_classes2/blp.smali
+--- a/smali_classes2/blp.smali
++++ b/smali_classes2/blp.smali
+@@ -473,6 +473,15 @@
+     .line 63
+     .line 64
+     invoke-virtual {v1, v3}, Landroid/widget/AutoCompleteTextView;->setAdapter(Landroid/widget/ListAdapter;)V
++
++    :try_start_bttv_ac_bind
++    invoke-static {v3, v1}, Lbttv/emote/LiveEmoteAutocomplete;->bindNativeAdapter(Ljava/lang/Object;Landroid/widget/EditText;)V
++    :try_end_bttv_ac_bind
++    goto :bttv_ac_bound
++    .catch Ljava/lang/Throwable; {:try_start_bttv_ac_bind .. :try_end_bttv_ac_bind} :bttv_ac_bind_failed
++    :bttv_ac_bind_failed
++    move-exception v4
++    :bttv_ac_bound
+
+     .line 65
+     .line 66
