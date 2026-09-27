@@ -1,0 +1,9 @@
+diff --git a/smali_classes2/aaj.smali b/smali_classes2/aaj.smali
+--- a/smali_classes2/aaj.smali
++++ b/smali_classes2/aaj.smali
+@@ -992,3 +992,5 @@
++    iput-object v5, v7, Lq9j;->e:Landroid/graphics/drawable/Drawable$Callback;
++
+     .line 123
+     .line 124
+     .line 125

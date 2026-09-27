@@ -1,0 +1,30 @@
+diff --git a/smali_classes5/wjf.smali b/smali_classes5/wjf.smali
+--- a/smali_classes5/wjf.smali
++++ b/smali_classes5/wjf.smali
+@@ -2182,3 +2182,6 @@
+     .line 841
+     .line 842
++    invoke-static {v7}, Lbttvcompat/NativePickerBridge;->pickerUrl(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v14
++    if-nez v14, :bttv_picker_image_ready
+     invoke-virtual {v10, v2, v4, v11}, Lqz0;->c(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Float;)Ljava/lang/String;
+@@ -2186,6 +2189,10 @@
+     .line 843
+     .line 844
+     .line 845
+     move-result-object v14
++    :bttv_picker_image_ready
++    invoke-static {v13, v7, v14}, Lbttvcompat/NativePickerBridge;->pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;)Z
++    move-result v2
++    if-nez v2, :bttv_picker_image_done
+-
++
+     .line 846
+@@ -2209,5 +2216,6 @@
+     .line 854
+     .line 855
+     invoke-static/range {v13 .. v20}, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->e(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;ZJLi1x;Lo1x;I)V
++    :bttv_picker_image_done
+-
++
+     .line 856

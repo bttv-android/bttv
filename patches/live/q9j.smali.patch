@@ -1,0 +1,87 @@
+diff --git a/smali_classes2/q9j.smali b/smali_classes2/q9j.smali
+--- a/smali_classes2/q9j.smali
++++ b/smali_classes2/q9j.smali
+@@ -13,4 +13,6 @@
+ .field public d:Z
+-
+-
++
++.field public e:Landroid/graphics/drawable/Drawable$Callback;
++
++
+ # virtual methods
+@@ -22,4 +24,23 @@
+     .line 3
+     iget-object p1, p0, Lr360;->d:Landroid/graphics/drawable/Drawable;
++    iget-object v0, p0, Lr360;->a:Ljava/lang/String;
++    invoke-static {v0}, Lbttv/emote/LiveEmotes;->isThirdPartyUrl(Ljava/lang/String;)Z
++    move-result v0
++
++    if-eqz v0, :bttv31_clear_done
++
++    instance-of v0, p1, Landroid/graphics/drawable/Animatable;
++
++    if-eqz v0, :bttv31_clear_done
++
++    move-object v0, p1
++    check-cast v0, Landroid/graphics/drawable/Animatable;
++    invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->stop()V
++
++    const/4 v0, 0x0
++    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
++
++    :bttv31_clear_done
++
+-
++
+     .line 4
+@@ -69,4 +90,4 @@
+ .method public final onResourceReady(Ljava/lang/Object;Luf40;)V
+-    .locals 6
++    .locals 7
+-
++
+     .line 1
+@@ -75,5 +96,7 @@
+     .line 2
+     .line 3
+     iget-object p2, p0, Lq9j;->b:Lr360;
++
++    iget-object v6, p0, Lq9j;->e:Landroid/graphics/drawable/Drawable$Callback;
+-
++
+     .line 4
+@@ -331,3 +354,33 @@
+     .line 117
+     .line 118
++    iget-object v0, p2, Lr360;->a:Ljava/lang/String;
++    invoke-static {v0}, Lbttv/emote/LiveEmotes;->isThirdPartyUrl(Ljava/lang/String;)Z
++    move-result v0
++
++    if-eqz v0, :bttv31_store_drawable
++
++    iget-object v0, p2, Lr360;->d:Landroid/graphics/drawable/Drawable;
++    instance-of v1, v0, Landroid/graphics/drawable/Animatable;
++
++    if-eqz v1, :bttv31_start_new
++
++    move-object v1, v0
++    check-cast v1, Landroid/graphics/drawable/Animatable;
++    invoke-interface {v1}, Landroid/graphics/drawable/Animatable;->stop()V
++
++    const/4 v1, 0x0
++    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
++
++    :bttv31_start_new
++    instance-of v0, p1, Landroid/graphics/drawable/Animatable;
++
++    if-eqz v0, :bttv31_store_drawable
++
++    invoke-virtual {p1, v6}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
++
++    move-object v0, p1
++    check-cast v0, Landroid/graphics/drawable/Animatable;
++    invoke-interface {v0}, Landroid/graphics/drawable/Animatable;->start()V
++
++    :bttv31_store_drawable
+     iput-object p1, p2, Lr360;->d:Landroid/graphics/drawable/Drawable;

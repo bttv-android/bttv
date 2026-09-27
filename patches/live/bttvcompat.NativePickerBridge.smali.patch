@@ -1,0 +1,432 @@
+diff --git a/smali_classes7/bttvcompat/NativePickerBridge.smali b/smali_classes7/bttvcompat/NativePickerBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/NativePickerBridge.smali
+@@ -0,0 +1,341 @@
++.class public final Lbttvcompat/NativePickerBridge;
++.super Ljava/lang/Object;
++
++.method public static wrap(Ljava/lang/Object;Lio/reactivex/f;)Lio/reactivex/f;
++    .locals 2
++    invoke-static {p0}, Lbttv/emote/PickerRuntime;->bind(Ljava/lang/Object;)Ljava/lang/Object;
++    move-result-object v0
++    if-eqz v0, :stock
++    new-instance v1, Lbttvcompat/PickerSource;
++    invoke-direct {v1, v0, p1}, Lbttvcompat/PickerSource;-><init>(Ljava/lang/Object;Lio/reactivex/f;)V
++    sget-object v0, Lio/reactivex/a;->LATEST:Lio/reactivex/a;
++    invoke-static {v1, v0}, Lio/reactivex/f;->p(Lio/reactivex/g;Lio/reactivex/a;)Lio/reactivex/internal/operators/flowable/u;
++    move-result-object v0
++    return-object v0
++    :stock
++    return-object p1
++.end method
++
++.method public static presenter(Ljava/lang/Object;)Ljava/lang/Object;
++    .locals 2
++    instance-of v0, p0, Lv61;
++    if-eqz v0, :invalid
++    check-cast p0, Lv61;
++    iget v0, p0, Lv61;->a:I
++    const/16 v1, 0x9
++    if-ne v0, v1, :invalid
++    iget-object v0, p0, Lv61;->b:Ljava/lang/Object;
++    instance-of v1, v0, Llpf;
++    if-eqz v1, :invalid
++    return-object v0
++    :invalid
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static channel(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 2
++    instance-of v0, p0, Lv61;
++    if-eqz v0, :invalid
++    check-cast p0, Lv61;
++    iget-object v0, p0, Lv61;->d:Ljava/lang/Object;
++    sget-object v1, Lnpf;->Chat:Lnpf;
++    if-ne v0, v1, :invalid
++    iget-object v0, p0, Lv61;->c:Ljava/lang/Object;
++    instance-of v1, v0, Ljava/lang/Integer;
++    if-eqz v1, :invalid
++    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++    :invalid
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static pickerUrl(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 1
++    invoke-static {p0}, Lbttvcompat/NativePickerBridge;->id(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v0
++    invoke-static {v0}, Lbttv/emote/PickerRuntime;->url(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++.end method
++
++.method public static pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;)Z
++    .locals 4
++    invoke-static {p1}, Lbttvcompat/NativePickerBridge;->id(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :stock
++    const-string v1, "bttv31pk:"
++    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
++    move-result v0
++    if-eqz v0, :stock
++    :try_start_image
++    check-cast p1, Lisf;
++    iget-object v0, p1, Lisf;->c:Lunf;
++    sget-object v1, Lunf;->ANIMATED:Lunf;
++    if-ne v0, v1, :synthetic_empty
++    if-eqz p2, :synthetic_empty
++    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
++    move-result v0
++    if-nez v0, :synthetic_empty
++
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v0
++    invoke-static {v0}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
++    move-result-object v0
++    const-class v1, Landroid/graphics/drawable/Drawable;
++    invoke-virtual {v0, v1}, Ll1x;->a(Ljava/lang/Class;)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p2}, Li0x;->I(Ljava/lang/Object;)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p0}, Li0x;->G(Landroid/widget/ImageView;)V
++    iput-object p2, p0, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->d:Ljava/lang/String;
++    const/4 v0, 0x1
++    return v0
++
++    :synthetic_empty
++    if-nez p2, :check_empty
++    goto :stock
++    :check_empty
++    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
++    move-result v0
++    if-eqz v0, :stock
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v0
++    invoke-static {v0}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
++    move-result-object v0
++    new-instance v1, Lwte;
++    invoke-direct {v1, p0}, Lkgl;-><init>(Landroid/widget/ImageView;)V
++    invoke-virtual {v0, v1}, Ll1x;->c(Lz430;)V
++    iput-object p2, p0, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->d:Ljava/lang/String;
++    const/4 v0, 0x0
++    invoke-virtual {p0, v0}, Landroidx/appcompat/widget/AppCompatImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
++    const/4 v0, 0x1
++    :try_end_image
++    return v0
++    .catch Ljava/lang/Throwable; {:try_start_image .. :try_end_image} :load_failed
++
++    :load_failed
++    move-exception v0
++    const/4 v0, 0x0
++    invoke-virtual {p0, v0}, Landroidx/appcompat/widget/AppCompatImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
++    const/4 v0, 0x1
++    return v0
++
++    :stock
++    const/4 v0, 0x0
++    return v0
++.end method
++
++.method public static pickerClick(Ljava/lang/Object;Ljava/lang/Object;)Z
++    .locals 1
++    invoke-static {p1}, Lbttvcompat/NativePickerBridge;->id(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v0
++    invoke-static {p0, v0}, Lbttv/emote/PickerRuntime;->click(Ljava/lang/Object;Ljava/lang/String;)Z
++    move-result v0
++    return v0
++.end method
++
++.method public static pickerInsert(Ljava/lang/Object;Ljava/lang/String;)Z
++    .locals 1
++    invoke-static {p0, p1}, Lbttv/emote/PickerRuntime;->insert(Ljava/lang/Object;Ljava/lang/String;)Z
++    move-result v0
++    return v0
++.end method
++
++.method public static id(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 1
++    instance-of v0, p0, Lisf;
++    if-eqz v0, :click
++    check-cast p0, Lisf;
++    iget-object v0, p0, Lisf;->a:Ljava/lang/String;
++    return-object v0
++    :click
++    instance-of v0, p0, Lia7;
++    if-eqz v0, :none
++    check-cast p0, Lia7;
++    iget-object v0, p0, Lia7;->f:Ltnf;
++    invoke-virtual {v0}, Ltnf;->b()Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++    :none
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static code(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 1
++    check-cast p0, Lisf;
++    iget-object p0, p0, Lisf;->b:Lvw90;
++    instance-of v0, p0, Lia7;
++    if-eqz v0, :none
++    check-cast p0, Lia7;
++    iget-object v0, p0, Lia7;->f:Ltnf;
++    invoke-virtual {v0}, Ltnf;->c()Ljava/lang/String;
++    move-result-object v0
++    return-object v0
++    :none
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static sections(Ljava/lang/Object;)Ljava/util/List;
++    .locals 1
++    check-cast p0, Lkotlin/Pair;
++    iget-object v0, p0, Lkotlin/Pair;->a:Ljava/lang/Object;
++    check-cast v0, Ljava/util/List;
++    return-object v0
++.end method
++
++.method public static cells(Ljava/lang/Object;)Ljava/util/List;
++    .locals 1
++    check-cast p0, Ljsf;
++    iget-object v0, p0, Ljsf;->b:Ljava/util/List;
++    return-object v0
++.end method
++
++.method public static frequent(Ljava/lang/Object;)Z
++    .locals 2
++    check-cast p0, Ljsf;
++    iget-object v0, p0, Ljsf;->a:Ligi;
++    invoke-virtual {v0}, Ligi;->K()Lmpf;
++    move-result-object v0
++    sget-object v1, Lmpf;->FREQUENTLY_USED:Lmpf;
++    if-ne v0, v1, :no
++    const/4 v0, 0x1
++    return v0
++    :no
++    const/4 v0, 0x0
++    return v0
++.end method
++
++.method public static copySection(Ljava/lang/Object;Ljava/util/List;)Ljava/lang/Object;
++    .locals 2
++    check-cast p0, Ljsf;
++    iget-object v0, p0, Ljsf;->a:Ligi;
++    new-instance v1, Ljsf;
++    invoke-direct {v1, v0, p1}, Ljsf;-><init>(Ligi;Ljava/util/List;)V
++    return-object v1
++.end method
++
++.method public static pair(Ljava/lang/Object;Ljava/util/List;)Ljava/lang/Object;
++    .locals 2
++    check-cast p0, Lkotlin/Pair;
++    iget-object v0, p0, Lkotlin/Pair;->b:Ljava/lang/Object;
++    new-instance v1, Lkotlin/Pair;
++    invoke-direct {v1, p1, v0}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
++    return-object v1
++.end method
++
++.method public static cell(Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/Object;
++    .locals 6
++    if-eqz p2, :static
++    sget-object v0, Lunf;->ANIMATED:Lunf;
++    sget-object v1, Lnnf;->ANIMATED:Lnnf;
++    goto :asset
++    :static
++    sget-object v0, Lunf;->STATIC:Lunf;
++    sget-object v1, Lnnf;->NONE:Lnnf;
++    :asset
++    sget-object v2, Lwnf;->OTHER:Lwnf;
++    new-instance v3, Lrnf;
++    invoke-direct {v3, p0, p1, v0, v2}, Lrnf;-><init>(Ljava/lang/String;Ljava/lang/String;Lunf;Lwnf;)V
++    new-instance v2, Lqnf;
++    const/4 v4, 0x0
++    invoke-direct {v2, p1, p0, v4}, Lqnf;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
++    new-instance v4, Lia7;
++    invoke-direct {v4, v3, v2}, Lia7;-><init>(Ltnf;Lqnf;)V
++    new-instance v5, Lisf;
++    invoke-direct {v5, p0, v4, v0, v1}, Lisf;-><init>(Ljava/lang/String;Lvw90;Lunf;Lnnf;)V
++    return-object v5
++.end method
++
++.method public static section(IZLjava/util/List;)Ljava/lang/Object;
++    .locals 3
++    if-eqz p1, :global
++    sget-object v0, Lmpf;->CHANNEL:Lmpf;
++    goto :category
++    :global
++    sget-object v0, Lmpf;->ALL:Lmpf;
++    :category
++    new-instance v1, Lmnf;
++    const/4 v2, 0x1
++    invoke-direct {v1, p0, v2, v0}, Lmnf;-><init>(IZLmpf;)V
++    new-instance v2, Ljsf;
++    invoke-direct {v2, v1, p2}, Ljsf;-><init>(Ligi;Ljava/util/List;)V
++    return-object v2
++.end method
++
++.method public static dispatch(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V
++    .locals 3
++    check-cast p0, Llpf;
++    new-instance v0, Lqnf;
++    const/4 v1, 0x0
++    invoke-direct {v0, p1, p2, v1}, Lqnf;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
++    new-instance v1, Lyof;
++    invoke-direct {v1, v0}, Lyof;-><init>(Lqnf;)V
++    iget-object v2, p0, Llpf;->x:Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;
++    iget-object v2, v2, Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;->b:Lio/reactivex/subjects/f;
++    invoke-virtual {v2, v1}, Lio/reactivex/subjects/f;->c(Ljava/lang/Object;)V
++    return-void
++.end method
++
++.method public static input(Ljava/lang/Object;)Landroid/widget/EditText;
++    .locals 1
++    check-cast p0, Lblp;
++    iget-object v0, p0, Lblp;->q:Lmlp;
++    iget-object v0, v0, Lmlp;->d:Lb00;
++    iget-object v0, v0, Lb00;->f:Ljava/lang/Object;
++    check-cast v0, Landroid/widget/MultiAutoCompleteTextView;
++    return-object v0
++.end method
++
++.method public static subscribe(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
++    .locals 2
++    check-cast p0, Lio/reactivex/f;
++    check-cast p1, Lio/reactivex/internal/operators/flowable/q;
++    check-cast p2, Lbttv/emote/PickerRuntime$Stream;
++    new-instance v0, Lbttvcompat/PickerSubscriber;
++    invoke-direct {v0, p2}, Lbttvcompat/PickerSubscriber;-><init>(Lbttv/emote/PickerRuntime$Stream;)V
++    iget-object v1, p1, Lio/reactivex/internal/operators/flowable/q;->b:Lio/reactivex/disposables/c;
++    invoke-static {v1, v0}, Lio/reactivex/internal/disposables/b;->set(Ljava/util/concurrent/atomic/AtomicReference;Lio/reactivex/disposables/b;)Z
++    invoke-virtual {p0, v0}, Lio/reactivex/f;->W(Lio/reactivex/h;)V
++    return-void
++.end method
++
++.method public static cancel(Ljava/lang/Object;)V
++    .locals 0
++    check-cast p0, Lh720;
++    invoke-interface {p0}, Lh720;->cancel()V
++    return-void
++.end method
++
++.method public static request(Ljava/lang/Object;)V
++    .locals 2
++    check-cast p0, Lh720;
++    const-wide v0, 0x7fffffffffffffffL
++    invoke-interface {p0, v0, v1}, Lh720;->request(J)V
++    return-void
++.end method
++
++.method public static emit(Ljava/lang/Object;Ljava/lang/Object;)V
++    .locals 0
++    check-cast p0, Lio/reactivex/e;
++    invoke-interface {p0, p1}, Lio/reactivex/e;->c(Ljava/lang/Object;)V
++    return-void
++.end method
++
++.method public static error(Ljava/lang/Object;Ljava/lang/Throwable;)V
++    .locals 0
++    check-cast p0, Lio/reactivex/internal/operators/flowable/q;
++    invoke-virtual {p0, p1}, Lio/reactivex/internal/operators/flowable/q;->e(Ljava/lang/Throwable;)V
++    return-void
++.end method
++
++.method public static complete(Ljava/lang/Object;)V
++    .locals 0
++    check-cast p0, Lio/reactivex/e;
++    invoke-interface {p0}, Lio/reactivex/e;->a()V
++    return-void
++.end method
+diff --git a/smali_classes7/bttvcompat/PickerSource.smali b/smali_classes7/bttvcompat/PickerSource.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/PickerSource.smali
+@@ -0,0 +1,21 @@
++.class public final Lbttvcompat/PickerSource;
++.super Ljava/lang/Object;
++.implements Lio/reactivex/g;
++.field private final binding:Ljava/lang/Object;
++.field private final upstream:Lio/reactivex/f;
++
++.method public constructor <init>(Ljava/lang/Object;Lio/reactivex/f;)V
++    .locals 0
++    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
++    iput-object p1, p0, Lbttvcompat/PickerSource;->binding:Ljava/lang/Object;
++    iput-object p2, p0, Lbttvcompat/PickerSource;->upstream:Lio/reactivex/f;
++    return-void
++.end method
++
++.method public k(Lio/reactivex/internal/operators/flowable/q;)V
++    .locals 2
++    iget-object v0, p0, Lbttvcompat/PickerSource;->upstream:Lio/reactivex/f;
++    iget-object v1, p0, Lbttvcompat/PickerSource;->binding:Ljava/lang/Object;
++    invoke-static {v0, p1, v1}, Lbttv/emote/PickerRuntime;->open(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
++    return-void
++.end method
+diff --git a/smali_classes7/bttvcompat/PickerSubscriber.smali b/smali_classes7/bttvcompat/PickerSubscriber.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/PickerSubscriber.smali
+@@ -0,0 +1,55 @@
++.class public final Lbttvcompat/PickerSubscriber;
++.super Ljava/lang/Object;
++.implements Lio/reactivex/h;
++.implements Lio/reactivex/disposables/b;
++.field private final stream:Lbttv/emote/PickerRuntime$Stream;
++
++.method public constructor <init>(Lbttv/emote/PickerRuntime$Stream;)V
++    .locals 0
++    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
++    iput-object p1, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    return-void
++.end method
++
++.method public a()V
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0}, Lbttv/emote/PickerRuntime$Stream;->complete()V
++    return-void
++.end method
++
++.method public c(Ljava/lang/Object;)V
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0, p1}, Lbttv/emote/PickerRuntime$Stream;->next(Ljava/lang/Object;)V
++    return-void
++.end method
++
++.method public d(Lh720;)V
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0, p1}, Lbttv/emote/PickerRuntime$Stream;->subscribed(Ljava/lang/Object;)V
++    return-void
++.end method
++
++.method public onError(Ljava/lang/Throwable;)V
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0, p1}, Lbttv/emote/PickerRuntime$Stream;->error(Ljava/lang/Throwable;)V
++    return-void
++.end method
++
++.method public dispose()V
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0}, Lbttv/emote/PickerRuntime$Stream;->dispose()V
++    return-void
++.end method
++
++.method public isDisposed()Z
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/PickerSubscriber;->stream:Lbttv/emote/PickerRuntime$Stream;
++    invoke-virtual {v0}, Lbttv/emote/PickerRuntime$Stream;->isDisposed()Z
++    move-result v0
++    return v0
++.end method

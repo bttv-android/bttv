@@ -1,0 +1,12 @@
+diff --git a/smali_classes5/b6b.smali b/smali_classes5/b6b.smali
+--- a/smali_classes5/b6b.smali
++++ b/smali_classes5/b6b.smali
+@@ -268,5 +268,8 @@
+     check-cast v2, Lia7;
+
+     .line 103
+     .line 104
++    invoke-static {v0, v2}, Lbttvcompat/NativePickerBridge;->pickerClick(Ljava/lang/Object;Ljava/lang/Object;)Z
++    move-result v3
++    if-nez v3, :goto_6
+     iget-object v3, v2, Lia7;->f:Ltnf;

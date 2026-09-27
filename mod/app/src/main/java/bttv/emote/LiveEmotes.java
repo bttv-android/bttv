@@ -233,6 +233,13 @@ public final class LiveEmotes {
         return url;
     }
 
+    /** True only for URLs emitted by the bttv31 live-chat marker bypass. */
+    public static boolean isThirdPartyUrl(String url) {
+        return url != null && (url.startsWith("https://cdn.betterttv.net/")
+                || url.startsWith("https://cdn.frankerfacez.com/")
+                || url.startsWith("https://cdn.7tv.app/"));
+    }
+
     private static synchronized void requestGlobals() {
         long now = android.os.SystemClock.elapsedRealtime();
         if (ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled)

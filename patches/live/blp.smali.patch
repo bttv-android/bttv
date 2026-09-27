@@ -17,3 +17,20 @@ diff --git a/smali_classes2/blp.smali b/smali_classes2/blp.smali
 
      .line 65
      .line 66
+@@ -605,4 +614,16 @@
+ .method public final F2(Ljava/lang/String;)V
+     .locals 7
++
++    :try_start_bttv_picker_insert
++    invoke-static {p0, p1}, Lbttvcompat/NativePickerBridge;->pickerInsert(Ljava/lang/Object;Ljava/lang/String;)Z
++    move-result v0
++    :try_end_bttv_picker_insert
++    if-eqz v0, :bttv_picker_native_insert
++    return-void
++    .catch Ljava/lang/Throwable; {:try_start_bttv_picker_insert .. :try_end_bttv_picker_insert} :bttv_picker_insert_failed
++    :bttv_picker_insert_failed
++    move-exception v0
++    :bttv_picker_native_insert
++
+
+     .line 1

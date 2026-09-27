@@ -1,0 +1,23 @@
+diff --git a/smali_classes2/lpf.smali b/smali_classes2/lpf.smali
+--- a/smali_classes2/lpf.smali
++++ b/smali_classes2/lpf.smali
+@@ -1686,9 +1686,19 @@
+     invoke-static {p1}, Ltv/twitch/android/util/RxHelperKt;->b(Lio/reactivex/f;)Lio/reactivex/internal/operators/flowable/n1;
+
+     .line 173
+     .line 174
+     .line 175
+     move-result-object p1
++
++    :try_start_bttv_picker_wrap
++    invoke-static {v5, p1}, Lbttvcompat/NativePickerBridge;->wrap(Ljava/lang/Object;Lio/reactivex/f;)Lio/reactivex/f;
++    move-result-object p1
++    :try_end_bttv_picker_wrap
++    goto :bttv_picker_wrapped
++    .catch Ljava/lang/Throwable; {:try_start_bttv_picker_wrap .. :try_end_bttv_picker_wrap} :bttv_picker_wrap_failed
++    :bttv_picker_wrap_failed
++    move-exception v0
++    :bttv_picker_wrapped
+
+     .line 176
+     new-instance p2, Lpof;

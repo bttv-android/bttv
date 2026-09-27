@@ -176,7 +176,9 @@ public class Emotes {
                 break;
             default:
                 Log.e("LBTTVEmotes", "setGlobal: source unknown!", new Exception());
+                return;
         }
+        EmoteCatalogEvents.published(source.name(), null);
     }
 
     // FFZ

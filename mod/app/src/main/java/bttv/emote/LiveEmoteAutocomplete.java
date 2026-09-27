@@ -26,6 +26,51 @@ public final class LiveEmoteAutocomplete {
 
     private LiveEmoteAutocomplete() {}
 
+    // Read-only picker lifecycle surface; no autocomplete result or insertion policy changes.
+    static final class Lifecycle {
+        final WeakReference<EditText> input;
+        final WeakReference<Object> controller;
+        final String channel;
+        final long generation;
+        final boolean active;
+        Lifecycle(Controller owner) {
+            input = owner.inputRef; controller = new WeakReference<>(owner);
+            channel = owner.channelId; generation = owner.generation; active = owner.active;
+        }
+        boolean matches(EditText actual) {
+            if (!mainThread() || actual == null || input.get() != actual || !actual.isAttachedToWindow()) return false;
+            Controller owner = LiveEmoteAutocomplete.controller(actual);
+            return owner != null && LiveEmotePicker.sameBinding(input.get(), actual, controller.get(), owner,
+                    channel, owner.channelId, generation, owner.generation, active && owner.active);
+        }
+    }
+
+    private static final List<Runnable> LIFECYCLE_OBSERVERS = new ArrayList<>();
+    static EmoteCatalogEvents.Subscription observeLifecycle(Runnable observer) {
+        if (!mainThread()) throw new IllegalStateException("Picker lifecycle requires main thread");
+        LIFECYCLE_OBSERVERS.add(observer);
+        return () -> LIFECYCLE_OBSERVERS.remove(observer);
+    }
+    private static void notifyLifecycle() {
+        for (Runnable observer : new ArrayList<>(LIFECYCLE_OBSERVERS)) {
+            try { observer.run(); } catch (Throwable ignored) { }
+        }
+    }
+    static Lifecycle uniqueLifecycle(String channel) {
+        if (!mainThread() || channel == null) return null;
+        Lifecycle found = null;
+        for (WeakReference<Controller> ref : CONTROLLERS.values()) {
+            Controller owner = ref.get();
+            EditText input = owner == null ? null : owner.inputRef.get();
+            if (owner != null && owner.active && channel.equals(owner.channelId)
+                    && input != null && input.isAttachedToWindow()) {
+                if (found != null) return null;
+                found = new Lifecycle(owner);
+            }
+        }
+        return found;
+    }
+
     private static boolean mainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
@@ -74,6 +119,7 @@ public final class LiveEmoteAutocomplete {
             if (changed) owner.generation++;
             owner.invalidate();
             owner.log("CHANNEL " + previous + " -> " + next);
+            notifyLifecycle();
         } catch (Throwable failure) {
             failure("setChannel", failure);
         }
@@ -249,6 +295,7 @@ public final class LiveEmoteAutocomplete {
                 generation++;
                 invalidate();
                 log("DETACH");
+                notifyLifecycle();
             } catch (Throwable failure) {
                 failure("detach", failure);
             }

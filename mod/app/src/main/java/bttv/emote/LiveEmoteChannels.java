@@ -122,6 +122,7 @@ public final class LiveEmoteChannels {
                         request.loaded = true; // Includes successful empty catalogs.
                         request.loading = false;
                     }
+                    EmoteCatalogEvents.published(source.name(), channelId);
                     log(providerName(source) + " channel " + channelId + " n=" + parsed.size());
                     reportReady(channelId, catalog);
                 } catch (Throwable failure) {
