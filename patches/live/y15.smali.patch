@@ -1,0 +1,13 @@
+diff --git a/smali_classes2/y15.smali b/smali_classes2/y15.smali
+index 13268fbf9..7690c9866 100644
+--- a/smali_classes2/y15.smali
++++ b/smali_classes2/y15.smali
+@@ -320,6 +320,8 @@
+     .line 61
+     goto :goto_0
+
+     .line 62
+     :cond_2
++    invoke-static {v2}, Lbttv/api/SplitChat;->removedNMessages(I)V
++
+     invoke-virtual {p0, v0, v2}, Ldjw;->j(II)V

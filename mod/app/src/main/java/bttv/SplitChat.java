@@ -1,24 +1,16 @@
 package bttv;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
-import androidx.recyclerview.widget.RecyclerView;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 import bttv.settings.Settings;
-import tv.twitch.android.app.core.ThemeManager;
-import tv.twitch.android.shared.chat.adapter.item.ChatMessageViewHolder;
-import tv.twitch.android.shared.chat.chomments.ChommentRecyclerItem.ChommentItemViewHolder;
-import tv.twitch.android.shared.chat.messagefactory.adapteritem.UserNoticeRecyclerItem.UserNoticeViewHolder;
 
 public class SplitChat {
-    private final static String TAG = "LBTTVSplitChat";
-
     /**
      * The Buffer backing the Chat has a fixed Capacity and is cleared when it overflows;
      * Old messages get removed. This means we can't rely on the position parameter in
@@ -40,82 +32,37 @@ public class SplitChat {
      * totalPosition = positionInAdapter + totalRemovedMessages
      */
     private static int totalRemovedMessages = 0;
+    private static final Map<View, Drawable> originalBackgrounds = new WeakHashMap<>();
 
-    public static void setBackgroundColor(int position, RecyclerView.ViewHolder viewHolder) {
-        if (!ResUtil.getBooleanFromSettings(Settings.SplitChatEnabled)) {
-            return;
-        }
-
-        // TwitchAdapter is used all over the place,
-        // so make sure not to do anything when
-        // not a ViewHolder used in Chat
-        if (
-            !(viewHolder instanceof ChatMessageViewHolder)
-            && !(viewHolder instanceof ChommentItemViewHolder)
-            && !(viewHolder instanceof UserNoticeViewHolder)
-        ) {
-            Log.i(TAG, "viewHolder is not known: " + viewHolder.toString());
-            return;
-        }
-        View view = viewHolder.itemView;
+    public static void setBackgroundColor(int position, View view) {
         Context context = view.getContext();
 
-        // make sure we only change chat message items,
-        // which are LinearLayouts with chat_message_item children.
-        // Anything else is ignored.
+        // g1d is the Twitch 31 ordinary live-chat holder. Keep an ID guard at
+        // the Java boundary as well so no unrelated RecyclerView root is tinted.
         int chatMessageItemResId = ResUtil.getResourceId(context, "chat_message_item", "id");
-        int chommentRootViewResId = ResUtil.getResourceId(context, "chomment_root_view", "id");
-        if(view instanceof LinearLayout) {
-            Log.d(TAG, "view is LinearLayout: " + view.toString());
-            LinearLayout linearLayout = (LinearLayout) view;
-            for (int j = 0; j < linearLayout.getChildCount(); j++) {
-                View nestedChild = linearLayout.getChildAt(j);
-                if (nestedChild.getId() == chatMessageItemResId) {
-                    Log.d(TAG, "found chat_message_item: " + nestedChild.toString());
-                    view = nestedChild;
-                    // Increase width of linearLayout to match parent to color the whole item
-                    linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                    break;
-                }
-            }
+        if (chatMessageItemResId == 0 || view.findViewById(chatMessageItemResId) == null) {
+            return;
         }
-        boolean hasChatMessageId = view.getId() == chatMessageItemResId;
-        boolean hasChommentRootId = view.getId() == chommentRootViewResId;
 
-        if (!(hasChatMessageId || hasChommentRootId)) {
-            Log.d(TAG, "view skipped, as it's not a chat message or chomment, " + viewHolder.toString() + " ID: " + view.getId() + " View: " + view.toString() + " Expected ID: " + chatMessageItemResId + " or " + chommentRootViewResId);
+        if (!ResUtil.getBooleanFromSettings(Settings.SplitChatEnabled) || position < 0) {
             reset(view);
             return;
         }
 
-        int color = ThemeManager.Companion.isNightModeEnabled(context)
+        int nightMode = context.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+        int color = nightMode == Configuration.UI_MODE_NIGHT_YES
                 ? ResUtil.getColorValue("material_grey_900")
                 : ResUtil.getColorValue("material_grey_300");
 
-        boolean doChange = shouldTintBG(position);
-
-        // for some reason we can't set the background for the whole view for Chomments (VODs)
-        // so we just highlight the TextView (first child)
-        if (hasChommentRootId) {
-            LinearLayout linearLayout = (LinearLayout) view;
-            view = linearLayout.getChildAt(0);
-        }
-
-        if (doChange) {
+        if (shouldTintBG(position)) {
+            if (!originalBackgrounds.containsKey(view)) {
+                originalBackgrounds.put(view, view.getBackground());
+            }
             view.setBackgroundColor(color);
         } else {
             reset(view);
         }
-
-        //
-        // fix width
-        //
-
-        // MATCH_PARENT is default for Chomments, WRAP_CONTENT for Comments
-        boolean matchParent = doChange || viewHolder instanceof ChommentItemViewHolder;
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = matchParent ? ViewGroup.LayoutParams.MATCH_PARENT : ViewGroup.LayoutParams.WRAP_CONTENT;
-        view.setLayoutParams(layoutParams);
     }
 
     /** called after Twitch removes the first N Messages from the buffer */
@@ -130,18 +77,8 @@ public class SplitChat {
     }
 
     private static void reset(View view) {
-        Drawable background = view.getBackground();
-        if (background == null) {
-            return;
-        }
-        if (!(background instanceof ColorDrawable)) {
-            return;
-        }
-
-        ColorDrawable colorDrawable = (ColorDrawable) background;
-        if (colorDrawable.getColor() == ResUtil.getColorValue("material_grey_900")
-            || colorDrawable.getColor() == ResUtil.getColorValue("material_grey_300")) {
-            view.setBackground(null);
+        if (originalBackgrounds.containsKey(view)) {
+            view.setBackground(originalBackgrounds.remove(view));
         }
     }
 

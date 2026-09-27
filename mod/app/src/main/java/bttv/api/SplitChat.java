@@ -1,23 +1,20 @@
 package bttv.api;
 
 import android.util.Log;
-
-import androidx.recyclerview.widget.RecyclerView.ViewHolder;
-
-import tv.twitch.android.core.adapters.RecyclerAdapterItem;
+import android.view.View;
 
 public class SplitChat {
     private final static String TAG = "LBTTVSplitChat";
 
-    public static void setBackgroundColor(int position, ViewHolder viewHolder) {
+    public static void setBackgroundColor(int position, View view) {
         try {
-            bttv.SplitChat.setBackgroundColor(position, viewHolder);
+            bttv.SplitChat.setBackgroundColor(position, view);
         } catch (Throwable t) {
             Log.e(TAG, "setBackgroundColor: ", t);
         }
     }
 
-    /** Called in ChannelChatAdapter.addItems() */
+    /** Called in the Twitch 31 live-chat adapter when it trims rows from the head. */
     public static void removedNMessages(int n) {
         try {
             bttv.SplitChat.removedNMessages(n);

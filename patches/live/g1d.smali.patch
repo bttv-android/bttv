@@ -1,0 +1,20 @@
+diff --git a/smali_classes2/g1d.smali b/smali_classes2/g1d.smali
+index 4eb91d6d7..ed8c17d2e 100644
+--- a/smali_classes2/g1d.smali
++++ b/smali_classes2/g1d.smali
+@@ -2263,6 +2263,15 @@
+     .line 373
+     .line 374
+     .line 375
+     :cond_11
++    move-object/from16 v0, p0
++
++    invoke-virtual {v0}, Landroidx/recyclerview/widget/i;->c()I
++
++    move-result v1
++
++    iget-object v0, v0, Landroidx/recyclerview/widget/i;->a:Landroid/view/View;
++
++    invoke-static {v1, v0}, Lbttv/api/SplitChat;->setBackgroundColor(ILandroid/view/View;)V
+     return-void
+ .end method
