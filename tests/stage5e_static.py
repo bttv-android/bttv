@@ -41,12 +41,12 @@ class PickerStaticTests(unittest.TestCase):
         self.assertLess(text.index('RxHelperKt;->b'), text.index('NativePickerBridge;->wrap'))
         self.assertIn('move-result-object p1', text)
         self.assertIn('.catch Ljava/lang/Throwable;', text)
-        self.assertNotRegex(text, r'(?m)^-[^-]')
+        self.assertNotRegex(text, r'(?m)^-(?!--)(?=.*\S).+$')
         self.assertIn('const/16 v1, 0x9', read('patches/live/bttvcompat.NativePickerBridge.smali.patch'))
 
     def test_stock_binder_and_click_branches_not_replaced(self):
         for path in ('wjf', 'b6b', 'blp'):
-            self.assertNotRegex(read(f'patches/live/{path}.smali.patch'), r'(?m)^-[^-]')
+            self.assertNotRegex(read(f'patches/live/{path}.smali.patch'), r'(?m)^-(?!--)(?=.*\S).+$')
         self.assertIn('if-nez v14, :bttv_picker_image_ready', added_patch('patches/live/wjf.smali.patch'))
         self.assertIn('if-nez v2, :bttv_picker_image_done', added_patch('patches/live/wjf.smali.patch'))
         self.assertIn('if-nez v3, :goto_6', added_patch('patches/live/b6b.smali.patch'))

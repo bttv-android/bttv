@@ -28,4 +28,17 @@ public class DeletedMessages {
 
         return new SpannedString(spannableStringBuilder);
     }
+
+    public static Spanned restoreNativeContainer(Spanned container, Object placeholder, Spanned restoredBody) {
+        int start = container.getSpanStart(placeholder);
+        int end = container.getSpanEnd(placeholder);
+        if (start < 0 || end <= start) {
+            return restoredBody;
+        }
+
+        SpannableStringBuilder result = new SpannableStringBuilder(container);
+        result.removeSpan(placeholder);
+        result.replace(start, end, restoredBody);
+        return new SpannedString(result);
+    }
 }

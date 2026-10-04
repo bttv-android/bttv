@@ -1,0 +1,63 @@
+diff --git a/smali_classes2/vw90.smali b/smali_classes2/vw90.smali
+--- a/smali_classes2/vw90.smali
++++ b/smali_classes2/vw90.smali
+@@ -6600,5 +6600,5 @@
+ .method public static n(Ljava/lang/String;Landroid/text/SpannedString;Landroid/content/Context;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;Z)Landroid/text/Spanned;
+-    .locals 6
++    .locals 7
+
+     .line 1
+     invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+@@ -6638,10 +6638,21 @@
+     .line 19
+     .line 20
++    move-object v1, v0
++
+     array-length v0, v0
+
+     .line 21
+     if-nez v0, :cond_6
+
++    invoke-static {p1}, Lbttv/api/DeletedMessages;->reSpan(Landroid/text/Spanned;)Landroid/text/Spanned;
++
++    move-result-object v6
++
++    if-eqz v6, :bttv31_count0_stock
++
++    return-object v6
++
++    :bttv31_count0_stock
+     .line 22
+     .line 23
+     new-instance v0, Lied;
+@@ -6829,9 +6840,30 @@
+     .line 204
+     .line 205
+     :cond_5
+     return-object v3
+
+     .line 206
+     :cond_6
++    const/4 v0, 0x0
++
++    aget-object v3, v1, v0
++
++    iget-object v0, v3, Lied;->b:Landroid/text/SpannedString;
++
++    if-eqz v0, :bttv31_count1_stock
++
++    invoke-static {v0}, Lbttv/api/DeletedMessages;->reSpan(Landroid/text/Spanned;)Landroid/text/Spanned;
++
++    move-result-object v6
++
++    if-eqz v6, :bttv31_count1_stock
++
++    invoke-static {p1, v3, v6}, Lbttv/api/DeletedMessages;->restoreNativeContainer(Landroid/text/Spanned;Ljava/lang/Object;Landroid/text/Spanned;)Landroid/text/Spanned;
++
++    move-result-object v6
++
++    return-object v6
++
++    :bttv31_count1_stock
+     return-object p1
+ .end method
