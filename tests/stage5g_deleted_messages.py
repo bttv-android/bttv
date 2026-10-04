@@ -176,11 +176,20 @@ public final class DeletedMessagesHostTest {
         check("[badge] User: <message deleted>!".contentEquals(container),"native container was mutated");
 
         Object missingPlaceholder=new Object();
-        check(DeletedMessages.restoreNativeContainer(container,missingPlaceholder,restoredBody)==restoredBody,
-            "invalid placeholder did not fail open to accepted G2 body");
+        check(DeletedMessages.restoreNativeContainer(container,missingPlaceholder,restoredBody)==container,
+            "missing placeholder did not preserve original native container");
         Object zeroLengthPlaceholder=new Object(); container.setSpan(zeroLengthPlaceholder,14,14,33);
-        check(DeletedMessages.restoreNativeContainer(container,zeroLengthPlaceholder,restoredBody)==restoredBody,
-            "zero-length placeholder did not fail open to accepted G2 body");
+        check(DeletedMessages.restoreNativeContainer(container,zeroLengthPlaceholder,restoredBody)==container,
+            "zero-length placeholder did not preserve original native container");
+        Object outOfBoundsPlaceholder=new Object(); container.setSpan(outOfBoundsPlaceholder,14,container.length()+1,33);
+        check(DeletedMessages.restoreNativeContainer(container,outOfBoundsPlaceholder,restoredBody)==container,
+            "out-of-bounds placeholder did not preserve original native container");
+        check(DeletedMessages.restoreNativeContainer(container,null,restoredBody)==container,
+            "null placeholder did not preserve original native container");
+        check(DeletedMessages.restoreNativeContainer(container,placeholder,null)==container,
+            "null restored body did not preserve original native container");
+        check(DeletedMessages.restoreNativeContainer(null,placeholder,restoredBody)==null,
+            "null container did not return null safely");
         System.out.println("PASS DeletedMessages disabled/enabled/spans/unicode/idempotent-retained-original/no-space/italic suffix");
     }
 }

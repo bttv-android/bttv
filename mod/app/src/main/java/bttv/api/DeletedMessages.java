@@ -30,10 +30,17 @@ public class DeletedMessages {
     }
 
     public static Spanned restoreNativeContainer(Spanned container, Object placeholder, Spanned restoredBody) {
+        if (container == null) {
+            return null;
+        }
+        if (placeholder == null || restoredBody == null) {
+            return container;
+        }
+
         int start = container.getSpanStart(placeholder);
         int end = container.getSpanEnd(placeholder);
-        if (start < 0 || end <= start) {
-            return restoredBody;
+        if (start < 0 || end < 0 || end <= start || end > container.length()) {
+            return container;
         }
 
         SpannableStringBuilder result = new SpannableStringBuilder(container);
