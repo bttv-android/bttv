@@ -48,4 +48,17 @@ public class DeletedMessages {
         result.replace(start, end, restoredBody);
         return new SpannedString(result);
     }
+
+    public static Spanned restoreSpecialContainer(Spanned container, Object placeholder, Spanned originalBody) {
+        if (container == null || placeholder == null || originalBody == null) {
+            return container;
+        }
+
+        Spanned restoredBody = reSpan(originalBody);
+        if (restoredBody == null) {
+            return container;
+        }
+
+        return restoreNativeContainer(container, placeholder, restoredBody);
+    }
 }

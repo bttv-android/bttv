@@ -1,0 +1,52 @@
+diff --git a/smali_classes7/bttv/api/DeletedSpecialRows.smali b/smali_classes7/bttv/api/DeletedSpecialRows.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttv/api/DeletedSpecialRows.smali
+@@ -0,0 +1,47 @@
++.class public final Lbttv/api/DeletedSpecialRows;
++.super Ljava/lang/Object;
++
++.method public static restore(Lg86;)Landroid/text/Spanned;
++    .locals 5
++
++    invoke-virtual {p0}, Lg86;->a()Landroid/text/SpannedString;
++    move-result-object v0
++
++    :try_start_restore
++    iget-object v1, p0, Lg86;->e:Ljava/lang/CharSequence;
++    instance-of v2, v1, Landroid/text/Spanned;
++    if-eqz v2, :return_stock
++
++    check-cast v1, Landroid/text/Spanned;
++    invoke-interface {v1}, Ljava/lang/CharSequence;->length()I
++    move-result v2
++    if-lez v2, :return_stock
++
++    const/4 v3, 0x0
++    const-class v4, Lied;
++    invoke-interface {v1, v3, v2, v4}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
++    move-result-object v1
++
++    array-length v2, v1
++    const/4 v3, 0x1
++    if-ne v2, v3, :return_stock
++
++    const/4 v2, 0x0
++    aget-object v1, v1, v2
++    check-cast v1, Lied;
++    iget-object v2, v1, Lied;->b:Landroid/text/SpannedString;
++    if-eqz v2, :return_stock
++
++    invoke-static {v0, v1, v2}, Lbttv/api/DeletedMessages;->restoreSpecialContainer(Landroid/text/Spanned;Ljava/lang/Object;Landroid/text/Spanned;)Landroid/text/Spanned;
++    move-result-object v0
++
++    :return_stock
++    :try_end_restore
++    return-object v0
++
++    .catch Ljava/lang/Throwable; {:try_start_restore .. :try_end_restore} :restore_failed
++
++    :restore_failed
++    move-exception v1
++    return-object v0
++.end method

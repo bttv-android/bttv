@@ -190,6 +190,36 @@ public final class DeletedMessagesHostTest {
             "null restored body did not preserve original native container");
         check(DeletedMessages.restoreNativeContainer(null,placeholder,restoredBody)==null,
             "null container did not return null safely");
+
+        bttv.ResUtil.enabled=false;
+        bttv.ResUtil.localeCalls=0;
+        check(DeletedMessages.restoreSpecialContainer(container,placeholder,body)==container,
+            "disabled special-row restore did not preserve exact native container");
+        check(bttv.ResUtil.localeCalls==0,"disabled special-row restore formatted a suffix");
+
+        bttv.ResUtil.enabled=true;
+        Spanned special=DeletedMessages.restoreSpecialContainer(container,placeholder,body);
+        check("[badge] User: hello(removed)!".contentEquals(special),
+            "special-row body replacement failed");
+        check(special.getSpanStart(badgeSpan)==0&&special.getSpanEnd(badgeSpan)==7,
+            "special-row restore moved native badge span");
+        check(special.getSpanStart(authorSpan)==8&&special.getSpanEnd(authorSpan)==12,
+            "special-row restore moved native author click span");
+        check(special.getSpanStart(authorColor)==8&&special.getSpanEnd(authorColor)==12,
+            "special-row restore moved native author color span");
+        check(special.getSpanStart(bodySpan)==14&&special.getSpanEnd(bodySpan)==19,
+            "special-row restore lost body spans");
+        check("[badge] User: <message deleted>!".contentEquals(container),
+            "special-row restore mutated native container");
+        check("hello".contentEquals(body),"special-row restore mutated retained original body");
+        check(DeletedMessages.restoreSpecialContainer(container,missingPlaceholder,body)==container,
+            "special-row missing placeholder did not fail open to exact native container");
+        check(DeletedMessages.restoreSpecialContainer(container,null,body)==container,
+            "special-row null placeholder did not fail open");
+        check(DeletedMessages.restoreSpecialContainer(container,placeholder,null)==container,
+            "special-row null body did not fail open");
+        check(DeletedMessages.restoreSpecialContainer(null,placeholder,body)==null,
+            "special-row null container did not return null safely");
         System.out.println("PASS DeletedMessages disabled/enabled/spans/unicode/idempotent-retained-original/no-space/italic suffix");
     }
 }

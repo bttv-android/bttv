@@ -1,0 +1,22 @@
+diff --git a/smali/jc2.smali b/smali/jc2.smali
+--- a/smali/jc2.smali
++++ b/smali/jc2.smali
+@@ -11757,14 +11757,8 @@
+     .line 144
+     .line 145
+-    invoke-virtual {v0}, Lg86;->a()Landroid/text/SpannedString;
+-
+-    .line 146
+-    .line 147
+-    .line 148
+-    move-result-object v1
++    invoke-static {v0}, Lbttv/api/DeletedSpecialRows;->restore(Lg86;)Landroid/text/Spanned;
++
+-
+-    .line 149
+-    move-object v11, v1
++    move-result-object v11
+-
++
+     .line 150
+     goto :goto_4
