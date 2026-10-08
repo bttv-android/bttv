@@ -1,0 +1,37 @@
+diff --git a/smali_classes2/z89.smali b/smali_classes2/z89.smali
+index e1ba97f..9b2a1d6 100644
+--- a/smali_classes2/z89.smali
++++ b/smali_classes2/z89.smali
+@@ -444,6 +444,8 @@
+
+     .line 30
+     :cond_1
++    iget-object v12, p0, Lz89;->m:Lhc9;
++
+     iget-boolean p0, p0, Lz89;->p:Z
+
+     .line 31
+@@ -480,6 +482,23 @@
+
+     .line 46
+     :cond_3
++    iget-object v0, p1, Lm89;->d:Lgd;
++
++    if-eqz v0, :cond_bttv_auto_redeem_done
++
++    iget-object v1, v0, Lgd;->a:Ljava/lang/String;
++
++    invoke-static {v1}, Lbttv/ChannelPoints;->shouldAutoRedeem(Ljava/lang/String;)Z
++
++    move-result v0
++
++    if-eqz v0, :cond_bttv_auto_redeem_done
++
++    const/4 v0, 0x0
++
++    invoke-interface {v12, v1, v0}, Lhc9;->G(Ljava/lang/String;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
++
++    :cond_bttv_auto_redeem_done
+     new-instance v0, Li89;
+
+     .line 47
