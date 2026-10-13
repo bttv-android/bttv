@@ -2,13 +2,11 @@ package bttv.api;
 
 import android.util.Log;
 
-import tv.twitch.android.shared.chat.ChatViewPresenter;
-
 public class AnonChat {
     private static final String TAG = "LBTTVAnonChat";
 
     // called in ChatViewPresenter.<init>
-    public static void setChatViewPresenter(ChatViewPresenter chatViewPresenter) {
+    public static void setChatViewPresenter(Object chatViewPresenter) {
         try {
             Log.d(TAG, "setChatViewPresenter: " + chatViewPresenter.toString());
             bttv.AnonChat.setChatViewPresenter(chatViewPresenter);
@@ -32,6 +30,6 @@ public class AnonChat {
 
     // called in ChatMessageInputDelegate.State.isVisible()
     public static boolean negAnonChatOr(boolean or) {
-        return !bttv.AnonChat.isAnonRightNow && or;
+        return bttv.AnonChat.allowComposer(or);
     }
 }

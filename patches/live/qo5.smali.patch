@@ -1,7 +1,172 @@
 diff --git a/smali_classes2/qo5.smali b/smali_classes2/qo5.smali
 --- a/smali_classes2/qo5.smali
 +++ b/smali_classes2/qo5.smali
-@@ -2713,5 +2713,17 @@
+@@ -5,6 +5,7 @@
+ # interfaces
+ .implements Lx6l;
+ .implements Lus5;
++.implements Lbttv/AnonChat$Controller;
+
+
+ # instance fields
+@@ -70,6 +71,12 @@
+
+ .field public z:Z
+
++.field public bttvOriginalUser:Li5o;
++
++.field public bttvAnonymous:Z
++
++.field public bttvLogin:Lws40;
++
+
+ # direct methods
+ .method public constructor <init>(Lws40;Lh9n;Lmq6;Lkm30;Ljava/lang/String;Lio/reactivex/u;Lx4o;Lm95;Lkm5;Lr8;Lpx5;Lhm5;Lea1;Lyk6;Lu5b;Ltid;Lih6;)V
+@@ -113,6 +120,8 @@
+     .line 22
+     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
++    iput-object p1, p0, Lqo5;->bttvLogin:Lws40;
++
+     .line 23
+     .line 24
+     .line 25
+@@ -494,6 +503,8 @@
+     .line 221
+     invoke-direct {v4, v5, v3, v1, v2}, Li5o;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
++    iput-object v4, p0, Lqo5;->bttvOriginalUser:Li5o;
++
+     .line 222
+     .line 223
+     .line 224
+@@ -503,6 +514,29 @@
+     .line 226
+     .line 227
+     :cond_0
++    invoke-static {p0}, Lbttv/AnonChat;->attach(Lbttv/AnonChat$Controller;)Z
++
++    move-result p3
++
++    if-eqz p3, :bttv_anon_attached
++
++    invoke-virtual {p0}, Lqo5;->h()Lzp5;
++
++    move-result-object p3
++
++    iget-object p3, p3, Lzp5;->a:Lwp5;
++
++    invoke-static {}, Lfxc;->l()Li5o;
++
++    move-result-object v1
++
++    invoke-virtual {p3, v1}, Lwp5;->m(Li5o;)V
++
++    const/4 p3, 0x1
++
++    iput-boolean p3, p0, Lqo5;->bttvAnonymous:Z
++
++    :bttv_anon_attached
+     invoke-virtual {p0}, Lqo5;->h()Lzp5;
+
+     .line 228
+@@ -1262,6 +1296,95 @@
+     return-void
+ .end method
+
++.method public final setAnonymous(Z)V
++    .locals 8
++
++    iget-boolean v0, p0, Lqo5;->bttvAnonymous:Z
++
++    if-eq v0, p1, :bttv_anon_done
++
++    if-eqz p1, :bttv_anon_authenticated
++
++    invoke-static {}, Lfxc;->l()Li5o;
++
++    move-result-object v1
++
++    goto :bttv_anon_selected
++
++    :bttv_anon_authenticated
++    iget-object v4, p0, Lqo5;->bttvLogin:Lws40;
++
++    if-eqz v4, :bttv_anon_done
++
++    invoke-virtual {v4}, Lws40;->n()Z
++
++    move-result v0
++
++    if-eqz v0, :bttv_anon_done
++
++    invoke-virtual {v4}, Lws40;->k()Ltv/twitch/android/models/UserModel;
++
++    move-result-object v5
++
++    invoke-virtual {v4}, Lws40;->a()Ljava/lang/String;
++
++    move-result-object v6
++
++    invoke-virtual {v5}, Ltv/twitch/android/models/UserModel;->getDisplayName()Ljava/lang/String;
++
++    move-result-object v7
++
++    const-string v0, " "
++
++    invoke-static {v7, v0}, Lfy10;->D0(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
++
++    move-result-object v7
++
++    new-instance v1, Li5o;
++
++    invoke-virtual {v5}, Ltv/twitch/android/models/UserModel;->getTuid()Ltv/twitch/android/models/Tuid;
++
++    move-result-object v0
++
++    invoke-virtual {v0}, Ltv/twitch/android/models/Tuid;->toString()Ljava/lang/String;
++
++    move-result-object v0
++
++    invoke-virtual {v5}, Ltv/twitch/android/models/UserModel;->getName()Ljava/lang/String;
++
++    move-result-object v5
++
++    invoke-direct {v1, v0, v7, v5, v6}, Li5o;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
++
++    iput-object v1, p0, Lqo5;->bttvOriginalUser:Li5o;
++
++    :bttv_anon_selected
++    invoke-virtual {p0}, Lqo5;->h()Lzp5;
++
++    move-result-object v0
++
++    iget-object v0, v0, Lzp5;->a:Lwp5;
++
++    invoke-virtual {v0, v1}, Lwp5;->m(Li5o;)V
++
++    iput-boolean p1, p0, Lqo5;->bttvAnonymous:Z
++
++    iget-object v2, p0, Lqo5;->v:Ltv/twitch/android/models/channel/ChannelInfo;
++
++    if-eqz v2, :bttv_anon_done
++
++    iget-object v3, p0, Lqo5;->w:Ltv/twitch/android/models/streams/StreamType;
++
++    if-eqz v3, :bttv_anon_done
++
++    const/4 v0, 0x1
++
++    invoke-virtual {p0, v2, v3, v0}, Lqo5;->k(Ltv/twitch/android/models/channel/ChannelInfo;Ltv/twitch/android/models/streams/StreamType;Z)V
++
++    :bttv_anon_done
++    return-void
++.end method
++
+ .method public final c()V
+     .locals 3
+
+@@ -2713,5 +2836,17 @@
      iput-object p2, p0, Lqo5;->w:Ltv/twitch/android/models/streams/StreamType;
 
 +    :try_start_bttv_channel

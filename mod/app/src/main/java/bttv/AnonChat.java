@@ -1,62 +1,61 @@
 package bttv;
 
-import android.util.Log;
+import java.lang.ref.WeakReference;
 
 import bttv.settings.Settings;
-import tv.twitch.android.shared.chat.ChatViewPresenter;
 
-public class AnonChat {
-    public static final int ANON_VIEWER_ID = 0; // 0 is used by the chat SDK to connect anonymously
+/** Coordinates Twitch's native chat identity without retaining a stale presenter. */
+public final class AnonChat {
+    public static final int ANON_VIEWER_ID = 0;
 
-    private static final String TAG = "LBTTVAnonChat";
-    private static ChatViewPresenter chatViewPresenter;
-    private static Integer originalViewerID = null;
-    public static boolean isAnonRightNow = false;
-
-    public static void setChatViewPresenter(ChatViewPresenter chatViewPr) {
-        chatViewPresenter = chatViewPr;
+    public interface Controller {
+        void setAnonymous(boolean anonymous);
     }
 
-    public static void reconnect(boolean asAnon) {
-        if (originalViewerID == null) {
-            Log.w(TAG, "reconnect: originalViewerID == null, wont reconnect");
-            return;
+    private static WeakReference<Controller> controller = new WeakReference<>(null);
+    private static Integer originalViewerID;
+    public static boolean isAnonRightNow;
+
+    private AnonChat() {
+    }
+
+    /** Attaches the newest Twitch chat owner and returns its required initial mode. */
+    public static synchronized boolean attach(Controller value) {
+        controller = new WeakReference<>(value);
+        boolean enabled = isAnonChatEnabled();
+        isAnonRightNow = enabled;
+        return enabled;
+    }
+
+    /** Requests a native identity switch on the current chat owner, when one exists. */
+    public static synchronized void reconnect(boolean asAnon) {
+        Controller value = controller.get();
+        if (value != null) {
+            value.setAnonymous(asAnon);
         }
-        int viewerID = asAnon ? ANON_VIEWER_ID : originalViewerID;
-        reconnectWithViewerID(viewerID);
         isAnonRightNow = asAnon;
     }
 
-    private static void reconnectWithViewerID(int newViewerID) {
-        Log.d(TAG, "reconnectWithViewerID: " + newViewerID);
-        if (chatViewPresenter == null) {
-            Log.w(TAG, "reconnectWithViewerID: called but chatViewPresenter null");
-            return;
-        }
-        if (chatViewPresenter.chatConnectionController == null) {
-            Log.w(TAG, "reconnectWithViewerID: called but chatViewPresenter.chatConnectionController null");
-            return;
-        }
-        if (chatViewPresenter.channel == null) {
-            Log.w(TAG, "reconnectWithViewerID: called but chatViewPresenter.channel null");
-            return;
-        }
-        chatViewPresenter.chatConnectionController.BTTVdisconnect(chatViewPresenter.channel);
-        int oldViewerId = chatViewPresenter.chatConnectionController.viewerId;
-        Log.d(TAG, "reconnectWithViewerID: oldViewerId: " + oldViewerId);
-        chatViewPresenter.chatConnectionController.viewerId = newViewerID;
-        chatViewPresenter.BTTVconnect();
+    /** Preserves every stock visibility restriction and adds the anonymous-mode gate. */
+    public static boolean allowComposer(boolean twitchVisible) {
+        return twitchVisible && !isAnonChatEnabled();
     }
 
-    public static int getViewerId(int viewerId) {
-        // Store viewerID so we can use it when reconnecting
-        if (originalViewerID == null && viewerId != ANON_VIEWER_ID) {
+    /** Legacy compatibility for callers which still supply a numeric viewer ID. */
+    public static synchronized int getViewerId(int viewerId) {
+        if (viewerId != ANON_VIEWER_ID) {
             originalViewerID = viewerId;
-        } else {
-            Log.i(TAG, "getViewerId: originalViewerID=" + originalViewerID  + " viewerId=" + viewerId);
         }
+        if (isAnonChatEnabled()) {
+            isAnonRightNow = true;
+            return ANON_VIEWER_ID;
+        }
+        isAnonRightNow = false;
+        return viewerId;
+    }
 
-        return isAnonChatEnabled() ? ANON_VIEWER_ID : viewerId;
+    /** Legacy binary-compatible entry point; Twitch 31 attaches through {@link #attach}. */
+    public static void setChatViewPresenter(Object ignored) {
     }
 
     private static boolean isAnonChatEnabled() {

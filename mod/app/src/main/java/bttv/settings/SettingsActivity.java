@@ -19,6 +19,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import bttv.AnonChat;
 import bttv.Credits;
 import bttv.Res;
 import bttv.ResUtil;
@@ -122,6 +123,9 @@ public final class SettingsActivity extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton ignored, boolean checked) {
                 entry.set(SettingsActivity.this, new UserPreferences.Entry.BoolValue(checked));
+                if (entry == Settings.AnonChatEnabled.entry) {
+                    AnonChat.reconnect(checked);
+                }
             }
         });
         row.addView(toggle, matchWrap());
