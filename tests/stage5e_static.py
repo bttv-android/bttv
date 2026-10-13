@@ -87,14 +87,20 @@ class PickerStaticTests(unittest.TestCase):
 
     def test_no_unrelated_production_changes(self):
         paths=['build','buildsource','disassemble','Dockerfile','patch','initworkspace',
-               'patches/AndroidManifest.xml.patch','patches/live/f86.smali.patch',
-               'patches/live/z86.smali.patch','mod/app/src/main/java/bttv/emote/LiveEmotes.java',
+               'patches/AndroidManifest.xml.patch','patches/live/z86.smali.patch',
+               'mod/app/src/main/java/bttv/emote/LiveEmotes.java',
                'mod/app/src/main/java/bttv/emote/LiveEmoteGlobals.java',
                'mod/app/src/main/java/bttv/emote/EmoteAutocompleteLogic.java',
                'mod/app/src/main/java/bttv/emote/EmoteAutocompleteCatalog.java']
         paths.remove('mod/app/src/main/java/bttv/emote/LiveEmotes.java')
         for path in paths:
             if (ROOT/path).exists(): self.assertEqual(read(path),baseline(path),path)
+        # Stage 5K adds one isolated style-selection hunk to f86 without
+        # changing its established third-party image-rendering hunk.
+        f86 = read('patches/live/f86.smali.patch')
+        self.assertEqual(f86.count('LiveHighlightBridge;->replace'), 1)
+        self.assertEqual(f86.count('LiveEmotes;->urlForMarker'), 1)
+        self.assertIn('move-result-object v5', f86)
         self.assertFalse(list((ROOT/'patches').rglob('c3-*.patch')))
         for path in (ROOT/'patches').rglob('*.patch'):
             self.assertNotIn('EmoteCardTrace',read(path.relative_to(ROOT)))

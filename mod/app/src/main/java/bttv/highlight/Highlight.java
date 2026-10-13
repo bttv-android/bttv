@@ -76,6 +76,24 @@ public class Highlight extends StringSetUI {
         return INSTANCE.stringSet.contains(word.toLowerCase());
     }
 
+    /** Matches the original tokenizer's exact, space-delimited keyword behavior. */
+    public static boolean shouldHighlightText(String text) {
+        if (text == null) {
+            return false;
+        }
+        for (String word : text.split(" ")) {
+            if (shouldHighlight(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** Returns the color resource consumed by Twitch's HighlightedMessage style. */
+    public static int highlightedColorResource() {
+        return ResUtil.getResourceId(Res.colors.bttv_sonic);
+    }
+
     public static boolean shouldHighlightChannel(String name) {
         getInstance().loadSet();
         return INSTANCE.stringSet.contains("<" + name.toLowerCase() + ">");

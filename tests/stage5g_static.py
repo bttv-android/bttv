@@ -38,6 +38,12 @@ def added_patch(path: str) -> str:
     )
 
 
+def without_stage5k_highlight_hunk(text: str) -> str:
+    start = text.index("@@ -158,6 +158,16 @@")
+    end = text.index("@@ -3352,8 +3352,13 @@", start)
+    return text[:start] + text[end:]
+
+
 class DeletedMessagesStaticTests(unittest.TestCase):
     def test_g1d_vw90_call_is_strictly_deleted_only(self):
         method = original("smali_classes2/g1d.smali")
@@ -160,11 +166,10 @@ class DeletedMessagesStaticTests(unittest.TestCase):
             "ForegroundColorSpan", "setAlpha", "EventDispatcher",
         ):
             self.assertNotIn(forbidden, patch)
-        for path in (
-            "patches/live/f86.smali.patch",
-            "patches/live/zz_f86_relocation.patch",
-        ):
-            self.assertEqual(read(path), baseline(path), path)
+        f86_path = "patches/live/f86.smali.patch"
+        self.assertEqual(without_stage5k_highlight_hunk(read(f86_path)), baseline(f86_path), f86_path)
+        relocation = "patches/live/zz_f86_relocation.patch"
+        self.assertEqual(read(relocation), baseline(relocation), relocation)
         for path in ("bf60", "xe60", "kw5", "af60"):
             self.assertFalse((ROOT / f"patches/live/{path}.smali.patch").exists())
 
@@ -186,8 +191,9 @@ class DeletedMessagesStaticTests(unittest.TestCase):
                 cwd=DISASS,
                 check=True,
             )
+        f86_path = "patches/live/f86.smali.patch"
+        self.assertEqual(without_stage5k_highlight_hunk(read(f86_path)), baseline(f86_path), f86_path)
         for path in (
-            "patches/live/f86.smali.patch",
             "patches/live/zz_f86_relocation.patch",
             "patches/live/y15.smali.patch",
             "mod/app/src/main/java/bttv/SplitChat.java",

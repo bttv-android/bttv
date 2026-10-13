@@ -1,6 +1,23 @@
 diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
 --- a/smali_classes2/f86.smali
 +++ b/smali_classes2/f86.smali
+@@ -158,6 +158,16 @@
+     .line 60
+     .line 61
+     :goto_5
++    iget-object v0, v10, Ly86;->b:Ljava/lang/String;
++
++    iget-object v1, v10, Ly86;->c:Ljava/lang/String;
++
++    move-object/from16 v2, p5
++
++    invoke-static {v2, v8, v0, v1, v5}, Lbttv/highlight/LiveHighlightBridge;->replace(Ljava/util/List;Lfmp;Ljava/lang/String;Ljava/lang/String;Lenj;)Lenj;
++
++    move-result-object v5
++
+     invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+     .line 62
 @@ -3352,8 +3352,13 @@
      .line 30
      :goto_1

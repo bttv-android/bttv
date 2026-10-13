@@ -1,0 +1,98 @@
+diff --git a/smali_classes7/bttv/highlight/LiveHighlightBridge.smali b/smali_classes7/bttv/highlight/LiveHighlightBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttv/highlight/LiveHighlightBridge.smali
+@@ -0,0 +1,86 @@
++.class public final Lbttv/highlight/LiveHighlightBridge;
++.super Ljava/lang/Object;
++
++.method public static replace(Ljava/util/List;Lfmp;Ljava/lang/String;Ljava/lang/String;Lenj;)Lenj;
++    .locals 8
++
++    :try_start_highlight
++    instance-of v0, p4, Leg30;
++    if-eqz v0, :stock
++
++    if-eqz p2, :check_display_name
++
++    invoke-static {p2}, Lbttv/highlight/Highlight;->shouldHighlightChannel(Ljava/lang/String;)Z
++    move-result v0
++    if-eqz v0, :check_display_name
++    goto :highlighted
++
++    :check_display_name
++    if-eqz p3, :check_text
++
++    invoke-static {p3}, Lbttv/highlight/Highlight;->shouldHighlightChannel(Ljava/lang/String;)Z
++    move-result v0
++    if-eqz v0, :check_text
++    goto :highlighted
++
++    :check_text
++    if-eqz p0, :check_extracted_emote
++
++    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
++    move-result-object v0
++
++    :next_token
++    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
++    move-result v1
++    if-eqz v1, :check_extracted_emote
++
++    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++    move-result-object v1
++    instance-of v2, v1, Limp;
++    if-eqz v2, :check_synthetic_token
++
++    check-cast v1, Limp;
++    iget-object v1, v1, Limp;->a:Ljava/lang/String;
++    goto :check_keyword
++
++    :check_synthetic_token
++    instance-of v2, v1, Lfmp;
++    if-eqz v2, :next_token
++
++    check-cast v1, Lfmp;
++    iget-object v2, v1, Lfmp;->a:Ljava/lang/String;
++    const-string v3, "bttv31://"
++    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
++    move-result v2
++    if-eqz v2, :next_token
++    iget-object v1, v1, Lfmp;->b:Ljava/lang/String;
++
++    :check_keyword
++    invoke-static {v1}, Lbttv/highlight/Highlight;->shouldHighlightText(Ljava/lang/String;)Z
++    move-result v1
++    if-eqz v1, :next_token
++    goto :highlighted
++
++    :check_extracted_emote
++    if-eqz p1, :stock
++    iget-object v0, p1, Lfmp;->a:Ljava/lang/String;
++    const-string v1, "bttv31://"
++    invoke-virtual {v0, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
++    move-result v0
++    if-eqz v0, :stock
++    iget-object v2, p1, Lfmp;->b:Ljava/lang/String;
++    invoke-static {v2}, Lbttv/highlight/Highlight;->shouldHighlightText(Ljava/lang/String;)Z
++    move-result v1
++    if-eqz v1, :stock
++
++    :highlighted
++    invoke-static {}, Lbttv/highlight/Highlight;->highlightedColorResource()I
++    move-result v0
++
++    new-instance v1, Lfg30;
++    invoke-direct {v1, v0}, Lfg30;-><init>(I)V
++    move-object p4, v1
++
++    :stock
++    :try_end_highlight
++    return-object p4
++
++    :highlight_failed
++    move-exception v0
++    return-object p4
++
++    .catch Ljava/lang/Throwable; {:try_start_highlight .. :try_end_highlight} :highlight_failed
++.end method

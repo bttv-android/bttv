@@ -8,6 +8,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "d7c14073fd3e82d4d8b71c5595983c5b8ac4598b"
 DISASS = ROOT / "disass" / "disass"
+if not DISASS.is_dir():
+    DISASS = ROOT / ".bttv-cache" / "disass"
 
 
 def read(path: str) -> str:
@@ -18,6 +20,12 @@ def baseline(path: str) -> str:
     return subprocess.check_output(
         ["git", "show", f"{BASE}:{path}"], cwd=ROOT
     ).decode().replace("\r\n", "\n")
+
+
+def without_stage5k_highlight_hunk(text: str) -> str:
+    start = text.index("@@ -158,6 +158,16 @@")
+    end = text.index("@@ -3352,8 +3352,13 @@", start)
+    return text[:start] + text[end:]
 
 
 class HighlightedDeletedMessagesStaticTests(unittest.TestCase):
@@ -56,10 +64,11 @@ class HighlightedDeletedMessagesStaticTests(unittest.TestCase):
         self.assertNotIn("clamp", body.lower())
 
     def test_frozen_ordinary_and_split_chat_paths_are_unchanged(self):
+        f86_path = "patches/live/f86.smali.patch"
+        self.assertEqual(without_stage5k_highlight_hunk(read(f86_path)), baseline(f86_path), f86_path)
         for path in (
             "patches/live/vw90.smali.patch",
             "patches/live/g1d.smali.patch",
-            "patches/live/f86.smali.patch",
             "patches/live/zz_f86_relocation.patch",
             "mod/app/src/main/java/bttv/SplitChat.java",
             "mod/app/src/main/java/bttv/api/SplitChat.java",
