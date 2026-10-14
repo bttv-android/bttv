@@ -2,7 +2,7 @@ diff --git a/smali_classes7/bttv/highlight/LiveHighlightBridge.smali b/smali_cla
 new file mode 100644
 --- /dev/null
 +++ b/smali_classes7/bttv/highlight/LiveHighlightBridge.smali
-@@ -0,0 +1,86 @@
+@@ -0,0 +1,93 @@
 +.class public final Lbttv/highlight/LiveHighlightBridge;
 +.super Ljava/lang/Object;
 +

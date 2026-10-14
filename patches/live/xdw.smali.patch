@@ -1,0 +1,13 @@
+diff --git a/smali_classes2/xdw.smali b/smali_classes2/xdw.smali
+--- a/smali_classes2/xdw.smali
++++ b/smali_classes2/xdw.smali
+@@ -216,6 +216,9 @@
+     .line 59
+     invoke-direct {v2, v1, v4}, Llev;-><init>(Lchi;I)V
+
++    invoke-static {v2}, Lbttv/highlight/LiveBlacklist;->wrap(Lio/reactivex/functions/l;)Lio/reactivex/functions/l;
++    move-result-object v2
++
+     .line 60
+     .line 61
+     .line 62

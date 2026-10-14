@@ -23,4 +23,13 @@ public class Blacklist extends StringSetUI {
         getInstance().loadSet();
         return INSTANCE.stringSet.contains(word.toLowerCase());
     }
+
+    // Match original text tokens before third-party emote substitution.
+    public static boolean shouldBlockText(String text) {
+        if (text == null) return false;
+        for (String word : text.split(" ")) {
+            if (shouldBlock(word)) return true;
+        }
+        return false;
+    }
 }
