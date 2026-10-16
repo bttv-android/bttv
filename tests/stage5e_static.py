@@ -87,12 +87,17 @@ class PickerStaticTests(unittest.TestCase):
 
     def test_no_unrelated_production_changes(self):
         paths=['build','buildsource','disassemble','Dockerfile','patch','initworkspace',
-               'patches/AndroidManifest.xml.patch','patches/live/z86.smali.patch',
+               'patches/live/z86.smali.patch',
                'mod/app/src/main/java/bttv/emote/LiveEmotes.java',
                'mod/app/src/main/java/bttv/emote/LiveEmoteGlobals.java',
                'mod/app/src/main/java/bttv/emote/EmoteAutocompleteLogic.java',
                'mod/app/src/main/java/bttv/emote/EmoteAutocompleteCatalog.java']
         paths.remove('mod/app/src/main/java/bttv/emote/LiveEmotes.java')
+        # Stage 5M permits only the audited installed-package attributes;
+        # retain a complete manifest comparison rather than a blanket exemption.
+        from stage5m_package_migration import MigrationTests
+        MigrationTests.setUpClass()
+        MigrationTests('test_only_approved_manifest_attributes_change').test_only_approved_manifest_attributes_change()
         for path in paths:
             if (ROOT/path).exists(): self.assertEqual(read(path),baseline(path),path)
         # Stage 5K adds one isolated style-selection hunk to f86 without
