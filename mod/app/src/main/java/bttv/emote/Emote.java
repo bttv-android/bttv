@@ -18,6 +18,8 @@ public class Emote {
     public String url;
     public String imageType;
     public String owner;
+    // width / height, 1 if unknown
+    public float aspectRatio = 1f;
 
     public Emote(String id, Emotes.Source source, String code, String url, String imageType, String owner) {
         this.id = id;
@@ -34,6 +36,7 @@ public class Emote {
         String url;
         String imageType = "";
         String owner = null;
+        float aspectRatio = 1f;
 
         switch (source) {
             case BTTV:
@@ -41,6 +44,10 @@ public class Emote {
                 url = "https://cdn.betterttv.net/emote/" + id + "/2x";
                 imageType = jsonObject.getString("imageType");
                 owner = null; // we don't get the owner :/
+                // only set for emotes that are not square
+                if (jsonObject.optInt("width") > 0 && jsonObject.optInt("height") > 0) {
+                    aspectRatio = (float) jsonObject.getInt("width") / jsonObject.getInt("height");
+                }
                 break;
             case FFZ:
                 code = jsonObject.getString("code");
@@ -68,8 +75,19 @@ public class Emote {
 
                 JSONArray files = hostObj.getJSONArray("files");
 
+                // the react native chat can not show animated webp files, but gif files
+                String format = "WEBP";
+                if (data.optBoolean("animated")) {
+                    for (int i = 0; i < files.length(); i++) {
+                        if (files.getJSONObject(i).getString("format").equals("GIF")) {
+                            format = "GIF";
+                            break;
+                        }
+                    }
+                }
+
                 // the following is semantically equivalent to this:
-                // - filter out non-webp files
+                // - filter out files of other formats
                 // - if length > 1 choose the second option (the 2x size, which has a height of 64)
                 //   else choose the first item (low quality)
 
@@ -78,10 +96,13 @@ public class Emote {
 
                 for (int i = 0; i < files.length(); i++) {
                     JSONObject emote = files.getJSONObject(i);
-                    if (!emote.getString("format").equals("WEBP")) {
+                    if (!emote.getString("format").equals(format)) {
                         continue;
                     }
                     String name = emote.getString("name");
+                    if (emote.optInt("width") > 0 && emote.optInt("height") > 0) {
+                        aspectRatio = (float) emote.getInt("width") / emote.getInt("height");
+                    }
                     if (emote.getInt("height") >= 64 && geThan64 == null) {
                         geThan64 = name;
                     } else if (smallerThan64 == null) {
@@ -118,7 +139,9 @@ public class Emote {
                 owner = null;
         }
 
-        return new Emote(id, source, code, url, imageType, owner);
+        Emote emote = new Emote(id, source, code, url, imageType, owner);
+        emote.aspectRatio = aspectRatio;
+        return emote;
     }
 
     public static List<Emote> fromJSONArray(String json, Emotes.Source source) throws JSONException {

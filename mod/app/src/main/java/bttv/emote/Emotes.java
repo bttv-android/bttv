@@ -13,9 +13,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import bttv.Network;
-import bttv.Res;
-import bttv.ResUtil;
-import bttv.settings.Settings;
 
 public class Emotes {
 
@@ -55,17 +52,17 @@ public class Emotes {
     public static boolean channelHasEmotes(Context context, int channelId) {
 
         // BTTV
-        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
+        boolean bttvEnabled = EmoteSettings.bttvEnabled();
         boolean hasBTTVEmotes = bttvEnabled && channelEmotesBTTV.containsKey(channelId);
         boolean globalBTTVLoaded = bttvEnabled && !globalEmotesBTTV.isEmpty();
 
         // FFZ
-        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
+        boolean ffzEnabled = EmoteSettings.ffzEnabled();
         boolean hasFFZEmotes = ffzEnabled && channelEmotesFFZ.containsKey(channelId);
-        boolean globalFFZLoaded = ffzEnabled && !globalEmotes7TV.isEmpty();
+        boolean globalFFZLoaded = ffzEnabled && !globalEmotesFFZ.isEmpty();
 
         // 7TV
-        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean stvEnabled = EmoteSettings.stvEnabled();
         boolean has7TVEmotes = stvEnabled && channelEmotes7TV.containsKey(channelId);
         boolean global7TVLoaded = stvEnabled && !globalEmotes7TV.isEmpty();
 
@@ -78,10 +75,10 @@ public class Emotes {
     }
 
     public static Emote getEmote(Context ctx, String code, int channelId) {
-        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
-        boolean gifEnabled = !ResUtil.selectedDropdownFromSettingsIs(Settings.GifRenderMode, Res.strings.bttv_settings_gif_render_mode_disabled);
-        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
-        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean bttvEnabled = EmoteSettings.bttvEnabled();
+        boolean gifEnabled = EmoteSettings.gifEnabled();
+        boolean ffzEnabled = EmoteSettings.ffzEnabled();
+        boolean stvEnabled = EmoteSettings.stvEnabled();
 
         ArrayList<Map<String, Emote>> globals = new ArrayList<>(Arrays.asList(globalEmotesFFZ, globalEmotesBTTV, globalEmotes7TV));
         ArrayList<Map<Integer, Set<String>>> channels = new ArrayList<>(Arrays.asList(channelEmotesFFZ, channelEmotesBTTV, channelEmotes7TV));
@@ -131,9 +128,9 @@ public class Emotes {
     }
 
     public static void ensureChannelEmotes(Context context, int id) {
-        boolean bttvEnabled = ResUtil.getBooleanFromSettings(Settings.BTTVEmotesEnabled);
-        boolean ffzEnabled = ResUtil.getBooleanFromSettings(Settings.FFZEmotesEnabled);
-        boolean stvEnabled = ResUtil.getBooleanFromSettings(Settings.SevenTVEmotesEnabled);
+        boolean bttvEnabled = EmoteSettings.bttvEnabled();
+        boolean ffzEnabled = EmoteSettings.ffzEnabled();
+        boolean stvEnabled = EmoteSettings.stvEnabled();
 
         Log.i("LBTTV", "ensureChannelEmotes: bttvEnabled: " + bttvEnabled + " ffzEnabled: " + ffzEnabled + " stvEnabled: " + stvEnabled);
 
@@ -163,7 +160,6 @@ public class Emotes {
             map.put(emote.code, emote);
             addToCodeEmoteMap(0, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "setGlobal: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
         switch (source) {
             case BTTV:
@@ -178,6 +174,7 @@ public class Emotes {
             default:
                 Log.e("LBTTVEmotes", "setGlobal: source unknown!", new Exception());
         }
+        Log.i("LBTTVEmotes", "setGlobal: " + map.size() + " emotes for " + source);
     }
 
     // FFZ
@@ -187,10 +184,10 @@ public class Emotes {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "addChannelFFZ: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotesFFZ.put(id, set);
+        Log.i("LBTTVEmotes", "addChannelFFZ: " + set.size() + " emotes for channel " + id);
     }
 
     // BTTV
@@ -200,32 +197,28 @@ public class Emotes {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "addChannelBTTV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
         for (Emote emote : chEmData.sharedEmotes) {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "addChannelBTTV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotesBTTV.put(id, set);
+        Log.i("LBTTVEmotes", "addChannelBTTV: " + set.size() + " emotes for channel " + id);
     }
 
-    // FFZ
+    // 7TV
     public static void addChannel7TV(int id, List<Emote> emotes) {
-        Log.i("LBTTVDEBUG", "addChannel7TV: " + Arrays.toString(emotes.toArray()));
-
         Set<String> set = new HashSet<>();
         for (Emote emote : emotes) {
             set.add(emote.code);
             addToCodeEmoteMap(id, emote);
             idEmoteMap.put(emote.id, emote);
-            Log.i("LBTTVEmotes", "addChannel7TV: id: " + emote.id + "code: " + emote.code + " url:" + emote.url);
         }
 
         channelEmotes7TV.put(id, set);
-        Log.i("LBTTVDEBUG", channelEmotes7TV.toString());
+        Log.i("LBTTVEmotes", "addChannel7TV: " + set.size() + " emotes for channel " + id);
     }
 
 

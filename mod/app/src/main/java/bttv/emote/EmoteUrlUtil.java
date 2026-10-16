@@ -26,7 +26,29 @@ public class EmoteUrlUtil {
         return realIdToUrl(realId);
     }
 
+    private static final String TWITCH_EMOTE_URL_MARKER = "/emoticons/v2/";
+
+    /** @return the emote id in a Twitch emote url (".../emoticons/v2/<id>/..."), null if it is none */
+    public static String idFromTwitchUrl(String uri) {
+        if (uri == null) {
+            return null;
+        }
+        int start = uri.indexOf(TWITCH_EMOTE_URL_MARKER);
+        if (start == -1) {
+            return null;
+        }
+        start += TWITCH_EMOTE_URL_MARKER.length();
+        int end = uri.indexOf('/', start);
+        return end == -1 ? uri.substring(start) : uri.substring(start, end);
+    }
+
+    // id of an emote in a message that got a wider slot, see WideEmotes
+    public static final String WIDE_PREFIX = "BTTV-wide-";
+
     public static String extractBTTVId(String id) {
+        if (id.startsWith(WIDE_PREFIX)) {
+            return id.substring(WIDE_PREFIX.length());
+        }
         if (!id.startsWith("BTTV-")) {
             return null;
         }

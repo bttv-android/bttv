@@ -10,3 +10,6 @@ twitch.zip
 .bttv-cache
 old
 
+twitch
+.idea
+.DS_Store
