@@ -113,6 +113,8 @@ public class Res {
         bttv_removed_by_mod,
         bttv_settings_open_blacklist_dia_primary,
         bttv_settings_open_blacklist_dia_secondary,
+        bttv_settings_hide_twitch_stories,
+        bttv_settings_hide_twitch_stories_description,
     }
 
     public enum drawables {

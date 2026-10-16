@@ -1,0 +1,14 @@
+diff --git a/smali/y1e.smali b/smali/y1e.smali
+--- a/smali/y1e.smali
++++ b/smali/y1e.smali
+@@ -579,7 +579,10 @@
+     .line 5
+     .line 6
+     iget-boolean v1, p1, Lw1e;->a:Z
++    invoke-static {p0, p1, v1}, Lbttv/HideStories;->onBind(Ljava/lang/Object;Ljava/lang/Object;Z)Z
++    move-result v1
++
+
+     .line 7
+     .line 8
+     const/4 v2, 0x1

@@ -1,0 +1,25 @@
+diff --git a/smali_classes7/bttvcompat/NativeStoriesBridge.smali b/smali_classes7/bttvcompat/NativeStoriesBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/NativeStoriesBridge.smali
+@@ -0,0 +1,20 @@
++.class public final Lbttvcompat/NativeStoriesBridge;
++.super Ljava/lang/Object;
++
++.method public static rebind(Ljava/lang/Object;Ljava/lang/Object;)V
++    .locals 1
++    instance-of v0, p0, Ly1e;
++    if-eqz v0, :done
++    instance-of v0, p1, Lw1e;
++    if-eqz v0, :done
++    check-cast p0, Ly1e;
++    check-cast p1, Lw1e;
++    iget-object v0, p0, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->b:Landroid/view/View;
++    if-eqz v0, :done
++    invoke-virtual {v0}, Landroid/view/View;->isAttachedToWindow()Z
++    move-result v0
++    if-eqz v0, :done
++    invoke-virtual {p0, p1}, Ly1e;->w(Lw1e;)V
++    :done
++    return-void
++.end method

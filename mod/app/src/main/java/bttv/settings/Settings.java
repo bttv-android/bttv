@@ -81,6 +81,15 @@ public enum Settings {
                     null
             )
     ),
+    HideTwitchStoriesEnabled(
+            new Entry.BoolEntry(
+                    "bttv_hide_twitch_stories",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_hide_twitch_stories,
+                    Res.strings.bttv_settings_hide_twitch_stories_description,
+                    null
+            )
+    ),
     ShouldShowSleepTimer(
             new Entry.BoolEntry(
                 "enable_sleep_timer",

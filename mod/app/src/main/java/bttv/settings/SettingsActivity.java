@@ -21,6 +21,7 @@ import java.util.List;
 
 import bttv.AnonChat;
 import bttv.Credits;
+import bttv.HideStories;
 import bttv.Res;
 import bttv.ResUtil;
 import bttv.highlight.Blacklist;
@@ -125,6 +126,8 @@ public final class SettingsActivity extends Activity {
                 entry.set(SettingsActivity.this, new UserPreferences.Entry.BoolValue(checked));
                 if (entry == Settings.AnonChatEnabled.entry) {
                     AnonChat.reconnect(checked);
+                } else if (entry == Settings.HideTwitchStoriesEnabled.entry) {
+                    HideStories.onSettingChanged();
                 }
             }
         });
