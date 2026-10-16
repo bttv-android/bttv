@@ -73,4 +73,5 @@
     <!-- Crowdin thinks '<user>' is something special. It is not, feel free to translate it. -->
     <string name="bttv_settings_hide_twitch_stories">Hide Twitch Stories</string>
     <string name="bttv_settings_hide_twitch_stories_description">Hide the Stories section on the Home screen</string>
+    <string name="bttv_settings_always_show_chat_timestamps">Always Show Chat Timestamps</string>
 </resources>

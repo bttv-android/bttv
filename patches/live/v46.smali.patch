@@ -1,0 +1,13 @@
+diff --git a/smali_classes2/v46.smali b/smali_classes2/v46.smali
+--- a/smali_classes2/v46.smali
++++ b/smali_classes2/v46.smali
+@@ -159,6 +159,9 @@
+     .line 38
+     .line 39
+     iget-boolean v6, p0, Lv46;->g:Z
++    invoke-static {v6}, Lbttv/ChatTimestamps;->shouldShow(Z)Z
++    move-result v6
++
+
+     .line 40
+     .line 41

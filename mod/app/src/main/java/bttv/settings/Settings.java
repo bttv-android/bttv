@@ -90,6 +90,15 @@ public enum Settings {
                     null
             )
     ),
+    AlwaysShowChatTimestamps(
+            new Entry.BoolEntry(
+                    "bttv_always_show_chat_timestamps",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_always_show_chat_timestamps,
+                    null,
+                    null
+            )
+    ),
     ShouldShowSleepTimer(
             new Entry.BoolEntry(
                 "enable_sleep_timer",
