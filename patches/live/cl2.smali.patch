@@ -1,0 +1,17 @@
+diff --git a/smali_classes5/cl2.smali b/smali_classes5/cl2.smali
+--- a/smali_classes5/cl2.smali
++++ b/smali_classes5/cl2.smali
+@@ -41,7 +41,13 @@
+ .method public final R(La120;)V
+     .locals 1
+
++    invoke-static {p0, p1}, Lbttvcompat/NativeSettingsBridge;->handleLegacy(Ljava/lang/Object;Ljava/lang/Object;)Z
++    move-result v0
++    if-eqz v0, :bttv_native_stock
++    return-void
++    :bttv_native_stock
++
+     .line 1
+     iget v0, p0, Lcl2;->b:I
+
+     .line 2

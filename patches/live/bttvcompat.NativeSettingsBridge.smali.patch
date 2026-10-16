@@ -1,0 +1,131 @@
+diff --git a/smali_classes7/bttvcompat/NativeSettingsBridge.smali b/smali_classes7/bttvcompat/NativeSettingsBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/NativeSettingsBridge.smali
+@@ -0,0 +1,93 @@
++.class public final Lbttvcompat/NativeSettingsBridge;
++.super Ljava/lang/Object;
++
++.method public static appendLegacy(Landroid/app/Activity;Ljava/util/List;)V
++    .locals 6
++    :try_start_append
++    invoke-static {p0}, Lbttv/settings/SettingsNavigation;->findActivity(Landroid/content/Context;)Landroid/app/Activity;
++    move-result-object v0
++    if-eqz v0, :append_done
++    invoke-static {p1}, Lbttv/settings/SettingsNavigation;->hasNativeRow(Ljava/util/List;)Z
++    move-result v0
++    if-nez v0, :append_done
++    invoke-static {p0}, Lbttv/settings/SettingsNavigation;->nativeEntryTitle(Landroid/content/Context;)Ljava/lang/String;
++    move-result-object v1
++    new-instance v0, La120;
++    const/4 v2, 0x0
++    const/4 v3, 0x0
++    const/4 v4, 0x0
++    const/4 v5, 0x1
++    invoke-direct/range {v0 .. v5}, La120;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/String;Lb6z;Z)V
++    invoke-static {v0}, Lbttv/settings/SettingsNavigation;->markNativeRow(Ljava/lang/Object;)V
++    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
++    :try_end_append
++    goto :append_done
++    .catch Ljava/lang/Throwable; {:try_start_append .. :try_end_append} :append_failed
++    :append_failed
++    move-exception v0
++    :append_done
++    return-void
++.end method
++
++.method public static handleLegacy(Ljava/lang/Object;Ljava/lang/Object;)Z
++    .locals 2
++    :try_start_click
++    instance-of v0, p0, Lcl2;
++    if-eqz v0, :stock_click
++    instance-of v0, p1, La120;
++    if-eqz v0, :stock_click
++    check-cast p0, Lcl2;
++    iget v0, p0, Lcl2;->b:I
++    if-nez v0, :stock_click
++    invoke-static {p1}, Lbttv/settings/SettingsNavigation;->isNativeRow(Ljava/lang/Object;)Z
++    move-result v0
++    if-eqz v0, :stock_click
++    iget-object v1, p0, Lcl2;->c:Ljava/lang/Object;
++    instance-of v0, v1, Lffo;
++    if-eqz v0, :stock_click
++    check-cast v1, Ldl2;
++    iget-object v1, v1, Ldl2;->f:Landroidx/fragment/app/n;
++    invoke-static {v1}, Lbttv/settings/SettingsNavigation;->open(Landroid/content/Context;)Z
++    move-result v0
++    :try_end_click
++    return v0
++    .catch Ljava/lang/Throwable; {:try_start_click .. :try_end_click} :click_failed
++    :click_failed
++    move-exception v0
++    :stock_click
++    const/4 v0, 0x0
++    return v0
++.end method
++
++.method public static drawMain(Lqw9;)V
++    .locals 8
++    :try_start_prepare
++    check-cast p0, Lfsi;
++    sget-object v0, Lvp0;->b:Ld6f;
++    invoke-virtual {p0, v0}, Lfsi;->m(Landroidx/compose/runtime/g;)Ljava/lang/Object;
++    move-result-object v0
++    check-cast v0, Landroid/content/Context;
++    invoke-static {v0}, Lbttv/settings/SettingsNavigation;->findActivity(Landroid/content/Context;)Landroid/app/Activity;
++    move-result-object v0
++    if-eqz v0, :draw_done
++    new-instance v2, Lbttvcompat/NativeSettingsClick;
++    invoke-direct {v2, v0}, Lbttvcompat/NativeSettingsClick;-><init>(Landroid/app/Activity;)V
++    invoke-static {v0}, Lbttv/settings/SettingsNavigation;->nativeEntryTitle(Landroid/content/Context;)Ljava/lang/String;
++    move-result-object v0
++    const/4 v1, 0x0
++    const v3, 0x7f080646
++    const/4 v4, 0x0
++    move-object v5, p0
++    const/4 v6, 0x0
++    const/16 v7, 0x12
++    :try_end_prepare
++    goto :draw_ready
++    .catch Ljava/lang/Throwable; {:try_start_prepare .. :try_end_prepare} :prepare_failed
++    :prepare_failed
++    move-exception v0
++    :draw_done
++    return-void
++    :draw_ready
++    invoke-static/range {v0 .. v7}, Lr2k;->w(Ljava/lang/String;Ljava/lang/String;Lngi;ILwqj;Lqw9;II)V
++    return-void
++.end method
+diff --git a/smali_classes7/bttvcompat/NativeSettingsClick.smali b/smali_classes7/bttvcompat/NativeSettingsClick.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/NativeSettingsClick.smali
+@@ -0,0 +1,28 @@
++.class public final Lbttvcompat/NativeSettingsClick;
++.super Ljava/lang/Object;
++.implements Lngi;
++
++.field private final activity:Ljava/lang/ref/WeakReference;
++
++.method public constructor <init>(Landroid/app/Activity;)V
++    .locals 1
++    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
++    new-instance v0, Ljava/lang/ref/WeakReference;
++    invoke-direct {v0, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
++    iput-object v0, p0, Lbttvcompat/NativeSettingsClick;->activity:Ljava/lang/ref/WeakReference;
++    return-void
++.end method
++
++.method public final invoke()Ljava/lang/Object;
++    .locals 1
++    iget-object v0, p0, Lbttvcompat/NativeSettingsClick;->activity:Ljava/lang/ref/WeakReference;
++    invoke-virtual {v0}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
++    move-result-object v0
++    instance-of p0, v0, Landroid/app/Activity;
++    if-eqz p0, :click_done
++    check-cast v0, Landroid/app/Activity;
++    invoke-static {v0}, Lbttv/settings/SettingsNavigation;->open(Landroid/content/Context;)Z
++    :click_done
++    sget-object v0, Ltf50;->a:Ltf50;
++    return-object v0
++.end method

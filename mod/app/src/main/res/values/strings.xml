@@ -74,4 +74,9 @@
     <string name="bttv_settings_hide_twitch_stories">Hide Twitch Stories</string>
     <string name="bttv_settings_hide_twitch_stories_description">Hide the Stories section on the Home screen</string>
     <string name="bttv_settings_always_show_chat_timestamps">Always Show Chat Timestamps</string>
+    <string name="bttv_settings_entry_title">BTTV Settings</string>
+    <string name="bttv_settings_section_emotes">Emotes</string>
+    <string name="bttv_settings_section_chat">Chat</string>
+    <string name="bttv_settings_section_other">Other Features</string>
+    <string name="bttv_settings_section_about">About</string>
 </resources>

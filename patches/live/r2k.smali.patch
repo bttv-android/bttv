@@ -1,0 +1,12 @@
+diff --git a/smali_classes5/r2k.smali b/smali_classes5/r2k.smali
+--- a/smali_classes5/r2k.smali
++++ b/smali_classes5/r2k.smali
+@@ -12466,6 +12466,8 @@
+     move-object/from16 v18, v9
+
+     .line 45
++    invoke-static {v9}, Lbttvcompat/NativeSettingsBridge;->drawMain(Lqw9;)V
++
+     invoke-static/range {v13 .. v19}, Lr2k;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lngi;Lngi;Lqw9;I)V
+
+     const/4 v5, 0x1

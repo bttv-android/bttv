@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.text.Annotation;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannedString;
+import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -25,13 +25,13 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Credits {
-    private static final String TAG = "LBTTVCredits";
 
     public static void openDialog(Activity activity) {
         AlertDialog.Builder b = new AlertDialog.Builder(activity);
@@ -41,6 +41,7 @@ public class Credits {
 
         TextView intoTv = scrollView.findViewById(ResUtil.getResourceId(activity, Res.ids.bttv_credits_into_tv));
         intoTv.setText(linkify(activity, Res.strings.bttv_credits_intro));
+        intoTv.setLinkTextColor(activity.getResources().getColor(ResUtil.getResourceId(activity, "text_link", "color")));
         intoTv.setMovementMethod(LinkMovementMethod.getInstance());
 
         try {
@@ -58,7 +59,7 @@ public class Credits {
 
     private static void addContributors(LinearLayout v, Activity activity) throws JSONException, IOException {
         Contributor[] contributors = loadJson(activity);
-        HashMap<String, ArrayList<Contributor>> map = new HashMap<>();
+        LinkedHashMap<String, ArrayList<Contributor>> map = new LinkedHashMap<>();
 
         for (Contributor contributor : contributors) {
             for (String contribution : contributor.contributions) {
@@ -76,33 +77,45 @@ public class Credits {
                 continue;
             TextView kindTitle = new TextView(activity);
             kindTitle.setTextSize(20.0f);
-            kindTitle.setPadding(0, 5, 0, 0);
+            kindTitle.setTextColor(activity.getResources().getColor(ResUtil.getResourceId(activity, "text_base", "color")));
+            kindTitle.setPadding(0, dp(activity, 16), 0, dp(activity, 8));
+            kindTitle.setAccessibilityHeading(true);
             kindTitle.setText(kindToString(activity, kind));
             v.addView(kindTitle);
             for (Contributor contributor : map.get(kind)) {
-                Log.d(TAG, contributor.toString());
                 SpannableString spannableString = new SpannableString(contributor.login);
-                spannableString.setSpan(
-                        new LinkSpan(contributor.url, activity),
-                        0,
-                        contributor.login.length(),
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                );
+                String destination = CreditsLinks.destination(contributor.url);
+                if (destination != null && !contributor.login.isEmpty()) {
+                    spannableString.setSpan(new LinkSpan(destination, activity), 0,
+                            contributor.login.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
                 TextView tv = new TextView(activity);
+                tv.setTextSize(16);
+                tv.setTextColor(activity.getResources().getColor(ResUtil.getResourceId(activity, "text_base", "color")));
+                tv.setLinkTextColor(activity.getResources().getColor(ResUtil.getResourceId(activity, "text_link", "color")));
+                tv.setMinHeight(dp(activity, 48));
+                tv.setGravity(android.view.Gravity.CENTER_VERTICAL);
                 tv.setText(spannableString);
-                tv.setMovementMethod(LinkMovementMethod.getInstance());
+                if (destination != null) {
+                    tv.setMovementMethod(LinkMovementMethod.getInstance());
+                    tv.setOnClickListener(ignored -> openLink(activity, destination));
+                    tv.setFocusable(true);
+                }
                 v.addView(tv);
             }
         }
     }
 
     private static Contributor[] loadJson(Activity activity) throws IOException, JSONException {
-        InputStream is = activity.getAssets().open("bttv_contributors.json");
-        int size = is.available();
-        byte[] buffer = new byte[size];
-        is.read(buffer);
-        is.close();
-        JSONObject json = new JSONObject(new String(buffer, StandardCharsets.UTF_8));
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        try (InputStream is = activity.getAssets().open("bttv_contributors.json")) {
+            byte[] buffer = new byte[4096];
+            int count;
+            while ((count = is.read(buffer)) != -1) {
+                bytes.write(buffer, 0, count);
+            }
+        }
+        JSONObject json = new JSONObject(new String(bytes.toByteArray(), StandardCharsets.UTF_8));
         JSONArray arr = json.getJSONArray("contributors");
 
         Contributor[] ret = new Contributor[arr.length()];
@@ -112,7 +125,7 @@ public class Credits {
             Contributor contributor = new Contributor();
             contributor.login = jsonContr.getString("login");
             contributor.name = jsonContr.getString("name");
-            contributor.url = jsonContr.getString("profile");
+            contributor.url = jsonContr.optString("profile", "");
             JSONArray contributions = jsonContr.getJSONArray("contributions");
             contributor.contributions = new String[contributions.length()];
             for (int j = 0; j < contributions.length(); j++) {
@@ -124,14 +137,15 @@ public class Credits {
     }
 
     private static SpannableString linkify(Activity activity, Res.strings res) {
-        SpannedString sStr = (SpannedString) activity.getText(ResUtil.getResourceId(res));
-        Annotation[] annotations = sStr.getSpans(0, sStr.length(), Annotation.class);
+        CharSequence sStr = activity.getText(ResUtil.getResourceId(res));
+        Annotation[] annotations = sStr instanceof Spanned
+                ? ((Spanned) sStr).getSpans(0, sStr.length(), Annotation.class) : new Annotation[0];
         SpannableString spannableString = new SpannableString(sStr);
 
         for (Annotation annotation: annotations) {
             if (annotation.getKey().equals("link_to")) {
-                String link_to = annotation.getValue();
-                spannableString.setSpan(
+                String link_to = CreditsLinks.destination(annotation.getValue());
+                if (link_to != null) spannableString.setSpan(
                     new LinkSpan(link_to, activity),
                     spannableString.getSpanStart(annotation),
                     spannableString.getSpanEnd(annotation),
@@ -140,6 +154,22 @@ public class Credits {
             }
         }
         return spannableString;
+    }
+
+    private static int dp(Activity activity, int value) {
+        return Math.round(value * activity.getResources().getDisplayMetrics().density);
+    }
+
+    private static void openLink(Activity activity, String supplied) {
+        String destination = CreditsLinks.destination(supplied);
+        if (destination == null || activity.isFinishing() || activity.isDestroyed()) {
+            return;
+        }
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(destination)));
+        } catch (ActivityNotFoundException | SecurityException unavailable) {
+            // Keep the Credits dialog usable even without a supported link handler.
+        }
     }
 
     private static String kindToString(Context context, String kind) {
@@ -167,8 +197,7 @@ public class Credits {
 
         @Override
         public void onClick(@NonNull View widget) {
-            Log.d(TAG, "CLICKED " + link_to);
-            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link_to)));
+            openLink(activity, link_to);
         }
     }
 

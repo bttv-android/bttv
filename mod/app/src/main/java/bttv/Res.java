@@ -116,6 +116,11 @@ public class Res {
         bttv_settings_hide_twitch_stories,
         bttv_settings_hide_twitch_stories_description,
         bttv_settings_always_show_chat_timestamps,
+        bttv_settings_entry_title,
+        bttv_settings_section_emotes,
+        bttv_settings_section_chat,
+        bttv_settings_section_other,
+        bttv_settings_section_about,
     }
 
     public enum drawables {

@@ -1,0 +1,10 @@
+diff --git a/smali_classes5/ffo.smali b/smali_classes5/ffo.smali
+--- a/smali_classes5/ffo.smali
++++ b/smali_classes5/ffo.smali
+@@ -752,5 +752,6 @@
+     .line 349
+     .line 350
+     :cond_2
++    invoke-static {v3, v0}, Lbttvcompat/NativeSettingsBridge;->appendLegacy(Landroid/app/Activity;Ljava/util/List;)V
+     return-void
+ .end method
