@@ -18,6 +18,8 @@ import bttvcompat.NativeAutocompleteBridge;
 /** Native colon autocomplete integration. Twitch owns filtering, rows, completion and sending. */
 public final class LiveEmoteAutocomplete {
     private static final String TAG = "BTTV-Autocomplete";
+    // Shared compile-time switch for emote lifecycle traces, not a user preference.
+    static final boolean DEBUG_LOGGING = false;
     // Main-thread-only. Neither registry can root an input, Activity or presenter.
     private static final WeakHashMap<EditText, WeakReference<Controller>> CONTROLLERS =
             new WeakHashMap<>();
@@ -87,14 +89,14 @@ public final class LiveEmoteAutocomplete {
             if (existing != null) {
                 if (!existing.duplicateReported) {
                     existing.duplicateReported = true;
-                    existing.log("ATTACH duplicate ignored");
+                    if (DEBUG_LOGGING) existing.log("ATTACH duplicate ignored");
                 }
                 return;
             }
             Controller created = new Controller(input);
             input.addOnAttachStateChangeListener(created);
             CONTROLLERS.put(input, new WeakReference<>(created));
-            created.log("ATTACH new active=" + created.active);
+            if (DEBUG_LOGGING) created.log("ATTACH new active=" + created.active);
         } catch (Throwable failure) {
             failure("attach", failure);
         }
@@ -118,7 +120,7 @@ public final class LiveEmoteAutocomplete {
             owner.channelAssigned = true;
             if (changed) owner.generation++;
             owner.invalidate();
-            owner.log("CHANNEL " + previous + " -> " + next);
+            if (DEBUG_LOGGING) owner.log("CHANNEL " + previous + " -> " + next);
             notifyLifecycle();
         } catch (Throwable failure) {
             failure("setChannel", failure);
@@ -141,7 +143,7 @@ public final class LiveEmoteAutocomplete {
             if (previous != null) ADAPTERS.remove(previous);
             owner.adapterRef = new WeakReference<>(adapter);
             ADAPTERS.put(adapter, new WeakReference<>(owner));
-            owner.log("NATIVE bound");
+            if (DEBUG_LOGGING) owner.log("NATIVE bound");
         } catch (Throwable failure) {
             failure("bindNativeAdapter", failure);
         }
@@ -200,14 +202,15 @@ public final class LiveEmoteAutocomplete {
             if (!owner.active || generation != owner.generation || !channel.equals(owner.channelId)
                     || !token.same(EmoteAutocompleteLogic.token(input.getText(),
                             input.getSelectionStart(), input.getSelectionEnd()))) return;
-            String event = "NATIVE merge native=" + count + " thirdParty=" + images.size()
-                    + " total=" + merged.size();
             // All fallible construction/validation precedes these field-only commits.
             NativeAutocompleteBridge.publish(results, merged);
             // ot1 keeps its old (hidden) dataset when count is zero. Retain its row
             // identities until replacement so channel/detach invalidation can still remove them.
             if (!merged.isEmpty()) owner.images = images;
-            owner.log(event);
+            if (DEBUG_LOGGING) {
+                owner.log("NATIVE merge native=" + count + " thirdParty=" + images.size()
+                        + " total=" + merged.size());
+            }
         } catch (Throwable failure) {
             // Never expose partial results, provider failures or linkage errors to Twitch input.
             failure("mergeNativeResults", failure);
@@ -281,7 +284,7 @@ public final class LiveEmoteAutocomplete {
             try {
                 if (active) return;
                 active = true;
-                log(previouslyAttached ? "REATTACH" : "ATTACHED");
+                if (DEBUG_LOGGING) log(previouslyAttached ? "REATTACH" : "ATTACHED");
                 previouslyAttached = true;
             } catch (Throwable failure) {
                 failure("reattach", failure);
@@ -294,7 +297,7 @@ public final class LiveEmoteAutocomplete {
                 active = false;
                 generation++;
                 invalidate();
-                log("DETACH");
+                if (DEBUG_LOGGING) log("DETACH");
                 notifyLifecycle();
             } catch (Throwable failure) {
                 failure("detach", failure);
@@ -302,6 +305,7 @@ public final class LiveEmoteAutocomplete {
         }
 
         void log(String event) {
+            if (!DEBUG_LOGGING) return;
             try {
                 logSafely(event + " input=" + Integer.toHexString(inputIdentity)
                         + " controller=" + Integer.toHexString(System.identityHashCode(this))

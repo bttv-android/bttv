@@ -58,7 +58,7 @@ public final class LiveEmoteChannels {
                 Catalog created = new Catalog();
                 Catalog previous = CATALOGS.putIfAbsent(channelId, created);
                 catalog = previous == null ? created : previous;
-                if (previous == null) {
+                if (previous == null && LiveEmoteAutocomplete.DEBUG_LOGGING) {
                     log("channel selected id=" + channelId);
                 }
             }
@@ -123,7 +123,9 @@ public final class LiveEmoteChannels {
                         request.loading = false;
                     }
                     EmoteCatalogEvents.published(source.name(), channelId);
-                    log(providerName(source) + " channel " + channelId + " n=" + parsed.size());
+                    if (LiveEmoteAutocomplete.DEBUG_LOGGING) {
+                        log(providerName(source) + " channel " + channelId + " n=" + parsed.size());
+                    }
                     reportReady(channelId, catalog);
                 } catch (Throwable failure) {
                     failed(channelId, source, request, failure);
@@ -142,7 +144,7 @@ public final class LiveEmoteChannels {
         String detail = failure instanceof LiveEmoteGlobals.HttpFailure
                 ? "http=" + ((LiveEmoteGlobals.HttpFailure) failure).status
                 : "error=" + failure.getClass().getSimpleName();
-        log(providerName(source) + " channel " + id + " " + detail);
+        log(providerName(source) + " channel " + detail);
     }
 
     private static void reportReady(String id, Catalog catalog) {
@@ -158,7 +160,9 @@ public final class LiveEmoteChannels {
                 }
             }
             catalog.readyLogged = true;
-            log("channel ready " + id);
+            if (LiveEmoteAutocomplete.DEBUG_LOGGING) {
+                log("channel ready " + id);
+            }
         }
     }
 
@@ -189,7 +193,7 @@ public final class LiveEmoteChannels {
             if (failure.status != 404) {
                 throw failure;
             }
-            log(providerName(source) + " channel " + id + " http=404 (empty)");
+            log(providerName(source) + " channel http=404 (empty)");
             return Collections.emptyMap();
         }
     }

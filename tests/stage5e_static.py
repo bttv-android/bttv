@@ -68,6 +68,8 @@ class PickerStaticTests(unittest.TestCase):
     def test_C2_behavior_methods_unchanged(self):
         path='mod/app/src/main/java/bttv/emote/LiveEmoteAutocomplete.java'
         old,new=baseline(path),read(path)
+        from stage5q_trace_cleanup import before_trace_cleanup
+        new=before_trace_cleanup(path,new)
         # Remove just the new read-only API block and its two observer calls.
         start=new.index('    // Read-only picker lifecycle surface')
         end=new.index('    private static boolean mainThread()',start)
@@ -99,7 +101,12 @@ class PickerStaticTests(unittest.TestCase):
         MigrationTests.setUpClass()
         MigrationTests('test_only_approved_manifest_attributes_change').test_only_approved_manifest_attributes_change()
         for path in paths:
-            if (ROOT/path).exists(): self.assertEqual(read(path),baseline(path),path)
+            if (ROOT/path).exists():
+                current=read(path)
+                if path=='patches/live/z86.smali.patch':
+                    from stage5q_trace_cleanup import before_trace_cleanup
+                    current=before_trace_cleanup(path,current)
+                self.assertEqual(current,baseline(path),path)
         # Stage 5K adds one isolated style-selection hunk to f86 without
         # changing its established third-party image-rendering hunk.
         f86 = read('patches/live/f86.smali.patch')
@@ -113,6 +120,8 @@ class PickerStaticTests(unittest.TestCase):
     def test_chat_animation_is_third_party_only(self):
         path = 'mod/app/src/main/java/bttv/emote/LiveEmotes.java'
         old, new = baseline(path), read(path)
+        from stage5q_trace_cleanup import before_trace_cleanup
+        new = before_trace_cleanup(path, new)
         start = new.index('    /** True only for URLs emitted by the bttv31 live-chat marker bypass. */')
         end = new.index('    private static synchronized void requestGlobals()', start)
         self.assertEqual(old, new[:start] + new[end:])

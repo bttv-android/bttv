@@ -59,6 +59,5 @@ public class Data {
     public static void setContext(Context ctx) {
         Context applicationContext = ctx == null ? null : ctx.getApplicationContext();
         Data.ctx = applicationContext == null ? ctx : applicationContext;
-        Log.i("LBTTVDataSetContext", "context now is " + ((Data.ctx == null) ? "null" : "not null"));
     }
 }

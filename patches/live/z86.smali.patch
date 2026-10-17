@@ -1,6 +1,15 @@
 diff --git a/smali_classes2/z86.smali b/smali_classes2/z86.smali
 --- a/smali_classes2/z86.smali
 +++ b/smali_classes2/z86.smali
+@@ -1180,7 +1180,7 @@
+
+ # virtual methods
+ .method public final a(Ljava/lang/String;Lzun;Ljava/lang/String;Lf56;)Ll26;
+-    .locals 24
++    .locals 27
+
+     .line 1
+     move-object/from16 v0, p0
 @@ -2550,6 +2550,11 @@
      .line 648
      :cond_22

@@ -22,7 +22,10 @@ def production_paths(root):
     paths = subprocess.check_output(
         ["git", "ls-files", "-z"], cwd=root
     ).decode().split("\0")
-    return sorted(p for p in paths if p and not p.startswith(EXCLUDED))
+    deleted = set(subprocess.check_output(
+        ["git", "ls-files", "--deleted", "-z"], cwd=root
+    ).decode().split("\0"))
+    return sorted(p for p in paths if p and p not in deleted and not p.startswith(EXCLUDED))
 
 
 def stage(root, destination):

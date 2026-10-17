@@ -87,14 +87,6 @@ public final class LiveEmotes {
             return emote != null && (!"gif".equals(emote.imageType) || gifEnabled);
         }
 
-        boolean isChannel(Emote emote) {
-            for (Map<String, Emote> channel : channels) {
-                if (channel.get(emote.code) == emote) {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 
     /** Returns null when the original text token should be kept unchanged. */
@@ -154,12 +146,6 @@ public final class LiveEmotes {
             String code = text.substring(codeStart, codeEnd);
             String marker = MARKER + emote.source.name() + ":" + emote.id + ":" + emote.url;
             parts.add(new Part(code, marker));
-            boolean channelMatch = lookup.isChannel(emote);
-            String provider = channelMatch
-                    ? LiveEmoteChannels.providerName(emote.source) + "-channel" : emote.source.name();
-            Log.i(TAG, "THIRD_PARTY_MATCH provider=" + provider
-                    + (channelMatch ? " channel=" + channelId : "")
-                    + " text=" + code + " id=" + emote.id);
             copiedThrough = codeEnd;
         }
         if (parts == null) {
@@ -228,8 +214,6 @@ public final class LiveEmotes {
         if (!url.startsWith("https://")) {
             return null;
         }
-        Log.i(TAG, "THIRD_PARTY_URL provider=" + provider
-                + " text=" + text + " url=" + url);
         return url;
     }
 

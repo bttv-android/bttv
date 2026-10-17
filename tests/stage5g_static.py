@@ -200,7 +200,11 @@ class DeletedMessagesStaticTests(unittest.TestCase):
             "mod/app/src/main/java/bttv/api/SplitChat.java",
             "mod/app/src/main/java/bttv/emote/LiveEmotes.java",
         ):
-            self.assertEqual(read(path), baseline(path), path)
+            current = read(path)
+            if path.endswith('/LiveEmotes.java'):
+                from stage5q_trace_cleanup import before_trace_cleanup
+                current = before_trace_cleanup(path, current)
+            self.assertEqual(current, baseline(path), path)
         self.assertIn("rename to smali_classes7/f86.smali", read("patches/live/zz_f86_relocation.patch"))
 
 

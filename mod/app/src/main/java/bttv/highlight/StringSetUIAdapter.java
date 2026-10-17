@@ -1,7 +1,6 @@
 package bttv.highlight;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,7 +56,6 @@ public class StringSetUIAdapter extends ArrayAdapter<String> {
                 setUI.remove(word);
                 words.remove(position);
                 notifyDataSetChanged();
-                Log.i(TAG, "onClick: " + word);
                 if (afterRemovedListener != null) {
                     afterRemovedListener.onAfterRemoved();
                 }
