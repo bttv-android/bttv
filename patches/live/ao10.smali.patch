@@ -1,0 +1,9 @@
+--- a/smali_classes5/ao10.smali
++++ b/smali_classes5/ao10.smali
+@@ -2292,4 +2292,6 @@
+     .line 1155
+     .line 1156
+     .line 1157
++    invoke-static/range {p2 .. p2}, Lbttv/settings/StreamQuickSettings;->bind(Landroid/view/View;)V
++
+     return-void

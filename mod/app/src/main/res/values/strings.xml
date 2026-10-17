@@ -79,4 +79,7 @@
     <string name="bttv_settings_section_chat">Chat</string>
     <string name="bttv_settings_section_other">Other Features</string>
     <string name="bttv_settings_section_about">About</string>
+    <string name="bttv_quick_anonymous_chat">Anonymous Chat</string>
+    <string name="bttv_quick_highlight_keywords">Highlight Keywords</string>
+    <string name="bttv_quick_chat_blacklist">Chat Blacklist</string>
 </resources>
