@@ -1,0 +1,209 @@
+diff --git a/smali_classes2/aaj.smali b/smali_classes2/aaj.smali
+--- a/smali_classes2/aaj.smali
++++ b/smali_classes2/aaj.smali
+@@ -934,6 +934,9 @@
+     .line 95
+     move-result-object v5
+
++    invoke-static {v5, v4}, Lbttvcompat/GifBridge;->request(Li0x;Lr360;)Li0x;
++    move-result-object v5
++
+     .line 96
+     iget-object v4, v4, Lr360;->a:Ljava/lang/String;
+
+diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
+--- a/smali_classes2/f86.smali
++++ b/smali_classes2/f86.smali
+@@ -3394,6 +3394,9 @@
+     .line 41
+     invoke-direct {v2, v4, v0, p5}, Lr360;-><init>(Ljava/lang/String;Ll5p;I)V
+
++    iget-object v3, p0, Lf86;->a:Lqz0;
++    invoke-static {v2, v3, v1}, Lbttvcompat/GifBridge;->bind(Lr360;Lqz0;Ljava/lang/String;)V
++
+     .line 42
+     .line 43
+     .line 44
+diff --git a/smali_classes2/qt1.smali b/smali_classes2/qt1.smali
+--- a/smali_classes2/qt1.smali
++++ b/smali_classes2/qt1.smali
+@@ -264,8 +264,8 @@
+     .line 88
+     .line 89
+     :try_start_bttv_ac_url
+-    invoke-static {p1}, Lbttv/emote/LiveEmoteAutocomplete;->resolveNativeImageUrl(Ljava/lang/Object;)Ljava/lang/String;
+-    move-result-object v4
++    invoke-static {p1, v2, p0}, Lbttvcompat/GifBridge;->autocomplete(Ljava/lang/Object;Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;)Z
++    move-result v4
+     :try_end_bttv_ac_url
+     goto :bttv_ac_url_checked
+     .catch Ljava/lang/Throwable; {:try_start_bttv_ac_url .. :try_end_bttv_ac_url} :bttv_ac_url_failed
+@@ -273,10 +273,7 @@
+     move-exception v4
+     const/4 v4, 0x0
+     :bttv_ac_url_checked
+-    if-eqz v4, :bttv_ac_stock_url
+-    move-object p0, v4
+-    goto :bttv_ac_url_ready
+-    :bttv_ac_stock_url
++    if-nez v4, :bttv_ac_image_done
+     iget-object p0, p0, Lqt1;->c:Lqz0;
+
+     .line 90
+@@ -311,6 +308,7 @@
+     .line 105
+     :bttv_ac_url_ready
+     invoke-virtual {v2, p0}, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->setImageURL(Ljava/lang/String;)V
++    :bttv_ac_image_done
+
+     .line 106
+     .line 107
+diff --git a/smali_classes5/wjf.smali b/smali_classes5/wjf.smali
+--- a/smali_classes5/wjf.smali
++++ b/smali_classes5/wjf.smali
+@@ -2191,7 +2191,7 @@
+     .line 845
+     move-result-object v14
+     :bttv_picker_image_ready
+-    invoke-static {v13, v7, v14}, Lbttvcompat/NativePickerBridge;->pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;)Z
++    invoke-static {v13, v7, v14, v10}, Lbttvcompat/NativePickerBridge;->pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;Lqz0;)Z
+     move-result v2
+     if-nez v2, :bttv_picker_image_done
+
+diff --git a/smali_classes2/r360.smali b/smali_classes2/r360.smali
+--- a/smali_classes2/r360.smali
++++ b/smali_classes2/r360.smali
+@@ -11,6 +11,10 @@
+ .field public final c:Z
+
+ .field public d:Landroid/graphics/drawable/Drawable;
++
++.field public bttvThirdParty:Z
++
++.field public bttvNativeStatic:Z
+
+
+ # direct methods
+diff --git a/smali_classes7/bttvcompat/NativePickerBridge.smali b/smali_classes7/bttvcompat/NativePickerBridge.smali
+--- a/smali_classes7/bttvcompat/NativePickerBridge.smali
++++ b/smali_classes7/bttvcompat/NativePickerBridge.smali
+@@ -61,7 +61,7 @@
+     return-object v0
+ .end method
+
+-.method public static pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;)Z
++.method public static pickerImage(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;Ljava/lang/String;Lqz0;)Z
+     .locals 4
+     invoke-static {p1}, Lbttvcompat/NativePickerBridge;->id(Ljava/lang/Object;)Ljava/lang/String;
+     move-result-object v0
+@@ -80,17 +80,7 @@
+     move-result v0
+     if-nez v0, :synthetic_empty
+
+-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+-    move-result-object v0
+-    invoke-static {v0}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
+-    move-result-object v0
+-    const-class v1, Landroid/graphics/drawable/Drawable;
+-    invoke-virtual {v0, v1}, Ll1x;->a(Ljava/lang/Class;)Li0x;
+-    move-result-object v0
+-    invoke-virtual {v0, p2}, Li0x;->I(Ljava/lang/Object;)Li0x;
+-    move-result-object v0
+-    invoke-virtual {v0, p0}, Li0x;->G(Landroid/widget/ImageView;)V
+-    iput-object p2, p0, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->d:Ljava/lang/String;
++    invoke-static {p0, p2, p3}, Lbttvcompat/GifBridge;->image(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;Lqz0;)V
+     const/4 v0, 0x1
+     return v0
+
+diff --git a/smali_classes7/bttvcompat/GifBridge.smali b/smali_classes7/bttvcompat/GifBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/GifBridge.smali
+@@ -0,0 +1,87 @@
++.class public final Lbttvcompat/GifBridge;
++.super Ljava/lang/Object;
++
++.method public static nativeStatic(Lqz0;)Z
++    .locals 1
++    iget-object p0, p0, Lqz0;->a:Len6;
++    invoke-virtual {p0}, Len6;->p()Z
++    move-result v0
++    xor-int/lit8 v0, v0, 0x1
++    return v0
++.end method
++
++.method public static bind(Lr360;Lqz0;Ljava/lang/String;)V
++    .locals 1
++    const-string v0, "bttv31://"
++    invoke-virtual {p2, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
++    move-result v0
++    if-eqz v0, :done
++    const/4 v0, 0x1
++    iput-boolean v0, p0, Lr360;->bttvThirdParty:Z
++    invoke-static {p1}, Lbttvcompat/GifBridge;->nativeStatic(Lqz0;)Z
++    move-result v0
++    iput-boolean v0, p0, Lr360;->bttvNativeStatic:Z
++    :done
++    return-void
++.end method
++
++.method public static request(Li0x;Lr360;)Li0x;
++    .locals 1
++    iget-boolean v0, p1, Lr360;->bttvThirdParty:Z
++    if-eqz v0, :done
++    iget-boolean v0, p1, Lr360;->bttvNativeStatic:Z
++    invoke-static {p0, v0}, Lbttvcompat/GifBridge;->configure(Li0x;Z)Li0x;
++    move-result-object p0
++    :done
++    return-object p0
++.end method
++
++.method public static configure(Li0x;Z)Li0x;
++    .locals 1
++    invoke-static {p1}, Lbttv/emote/GifPolicy;->shouldAnimate(Z)Z
++    move-result v0
++    if-nez v0, :done
++    # The existing Glide worker decodes a Bitmap and transcodes it to Drawable.
++    # No animation resource is created or started, and the original URL is kept.
++    const-class v0, Landroid/graphics/Bitmap;
++    invoke-virtual {p0, v0}, Lzk2;->d(Ljava/lang/Class;)Lzk2;
++    move-result-object p0
++    check-cast p0, Li0x;
++    :done
++    return-object p0
++.end method
++
++.method public static image(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;Lqz0;)V
++    .locals 2
++    invoke-static {p2}, Lbttvcompat/GifBridge;->nativeStatic(Lqz0;)Z
++    move-result p2
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v0
++    invoke-static {v0}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
++    move-result-object v0
++    const-class v1, Landroid/graphics/drawable/Drawable;
++    invoke-virtual {v0, v1}, Ll1x;->a(Ljava/lang/Class;)Li0x;
++    move-result-object v0
++    invoke-static {v0, p2}, Lbttvcompat/GifBridge;->configure(Li0x;Z)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p1}, Li0x;->I(Ljava/lang/Object;)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p0}, Li0x;->G(Landroid/widget/ImageView;)V
++    iput-object p1, p0, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;->d:Ljava/lang/String;
++    return-void
++.end method
++
++.method public static autocomplete(Ljava/lang/Object;Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/Object;)Z
++    .locals 1
++    invoke-static {p0}, Lbttv/emote/LiveEmoteAutocomplete;->resolveNativeImageUrl(Ljava/lang/Object;)Ljava/lang/String;
++    move-result-object v0
++    if-eqz v0, :stock
++    check-cast p2, Lqt1;
++    iget-object p2, p2, Lqt1;->c:Lqz0;
++    invoke-static {p1, v0, p2}, Lbttvcompat/GifBridge;->image(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;Lqz0;)V
++    const/4 v0, 0x1
++    return v0
++    :stock
++    const/4 v0, 0x0
++    return v0
++.end method
