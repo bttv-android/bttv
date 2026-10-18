@@ -1,0 +1,85 @@
+diff --git a/smali_classes7/bttvcompat/LiveBadgeBridge.smali b/smali_classes7/bttvcompat/LiveBadgeBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/LiveBadgeBridge.smali
+@@ -0,0 +1,80 @@
++.class public final Lbttvcompat/LiveBadgeBridge;
++.super Ljava/lang/Object;
++
++.method public static augment(Landroid/content/Context;Landroid/text/SpannedString;Ljava/lang/String;)Landroid/text/SpannedString;
++    .locals 9
++    :try_start_badge
++    if-eqz p0, :original
++    if-eqz p1, :original
++    invoke-virtual {p1}, Landroid/text/SpannedString;->length()I
++    move-result v0
++    const/4 v1, 0x0
++    const-class v2, Lbttv/badge/BadgeImages$Marker;
++    invoke-virtual {p1, v1, v0, v2}, Landroid/text/SpannedString;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
++    move-result-object v2
++    array-length v2, v2
++    if-nez v2, :original
++    invoke-static {p2}, Lbttv/badge/BadgeImages;->ready(Ljava/lang/String;)Ljava/util/List;
++    move-result-object v2
++    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
++    move-result v3
++    if-nez v3, :original
++    new-instance v3, Landroid/text/SpannableStringBuilder;
++    invoke-direct {v3, p1}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
++    const-string v4, ""
++    sget-object v5, Ll5p;->Badge:Ll5p;
++    new-instance v6, Lr360;
++    const/4 v7, 0x4
++    invoke-direct {v6, v4, v5, v7}, Lr360;-><init>(Ljava/lang/String;Ll5p;I)V
++    invoke-static {p0, v6}, Laaj;->g(Landroid/content/Context;Lr360;)I
++    move-result v6
++    if-lez v6, :original
++    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
++    move-result-object v2
++    :next_badge
++    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
++    move-result v4
++    if-eqz v4, :done
++    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
++    move-result-object v4
++    check-cast v4, Lbttv/badge/BadgeImages$ReadyBadge;
++    invoke-virtual {v3}, Landroid/text/SpannableStringBuilder;->length()I
++    move-result v5
++    iget-object v7, v4, Lbttv/badge/BadgeImages$ReadyBadge;->title:Ljava/lang/String;
++    invoke-virtual {v3, v7}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
++    invoke-virtual {v3}, Landroid/text/SpannableStringBuilder;->length()I
++    move-result v7
++    const-string v8, " "
++    invoke-virtual {v3, v8}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
++    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
++    move-result-object v8
++    iget-object v4, v4, Lbttv/badge/BadgeImages$ReadyBadge;->bitmap:Landroid/graphics/Bitmap;
++    new-instance v0, Landroid/graphics/drawable/BitmapDrawable;
++    invoke-direct {v0, v8, v4}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
++    invoke-virtual {v0, v1, v1, v6, v6}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
++    new-instance v4, Ldu4;
++    invoke-direct {v4, v0}, Landroid/text/style/ImageSpan;-><init>(Landroid/graphics/drawable/Drawable;)V
++    const/4 v0, 0x0
++    iput-object v0, v4, Ldu4;->a:Ljava/lang/Integer;
++    const/16 v0, 0x11
++    invoke-virtual {v3, v4, v5, v7, v0}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
++    goto :next_badge
++    :done
++    new-instance v0, Lbttv/badge/BadgeImages$Marker;
++    invoke-direct {v0}, Lbttv/badge/BadgeImages$Marker;-><init>()V
++    invoke-virtual {p1}, Landroid/text/SpannedString;->length()I
++    move-result v4
++    invoke-virtual {v3}, Landroid/text/SpannableStringBuilder;->length()I
++    move-result v5
++    const/16 v6, 0x21
++    invoke-virtual {v3, v0, v4, v5, v6}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
++    new-instance v0, Landroid/text/SpannedString;
++    invoke-direct {v0, v3}, Landroid/text/SpannedString;-><init>(Ljava/lang/CharSequence;)V
++    :try_end_badge
++    return-object v0
++    .catch Ljava/lang/Throwable; {:try_start_badge .. :try_end_badge} :failed
++    :failed
++    move-exception v0
++    :original
++    return-object p1
++.end method

@@ -59,5 +59,6 @@ public class Data {
     public static void setContext(Context ctx) {
         Context applicationContext = ctx == null ? null : ctx.getApplicationContext();
         Data.ctx = applicationContext == null ? ctx : applicationContext;
+        bttv.badge.BadgeImages.initialize(Data.ctx);
     }
 }

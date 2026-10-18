@@ -18,7 +18,20 @@ diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
      invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
      .line 62
-@@ -3352,8 +3352,13 @@
+@@ -734,6 +744,12 @@
+     .line 300
+     .line 301
+     invoke-direct {v0, v6}, Landroid/text/SpannedString;-><init>(Ljava/lang/CharSequence;)V
+
++    iget-object v14, v10, Ly86;->a:Ljava/lang/String;
++
++    invoke-static {v1, v0, v14}, Lbttvcompat/LiveBadgeBridge;->augment(Landroid/content/Context;Landroid/text/SpannedString;Ljava/lang/String;)Landroid/text/SpannedString;
++
++    move-result-object v0
++
+     .line 302
+     .line 303
+@@ -3352,8 +3368,13 @@
      .line 30
      :goto_1
      iget-object v2, p0, Lf86;->a:Lqz0;
@@ -32,7 +45,7 @@ diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
      .line 32
      invoke-static {v2, p1, v1, p5}, Lqz0;->b(Lqz0;Landroid/content/Context;Ljava/lang/String;F)Lpz0;
 
-@@ -3363,8 +3368,10 @@
+@@ -3363,8 +3384,10 @@
      move-result-object p5
 
      .line 36
