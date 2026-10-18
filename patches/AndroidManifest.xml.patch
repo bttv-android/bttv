@@ -1,7 +1,7 @@
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -1,4 +1,14 @@
+@@ -1,4 +1,15 @@
 -<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="37" android:compileSdkVersionCodename="17" android:installLocation="auto" package="tv.twitch.android.app" platformBuildVersionCode="37" platformBuildVersionName="17">
 +<?xml version="1.0" encoding="utf-8" standalone="no"?>
 +<manifest
@@ -14,6 +14,7 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
 +    package="tv.twitch.bttvandroid.app"
 +    platformBuildVersionCode="37"
 +    platformBuildVersionName="17">
++    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
      <uses-feature android:name="android.hardware.type.pc" android:required="false"/>
      <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
      <queries>

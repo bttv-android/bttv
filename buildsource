@@ -55,6 +55,10 @@ rm -rf "$FINAL_TARGET/com"
 mv "$TMP_DIR/bttv" "$FINAL_TARGET/."
 mv "$TMP_DIR/com" "$FINAL_TARGET/."
 
+# The updater's SDK apksig verifier needs D8's root-level Math backport at min-api21.
+# Keep compiler-generated helpers alongside the injected code, not silently dropped.
+find "$TMP_DIR" -maxdepth 1 -type f -name '$r8$backportedMethods$*.smali' -exec cp -n {} "$FINAL_TARGET/" \;
+
 rsync -ar --ignore-existing "$TMP_DIR/androidx/" "$FINAL_TARGET/androidx/"
 
 # classes5.dex is at the 65,536 method-reference limit. Move the one Twitch

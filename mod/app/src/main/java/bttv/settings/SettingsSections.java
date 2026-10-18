@@ -34,9 +34,10 @@ public enum SettingsSections {
             case ShouldShowSleepTimer:
                 return OTHER;
             case OpenCreditsButton:
+            case InvokeUpdateCheck:
                 return ABOUT;
             default:
-                // Backing string sets, unfinished updater and developer tools.
+                // Backing string sets, automatic updater preference and developer tools.
                 return null;
         }
     }

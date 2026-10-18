@@ -30,11 +30,14 @@ import bttv.Res;
 import bttv.ResUtil;
 import bttv.highlight.Blacklist;
 import bttv.highlight.Highlight;
+import bttv.updater.UpdateDialog;
 
 /** Existing BTTV preferences presented with Twitch 31's native View resources. */
 public final class SettingsActivity extends Activity {
     private int primaryTextColor;
     private int secondaryTextColor;
+    private UpdateDialog updaterDialog;
+    private boolean updaterVisible;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -48,6 +51,7 @@ public final class SettingsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        updaterVisible = savedInstanceState != null && savedInstanceState.getBoolean("bttv.updater.open", false);
         primaryTextColor = resolveColor("text_base", Color.WHITE);
         secondaryTextColor = resolveColor("text_alt", 0xffadadb8);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
@@ -209,9 +213,35 @@ public final class SettingsActivity extends Activity {
                 Credits.openDialog(this);
                 break;
             case UPDATE_CHECK:
-                // Updater behavior is intentionally deferred to a later port stage.
+                updaterVisible = true;
+                showUpdater();
                 break;
         }
+    }
+
+    private void showUpdater() {
+        if (updaterDialog == null) {
+            updaterDialog = new UpdateDialog(this, () -> { updaterVisible = false; updaterDialog = null; });
+            updaterDialog.show();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (updaterVisible) showUpdater();
+    }
+
+    @Override
+    protected void onStop() {
+        if (updaterDialog != null) { updaterDialog.dispose(); updaterDialog = null; }
+        super.onStop();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle state) {
+        state.putBoolean("bttv.updater.open", updaterVisible);
+        super.onSaveInstanceState(state);
     }
 
     private View nativeRow(String layout, UserPreferences.Entry entry) {
