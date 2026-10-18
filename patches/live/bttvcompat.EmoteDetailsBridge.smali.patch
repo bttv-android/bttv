@@ -1,0 +1,370 @@
+diff --git a/smali_classes7/bttvcompat/EmoteDetailsBridge.smali b/smali_classes7/bttvcompat/EmoteDetailsBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/EmoteDetailsBridge.smali
+@@ -0,0 +1,189 @@
++.class public final Lbttvcompat/EmoteDetailsBridge;
++.super Ljava/lang/Object;
++
++.method public static wrap(Lfmp;Landroid/text/style/ClickableSpan;Lqz0;)Landroid/text/style/ClickableSpan;
++    .locals 3
++    iget-object v0, p0, Lfmp;->a:Ljava/lang/String;
++    invoke-static {v0}, Lbttv/emote/EmoteDetails;->isSynthetic(Ljava/lang/String;)Z
++    move-result v1
++    if-nez v1, :synthetic
++    return-object p1
++    :synthetic
++    const/4 v1, 0x1
++    :try_static
++    invoke-static {p2}, Lbttvcompat/GifBridge;->nativeStatic(Lqz0;)Z
++    move-result v1
++    :end_static
++    .catch Ljava/lang/Throwable; {:try_static .. :end_static} :static_unavailable
++    goto :create
++    :static_unavailable
++    move-exception v2
++    const/4 v1, 0x1
++    :create
++    iget-object p0, p0, Lfmp;->b:Ljava/lang/String;
++    new-instance v2, Lbttvcompat/EmoteDetailsClick;
++    invoke-direct {v2, v0, p0, v1}, Lbttvcompat/EmoteDetailsClick;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
++    return-object v2
++.end method
++
++.method public static open(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;Z)V
++    .locals 5
++    :try_open
++    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
++    move-result-object v0
++    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
++    move-result-object v1
++    if-ne v0, v1, :done
++    invoke-virtual {p0}, Landroid/view/View;->isAttachedToWindow()Z
++    move-result v0
++    if-eqz v0, :done
++    invoke-virtual {p0}, Landroid/view/View;->isShown()Z
++    move-result v0
++    if-eqz v0, :done
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v0
++    const/16 v2, 0x10
++    :unwrap
++    instance-of v1, v0, Landroidx/fragment/app/n;
++    if-nez v1, :activity
++    add-int/lit8 v2, v2, -0x1
++    if-lez v2, :done
++    instance-of v1, v0, Landroid/content/ContextWrapper;
++    if-eqz v1, :done
++    move-object v1, v0
++    check-cast v1, Landroid/content/ContextWrapper;
++    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getBaseContext()Landroid/content/Context;
++    move-result-object v1
++    if-eq v0, v1, :done
++    move-object v0, v1
++    goto :unwrap
++    :activity
++    check-cast v0, Landroidx/fragment/app/n;
++    invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
++    move-result v1
++    if-nez v1, :done
++    invoke-virtual {v0}, Landroid/app/Activity;->isDestroyed()Z
++    move-result v1
++    if-nez v1, :done
++    invoke-virtual {v0}, Landroidx/fragment/app/n;->u()Lx9i;
++    move-result-object v0
++    iget-boolean v1, v0, Landroidx/fragment/app/u;->L:Z
++    if-nez v1, :done
++    invoke-virtual {v0}, Landroidx/fragment/app/u;->W()Z
++    move-result v1
++    if-nez v1, :done
++    const-string v1, "bttv.emote.details"
++    invoke-virtual {v0, v1}, Landroidx/fragment/app/u;->H(Ljava/lang/String;)Landroidx/fragment/app/m;
++    move-result-object v2
++    if-nez v2, :done
++    new-instance v2, Landroid/os/Bundle;
++    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
++    const-string v3, "marker"
++    invoke-virtual {v2, v3, p1}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
++    const-string v3, "code"
++    invoke-virtual {v2, v3, p2}, Landroid/os/BaseBundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
++    const-string v3, "native_static"
++    invoke-virtual {v2, v3, p3}, Landroid/os/BaseBundle;->putBoolean(Ljava/lang/String;Z)V
++    new-instance v4, Lbttvcompat/EmoteDetailsSheet;
++    invoke-direct {v4}, Lbttvcompat/EmoteDetailsSheet;-><init>()V
++    invoke-virtual {v4, v2}, Landroidx/fragment/app/m;->setArguments(Landroid/os/Bundle;)V
++    # Immediate, state-guarded transaction makes the tag visible to the next tap.
++    invoke-virtual {v4, v0, v1}, Landroidx/fragment/app/DialogFragment;->showNow(Landroidx/fragment/app/u;Ljava/lang/String;)V
++    :end_open
++    .catch Ljava/lang/Throwable; {:try_open .. :end_open} :unavailable
++    :done
++    return-void
++    :unavailable
++    move-exception v0
++    return-void
++.end method
++
++.method public static take(Landroid/view/View;I)Landroid/view/View;
++    .locals 1
++    invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
++    move-result-object p0
++    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
++    move-result-object v0
++    check-cast v0, Landroid/view/ViewGroup;
++    invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
++    return-object p0
++.end method
++
++.method public static text(Landroid/view/View;I)Landroid/widget/TextView;
++    .locals 1
++    invoke-static {p0, p1}, Lbttvcompat/EmoteDetailsBridge;->take(Landroid/view/View;I)Landroid/view/View;
++    move-result-object p0
++    check-cast p0, Landroid/widget/TextView;
++    const/4 v0, 0x0
++    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setSingleLine(Z)V
++    const v0, 0x7fffffff
++    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setMaxLines(I)V
++    const/4 v0, 0x0
++    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
++    const/4 v0, 0x1
++    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setTextIsSelectable(Z)V
++    return-object p0
++.end method
++
++.method public static image(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;Z)V
++    .locals 2
++    :try_image
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v0
++    invoke-static {v0}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
++    move-result-object v0
++    const-class v1, Landroid/graphics/drawable/Drawable;
++    invoke-virtual {v0, v1}, Ll1x;->a(Ljava/lang/Class;)Li0x;
++    move-result-object v0
++    # Same public configuration used by GifBridge.image; Boolean survives recreation.
++    invoke-static {v0, p2}, Lbttvcompat/GifBridge;->configure(Li0x;Z)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p1}, Li0x;->I(Ljava/lang/Object;)Li0x;
++    move-result-object v0
++    invoke-virtual {v0, p0}, Li0x;->G(Landroid/widget/ImageView;)V
++    :end_image
++    .catch Ljava/lang/Throwable; {:try_image .. :end_image} :image_unavailable
++    return-void
++    :image_unavailable
++    move-exception v0
++    invoke-static {p0}, Lbttvcompat/EmoteDetailsBridge;->clear(Landroid/widget/ImageView;)V
++    return-void
++.end method
++
++.method public static clear(Landroid/widget/ImageView;)V
++    .locals 3
++    if-eqz p0, :done
++    :try_clear
++    invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
++    move-result-object v0
++    if-eqz v0, :request
++    instance-of v1, v0, Landroid/graphics/drawable/Animatable;
++    if-eqz v1, :callback
++    move-object v1, v0
++    check-cast v1, Landroid/graphics/drawable/Animatable;
++    invoke-interface {v1}, Landroid/graphics/drawable/Animatable;->stop()V
++    :callback
++    const/4 v1, 0x0
++    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
++    :request
++    # ViewTarget reads the existing request tag; RequestManager clears the original target.
++    new-instance v0, Lwte;
++    invoke-direct {v0, p0}, Lkgl;-><init>(Landroid/widget/ImageView;)V
++    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v1
++    invoke-virtual {v1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
++    move-result-object v1
++    invoke-static {v1}, Lcom/bumptech/glide/a;->e(Landroid/content/Context;)Ll1x;
++    move-result-object v1
++    invoke-virtual {v1, v0}, Ll1x;->c(Lz430;)V
++    :end_clear
++    .catch Ljava/lang/Throwable; {:try_clear .. :end_clear} :clear_failed
++    goto :empty
++    :clear_failed
++    move-exception v2
++    :empty
++    const/4 v0, 0x0
++    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
++    :done
++    return-void
++.end method
+diff --git a/smali_classes7/bttvcompat/EmoteDetailsClick.smali b/smali_classes7/bttvcompat/EmoteDetailsClick.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/EmoteDetailsClick.smali
+@@ -0,0 +1,24 @@
++.class public final Lbttvcompat/EmoteDetailsClick;
++.super Landroid/text/style/ClickableSpan;
++
++.field private final marker:Ljava/lang/String;
++.field private final code:Ljava/lang/String;
++.field private final nativeStatic:Z
++
++.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Z)V
++    .locals 0
++    invoke-direct {p0}, Landroid/text/style/ClickableSpan;-><init>()V
++    iput-object p1, p0, Lbttvcompat/EmoteDetailsClick;->marker:Ljava/lang/String;
++    iput-object p2, p0, Lbttvcompat/EmoteDetailsClick;->code:Ljava/lang/String;
++    iput-boolean p3, p0, Lbttvcompat/EmoteDetailsClick;->nativeStatic:Z
++    return-void
++.end method
++
++.method public final onClick(Landroid/view/View;)V
++    .locals 3
++    iget-object v0, p0, Lbttvcompat/EmoteDetailsClick;->marker:Ljava/lang/String;
++    iget-object v1, p0, Lbttvcompat/EmoteDetailsClick;->code:Ljava/lang/String;
++    iget-boolean v2, p0, Lbttvcompat/EmoteDetailsClick;->nativeStatic:Z
++    invoke-static {p1, v0, v1, v2}, Lbttvcompat/EmoteDetailsBridge;->open(Landroid/view/View;Ljava/lang/String;Ljava/lang/String;Z)V
++    return-void
++.end method
+diff --git a/smali_classes7/bttvcompat/EmoteDetailsSheet.smali b/smali_classes7/bttvcompat/EmoteDetailsSheet.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/EmoteDetailsSheet.smali
+@@ -0,0 +1,142 @@
++.class public final Lbttvcompat/EmoteDetailsSheet;
++.super Ltv/twitch/android/core/fragments/bottomsheet/TwitchBottomSheetDialogFragment;
++
++.field private image:Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;
++
++.method public constructor <init>()V
++    .locals 0
++    invoke-direct {p0}, Ltv/twitch/android/core/fragments/bottomsheet/TwitchBottomSheetDialogFragment;-><init>()V
++    return-void
++.end method
++
++.method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
++    .locals 8
++    :try_view
++    invoke-virtual {p0}, Landroidx/fragment/app/m;->requireArguments()Landroid/os/Bundle;
++    move-result-object p3
++    const-string v0, "marker"
++    invoke-virtual {p3, v0}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v0
++    const-string v1, "code"
++    invoke-virtual {p3, v1}, Landroid/os/BaseBundle;->getString(Ljava/lang/String;)Ljava/lang/String;
++    move-result-object v1
++    invoke-static {v0, v1}, Lbttv/emote/EmoteDetails;->create(Ljava/lang/String;Ljava/lang/String;)Lbttv/emote/EmoteDetails;
++    move-result-object v5
++    const v0, 0x7f0e01ac
++    const/4 v1, 0x0
++    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
++    move-result-object v0
++    check-cast v0, Landroid/view/ViewGroup;
++    # Retain the native background, typography, selectable name and image widget.
++    # Reflow owned children vertically so long names/large fonts cannot overlap.
++    const v1, 0x7f0b07c8
++    invoke-static {v0, v1}, Lbttvcompat/EmoteDetailsBridge;->text(Landroid/view/View;I)Landroid/widget/TextView;
++    move-result-object v2
++    const v1, 0x7f0b07bb
++    invoke-static {v0, v1}, Lbttvcompat/EmoteDetailsBridge;->text(Landroid/view/View;I)Landroid/widget/TextView;
++    move-result-object v3
++    const v1, 0x7f0b07c2
++    invoke-static {v0, v1}, Lbttvcompat/EmoteDetailsBridge;->take(Landroid/view/View;I)Landroid/view/View;
++    move-result-object v4
++    check-cast v4, Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;
++    iput-object v4, p0, Lbttvcompat/EmoteDetailsSheet;->image:Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;
++    invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
++    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
++    move-result-object v6
++    new-instance v1, Landroid/widget/LinearLayout;
++    invoke-direct {v1, v6}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
++    const/4 v7, 0x1
++    invoke-virtual {v1, v7}, Landroid/widget/LinearLayout;->setOrientation(I)V
++    invoke-virtual {v2, v7}, Landroid/view/View;->setAccessibilityHeading(Z)V
++    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
++    move-result-object v6
++    const v7, 0x7f070160
++    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
++    move-result v7
++    invoke-virtual {v1, v7, v7, v7, v7}, Landroid/view/View;->setPadding(IIII)V
++    const v7, 0x7f0701c5
++    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
++    move-result v7
++    new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
++    invoke-direct {v6, v7, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
++    const/4 v7, 0x1
++    iput v7, v6, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
++    invoke-virtual {v1, v4, v6}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
++    const/4 v6, -0x1
++    const/4 v7, -0x2
++    new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
++    invoke-direct {p2, v6, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
++    invoke-virtual {v1, v2, p2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
++    new-instance p2, Landroid/widget/LinearLayout$LayoutParams;
++    invoke-direct {p2, v6, v7}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
++    invoke-virtual {v1, v3, p2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
++    new-instance p2, Landroid/view/ViewGroup$LayoutParams;
++    invoke-direct {p2, v6, v7}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
++    invoke-virtual {v0, v1, p2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
++    iget-object v1, v5, Lbttv/emote/EmoteDetails;->code:Ljava/lang/String;
++    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
++    invoke-static {v4}, Lbttvcompat/EmoteDetailsBridge;->clear(Landroid/widget/ImageView;)V
++    invoke-virtual {v4, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
++    invoke-virtual {v5}, Lbttv/emote/EmoteDetails;->description()Ljava/lang/String;
++    move-result-object v1
++    invoke-virtual {v3, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
++    iget-object v1, v5, Lbttv/emote/EmoteDetails;->url:Ljava/lang/String;
++    if-eqz v1, :ready
++    const-string v2, "native_static"
++    const/4 v3, 0x1
++    invoke-virtual {p3, v2, v3}, Landroid/os/BaseBundle;->getBoolean(Ljava/lang/String;Z)Z
++    move-result v2
++    invoke-static {v4, v1, v2}, Lbttvcompat/EmoteDetailsBridge;->image(Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;Ljava/lang/String;Z)V
++    :ready
++    :end_view
++    .catch Ljava/lang/Throwable; {:try_view .. :end_view} :view_unavailable
++    return-object v0
++    :view_unavailable
++    move-exception v0
++    invoke-virtual {p0}, Lbttvcompat/EmoteDetailsSheet;->clearImage()V
++    invoke-virtual {p1}, Landroid/view/LayoutInflater;->getContext()Landroid/content/Context;
++    move-result-object v0
++    new-instance v1, Landroid/widget/TextView;
++    invoke-direct {v1, v0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
++    const-string v0, "Emote details unavailable"
++    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
++    return-object v1
++.end method
++
++.method public final clearImage()V
++    .locals 2
++    iget-object v0, p0, Lbttvcompat/EmoteDetailsSheet;->image:Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;
++    const/4 v1, 0x0
++    iput-object v1, p0, Lbttvcompat/EmoteDetailsSheet;->image:Ltv/twitch/android/shared/ui/elements/image/NetworkImageWidget;
++    invoke-static {v0}, Lbttvcompat/EmoteDetailsBridge;->clear(Landroid/widget/ImageView;)V
++    return-void
++.end method
++
++.method public final onDestroyView()V
++    .locals 0
++    invoke-virtual {p0}, Lbttvcompat/EmoteDetailsSheet;->clearImage()V
++    invoke-super {p0}, Ltv/twitch/android/core/fragments/bottomsheet/TwitchBottomSheetDialogFragment;->onDestroyView()V
++    return-void
++.end method
++
++.method public final onDismiss(Landroid/content/DialogInterface;)V
++    .locals 0
++    invoke-virtual {p0}, Lbttvcompat/EmoteDetailsSheet;->clearImage()V
++    invoke-super {p0, p1}, Ltv/twitch/android/core/fragments/bottomsheet/TwitchBottomSheetDialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
++    return-void
++.end method
++
++.method public final onStop()V
++    .locals 1
++    invoke-super {p0}, Ltv/twitch/android/core/fragments/bottomsheet/TwitchBottomSheetDialogFragment;->onStop()V
++    invoke-virtual {p0}, Landroidx/fragment/app/m;->getActivity()Landroidx/fragment/app/n;
++    move-result-object v0
++    if-eqz v0, :done
++    invoke-virtual {v0}, Landroid/app/Activity;->isChangingConfigurations()Z
++    move-result v0
++    if-nez v0, :done
++    invoke-virtual {p0}, Lbttvcompat/EmoteDetailsSheet;->clearImage()V
++    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->dismissAllowingStateLoss()V
++    :done
++    return-void
++.end method

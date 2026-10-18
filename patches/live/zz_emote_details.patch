@@ -1,0 +1,24 @@
+diff --git a/smali_classes2/f86.smali b/smali_classes2/f86.smali
+--- a/smali_classes2/f86.smali
++++ b/smali_classes2/f86.smali
+@@ -3296,7 +3296,9 @@
+ .end method
+
+ .method public final d(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lfmp;ZLjava/lang/Integer;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;)Landroid/text/SpannableString;
+-    .locals 7
++    .locals 8
++
++    iget-object v7, p0, Lf86;->a:Lqz0;
+
+     .line 1
+     if-eqz p5, :cond_0
+@@ -3536,6 +3538,9 @@
+     .line 110
+     .line 111
+     invoke-direct {p1, p6, p2, p3, p7}, Lz97;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;)V
++
++    invoke-static {p4, p1, v7}, Lbttvcompat/EmoteDetailsBridge;->wrap(Lfmp;Landroid/text/style/ClickableSpan;Lqz0;)Landroid/text/style/ClickableSpan;
++    move-result-object p1
+
+     .line 112
+     .line 113
