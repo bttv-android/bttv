@@ -78,10 +78,11 @@ public final class TraceCleanupHostTest {
  static int checks;
  static void check(boolean value,String name){checks++;if(!value)throw new AssertionError(name);}
  static Emote emote(String id,Emotes.Source s,String code,String type){return new Emote(id,s,code,"https://cdn.betterttv.net/emote/"+id+"/2x",type,null);}
- static void idle() throws Exception {
+ static void idle(long expectedCompleted) throws Exception {
   Field f=LiveEmoteChannels.class.getDeclaredField("WORKERS");f.setAccessible(true);ThreadPoolExecutor e=(ThreadPoolExecutor)f.get(null);
-  for(int i=0;i<300;i++){if(e.getActiveCount()==0&&e.getQueue().isEmpty())return;Thread.sleep(10);}
-  throw new AssertionError("worker timeout");
+  long deadline=System.nanoTime()+TimeUnit.SECONDS.toNanos(3);
+  while(System.nanoTime()-deadline<0){if(e.getCompletedTaskCount()>=expectedCompleted)return;Thread.sleep(10);}
+  throw new AssertionError("worker timeout waiting for "+expectedCompleted+" completed tasks");
  }
  public static void main(String[] args) throws Exception {
   check(!LiveEmoteAutocomplete.DEBUG_LOGGING,"production diagnostics disabled");
@@ -113,17 +114,17 @@ public final class TraceCleanupHostTest {
   check(LiveEmoteAutocomplete.uniqueLifecycle("123456789").controller.get()==owner,"reattach preserves owner");
   check(Log.lines.isEmpty(),"normal lifecycle emits no logs");
   ResUtil.enabled.clear();ResUtil.enabled.add(Settings.BTTVEmotesEnabled);
-  for(int i=0;i<30;i++)LiveEmoteChannels.ensureChannel("123456789");idle();
+  for(int i=0;i<30;i++)LiveEmoteChannels.ensureChannel("123456789");idle(1);
   check(LiveEmoteGlobals.calls==1,"channel loading remains single-flight");
   check(LiveEmoteChannels.snapshot("123456789",Emotes.Source.BTTV).containsKey("ChannelCode"),"channel catalog published");
   check(Log.lines.isEmpty(),"successful channel lifecycle emits no logs");
-  LiveEmoteGlobals.status=403;LiveEmoteChannels.ensureChannel("987654321");idle();
+  LiveEmoteGlobals.status=403;LiveEmoteChannels.ensureChannel("987654321");idle(2);
   check(Log.lines.size()==1&&Log.lines.get(0).contains("http=403"),"provider failure category retained");
   check(!Log.lines.get(0).contains("987654321"),"failure omits channel ID");
-  int calls=LiveEmoteGlobals.calls;LiveEmoteChannels.ensureChannel("987654321");idle();check(LiveEmoteGlobals.calls==calls,"retry deadline unchanged");
-  android.os.SystemClock.now+=61000;LiveEmoteChannels.ensureChannel("987654321");idle();check(LiveEmoteGlobals.calls==calls+1,"retry eligibility unchanged");
-  LiveEmoteGlobals.status=404;LiveEmoteChannels.ensureChannel("444444444");idle();calls=LiveEmoteGlobals.calls;
-  LiveEmoteChannels.ensureChannel("444444444");idle();check(LiveEmoteGlobals.calls==calls,"404 remains loaded empty");
+  int calls=LiveEmoteGlobals.calls;LiveEmoteChannels.ensureChannel("987654321");idle(2);check(LiveEmoteGlobals.calls==calls,"retry deadline unchanged");
+  android.os.SystemClock.now+=61000;LiveEmoteChannels.ensureChannel("987654321");idle(3);check(LiveEmoteGlobals.calls==calls+1,"retry eligibility unchanged");
+  LiveEmoteGlobals.status=404;LiveEmoteChannels.ensureChannel("444444444");idle(4);calls=LiveEmoteGlobals.calls;
+  LiveEmoteChannels.ensureChannel("444444444");idle(4);check(LiveEmoteGlobals.calls==calls,"404 remains loaded empty");
   check(Log.lines.stream().anyMatch(v->v.contains("http=404 (empty)")),"404 reporting retained");
   check(Log.lines.stream().noneMatch(v->v.contains("444444444")||v.contains("private-debug-value")),"privacy-safe logs");
   Method failure=LiveEmoteAutocomplete.class.getDeclaredMethod("failure",String.class,Throwable.class);failure.setAccessible(true);

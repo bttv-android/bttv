@@ -67,14 +67,14 @@ public class EmoteAutocompleteLogicTest {
                 Arrays.asList(suggestion("Omega", true))).get(0).channel);
     }
 
-    @Test public void channelWinsExactDuplicateInEitherOrder() {
+    @Test public void firstEligibleWinsExactDuplicateInInputOrder() {
         EmoteAutocompleteLogic.Suggestion global = suggestion("OMEGALUL", false);
         EmoteAutocompleteLogic.Suggestion channel = suggestion("OMEGALUL", true);
         for (List<EmoteAutocompleteLogic.Suggestion> input : Arrays.asList(
                 Arrays.asList(global, channel), Arrays.asList(channel, global))) {
             List<EmoteAutocompleteLogic.Suggestion> result = EmoteAutocompleteLogic.match("om", input);
             assertEquals(1, result.size());
-            assertSame(channel, result.get(0));
+            assertSame(input.get(0), result.get(0));
         }
     }
 
@@ -164,12 +164,13 @@ public class EmoteAutocompleteLogicTest {
         assertSame(original, result.get(0));
     }
 
-    @Test public void mergedChannelWinsGlobalCollision() {
+    @Test public void mergedFirstEligibleWinsGlobalCollision() {
+        EmoteAutocompleteLogic.Suggestion global = suggestion("Omega", false);
         EmoteAutocompleteLogic.Suggestion channel = suggestion("Omega", true);
         List<EmoteAutocompleteLogic.Suggestion> result = EmoteAutocompleteLogic.merge("om", Collections.emptyList(),
-                Arrays.asList(suggestion("Omega", false), channel));
+                Arrays.asList(global, channel));
         assertEquals(1, result.size());
-        assertSame(channel, result.get(0));
+        assertSame(global, result.get(0));
     }
 
     @Test public void combinedPrefixesRankBeforeNativeSubstrings() {

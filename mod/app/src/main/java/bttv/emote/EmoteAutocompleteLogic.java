@@ -91,7 +91,7 @@ final class EmoteAutocompleteLogic {
                     || !candidate.code.regionMatches(true, 0, prefix, 0, prefix.length())) continue;
             Suggestion previous = unique.get(candidate.code);
             // For same-scope duplicates the caller's existing provider order wins.
-            if (previous == null || (candidate.channel && !previous.channel)) {
+            if (previous == null) {
                 unique.put(candidate.code, candidate);
             }
         }
