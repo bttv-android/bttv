@@ -1,0 +1,20 @@
+diff --git a/smali/fbj.smali b/smali/fbj.smali
+--- a/smali/fbj.smali
++++ b/smali/fbj.smali
+@@ -1157,5 +1157,16 @@
+     iget-object v0, v0, Lrsf;->c:Lvqf;
+
+     .line 236
++    if-nez v1, :bttv_usage_done
++    :try_start_bttv_usage
++    invoke-static {p0, p1}, Lbttvcompat/NativePickerBridge;->submitted(Ljava/lang/Object;Ljava/lang/String;)V
++    :try_end_bttv_usage
++    goto :bttv_usage_done
++    .catch Ljava/lang/Throwable; {:try_start_bttv_usage .. :try_end_bttv_usage} :catch_bttv_usage
++
++    :catch_bttv_usage
++    move-exception v8
++    :bttv_usage_done
++
+     .line 237
+     invoke-virtual {v0, p1}, Lvqf;->e(Ljava/lang/String;)V

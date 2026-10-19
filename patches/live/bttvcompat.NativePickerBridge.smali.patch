@@ -2,7 +2,7 @@ diff --git a/smali_classes7/bttvcompat/NativePickerBridge.smali b/smali_classes7
 new file mode 100644
 --- /dev/null
 +++ b/smali_classes7/bttvcompat/NativePickerBridge.smali
-@@ -0,0 +1,341 @@
+@@ -0,0 +1,430 @@
 +.class public final Lbttvcompat/NativePickerBridge;
 +.super Ljava/lang/Object;
 +
@@ -342,6 +342,95 @@ new file mode 100644
 +    .locals 0
 +    check-cast p0, Lio/reactivex/e;
 +    invoke-interface {p0}, Lio/reactivex/e;->a()V
++    return-void
++.end method
++
++.method public static viewer(Ljava/lang/Object;)Ljava/lang/String;
++    .locals 2
++    :try_start_viewer
++    check-cast p0, Llpf;
++    iget-object v0, p0, Llpf;->n:Lp7l;
++    check-cast v0, Lrsf;
++    iget-object v0, v0, Lrsf;->a:Lws40;
++    invoke-virtual {v0}, Lws40;->n()Z
++    move-result v1
++    if-eqz v1, :invalid
++    invoke-virtual {v0}, Lws40;->j()Ltv/twitch/android/models/Tuid;
++    move-result-object v0
++    invoke-virtual {v0}, Ltv/twitch/android/models/Tuid;->toString()Ljava/lang/String;
++    move-result-object v0
++    :try_end_viewer
++    return-object v0
++    .catch Ljava/lang/Throwable; {:try_start_viewer .. :try_end_viewer} :failed
++    :failed
++    move-exception v0
++    :invalid
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static accountPreferences(Ljava/lang/Object;)Ljava/lang/Object;
++    .locals 1
++    :try_start_account
++    check-cast p0, Llpf;
++    iget-object v0, p0, Llpf;->n:Lp7l;
++    check-cast v0, Lrsf;
++    iget-object v0, v0, Lrsf;->a:Lws40;
++    invoke-virtual {v0}, Lws40;->i()Lzez;
++    move-result-object v0
++    invoke-virtual {v0}, Lzez;->e()Landroid/content/SharedPreferences;
++    move-result-object v0
++    :try_end_account
++    return-object v0
++    .catch Ljava/lang/Throwable; {:try_start_account .. :try_end_account} :failed
++    :failed
++    move-exception v0
++    const/4 v0, 0x0
++    return-object v0
++.end method
++
++.method public static frequentSection(Ljava/util/List;)Ljava/lang/Object;
++    .locals 4
++    new-instance v0, Lmnf;
++    const v1, 0x7f150811
++    const/4 v2, 0x0
++    sget-object v3, Lmpf;->FREQUENTLY_USED:Lmpf;
++    invoke-direct {v0, v1, v2, v3}, Lmnf;-><init>(IZLmpf;)V
++    new-instance v1, Ljsf;
++    invoke-direct {v1, v0, p0}, Ljsf;-><init>(Ligi;Ljava/util/List;)V
++    return-object v1
++.end method
++
++.method public static submitted(Ljava/lang/Object;Ljava/lang/String;)V
++    .locals 6
++    :try_start_usage
++    check-cast p0, Lnt6;
++    iget-object v0, p0, Lnt6;->m:Lws40;
++    invoke-virtual {v0}, Lws40;->n()Z
++    move-result v4
++    if-eqz v4, :done
++    invoke-virtual {v0}, Lws40;->j()Ltv/twitch/android/models/Tuid;
++    move-result-object v1
++    invoke-virtual {v1}, Ltv/twitch/android/models/Tuid;->toString()Ljava/lang/String;
++    move-result-object v1
++    iget-object v2, p0, Lnt6;->P1:Ltv/twitch/android/models/channel/ChannelInfo;
++    invoke-interface {v2}, Ltv/twitch/android/models/channel/ChannelInfo;->getTuid()Ltv/twitch/android/models/Tuid;
++    move-result-object v2
++    invoke-virtual {v2}, Ltv/twitch/android/models/Tuid;->toString()Ljava/lang/String;
++    move-result-object v2
++    iget-object v3, p0, Lnt6;->N1:Lct6;
++    iget-object v3, v3, Lct6;->y:Le66;
++    iget-object v3, v3, Le66;->r:Lmlp;
++    iget-object v3, v3, Lmlp;->d:Lb00;
++    iget-object v3, v3, Lb00;->f:Ljava/lang/Object;
++    check-cast v3, Landroid/widget/EditText;
++    invoke-static {v3, v1, v2, p1}, Lbttv/emote/EmoteUsageStore;->submitted(Landroid/widget/EditText;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
++    :try_end_usage
++    goto :done
++    .catch Ljava/lang/Throwable; {:try_start_usage .. :try_end_usage} :failed
++    :failed
++    move-exception v5
++    :done
 +    return-void
 +.end method
 diff --git a/smali_classes7/bttvcompat/PickerSource.smali b/smali_classes7/bttvcompat/PickerSource.smali

@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.widget.EditText;
+import android.content.SharedPreferences;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -36,13 +37,17 @@ public final class PickerRuntime {
         final String channel;
         final WeakReference<Object> presenter;
         final LiveEmoteAutocomplete.Lifecycle lifecycle;
+        final String viewer;
         Set<String> nativeCodes = Collections.emptySet();
+        boolean nativeSeed;
         boolean invalid;
         Session(Object presenter, String channel, LiveEmoteAutocomplete.Lifecycle lifecycle) {
             this.presenter = new WeakReference<>(presenter); this.channel = channel; this.lifecycle = lifecycle;
+            this.viewer = NativePickerBridge.viewer(presenter);
         }
         boolean valid() {
             if (!main() || invalid || presenter.get() == null || !lifecycle.matches(lifecycle.input.get())) return false;
+            if (!java.util.Objects.equals(viewer, NativePickerBridge.viewer(presenter.get()))) return false;
             LiveEmoteAutocomplete.Lifecycle unique = LiveEmoteAutocomplete.uniqueLifecycle(channel);
             return unique != null && unique.controller.get() == lifecycle.controller.get();
         }
@@ -80,7 +85,9 @@ public final class PickerRuntime {
         private final Object emitter;
         private volatile boolean disposed;
         private Object subscription, original;
-        private EmoteCatalogEvents.Subscription catalogs, lifecycle;
+        private EmoteCatalogEvents.Subscription catalogs, lifecycle, history;
+        private SharedPreferences accountPreferences;
+        private SharedPreferences.OnSharedPreferenceChangeListener accountListener;
         Stream(Session session, Object emitter) {
             this.session = session; this.emitter = emitter;
             onMain(() -> {
@@ -90,6 +97,13 @@ public final class PickerRuntime {
                         if (channel == null || session.channel.equals(channel)) onMain(this::refresh);
                     });
                     lifecycle = LiveEmoteAutocomplete.observeLifecycle(this::refresh);
+                    history = EmoteUsageStore.observe(() -> onMain(this::refresh));
+                    Object prefs = NativePickerBridge.accountPreferences(session.presenter.get());
+                    if (prefs instanceof SharedPreferences) {
+                        accountPreferences = (SharedPreferences) prefs;
+                        accountListener = (value, key) -> onMain(this::refresh);
+                        accountPreferences.registerOnSharedPreferenceChangeListener(accountListener);
+                    }
                 } catch (Throwable ignored) { session.invalidate(); }
             });
         }
@@ -120,6 +134,11 @@ public final class PickerRuntime {
         private void stopListeners() {
             if (catalogs != null) { catalogs.dispose(); catalogs = null; }
             if (lifecycle != null) { lifecycle.dispose(); lifecycle = null; }
+            if (history != null) { history.dispose(); history = null; }
+            if (accountPreferences != null) {
+                accountPreferences.unregisterOnSharedPreferenceChangeListener(accountListener);
+                accountPreferences = null; accountListener = null;
+            }
         }
         public void dispose() {
             Object cancel;
@@ -156,7 +175,25 @@ public final class PickerRuntime {
             } else sections.add(section);
         }
         session.nativeCodes = Collections.unmodifiableSet(nativeCodes);
+        session.nativeSeed = true;
         List<LiveEmotePicker.Entry> entries = LiveEmotePicker.snapshot(session.channel, nativeCodes);
+        List<LiveEmotePicker.Entry> frequent = EmoteUsageStore.visible(session.viewer, session.channel, entries);
+        if (!frequent.isEmpty()) {
+            List<Object> saved = new ArrayList<>();
+            for (LiveEmotePicker.Entry entry : frequent) {
+                String id = PickerSyntheticId.encode(session.id, entry.channel, entry.provider,
+                        entry.channel ? session.channel : "0", entry.id, entry.code);
+                if (id != null) saved.add(NativePickerBridge.cell(id, entry.code, entry.animated));
+            }
+            boolean found = false;
+            for (int i = 0; i < sections.size(); i++) if (NativePickerBridge.frequent(sections.get(i))) {
+                List<Object> combined = new ArrayList<>(NativePickerBridge.cells(sections.get(i)));
+                combined.addAll(saved);
+                sections.set(i, NativePickerBridge.copySection(sections.get(i), combined));
+                found = true; break;
+            }
+            if (!found && !saved.isEmpty()) sections.add(0, NativePickerBridge.frequentSection(saved));
+        }
         int group = -1;
         List<Object> cells = new ArrayList<>();
         for (LiveEmotePicker.Entry entry : entries) {
@@ -223,6 +260,21 @@ public final class PickerRuntime {
             }
         } catch (Throwable ignored) { }
         return true;
+    }
+
+    /** Null means no trustworthy current native eligibility snapshot, not an empty native catalog. */
+    static Set<String> usageNativeCodes(EditText input, String viewer, String channel) {
+        if (!main()) return null;
+        Session found = null;
+        for (WeakReference<Session> ref : SESSIONS.values()) {
+            Session s = ref.get();
+            if (s != null && s.valid() && s.nativeSeed && channel.equals(s.channel)
+                    && viewer.equals(s.viewer) && s.lifecycle.matches(input)) {
+                if (found != null) return null;
+                found = s;
+            }
+        }
+        return found == null ? null : found.nativeCodes;
     }
 
     public static boolean insert(Object composer, String identity) {

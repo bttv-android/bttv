@@ -13,6 +13,9 @@ public final class NativePickerBridge {
     // classes7-only adapters; never called by near-full Twitch DEX files.
     public static native Object presenter(Object context);
     public static native String channel(Object context);
+    public static native String viewer(Object presenter);
+    public static native Object accountPreferences(Object presenter);
+    public static native Object frequentSection(List<?> cells);
     public static native String id(Object cellOrClick);
     public static native String code(Object cell);
     public static native List<?> sections(Object pair);

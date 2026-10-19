@@ -196,6 +196,45 @@ public final class LiveEmotes {
         }
     }
 
+    /** Submission-only, loaded snapshots only. Shares the live matcher's exact run/punctuation rules. */
+    static List<LiveEmotePicker.Entry> usageLoaded(String text, String channel, java.util.Set<String> nativeCodes) {
+        List<LiveEmotePicker.Entry> result = new ArrayList<>();
+        Lookup lookup = new Lookup(channel);
+        int cursor = 0;
+        while (cursor < text.length()) {
+            int cp = text.codePointAt(cursor);
+            if (Character.isWhitespace(cp) || Character.isSpaceChar(cp)) { cursor += Character.charCount(cp); continue; }
+            int start = cursor;
+            do { cursor += Character.charCount(text.codePointAt(cursor)); }
+            while (cursor < text.length() && !Character.isWhitespace(text.codePointAt(cursor))
+                    && !Character.isSpaceChar(text.codePointAt(cursor)));
+            String run = text.substring(start, cursor);
+            if (run.startsWith("@") || run.contains("://") || run.startsWith("www.")
+                    || nativeRun(text, start, cursor, nativeCodes)) continue;
+            Match match = findMatch(text, start, cursor, lookup);
+            if (match == null) continue;
+            LiveEmotePicker.Entry winner = LiveEmotePicker.winner(channel, nativeCodes, text.substring(match.start, match.end));
+            if (winner != null && winner.provider.equals(match.emote.source.name()) && winner.id.equals(match.emote.id))
+                result.add(winner);
+        }
+        return result;
+    }
+
+    private static boolean nativeRun(String text, int start, int end, java.util.Set<String> codes) {
+        int left = start;
+        do {
+            int right = end;
+            do {
+                if (left < right && codes.contains(text.substring(left, right))) return true;
+                if (right <= left || !isOuterPunctuation(text.codePointBefore(right))) break;
+                right -= Character.charCount(text.codePointBefore(right));
+            } while (true);
+            if (left >= end || !isOuterPunctuation(text.codePointAt(left))) break;
+            left += Character.charCount(text.codePointAt(left));
+        } while (true);
+        return false;
+    }
+
     /** A null result means f86.d must use the original Twitch URL path. */
     public static String urlForMarker(String marker, String text) {
         if (marker == null || !marker.startsWith(MARKER)) {
