@@ -79,6 +79,13 @@ while IFS= read -r LIB_FILE; do
     grep -Fqx -- "$NO_COMPRESS_ENTRY" "$APKTOOL_YML" || echo "$NO_COMPRESS_ENTRY" >> "$APKTOOL_YML"
 done < <(find "$LIB_DIR" -type f -name '*.so' | sort)
 
+# Export only exact, hash-validated private resources through Apktool unknownFiles.
+PRIVATE_HTTP_PROVENANCE=app/libs/chatterino-http-isolated-4.12.0.provenance.json
+jq -r '.resources | to_entries[] | [.key,.value] | @tsv' "$PRIVATE_HTTP_PROVENANCE" > "$TMP_DIR/private-resources.tsv" || exit 1
+$JAVA_PATH --class-path "$APKTOOL_PATH" ../tools/export_chatterino_resources.java \
+    app/libs/chatterino-http-isolated-4.12.0.jar "../$TARGETDIR" \
+    "$(jq -r '.sha256' "$PRIVATE_HTTP_PROVENANCE")" "$TMP_DIR/private-resources.tsv" || exit 1
+
 # copy contributors
 rm -f "../$TARGETDIR/assets/bttv_contributors.json"
 cp "../.all-contributorsrc" "../$TARGETDIR/assets/bttv_contributors.json"

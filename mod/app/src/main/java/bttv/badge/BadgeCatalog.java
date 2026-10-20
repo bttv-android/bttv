@@ -23,7 +23,8 @@ public final class BadgeCatalog {
 
     public enum Provider {
         BTTV("https://api.betterttv.net/3/cached/badges/twitch"),
-        FFZ("https://api.frankerfacez.com/v1/badges/ids");
+        FFZ("https://api.frankerfacez.com/v1/badges/ids"),
+        CHATTERINO("https://api.chatterino.com/badges");
 
         public final String endpoint;
         Provider(String endpoint) { this.endpoint = endpoint; }
@@ -35,13 +36,20 @@ public final class BadgeCatalog {
         public final String title;
         public final String url;
         public final Integer background;
+        public final String fallbackUrl;
 
         private Badge(Provider provider, String id, String title, String url, Integer background) {
+            this(provider, id, title, url, background, null);
+        }
+
+        private Badge(Provider provider, String id, String title, String url, Integer background,
+                      String fallbackUrl) {
             this.provider = provider;
             this.id = id;
             this.title = title;
             this.url = url;
             this.background = background;
+            this.fallbackUrl = fallbackUrl;
         }
 
         public String key() { return provider.name() + ":" + id; }
@@ -82,6 +90,10 @@ public final class BadgeCatalog {
 
     public static String assetUrl(Provider provider, String value) throws IOException {
         if (value == null || value.length() > 256) throw invalid();
+        if (provider == Provider.CHATTERINO) {
+            if (!value.matches("https://fourtf\\.com/chatterino/badges/(dev|helper|supporter|topd|pepe)(2x|3x)?\\.png")) throw invalid();
+            return value;
+        }
         if (value.startsWith("//")) value = "https:" + value;
         try {
             URI uri = new URI(value);
@@ -155,7 +167,7 @@ public final class BadgeCatalog {
                 addDefinition(definitions, badge);
                 addAssignment(assignments, author, badge);
             }
-        } else {
+        } else if (provider == Provider.FFZ) {
             JSONObject root = new JSONObject(json);
             JSONArray items = root.getJSONArray("badges");
             if (items.length() > MAX_DEFINITIONS) throw invalid();
@@ -193,6 +205,29 @@ public final class BadgeCatalog {
                 }
             }
         }
+        if (provider == Provider.CHATTERINO) {
+            JSONArray items = new JSONObject(json).getJSONArray("badges");
+            if (items.length() > MAX_DEFINITIONS) throw invalid();
+            for (int i = 0; i < items.length(); i++) {
+                JSONObject item = items.getJSONObject(i);
+                String image2 = chatterinoImage(item, "image2");
+                String image1 = chatterinoImage(item, "image1");
+                if (image2 == null && image1 == null) continue;
+                String url = image2 != null ? image2 : image1;
+                String id = chatterinoFamily(url);
+                if (image1 != null && !id.equals(chatterinoFamily(image1))) throw invalid();
+                Badge badge = new Badge(provider, id, title(item, "tooltip"), url, null,
+                        image2 != null && !image2.equals(image1) ? image1 : null);
+                addDefinition(definitions, badge);
+                JSONArray users = item.getJSONArray("users");
+                if ((long) count + users.length() > MAX_ASSIGNMENTS) throw invalid();
+                count += users.length();
+                for (int j = 0; j < users.length(); j++) {
+                    String author = authorId(users.opt(j) == null ? null : users.opt(j).toString());
+                    if (author != null) addAssignment(assignments, author, badge);
+                }
+            }
+        }
         Map<String, List<Badge>> frozen = new HashMap<>();
         for (Map.Entry<String, Map<String, Badge>> item : assignments.entrySet()) {
             List<Badge> badges = new ArrayList<>(item.getValue().values());
@@ -211,9 +246,20 @@ public final class BadgeCatalog {
     private static void addDefinition(Map<String, Badge> definitions, Badge badge) throws IOException {
         Badge old = definitions.get(badge.id);
         if (old != null && (!old.url.equals(badge.url) || !old.title.equals(badge.title)
-                || !java.util.Objects.equals(old.background, badge.background))) throw invalid();
+                || !java.util.Objects.equals(old.background, badge.background)
+                || !java.util.Objects.equals(old.fallbackUrl, badge.fallbackUrl))) throw invalid();
         definitions.put(badge.id, badge);
         if (definitions.size() > MAX_DEFINITIONS) throw invalid();
+    }
+
+    private static String chatterinoImage(JSONObject item, String field) {
+        try { return assetUrl(Provider.CHATTERINO, item.getString(field)); }
+        catch (Exception invalid) { return null; }
+    }
+
+    private static String chatterinoFamily(String url) {
+        String name = url.substring(url.lastIndexOf('/') + 1, url.length() - 4);
+        return name.endsWith("2x") || name.endsWith("3x") ? name.substring(0, name.length() - 2) : name;
     }
 
     private static void addAssignment(Map<String, Map<String, Badge>> assignments,

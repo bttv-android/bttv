@@ -43,6 +43,11 @@ public final class BadgeImages {
     private static final AtomicBoolean STARTED = new AtomicBoolean();
     private static final Slot BTTV = new Slot();
     private static final Slot FFZ = new Slot();
+    private static final Lazy CHATTERINO = new Lazy(new Fetcher() {
+        @Override public Response get(String url, int limit, String mime) throws IOException {
+            return ChatterinoHttp.get(url, limit, mime);
+        }
+    });
 
     /** Marks a span-preserving result; it contains no user, view or context. */
     public static final class Marker {}
@@ -107,7 +112,8 @@ public final class BadgeImages {
                     return worker;
                 }
             });
-            for (final BadgeCatalog.Provider provider : BadgeCatalog.Provider.values()) {
+            for (final BadgeCatalog.Provider provider : new BadgeCatalog.Provider[] {
+                    BadgeCatalog.Provider.BTTV, BadgeCatalog.Provider.FFZ}) {
                 workers.execute(new Runnable() {
                     @Override public void run() {
                         load(provider, provider == BadgeCatalog.Provider.BTTV ? BTTV : FFZ,
@@ -119,7 +125,10 @@ public final class BadgeImages {
                     }
                 });
             }
-            // Exactly two startup jobs; no scheduler, per-message requests or permanent poller.
+            workers.execute(new Runnable() {
+                @Override public void run() { CHATTERINO.load(); }
+            });
+            // Bounded startup metadata; no scheduler or permanent poller.
             workers.shutdown();
         } catch (Throwable ignored) {
             // Initialization must never interrupt Twitch startup.
@@ -186,7 +195,10 @@ public final class BadgeImages {
     public static List<ReadyBadge> ready(String authorId) {
         String author = BadgeCatalog.authorId(authorId);
         if (author == null) return Collections.emptyList();
-        return ready(author, BTTV.ready, FFZ.ready, SystemClock.elapsedRealtime());
+        long now = SystemClock.elapsedRealtime();
+        List<ReadyBadge> existing = ready(author, BTTV.ready, FFZ.ready, now);
+        try { return CHATTERINO.append(author, existing, now); }
+        catch (Throwable unavailable) { return existing; }
     }
 
     static List<ReadyBadge> ready(String author, Ready bttv, Ready ffz, long now) {
@@ -201,6 +213,94 @@ public final class BadgeImages {
             }
         }
         return found == null ? Collections.<ReadyBadge>emptyList() : found;
+    }
+
+    /** Provider-local generation transaction and definition-keyed, one-attempt lazy images.
+     * Never holds a View/Activity, never mutates frozen rows, never performs HTTP in append. */
+    static final class Lazy {
+        private final Fetcher fetcher;
+        private final ThreadPoolExecutor workers;
+        private long generation;
+        private State current;
+
+        private static final class State {
+            final long generation, created;
+            final BadgeCatalog.Snapshot snapshot;
+            final java.util.Set<String> requested = new java.util.HashSet<>();
+            final Map<String, Bitmap> bitmaps = new HashMap<>();
+            int bytes;
+            State(long generation, BadgeCatalog.Snapshot snapshot, long created) {
+                this.generation = generation; this.snapshot = snapshot; this.created = created;
+            }
+        }
+
+        Lazy(Fetcher fetcher) {
+            this.fetcher = fetcher;
+            workers = new ThreadPoolExecutor(2, 2, 10, TimeUnit.SECONDS,
+                    new ArrayBlockingQueue<Runnable>(BadgeCatalog.MAX_DEFINITIONS), new ThreadFactory() {
+                @Override public Thread newThread(Runnable task) {
+                    Thread thread = new Thread(task, "bttv-chatterino-image");
+                    thread.setDaemon(true); return thread;
+                }
+            });
+            workers.allowCoreThreadTimeOut(true);
+        }
+
+        void load() {
+            final long ticket;
+            synchronized (this) { ticket = ++generation; }
+            try {
+                Response metadata = fetcher.get(BadgeCatalog.Provider.CHATTERINO.endpoint,
+                        BadgeCatalog.MAX_METADATA, "application/json");
+                BadgeCatalog.Snapshot snapshot = BadgeCatalog.parse(BadgeCatalog.Provider.CHATTERINO,
+                        utf8(metadata.bytes));
+                synchronized (this) {
+                    if (generation == ticket) current = new State(ticket, snapshot, SystemClock.elapsedRealtime());
+                }
+            } catch (Throwable unavailable) { /* An old good catalog and other providers survive. */ }
+        }
+
+        synchronized List<ReadyBadge> append(String author, List<ReadyBadge> existing, long now) {
+            State state = current;
+            if (state == null || now < state.created || now - state.created > EXPIRES_MS
+                    || existing.size() >= BadgeCatalog.MAX_PER_AUTHOR) return existing;
+            List<ReadyBadge> result = null;
+            for (final BadgeCatalog.Badge badge : state.snapshot.forAuthor(author)) {
+                Bitmap image = state.bitmaps.get(badge.key());
+                if (image != null) {
+                    if (result == null) result = new ArrayList<>(existing);
+                    if (result.size() < BadgeCatalog.MAX_PER_AUTHOR) result.add(new ReadyBadge(badge.title, image));
+                } else if (state.requested.add(badge.key())) {
+                    final State expected = state;
+                    try {
+                        workers.execute(new Runnable() {
+                            @Override public void run() { image(expected, badge); }
+                        });
+                    } catch (RuntimeException rejected) { /* No synchronous retry on the row thread. */ }
+                }
+            }
+            return result == null ? existing : result;
+        }
+
+        private void image(State expected, BadgeCatalog.Badge badge) {
+            synchronized (this) { if (current != expected || current.generation != expected.generation) return; }
+            try {
+                Bitmap bitmap;
+                try { bitmap = decode(BadgeCatalog.Provider.CHATTERINO,
+                        fetcher.get(badge.url, MAX_ASSET, "image/png").bytes, null); }
+                catch (Exception primary) {
+                    if (badge.fallbackUrl == null) return;
+                    bitmap = decode(BadgeCatalog.Provider.CHATTERINO,
+                            fetcher.get(badge.fallbackUrl, MAX_ASSET, "image/png").bytes, null);
+                }
+                synchronized (this) {
+                    if (current != expected || current.generation != expected.generation) return;
+                    int allocation = bitmap.getAllocationByteCount();
+                    if ((long) expected.bytes + allocation > PROVIDER_CACHE_BYTES) return;
+                    expected.bitmaps.put(badge.key(), bitmap); expected.bytes += allocation;
+                }
+            } catch (Throwable unavailable) { /* Omit only this icon; no per-message retries. */ }
+        }
     }
 
     static Response fetch(String value, int limit, String expectedMime) throws IOException {
@@ -338,7 +438,15 @@ public final class BadgeImages {
             options.inJustDecodeBounds = false;
             Bitmap raster = BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
             if (raster == null) throw new IOException("Invalid badge raster");
-            canvas.drawBitmap(raster, null, new android.graphics.Rect(0, 0, RASTER_SIZE, RASTER_SIZE),
+            android.graphics.Rect destination = new android.graphics.Rect(0, 0, RASTER_SIZE, RASTER_SIZE);
+            if (provider == BadgeCatalog.Provider.CHATTERINO) {
+                float scale = Math.min((float) RASTER_SIZE / raster.getWidth(), (float) RASTER_SIZE / raster.getHeight());
+                int width = Math.max(1, Math.round(raster.getWidth() * scale));
+                int height = Math.max(1, Math.round(raster.getHeight() * scale));
+                int left = (RASTER_SIZE - width) / 2, top = (RASTER_SIZE - height) / 2;
+                destination.set(left, top, left + width, top + height);
+            }
+            canvas.drawBitmap(raster, null, destination,
                     new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG));
         }
         Bitmap immutable = target.copy(Bitmap.Config.ARGB_8888, false);

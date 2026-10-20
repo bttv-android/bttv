@@ -59,7 +59,7 @@ public class BadgeHostTest {
  @Test public void currentProviderFixturesFit() throws Exception {
   String fixtures=System.getProperty("badge.fixtures");if(fixtures==null)return;
   for(BadgeCatalog.Provider p:BadgeCatalog.Provider.values()){
-   byte[] bytes=Files.readAllBytes(Paths.get(fixtures,p==BadgeCatalog.Provider.BTTV?"bttv.json":"ffz.json"));
+   byte[] bytes=Files.readAllBytes(Paths.get(fixtures,p==BadgeCatalog.Provider.BTTV?"bttv.json":p==BadgeCatalog.Provider.FFZ?"ffz.json":"chatterino.json"));
    assertTrue(bytes.length<BadgeCatalog.MAX_METADATA);BadgeCatalog.Snapshot s=BadgeCatalog.parse(p,new String(bytes,StandardCharsets.UTF_8));
    assertFalse(s.definitions.isEmpty());assertTrue(s.definitions.size()<=64);
   }
@@ -161,7 +161,7 @@ def generate(destination):
         path = destination / 'src/test/java' / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8')
-    for name in ('BadgeCatalog', 'BadgeImages'):
+    for name in ('BadgeCatalog', 'BadgeImages', 'ChatterinoHttp'):
         source = ROOT / 'mod/app/src/main/java/bttv/badge' / (name + '.java')
         target = destination / 'src/main/java/bttv/badge' / source.name
         target.parent.mkdir(parents=True, exist_ok=True)

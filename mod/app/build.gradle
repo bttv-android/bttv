@@ -34,6 +34,8 @@ android {
 dependencies {
     // Official SDK verifier: pinned provenance and bounded DEX preflight in libs/NOTICE-apksig.md.
     implementation files('libs/apksig-sdk30.0.3.jar')
+    // Complete, hash-pinned private runtime; never replaces Twitch/BTTV networking.
+    implementation files('libs/chatterino-http-isolated-4.12.0.jar')
     def GLIDE_VERSION = "4.12.0"
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'

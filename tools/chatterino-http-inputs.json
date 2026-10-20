@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "privateRoot": "com.bttv.badgehttp",
+  "outputSha256": "A15D2FE8500753E35632714AA79FF5EE9A05F9878837D60AD545B0626410ADE1",
+  "classCount": 1422,
+  "metadataAnnotations": 1347,
+  "kotlinModules": 6,
+  "resources": 386,
+  "inertJpmsDescriptors": 3,
+  "runtime": [
+    {"path":"com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar","sha256":"B1050081B14BB7A3A7E55A4D3EF01B5DCFABC453B4573A4FC019767191D5F4E0"},
+    {"path":"com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0.jar","sha256":"67543F0736FC422AE927ED0E504B98BC5E269FDA0D3500579337CB713DA28412"},
+    {"path":"org/jetbrains/kotlin/kotlin-stdlib/1.9.10/kotlin-stdlib-1.9.10.jar","sha256":"55E989C512B80907799F854309F3BC7782C5B3D13932442D0379D5C472711504"},
+    {"path":"org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.10/kotlin-stdlib-jdk7-1.9.10.jar","sha256":"AC6361BF9AD1ED382C2103D9712C47CDEC166232B4903ED596E8876B0681C9B7"},
+    {"path":"org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.10/kotlin-stdlib-jdk8-1.9.10.jar","sha256":"A4C74D94D64CE1ABE53760FE0389DD941F6FC558D0DAB35E47C085A11EC80F28"},
+    {"path":"org/jetbrains/kotlin/kotlin-stdlib-common/1.9.10/kotlin-stdlib-common-1.9.10.jar","sha256":"CDE3341BA18A2BA262B0B7CF6C55B20C90E8D434E42C9A13E6A3F770DB965A88"},
+    {"path":"org/jetbrains/annotations/13.0/annotations-13.0.jar","sha256":"ACE2A10DC8E2D5FD34925ECAC03E4988B2C0F851650C94B8CEF49BA1BD111478"}
+  ],
+  "buildTools": [
+    {"path":"org/ow2/asm/asm/7.0/asm-7.0.jar","sha256":"B88EF66468B3C978AD0C97FD6E90979E56155B4AC69089BA7A44E9AA7FFE9ACF"},
+    {"path":"org/ow2/asm/asm-commons/7.0/asm-commons-7.0.jar","sha256":"FED348EF05958E3E846A3AC074A12AF5F7936EF3D21CE44A62C4FA08A771927D"},
+    {"path":"org/ow2/asm/asm-tree/7.0/asm-tree-7.0.jar","sha256":"CFD7A0874F9DE36A999C127FEEADFBFE6E04D4A71EE954D7AF3D853F0BE48A6C"},
+    {"path":"org/jetbrains/kotlin/kotlin-metadata-jvm/2.2.21/kotlin-metadata-jvm-2.2.21.jar","sha256":"E181F32A21A3CDF195F974004A42F0067C2BD9DEAA2A883636748D83FDEFD99D"},
+    {"path":"org/jetbrains/kotlin/kotlin-stdlib/2.2.21/kotlin-stdlib-2.2.21.jar","sha256":"6558A3D233DA56A20934B32159F9DB5F86ED5816EF098F78A2C223DC6ABB79DD"}
+  ],
+  "origin": "https://repo.maven.apache.org/maven2/",
+  "selection": "Okio 3.6.0 resolves Kotlin stdlib-jdk8/common 1.9.10; all Kotlin runtime components aligned to 1.9.10. Build tools are NOT runtime dependencies."
+}
