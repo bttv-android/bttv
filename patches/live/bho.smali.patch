@@ -1,0 +1,18 @@
+diff --git a/smali/bho.smali b/smali/bho.smali
+--- a/smali/bho.smali
++++ b/smali/bho.smali
+@@ -902,5 +902,14 @@
+ .method public C(Landroidx/fragment/app/n;Ltv/twitch/android/models/commerce/BitsPurchaseScreen;Ltv/twitch/android/models/Tuid;Ltv/twitch/android/core/strings/StringResource;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;Ltv/twitch/android/core/commerce/models/bits/BitsPurchaseStyle;I)V
+     .locals 7
+
++    invoke-static {p1}, Lbttv/commerce/WebPurchaseRedirect;->tryBits(Landroid/app/Activity;)Z
++
++    move-result v0
++
++    if-eqz v0, :bttv_bits_native
++
++    return-void
++
++    :bttv_bits_native
+     .line 1
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;

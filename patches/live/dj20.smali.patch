@@ -1,0 +1,47 @@
+diff --git a/smali_classes2/dj20.smali b/smali_classes2/dj20.smali
+--- a/smali_classes2/dj20.smali
++++ b/smali_classes2/dj20.smali
+@@ -194,6 +194,12 @@
+ .method public final b(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Ltv/twitch/android/models/commerce/SubscriptionScreen;ZLtv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
+     .locals 7
+
++    invoke-static {p1, p2}, Lbttvcompat/WebPurchaseBridge;->trySubscribe(Landroid/app/Activity;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;)Z
++    move-result v0
++    if-eqz v0, :bttv_subscribe_native
++    return-void
++    :bttv_subscribe_native
++
+     .line 1
+     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+@@ -412,7 +418,7 @@
+     move-object v6, p6
+
+     .line 100
+-    invoke-virtual/range {v0 .. v6}, Ldj20;->c(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Lvb20;Ltv/twitch/android/models/commerce/SubscriptionScreen;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
++    invoke-virtual/range {v0 .. v6}, Ldj20;->bttvNativeC(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Lvb20;Ltv/twitch/android/models/commerce/SubscriptionScreen;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
+
+     .line 101
+     .line 102
+@@ -421,6 +427,21 @@
+ .end method
+
+ .method public final c(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Lvb20;Ltv/twitch/android/models/commerce/SubscriptionScreen;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
++    .locals 1
++
++    sget-object v0, Lvb20;->SubscribePageType:Lvb20;
++    if-ne p3, v0, :bttv_subscription_native
++    invoke-static {p1, p2}, Lbttvcompat/WebPurchaseBridge;->trySubscribe(Landroid/app/Activity;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;)Z
++    move-result v0
++    if-eqz v0, :bttv_subscription_native
++    return-void
++
++    :bttv_subscription_native
++    invoke-virtual/range {p0 .. p6}, Ldj20;->bttvNativeC(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Lvb20;Ltv/twitch/android/models/commerce/SubscriptionScreen;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
++    return-void
++.end method
++
++.method public final bttvNativeC(Landroidx/fragment/app/n;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;Lvb20;Ltv/twitch/android/models/commerce/SubscriptionScreen;Ltv/twitch/android/models/subscriptions/SubscribeButtonTrackingMetadata;Ltv/twitch/android/shared/one/chat/pub/ChatModeMetadata;)V
+     .locals 0
+
+     .line 1

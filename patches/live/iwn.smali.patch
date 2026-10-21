@@ -1,0 +1,18 @@
+diff --git a/smali/iwn.smali b/smali/iwn.smali
+--- a/smali/iwn.smali
++++ b/smali/iwn.smali
+@@ -1203,6 +1203,14 @@
+
+     .line 604
+     .line 605
++    iget-object v2, v0, Lqwn;->m:Landroidx/fragment/app/n;
++    invoke-static {v2}, Lbttv/commerce/WebPurchaseRedirect;->tryBits(Landroid/app/Activity;)Z
++    move-result v2
++    if-eqz v2, :bttv_landscape_bits_native
++    sget-object v2, Ltf50;->a:Ltf50;
++    return-object v2
++    :bttv_landscape_bits_native
++
+     iget-object v2, v0, Lqwn;->o:Lkmd;
+
+     .line 606

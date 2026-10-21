@@ -1,0 +1,80 @@
+--- /dev/null
++++ b/smali_classes7/bttvcompat/ViewerPurchaseSource.smali
+@@ -0,0 +1,77 @@
++.class public final Lbttvcompat/ViewerPurchaseSource;
++.super Ljava/lang/Object;
++.implements Lbttv/commerce/BrowserPurchaseUi$Source;
++
++.field private final fragment:Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;
++.field private final model:Lhk80;
++.field private final state:Lsj80;
++.field private final root:Landroid/view/View;
++.field private final channel:Ljava/lang/String;
++.field private final recipient:Ljava/lang/String;
++.field private final name:Ljava/lang/String;
++
++.method public constructor <init>(Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;Lsj80;Landroid/view/View;)V
++    .locals 2
++    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
++    iput-object p1, p0, Lbttvcompat/ViewerPurchaseSource;->fragment:Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;
++    iput-object p2, p0, Lbttvcompat/ViewerPurchaseSource;->state:Lsj80;
++    iput-object p3, p0, Lbttvcompat/ViewerPurchaseSource;->root:Landroid/view/View;
++    invoke-virtual {p1}, Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;->M()Lhk80;
++    move-result-object v0
++    iput-object v0, p0, Lbttvcompat/ViewerPurchaseSource;->model:Lhk80;
++    iget-object v1, v0, Lhk80;->s:Ljava/lang/String;
++    iput-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->channel:Ljava/lang/String;
++    iget-object v1, v0, Lhk80;->u:Ljava/lang/String;
++    iput-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->recipient:Ljava/lang/String;
++    iget-object v1, v0, Lhk80;->A:Ljava/lang/String;
++    iput-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->name:Ljava/lang/String;
++    return-void
++.end method
++
++.method public login()Ljava/lang/String;
++    .locals 4
++    :try_start
++    iget-object v0, p0, Lbttvcompat/ViewerPurchaseSource;->fragment:Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;
++    invoke-virtual {v0}, Landroidx/fragment/app/m;->getView()Landroid/view/View;
++    move-result-object v1
++    iget-object v2, p0, Lbttvcompat/ViewerPurchaseSource;->root:Landroid/view/View;
++    if-eqz v2, :invalid
++    if-ne v1, v2, :invalid
++    invoke-virtual {v0}, Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;->M()Lhk80;
++    move-result-object v0
++    iget-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->model:Lhk80;
++    if-ne v0, v1, :invalid
++    iget-object v1, v0, Lhk80;->p:Lhf00;
++    invoke-virtual {v1}, Lhf00;->getValue()Ljava/lang/Object;
++    move-result-object v1
++    iget-object v2, p0, Lbttvcompat/ViewerPurchaseSource;->state:Lsj80;
++    if-ne v1, v2, :invalid
++    iget-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->channel:Ljava/lang/String;
++    invoke-static {v1}, Lbttv/commerce/BrowserPurchaseUi;->validChannelId(Ljava/lang/String;)Z
++    move-result v2
++    if-eqz v2, :invalid
++    iget-object v2, v0, Lhk80;->s:Ljava/lang/String;
++    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++    move-result v3
++    if-eqz v3, :invalid
++    iget-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->recipient:Ljava/lang/String;
++    if-eqz v1, :invalid
++    iget-object v2, v0, Lhk80;->u:Ljava/lang/String;
++    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++    move-result v3
++    if-eqz v3, :invalid
++    iget-object v1, p0, Lbttvcompat/ViewerPurchaseSource;->name:Ljava/lang/String;
++    if-eqz v1, :invalid
++    iget-object v2, v0, Lhk80;->A:Ljava/lang/String;
++    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++    move-result v3
++    if-eqz v3, :invalid
++    :try_end
++    .catch Ljava/lang/Throwable; {:try_start .. :try_end} :failed
++    return-object v1
++    :failed
++    move-exception v0
++    :invalid
++    const/4 v0, 0x0
++    return-object v0
++.end method

@@ -1,0 +1,12 @@
+--- a/smali_classes5/nar.smali
++++ b/smali_classes5/nar.smali
+@@ -628,6 +628,8 @@
+     .line 3
+     .line 4
+     invoke-super {p0, p1}, Ltv/twitch/android/core/mvp/presenter/RxPresenter;->v2(Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;)V
++
++    invoke-static {p0, p1}, Lbttvcompat/BrowserPurchaseBridge;->profile(Ljava/lang/Object;Ljava/lang/Object;)V
+-
++
+     .line 5
+     .line 6

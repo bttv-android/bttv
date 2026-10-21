@@ -82,4 +82,11 @@
     <string name="bttv_quick_anonymous_chat">Anonymous Chat</string>
     <string name="bttv_quick_highlight_keywords">Highlight Keywords</string>
     <string name="bttv_quick_chat_blacklist">Chat Blacklist</string>
+    <string name="bttv_settings_web_bits_purchases">Open Bits purchases in browser</string>
+    <string name="bttv_settings_web_subscriptions">Open subscriptions in browser</string>
+    <string name="bttv_settings_web_purchases_description">Use Twitch web from native purchase buttons. Sign in separately in your browser. If no browser can open, keep the native route.</string>
+    <string name="bttv_web_subscribe">Subscribe on Twitch Web</string>
+    <string name="bttv_web_gift_subs">Gift Subs on Twitch Web</string>
+    <string name="bttv_web_gift_manual">Gift on Twitch Web — choose recipient there</string>
+    <string name="bttv_web_navigation_unavailable">Unable to open Twitch Web. Please reopen this screen or check your browser.</string>
 </resources>

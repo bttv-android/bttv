@@ -121,6 +121,13 @@ public class Res {
         bttv_settings_section_chat,
         bttv_settings_section_other,
         bttv_settings_section_about,
+        bttv_settings_web_bits_purchases,
+        bttv_settings_web_subscriptions,
+        bttv_settings_web_purchases_description,
+        bttv_web_subscribe,
+        bttv_web_gift_subs,
+        bttv_web_gift_manual,
+        bttv_web_navigation_unavailable,
     }
 
     public enum drawables {

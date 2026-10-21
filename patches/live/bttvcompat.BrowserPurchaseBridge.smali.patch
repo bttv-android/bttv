@@ -1,0 +1,49 @@
+--- /dev/null
++++ b/smali_classes7/bttvcompat/BrowserPurchaseBridge.smali
+@@ -0,0 +1,46 @@
++.class public final Lbttvcompat/BrowserPurchaseBridge;
++.super Ljava/lang/Object;
++
++.method public static profile(Ljava/lang/Object;Ljava/lang/Object;)V
++    .locals 3
++    :try_start
++    check-cast p0, Lnar;
++    check-cast p1, Lqar;
++    iget-object v0, p0, Lnar;->m:Landroidx/fragment/app/n;
++    iget-object v1, p1, Lqar;->s:Landroidx/constraintlayout/widget/ConstraintLayout;
++    new-instance v2, Lbttvcompat/ProfilePurchaseSource;
++    invoke-direct {v2, p0}, Lbttvcompat/ProfilePurchaseSource;-><init>(Lnar;)V
++    invoke-static {v0, v1, v2}, Lbttv/commerce/BrowserPurchaseUi;->profile(Landroid/app/Activity;Landroid/view/View;Lbttv/commerce/BrowserPurchaseUi$Source;)V
++    :try_end
++    .catch Ljava/lang/Throwable; {:try_start .. :try_end} :failed
++    return-void
++    :failed
++    move-exception v0
++    return-void
++.end method
++
++.method public static viewer(Ljava/lang/Object;Ljava/lang/Object;)V
++    .locals 3
++    :try_start
++    check-cast p0, Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;
++    invoke-virtual {p0}, Landroidx/fragment/app/m;->getActivity()Landroidx/fragment/app/n;
++    move-result-object v0
++    invoke-virtual {p0}, Landroidx/fragment/app/m;->getView()Landroid/view/View;
++    move-result-object v1
++    instance-of v2, p1, Lsj80;
++    if-eqz v2, :empty
++    check-cast p1, Lsj80;
++    new-instance v2, Lbttvcompat/ViewerPurchaseSource;
++    invoke-direct {v2, p0, p1, v1}, Lbttvcompat/ViewerPurchaseSource;-><init>(Ltv/twitch/android/feature/viewer/card/ViewerCardBottomSheetDialogFragment;Lsj80;Landroid/view/View;)V
++    goto :bind
++    :empty
++    const/4 v2, 0x0
++    :bind
++    invoke-static {v0, v1, v2}, Lbttv/commerce/BrowserPurchaseUi;->viewer(Landroid/app/Activity;Landroid/view/View;Lbttv/commerce/BrowserPurchaseUi$Source;)V
++    :try_end
++    .catch Ljava/lang/Throwable; {:try_start .. :try_end} :failed
++    return-void
++    :failed
++    move-exception v0
++    return-void
++.end method

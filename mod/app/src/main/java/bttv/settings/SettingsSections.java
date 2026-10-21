@@ -32,6 +32,8 @@ public enum SettingsSections {
             case AutoRedeemChannelPointsEnabled:
             case HideTwitchStoriesEnabled:
             case ShouldShowSleepTimer:
+            case WebBitsPurchasesEnabled:
+            case WebSubscriptionsEnabled:
                 return OTHER;
             case OpenCreditsButton:
             case InvokeUpdateCheck:

@@ -99,6 +99,24 @@ public enum Settings {
                     null
             )
     ),
+    WebBitsPurchasesEnabled(
+            new Entry.BoolEntry(
+                    "bttv_web_bits_purchases",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_web_bits_purchases,
+                    Res.strings.bttv_settings_web_purchases_description,
+                    null
+            )
+    ),
+    WebSubscriptionsEnabled(
+            new Entry.BoolEntry(
+                    "bttv_web_subscriptions",
+                    new Entry.BoolValue(false),
+                    Res.strings.bttv_settings_web_subscriptions,
+                    Res.strings.bttv_settings_web_purchases_description,
+                    null
+            )
+    ),
     ShouldShowSleepTimer(
             new Entry.BoolEntry(
                 "enable_sleep_timer",

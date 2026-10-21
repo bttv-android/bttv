@@ -1,0 +1,14 @@
+--- a/smali_classes5/uwt.smali
++++ b/smali_classes5/uwt.smali
+@@ -42,6 +42,10 @@
+     .line 2
+     .line 3
+     check-cast v0, Luj80;
++
++    move-object/from16 v1, p0
++    iget-object v1, v1, Luwt;->b:Ljava/lang/Object;
++    invoke-static {v1, v0}, Lbttvcompat/BrowserPurchaseBridge;->viewer(Ljava/lang/Object;Ljava/lang/Object;)V
+-
++
+     .line 4
+     .line 5

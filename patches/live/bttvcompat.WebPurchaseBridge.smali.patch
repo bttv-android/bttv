@@ -1,0 +1,30 @@
+diff --git a/smali_classes7/bttvcompat/WebPurchaseBridge.smali b/smali_classes7/bttvcompat/WebPurchaseBridge.smali
+new file mode 100644
+--- /dev/null
++++ b/smali_classes7/bttvcompat/WebPurchaseBridge.smali
+@@ -0,0 +1,25 @@
++.class public final Lbttvcompat/WebPurchaseBridge;
++.super Ljava/lang/Object;
++
++.method public static trySubscribe(Landroid/app/Activity;Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;)Z
++    .locals 1
++
++    :try_start
++    if-eqz p1, :stock
++    invoke-virtual {p1}, Ltv/twitch/android/models/subscriptions/SubscriptionChannelModel;->getName()Ljava/lang/String;
++    move-result-object v0
++    invoke-static {p0, v0}, Lbttv/commerce/WebPurchaseRedirect;->trySubscribe(Landroid/app/Activity;Ljava/lang/String;)Z
++    move-result v0
++    :try_end
++    return v0
++    .catch Ljava/lang/Throwable; {:try_start .. :try_end} :failed
++
++    :failed
++    move-exception v0
++    :stock
++    const/4 v0, 0x0
++    return v0
++.end method
++
++# Channel login comes only from this action's SubscriptionChannelModel.
++# No recipient, player-global identity or authentication data is consulted.
