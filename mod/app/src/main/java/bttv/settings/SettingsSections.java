@@ -37,9 +37,10 @@ public enum SettingsSections {
                 return OTHER;
             case OpenCreditsButton:
             case InvokeUpdateCheck:
+            case AutoUpdateChecksEnabled:
                 return ABOUT;
             default:
-                // Backing string sets, automatic updater preference and developer tools.
+                // Backing string sets and developer tools.
                 return null;
         }
     }

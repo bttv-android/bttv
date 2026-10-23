@@ -60,5 +60,6 @@ public class Data {
         Context applicationContext = ctx == null ? null : ctx.getApplicationContext();
         Data.ctx = applicationContext == null ? ctx : applicationContext;
         bttv.badge.BadgeImages.initialize(Data.ctx);
+        bttv.updater.AutoUpdateChecker.initialize(Data.ctx);
     }
 }

@@ -33,7 +33,7 @@ public final class UpdateDialog implements UpdateController.Observer {
         information.setTextColor(0xffefeff1); result.setTextColor(0xffefeff1);
         try {
             UpdateRelease.Installed installed=UpdateVerifier.installed(activity);
-            information.setText("Installed BTTV "+installed.name+" ("+installed.code+")\nOfficial releases only · Manual checks only\n\n");
+            information.setText("Installed BTTV "+installed.name+" ("+installed.code+")\nOfficial releases only · Downloads and installation require your approval\n\n");
         } catch(Exception e) { information.setText("Installed identity unavailable. Updates will remain blocked.\n\n"); }
         progress=new ProgressBar(activity,null,android.R.attr.progressBarStyleHorizontal);
         layout.addView(information); layout.addView(progress); layout.addView(result);

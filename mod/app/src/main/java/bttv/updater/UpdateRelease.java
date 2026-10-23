@@ -10,7 +10,13 @@ import java.util.List;
 
 /** Conservative official-release contract. Unknown compatibility is never an install offer. */
 public final class UpdateRelease {
-    static final class Problem extends IOException { Problem(String message) { super(message); } }
+    enum Outcome { AVAILABLE, NOT_NEWER, UNSUPPORTED, MISSING_ASSET, INVALID_METADATA,
+        NETWORK, RATE_LIMIT, SERVER, HTTP_ERROR, CANCELLED, DISABLED, INTERNAL_ERROR }
+    static final class Problem extends IOException {
+        final Outcome outcome;
+        Problem(String message) { this(message,Outcome.INVALID_METADATA); }
+        Problem(String message,Outcome outcome) { super(message); this.outcome=outcome; }
+    }
     public static final String PACKAGE = "tv.twitch.bttvandroid.app";
     public static final String API = "https://api.github.com/repos/bttv-android/bttv/releases/latest";
     public static final String MIME = "application/vnd.android.package-archive";
@@ -32,8 +38,9 @@ public final class UpdateRelease {
     public static final class Inspection {
         public final UpdateRelease candidate;
         public final String message;
-        Inspection(UpdateRelease candidate, String message) {
-            this.candidate = candidate; this.message = message;
+        final Outcome outcome;
+        Inspection(UpdateRelease candidate, String message, Outcome outcome) {
+            this.candidate = candidate; this.message = message; this.outcome=outcome;
         }
     }
 
@@ -62,7 +69,7 @@ public final class UpdateRelease {
             require(json.get("draft") instanceof Boolean && json.get("prerelease") instanceof Boolean,
                     "Missing release status");
             if (json.getBoolean("draft") || json.getBoolean("prerelease"))
-                return new Inspection(null, "No compatible update: this channel excludes drafts and prereleases.");
+                return new Inspection(null, "No compatible update: this channel excludes drafts and prereleases.",Outcome.UNSUPPORTED);
             String notes = json.isNull("body") ? "" : json.optString("body", "");
             require(notes.length() <= MAX_NOTES, "Release notes are too large");
             JSONArray assets = json.getJSONArray("assets");
@@ -75,7 +82,7 @@ public final class UpdateRelease {
                 require("uploaded".equals(item.optString("state")), "APK is not uploaded");
                 apk=item;
             }
-            require(apk!=null, "No uploaded APK asset");
+            if(apk==null)throw new Problem("No uploaded APK asset",Outcome.MISSING_ASSET);
             String assetName=string(apk,"name",180);
             require(assetName.matches("[A-Za-z0-9][A-Za-z0-9._-]*\\.apk"), "Invalid APK asset name");
             long id=number(apk,"id",Long.MAX_VALUE), size=number(apk,"size",MAX_APK);
@@ -87,7 +94,7 @@ public final class UpdateRelease {
             // Explicit, visible release-note metadata; no hidden test mode or arbitrary sidecar URL.
             int start=notes.indexOf(MARKER);
             if (start<0) return new Inspection(null,
-                    "No compatible update: the official release does not provide sufficient compatibility metadata.");
+                    "No compatible update: the official release does not provide sufficient compatibility metadata.",Outcome.UNSUPPORTED);
             require((start==0 || notes.charAt(start-1)=='\n') && notes.indexOf(MARKER,start+1)<0,
                     "Ambiguous compatibility metadata");
             int end=notes.indexOf("\n```",start+MARKER.length());
@@ -95,27 +102,27 @@ public final class UpdateRelease {
             String compatibility=notes.substring(start+MARKER.length(),end);
             boundedJson(compatibility);
             JSONObject c=new JSONObject(compatibility);
-            require(number(c,"schemaVersion",1)==1 && c.getBoolean("standalone"), "Unsupported compatibility schema");
-            require(PACKAGE.equals(string(c,"packageName",100)), "Wrong package");
+            compatible(number(c,"schemaVersion",1)==1 && c.getBoolean("standalone"), "Unsupported compatibility schema");
+            compatible(PACKAGE.equals(string(c,"packageName",100)), "Wrong package");
             String name=string(c,"versionName",96);
             require(tag.equals("v"+name) && tag.equals(string(c,"releaseTag",100)), "Version/tag mismatch");
             long code=number(c,"versionCode",Integer.MAX_VALUE);
-            if (code<=installed.code) return new Inspection(null, "No compatible update: the release is not newer than this installation.");
+            if (code<=installed.code) return new Inspection(null, "No compatible update: the release is not newer than this installation.",Outcome.NOT_NEWER);
             String signer=hash(string(c,"signerSha256",64));
-            require(signer.equals(hash(installed.signer)), "The release signing identity is incompatible with this installation");
+            compatible(signer.equals(hash(installed.signer)), "The release signing identity is incompatible with this installation");
             int min=(int)number(c,"minSdk",1000);
-            require(min<=installed.sdk, "Android version is unsupported");
+            compatible(min<=installed.sdk, "Android version is unsupported");
             String twitch=string(c,"twitchVersion",32);
-            require(twitch.matches("31\\.[0-9]+\\.[0-9]+"), "Unsupported Twitch base");
+            compatible(twitch.matches("31\\.[0-9]+\\.[0-9]+"), "Unsupported Twitch base");
             JSONArray abiJson=c.getJSONArray("supportedAbis");
-            require(abiJson.length()==2, "A complete dual-ARM release is required");
+            compatible(abiJson.length()==2, "A complete dual-ARM release is required");
             List<String> abis=new ArrayList<>();
             for(int i=0;i<abiJson.length();i++) {
                 String abi=abiJson.getString(i);
                 require((abi.equals("arm64-v8a") || abi.equals("armeabi-v7a")) && !abis.contains(abi), "Invalid ABI metadata");
                 abis.add(abi);
             }
-            require(!Collections.disjoint(abis,installed.abis), "Device ABI is unsupported");
+            compatible(!Collections.disjoint(abis,installed.abis), "Device ABI is unsupported");
             require(id==number(c,"assetId",Long.MAX_VALUE) && assetName.equals(string(c,"assetName",180))
                     && size==number(c,"sizeBytes",MAX_APK), "Asset metadata mismatch");
             String sha=hash(string(c,"sha256",64));
@@ -123,7 +130,7 @@ public final class UpdateRelease {
             String display=notes.substring(0,start)+notes.substring(end+4);
             UpdateRelease candidate=new UpdateRelease(tag,name,display.trim(),url,assetName,sha,signer,twitch,
                     code,size,id,min,abis);
-            return new Inspection(candidate,"Compatible update available.");
+            return new Inspection(candidate,"Compatible update available.",Outcome.AVAILABLE);
         } catch (IOException e) { throw e; }
         catch (Exception e) { throw new Problem("Invalid official release metadata"); }
     }
@@ -166,4 +173,7 @@ public final class UpdateRelease {
         } catch(Exception e) { return false; }
     }
     static void require(boolean ok,String reason) throws IOException { if(!ok) throw new Problem(reason); }
+    private static void compatible(boolean ok,String reason) throws IOException {
+        if(!ok)throw new Problem(reason,Outcome.UNSUPPORTED);
+    }
 }

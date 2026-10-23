@@ -28,7 +28,13 @@ final class UpdateTransfer {
 
     static final class HttpFailure extends IOException {
         final long retryAt;
-        HttpFailure(int status,long retryAt) { super("Official release server returned HTTP "+status); this.retryAt=retryAt; }
+        final int status;
+        final boolean rateLimited;
+        HttpFailure(int status,long retryAt) { this(status,retryAt,status==429); }
+        HttpFailure(int status,long retryAt,boolean rateLimited) {
+            super("Official release server returned HTTP "+status);
+            this.retryAt=retryAt; this.status=status; this.rateLimited=rateLimited;
+        }
     }
 
     static HttpURLConnection open(String source,boolean metadata,Cancel cancel,Connections factory) throws IOException {
@@ -51,8 +57,10 @@ final class UpdateTransfer {
                 current=new URL(new URL(current),location).toExternalForm(); continue;
             }
             if(status!=200) {
-                long retry=retryAt(c,System.currentTimeMillis()); c.disconnect(); cancel.unbind();
-                throw new HttpFailure(status,retry);
+                long retry=retryAt(c,System.currentTimeMillis());
+                boolean rateLimited=status==429 || (status==403 && "0".equals(c.getHeaderField("X-RateLimit-Remaining")));
+                c.disconnect(); cancel.unbind();
+                throw new HttpFailure(status,retry,rateLimited);
             }
             return c;
         }
