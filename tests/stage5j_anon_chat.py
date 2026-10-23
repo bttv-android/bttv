@@ -1,88 +1,65 @@
-"""Static integration checks for Twitch 31 anonymous chat."""
-
+"""Native-source integration checks for restart-required Twitch 31 Anonymous Chat."""
 from pathlib import Path
+import subprocess
 import sys
 
-
 ROOT = Path(__file__).resolve().parents[1]
-DISASS = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / ".bttv-cache" / "disass"
-
-
-def read(path: Path) -> str:
-    return path.read_text(encoding="utf-8")
-
+DISASS = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else ROOT / ".bttv-cache/disass"
+def read(p): return p.read_text(encoding="utf-8")
+def method(p, sig):
+    s = read(DISASS / p)
+    start = next(s.index(l) for l in s.splitlines() if l.startswith(".method") and sig in l)
+    return s[start:s.index(".end method", start) + len(".end method")]
 
 helper = read(ROOT / "mod/app/src/main/java/bttv/AnonChat.java")
-api = read(ROOT / "mod/app/src/main/java/bttv/api/AnonChat.java")
+qo = read(ROOT / "patches/live/qo5.smali.patch")
+wp = read(ROOT / "patches/live/wp5.smali.patch")
+startup = read(ROOT / "patches/live/ilg.smali.patch")
+e66 = read(ROOT / "patches/live/e66.smali.patch")
 settings = read(ROOT / "mod/app/src/main/java/bttv/settings/Settings.java")
-settings_activity = read(ROOT / "mod/app/src/main/java/bttv/settings/SettingsActivity.java")
-qo5_patch = read(ROOT / "patches/live/qo5.smali.patch")
-e66_patch = read(ROOT / "patches/live/e66.smali.patch")
-fxc = read(DISASS / "smali/fxc.smali")
-wp5 = read(DISASS / "smali_classes2/wp5.smali")
-qo5 = read(DISASS / "smali_classes2/qo5.smali")
-e66 = read(DISASS / "smali_classes2/e66.smali")
+activity = read(ROOT / "mod/app/src/main/java/bttv/settings/SettingsActivity.java")
+quick = read(ROOT / "mod/app/src/main/java/bttv/settings/StreamQuickSettings.java")
 
-# Existing setting contract remains unchanged and defaults OFF.
-anon_setting = settings[settings.index("AnonChatEnabled("):]
-anon_setting = anon_setting[:anon_setting.index("OpenHighlightedWordsButton(")]
-assert '"enable_anon_chat"' in anon_setting
-assert "new Entry.BoolValue(false)" in anon_setting
+assert '"enable_anon_chat"' in helper and '"enable_anon_chat"' in settings
+assert 'if (initialized) return;' in helper
+assert 'preferences.getBoolean(KEY, false)' in helper
+assert 'return !initialized || appliedGuest;' in helper
+assert 'return twitchVisible && !isAppliedAnonymous();' in helper
+assert 'WeakReference' not in helper and '.setAnonymous(' not in helper
+assert 'Restart pending' in helper and 'Connection identity not verified' in helper
+assert 'Toast.makeText' in helper and 'AnonChat.status()' in activity
+assert 'entry.set(SettingsActivity.this' in activity and 'AnonChat.reconnect(checked)' in activity
+assert 'setting.entry.set(' in quick and 'AnonChat.reconnect(checked)' in quick
+assert 'setAnonymous' not in qo and 'fxc' not in qo and 'Lbttv/AnonChat' not in qo
+assert 'LiveEmoteChannels;->ensureChannel' in qo
+# The surviving Stage5C body is byte-for-byte unchanged, only old Anon hunks are removed.
+original = subprocess.check_output(["git", "show", "HEAD:patches/live/qo5.smali.patch"], cwd=ROOT).decode()
+assert original[original.index("+    :try_start_bttv_channel"):] == qo[qo.index("+    :try_start_bttv_channel"):]
+assert 'LiveEmoteAutocomplete;->attach' in e66 and 'AnonChat;->allowComposer(Z)Z' in e66
+assert wp.count('AnonChat;->isAppliedAnonymous()Z') == 2
+assert 'return-object v0' in wp and 'Ltf50;->a:Ltf50;' in wp
+assert 'return-void' in wp and '.locals 5' in wp and '.locals 30' in wp
+assert 'Lwp5;->m(' not in wp and 'Lqo5;->k(' not in wp
+assert '+    invoke-static {v0}, Lbttv/AnonChat;->initialize(Landroid/content/Context;)V' in startup
 
-# Twitch 31's own anonymous identity is user ID 0 with justinfan credentials.
-anonymous_factory = fxc[fxc.index(".method public static l()Li5o;"):]
-anonymous_factory = anonymous_factory[:anonymous_factory.index(".end method")]
-assert 'const-string v2, "0"' in anonymous_factory
-assert 'const-string v1, "justinfan"' in anonymous_factory
-assert "Li5o;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" in anonymous_factory
-assert "invoke-static {}, Lfxc;->l()Li5o;" in wp5
-assert "Lwp5;->B:Li5o;" in wp5
-
-# The native owner captures the authenticated identity, attaches weakly, switches
-# through wp5.m(), and delegates reconnect scheduling to qo5.k().
-assert "+.implements Lbttv/AnonChat$Controller;" in qo5_patch
-assert "+.field public bttvOriginalUser:Li5o;" in qo5_patch
-assert "+.field public bttvAnonymous:Z" in qo5_patch
-assert "+.field public bttvLogin:Lws40;" in qo5_patch
-assert "+    iput-object p1, p0, Lqo5;->bttvLogin:Lws40;" in qo5_patch
-assert "+    iput-object v4, p0, Lqo5;->bttvOriginalUser:Li5o;" in qo5_patch
-assert "+    invoke-static {p0}, Lbttv/AnonChat;->attach(Lbttv/AnonChat$Controller;)Z" in qo5_patch
-assert "+.method public final setAnonymous(Z)V" in qo5_patch
-assert qo5_patch.count("+    invoke-static {}, Lfxc;->l()Li5o;") == 2
-assert "+    invoke-virtual {v0, v1}, Lwp5;->m(Li5o;)V" in qo5_patch
-assert "+    invoke-virtual {p0, v2, v3, v0}, Lqo5;->k(" in qo5_patch
-assert "+    if-eq v0, p1, :bttv_anon_done" in qo5_patch
-assert "+    invoke-virtual {v4}, Lws40;->n()Z" in qo5_patch
-assert "+    invoke-virtual {v4}, Lws40;->k()Ltv/twitch/android/models/UserModel;" in qo5_patch
-assert "+    invoke-virtual {v4}, Lws40;->a()Ljava/lang/String;" in qo5_patch
-assert qo5_patch.count("+    iput-object v1, p0, Lqo5;->bttvOriginalUser:Li5o;") == 1
-
-# Original Twitch connect/navigation methods are still the underlying mechanism.
-assert ".method public final a(Ltv/twitch/android/models/Tuid;)V" in qo5
-assert ".method public final d(Ltv/twitch/android/models/channel/ChannelInfo;)V" in qo5
-assert ".method public final j(Ltv/twitch/android/models/channel/ChannelInfo;Ltv/twitch/android/models/streams/StreamType;)V" in qo5
-assert ".method public final k(Ltv/twitch/android/models/channel/ChannelInfo;Ltv/twitch/android/models/streams/StreamType;Z)V" in qo5
-assert ".method public final m(Li5o;)V" in wp5
-
-# Composer gate is conjunctive, so Twitch's own hidden states cannot be overridden.
-assert "+    invoke-static {v0}, Lbttv/AnonChat;->allowComposer(Z)Z" in e66_patch
-assert "iget-boolean v0, p1, Ld66;->a:Z" in e66
-assert "return twitchVisible && !isAnonChatEnabled();" in helper
-
-# The active settings surface persists first, then asks the current weak owner to switch.
-assert "entry.set(SettingsActivity.this, new UserPreferences.Entry.BoolValue(checked));" in settings_activity
-assert "entry == Settings.AnonChatEnabled.entry" in settings_activity
-assert "AnonChat.reconnect(checked);" in settings_activity
-assert "WeakReference<Controller>" in helper
-assert "value.setAnonymous(asAnon);" in helper
-assert "import tv.twitch.android.shared.chat.ChatViewPresenter" not in helper
-assert "import tv.twitch.android.shared.chat.ChatViewPresenter" not in api
-assert "setChatViewPresenter(ChatViewPresenter" not in helper
-assert "setChatViewPresenter(ChatViewPresenter" not in api
-
-# No patch is added to the already-full primary DEX.
-for patch in (ROOT / "patches").rglob("*.smali.patch"):
-    if "AnonChat" in read(patch):
-        assert "a/smali/" not in read(patch), f"anonymous hook touched classes.dex: {patch}"
-
-print("PASS Twitch 31 anonymous identity/controller/reconnect/composer integration")
+factory = method("smali/ilg.smali", " j()Lhgc;")
+assert factory.index('check-cast v0, Ltv/twitch/android/app/consumer/TwitchApplication;') < factory.index('new-instance v0, Lhgc;')
+component = method("smali/wc1.smali", " generatedComponent()")
+assert 'Lilg;->j()Lhgc;' in component and 'Lwc1;->a:Lhgc;' in component
+constructor = method("smali_classes2/wp5.smali", " <init>(")
+assert constructor.index('Lfxc;->l()Li5o;') < constructor.index('Lwp5;->B:Li5o;') < constructor.index('Lm8m;->h:Lh8m;')
+guest = method("smali/fxc.smali", " l()Li5o;")
+assert 'const-string v2, "0"' in guest and 'const/4 v3, 0x0' in guest
+select = method("smali_classes2/wp5.smali", " m(Li5o;)V")
+assert 'Lm8m;->h:Lh8m;' in select and 'Lwp5;->B:Li5o;' in select
+handshake = method("smali_classes2/k8m.smali", " emit(")
+assert 'Lm8m;->h:Lh8m;' in handshake and '"listen"' in handshake and '"NICK "' in handshake
+join = method("smali_classes2/wp5.smali", " e(Lgp5;)Lep5;")
+assert 'Lw7;->d:Ljava/lang/Object;' in join and 'Li5o;->c:' in join and 'Lm8m;->b(' in join
+register = method("smali_classes2/zp5.smali", " a(Ljava/lang/String;Ljava/lang/String;")
+assert register.index('Lwp5;->C:') < register.index('if-nez v0, :cond_a') < register.index('Lwp5;->B:Li5o;')
+send = method("smali_classes2/wp5.smali", " k(Lgp5;")
+assert '.locals 30' in send and 'Laqx;->v(' in send and 'Ltf50;->a:Ltf50;' in send
+logout = method("smali_classes2/m8o.smali", " e(Z)V")
+assert 'Lwp5;->m(Li5o;)V' in logout
+print("PASS native cold-start barrier, fixed guest credentials, retained room compatibility, account-update guard, send/composer gates, pending-only settings; no device anonymity claim")

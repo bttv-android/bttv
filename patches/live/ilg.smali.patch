@@ -1,0 +1,12 @@
+diff --git a/smali/ilg.smali b/smali/ilg.smali
+--- a/smali/ilg.smali
++++ b/smali/ilg.smali
+@@ -1180,6 +1180,8 @@
+     .line 6
+     .line 7
+     check-cast v0, Ltv/twitch/android/app/consumer/TwitchApplication;
++
++    invoke-static {v0}, Lbttv/AnonChat;->initialize(Landroid/content/Context;)V
+
+     .line 8
+     .line 9

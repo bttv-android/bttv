@@ -143,6 +143,8 @@ public final class SettingsActivity extends Activity {
                 entry.set(SettingsActivity.this, new UserPreferences.Entry.BoolValue(checked));
                 if (entry == Settings.AnonChatEnabled.entry) {
                     AnonChat.reconnect(checked);
+                    TextView description = row.findViewById(resource("menu_item_description", "id"));
+                    description.setText(AnonChat.status());
                 } else if (entry == Settings.HideTwitchStoriesEnabled.entry) {
                     HideStories.onSettingChanged();
                 }
@@ -255,6 +257,7 @@ public final class SettingsActivity extends Activity {
         description.setText(localize(entry.secondaryTextResource));
         description.setTextColor(secondaryTextColor);
         description.setVisibility(entry.secondaryTextResource == null ? View.GONE : View.VISIBLE);
+        if (entry == Settings.AnonChatEnabled.entry) description.setText(AnonChat.status());
         View summary = row.findViewById(resource("section_summary", "id"));
         if (summary != null) {
             summary.setVisibility(View.GONE);
