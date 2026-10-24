@@ -128,6 +128,9 @@ public class Res {
         bttv_web_gift_subs,
         bttv_web_gift_manual,
         bttv_web_navigation_unavailable,
+        bttv_quick_anonymous_chat,
+        bttv_quick_highlight_keywords,
+        bttv_quick_chat_blacklist,
     }
 
     public enum drawables {

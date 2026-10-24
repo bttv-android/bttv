@@ -1,5 +1,11 @@
 # Twitch 31 package identity and production builds
 
+> **Historical porting record.** Some commands, paths and procedures below
+> have been superseded. Local workspace paths are historical examples, not
+> required locations. For the authoritative current Twitch 31.2.0 build process,
+> see [README](../README.md). Build/release maintainers should also follow
+> [RELEASING.md](../RELEASING.md).
+
 The installed package is `tv.twitch.bttvandroid.app`, versionCode `1208000338`.
 Internal Twitch/BTTV class names and the stock authentication/User-Agent code
 remain unchanged. The manifest patch changes the installed package, nine unique

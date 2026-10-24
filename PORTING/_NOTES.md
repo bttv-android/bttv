@@ -1,5 +1,11 @@
 # Twitch 31.2.0 porting notes
 
+> **Historical porting record.** Some commands, paths and procedures below
+> have been superseded. Local workspace paths are historical examples, not
+> required locations. For the authoritative current Twitch 31.2.0 build process,
+> see [README](../README.md). Build/release maintainers should also follow
+> [RELEASING.md](../RELEASING.md).
+
 ## Stage 1 input
 
 - Source: `C:\BTTV\inputs\twitch-31.2.0.apkm`

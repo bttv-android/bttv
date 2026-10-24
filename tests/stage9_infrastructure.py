@@ -13,6 +13,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 import warnings
+import xml.etree.ElementTree as ET
 import zipfile
 
 sys.dont_write_bytecode = True
@@ -24,6 +25,35 @@ from stage_production_input import production_paths
 
 
 class Infrastructure(unittest.TestCase):
+    def test_quick_settings_string_registration(self):
+        source=(ROOT/'mod/app/src/main/java/bttv/Res.java').read_text()
+        body=re.search(r'public enum strings\s*\{([^}]+)\}',source,re.S).group(1)
+        entries=[name.strip() for name in body.split(',') if name.strip()]
+        self.assertEqual(len(entries),len(set(entries)))
+        resources=ET.parse(ROOT/'mod/app/src/main/res/values/strings.xml').getroot()
+        layout=(ROOT/'patches/live/res.layout.stream_settings_fragment.xml.patch').read_text()
+        for name,value in [('bttv_quick_anonymous_chat','Anonymous Chat'),
+                           ('bttv_quick_highlight_keywords','Highlight Keywords'),
+                           ('bttv_quick_chat_blacklist','Chat Blacklist')]:
+            with self.subTest(name=name):
+                self.assertEqual(entries.count(name),1)
+                matches=[node for node in resources.findall('string') if node.get('name')==name]
+                self.assertEqual(len(matches),1)
+                self.assertEqual(matches[0].text,value)
+                self.assertEqual(layout.count('android:text="@string/'+name+'"'),1)
+
+    def test_pr_checklist_documentation(self):
+        changelog=(ROOT/'CHANGELOG.md').read_text()
+        self.assertTrue(changelog.startswith('# Changelog\n\n# Unreleased (master)\n'))
+        self.assertIn('Twitch 31.2.0',changelog.split('# 0.43.2-beta',1)[0])
+        for name in ['PORTING/_NOTES.md','PORTING/PACKAGE_MIGRATION.md']:
+            prefix='\n'.join((ROOT/name).read_text().splitlines()[:10])
+            self.assertIn('**Historical porting record.**',prefix)
+            self.assertIn('authoritative current Twitch 31.2.0 build process',prefix)
+            for label,target in [('README','README.md'),('RELEASING.md','RELEASING.md')]:
+                self.assertIn('['+label+'](../'+target+')',prefix)
+                self.assertTrue((ROOT/name).parent.joinpath('..',target).resolve().is_file())
+
     def test_readme_original_assets_and_contributors(self):
         original = subprocess.check_output(['git', 'show', '14e991d2e9d0e708629e54ef9a66499e61d4d01d:README.md'], cwd=ROOT).decode()
         current = (ROOT/'README.md').read_text()
