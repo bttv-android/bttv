@@ -1,93 +1,46 @@
-FROM debian:buster
+FROM eclipse-temurin:11-jdk-jammy
 
-RUN apt update
-RUN apt install openjdk-11-jdk-headless git wget zip rsync jq --yes
-
-# build tools
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    bash ca-certificates curl git jq python3 rsync unzip zip && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
+ENV ANDROID_SDK_ROOT=/opt/android-sdk-linux \
+    ANDROID_HOME=/opt/android-sdk-linux \
+    ANDROID_SDK=/opt/android-sdk-linux
 
-RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip
+# This command-line-tools revision runs on the Java 11 build toolchain.
+RUN curl --fail --location --retry 3 -o commandlinetools.zip \
+    https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip && \
+    unzip -q commandlinetools.zip && rm commandlinetools.zip && \
+    yes | /opt/cmdline-tools/bin/sdkmanager --sdk_root="$ANDROID_SDK_ROOT" \
+    "build-tools;30.0.3" "platforms;android-30"
 
-RUN unzip commandlinetools-linux-6858069_latest.zip
-RUN rm commandlinetools-linux-6858069_latest.zip
+RUN curl --fail --location --retry 3 -o apktool_2.9.3.jar \
+    https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar && \
+    echo '7956eb04194300ce0d0a84ad18771eebc94b89fb8d1ddcce8ea4c056818646f4  apktool_2.9.3.jar' | sha256sum -c - && \
+    curl --fail --location --retry 3 -o APKEditor-1.4.9.jar \
+    https://github.com/REAndroid/APKEditor/releases/download/V1.4.9/APKEditor-1.4.9.jar && \
+    echo 'a9cd40df818845456be6d696de6110c89edf4b0a0580cb83438ed6b25a366e67  APKEditor-1.4.9.jar' | sha256sum -c - && \
+    curl --fail --location --retry 3 -o uber-apk-signer-1.2.1.jar \
+    https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar && \
+    echo '47ae984df200afbae292d6f950e517afb445d3c902a1edc7717a82c513c5e772  uber-apk-signer-1.2.1.jar' | sha256sum -c - && \
+    curl --fail --location --retry 3 -o baksmali-2.4.0.jar \
+    https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar && \
+    echo 'a558e863e81eec5a2d749d64d8f2ce4457dd735adb685982669ed6ecee90aad3  baksmali-2.4.0.jar' | sha256sum -c - && \
+    curl --fail --location --retry 3 -o build-companion \
+    https://github.com/bttv-android/build-companion/releases/download/v5.2.0/build-companion && \
+    echo 'd899bcdf51d3a597e3bde41fff77acd54798cb5848ccffd19287a0c7d9f00e06  build-companion' | sha256sum -c - && \
+    chmod +x build-companion
 
-ENV ANDROID_SDK_HOME /opt/android-sdk-linux
-ENV ANDROID_SDK_ROOT /opt/android-sdk-linux
-ENV ANDROID_HOME /opt/android-sdk-linux
-ENV ANDROID_SDK /opt/android-sdk-linux
+ENV APKTOOL_PATH=/opt/apktool_2.9.3.jar \
+    APKEDITOR_PATH=/opt/APKEditor-1.4.9.jar \
+    UBER_APK_SIGNER_PATH=/opt/uber-apk-signer-1.2.1.jar \
+    BAKSMALI_PATH=/opt/baksmali-2.4.0.jar \
+    BUILD_COMPANION=/opt/build-companion \
+    GRADLE_USER_HOME=/gradle-cache
 
-RUN echo "y\n" | cmdline-tools/bin/sdkmanager --sdk_root=/opt/android-sdk-linux "build-tools;30.0.0"
-
-# apktool
-
-RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar
-
-ENV APKTOOL_PATH /opt/apktool_2.9.3.jar
-
-# APKEditor (split-aware APK merger)
-
-ARG APKEDITOR_VERSION=1.4.9
-ARG APKEDITOR_SHA256=a9cd40df818845456be6d696de6110c89edf4b0a0580cb83438ed6b25a366e67
-RUN wget -O APKEditor-${APKEDITOR_VERSION}.jar https://github.com/REAndroid/APKEditor/releases/download/V${APKEDITOR_VERSION}/APKEditor-${APKEDITOR_VERSION}.jar && \
-    echo "${APKEDITOR_SHA256}  APKEditor-${APKEDITOR_VERSION}.jar" | sha256sum -c -
-
-ENV APKEDITOR_PATH /opt/APKEditor-1.4.9.jar
-
-# uber apk signer
-
-RUN wget https://github.com/patrickfav/uber-apk-signer/releases/download/v1.2.1/uber-apk-signer-1.2.1.jar
-
-ENV UBER_APK_SIGNER_PATH /opt/uber-apk-signer-1.2.1.jar
-
-# baksmali
-
-RUN wget https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.4.0.jar
-
-ENV BAKSMALI_PATH /opt/baksmali-2.4.0.jar
-
-# build-companion
-
-RUN wget https://github.com/bttv-android/build-companion/releases/download/v5.2.0/build-companion
-RUN shasum build-companion
-RUN chmod +x build-companion
-ENV BUILD_COMPANION /opt/build-companion
-
-#
-# Cleanup
-#
-
-RUN apt remove wget --yes && \
-    apt autoremove --yes && \
-    apt clean --yes
-
-#
-# Git
-#
-
-RUN git config --global user.email "you@example.com" && \
-    git config --global user.name "Your Name"
-
-#
-# Environment
-#
-
-WORKDIR /usr/build
-
-ENV DOCKER true
-RUN mkdir dist
-
-# disable long-lived gradle daemon (so we do not cache lock files)
-RUN mkdir -p ~/.gradle && echo "org.gradle.daemon=false" >> ~/.gradle/gradle.properties
-
-#
-# Repo
-#
-
-COPY disassemble disassemble
-COPY build build
-COPY buildsource buildsource
-COPY patch patch
-COPY initworkspace initworkspace
-
-ENTRYPOINT [ "/bin/bash", "initworkspace" ]
+COPY tools/docker_build.sh /opt/bttv/docker_build.sh
+RUN sed -i 's/\r$//' /opt/bttv/docker_build.sh
+WORKDIR /source
+ENTRYPOINT ["/bin/bash", "/opt/bttv/docker_build.sh"]

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 [ -z "$JAVA_PATH" ] && JAVA_PATH=java
 [ -z "$JAVAC_PATH" ] && JAVAC_PATH=javac

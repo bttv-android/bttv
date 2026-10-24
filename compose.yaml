@@ -1,14 +1,12 @@
-
 services:
   build:
-    image: ghcr.io/bttv-android/builder # todo
+    platform: linux/amd64
+    build: .
+    image: bttv-builder:twitch-31.2.0
     volumes:
-      - ./twitch.apk:/usr/build/twitch.apk
-      - ./.bttv-cache:/usr/build/.bttv-cache
-      - ./dist:/usr/build/dist
-      - ./patches:/usr/build/patches
-      - ./patch:/usr/build/patch:ro
-      - ./mod:/usr/build/mod
-      - ./.all-contributorsrc:/usr/build/.all-contributorsrc
-      - ./bttv.manifest.json:/usr/build/bttv.manifest.json
-    entrypoint: ["sleep", "infinity"] # keep the container alive
+      - .:/source:ro
+      - ${BTTV_OUTPUT_DIR:-./dist/docker}:/output
+      - gradle-cache:/gradle-cache
+
+volumes:
+  gradle-cache:

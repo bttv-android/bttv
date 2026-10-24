@@ -1,10 +1,4 @@
-Dockerfile
-*.apk
-extracted
-disass
-dist
-decompiled
-.gitignore
-README.md
-patches
-mod
+**
+!Dockerfile
+!tools/
+!tools/docker_build.sh

@@ -19,107 +19,185 @@ A mod of the Twitch Android Mobile<sup><a href="#no-tv">1</a></sup> App adding B
 **You can help this project by contributing translations on [crowdin][crowdin]**.
 
 ## Features
- - BTTV, FFZ and 7TV Emotes
- - Auto-Claim Bonus Channel Points
- - Auto Updater
- - Sleep Timer
- - Highlight Keywords
- - Split Chat
- - Anon Chat
+
+### Emotes
+
+- BTTV, FFZ and 7TV global and channel emotes
+- Animated GIF and WebP emotes
+- Third-party emotes in the native emote picker
+- Emote autocomplete
+- Frequently Used emotes
+- Emote details
+
+### Chat
+
+- Split Chat
+- Show Deleted Messages
+- Highlight Keywords
+- Chat Blacklist
+- Chat Timestamps
+- BTTV, FFZ and Chatterino Badges
+- Anonymous Chat
+
+### Other features
+
+- Auto-Claim Bonus Channel Points
+- Sleep Timer
+- Hide Stories
+- BTTV Settings and Stream Quick Settings
+- Manual and Automatic Update Checking
+- Optional Browser Links for Bits, Subscriptions and Gifts
 
 ## Known issues
- - Amazon Video Watch Parties require the Twitch App to be installed on the device and the optional step in the install instructions below
- - Animated Emotes occasionally glitch on some devices
- - 7TV's zero width emotes are not supported right now
- - Personal Emotes are not supported for now
- - Users have [reported that notifications are not working for them](https://github.com/bttv-android/bttv/issues/492). To fix this go to  "App-Info -> Open Supported Apps" and select "Only in this application".
 
- - <span id="no-tv">bttv-android will not work on Android TVs as it is a mod of the Twitch mobile App and not of the Twitch Andorid TV App. You can install it, just do not expect a good experience</span>
+- Anonymous Chat is read-only. Enabling or disabling it requires restarting the app.
+- 7TV zero-width emotes are not supported.
+- Personal emotes are not currently supported.
+- Push notifications may not work.
+- <span id="no-tv">bttv-android is not designed for Android TV, as it modifies the Twitch mobile app rather than the Twitch Android TV app.</span>
 
 # Install
 
-1. Skim through this [guide on how to enable third party app istallations][enable-guide]
-2. Go to the [latest release][latest-release] page and download the `.apk` file of the mod. It periodically checks for new releases so you only have to download it once from there.
+1. Skim through this [guide on how to enable third-party app installations][enable-guide].
+2. Go to the [latest release][latest-release] page and download the mod APK.
+   BTTV can periodically check for new releases. Automatic update checking can be
+   enabled or disabled in BTTV Settings. Downloading and installing updates
+   requires confirmation.
+
    [![How to download][howtodl]][latest-release]
-3. (Optional) Prevent Twitch from opening when you interact with twitch.tv links: Long-press on the Twitch App -> "App Info" -> "Advanced" -> "Open by default" -> "Open supported links" -> "Ask every time" (might vary depending on OEM)
+
+3. (Optional) Prevent Twitch from opening when you interact with twitch.tv links:
+   Long-press on the Twitch App -> "App Info" -> "Advanced" -> "Open by default"
+   -> "Open supported links" -> "Ask every time" (might vary depending on OEM).
 
 # Build it yourself
 
-> This patch is meant to be applied to version **19.0.1** of the official twitch app
-> Make sure you use this version before you create an issue!
+> This patch is meant to be applied to version **31.2.0 (3102006)** of the official Twitch Android app.
+> Make sure you use the correct version before creating an issue!
+
+The resulting app requires Android 10 or later and supports ARM64 and ARMv7.
 
 ## Easy way: Docker
 
-### Prerequisites:
+### Prerequisites
 
-Docker
+- Git and Docker with Docker Compose (Linux containers).
+- The builder uses `linux/amd64`; other host architectures need Docker's x86-64 emulation.
+- Enough disk space for the Android tools, Gradle dependencies and decoded app.
+- The supported Twitch 31.2.0 APK components obtained from a trusted source,
+  such as [Evozi][evozi] or [APKMirror][apkmirror].
 
-### How to:
+### How to
 
-1. Clone this repo
-2. Get the Twitch App's apk files (e.g from [here][evozi], or [here][apkmirror])
-   > Please make sure you get it from a non-shady source!
-  
-   > If you have downloaded a single `.apk` file, name it `twitch.apk`
-   
-   > If you have downloaded a bundle of `.apk` files put them in a `.zip` archive and name it `twitch.zip`
-   
-   > Note: Apkmirror publishes bundles as `.apkm` files, those are just `zip` files, so rename them to `twitch.zip`
+1. Clone this repository and open a terminal in it.
+2. Prepare `twitch.zip` with these five **root-level** APK entries:
 
-3. Run the builder: 
+   ```text
+   base.apk
+   split_config.arm64_v8a.apk
+   split_config.armeabi_v7a.apk
+   split_config.xxhdpi.apk
+   split_config.xxxhdpi.apk
    ```
-   docker run --rm -ti \
-      -v path/to/twitch.apk:/usr/build/twitch.apk \
-      -v /path/to/dist:/usr/build/dist \
-      -v path/to/patches:/usr/build/patches \
-      -v /path/to/mod:/usr/build/mod \
-      -v /path/to/.all-contributorsrc:/usr/build/.all-contributorsrc \
-      -v /path/to/bttv.manifest.json:/usr/build/bttv.manifest.json \
-      ghcr.io/bttv-android/builder
-      ```
-   > If you are in the same directory as the apk file you can copy and paste: 
-      ```
-      docker run --rm -ti \
-         -v $(pwd)/twitch.apk:/usr/build/twitch.apk \
-         -v $(pwd)/.bttv-cache:/usr/build/.bttv-cache \
-         -v $(pwd)/dist:/usr/build/dist \
-         -v $(pwd)/patches:/usr/build/patches \
-         -v $(pwd)/mod:/usr/build/mod \
-         -v $(pwd)/.all-contributorsrc:/usr/build/.all-contributorsrc \
-         -v $(pwd)/bttv.manifest.json:/usr/build/bttv.manifest.json \
-         ghcr.io/bttv-android/builder
-      ```
-4. The `dist` directory will contain the patched apk file!
-5. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
-6. Remove the builder again: `docker rmi ghcr.io/bttv-android/builder`
+
+   APKMirror's `.apkm` is a ZIP container, but renaming an arbitrary bundle is
+   insufficient: it may contain different variants or lack required splits.
+   The validator pins the exact supported APK payloads in
+   [tools/twitch-31.2.0-inputs.json](tools/twitch-31.2.0-inputs.json).
+   With Python 3 installed, prepare a new input from a matching five-APK bundle:
+
+   ```bash
+   python3 tools/prepare_twitch_input.py twitch-31.2.0.apkm twitch.zip
+   ```
+
+   If the proven base/ARM64/density bundle contains only four APKs, the supported
+   preparation can add **only** the pinned ARMv7 split from a second bundle:
+
+   ```bash
+   python3 tools/prepare_twitch_input.py proven-arm64.apkm twitch.zip --armv7-bundle armv7-source.apkm
+   ```
+
+   The second bundle's base, ARM64 and density APKs are never substituted.
+   Every selected APK must match its recorded hash.
+
+   Or validate an existing input without replacing it:
+
+   ```bash
+   python3 tools/prepare_twitch_input.py twitch.zip
+   ```
+
+   On Windows, use `python` if that is your Python 3 command. If the validator
+   rejects a variant or a missing split, do not mix unverified APKs to bypass it.
+   Neither this repository nor the builder downloads Twitch for you.
+
+3. Build the local toolchain and run the isolated builder:
+
+   ```bash
+   docker compose build
+   docker compose run --rm build
+   ```
+
+   The source is mounted read-only. Compilation and decoding use a fresh Linux
+   workspace; only a separate Gradle dependency cache is reused. The signed,
+   verified result is `dist/docker/build/twitch.apk`, with `verification.json`
+   and `build.log` beside it. Existing outputs are never overwritten. For a
+   second build, select a new output directory with `BTTV_OUTPUT_DIR` (for
+   example, `./dist/docker-next`) in your shell before running Compose.
+
+4. Transfer the APK to your device and [install it](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android).
 
 ## Hard way
 
-### Prerequisites:
+### Prerequisites
 
-| Tool                                                                 | Env variable             | Default                                        |
-| -------------------------------------------------------------------- | ------------------------ | ---------------------------------------------- |
-| Bash                                                                 | _Has to be in /bin_      |                                                |
-| Git                                                                  | _Has to be in PATH_      |                                                |
-| Java JDK                                                             | JAVA_PATH and JAVAC_PATH | java and javac (from PATH)                     |
-| jq                                                                   | _Has to be in PATH_      |                                                |
-| [Android SDK][sdk] or install using Android Studio | BUILDTOOLS_PATH | ~/Android/Sdk            |
-| [ApkTool][apktool]                                                   | APKTOOL_PATH             | /opt/apktool/apktool.jar                       |
-| [Uber APK Signer][uber]                                              | UBER_APK_SIGNER_PATH     | /opt/uber-apk-signer/uber-apk-signer-1.2.1.jar |
-| [Baksmali][baksmali]                                                 | BAKSMALI_PATH            | /opt/baksmali/baksmali-2.4.0.jar               |
-| [build-companion][build-companion]                                   | BUILD_COMPANION          | /opt/build-companion                           |
+Use x86-64 Linux or WSL with Bash, Git, Python 3, jq, rsync, zip/unzip and Java JDK 11.
+The Gradle wrapper supplies Gradle 7.2; the project uses Android Gradle Plugin 4.1.3.
+The inherited manual scripts require SDK and build-tool installation paths without
+spaces or other whitespace. The standard Docker paths already meet this requirement.
 
-### How to:
+| Tool | Environment variable | Required version / setup |
+| --- | --- | --- |
+| Java JDK | `JAVA_PATH`, `JAVAC_PATH` | Java 11; defaults to `java`/`javac` on PATH |
+| [Android SDK][sdk] | `ANDROID_SDK_ROOT` | Build Tools **30.0.3** and `platforms;android-30` |
+| [Apktool][apktool] | `APKTOOL_PATH` | 2.9.3 JAR |
+| [APKEditor](https://github.com/REAndroid/APKEditor) | `APKEDITOR_PATH` | 1.4.9 JAR; split-aware merge before decoding |
+| [Uber APK Signer][uber] | `UBER_APK_SIGNER_PATH` | 1.2.1 JAR |
+| [Baksmali][baksmali] | `BAKSMALI_PATH` | 2.4.0 JAR |
+| [build-companion][build-companion] | `BUILD_COMPANION` | 5.2.0 executable |
 
-> If you get stuck at any point, just remove the `disass` dir and try again
+### How to
 
-0. Download and install prerequisites
-1. Get the Twitch App's apk files (e.g from [here][evozi]), drop them zipped in this directory and call it "twitch.zip"
-   > Please make sure you get it from a non-shady source!
-   > If you have adb installed follow [this guide][adb-apk] (Method 3)
-2. The `./initworkspace` script will disassemble the apks, build the sources, apply monkey patches and build the new apk for you
-3. Transfer to device and [install apk](https://www.wikihow.com/Install-APK-Files-from-a-PC-on-Android)
-   > (Adb installed and device connected? Try the : `./install` script)
+1. Install the prerequisites and accept the Android SDK licenses. With the SDK
+   command-line tools installed, install the exact SDK packages:
+
+   ```bash
+   sdkmanager --sdk_root="$ANDROID_SDK_ROOT" "build-tools;30.0.3" "platforms;android-30"
+   ```
+
+2. Prepare and validate `twitch.zip` as above. Export the JAR/executable paths
+   listed in the table. The defaults used by the Dockerfile are under `/opt`;
+   a manual installation should set paths to its own installed tools.
+
+3. Run the same build pipeline in new, isolated directories:
+
+   ```bash
+   python3 tools/build_production.py --input twitch.zip --workspace .tmp/manual-build --output dist/manual
+   ```
+
+   This selects production inputs, runs `initworkspace` away from the checkout,
+   merges the splits before one Apktool decode, injects BTTV, applies patches,
+   rebuilds, signs, verifies, and exports `dist/manual/twitch.apk`.
+   Gradle requires access to its declared repositories unless the exact
+   dependencies and Gradle distribution are already cached.
+   Use new workspace/output names for another run; do not run `initworkspace`
+   directly in your development checkout.
+
+4. Transfer and install the exported APK as above. The legacy `./install` script
+   expects `disass/dist/twitch.apk`; it is not used by these isolated exports.
+
+Local builds use the signer's test identity when no `KS` is supplied.
+They cannot necessarily update an installation signed by a different key.
+See [release and signing requirements](RELEASING.md) for maintainer builds.
 
 This repo is mirrored on [Gitlab][mirror-gitlab].
 
@@ -242,3 +320,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## Acknowledgments
+
+[Hooman's Morphe Patches](https://github.com/arandomhooman/hoomans-morphe-patches)
+was a useful reference for Twitch compatibility and networking research during
+the Twitch 31.2.0 port.
+
+## Third-party notices
+
+This project incorporates third-party open-source components distributed under
+their respective licenses.
+
+See [Third-party Notices](THIRD_PARTY_NOTICES.md) for licensing information,
+copyright notices and attributions.

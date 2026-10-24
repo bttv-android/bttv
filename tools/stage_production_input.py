@@ -12,27 +12,39 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 EXCLUDED = (
+    "diagnostics/",
     "patches/notifications_diag/",
     "patches/notifications_reason/",
+    "patches/purchase_ui_diag/",
     "mod/app/src/main/java/bttv/notifications/",
+    "mod/app/src/main/java/bttv/commerce/PurchaseUiDiagnostics.java",
 )
 
 
-def production_paths(root):
-    paths = subprocess.check_output(
-        ["git", "ls-files", "-z"], cwd=root
-    ).decode().split("\0")
-    deleted = set(subprocess.check_output(
-        ["git", "ls-files", "--deleted", "-z"], cwd=root
-    ).decode().split("\0"))
-    return sorted(p for p in paths if p and p not in deleted and not p.startswith(EXCLUDED))
+def git(root, *args):
+    return subprocess.check_output(
+        ["git", "-c", "safe.directory=" + str(root), *args], cwd=root
+    ).decode()
 
 
-def stage(root, destination):
+def production_paths(root, additional=()):
+    paths = git(root, "ls-files", "-z").split("\0")
+    deleted = set(git(root, "ls-files", "--deleted", "-z").split("\0"))
+    for relative in additional:
+        path = Path(relative)
+        if path.is_absolute() or relative.startswith("/") or ":" in relative or ".." in path.parts or "\\" in relative:
+            raise ValueError("Invalid explicit input: " + relative)
+        if relative.startswith(EXCLUDED):
+            raise ValueError("Diagnostic input forbidden: " + relative)
+        paths.append(relative)
+    return sorted(set(p for p in paths if p and p not in deleted and not p.startswith(EXCLUDED)))
+
+
+def stage(root, destination, additional=()):
     root, destination = root.resolve(), destination.resolve()
     if destination.exists():
         raise ValueError("Refusing to overwrite an existing staged input")
-    paths = production_paths(root)
+    paths = production_paths(root, additional)
     if "patches/AndroidManifest.xml.patch" not in paths:
         raise ValueError("Missing production manifest patch")
     destination.mkdir(parents=True)
@@ -47,12 +59,12 @@ def stage(root, destination):
         shutil.copyfile(source, target)
         hashes[relative] = hashlib.sha256(target.read_bytes()).hexdigest()
     selection = {
-        "head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root).decode().strip(),
+        "head": git(root, "rev-parse", "HEAD").strip(),
         "excluded": EXCLUDED,
         "files": hashes,
     }
     (destination / "selection.json").write_text(json.dumps(selection, indent=2) + "\n")
-    print("Staged", len(paths), "tracked files; diagnostic sources/patches excluded")
+    print("Staged", len(paths), "production files (tracked + explicit infrastructure); diagnostics excluded")
 
 
 if __name__ == "__main__":

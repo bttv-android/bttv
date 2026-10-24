@@ -10,3 +10,5 @@ twitch.zip
 .bttv-cache
 old
 
+__pycache__/
+*.py[cod]

@@ -1,26 +1,33 @@
-name: Docker
+name: Docker build validation
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-     - 'mod/**'
-     - 'patches/**'
-     - 'README.md'
-     - '.github/**'
-     - 'architecture.md'
-     - 'CHANGELOG.md'
-     - 'CONTRIBUTING.md'
+  pull_request:
+    paths:
+      - Dockerfile
+      - .dockerignore
+      - compose.yaml
+      - tools/docker_build.sh
+      - .github/workflows/docker.yml
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  builder:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Build docker images using cache
-        uses: whoan/docker-build-with-cache-action@v6
+      - uses: actions/checkout@v4
         with:
-          username: bttv-android
-          password: "${{ secrets.BGITHUB_TOKEN }}"
-          registry: ghcr.io
-          image_name: builder
+          persist-credentials: false
+      - name: Build toolchain without APKs, signing keys or publishing
+        run: docker build --tag bttv-builder:check .
+      - name: Check required SDK tools
+        run: |
+          docker run --rm --entrypoint bash bttv-builder:check -c '
+            set -e
+            java -version
+            python3 --version
+            test -x "$ANDROID_SDK_ROOT/build-tools/30.0.3/zipalign"
+            test -f "$ANDROID_SDK_ROOT/platforms/android-30/android.jar"
+            java -jar "$APKEDITOR_PATH" -version
+          '

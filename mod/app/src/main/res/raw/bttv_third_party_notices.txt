@@ -1,0 +1,225 @@
+BTTV Android: incorporated third-party components
+
+The original BTTV source is MIT-licensed. The components below retain their own
+licenses. This notice does not license Twitch application code or remote artwork.
+
+Shared Apache License, Version 2.0:
+The complete license and AOSP attribution are bundled alongside this resource
+in res/raw/bttv_apksig_license.txt. Source location:
+mod/app/src/main/res/raw/bttv_apksig_license.txt
+https://www.apache.org/licenses/LICENSE-2.0
+
+Apache-2.0 components:
+- AOSP apksig, Android SDK Build Tools 30.0.3 unmodified library subset.
+  https://android.googlesource.com/platform/tools/apksig/
+- Square OkHttp 4.12.0 and Okio JVM 3.6.0.
+  https://github.com/square/okhttp/tree/4984568367caaf359b82c452bd28b5e192824d1c
+  https://github.com/square/okio/tree/parent-3.6.0
+- JetBrains Kotlin stdlib/stdlib-jdk7/stdlib-jdk8/stdlib-common 1.9.10 and
+  JetBrains annotations 13.0.
+  https://github.com/JetBrains/kotlin/tree/v1.9.10
+  https://repo.maven.apache.org/maven2/org/jetbrains/annotations/13.0/annotations-13.0.pom
+- GlideWebpDecoder 2.0.4.12.0 wrapper: Copyright 2017-2018 zjupure.
+  https://github.com/zjupure/GlideWebpDecoder/tree/989e6a4ab7db933c7685d40ee1047fcddeb4c4e5
+- AndroidSVG 1.4: Copyright 2013-2018 Cave Rock Software Ltd.
+  https://github.com/BigBadaboom/androidsvg/tree/9490d751d91033051efc6a4a9835ceff6082e9ff
+- AndroidX libraries and Material Components: Android Open Source Project and
+  respective contributors; resolved versions are documented in THIRD_PARTY_NOTICES.md.
+  https://android.googlesource.com/platform/frameworks/support/+/androidx-main/LICENSE.txt
+  https://github.com/material-components/material-components-android/blob/1.4.0/LICENSE
+
+Private HTTP runtime modifications:
+Library namespaces and Kotlin metadata are relocated under com.bttv.badgehttp;
+three inert JPMS descriptors are retained as non-executable metadata. Original
+component manifests/resources and the Public Suffix List NOTICE/data are retained.
+Versions, hashes and transformation source are preserved in the source repository:
+mod/app/libs/NOTICE-chatterino-http.md
+tools/chatterino-http-inputs.json
+tools/prepare_chatterino_http.java
+No Chatterino desktop-client source or artwork is included in that library.
+
+Glide 4.12.0 and its gifdecoder/disklrucache components carry the composite license
+below. The decoder includes separate libwebp BSD-style terms and a patent grant.
+The provider source snapshot identifies libwebp 1.1.0; exact native compilation
+reproducibility is not asserted. No local decoder library-source fork is made.
+
+Public Suffix List data: MPL 2.0, separate from the Apache-licensed HTTP code.
+License: https://www.mozilla.org/en-US/MPL/2.0/
+Preferred source corresponding to the bundled compiled data:
+https://github.com/square/okhttp/blob/4984568367caaf359b82c452bd28b5e192824d1c/okhttp/src/test/resources/okhttp3/internal/publicsuffix/public_suffix_list.dat
+Source SHA-256:
+E8B273972EB5A70E888BD3E7D7C5B9B04E600A59D69DEF9136A74D70AE6FCDD3
+The retained resource NOTICE is reproduced below and remains in the library.
+
+
+================================================================
+Glide 4.12.0 composite license
+================================================================
+
+License for everything not in third_party and not otherwise marked:
+
+Copyright 2014 Google, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, this list of
+         conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright notice, this list
+         of conditions and the following disclaimer in the documentation and/or other materials
+         provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those of the
+authors and should not be interpreted as representing official policies, either expressed
+or implied, of Google, Inc.
+---------------------------------------------------------------------------------------------
+License for third_party/disklrucache:
+
+Copyright 2012 Jake Wharton
+Copyright 2011 The Android Open Source Project
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+---------------------------------------------------------------------------------------------
+License for third_party/gif_decoder:
+
+Copyright (c) 2013 Xcellent Creations, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+---------------------------------------------------------------------------------------------
+License for third_party/gif_encoder/AnimatedGifEncoder.java and
+third_party/gif_encoder/LZWEncoder.java:
+
+No copyright asserted on the source code of this class. May be used for any
+purpose, however, refer to the Unisys LZW patent for restrictions on use of
+the associated LZWEncoder class. Please forward any corrections to
+kweiner@fmsware.com.
+
+-----------------------------------------------------------------------------
+License for third_party/gif_encoder/NeuQuant.java
+
+Copyright (c) 1994 Anthony Dekker
+
+NEUQUANT Neural-Net quantization algorithm by Anthony Dekker, 1994. See
+"Kohonen neural networks for optimal colour quantization" in "Network:
+Computation in Neural Systems" Vol. 5 (1994) pp 351-367. for a discussion of
+the algorithm.
+
+Any party obtaining a copy of these files from the author, directly or
+indirectly, is granted, free of charge, a full and unrestricted irrevocable,
+world-wide, paid up, royalty-free, nonexclusive right and license to deal in
+this software and documentation files (the "Software"), including without
+limitation the rights to use, copy, modify, merge, publish, distribute,
+sublicense, and/or sell copies of the Software, and to permit persons who
+receive copies from any such party to do so, with the only requirement being
+that this copyright notice remain intact.
+
+================================================================
+libwebp COPYING
+================================================================
+
+Copyright (c) 2010, Google Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+  * Neither the name of Google nor the names of its contributors may
+    be used to endorse or promote products derived from this software
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+================================================================
+libwebp additional patent grant
+================================================================
+
+Additional IP Rights Grant (Patents)
+------------------------------------
+
+"These implementations" means the copyrightable works that implement the WebM
+codecs distributed by Google as part of the WebM Project.
+
+Google hereby grants to you a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable (except as stated in this section) patent license to
+make, have made, use, offer to sell, sell, import, transfer, and otherwise
+run, modify and propagate the contents of these implementations of WebM, where
+such license applies only to those patent claims, both currently owned by
+Google and acquired in the future, licensable by Google that are necessarily
+infringed by these implementations of WebM. This grant does not include claims
+that would be infringed only as a consequence of further modification of these
+implementations. If you or your agent or exclusive licensee institute or order
+or agree to the institution of patent litigation or any other patent
+enforcement activity against any entity (including a cross-claim or
+counterclaim in a lawsuit) alleging that any of these implementations of WebM
+or any code incorporated within any of these implementations of WebM
+constitute direct or contributory patent infringement, or inducement of
+patent infringement, then any patent rights granted to you under this License
+for these implementations of WebM shall terminate as of the date such
+litigation is filed.
+
+================================================================
+Retained Public Suffix List NOTICE
+================================================================
+
+Note that publicsuffixes.gz is compiled from The Public Suffix List:
+https://publicsuffix.org/list/public_suffix_list.dat
+
+It is subject to the terms of the Mozilla Public License, v. 2.0:
+https://mozilla.org/MPL/2.0/
